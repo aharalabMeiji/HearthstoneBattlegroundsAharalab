@@ -3971,8 +3971,10 @@ class SummonOnce(Summon):
 class UpgradeTier(TargetedAction):
 	TARGET=ActionArg()#controller
 	def do(self, source, target):
-		tavern_tierup_cost={1:5, 2:7, 3:8, 4:9, 5:10, 6:10} ## new 23.2.2
-		##tavern_tierup_cost={1:5, 2:7, 3:8, 4:11, 5:10, 6:10}
+		if Config.BUDDY_SYSTEM or Config.NEW_BUDDY_SYSTEM:
+			tavern_tierup_cost={1:5, 2:7, 3:8, 4:11, 5:10, 6:10} ## 
+		else :
+			tavern_tierup_cost={1:5, 2:7, 3:8, 4:9, 5:10, 6:10} ## new 23.2.2
 		controller = target
 		bar = target.game
 		if controller.tavern_tier<=5 and controller.mana >= controller.tavern_tierup_cost:
