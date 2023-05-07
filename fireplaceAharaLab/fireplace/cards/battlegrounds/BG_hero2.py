@@ -147,7 +147,7 @@ class TB_BaconShop_HP_047e:
 ###### BUDDY ######
 class TB_BaconShop_HERO_42_Buddy:# <12>[1453] ######################################################
 	""" Jr. Navigator
-	&lt;b&gt;Battlecry:&lt;/b&gt; Reduce the Cost of 'Lead Explorer' by (2)."""
+	[Battlecry:] Reduce the Cost of 'Lead Explorer' by (2)."""
 	###At the start of your turn,get a 'Recruitment Map.'Your Maps cost (1). ### old one
 	play = Buff(FRIENDLY_HERO_POWER, 'TB_BaconShop_HERO_42_Buddy_e')
 	pass
@@ -155,7 +155,7 @@ TB_BaconShop_HERO_42_Buddy_e=buff(cost=-2)# <12>[1453]
 """ In The Distance,	Costs (2) less. """
 class TB_BaconShop_HERO_42_Buddy_G:# <12>[1453]
 	""" Jr. Navigator
-	&lt;b&gt;Battlecry:&lt;/b&gt; Reduce the Cost of 'Lead Explorer' by (4)."""
+	[Battlecry:] Reduce the Cost of 'Lead Explorer' by (4)."""
 	###At the start of your turn,get 2 'Recruitment Maps.'Your Maps cost (1). ###
 	play = Buff(FRIENDLY_HERO_POWER, 'TB_BaconShop_HERO_42_Buddy_G_e')
 	pass
@@ -208,7 +208,7 @@ class BG24_HERO_204_Buddy_Action(GameAction):
 				Buff(card, 'BG24_HERO_204_Buddye2', atk=2, max_health=2).trigger(source)
 class BG24_HERO_204_Buddy:
 	""" Enhance-o Medico
-	Minions in Bob's Tavern with &lt;b&gt;Taunt&lt;/b&gt;, &lt;b&gt;Reborn&lt;/b&gt;, &lt;b&gt;Windfury&lt;/b&gt;, or &lt;b&gt;Divine Shield&lt;/b&gt; have +2/+2 for each."""
+	Minions in Bob's Tavern with [Taunt], [Reborn], [Windfury], or [Divine Shield] have +2/+2 for each."""
 	events = Rerole(CONTROLLER).on(BG24_HERO_204_Buddy_Action())
 	pass
 class BG24_HERO_204_Buddye2:
@@ -226,7 +226,7 @@ class BG24_HERO_204_Buddy_G_Action(GameAction):
 				Buff(card, 'BG24_HERO_204_Buddye2', atk=4, max_health=4).trigger(source)
 class BG24_HERO_204_Buddy_G:
 	""" Enhance-o Medico
-	Minions in Bob's Tavern with &lt;b&gt;Taunt&lt;/b&gt;, &lt;b&gt;Reborn&lt;/b&gt;, &lt;b&gt;Windfury&lt;/b&gt;, or &lt;b&gt;Divine Shield&lt;/b&gt; have +4/+4  for each."""
+	Minions in Bob's Tavern with [Taunt], [Reborn], [Windfury], or [Divine Shield] have +4/+4  for each."""
 	events = Rerole(CONTROLLER).on(BG24_HERO_204_Buddy_G_Action())
 	pass
 
@@ -288,7 +288,7 @@ class TB_BaconShop_HERO_55_Buddy_Action(GameAction):
 			Morph(card, RandomBGMurloc(tech_level=tier)).trigger(source)
 class TB_BaconShop_HERO_55_Buddy:
 	""" Sparkfin Soothsayer
-	&lt;b&gt;Battlecry:&lt;/b&gt; Transform minions in Bob's Tavern into Murlocs of the same Tavern Tier."""
+	[Battlecry:] Transform minions in Bob's Tavern into Murlocs of the same Tavern Tier."""
 	play = TB_BaconShop_HERO_55_Buddy_Action()
 	pass
 class TB_BaconShop_HERO_55_Buddy_G_Action(GameAction):
@@ -299,7 +299,7 @@ class TB_BaconShop_HERO_55_Buddy_G_Action(GameAction):
 			Morph(card, RandomBGMurloc(tech_level=tier)).trigger(source)
 class TB_BaconShop_HERO_55_Buddy_G:
 	""" Sparkfin Soothsayer
-	&lt;b&gt;Battlecry:&lt;/b&gt; Transform minions in Bob's Tavern into Murlocs of a higher Tavern Tier."""
+	[Battlecry:] Transform minions in Bob's Tavern into Murlocs of a higher Tavern Tier."""
 	play = TB_BaconShop_HERO_55_Buddy_G_Action()
 	pass
 
@@ -403,7 +403,7 @@ class BG20_HERO_283p_t1_Action(GameAction):
 		pass
 class BG20_HERO_283p_t1:# <12>[1453]
 	""" Westfall
-	&lt;b&gt;Passive.&lt;/b&gt; In 1 turn, give your left-most minion +2/+2. &lt;i&gt;(@ left!)&lt;/i&gt;"""
+	[Passive.] In 1 turn, give your left-most minion +2/+2. &lt;i&gt;(@ left!)&lt;/i&gt;"""
 	### [Passive.] In 1 turn, give your left-most minion +2/+1. <i>(@ left!)</i> """
 	events = BeginBar(CONTROLLER).on(SidequestCounter(SELF, 1, [BG20_HERO_283p_t1_Action()]))
 	#
@@ -438,7 +438,7 @@ class BG20_HERO_283p_t2_Action(GameAction):
 		pass
 class BG20_HERO_283p_t2:# <12>[1453]
 	""" Ironforge
-	&lt;b&gt;Passive&lt;/b&gt; In 2 turns, gain 2 Gold. &lt;i&gt;(@ left!)&lt;/i&gt;"""
+	[Passive] In 2 turns, gain 2 Gold. &lt;i&gt;(@ left!)&lt;/i&gt;"""
 	## [Passive.] In 3 turns,[Discover] a minion of your Tavern Tier. <i>(@ left!)</i> """
 	events = BeginBar(CONTROLLER).on(SidequestCounter(SELF, 2, [\
 		BG20_HERO_283p_t2_Action()
@@ -479,7 +479,7 @@ class BG20_HERO_283p_t3_Choice(Choice):
 #		pass
 class BG20_HERO_283p_t3:# <12>[1453]
 	""" Eastern Plaguelands
-	&lt;b&gt;Passive.&lt;/b&gt; In 3 turns, &lt;b&gt;Discover&lt;/b&gt; a minion of your Tavern Tier. &lt;i&gt;(@ left!)&lt;/i&gt;"""
+	[Passive.] In 3 turns, [Discover] a minion of your Tavern Tier. &lt;i&gt;(@ left!)&lt;/i&gt;"""
 	##[Passive.] In 5 turns, your next Tavern Tier upgrade costs (6) less. <i>(@ left!)</i> """
 	events = BeginBar(CONTROLLER).on(SidequestCounter(SELF, 3, [
 		BG20_HERO_283p_t3_Choice(CONTROLLER, RandomBGAdmissible(tech_level=TIER(CONTROLLER))*3)
@@ -626,12 +626,12 @@ class BG20_HERO_242_Buddy_Action(GameAction):
 
 class BG20_HERO_242_Buddy:
 	""" Baby Kodo
-	&lt;b&gt;Battlecry: Refresh&lt;/b&gt; Bob's Tavern with a minion of each Tavern Tier. """
+	[Battlecry: Refresh] Bob's Tavern with a minion of each Tavern Tier. """
 	play = BG20_HERO_242_Buddy_Action()
 	pass
 class BG20_HERO_242_Buddy_G:
 	""" Baby Kodo
-	&lt;b&gt;Battlecry: Refresh&lt;/b&gt; Bob's Tavern with a minion of each Tavern Tier. """
+	[Battlecry: Refresh] Bob's Tavern with a minion of each Tavern Tier. """
 	play = BG20_HERO_242_Buddy_Action()
 	pass
 
@@ -702,11 +702,11 @@ class BG23_HERO_305_Buddy_Action(GameAction):
 		Rerole(controller).broadcast(source, EventListener.AFTER, controller)
 class BG23_HERO_305_Buddy:
 	""" Waxadred, the Drippy
-	&lt;b&gt;Battlecry: Refresh&lt;/b&gt; Bob's Tavern with the highest Tier minion from each opponent's warband."""
+	[Battlecry: Refresh] Bob's Tavern with the highest Tier minion from each opponent's warband."""
 	play = BG23_HERO_305_Buddy_Action()
 class BG23_HERO_305_Buddy_G:
 	""" Waxadred, the Drippy
-	&lt;b&gt;Battlecry: Refresh&lt;/b&gt; Bob's Tavern with the highest Tier minion from each opponent's warband."""
+	[Battlecry: Refresh] Bob's Tavern with the highest Tier minion from each opponent's warband."""
 	play = BG23_HERO_305_Buddy_Action()
 
 

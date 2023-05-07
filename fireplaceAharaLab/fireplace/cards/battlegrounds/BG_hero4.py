@@ -1,5 +1,7 @@
 from ..utils import *
 
+from fireplace import cards
+
 BG_Hero4=[]
 
 
@@ -389,10 +391,37 @@ class TB_BaconShop_HP_057:
 	entourage=['TB_BaconShop_HP_085','TB_BaconShop_HP_046','BG20_HERO_100p',]
 	events = BeginGame(CONTROLLER).on(GenericChoiceChangeHeropower(CONTROLLER, RandomEntourage()*3))
 ######## BUDDY
+class TB_BaconShop_HERO_40_Buddy_Action(GameAction):
+	def do(self, source):
+		controller=source.controller
+		gamemaster=controller.game.parent
+		heropower=controller.hero.power
+		heroes=[hero for hero in gamemaster.Heroes if cards.db[hero].tags.get(GameTag.HERO_POWER)==heropower.data.dbf_id]
+		if len(heroes):
+			hero=heroes[0]
+			buddyID=controller.game.parent.BG_Hero_Buddy[hero]
+			if buddyID!=None:
+				Give(controller, buddyID).trigger(source)
 class TB_BaconShop_HERO_40_Buddy:
-	"""  """
+	"""  Maxwell, Mighty Steed
+	[Battlecry:] Add the Buddy of your Hero Power to your_hand."""
+	play = TB_BaconShop_HERO_40_Buddy_Action()
+class TB_BaconShop_HERO_40_Buddy_G_Action(GameAction):
+	def do(self, source):
+		controller=source.controller
+		gamemaster=controller.game.parent
+		heropower=controller.hero.power
+		heroes=[hero for hero in gamemaster.Heroes if cards.db[hero].tags.get(GameTag.HERO_POWER)==heropower.data.dbf_id]
+		if len(heroes):
+			hero=heroes[0]
+			buddyID=controller.game.parent.BG_Hero_Buddy[hero]
+			if buddyID!=None:
+				Give(controller, buddyID).trigger(source)
+				Give(controller, buddyID).trigger(source)
 class TB_BaconShop_HERO_40_Buddy_G:
-	"""  """
+	"""  Maxwell, Mighty Steed
+	[Battlecry:] Add 2 Buddies of your Hero Power to your_hand."""
+	play = TB_BaconShop_HERO_40_Buddy_G_Action()
 
 
 ### Sire Denathrius ### BG24_HERO_100 ### new 24.2 ####### banned 25?

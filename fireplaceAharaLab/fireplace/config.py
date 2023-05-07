@@ -15,6 +15,7 @@ class Config:# ()is the default value
 	DEEPCOPY_LOGINFO=0
 	#debugLog
 	GAMELOG=1 # as debugLog option
+
 	#3 battlegrounds options
 	BUDDY_SYSTEM = 0### buddy system (- 23.1) -April 2022
 	NEW_BUDDY_SYSTEM = 1 ### buddy system 25.6 - 26.0
@@ -24,12 +25,16 @@ class Config:# ()is the default value
 	QUEST_PRESET=''##  preset a quest at the beginning
 	REWARD_PRESET_FIRST=0 ## preset a reward at the beginning (for debugging)
 	REWARD_PRESET=''
+
+	######## player1 is a humna or not
 	PLAYER1_HUMAN=0 ## battleground with a human player(human play:1 full autoplay:0)
 	RANDOM_RACE=1 #random sampling from races（default:1）
 	#sampling from ['beast','demon','dragon','elemental','mecha','murloc','naga','pirate','quilboar','undead']
 	RACE_CHOICE=['naga','dragon']# valid when RANDOM_RACE=0
-	HERO_1='' #The first player ('Human1') are allowed to get a specific hero
-	CARD_PRESET1='' #The first player ('Human1') are allowed to have a specific card in his hand.
+
+	#card preset
+	HERO_1='TB_BaconShop_HERO_40' #The first player ('Human1') are allowed to get a specific hero
+	CARD_PRESET1='TB_BaconShop_HERO_40_Buddy' #The first player ('Human1') are allowed to have a specific card in his hand.
 	CARD_PRESET2='' #The first player ('Human1') are allowed to have a specific card in his hand.
 	ALL_PLAYERS_LOGINFO = 1 ## show all logs of playings of all players at Bob's tavern.
 

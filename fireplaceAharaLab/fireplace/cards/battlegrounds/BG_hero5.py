@@ -516,11 +516,11 @@ class TB_BaconShop_HP_702e:
 ###### buddy ######
 class TB_BaconShop_HERO_702_Buddy:
 	""" Mawsworn Soulkeeper
-	&lt;b&gt;Deathrattle:&lt;/b&gt; Summon 3 random Tier 1 minions."""
+	[Deathrattle:] Summon 3 random Tier 1 minions."""
 	deathrattle = Summon(CONTROLLER, RandomBGMinion(tech_level=3))
 class TB_BaconShop_HERO_702_Buddy_G:
 	""" Mawsworn Soulkeeper
-	&lt;b&gt;Deathrattle:&lt;/b&gt; Summon 6 random Tier 1 minions."""
+	[Deathrattle:] Summon 6 random Tier 1 minions."""
 	deathrattle = Summon(CONTROLLER, RandomBGMinion(tech_level=6))
 	pass
 
@@ -551,7 +551,7 @@ class TB_BaconShop_HERO_22_Buddy_Action(TargetedAction):
 		Buff(source, 'TB_BaconShop_HERO_22_Buddye', atk=atk).trigger(source)
 class TB_BaconShop_HERO_22_Buddy:
 	""" Arfus 
-	After a friendly minion is &lt;b&gt;Reborn&lt;/b&gt;, give it this minion's Attack."""
+	After a friendly minion is [Reborn], give it this minion's Attack."""
 	events = Reborn(FRIENDLY + MINION).on(TB_BaconShop_HERO_22_Buddy_Action(Reborn.TARGET))
 class TB_BaconShop_HERO_22_Buddye:
 	pass
@@ -562,7 +562,7 @@ class TB_BaconShop_HERO_22_Buddy_G_Action(TargetedAction):
 		Buff(source, 'TB_BaconShop_HERO_22_Buddye', atk=atk).trigger(source)
 class TB_BaconShop_HERO_22_Buddy_G:
 	""" Arfus 
-	After a friendly minion is &lt;b&gt;Reborn&lt;/b&gt;, give it this minion's Attack twice."""
+	After a friendly minion is [Reborn], give it this minion's Attack twice."""
 	events = Reborn(FRIENDLY + MINION).on(TB_BaconShop_HERO_22_Buddy_G_Action(Reborn.TARGET))
 
 
@@ -610,7 +610,7 @@ class TB_BaconShop_HP_041_Action(GameAction):
 		pass
 class TB_BaconShop_HP_041:
 	"""  
-	&lt;b&gt;Discover&lt;/b&gt; a minion of a specific minion type. Swaps type each turn."""
+	[Discover] a minion of a specific minion type. Swaps type each turn."""
 	###[Passive] Whenever you buy a minion of a specific type, give it +2/+2. Swaps type each turn.
 	events = BeginBar(CONTROLLER).on(TB_BaconShop_HP_041_Action())
 	pass	
@@ -904,7 +904,7 @@ class BG22_HERO_003_Buddy_Action(GameAction):# <12>[1453]
 			source.controller.deepcopy_original.stormpike_powered_up += 1
 class BG22_HERO_003_Buddy:# <12>[1453]
 	""" Stormpike Lieutenant
-	&lt;b&gt;Avenge (2):&lt;/b&gt; Minions in Bob's Tavern have +1 Health for the rest of the game."""
+	[Avenge (2):] Minions in Bob's Tavern have +1 Health for the rest of the game."""
 	### [Avenge (2):] Give your minions +1 Health permanently. 
 	###events = Death(FRIENDLY + MINION).on(Avenge(SELF, 2, [BuffPermanently(FRIENDLY_MINIONS, 'BG22_HERO_003_Buddy_e')]))
 	events = Death(FRIENDLY + MINION).on(Avenge(SELF, 2, [BG22_HERO_003_Buddy_Action()]))
@@ -917,7 +917,7 @@ class BG22_HERO_003_Buddy_G_Action(GameAction):# <12>[1453]
 			source.controller.deepcopy_original.stormpike_powered_up += 2
 class BG22_HERO_003_Buddy_G:# <12>[1453]
 	""" Stormpike Lieutenant
-	&lt;b&gt;Avenge (2):&lt;/b&gt; Minions in Bob's Tavern have +2 Health for the rest of the game."""
+	[Avenge (2):] Minions in Bob's Tavern have +2 Health for the rest of the game."""
 	###[Avenge (2):] Give your minions +2 Health permanently. """
 	###events = Death(FRIENDLY + MINION).on(Avenge(SELF, 2, [BuffPermanently(FRIENDLY_MINIONS, 'BG22_HERO_003_Buddy_Ge')]))
 	events = Death(FRIENDLY + MINION).on(Avenge(SELF, 2, [BG22_HERO_003_Buddy_G_Action()]))

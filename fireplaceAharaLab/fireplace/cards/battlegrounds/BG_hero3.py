@@ -511,7 +511,7 @@ class TB_BaconShop_HP_015_Action(GameAction):### old
 		pass
 class TB_BaconShop_HP_015:
 	""" Tinker
-	&lt;b&gt;Passive&lt;/b&gt; Whenever you summon a Mech, give it +2 Attack."""
+	[Passive] Whenever you summon a Mech, give it +2 Attack."""
 	### [Passive]Mechs in Bob's Tavern have +1/+1.
 	events = Summon(CONTROLLER, FRIENDLY + MINION + MECH).on(Buff(Summon.CARD, 'TB_BaconShop_HP_015e'))
 	#events = [
@@ -534,7 +534,7 @@ class TB_BaconShop_HERO_17_Buddy_Deathrattle(GameAction):
 				Hit(card,2).trigger(source)
 class TB_BaconShop_HERO_17_Buddy:# <12>[1453] 
 	""" Elementium Squirrel Bomb
-	&lt;b&gt;Deathrattle:&lt;/b&gt; Deal 2 damage to a random enemy minion for each of your Mechs that died this combat."""
+	[Deathrattle:] Deal 2 damage to a random enemy minion for each of your Mechs that died this combat."""
 	###[Deathrattle:] Deal 3 damage to a random enemy minion for each of your Mechs that died this combat. """
 	deathrattle = TB_BaconShop_HERO_17_Buddy_Deathrattle()
 	pass
@@ -832,7 +832,7 @@ class TB_BaconUps_307_Action(TargetedAction):
 		pass
 class TB_BaconUps_307:### Gold card
 	""" Fish of N'Zoth 
-	After a friendly &lt;b&gt;Deathrattle&lt;/b&gt; minion dies, gain its &lt;b&gt;Deathrattle&lt;/b&gt; twice."""
+	After a friendly [Deathrattle] minion dies, gain its [Deathrattle] twice."""
 	events = [
 		BeginBattle(CONTROLLER).on(TB_BaconShop_HP_105_Action2(SELF)),
 		Deathrattle(FRIENDLY).on(TB_BaconUps_307_Action(SELF, Deathrattle.TARGET))

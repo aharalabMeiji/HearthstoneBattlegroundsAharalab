@@ -122,7 +122,6 @@
     <Folder Include="fireplaceAharaLab\fireplace" />
     <Folder Include="fireplaceAharaLab\fireplace\cards" />
     <Folder Include="fireplaceAharaLab\fireplace\cards\battlegrounds\" />
-    <Folder Include="fireplaceAharaLab\fireplace\cards\sunken\" />
     <Folder Include="fireplaceAharaLab\fireplace\dsl" />
     <Folder Include="fireplaceAharaLab\fireplace\battlegrounds\" />
     <Folder Include="fireplaceAharaLab\obj\" />
