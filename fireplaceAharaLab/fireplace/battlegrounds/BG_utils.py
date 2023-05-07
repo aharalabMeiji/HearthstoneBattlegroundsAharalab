@@ -164,9 +164,6 @@ class BG_main:
 				if Config.HERO_1 in self.Heroes:
 					theHeroes.append(Config.HERO_1)
 					self.Heroes.remove(theHeroes[0])
-				if Config.HERO_2 in self.Heroes:
-					theHeroes.append(Config.HERO_2)
-					self.Heroes.remove(theHeroes[1])
 				theHeroes += random.sample(self.Heroes, 4-len(theHeroes))
 			else:
 				theHeroes = random.sample(self.Heroes, 4)
