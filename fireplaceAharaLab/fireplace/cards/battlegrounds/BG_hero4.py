@@ -461,11 +461,19 @@ class TB_BaconShop_HP_076:
 	events = OWN_TURN_END.on(AddScriptDataNum1(SELF,1))
 	pass
 ######## BUDDY
+class TB_BaconShop_HERO_68_Buddy_Action(GameAction):
+	def do(self, source):
+		source.controller.hero.power.additional_activations+=1
+		pass
 class TB_BaconShop_HERO_68_Buddy:
-	"""  """
+	""" Sharkbait 
+	&lt;b&gt;Battlecry:&lt;/b&gt; Refresh your Hero Power."""
+	play = TB_BaconShop_HERO_68_Buddy_Action()
 	pass
 class TB_BaconShop_HERO_68_Buddy_G:
-	"""  """
+	""" Sharkbait 
+	&lt;b&gt;Battlecry:&lt;/b&gt; Refresh your Hero Power."""
+	play = TB_BaconShop_HERO_68_Buddy_Action()
 	pass
 
 
