@@ -241,7 +241,7 @@ def BG24_Reward_130_Action1(player, reward):
 class BG24_Reward_130_Action2(GameAction):
 	def do(self, source):
 		controller=source.controller
-		controller.game.turn_end_effects_twice=True
+		controller.turn_end_effects_twice=1
 		if source.script_data_text_0!=[] and source.script_data_text_0!='':
 			Give(controller, source.script_data_text_0).trigger(controller)
 			source.script_data_text_0=[]

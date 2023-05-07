@@ -101,7 +101,7 @@ class CardDB(dict):
 		return card
 
 	def BG_initialize(self):
-		locale = 'jaJP'
+		locale = Config.LOCALE##'jaJP'
 		self.initialized = True
 		if Config.LOGINFO:
 			Config.log("cards.BG_initialize","loading card database")

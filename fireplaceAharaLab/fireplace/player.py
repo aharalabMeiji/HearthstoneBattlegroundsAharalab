@@ -147,6 +147,8 @@ class Player(Entity, TargetableByAuras):
 		self.gifts=[] # battlegrounds
 		self.spellpower_by_spell=0
 		self.gorefiend_cardID=None ## battlegrounds ## BG25_HERO_103
+		self.turn_end_effects_twice=0 ## battlegrounds 
+
 		self.im_a_player=True # battlegrounds
 
 	def __str__(self):

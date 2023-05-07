@@ -395,8 +395,11 @@ class EndTurn(GameAction):
 			raise InvalidAction(
 				"%r cannot end turn with the open choice %r." % (player, player.choice)
 			)
-		self.broadcast(source, EventListener.ON, player)
-		if getattr(player.game,'turn_end_effects_twice',False)==True:
+		self.broadcast(source, EventListener.ON, player)### at the end of your turn,
+		if getattr(player,'turn_end_effects_twice',0)==1:
+			self.broadcast(source, EventListener.ON, player)
+		elif getattr(player,'turn_end_effects_twice',0)==2:
+			self.broadcast(source, EventListener.ON, player)
 			self.broadcast(source, EventListener.ON, player)
 		source.game.refresh_auras()  # XXX 
 		source.game._end_turn()

@@ -52,22 +52,32 @@ TB_BaconShop_HP_087te=buff(3,3)
 class TB_BaconShop_HERO_11_Buddy:# <12>[1453]
 	""" Lucifron
 	Your end of turn effects trigger twice. """
-	#
+	events = [
+		BG_Play(SELF).on(SetAttr(CONTROLLER, 'turn_end_effects_twice',1)),
+		Summon(CONTROLLER, SELF).on(SetAttr(CONTROLLER, 'turn_end_effects_twice',1)),
+		Destroy(SELF).on(SetAttr(CONTROLLER, 'turn_end_effects_twice',0)),
+		Buy(CONTROLLER, SELF).on(SetAttr(CONTROLLER, 'turn_end_effects_twice',0)),
+	]
 	pass
 class TB_BaconShop_HERO_11_Buddy_e:# <12>[1453]
 	""" Dark Magics
 	Your end of turn effects trigger twice. """
-	#
+	### we need a new tag of 'end-turn effect'.
 	pass
 class TB_BaconShop_HERO_11_Buddy_G:# <12>[1453]
 	""" Lucifron
 	Your end of turn effects trigger three times. """
-	#
+	events = [
+		BG_Play(SELF).on(SetAttr(CONTROLLER, 'turn_end_effects_twice',2)),
+		Summon(CONTROLLER, SELF).on(SetAttr(CONTROLLER, 'turn_end_effects_twice',2)),
+		Destroy(SELF).on(SetAttr(CONTROLLER, 'turn_end_effects_twice',0)),
+		Buy(CONTROLLER, SELF).on(SetAttr(CONTROLLER, 'turn_end_effects_twice',0)),
+	]
 	pass
 class TB_BaconShop_HERO_11_Buddy_G_e:# <12>[1453]
 	""" Dark Magics
 	Your end of turn effects trigger three times. """
-	#
+	### we need a new tag of 'end-turn effect'.
 	pass
 
 

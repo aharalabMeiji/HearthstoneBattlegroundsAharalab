@@ -3,6 +3,9 @@ class Config:# ()is the default value
 	HEARTHSTONE=3
 	#3: Hearthstone battleground
 
+	#LOCALE
+	LOCALE='jaJP'#'enUS'
+
 	#LOGINFO
 	LOGINFO=0 # as log.info
 	LOGINFO_INDENT=0

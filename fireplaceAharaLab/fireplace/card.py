@@ -1,7 +1,4 @@
-from genericpath import samefile
-from pickle import NONE
 import random
-from itertools import chain
 
 from hearthstone.enums import CardType, MultiClassGroup, PlayReq, PlayState, \
 	Race, Rarity, Step, Zone, GameTag, SpellSchool
@@ -622,6 +619,28 @@ class PlayableCard(BaseCard, Entity, TargetableByAuras):
 		return (self.type==CardType.SPELL and self.spell_school==spell_school)
 	def MINION_RACE(self, race):
 		return (self.type==CardType.MINION and self.race==race)
+
+	@property
+	def fid(self):
+		return self.data.dbf_id
+
+	def has_turnend_events(self):
+		if Config.LOCALE=='jaJP':
+			description = self.data.description.replace('\n','')
+			if 'É^Å[ÉìÇÃèIóπéû' in description:
+				return True
+			else:
+				return False
+		elif Config.LOCALE=='enUS':
+			description = self.data.description.replace('\n',' ')
+			if 'At the end of your turn' in description:
+				return True
+			else:
+				return False
+		return False
+
+
+
 
 class LiveEntity(PlayableCard, Entity):
 	has_deathrattle = boolean_property("has_deathrattle")

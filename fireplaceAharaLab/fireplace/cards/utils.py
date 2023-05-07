@@ -279,6 +279,16 @@ def get00(card):
 			card=None
 	return card
 
+from . import cards
+
+def fid2id(fid):
+	for k,v in cards.db.items():
+		if getattr(v, 'dbf_id')==fid:
+			return k
+	return None
+
+
+
 
 REQUIRE_ENEMY_MINION_TARGET={PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_MINION_TARGET:0, PlayReq.REQ_ENEMY_TARGET:0 }
 
