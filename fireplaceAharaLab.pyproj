@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1e377a21-d4f6-430f-a1fd-3d2fee5e1464}</ProjectGuid>
+    <ProjectHome />
+    <StartupFile>fireplaceAharaLab\start.py</StartupFile>
+    <SearchPath>fireplaceAharaLab\</SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <ProjectTypeGuids>{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
+    <LaunchProvider>Standard Python launcher</LaunchProvider>
+    <InterpreterId />
+    <SuppressConfigureTestFrameworkPrompt>true</SuppressConfigureTestFrameworkPrompt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition=" '$(VisualStudioVersion)' == '' ">10.0</VisualStudioVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="fireplaceAharaLab\fireplace\actions.py" />
+    <Compile Include="fireplaceAharaLab\fireplace\aura.py" />
+    <Compile Include="fireplaceAharaLab\fireplace\battlegrounds\BG_agent.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fireplaceAharaLab\fireplace\battlegrounds\BG_bar.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fireplaceAharaLab\fireplace\battlegrounds\BG_battle.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fireplaceAharaLab\fireplace\battlegrounds\BG_enums.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fireplaceAharaLab\fireplace\battlegrounds\BG_VectorAgent.py" />
+    <Compile Include="fireplaceAharaLab\fireplace\cards\battlegrounds\bg24_quest.py" />
+    <Compile Include="fireplaceAharaLab\fireplace\cards\battlegrounds\bg24_reward.py" />
+    <Compile Include="fireplaceAharaLab\fireplace\cards\battlegrounds\BG_gems.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fireplaceAharaLab\fireplace\cards\battlegrounds\BG_hero2.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fireplaceAharaLab\fireplace\cards\battlegrounds\BG_hero1.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fireplaceAharaLab\fireplace\cards\battlegrounds\BG_hero4.py" />
+    <Compile Include="fireplaceAharaLab\fireplace\cards\battlegrounds\BG_hero3.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fireplaceAharaLab\fireplace\cards\battlegrounds\BG_hero5.py" />
+    <Compile Include="fireplaceAharaLab\fireplace\cards\battlegrounds\BG_minion_demon.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fireplaceAharaLab\fireplace\cards\battlegrounds\BG_minion_dragon.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fireplaceAharaLab\fireplace\cards\battlegrounds\BG_minion_elemental.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fireplaceAharaLab\fireplace\cards\battlegrounds\BG_minion_mecha.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fireplaceAharaLab\fireplace\cards\battlegrounds\BG_minion_murloc.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fireplaceAharaLab\fireplace\cards\battlegrounds\BG_minion_naga.py" />
+    <Compile Include="fireplaceAharaLab\fireplace\cards\battlegrounds\BG_minion_pirate.py" />
+    <Compile Include="fireplaceAharaLab\fireplace\cards\battlegrounds\BG_minion_beast.py" />
+    <Compile Include="fireplaceAharaLab\fireplace\cards\battlegrounds\BG_minion.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fireplaceAharaLab\fireplace\battlegrounds\BG_utils.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fireplaceAharaLab\fireplace\battlegrounds\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fireplaceAharaLab\fireplace\card.py" />
+    <Compile Include="fireplaceAharaLab\fireplace\cards\battlegrounds\BG_minion_quilboar.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fireplaceAharaLab\fireplace\cards\battlegrounds\__init__.py" />
+    <Compile Include="fireplaceAharaLab\fireplace\cards\battlegrounds\BG_minion_undead.py" />
+    <Compile Include="fireplaceAharaLab\fireplace\cards\utils.py" />
+    <Compile Include="fireplaceAharaLab\fireplace\cards\__init__.py" />
+    <Compile Include="fireplaceAharaLab\fireplace\config.py" />
+    <Compile Include="fireplaceAharaLab\fireplace\deck.py" />
+    <Compile Include="fireplaceAharaLab\fireplace\deepcopy.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fireplaceAharaLab\fireplace\dsl\copy.py" />
+    <Compile Include="fireplaceAharaLab\fireplace\dsl\evaluator.py" />
+    <Compile Include="fireplaceAharaLab\fireplace\dsl\hijack.py" />
+    <Compile Include="fireplaceAharaLab\fireplace\dsl\lazynum.py" />
+    <Compile Include="fireplaceAharaLab\fireplace\dsl\random_picker.py" />
+    <Compile Include="fireplaceAharaLab\fireplace\dsl\selector.py" />
+    <Compile Include="fireplaceAharaLab\fireplace\dsl\switch.py" />
+    <Compile Include="fireplaceAharaLab\fireplace\dsl\__init__.py" />
+    <Compile Include="fireplaceAharaLab\fireplace\entity.py" />
+    <Compile Include="fireplaceAharaLab\fireplace\enums.py" />
+    <Compile Include="fireplaceAharaLab\fireplace\events.py" />
+    <Compile Include="fireplaceAharaLab\fireplace\exceptions.py" />
+    <Compile Include="fireplaceAharaLab\fireplace\game.py" />
+    <Compile Include="fireplaceAharaLab\fireplace\logging.py" />
+    <Compile Include="fireplaceAharaLab\fireplace\managers.py" />
+    <Compile Include="fireplaceAharaLab\fireplace\player.py" />
+    <Compile Include="fireplaceAharaLab\fireplace\rules.py" />
+    <Compile Include="fireplaceAharaLab\fireplace\targeting.py" />
+    <Compile Include="fireplaceAharaLab\fireplace\utils.py" />
+    <Compile Include="fireplaceAharaLab\fireplace\__init__.py" />
+    <Compile Include="fireplaceAharaLab\start.py" />
+    <Compile Include="fireplaceAharaLab\utils.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fireplaceAharaLab\obj\Any CPU\Debug\fireplaceAhara.pyproj.FileListAbsolute.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="fireplaceAharaLab" />
+    <Folder Include="fireplaceAharaLab\fireplace" />
+    <Folder Include="fireplaceAharaLab\fireplace\cards" />
+    <Folder Include="fireplaceAharaLab\fireplace\cards\battlegrounds\" />
+    <Folder Include="fireplaceAharaLab\fireplace\cards\sunken\" />
+    <Folder Include="fireplaceAharaLab\fireplace\dsl" />
+    <Folder Include="fireplaceAharaLab\fireplace\battlegrounds\" />
+    <Folder Include="fireplaceAharaLab\obj\" />
+    <Folder Include="fireplaceAharaLab\obj\Any CPU\" />
+    <Folder Include="fireplaceAharaLab\obj\Any CPU\Debug" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
+</Project>
