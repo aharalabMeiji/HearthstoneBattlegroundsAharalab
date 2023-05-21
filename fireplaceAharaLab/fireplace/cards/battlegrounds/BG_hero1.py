@@ -120,7 +120,7 @@ BG_Hero1_Buddy_Gold={}
 ##Silas Darkmoon TB_BaconShop_HERO_90
 ##Sindragosa TB_BaconShop_HERO_27
 ##Sir Finley Mrrgglton TB_BaconShop_HERO_40
-##Sire Denathrius  BG24_HERO_100 #####difficult##### banned 
+##Sire Denathrius  BG24_HERO_100 #####difficult####
 ##Skycap'n Kragg TB_BaconShop_HERO_68
 ##Sneed BG21_HERO_030
 ##Sylvanas Windrunner BG23_HERO_306
@@ -387,6 +387,10 @@ BG_Hero1_Buddy_Gold['TB_BaconShop_HERO_59_Buddy']='TB_BaconShop_HERO_59_Buddy_G'
 class TB_BaconShop_HERO_59:# <12>[1453]
 	""" Aranna Starseeker
 	"""
+	if Config.BG_VERSION>=2604:
+		tags={GameTag.ARMOR: 14, }
+	else:
+		tags={GameTag.ARMOR: 12, }
 class TB_BaconShop_HP_065:
 	""" Demon Hunter Training
 	[Passive] After you [Refresh] 5 times, Bob always has 7 minions.<i>(@ left!)</i>"""
@@ -646,6 +650,10 @@ BG_Hero1_Buddy['TB_BaconShop_HERO_29']='TB_BaconShop_HERO_29_Buddy'
 BG_Hero1_Buddy_Gold['TB_BaconShop_HERO_29_Buddy']='TB_BaconShop_HERO_29_Buddy_G'
 class TB_BaconShop_HERO_29:# <12>[1453]
 	""" C'Thun	"""
+	if Config.BG_VERSION>=2604:
+		tags={GameTag.ARMOR: 5, }
+	else:
+		tags={GameTag.ARMOR: 7, }
 class TB_BaconShop_HP_104_Action(TargetedAction):
 	TARGET=ActionArg()
 	BUFF = ActionArg()
@@ -751,6 +759,11 @@ BG_Hero1_Buddy_Gold['TB_BaconShop_HERO_67_Buddy']='TB_BaconShop_HERO_67_Buddy_G'
 class TB_BaconShop_HERO_67:# <12>[1453]
 	""" Captain Hooktusk
 	"""
+	if Config.BG_VERSION>=2604:
+		tags={GameTag.ARMOR: 15, }
+	else:
+		tags={GameTag.ARMOR: 12, }### check
+	pass
 class TB_BaconShop_HP_075_Action(TargetedAction):
 	TARGET = ActionArg()
 	def do(self, source, target):
@@ -887,6 +900,10 @@ BG_Hero1_Buddy_Gold['TB_BaconShop_HERO_78_Buddy']='TB_BaconShop_HERO_78_Buddy_G'
 class TB_BaconShop_HERO_78:# <12>[1453]
 	""" Chenvaala
 	"""
+	if Config.BG_VERSION>=2604:
+		tags={GameTag.ARMOR: 5, }
+	else:
+		tags={GameTag.ARMOR: 7, }
 class TB_BaconShop_HP_088:
 	""" Avalanche
 	[Passive] After you play 3 Elementals, reduce the cost of upgrading Bob's Tavern by (3)."""
@@ -1051,6 +1068,11 @@ BG_Hero1_Buddy_Gold['TB_BaconShop_HERO_52_Buddy']='TB_BaconShop_HERO_52_Buddy_G'
 class TB_BaconShop_HERO_52:
 	""" Deathwing
 	"""
+	if Config.BG_VERSION>=2604:
+		tags={GameTag.ARMOR: 18, }
+	else:
+		tags={GameTag.ARMOR: 16, }### check
+	pass
 class TB_BaconShop_HP_061:
 	""" ALL Will Burn!
 	[x][Passive] ALL minions have +3 Attack."""

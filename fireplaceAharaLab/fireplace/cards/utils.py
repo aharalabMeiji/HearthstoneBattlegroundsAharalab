@@ -279,7 +279,7 @@ def get00(card):
 			card=None
 	return card
 
-from . import cards
+from fireplace import cards
 
 def fid2id(fid):
 	for k,v in cards.db.items():

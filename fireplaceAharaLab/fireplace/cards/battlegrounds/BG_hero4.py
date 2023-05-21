@@ -310,6 +310,10 @@ BG_Hero4_Buddy['TB_BaconShop_HERO_90']='TB_BaconShop_HERO_90_Buddy'
 BG_Hero4_Buddy_Gold['TB_BaconShop_HERO_90_Buddy']='TB_BaconShop_HERO_90_Buddy_G'
 class TB_BaconShop_HERO_90:# <12>[1453]
 	""" Silas Darkmoon """
+	if Config.BG_VERSION>=2604:
+		tags={GameTag.ARMOR: 12, }
+	else:
+		tags={GameTag.ARMOR: 9, }### check
 	pass
 class TB_BaconShop_HP_101_Action(TargetedAction):
 	TARGET = ActionArg()
@@ -434,16 +438,41 @@ class TB_BaconShop_HERO_40_Buddy_G:
 	play = TB_BaconShop_HERO_40_Buddy_G_Action()
 
 
-### Sire Denathrius ### BG24_HERO_100 ### new 24.2 ####### banned 25?
-##BG_Hero4+=['BG24_HERO_100','BG24_HERO_100p',]
-##BG_PoolSet_Hero4.append('BG24_HERO_100')
-#class BG24_HERO_100:
-#	""" Sire Denathrius
-#	"""
-#class BG24_HERO_100p:
-#	""" Whodunit?
-#	[Passive.] At the start of the game, choose one of two [Quests]."""
-#	pass
+from fireplace.cards.battlegrounds import BG24_quest
+### Sire Denathrius ### BG24_HERO_100 ### new 24.2 ####### banned 25? ## revive 26.0
+BG_Hero4+=['BG24_HERO_100','BG24_HERO_100p',]
+BG_PoolSet_Hero4.append('BG24_HERO_100')
+#BG_Hero4_Buddy['BG24_HERO_100']='BG24_HERO_100_Buddy'
+#BG_Hero4_Buddy_Gold['BG24_HERO_100_Buddy']='BG24_HERO_100_Buddy_G'
+class BG24_HERO_100:
+	""" Sire Denathrius
+	"""
+class BG24_HERO_100p_Choice(Choice):
+	def choice(self, card):
+		self.next_choice=None
+		super().choice(card)
+		CastSecret(card).trigger(self.source)
+class BG24_HERO_100p_Action(GameAction):
+	def do(self, source):
+		cards = BG24_quest.BG24_Quest
+		BG24_HERO_100p_Choice(source.controller, RandomID(*cards)*3).trigger(source)
+		pass
+class BG24_HERO_100p:#
+	""" Whodunit?
+	[Passive.] At the start of the game, choose one of two [Quests]."""
+	events = BeginGame(CONTROLLER).on(BG24_HERO_100p_Action())
+	pass
+#### BUDDY ####
+class BG24_HERO_100_Buddy:
+	""" Shady Aristocrat
+	&lt;b&gt;Battlecry:&lt;/b&gt; &lt;b&gt;Discover&lt;/b&gt; a lt;b&gt;Quest&lt;/b&gt;. Complete it to get an 8-Gold Coin Pouch."""
+	### old buddy <2604
+	pass
+class BG24_HERO_100_Buddy_G:
+	""" Shady Aristocrat
+	"""
+#
+
 
 
 ##Skycap'n Kragg     ### HP OK ###

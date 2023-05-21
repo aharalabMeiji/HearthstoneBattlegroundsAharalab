@@ -21,6 +21,10 @@ BG_Hero3_Buddy['BG23_HERO_304']='BG23_HERO_304_Buddy'
 BG_Hero3_Buddy_Gold['BG23_HERO_304_Buddy']='BG23_HERO_304_Buddy_G'
 class BG23_HERO_304:
 	""" Lady Vashj """
+	if Config.BG_VERSION>=2604:
+		tags={GameTag.ARMOR: 5, }
+	else:
+		tags={GameTag.ARMOR: 7, }
 class BG23_HERO_304p_Action(TargetedAction):
 	BUFF=ActionArg()
 	def do(self, source, buff):
@@ -130,6 +134,11 @@ BG_Hero3_Buddy['TB_BaconShop_HERO_72']='TB_BaconShop_HERO_72_Buddy'
 BG_Hero3_Buddy_Gold['TB_BaconShop_HERO_72_Buddy']='TB_BaconShop_HERO_72_Buddy_G'
 class TB_BaconShop_HERO_72:# <12>[1453]
 	""" Lord Barov	 """
+	if Config.BG_VERSION>=2604:
+		tags={GameTag.ARMOR: 19, }
+	else:
+		tags={GameTag.ARMOR: 16, }### check
+	pass
 class TB_BaconShop_HP_081_Choice(Choice):
 	def choose(self, card):
 		#record the card data in self.source.source.script_data_text_1
@@ -201,6 +210,10 @@ BG_Hero3_Buddy['TB_BaconShop_HERO_37']='TB_BaconShop_HERO_37_Buddy'#
 BG_Hero3_Buddy_Gold['TB_BaconShop_HERO_37_Buddy']='TB_BaconShop_HERO_37_Buddy_G'#
 class TB_BaconShop_HERO_37:# <12>[1453]
 	""" Lord Jaraxxus """
+	if Config.BG_VERSION>=2604:
+		tags={GameTag.ARMOR: 5, }
+	else:
+		tags={GameTag.ARMOR: 7, }
 class TB_BaconShop_HP_036_Action(TargetedAction):
 	TARGET=ActionArg()
 	def do(self, source, target):
@@ -443,6 +456,10 @@ BG_Hero3_Buddy['TB_BaconShop_HERO_49']='TB_BaconShop_HERO_49_Buddy'#
 BG_Hero3_Buddy_Gold['TB_BaconShop_HERO_49_Buddy']='TB_BaconShop_HERO_49_Buddy_G'#
 class TB_BaconShop_HERO_49:# <12>[1453]
 	""" Millhouse Manastorm """
+	if Config.BG_VERSION>=2604:
+		tags={GameTag.ARMOR: 5, }
+	else:
+		tags={GameTag.ARMOR: 7, }
 	pass
 class TB_BaconShop_HP_054:
 	""" Manastorm
@@ -463,6 +480,10 @@ class TB_BaconShop_HERO_49_Buddy_Action(TargetedAction):# <12>[1453]
 class TB_BaconShop_HERO_49_Buddy:# <12>[1453]
 	""" Magnus Manastorm
 	After you buy a minion,add one of the same TavernTier to Bob's Tavern. """
+	if Config.BG_VERSION>=2604:
+		tags={ GameTag.TECH_LEVEL:5}
+	else:
+		tags={ GameTag.TECH_LEVEL:4}
 	events = Buy(CONTROLLER).after(TB_BaconShop_HERO_49_Buddy_Action(Buy.CARD))
 	pass
 class TB_BaconShop_HERO_49_Buddy_G_Action(TargetedAction):# <12>[1453]
@@ -739,9 +760,15 @@ class BG20_HERO_301p_Action(TargetedAction):
 		health = card.max_health
 		extra_minions=1
 		if len([cd for cd in controller.field if cd.id=='BG20_HERO_301_Buddy']):
-			extra_minions=2
+			if Config.BG_VERSION>=2604:
+				extra_minions=1
+			else:
+				extra_minions=2
 		if len([cd for cd in controller.field if cd.id=='BG20_HERO_301_G_Buddy']):
-			extra_minions=4
+			if Config.BG_VERSION>=2604:
+				extra_minions=2
+			else:
+				extra_minions=4
 		if len(controller.field)>=2:
 			Destroy(card).trigger(source)
 			if len(controller.field)>extra_minions:
@@ -769,6 +796,10 @@ class BG20_HERO_301pe:
 class BG20_HERO_301_Buddy:
 	"""Nightmare Ectoplasm
 	When you 'Devour' this, spit its stats onto 2 extra_minions."""
+	if Config.BG_VERSION>=2604:
+		tags={ GameTag.ATK:5, GameTag.HEALTH:4,}
+	else:
+		tags={ GameTag.ATK:4, GameTag.HEALTH:3,}
 class BG20_HERO_301_Buddy_G:
 	"""Nightmare Ectoplasm
 	When you 'Devour' this, spit its stats onto 4 extra_minions."""
@@ -1038,6 +1069,11 @@ BG_Hero3_Buddy_Gold['BG23_HERO_201_Buddy']='BG23_HERO_201_Buddy_G'#
 class BG23_HERO_201:
 	""" Ozumat
 	"""
+	if Config.BG_VERSION>=2604:
+		tags={GameTag.ARMOR: 19, }
+	else:
+		tags={GameTag.ARMOR: 16, }### check
+	pass
 class BG23_HERO_201p_Action(GameAction):
 	def do(self, source):
 		#summon a tentacle with enchantment BG23_HERO_201pte
@@ -1097,6 +1133,10 @@ BG_Hero3_Buddy['TB_BaconShop_HERO_18']='TB_BaconShop_HERO_18_Buddy'#
 BG_Hero3_Buddy_Gold['TB_BaconShop_HERO_18_Buddy']='TB_BaconShop_HERO_18_Buddy_G'#
 class TB_BaconShop_HERO_18:# <12>[1453]
 	""" Patches the Pirate """
+	if Config.BG_VERSION>=2604:
+		tags={GameTag.ARMOR: 5, }
+	else:
+		tags={GameTag.ARMOR: 7, }
 class TB_BaconShop_HP_072_Action(GameAction):
 	def do(self, source):
 		controller=source.controller
@@ -1299,6 +1339,11 @@ BG_Hero3_Buddy['TB_BaconShop_HERO_14']='TB_BaconShop_HERO_14_Buddy'#
 BG_Hero3_Buddy_Gold['TB_BaconShop_HERO_14_Buddy']='TB_BaconShop_HERO_14_Buddy_G'#
 class TB_BaconShop_HERO_14:# <12>[1453]
 	""" Queen Wagtoggle """
+	if Config.BG_VERSION>=2604:
+		tags={GameTag.ARMOR: 16, }
+	else:
+		tags={GameTag.ARMOR: 12, }### check
+	pass
 class TB_BaconShop_HP_037a_Action(GameAction):
 	def do(self, source):
 		controller = source.controller

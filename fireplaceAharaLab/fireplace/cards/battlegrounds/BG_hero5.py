@@ -15,6 +15,11 @@ BG_Hero5_Buddy_Gold['BG20_HERO_282_Buddy']='BG20_HERO_282_Buddy_G'
 class BG20_HERO_282:# <9>[1453]
 	""" Tamsin Roame """
 	pass
+	if Config.BG_VERSION>=2604:
+		tags={GameTag.ARMOR: 16, }
+	else:
+		tags={GameTag.ARMOR: 12, }### check
+	pass
 class BG20_HERO_282p_Action(GameAction):
 	def do(self, source):
 		controller = source.controller
@@ -90,6 +95,11 @@ BG_Hero5_Buddy['BG22_HERO_000']='BG22_HERO_000_Buddy'
 BG_Hero5_Buddy_Gold['BG22_HERO_000_Buddy']='BG22_HERO_000_Buddy_G'
 class BG22_HERO_000:# <12>[1453]
 	""" Tavish Stormpike """
+	pass
+	if Config.BG_VERSION>=2604:
+		tags={GameTag.ARMOR: 12, }
+	else:
+		tags={GameTag.ARMOR: 12, }### check
 	pass
 class BG22_HERO_000p:# <12>[1453]
 	""" Deadeye
@@ -229,10 +239,15 @@ class BG22_HERO_000_Buddy_G:# <12>[1453]
 BG_Hero5+=['BG25_HERO_103','BG25_HERO_103p','BG25_HERO_103_Buddy','BG25_HERO_103_Buddye','BG25_HERO_103_Buddy_G','BG25_HERO_103_Buddy_Ge',]
 BG_PoolSet_Hero5.append('BG25_HERO_103')
 BG_Hero5_Buddy['BG25_HERO_103']='BG25_HERO_103_Buddy'
-BG_Hero5_Buddy_Gold['BG25_HERO_103_Buddy']='TB_BaconShop_HERO_50_Buddy_G'
+BG_Hero5_Buddy_Gold['BG25_HERO_103_Buddy']='BG25_HERO_103_Buddy_Buddy_G'
 class BG25_HERO_103:
 	""" Teron Gorefiend
 	"""
+	if Config.BG_VERSION>=2604:
+		tags={GameTag.ARMOR: 10, }
+	else:
+		tags={GameTag.ARMOR: 7, }### check
+	pass
 class BG25_HERO_103p_Activate(TargetedAction):
 	TARGET=ActionArg()
 	def do(self, source, target):
@@ -293,6 +308,11 @@ BG_Hero5_Buddy['TB_BaconShop_HERO_50']='TB_BaconShop_HERO_50_Buddy'
 BG_Hero5_Buddy_Gold['TB_BaconShop_HERO_50_Buddy']='TB_BaconShop_HERO_50_Buddy_G'
 class TB_BaconShop_HERO_50:# <12>[1453]
 	""" Tess Greymane """
+	pass
+	if Config.BG_VERSION>=2604:
+		tags={GameTag.ARMOR: 18, }
+	else:
+		tags={GameTag.ARMOR: 15, }### check
 	pass
 class TB_BaconShop_HP_077_Action(GameAction):
 	def do(self, source):
@@ -831,6 +851,10 @@ class TB_BaconShop_HERO_10_Buddy:# <12>[1453]
 	""" Bilgewater Mogul
 	[Battlecry:] Give a minion +1/+1 for each Gold spent this turn. """
 	reuqirements = { PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_FRIENDLY_TARGET:0, PlayReq.REQ_MINION_TARGET:0 }
+	if Config.BG_VERSION>=2604:
+		tags={ GameTag.TECH_LEVEL:4}
+	else:
+		tags={ GameTag.TECH_LEVEL:3}
 	play = TB_BaconShop_HERO_10_Buddy_Action(TARGET)
 	pass
 class TB_BaconShop_HERO_10_Buddye:# <12>[1453]
@@ -1465,6 +1489,11 @@ BG_Hero5_Buddy['TB_BaconShop_HERO_91']='TB_BaconShop_HERO_91_Buddy'
 BG_Hero5_Buddy_Gold['TB_BaconShop_HERO_91_Buddy']='TB_BaconShop_HERO_91_Buddy_G'
 class TB_BaconShop_HERO_91:# <12>[1453]
 	""" Zephrys, the Great """
+	if Config.BG_VERSION>=2604:
+		tags={GameTag.ARMOR: 18, }
+	else:
+		tags={GameTag.ARMOR: 15, }### check
+	pass
 class TB_BaconShop_HP_102_Action(GameAction):
 	def do(self, source):
 		controller = source.controller # in the bar

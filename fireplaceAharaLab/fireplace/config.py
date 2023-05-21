@@ -19,9 +19,31 @@ class Config:# ()is the default value
 	#debugLog
 	GAMELOG=1 # as debugLog option
 
+	#battlegrounds version management
+	BG_VERSION=2622## current
+	#BG_VERSION=2620## 2023/05/09 # season 4
+	#BG_VERSION=2604## 2023/04/28
+	#BG_VERSION=2602## 2023/04/15
+	#BG_VERSION=2600## 2023/04/04
+	#BG_VERSION=2562## 2023/03/24
+	#BG_VERSION=2560## 2023/03/15
+	#BG_VERSION=2540## 2023/02/14
+	#BG_VERSION=2522## 2023/01/27
+	#BG_VERSION=2520## 2023/01/18 # season 3
+	#BG_VERSION=2504## 2022/12/20
+	#BG_VERSION=2503## 2022/12/10
+	#BG_VERSION=2500## 2022/11/29
+	#BG_VERSION=2462## 2022/11/11
+	#BG_VERSION=2460## 2022/11/02
+
+
+
 	#3 battlegrounds options
 	BUDDY_SYSTEM = 0### buddy system (- 23.1) -April 2022
-	NEW_BUDDY_SYSTEM = 1 ### buddy system 25.6 - 26.0
+	if BG_VERSION>=2560 and BG_VERSION<=2604:
+		NEW_BUDDY_SYSTEM = 1 ### buddy system 25.6 - 26.0
+	else:
+		NEW_BUDDY_SYSTEM = 0
 	DARKMOON_TICKET_FOR_ALL=0 ## darkmoon tickets for all player anytime
 	DARKMOON_TICKET_FOR_ALL_BY_HALF=0 ## darkmoon tickets for all player sometimes
 	QUEST_REWARD=0 ## quest and reward system（24.2 - 25.2.2)

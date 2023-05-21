@@ -646,6 +646,10 @@ BG_Hero2_Buddy_Gold['BG23_HERO_305_Buddy']='BG23_HERO_305_Buddy_G'
 #81#Heistbaron Togwaggle ## 24.0
 class BG23_HERO_305:
 	""" Heistbaron Togwaggle """
+	if Config.BG_VERSION>=2604:
+		tags={GameTag.ARMOR: 10, }
+	else:
+		tags={GameTag.ARMOR: 7, }### check
 class BG23_HERO_305p_Action1(TargetedAction):
 	TARGET=ActionArg()
 	def do(self, source, target):
@@ -720,6 +724,11 @@ BG_Hero2_Buddy['TB_BaconShop_HERO_08']='TB_BaconShop_HERO_08_Buddy'
 BG_Hero2_Buddy_Gold['TB_BaconShop_HERO_08_Buddy']='TB_BaconShop_HERO_08_Buddy_G'
 class TB_BaconShop_HERO_08:# <12>[1453]
 	""" Illidan Stormrage  """
+	if Config.BG_VERSION>=2604:
+		tags={GameTag.ARMOR: 17, }
+	else:
+		tags={GameTag.ARMOR: 14, }### check
+	pass
 class TB_BaconShop_HP_069_Action(GameAction):
 	def do(self, source):
 		controller=source.controller
@@ -767,6 +776,11 @@ BG_Hero2_Buddy['TB_BaconShop_HERO_28']='TB_BaconShop_HERO_28_Buddy'
 BG_Hero2_Buddy_Gold['TB_BaconShop_HERO_28_Buddy']='TB_BaconShop_HERO_28_Buddy_G'
 class TB_BaconShop_HERO_28:# <12>[1453]
 	""" Infinite Toki  """
+	if Config.BG_VERSION>=2604:
+		tags={GameTag.ARMOR: 13, }
+	else:
+		tags={GameTag.ARMOR: 10, }### check
+	pass
 class TB_BaconShop_HP_028_Action(GameAction):
 	def do(self, source):
 		controller = source.controller
@@ -812,6 +826,10 @@ BG_Hero2_Buddy_Gold['BG22_HERO_200_Buddy']='BG22_HERO_200_Buddy_G'
 class BG22_HERO_200:
 	""" Ini Stormcoil
 	"""
+	if Config.BG_VERSION>=2604:
+		tags={GameTag.ARMOR: 5, }
+	else:
+		tags={GameTag.ARMOR: 7, }
 class BG22_HERO_200p:
 	""" MechGyver
 	[x][Passive] After 12 friendly minions die, get a random Mech.@[x][Passive] After 12 friendly minions die, get a random Mech. &lt;i&gt;({0} left.)&lt;/i&gt;"""
@@ -975,6 +993,11 @@ BG_Hero2_Buddy['BG20_HERO_280']='BG20_HERO_280_Buddy'
 BG_Hero2_Buddy_Gold['BG20_HERO_280_Buddy']='BG20_HERO_280_Buddy_G'
 class BG20_HERO_280:# <14>[1453]
 	""" Kurtrus Ashfallen """
+	if Config.BG_VERSION>=2604:
+		tags={GameTag.ARMOR: 20, }
+	else:
+		tags={GameTag.ARMOR: 17, }### check
+	pass
 class BG20_HERO_280e:# <12>[1453]
 	""" Kurtrus Watcher """
 class BG20_HERO_280p_Action1(TargetedAction):

@@ -346,7 +346,8 @@ class PlayableCard(BaseCard, Entity, TargetableByAuras):
 
 	@property
 	def entities(self):
-		return chain([self], self.buffs)
+		#return chain([self], self.buffs)
+		return [self]+self.buffs
 
 	@property
 	def zone_position(self):
@@ -627,7 +628,7 @@ class PlayableCard(BaseCard, Entity, TargetableByAuras):
 	def has_turnend_events(self):
 		if Config.LOCALE=='jaJP':
 			description = self.data.description.replace('\n','')
-			if 'ƒ^[ƒ“‚ÌI—¹' in description:
+			if 'ã‚¿ãƒ¼ãƒ³ã®çµ‚äº†æ™‚' in description:
 				return True
 			else:
 				return False
