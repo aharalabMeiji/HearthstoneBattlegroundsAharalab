@@ -161,14 +161,23 @@ if BG_Replicating_Menace:
 class BG_BOT_312:
 	"""Replicating Menace
 	[Magnetic][Deathrattle:] Summon three 1/1 Microbots."""
+	if Config.BG_VERSION>=2600:
+		option_tags={GameTag.ATK:3, GameTag.HEALTH:2}
+	else:
+		option_tags={GameTag.ATK:3, GameTag.HEALTH:1}
 	play = Magnetic(SELF, ['BG_BOT_312e'])
 	deathrattle = Summon(CONTROLLER, 'BG_BOT_312t' ) * 3
 class BG_BOT_312e:
 	"""Replicating Menace
 	"""
-	tags = {GameTag.DEATHRATTLE:True, 
-		GameTag.ATK:3,
-		GameTag.HEALTH:1}
+	if Config.BG_VERSION>=2600:
+		tags = {GameTag.DEATHRATTLE:True, 
+			GameTag.ATK:3,
+			GameTag.HEALTH:2}
+	else:
+		tags = {GameTag.DEATHRATTLE:True, 
+			GameTag.ATK:3,
+			GameTag.HEALTH:1}
 	deathrattle = Summon(CONTROLLER, 'BG_BOT_312t' ) * 3
 	pass
 class BG_BOT_312t:
@@ -178,13 +187,22 @@ class BG_BOT_312t:
 class TB_BaconUps_032:# <12>[1453]
 	""" Replicating Menace
 	[Magnetic][Deathrattle:] Summon three 2/2 Microbots. """
+	if Config.BG_VERSION>=2600:
+		option_tags={GameTag.ATK:3, GameTag.HEALTH:2}
+	else:
+		option_tags={GameTag.ATK:3, GameTag.HEALTH:1}
 	play = Magnetic(SELF, ['TB_BaconUps_032e'])
 	deathrattle = Summon(CONTROLLER, 'TB_BaconUps_032t' ) * 3
 	pass
 class TB_BaconUps_032e:
-	tags = {GameTag.DEATHRATTLE:True, 
-		GameTag.ATK:6,
-		GameTag.HEALTH:2}
+	if Config.BG_VERSION>=2600:
+		tags = {GameTag.DEATHRATTLE:True, 
+			GameTag.ATK:6,
+			GameTag.HEALTH:4}
+	else:
+		tags = {GameTag.DEATHRATTLE:True, 
+			GameTag.ATK:6,
+			GameTag.HEALTH:2}
 	deathrattle = Summon(CONTROLLER, 'TB_BaconUps_032t' ) * 3
 	pass
 class TB_BaconUps_032t:# <12>[1453]
@@ -304,6 +322,8 @@ class BG21_023_G:# <12>[1453]
 	events = Death(FRIENDLY_MINIONS).on(Avenge(SELF, 2, [Hit(HIGHEST_HEALTH(ENEMY_MINIONS), 5), Hit(HIGHEST_HEALTH(ENEMY_MINIONS), 5)]))
 	pass
 
+
+
 ##  Wargear (4) 23.6  ### OK ###
 if BG_Wargear:
 	BG_Minion_Mecha+=['BG_BOT_563','BG_BOT_563e','BG_BOT_563_G','BG_BOT_563_Ge',]
@@ -312,14 +332,27 @@ if BG_Wargear:
 class BG_BOT_563:
 	""" Wargear
 	[Magnetic]"""
+	if Config.BG_VERSION>=2600:
+		option_tags={GameTag.ATK:6, GameTag.HEALTH:5}
+	else:
+		option_tags={GameTag.ATK:5, GameTag.HEALTH:5}
 	play = Magnetic(SELF, ['BG_BOT_563e'])
 	pass
-BG_BOT_563e=buff(5,5)
+if Config.BG_VERSION>=2600:
+	BG_BOT_563e=buff(6,5)
+else:
+	BG_BOT_563e=buff(5,5)
 class BG_BOT_563_G:
+	if Config.BG_VERSION>=2600:
+		option_tags={GameTag.ATK:12, GameTag.HEALTH:10}
+	else:
+		option_tags={GameTag.ATK:10, GameTag.HEALTH:10}
 	play = Magnetic(SELF, ['BG_BOT_563_Ge'])
 	pass
-BG_BOT_563_Ge=buff(10,10)
-
+if Config.BG_VERSION>=2600:
+	BG_BOT_563_Ge=buff(12,10)
+else:
+	BG_BOT_563_Ge=buff(10,10)
 
 #Holy Mecherel(5)
 if BG_Holy_Mecherel:

@@ -401,11 +401,14 @@ class TB_BaconShop_HERO_27_Buddy_G:# <12>[1453]
 
 
 
-##Sir Finley Mrrgglton     ### OK ###
-BG_Hero4+=['TB_BaconShop_HERO_40','TB_BaconShop_HERO_40_Buddy','TB_BaconShop_HERO_40_Buddy_G','TB_BaconShop_HP_057',]
-BG_PoolSet_Hero4.append('TB_BaconShop_HERO_40')
-BG_Hero4_Buddy['TB_BaconShop_HERO_40']='TB_BaconShop_HERO_40_Buddy'
-BG_Hero4_Buddy_Gold['TB_BaconShop_HERO_40_Buddy']='TB_BaconShop_HERO_40_Buddy_G'
+##Sir Finley Mrrgglton     ### OK ### revive 26.0
+if Config.BG_VERSION>=2600:
+	BG_Hero4+=['TB_BaconShop_HERO_40','TB_BaconShop_HERO_40_Buddy','TB_BaconShop_HERO_40_Buddy_G','TB_BaconShop_HP_057',]
+	BG_PoolSet_Hero4.append('TB_BaconShop_HERO_40')
+	BG_Hero4_Buddy['TB_BaconShop_HERO_40']='TB_BaconShop_HERO_40_Buddy'
+	BG_Hero4_Buddy_Gold['TB_BaconShop_HERO_40_Buddy']='TB_BaconShop_HERO_40_Buddy_G'
+else:
+	pass
 class TB_BaconShop_HERO_40:# <12>[1453]
 	""" Sir Finley Mrrgglton """
 	if Config.BG_VERSION>=2602:
@@ -454,10 +457,10 @@ class TB_BaconShop_HERO_40_Buddy_G:
 
 from fireplace.cards.battlegrounds import BG24_quest
 ### Sire Denathrius ### BG24_HERO_100 ### new 24.2 ####### banned 25? ## revive 26.0
-BG_Hero4+=['BG24_HERO_100','BG24_HERO_100p',]
+BG_Hero4+=['BG24_HERO_100','BG24_HERO_100p','BG24_HERO_100_Buddy','BG24_HERO_100_Buddy_G']
 BG_PoolSet_Hero4.append('BG24_HERO_100')
-#BG_Hero4_Buddy['BG24_HERO_100']='BG24_HERO_100_Buddy'
-#BG_Hero4_Buddy_Gold['BG24_HERO_100_Buddy']='BG24_HERO_100_Buddy_G'
+BG_Hero4_Buddy['BG24_HERO_100']='BG24_HERO_100_Buddy'
+BG_Hero4_Buddy_Gold['BG24_HERO_100_Buddy']='BG24_HERO_100_Buddy_G'
 class BG24_HERO_100:
 	""" Sire Denathrius
 	"""

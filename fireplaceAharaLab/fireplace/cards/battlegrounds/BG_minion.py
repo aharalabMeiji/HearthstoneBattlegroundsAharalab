@@ -56,9 +56,10 @@ BG_Mythrax_the_Unraveler=False ##(5) banned 24.2  ## revive 25.0.4 banned 25.2.2
 BG_Nomi_Kitchen_Nightmare=True##(5/4/4)
 BG25__Titus_Rivendare=True# 5/1/7 neutral ## new 25.2.2
 BG24__Tortollan_Blue_Shell=True ## (5/4/7) new 24.2 ### OK ###
+##(6)->(5)  banned 22.3 ## new 26.0 
+BG_Friend_of_a_Friend=(Config.BG_VERSION>=2600 or Config.BG_VERSION<2230) 
 
 BG_Amalgadon=False##(6) banned 22.3
-BG_Friend_of_a_Friend=False##(6)  banned 22.3
 BG_Mantid_Queen=True ## (6/5/5) ## new when?
 BG_Nadina_the_Red=True##(6/7/4)
 BG_Orgozoa_the_Tender=True###(6/3/7) NEW 23.2
@@ -1553,20 +1554,48 @@ class UNG_999t2t1:## 植物
 
 
 
-if BG_Friend_of_a_Friend:#Friend of a Friend	(BAN)	6	5	6	-	Battlecry   BG22_404 BG22_404_G 
+if BG_Friend_of_a_Friend:#Friend of a Friend	(BANNED 22.3)	5	5	6	-	revive 26.0 -> (5)
 	BG_Minion += ['BG22_404','BG22_404_G',]#	
 	BG_PoolSet_Minion[6].append('BG22_404')
 	BG_Minion_Gold['BG22_404']='BG22_404_G'
 	pass
-class BG22_404:# <12>[1453] 友達の友達 ばん！##########################
-	""" Friend of a Friend(BAN)
-	[Battlecry: Discover] a Buddy. """
-	#
+class BG22_404_Action(GameAction):
+	def do(self, source):
+		cards = source.controller.game.parent.BG_Hero_Buddy
+		Discover(source.controler, RandomID(*cards)).trigger(source)
+		pass
+class BG22_404:# <12>[1453]  ##########################
+	""" Friend of a Friend
+	When you sell this [Discover] a Buddy """
+	## 2230- [Battlecry: Discover] a Buddy. """
+	if Config.BG_VERSION>=2600:
+		events = Sell(CONTROLLER, SELF).on(BG22_404_Action())
+	elif Config.BG_VERSION<2230:
+		play = BG22_404_Action()
 	pass
-class BG22_404_G:# <12>[1453]
-	""" Friend of a Friend(BAN)
+class BG22_404_G_Choice(Choice):
+	def choose(self, card):
+		self.source.sidequest_counter += 1
+		if self.source.sidequest_counter>=2:
+			self.next_choice=None
+		else:
+			self.next_choice=self
+		super().choose(card)
+		card.zone=Zone.SETASIDE
+		card.controller=self.player
+		card.zone=Zone.HAND
+class BG22_404_G_Action(GameAction):
+	def do(self, source):
+		cards = source.controller.game.parent.BG_Hero_Buddy
+		BG22_404_G_Choice(source.controler, RandomID(*cards)*3).trigger(source)
+		pass
+class BG22_404_G:# <12>[1453] #############################
+	""" Friend of a Friend
 	[Battlecry: Discover]two Buddies. """
-	#
+	if Config.BG_VERSION>=2600:
+		events = Sell(CONTROLLER, SELF).on(BG22_404_G_Action())
+	else:
+		play = BG22_404_G_Action()
 	pass
 
 

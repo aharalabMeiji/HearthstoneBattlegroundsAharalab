@@ -7,7 +7,7 @@ class Config:# ()is the default value
 	LOCALE='jaJP'#'enUS'
 
 	#LOGINFO
-	LOGINFO=0 # as log.info
+	LOGINFO=1 # as log.info
 	LOGINFO_INDENT=0
 	def log(function, message):
 		if Config.LOGINFO_INDENT>0:
@@ -20,11 +20,11 @@ class Config:# ()is the default value
 	GAMELOG=1 # as debugLog option
 
 	#battlegrounds version management
-	BG_VERSION=2622## current
+	#BG_VERSION=2622## current
 	#BG_VERSION=2620## 2023/05/09 # season 4
 	#BG_VERSION=2604## 2023/04/28
 	#BG_VERSION=2602## 2023/04/15
-	#BG_VERSION=2600## 2023/04/04
+	BG_VERSION=2600## 2023/04/04
 	#BG_VERSION=2562## 2023/03/24
 	#BG_VERSION=2560## 2023/03/15
 	#BG_VERSION=2540## 2023/02/14

@@ -29,6 +29,7 @@ class CardDB(dict):
 		else:
 			card.scripts = type(id, (), {})
 
+
 		scriptnames = (
 			"activate", "combo", "deathrattle", "draw", "inspire", "play",
 			"enrage", "update", "powered_up", "outcast", "awaken","trade", "honorable_kill","location"
@@ -82,6 +83,10 @@ class CardDB(dict):
 		if hasattr(cardscript, "tags"):
 			for tag, value in cardscript.tags.items():
 				card.tags[tag] = value
+
+		if hasattr(card.scripts, 'option_tags'):
+			for k,v in card.scripts.option_tags.items():
+				card.tags[k]=v
 
 		if hasattr(cardscript, "requirements"):
 			card.powers.append({"requirements": cardscript.requirements})
