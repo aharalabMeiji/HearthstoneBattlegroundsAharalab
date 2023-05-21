@@ -59,7 +59,7 @@ class BG23_HERO_304_Buddy_Action(GameAction):
 class BG23_HERO_304_Buddy:
 	""" Coilfang Elite
 	After a [Spellcraft] minion appears in Bob's Tavern, get a copy of its spell."""
-	if Config.BG_OPTION>=2602:
+	if Config.BG_VERSION>=2602:
 		option_tags={GameTag.TECH_LEVEL:1, GameTag.ATK:3, GameTag.HEALTH:2}
 	else:
 		option_tags={GameTag.TECH_LEVEL:2, GameTag.ATK:4, GameTag.HEALTH:3}
@@ -216,7 +216,7 @@ class TB_BaconShop_HERO_37:# <12>[1453]
 	""" Lord Jaraxxus """
 	if Config.BG_VERSION>=2604:
 		option_tags={GameTag.ARMOR: 5, }
-	elif Config.BG_OPTION>=2602:
+	elif Config.BG_VERSION>=2602:
 		option_tags={GameTag.ARMOR:7 }
 	else:
 		option_tags={GameTag.ARMOR:10} ## check
@@ -278,7 +278,7 @@ BG_Hero3_Buddy['TB_BaconShop_HERO_62']='TB_BaconShop_HERO_62_Buddy'#
 BG_Hero3_Buddy_Gold['TB_BaconShop_HERO_62_Buddy']='TB_BaconShop_HERO_62_Buddy_G'#
 class TB_BaconShop_HERO_62:# <12>[1453]
 	""" Maiev Shadowsong """
-	if Config.BG_OPTION>=2602:
+	if Config.BG_VERSION>=2602:
 		option_tags={GameTag.ARMOR:10} ## 
 	else:
 		option_tags={GameTag.ARMOR:10} ## check
@@ -400,7 +400,7 @@ BG_Hero3_Buddy['BG20_HERO_202']='BG20_HERO_202_Buddy'#
 BG_Hero3_Buddy_Gold['BG20_HERO_202_Buddy']='BG20_HERO_202_Buddy_G'#
 class BG20_HERO_202:# <12>[1453]
 	""" Master Nguyen """
-	if Config.BG_OPTION>=2602:
+	if Config.BG_VERSION>=2602:
 		option_tags={GameTag.ARMOR:12}
 	else:
 		option_tags={GameTag.ARMOR:10} ## check
@@ -472,7 +472,7 @@ class TB_BaconShop_HERO_49:# <12>[1453]
 	""" Millhouse Manastorm """
 	if Config.BG_VERSION>=2604:
 		option_tags={GameTag.ARMOR:5, }
-	elif Config.BG_OPTION>=2602:
+	elif Config.BG_VERSION>=2602:
 		option_tags={GameTag.ARMOR:6}
 	else:
 		option_tags={GameTag.ARMOR:10} ## check
@@ -531,7 +531,7 @@ BG_Hero3_Buddy['TB_BaconShop_HERO_17']='TB_BaconShop_HERO_17_Buddy'#
 BG_Hero3_Buddy_Gold['TB_BaconShop_HERO_17_Buddy']='TB_BaconShop_HERO_17_Buddy_G'#
 class TB_BaconShop_HERO_17:# <12>[1453]
 	""" Millificent Manastorm """
-	if Config.BG_OPTION>=2602:
+	if Config.BG_VERSION>=2602:
 		option_tags={GameTag.ARMOR:15}
 	else:
 		option_tags={GameTag.ARMOR:15} ## check
@@ -989,7 +989,7 @@ BG_Hero3_Buddy['BG22_HERO_305']='BG22_HERO_305_Buddy'#
 BG_Hero3_Buddy_Gold['BG22_HERO_305_Buddy']='BG22_HERO_305_Buddy_G'#
 class BG22_HERO_305:# <12>[1453]
 	""" Onyxia """
-	if Config.BG_OPTION>=2602:
+	if Config.BG_VERSION>=2602:
 		option_tags={GameTag.ARMOR:14}
 	else:
 		option_tags={GameTag.ARMOR:10} ## check
@@ -1248,7 +1248,7 @@ BG_PoolSet_Hero3 +=['BG25_HERO_100',]#
 class BG25_HERO_100:
 	""" Professor Putricide
 	"""
-	if Config.BG_OPTION>=2602:
+	if Config.BG_VERSION>=2602:
 		option_tags={GameTag.ARMOR:14}
 	else:
 		option_tags={GameTag.ARMOR:10} ## check
@@ -1267,7 +1267,7 @@ class BG25_HERO_100p:
 class BG25_HERO_100_Buddy:######################
 	""" Festergut
 	[Deathrattle:] Summon a random Undead Creation."""
-	if Config.BG_OPTION>=2602:
+	if Config.BG_VERSION>=2602:
 		option_tags={GameTag.TECH_LEVEL:3}
 	else:
 		option_tags={GameTag.TECH_LEVEL:4}
@@ -1276,7 +1276,7 @@ class BG25_HERO_100_Buddy_G:#
 	""" Festergut
 	[x][Deathrattle:] Summon 2 random Undead Creations."""
 	### after 2602, "Ticking Abomination has been removed from the Festergut minion pool. "
-	if Config.BG_OPTION>=2602:
+	if Config.BG_VERSION>=2602:
 		option_tags={GameTag.TECH_LEVEL:3}
 	else:
 		option_tags={GameTag.TECH_LEVEL:4}
@@ -1397,7 +1397,7 @@ class TB_BaconShop_HERO_14:# <12>[1453]
 	""" Queen Wagtoggle """
 	if Config.BG_VERSION>=2604:
 		option_tags={GameTag.ARMOR:16, }
-	elif Config.BG_OPTION>=2602:
+	elif Config.BG_VERSION>=2602:
 		option_tags={GameTag.ARMOR:10}
 	else:
 		option_tags={GameTag.ARMOR:10} ## check

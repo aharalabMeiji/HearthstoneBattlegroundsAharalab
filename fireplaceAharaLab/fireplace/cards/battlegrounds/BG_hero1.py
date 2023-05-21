@@ -157,7 +157,7 @@ BG_Hero1_Buddy['TB_BaconShop_HERO_16']='TB_BaconShop_HERO_16_Buddy'
 BG_Hero1_Buddy_Gold['TB_BaconShop_HERO_16_Buddy']='TB_BaconShop_HERO_16_Buddy_G'
 class TB_BaconShop_HERO_16:# <12>[1453]
 	""" A. F. Kay	 """
-	if Config.BG_OPTION>=2602:
+	if Config.BG_VERSION>=2602:
 		option_tags={GameTag.ARMOR:18}
 	else:
 		option_tags={GameTag.ARMOR:12}
@@ -286,7 +286,7 @@ class TB_BaconShop_HP_064:
 class TB_BaconShop_HERO_56_Buddy:
 	""" Vaelastrasz
 	[Battlecry:] Add a random Dragon of your Tavern Tier to your hand."""
-	if Config.BG_OPTION>=2602:
+	if Config.BG_VERSION>=2602:
 		option_tags={GameTag.TECH_LEVEL:3}
 	else:
 		option_tags={GameTag.TECH_LEVEL:4}
@@ -493,7 +493,7 @@ BG_Hero1_Buddy['BG22_HERO_001']='BG22_HERO_001_Buddy'
 BG_Hero1_Buddy_Gold['BG22_HERO_001_Buddy']='BG22_HERO_001_Buddy_G'
 class BG22_HERO_001:# <12>[1453]
 	""" Bru'kan 	"""
-	if Config.BG_OPTION>=2602:
+	if Config.BG_VERSION>=2602:
 		option_tags={GameTag.ARMOR:12}
 	else:
 		option_tags={GameTag.ARMOR:10} ## check
@@ -802,7 +802,7 @@ class TB_BaconShop_HP_075:
 class TB_BaconShop_HERO_67_Buddy:# <12>[1453]
 	""" Raging Contender
 	'Trash for Treasure' offers 3 options instead of 2. """
-	if Config.BG_OPTION>=2602:
+	if Config.BG_VERSION>=2602:
 		option_tags={GameTag.TECH_LEVEL:5}
 	else:
 		option_tags={GameTag.TECH_LEVEL:4}
@@ -940,7 +940,7 @@ class TB_BaconShop_HERO_78_Buddy_Action(GameAction):
 class TB_BaconShop_HERO_78_Buddy:
 	""" Snow Elemental
 	Bob always offers an extra [Frozen] Elemental whenever the Tavern is [Refreshed]."""
-	if Config.BG_OPTION>=2602:
+	if Config.BG_VERSION>=2602:
 		option_tags={GameTag.TECH_LEVEL:3}
 	else:
 		option_tags={GameTag.TECH_LEVEL:4}

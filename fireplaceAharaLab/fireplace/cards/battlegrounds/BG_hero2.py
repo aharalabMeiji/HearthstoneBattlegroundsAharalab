@@ -17,7 +17,7 @@ BG_Hero2_Buddy_Gold['BG25_HERO_105_Buddy']='BG25_HERO_105_Buddy_G'
 class BG25_HERO_105:
 	"""E.T.C., Band Manager
 	"""
-	if Config.BG_OPTION>=2602:
+	if Config.BG_VERSION>=2602:
 		option_tags={GameTag.ARMOR:10}
 	else:
 		option_tags={GameTag.ARMOR:10} ## check
@@ -44,7 +44,7 @@ class BG25_HERO_105_Buddy_Action(GameAction):###
 class BG25_HERO_105_Buddy:###
 	""" Talent Scout
 	[Battlecry:] Make a Buddy Golden."""
-	if Config.BG_OPTION>=2602:
+	if Config.BG_VERSION>=2602:
 		option_tags={GameTag.TECH_LEVEL:3}
 	else:
 		option_tags={GameTag.TECH_LEVEL:5}
@@ -181,7 +181,7 @@ BG_Hero2_Buddy['BG24_HERO_204']='BG24_HERO_204_Buddy'
 BG_Hero2_Buddy_Gold['BG24_HERO_204_Buddy']='BG24_HERO_204_Buddy_G'
 class BG24_HERO_204:
 	""" Enhance-o Mechano """
-	if Config.BG_OPTION>=2602:
+	if Config.BG_VERSION>=2602:
 		option_tags={GameTag.ARMOR:8}
 	else:
 		option_tags={GameTag.ARMOR:10} ## check
@@ -385,7 +385,7 @@ BG_Hero2_Buddy['BG20_HERO_283']='BG20_HERO_283_Buddy'
 BG_Hero2_Buddy_Gold['BG20_HERO_283_Buddy']='BG20_HERO_283_Buddy_G'
 class BG20_HERO_283:# <12>[1453]
 	""" Galewing """
-	if Config.BG_OPTION>=2602:
+	if Config.BG_VERSION>=2602:
 		option_tags={GameTag.ARMOR:14}
 	else:
 		option_tags={GameTag.ARMOR:10} ## check
@@ -524,7 +524,7 @@ BG_Hero2_Buddy['TB_BaconShop_HERO_15']='TB_BaconShop_HERO_15_Buddy'
 BG_Hero2_Buddy_Gold['TB_BaconShop_HERO_15_Buddy']='TB_BaconShop_HERO_15_Buddy_G'
 class TB_BaconShop_HERO_15:# <12>[1453]
 	""" George the Fallen  """
-	if Config.BG_OPTION>=2602:
+	if Config.BG_VERSION>=2602:
 		option_tags={GameTag.ARMOR:13}
 	else:
 		option_tags={GameTag.ARMOR:10}### check
@@ -727,7 +727,7 @@ class BG23_HERO_305_Buddy_Action(GameAction):
 class BG23_HERO_305_Buddy:
 	""" Waxadred, the Drippy
 	[Battlecry: Refresh] Bob's Tavern with the highest Tier minion from each opponent's warband."""
-	if Config.BG_OPTION>=2602:
+	if Config.BG_VERSION>=2602:
 		option_tags={GameTag.TECH_LEVEL:5}
 	else:
 		option_tags={GameTag.TECH_LEVEL:4}
@@ -735,7 +735,7 @@ class BG23_HERO_305_Buddy:
 class BG23_HERO_305_Buddy_G:
 	""" Waxadred, the Drippy
 	[Battlecry: Refresh] Bob's Tavern with the highest Tier minion from each opponent's warband."""
-	if Config.BG_OPTION>=2602:
+	if Config.BG_VERSION>=2602:
 		option_tags={GameTag.TECH_LEVEL:5}
 	else:
 		option_tags={GameTag.TECH_LEVEL:4}
@@ -754,7 +754,7 @@ class TB_BaconShop_HERO_08:# <12>[1453]
 	""" Illidan Stormrage  """
 	if Config.BG_VERSION>=2604:
 		option_tags={GameTag.ARMOR: 17, }
-	elif Config.BG_OPTION>=2602:
+	elif Config.BG_VERSION>=2602:
 		option_tags={GameTag.ARMOR:14}
 	else:
 		option_tags={GameTag.ARMOR:10} ## check
@@ -868,7 +868,7 @@ class BG22_HERO_200p:
 class BG22_HERO_200_Buddy:
 	""" Sub Scrubber
 	After you play a Mech, gain +2/+2. """
-	if Config.BG_OPTION>=2602:
+	if Config.BG_VERSION>=2602:
 		option_tags={GameTag.TECH_LEVEL:4}
 	else:
 		option_tags={GameTag.TECH_LEVEL:5}
@@ -1127,7 +1127,7 @@ class BG20_HERO_280_Buddy:# <12>[1453]
 	""" Living Nightmare
 	After you buy a minion, minions in Bob's Tavern have +2/+1 this turn."""
 	##After you buy a minion, minions in Bob's Tavern have +1/+1 this turn. 
-	if Config.BG_OPTION>=2602:
+	if Config.BG_VERSION>=2602:
 		option_tags={GameTag.TECH_LEVEL:3, GameTag.ATK:6, GameTag.HEALTH:4}
 	else:
 		option_tags={GameTag.TECH_LEVEL:2, GameTag.ATK:5, GameTag.HEALTH:3}
@@ -1141,7 +1141,7 @@ class BG20_HERO_280_Buddy_G:# <12>[1453]
 	""" Living Nightmare
 	After you buy a minion, minions in Bob's Tavern have +4/+2 this turn. """
 	##After you buy a minion,minions in Bob's Tavernhave +2/+2 this turn.
-	if Config.BG_OPTION>=2602:
+	if Config.BG_VERSION>=2602:
 		option_tags={GameTag.TECH_LEVEL:3, GameTag.ATK:6, GameTag.HEALTH:4}
 	else:
 		option_tags={GameTag.TECH_LEVEL:2, GameTag.ATK:5, GameTag.HEALTH:3}
