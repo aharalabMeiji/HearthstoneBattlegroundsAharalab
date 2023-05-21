@@ -21,6 +21,7 @@ BG_Mechano_Eg_g=True#(4) banned  -> renew 25.0.4
 BG_Mechano_Tank=False#(4) -> banned 25.0.4
 BG_Wargear=True#(4) # after 23.6
 BG_Holy_Mecherel=True#(5)
+BG_Dr_Boombox=True#(5)
 BG_Foe_Reaper_4000=True#(6)
 BG_Omega_Buster=True#(6)
 BG_Grease_Bot=True#(4->6) 23.6, 24.0.3
@@ -336,6 +337,55 @@ class BG20_401_G:# <12>[1453]
 	events = LoseDivineShield(FRIENDLY_MINIONS - SELF).after(SetDivineShield(SELF))
 	pass
 
+
+# Dr. Boombox
+if BG_Dr_Boombox:
+	BG_Minion_Mecha+=['BG25_165', 'BG25_165_G',]
+	BG_PoolSet_Mecha[5].append('BG25_165')
+	BG_Mecha_Gold['BG25_165']='BG25_165_G'
+class BG25_165_Action(GameAction):
+	def do(self, source):
+		if source in source.controller.field:
+			index = 1.0*(source.controller.field.index(source))/(len(source.controller.field))
+			newindex = int(index * len(source.controller.opponent.field))
+			opp_len= len(source.controller.opponent.field)
+			if newindex<opp_len and newindex>0:
+				Hit(source.controller.opponent.field[newindex], 7).trigger(source)
+				Hit(source.controller.opponent.field[newindex-1], 7).trigger(source)
+			elif 1<opp_len and newindex==0:
+				Hit(source.controller.opponent.field[newindex+1], 7).trigger(source)
+				Hit(source.controller.opponent.field[newindex], 7).trigger(source)
+			elif newindex<opp_len:
+				Hit(source.controller.opponent.field[newindex], 7).trigger(source)
+	pass
+class BG25_165:
+	""" Dr. Boombox
+	&lt;b&gt;Deathrattle:&lt;/b&gt; Deal 7 damage to the 2 nearest enemy minions."""
+	if Config.BG_VERSION>=2602:
+		option_tags = {GameTag.TECH_LEVEL:5}
+	else:
+		option_tags = {GameTag.TECH_LEVEL:4}
+	deathrattle = BG25_165_Action()
+class BG25_165_G_Action(GameAction):
+	def do(self, source):
+		if source in source.controller.field:
+			index = 1.0*(source.controller.field.index(source))/(len(source.controller.field))
+			newindex = int(index * len(source.controller.opponent.field))
+			opp_len= len(source.controller.opponent.field)
+			if newindex<opp_len and newindex>0:
+				Hit(source.controller.opponent.field[newindex], 14).trigger(source)
+				Hit(source.controller.opponent.field[newindex-1], 14).trigger(source)
+			elif 1<opp_len and newindex==0:
+				Hit(source.controller.opponent.field[newindex+1], 14).trigger(source)
+				Hit(source.controller.opponent.field[newindex], 14).trigger(source)
+			elif newindex<opp_len:
+				Hit(source.controller.opponent.field[newindex], 14).trigger(source)
+	pass
+class BG25_165_G:
+	""" Dr. Boombox
+	&lt;b&gt;Deathrattle:&lt;/b&gt; Deal 14 damage to the 2 nearest enemy minions."""
+	deathrattle = BG25_165_G_Action()
+	pass
 
 
 #Foe Reaper 4000(6)

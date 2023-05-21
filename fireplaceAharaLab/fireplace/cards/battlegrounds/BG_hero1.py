@@ -282,9 +282,14 @@ class TB_BaconShop_HP_064:
 	[Passive]After you upgrade Bob's Tavern to Tavern Tier 5,_[Discover] two Dragons."""
 	events = UpgradeTier(CONTROLLER).on(TB_BaconShop_HP_064_Action())
 	pass
+###### BUDDY ######
 class TB_BaconShop_HERO_56_Buddy:
 	""" Vaelastrasz
 	[Battlecry:] Add a random Dragon of your Tavern Tier to your hand."""
+	if Config.BG_OPTION>=2602:
+		option_tags={GameTag.TECH_LEVEL:3}
+	else:
+		option_tags={GameTag.TECH_LEVEL:4}
 	play = Give(CONTROLLER, RandomBGDragon(tech_level=TIER(CONTROLLER)))
 class TB_BaconShop_HERO_56_Buddy_G:
 	""" Vaelastrasz
@@ -797,7 +802,12 @@ class TB_BaconShop_HP_075:
 class TB_BaconShop_HERO_67_Buddy:# <12>[1453]
 	""" Raging Contender
 	'Trash for Treasure' offers 3 options instead of 2. """
+	if Config.BG_OPTION>=2602:
+		option_tags={GameTag.TECH_LEVEL:5}
+	else:
+		option_tags={GameTag.TECH_LEVEL:4}
 	pass
+
 class TB_BaconShop_HERO_67_Buddy_G:# <12>[1453]
 	""" Raging Contender
 	'Trash for Treasure' offers 4 options instead of 2. """
@@ -930,6 +940,10 @@ class TB_BaconShop_HERO_78_Buddy_Action(GameAction):
 class TB_BaconShop_HERO_78_Buddy:
 	""" Snow Elemental
 	Bob always offers an extra [Frozen] Elemental whenever the Tavern is [Refreshed]."""
+	if Config.BG_OPTION>=2602:
+		option_tags={GameTag.TECH_LEVEL:3}
+	else:
+		option_tags={GameTag.TECH_LEVEL:4}
 	events = Rerole(CONTROLLER).after(TB_BaconShop_HERO_78_Buddy_Action())
 class TB_BaconShop_HERO_78_Buddy_G:
 	""" Snow Elemental

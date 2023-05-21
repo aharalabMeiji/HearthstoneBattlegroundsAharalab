@@ -580,6 +580,10 @@ class BG21_HERO_030_Buddy:# <12>[1453]
 	[Battlecry:] Copy a friendly minion's [Deathrattles]. """
 	requirements={PlayReq.REQ_TARGET_IF_AVAILABLE:0,  PlayReq.REQ_MINION_TARGET:0, PlayReq.REQ_FRIENDLY_TARGET:0,
 			   PlayReq.REQ_TARGET_WITH_DEATHRATTLE:1}
+	if Config.BG_OPTION>=2602:
+		option_tags={GameTag.TECH_LEVEL:2}
+	else:
+		option_tags={GameTag.TECH_LEVEL:3}
 	play = BG21_HERO_030_Buddy_Action(TARGET, 'BG21_HERO_030_Buddy_e',1) 
 	pass
 class BG21_HERO_030_Buddy_e:# <12>[1453]

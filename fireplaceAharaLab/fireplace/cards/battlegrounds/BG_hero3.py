@@ -59,6 +59,10 @@ class BG23_HERO_304_Buddy_Action(GameAction):
 class BG23_HERO_304_Buddy:
 	""" Coilfang Elite
 	After a [Spellcraft] minion appears in Bob's Tavern, get a copy of its spell."""
+	if Config.BG_OPTION>=2602:
+		option_tags={GameTag.TECH_LEVEL:1, GameTag.ATK:3, GameTag.HEALTH:2}
+	else:
+		option_tags={GameTag.TECH_LEVEL:2, GameTag.ATK:4, GameTag.HEALTH:3}
 	events = Rerole(CONTROLLER).after(BG23_HERO_304_Buddy_Action())
 	pass
 class BG23_HERO_304_Buddy_G_Action(GameAction):
@@ -814,12 +818,20 @@ class BG20_HERO_301_Buddy:
 	"""Nightmare Ectoplasm
 	When you 'Devour' this, spit its stats onto 2 extra_minions."""
 	if Config.BG_VERSION>=2604:
-		tags={ GameTag.ATK:5, GameTag.HEALTH:4,}
+		option_tags={ GameTag.ATK:5, GameTag.HEALTH:4,}
+	if Config.BG_VERSION>=2602:
+		option_tags={ GameTag.ATK:4, GameTag.HEALTH:3,}
 	else:
-		tags={ GameTag.ATK:4, GameTag.HEALTH:3,}
+		option_tags={ GameTag.ATK:5, GameTag.HEALTH:4,}
 class BG20_HERO_301_Buddy_G:
 	"""Nightmare Ectoplasm
 	When you 'Devour' this, spit its stats onto 4 extra_minions."""
+	if Config.BG_VERSION>=2604:
+		option_tags={ GameTag.ATK:5, GameTag.HEALTH:4,}
+	if Config.BG_VERSION>=2602:
+		option_tags={ GameTag.ATK:4, GameTag.HEALTH:3,}
+	else:
+		option_tags={ GameTag.ATK:5, GameTag.HEALTH:4,}
 
 
 
@@ -1241,7 +1253,7 @@ class BG25_HERO_100:
 	else:
 		option_tags={GameTag.ARMOR:10} ## check
 	pass
-class BG25_HERO_100p_Action(GameAction):
+class BG25_HERO_100p_Action(GameAction):####################################
 	def do(self, source):
 
 		pass
@@ -1252,12 +1264,22 @@ class BG25_HERO_100p:
 	## <Tag enumID="48" name="COST" type="Int" value="4"/>
 	activate = BG25_HERO_100p_Action()
 #### BUDDY ####
-class BG25_HERO_100_Buddy:
+class BG25_HERO_100_Buddy:######################
 	""" Festergut
 	[Deathrattle:] Summon a random Undead Creation."""
-class BG25_HERO_100_Buddy_G:
+	if Config.BG_OPTION>=2602:
+		option_tags={GameTag.TECH_LEVEL:3}
+	else:
+		option_tags={GameTag.TECH_LEVEL:4}
+	### after 2602, "Ticking Abomination has been removed from the Festergut minion pool. "
+class BG25_HERO_100_Buddy_G:#
 	""" Festergut
 	[x][Deathrattle:] Summon 2 random Undead Creations."""
+	### after 2602, "Ticking Abomination has been removed from the Festergut minion pool. "
+	if Config.BG_OPTION>=2602:
+		option_tags={GameTag.TECH_LEVEL:3}
+	else:
+		option_tags={GameTag.TECH_LEVEL:4}
 class BG25_HERO_100pt:
 	""" Putricide's Creation
 	"""

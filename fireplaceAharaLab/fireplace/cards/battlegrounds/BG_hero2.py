@@ -44,6 +44,10 @@ class BG25_HERO_105_Buddy_Action(GameAction):###
 class BG25_HERO_105_Buddy:###
 	""" Talent Scout
 	[Battlecry:] Make a Buddy Golden."""
+	if Config.BG_OPTION>=2602:
+		option_tags={GameTag.TECH_LEVEL:3}
+	else:
+		option_tags={GameTag.TECH_LEVEL:5}
 	play = BG25_HERO_105_Buddy_Action()
 class BG25_HERO_105_Buddy_G:###
 	""" Talent Scout
@@ -723,10 +727,18 @@ class BG23_HERO_305_Buddy_Action(GameAction):
 class BG23_HERO_305_Buddy:
 	""" Waxadred, the Drippy
 	[Battlecry: Refresh] Bob's Tavern with the highest Tier minion from each opponent's warband."""
+	if Config.BG_OPTION>=2602:
+		option_tags={GameTag.TECH_LEVEL:5}
+	else:
+		option_tags={GameTag.TECH_LEVEL:4}
 	play = BG23_HERO_305_Buddy_Action()
 class BG23_HERO_305_Buddy_G:
 	""" Waxadred, the Drippy
 	[Battlecry: Refresh] Bob's Tavern with the highest Tier minion from each opponent's warband."""
+	if Config.BG_OPTION>=2602:
+		option_tags={GameTag.TECH_LEVEL:5}
+	else:
+		option_tags={GameTag.TECH_LEVEL:4}
 	play = BG23_HERO_305_Buddy_Action()
 
 
@@ -856,6 +868,10 @@ class BG22_HERO_200p:
 class BG22_HERO_200_Buddy:
 	""" Sub Scrubber
 	After you play a Mech, gain +2/+2. """
+	if Config.BG_OPTION>=2602:
+		option_tags={GameTag.TECH_LEVEL:4}
+	else:
+		option_tags={GameTag.TECH_LEVEL:5}
 	events = BG_Play(FRIENDLY + MINION + MECH).after(Buff(SELF, "BG22_HERO_200_Buddy_e"))
 BG22_HERO_200_Buddy_e=buff(2,2)
 class BG22_HERO_200_Buddy_G:
@@ -1107,13 +1123,14 @@ class BG20_HERO_280p3:# <14>[1453]
 BG20_HERO_280p3e2=buff(2,2)# <12>[1453]
 """ Portal Closure,	+2/+2 """
 ######## BUDDY
-class BG20_HERO_280_Buddy_Action(GameAction):
-	def do(self, source):
-		Buff()
 class BG20_HERO_280_Buddy:# <12>[1453]
 	""" Living Nightmare
 	After you buy a minion, minions in Bob's Tavern have +2/+1 this turn."""
 	##After you buy a minion, minions in Bob's Tavern have +1/+1 this turn. 
+	if Config.BG_OPTION>=2602:
+		option_tags={GameTag.TECH_LEVEL:3, GameTag.ATK:6, GameTag.HEALTH:4}
+	else:
+		option_tags={GameTag.TECH_LEVEL:2, GameTag.ATK:5, GameTag.HEALTH:3}
 	events = [
 		Buy(CONTROLLER).after(Buff(ENEMY_MINIONS, 'BG20_HERO_280_Buddye')),
 		OWN_TURN_END.on(RemoveBuff(ENEMY_MINIONS, 'BG20_HERO_280_Buddye'))
@@ -1124,6 +1141,10 @@ class BG20_HERO_280_Buddy_G:# <12>[1453]
 	""" Living Nightmare
 	After you buy a minion, minions in Bob's Tavern have +4/+2 this turn. """
 	##After you buy a minion,minions in Bob's Tavernhave +2/+2 this turn.
+	if Config.BG_OPTION>=2602:
+		option_tags={GameTag.TECH_LEVEL:3, GameTag.ATK:6, GameTag.HEALTH:4}
+	else:
+		option_tags={GameTag.TECH_LEVEL:2, GameTag.ATK:5, GameTag.HEALTH:3}
 	events = [
 		Buy(CONTROLLER).after(Buff(ENEMY_MINIONS, 'BG20_HERO_280_Buddye2')),
 		OWN_TURN_END.on(RemoveBuff(ENEMY_MINIONS, 'BG20_HERO_280_Buddye2'))
