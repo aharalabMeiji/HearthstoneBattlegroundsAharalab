@@ -97,9 +97,11 @@ class BG22_HERO_000:# <12>[1453]
 	""" Tavish Stormpike """
 	pass
 	if Config.BG_VERSION>=2604:
-		tags={GameTag.ARMOR: 12, }
+		option_tags={GameTag.ARMOR: 12, }
+	elif Config.BG_OPTION>=2602:
+		option_tags={GameTag.ARMOR:10}
 	else:
-		tags={GameTag.ARMOR: 12, }### check
+		option_tags={GameTag.ARMOR:10} ## check
 	pass
 class BG22_HERO_000p:# <12>[1453]
 	""" Deadeye
@@ -486,6 +488,10 @@ BG_Hero5_Buddy['TB_BaconShop_HERO_702']='TB_BaconShop_HERO_702_Buddy'
 BG_Hero5_Buddy_Gold['TB_BaconShop_HERO_22_Buddy']='TB_BaconShop_HERO_22_Buddy_G'
 class TB_BaconShop_HERO_702:
 	""" The Jailer """
+	if Config.BG_OPTION>=2602:
+		option_tags={GameTag.ARMOR:15}
+	else:
+		option_tags={GameTag.ARMOR:10} ## check
 class TB_BaconShop_HP_702_Action1(TargetedAction):
 	TARGET=ActionArg()
 	def do(self, source, target):
@@ -599,6 +605,10 @@ BG_Hero5_Buddy['TB_BaconShop_HERO_12']='TB_BaconShop_HERO_12_Buddy'
 BG_Hero5_Buddy_Gold['TB_BaconShop_HERO_12_Buddy']='TB_BaconShop_HERO_12_Buddy_G'
 class TB_BaconShop_HERO_12:# <12>[1453]
 	""" The Rat King """
+	if Config.BG_OPTION>=2602:
+		option_tags={GameTag.ARMOR:9}
+	else:
+		option_tags={GameTag.ARMOR:10} ## check
 	pass
 class TB_BaconShop_HP_041_Action(GameAction):
 	def do(self, source):
@@ -1490,9 +1500,11 @@ BG_Hero5_Buddy_Gold['TB_BaconShop_HERO_91_Buddy']='TB_BaconShop_HERO_91_Buddy_G'
 class TB_BaconShop_HERO_91:# <12>[1453]
 	""" Zephrys, the Great """
 	if Config.BG_VERSION>=2604:
-		tags={GameTag.ARMOR: 18, }
+		option_tags={GameTag.ARMOR:18, }
+	if Config.BG_OPTION>=2602:
+		option_tags={GameTag.ARMOR:10}
 	else:
-		tags={GameTag.ARMOR: 15, }### check
+		option_tags={GameTag.ARMOR:10} ## check
 	pass
 class TB_BaconShop_HP_102_Action(GameAction):
 	def do(self, source):

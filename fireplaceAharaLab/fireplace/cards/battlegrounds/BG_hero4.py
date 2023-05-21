@@ -88,6 +88,10 @@ BG_Hero4_Buddy['TB_BaconShop_HERO_75']='TB_BaconShop_HERO_75_Buddy'
 BG_Hero4_Buddy_Gold['TB_BaconShop_HERO_75_Buddy']='TB_BaconShop_HERO_75_Buddy_G'
 class TB_BaconShop_HERO_75:# <12>[1453]
 	""" Rakanishu """
+	if Config.BG_OPTION>=2602:
+		option_tags={GameTag.ARMOR:18}
+	else:
+		option_tags={GameTag.ARMOR:10} ## check
 	pass
 class TB_BaconShop_HERO_75_Action(TargetedAction):
 	TARGET = ActionArg()
@@ -203,6 +207,10 @@ BG_Hero4_Buddy['BG21_HERO_010']='BG21_HERO_010_Buddy'
 BG_Hero4_Buddy_Gold['BG21_HERO_010_Buddy']='BG21_HERO_010_Buddy_G'
 class BG21_HERO_010:# <7>[1453]
 	""" Scabbs Cutterbutter	 """
+	if Config.BG_OPTION>=2602:
+		option_tags={GameTag.ARMOR:10}
+	else:
+		option_tags={GameTag.ARMOR:10} ## check
 	pass
 class BG21_HERO_010p_Action(Choice):
 	def get_args(self, source):
@@ -311,9 +319,11 @@ BG_Hero4_Buddy_Gold['TB_BaconShop_HERO_90_Buddy']='TB_BaconShop_HERO_90_Buddy_G'
 class TB_BaconShop_HERO_90:# <12>[1453]
 	""" Silas Darkmoon """
 	if Config.BG_VERSION>=2604:
-		tags={GameTag.ARMOR: 12, }
+		option_tags={GameTag.ARMOR:12, }
+	elif Config.BG_OPTION>=2602:
+		option_tags={GameTag.ARMOR:10}
 	else:
-		tags={GameTag.ARMOR: 9, }### check
+		option_tags={GameTag.ARMOR:10} ## check
 	pass
 class TB_BaconShop_HP_101_Action(TargetedAction):
 	TARGET = ActionArg()
@@ -398,6 +408,10 @@ BG_Hero4_Buddy['TB_BaconShop_HERO_40']='TB_BaconShop_HERO_40_Buddy'
 BG_Hero4_Buddy_Gold['TB_BaconShop_HERO_40_Buddy']='TB_BaconShop_HERO_40_Buddy_G'
 class TB_BaconShop_HERO_40:# <12>[1453]
 	""" Sir Finley Mrrgglton """
+	if Config.BG_OPTION>=2602:
+		option_tags={GameTag.ARMOR:10}
+	else:
+		option_tags={GameTag.ARMOR:10} ## check
 	pass
 class TB_BaconShop_HP_057:
 	"""  
@@ -482,6 +496,10 @@ BG_Hero4_Buddy['TB_BaconShop_HERO_68']='TB_BaconShop_HERO_68_Buddy'
 BG_Hero4_Buddy_Gold['TB_BaconShop_HERO_68_Buddy']='TB_BaconShop_HERO_68_Buddy_G'
 class TB_BaconShop_HERO_68:# <12>[1453]
 	""" Skycap'n Kragg """
+	if Config.BG_OPTION>=2602:
+		option_tags={GameTag.ARMOR:11}
+	else:
+		option_tags={GameTag.ARMOR:10} ## check
 	pass
 class TB_BaconShop_HP_076_Action(GameAction):
 	def do(self, source):
@@ -526,6 +544,10 @@ BG_Hero4_Buddy['BG21_HERO_030']='BG21_HERO_030_Buddy'
 BG_Hero4_Buddy_Gold['BG21_HERO_030_Buddy']='BG21_HERO_030_Buddy_G'
 class BG21_HERO_030:# <10>[1453]
 	""" Sneed """
+	if Config.BG_OPTION>=2602:
+		option_tags={GameTag.ARMOR:12}
+	else:
+		option_tags={GameTag.ARMOR:10} ## check
 	pass
 class BG21_HERO_030p:# <12>[1453]
 	""" Sneed's Replicator 24.0

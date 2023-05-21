@@ -17,6 +17,10 @@ BG_Hero2_Buddy_Gold['BG25_HERO_105_Buddy']='BG25_HERO_105_Buddy_G'
 class BG25_HERO_105:
 	"""E.T.C., Band Manager
 	"""
+	if Config.BG_OPTION>=2602:
+		option_tags={GameTag.ARMOR:10}
+	else:
+		option_tags={GameTag.ARMOR:10} ## check
 class BG25_HERO_105p_Action(GameAction):##
 	def do(self, source):
 		gamemaster = source.controller.game.parent
@@ -173,6 +177,10 @@ BG_Hero2_Buddy['BG24_HERO_204']='BG24_HERO_204_Buddy'
 BG_Hero2_Buddy_Gold['BG24_HERO_204_Buddy']='BG24_HERO_204_Buddy_G'
 class BG24_HERO_204:
 	""" Enhance-o Mechano """
+	if Config.BG_OPTION>=2602:
+		option_tags={GameTag.ARMOR:8}
+	else:
+		option_tags={GameTag.ARMOR:10} ## check
 class BG24_HERO_204p_Action(GameAction):
 	def do(self, source):
 		controller=source.controller
@@ -373,6 +381,10 @@ BG_Hero2_Buddy['BG20_HERO_283']='BG20_HERO_283_Buddy'
 BG_Hero2_Buddy_Gold['BG20_HERO_283_Buddy']='BG20_HERO_283_Buddy_G'
 class BG20_HERO_283:# <12>[1453]
 	""" Galewing """
+	if Config.BG_OPTION>=2602:
+		option_tags={GameTag.ARMOR:14}
+	else:
+		option_tags={GameTag.ARMOR:10} ## check
 class BG20_HERO_283p_Choice(Choice):
 	def choose(self, card):
 		self.next_choice=None
@@ -508,6 +520,10 @@ BG_Hero2_Buddy['TB_BaconShop_HERO_15']='TB_BaconShop_HERO_15_Buddy'
 BG_Hero2_Buddy_Gold['TB_BaconShop_HERO_15_Buddy']='TB_BaconShop_HERO_15_Buddy_G'
 class TB_BaconShop_HERO_15:# <12>[1453]
 	""" George the Fallen  """
+	if Config.BG_OPTION>=2602:
+		option_tags={GameTag.ARMOR:13}
+	else:
+		option_tags={GameTag.ARMOR:10}### check
 class TB_BaconShop_HP_010:
 	""" Boon of Light
 	Give a minion [Divine Shield]."""
@@ -725,9 +741,11 @@ BG_Hero2_Buddy_Gold['TB_BaconShop_HERO_08_Buddy']='TB_BaconShop_HERO_08_Buddy_G'
 class TB_BaconShop_HERO_08:# <12>[1453]
 	""" Illidan Stormrage  """
 	if Config.BG_VERSION>=2604:
-		tags={GameTag.ARMOR: 17, }
+		option_tags={GameTag.ARMOR: 17, }
+	elif Config.BG_OPTION>=2602:
+		option_tags={GameTag.ARMOR:14}
 	else:
-		tags={GameTag.ARMOR: 14, }### check
+		option_tags={GameTag.ARMOR:10} ## check
 	pass
 class TB_BaconShop_HP_069_Action(GameAction):
 	def do(self, source):
@@ -827,9 +845,9 @@ class BG22_HERO_200:
 	""" Ini Stormcoil
 	"""
 	if Config.BG_VERSION>=2604:
-		tags={GameTag.ARMOR: 5, }
+		option_tags={GameTag.ARMOR: 5}
 	else:
-		tags={GameTag.ARMOR: 7, }
+		option_tags={GameTag.ARMOR:10} ## check
 class BG22_HERO_200p:
 	""" MechGyver
 	[x][Passive] After 12 friendly minions die, get a random Mech.@[x][Passive] After 12 friendly minions die, get a random Mech. &lt;i&gt;({0} left.)&lt;/i&gt;"""

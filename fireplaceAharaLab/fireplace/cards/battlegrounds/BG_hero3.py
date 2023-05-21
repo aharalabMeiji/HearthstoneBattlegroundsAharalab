@@ -211,9 +211,11 @@ BG_Hero3_Buddy_Gold['TB_BaconShop_HERO_37_Buddy']='TB_BaconShop_HERO_37_Buddy_G'
 class TB_BaconShop_HERO_37:# <12>[1453]
 	""" Lord Jaraxxus """
 	if Config.BG_VERSION>=2604:
-		tags={GameTag.ARMOR: 5, }
+		option_tags={GameTag.ARMOR: 5, }
+	elif Config.BG_OPTION>=2602:
+		option_tags={GameTag.ARMOR:7 }
 	else:
-		tags={GameTag.ARMOR: 7, }
+		option_tags={GameTag.ARMOR:10} ## check
 class TB_BaconShop_HP_036_Action(TargetedAction):
 	TARGET=ActionArg()
 	def do(self, source, target):
@@ -272,6 +274,10 @@ BG_Hero3_Buddy['TB_BaconShop_HERO_62']='TB_BaconShop_HERO_62_Buddy'#
 BG_Hero3_Buddy_Gold['TB_BaconShop_HERO_62_Buddy']='TB_BaconShop_HERO_62_Buddy_G'#
 class TB_BaconShop_HERO_62:# <12>[1453]
 	""" Maiev Shadowsong """
+	if Config.BG_OPTION>=2602:
+		option_tags={GameTag.ARMOR:10} ## 
+	else:
+		option_tags={GameTag.ARMOR:10} ## check
 class TB_BaconShop_HP_068:
 	""" Imprison
 	Make a minion in Bob's Tavern [Dormant]. After 3 __turns, get it with +2/+2 """
@@ -390,6 +396,10 @@ BG_Hero3_Buddy['BG20_HERO_202']='BG20_HERO_202_Buddy'#
 BG_Hero3_Buddy_Gold['BG20_HERO_202_Buddy']='BG20_HERO_202_Buddy_G'#
 class BG20_HERO_202:# <12>[1453]
 	""" Master Nguyen """
+	if Config.BG_OPTION>=2602:
+		option_tags={GameTag.ARMOR:12}
+	else:
+		option_tags={GameTag.ARMOR:10} ## check
 class BG20_HERO_202p_Choice(Choice):
 	def choose(self, card):
 		self.next_choice=None
@@ -457,9 +467,11 @@ BG_Hero3_Buddy_Gold['TB_BaconShop_HERO_49_Buddy']='TB_BaconShop_HERO_49_Buddy_G'
 class TB_BaconShop_HERO_49:# <12>[1453]
 	""" Millhouse Manastorm """
 	if Config.BG_VERSION>=2604:
-		tags={GameTag.ARMOR: 5, }
+		option_tags={GameTag.ARMOR:5, }
+	elif Config.BG_OPTION>=2602:
+		option_tags={GameTag.ARMOR:6}
 	else:
-		tags={GameTag.ARMOR: 7, }
+		option_tags={GameTag.ARMOR:10} ## check
 	pass
 class TB_BaconShop_HP_054:
 	""" Manastorm
@@ -515,6 +527,11 @@ BG_Hero3_Buddy['TB_BaconShop_HERO_17']='TB_BaconShop_HERO_17_Buddy'#
 BG_Hero3_Buddy_Gold['TB_BaconShop_HERO_17_Buddy']='TB_BaconShop_HERO_17_Buddy_G'#
 class TB_BaconShop_HERO_17:# <12>[1453]
 	""" Millificent Manastorm """
+	if Config.BG_OPTION>=2602:
+		option_tags={GameTag.ARMOR:15}
+	else:
+		option_tags={GameTag.ARMOR:15} ## check
+
 	pass
 class TB_BaconShop_HP_015_Action(GameAction):### old
 	def do(self, source):
@@ -960,6 +977,10 @@ BG_Hero3_Buddy['BG22_HERO_305']='BG22_HERO_305_Buddy'#
 BG_Hero3_Buddy_Gold['BG22_HERO_305_Buddy']='BG22_HERO_305_Buddy_G'#
 class BG22_HERO_305:# <12>[1453]
 	""" Onyxia """
+	if Config.BG_OPTION>=2602:
+		option_tags={GameTag.ARMOR:14}
+	else:
+		option_tags={GameTag.ARMOR:10} ## check
 class BG22_HERO_305p_Action(GameAction):
 	def do(self, source):
 		controller=source.controller
@@ -1134,9 +1155,9 @@ BG_Hero3_Buddy_Gold['TB_BaconShop_HERO_18_Buddy']='TB_BaconShop_HERO_18_Buddy_G'
 class TB_BaconShop_HERO_18:# <12>[1453]
 	""" Patches the Pirate """
 	if Config.BG_VERSION>=2604:
-		tags={GameTag.ARMOR: 5, }
+		option_tags={GameTag.ARMOR: 5, }
 	else:
-		tags={GameTag.ARMOR: 7, }
+		option_tags={GameTag.ARMOR: 7, } ## check
 class TB_BaconShop_HP_072_Action(GameAction):
 	def do(self, source):
 		controller=source.controller
@@ -1210,14 +1231,27 @@ class TB_BaconShop_HERO_34_Buddy_G:# <12>[1453]
 ##Professor Putricide BG25_HERO_100
 BG_Hero3 += ['BG25_HERO_100','BG25_HERO_100p','BG25_HERO_100_Buddy','BG25_HERO_100_Buddy_G','BG25_HERO_100pt',]# 
 BG_PoolSet_Hero3 +=['BG25_HERO_100',]#
-BG_Hero3_Buddy['BG25_HERO_100']='BG25_HERO_100_Buddy'#
-BG_Hero3_Buddy_Gold['BG25_HERO_100_Buddy']='BG25_HERO_100_Buddy_G'#
+#BG_Hero3_Buddy['BG25_HERO_100']='BG25_HERO_100_Buddy'#
+#BG_Hero3_Buddy_Gold['BG25_HERO_100_Buddy']='BG25_HERO_100_Buddy_G'#
 class BG25_HERO_100:
 	""" Professor Putricide
 	"""
+	if Config.BG_OPTION>=2602:
+		option_tags={GameTag.ARMOR:14}
+	else:
+		option_tags={GameTag.ARMOR:10} ## check
+	pass
+class BG25_HERO_100p_Action(GameAction):
+	def do(self, source):
+
+		pass
 class BG25_HERO_100p:
 	""" Build-An-Undead
 	[x]Craft a custom Undead. &lt;i&gt;(@ Creations left!)&lt;/i&gt;"""
+	## <Tag enumID="2" name="TAG_SCRIPT_DATA_NUM_1" type="Int" value="3"/>
+	## <Tag enumID="48" name="COST" type="Int" value="4"/>
+	activate = BG25_HERO_100p_Action()
+#### BUDDY ####
 class BG25_HERO_100_Buddy:
 	""" Festergut
 	[Deathrattle:] Summon a random Undead Creation."""
@@ -1340,9 +1374,11 @@ BG_Hero3_Buddy_Gold['TB_BaconShop_HERO_14_Buddy']='TB_BaconShop_HERO_14_Buddy_G'
 class TB_BaconShop_HERO_14:# <12>[1453]
 	""" Queen Wagtoggle """
 	if Config.BG_VERSION>=2604:
-		tags={GameTag.ARMOR: 16, }
+		option_tags={GameTag.ARMOR:16, }
+	elif Config.BG_OPTION>=2602:
+		option_tags={GameTag.ARMOR:10}
 	else:
-		tags={GameTag.ARMOR: 12, }### check
+		option_tags={GameTag.ARMOR:10} ## check
 	pass
 class TB_BaconShop_HP_037a_Action(GameAction):
 	def do(self, source):

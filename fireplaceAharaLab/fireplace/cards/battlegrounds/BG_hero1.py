@@ -157,6 +157,10 @@ BG_Hero1_Buddy['TB_BaconShop_HERO_16']='TB_BaconShop_HERO_16_Buddy'
 BG_Hero1_Buddy_Gold['TB_BaconShop_HERO_16_Buddy']='TB_BaconShop_HERO_16_Buddy_G'
 class TB_BaconShop_HERO_16:# <12>[1453]
 	""" A. F. Kay	 """
+	if Config.BG_OPTION>=2602:
+		option_tags={GameTag.ARMOR:18}
+	else:
+		option_tags={GameTag.ARMOR:12}
 	pass
 class TB_BaconShop_HP_044_Action(GameAction):
 	def do(self, source):
@@ -484,6 +488,10 @@ BG_Hero1_Buddy['BG22_HERO_001']='BG22_HERO_001_Buddy'
 BG_Hero1_Buddy_Gold['BG22_HERO_001_Buddy']='BG22_HERO_001_Buddy_G'
 class BG22_HERO_001:# <12>[1453]
 	""" Bru'kan 	"""
+	if Config.BG_OPTION>=2602:
+		option_tags={GameTag.ARMOR:12}
+	else:
+		option_tags={GameTag.ARMOR:10} ## check
 class BG22_HERO_001p_Choice(Choice):
 	def do(self, source, target, cards, option=None):
 		super().do(source, target, cards, option)
