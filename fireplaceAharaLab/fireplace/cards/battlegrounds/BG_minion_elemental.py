@@ -199,8 +199,12 @@ class BGS_122:# <12>[1453] ###
 		bartender = self.controller.opponent
 		tier = self.controller.tavern_tier
 		elementals = []
-		for gr in range(1, tier+1):
-			elementals += BG_PoolSet_Elemental[gr]
+		for cardID in cards.battlegrounds.BG_minion_elemental.BG_PoolSet_Elemental:
+			cardxml = cards.db.get(cardID)
+			if cardxml!=None:
+				cardtier = cardxml.tags.get(GameTag.TECH_LEVEL)
+				if 1<=cardtier and cardtier<=tier:
+					elementals.append(cardID) 
 		if 'BGS_122' in elementals:
 			elementals.remove('BGS_122')
 		if len(elementals)>0:
@@ -217,8 +221,12 @@ class TB_BaconUps_161:# <12>[1453]
 		bartender = self.controller.opponent
 		tier = self.controller.tavern_tier
 		elementals = []
-		for gr in range(1, tier):
-			elementals += BG_PoolSet_Elemental[gr]
+		for cardID in cards.battlegrounds.BG_minion_elemental.BG_PoolSet_Elemental:
+			cardxml = cards.db.get(cardID)
+			if cardxml!=None:
+				cardtier = cardxml.tags.get(GameTag.TECH_LEVEL)
+				if 1<=cardtier and cardtier<=tier:
+					elementals.append(cardID) 
 		if 'BGS_122' in elementals:
 			elementals.remove('BGS_122')
 		if len(elementals)>0:		
@@ -364,13 +372,17 @@ class BGS_123:# <12>[1453] 逆巻き風
 	def play(self):
 		controller = self.controller
 		tier = self.controller.tavern_tier
-		elemental = []
-		for gr in range(tier):
-			elemental += BG_PoolSet_Elemental[gr-1]
-		if 'BGS_123' in elemental:
-			elemental.remove('BGS_123')
-		if len(elemental):
-			newcard_id = random.choice(elemental)
+		elementals = []
+		for cardID in cards.battlegrounds.BG_minion_elemental.BG_PoolSet_Elemental:
+			cardxml = cards.db.get(cardID)
+			if cardxml!=None:
+				cardtier = cardxml.tags.get(GameTag.TECH_LEVEL)
+				if 1<=cardtier and cardtier<=tier:
+					elementals.append(cardID) 
+		if 'BGS_123' in elementals:
+			elementals.remove('BGS_123')
+		if len(elementals):
+			newcard_id = random.choice(elementals)
 			Give(controller,newcard_id).trigger(self)
 	pass
 class TB_BaconUps_162:# <12>[1453]
@@ -379,15 +391,19 @@ class TB_BaconUps_162:# <12>[1453]
 	def play(self):
 		controller = self.controller
 		tier = self.controller.tavern_tier
-		elemental = []
-		for gr in range(tier):
-			elemental += BG_PoolSet_Elemental[gr-1]
-		if 'BGS_123' in elemental:
-			elemental.remove('BGS_123')
-		if len(elemental):
-			newcard_id = random.choice(elemental)
+		elementals = []
+		for cardID in cards.battlegrounds.BG_minion_elemental.BG_PoolSet_Elemental:
+			cardxml = cards.db.get(cardID)
+			if cardxml!=None:
+				cardtier = cardxml.tags.get(GameTag.TECH_LEVEL)
+				if 1<=cardtier and cardtier<=tier:
+					elementals.append(cardID) 
+		if 'BGS_123' in elementals:
+			elementals.remove('BGS_123')
+		if len(elementals):
+			newcard_id = random.choice(elementals)
 			Give(controller,newcard_id).trigger(self)
-			newcard_id = random.choice(elemental)
+			newcard_id = random.choice(elementals)
 			Give(controller,newcard_id).trigger(self)
 	pass
 
@@ -471,14 +487,18 @@ class BGS_121_Action(TargetedAction):
 	def do(self, source, target, amount):
 		controller = target
 		tier = controller.tavern_tier
-		elemental = []
-		for gr in range(1,tier+1):
-			elemental += BG_PoolSet_Elemental[gr]
-		if 'BGS_121' in elemental:
-			elemental.remove('BGS_121')
-		if len(elemental):
+		elementals = []
+		for cardID in cards.battlegrounds.BG_minion_elemental.BG_PoolSet_Elemental:
+			cardxml = cards.db.get(cardID)
+			if cardxml!=None:
+				cardtier = cardxml.tags.get(GameTag.TECH_LEVEL)
+				if 1<=cardtier and cardtier<=tier:
+					elementals.append(cardID) 
+		if 'BGS_121' in elementals:
+			elementals.remove('BGS_121')
+		if len(elementals):
 			for repeat in range(amount):
-				newcard_id = random.choice(elemental)
+				newcard_id = random.choice(elementals)
 				Summon(controller,newcard_id).trigger(source)
 				if controller.deepcopy_original!=None:
 					Give(controller.deepcopy_original, newcard_id).trigger(source)
