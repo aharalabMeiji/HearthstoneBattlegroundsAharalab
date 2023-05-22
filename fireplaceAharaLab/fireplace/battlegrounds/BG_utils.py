@@ -75,6 +75,13 @@ class BG_main:
 			random_picker.BG_races.append(Race.QUILBOAR)
 		if 'undead' in self.BG_races:## new 25.2.2
 			random_picker.BG_races.append(Race.UNDEAD)## new 25.2.2
+		for k,v in cards.db.items():
+			print("%s %s %s"%(v, v.id, v.tags.get(GameTag.CARDTYPE)==CardType.MINION))
+			if v.tags.get(GameTag.CARDTYPE)==CardType.MINION:
+				if v.tags.get(GameTag.CARDRACE,-1)==Race.INVALID:
+					tier=v.tags.get(GameTag.TECH_LEVEL)
+					if 1<=tier and tier<=6:
+						self.BG_Ddecks[tier].append(k)
 		for i in range(6):
 			if i<5:
 				rep=8
