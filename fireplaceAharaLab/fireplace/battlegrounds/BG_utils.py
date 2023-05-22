@@ -76,15 +76,20 @@ class BG_main:
 		if 'undead' in self.BG_races:## new 25.2.2
 			random_picker.BG_races.append(Race.UNDEAD)## new 25.2.2
 		for k,v in cards.db.items():
-			print("%s %s %s %s"%(v, v.id, v.tags.get(GameTag.CARDTYPE)==CardType.MINION, v.tags.get(GameTag.CARDRACE,-1)))
+			#print("%s %s %s %s"%(v, v.id, v.tags.get(GameTag.CARDTYPE)==CardType.MINION, v.tags.get(GameTag.CARDRACE,-1)))
 			if v.tags.get(GameTag.CARDTYPE)==CardType.MINION:
+				pool_on=False
 				if k in cards.battlegrounds.BG_minion.BG_PoolSet_Minion:
+					pool_on=False
+				elif 'beast' in races and k in cards.battlegrounds.BG_minion_beast.BG_PoolSet_Beast:
+					pool_on=True
+				if pool_on:
 					tier=v.tags.get(GameTag.TECH_LEVEL)
 					if 1<=tier and tier<=6:
 						if tier<5:
-							rep=8
+							rep=1
 						else:
-							rep=4
+							rep=1
 						for repeat in range(rep):
 							self.BG_decks[tier].append(k)
 		for i in range(6):
@@ -93,8 +98,6 @@ class BG_main:
 			else:
 				rep=4
 			for repeat in range(rep):	
-				if 'beast' in races:
-					self.BG_decks[i+1] += cards.battlegrounds.BG_minion_beast.BG_PoolSet_Beast[i+1]
 				if 'demon' in races:
 					self.BG_decks[i+1] += cards.battlegrounds.BG_minion_demon.BG_PoolSet_Demon[i+1]
 				if 'dragon' in races:

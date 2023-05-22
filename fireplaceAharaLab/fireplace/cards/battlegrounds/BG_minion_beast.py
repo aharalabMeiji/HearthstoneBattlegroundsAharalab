@@ -13,7 +13,7 @@ BG_Rat_Pack=True#3/2/2
 
 BG_Cave_Hydra=True#4/2/4
 BG_Reanimating_Rattler=True#4/5/3
-BG_Savannah_Highmane=False#4/6/5 banned 25.6
+BG_Savannah_Highmane=(Config.BG_VERSION<2560) #4/6/5 banned 25.6
 BG_Sly_Raptor=True#4/1/3
 
 BG_Agamaggan_the_Great_Boar=True#5/6/6
@@ -30,7 +30,7 @@ BG_Maexxna=False## banned 23.2
 
 
 BG_Minion_Beast = []
-BG_PoolSet_Beast=[ [],[],[],[],[],[],[]]
+BG_PoolSet_Beast = []
 BG_Beast_Gold={}
 
 BG_Beast_Gold['TB_BaconShop_HP_105t']='TB_BaconUps_307'
@@ -39,7 +39,7 @@ BG_Beast_Gold['TB_BaconShop_HP_105t']='TB_BaconUps_307'
 ##Alleycat <beast> (1/1) ###  OK ###
 if BG_Alleycat:
 	BG_Minion_Beast += ['BG_CFM_315','BG_CFM_315t','TB_BaconUps_093','TB_BaconUps_093t',]#Alleycat
-	BG_PoolSet_Beast[1].append('BG_CFM_315')
+	BG_PoolSet_Beast.append('BG_CFM_315')
 	BG_Beast_Gold['BG_CFM_315']='TB_BaconUps_093'
 class BG_CFM_315:# <3>[25]   
 	""" Alleycat <beast> (1/1)
@@ -62,7 +62,7 @@ class TB_BaconUps_093t:#
 ### Scavenging Hyena (1/2/2)  ### OK ### 
 if BG_Scavenging_Hyena:
 	BG_Minion_Beast += ['BG_EX1_531','EX1_531e','TB_BaconUps_043','TB_BaconUps_043e',]#Scavenging Hyena
-	BG_PoolSet_Beast[1].append('BG_EX1_531')
+	BG_PoolSet_Beast.append('BG_EX1_531')
 	BG_Beast_Gold['BG_EX1_531']='TB_BaconUps_043'
 class BG_EX1_531: #<3>[1637] 
 	"""Scavenging Hyena (1/2/2)
@@ -81,7 +81,7 @@ TB_BaconUps_043e=buff(4,2)
 ## Silverback Patriarch (1) new 23.6 banned 24.2 
 if BG_Silverback_Patriarch:
 	BG_Minion_Beast += ['BG_CS2_127','BG_CS2_127_G',]# Silverback Patriarch (1)
-	BG_PoolSet_Beast[1].append('BG_CS2_127')
+	BG_PoolSet_Beast.append('BG_CS2_127')
 	BG_Beast_Gold['BG_CS2_127']='BG_CS2_127_G'
 class BG_CS2_127:
 	""" Silverback Patriarch
@@ -95,7 +95,7 @@ class BG_CS2_127_G:
 #Leapfrogger(2/3/3)  ###  need check ###
 if BG_Leapfrogger:
 	BG_Minion_Beast += ['BG21_000','BG21_000e','BG21_000_G','BG21_000_Ge',]#Leapfrogger(2)
-	BG_PoolSet_Beast[2].append('BG21_000')
+	BG_PoolSet_Beast.append('BG21_000')
 	BG_Beast_Gold['BG21_000']='BG21_000_G'
 class BG21_000:# <12>[1453]  
 	""" Leapfrogger(2/3/3)
@@ -119,7 +119,7 @@ class BG21_000_Ge:
 #Rabid Saurolisk (2/3/2)  ### maybe ###
 if BG_Rabid_Saurolisk:
 	BG_Minion_Beast += ['BGS_075','BGS_075e','TB_BaconUps_125','TB_BaconUps_125e',]#Rabid Saurolisk(2)
-	BG_PoolSet_Beast[2].append('BGS_075')
+	BG_PoolSet_Beast.append('BGS_075')
 	BG_Beast_Gold['BGS_075']='TB_BaconUps_125'
 class BGS_075:# <3>[1453]  
 	""" Rabid Saurolisk (2/3/2)
@@ -139,7 +139,7 @@ TB_BaconUps_125e=buff(2,4)
 #Sewer Rat (2/3/2)  ### maybe ###
 if BG_Sewer_Rat:
 	BG_Minion_Beast += ['BG19_010','BG19_010t','BG19_010_G','BG19_010_Gt',]#Sewer Rat(2)
-	BG_PoolSet_Beast[2].append('BG19_010')
+	BG_PoolSet_Beast.append('BG19_010')
 	BG_Beast_Gold['BG19_010']='BG19_010_G'
 class BG19_010:# <12>[1453]  
 	""" Sewer Rat (2/3/2)
@@ -169,7 +169,7 @@ class BG19_010_Gt:# <12>[1453]
 # Monstrous Macaw (3/5/3)  #### need check ###
 if BG_Monstrous_Macaw:
 	BG_Minion_Beast += ['BGS_078','TB_BaconUps_135',]#Monstrous Macaw(3)
-	BG_PoolSet_Beast[3].append('BGS_078')
+	BG_PoolSet_Beast.append('BGS_078')
 	BG_Beast_Gold['BGS_078']='TB_BaconUps_135'
 class BGS_078_Action(TargetedAction):
 	TARGET=ActionArg()
@@ -204,7 +204,7 @@ class TB_BaconUps_135:
 #Rat Pack (3/2/2)   ### maybe ###
 if BG_Rat_Pack:
 	BG_Minion_Beast += ['BG_CFM_316','CFM_316t','TB_BaconUps_027','TB_BaconUps_027t',]#Rat Pack(3)
-	BG_PoolSet_Beast[3].append('BG_CFM_316')
+	BG_PoolSet_Beast.append('BG_CFM_316')
 	BG_Beast_Gold['BG_CFM_316']='TB_BaconUps_027'
 class CFM_316:
 	""" Rat Pack (3/2/2)
@@ -227,7 +227,7 @@ class TB_BaconUps_027t:
 ##Cave Hydra (4/2/4) ### maybe ###
 if BG_Cave_Hydra:
 	BG_Minion_Beast += ['BG_LOOT_078','TB_BaconUps_151',]#Cave Hydra(4)
-	BG_PoolSet_Beast[4].append('BG_LOOT_078')
+	BG_PoolSet_Beast.append('BG_LOOT_078')
 	BG_Beast_Gold['BG_LOOT_078']='TB_BaconUps_151'
 class LOOT_078:
 	""" Cave Hydra (4/2/4)
@@ -245,7 +245,7 @@ class TB_BaconUps_151:
 #Reanimating Rattler (4/5/3)  ### maybe ### 
 if BG_Reanimating_Rattler:
 	BG_Minion_Beast += ['BG21_003','BG21_003e','BG21_003_G',]#Reanimating Rattler(4)
-	BG_PoolSet_Beast[4].append('BG21_003')
+	BG_PoolSet_Beast.append('BG21_003')
 	BG_Beast_Gold['BG21_003']='BG21_003_G'
 class BG21_003:# <12>[1453]
 	""" Reanimating Rattler (4/5/3)
@@ -266,7 +266,7 @@ class BG21_003_G:# <12>[1453]
 #Savannah Highmane (4/6/5) ### maybe ###
 if BG_Savannah_Highmane:
 	BG_Minion_Beast += ['BG_EX1_534','EX1_534t','TB_BaconUps_049','TB_BaconUps_049t',]#Savannah Highmane(4)
-	BG_PoolSet_Beast[4].append('BG_EX1_534')
+	BG_PoolSet_Beast.append('BG_EX1_534')
 	BG_Beast_Gold['BG_EX1_534']='TB_BaconUps_049'
 class BG_EX1_534: ## ハイメイン
 	""" Savannah Highmane (4/6/5)
@@ -289,7 +289,7 @@ class TB_BaconUps_049t:
 # Sly Raptor #4/1/3 ## new 25.6
 if BG_Sly_Raptor:#4/1/3
 	BG_Minion_Beast += ['BG25_806','BG25_806_G',]#
-	BG_PoolSet_Beast[4].append('BG25_806')
+	BG_PoolSet_Beast.append('BG25_806')
 	BG_Beast_Gold['BG25_806']='BG25_806_G'
 class BG25_806_Action(GameAction):
 	def do(self, source):
@@ -318,7 +318,7 @@ class BG25_806_G:
 #Agamaggan, the Great Boar (5/6/6)   ### maybe ###
 if BG_Agamaggan_the_Great_Boar:
 	BG_Minion_Beast += ['BG20_205','BG20_205_G',]#Agamaggan, the Great Boar(5)
-	BG_PoolSet_Beast[5].append('BG20_205')
+	BG_PoolSet_Beast.append('BG20_205')
 	BG_Beast_Gold['BG20_205']='BG20_205_G'
 class BG20_205:# <12>[1453] #
 	""" Agamaggan, the Great Boar (5/6/6)
@@ -337,7 +337,7 @@ class BG20_205_G:# <12>[1453] #
 # Baby Krush (5/7/7)->(5/6/6) ### OK ###
 if BG_Baby_Krush:
 	BG_Minion_Beast += ['BG22_001','BG22_001t2','BG22_001_G','BG22_001t2_G',]#Baby Krush(5)
-	BG_PoolSet_Beast[5].append('BG22_001')
+	BG_PoolSet_Beast.append('BG22_001')
 	BG_Beast_Gold['BG22_001']='BG22_001_G'
 class BG22_001_Action(TargetedAction):
 	TARGET = ActionArg()# Attack.DEFENDER
@@ -372,7 +372,7 @@ class BG22_001t2_G:
 # Bonemare (5/5/5) ### new 25.6 #99164
 if BG_Bonemare:
 	BG_Minion_Beast += ['BG26_ICC_705','BG26_ICC_705e', 'BG26_ICC_705_G','BG26_ICC_705_Ge',]#
-	BG_PoolSet_Beast[5].append('BG26_ICC_705')
+	BG_PoolSet_Beast.append('BG26_ICC_705')
 	BG_Beast_Gold['BG26_ICC_705']='BG26_ICC_705_G'
 class BG26_ICC_705:
 	"""
@@ -392,7 +392,7 @@ BG26_ICC_705_Ge=buff(8,8,taunt=True)
 #Mama Bear (5/5/5) ### maybe ###
 if BG_Mama_Bear:
 	BG_Minion_Beast += ['BGS_021','BGS_021e','TB_BaconUps_090','TB_BaconUps_090e',]#Mama Bear(5)
-	BG_PoolSet_Beast[5].append('BGS_021')
+	BG_PoolSet_Beast.append('BGS_021')
 	BG_Beast_Gold['BGS_021']='TB_BaconUps_090'
 class BGS_021:# <12>[1453]
 	""" Mama Bear (5/5/5)
@@ -412,7 +412,7 @@ TB_BaconUps_090e=buff(10,10)
 #Palescale Crocolisk(5/4/5) ### maybe OK ###
 if BG_Palescale_Crocolisk:
 	BG_Minion_Beast += ['BG21_001','BG21_001e','BG21_001_G','BG21_001e2',]#Palescale Crocolisk(5)
-	BG_PoolSet_Beast[5].append('BG21_001')
+	BG_PoolSet_Beast.append('BG21_001')
 	BG_Beast_Gold['BG21_001']='BG21_001_G'
 class BG21_001:# <12>[1453] クロコリスク
 	""" Palescale Crocolisk(5/4/5)
@@ -436,7 +436,7 @@ BG21_001e2=buff(12,12)
 from .BG_minion_undead import BG24__Sinrunner_Blanchy
 if BG24__Sinrunner_Blanchy:
 	##BG_Minion_Beast += ['BG24_005','BG24_005_G']## no need
-	BG_PoolSet_Beast[5]+=['BG24_005']
+	BG_PoolSet_Beast+=['BG24_005']
 	BG_Beast_Gold['BG24_005']='BG24_005_G'
 
 
@@ -445,7 +445,7 @@ from .BG_minion_demon import BG25__Felstomper
 #Felstomper
 if BG25__Felstomper:# 6/3/7 demon/beast ## new 25.2.2 ### need check##############
 	##BG_Minion_Beast+=['BG25_042','BG25_042_G','BG25_042_Ge','BG25_042e']
-	BG_PoolSet_Beast[6].append('BG25_042')
+	BG_PoolSet_Beast.append('BG25_042')
 	BG_Beast_Gold['BG25_042']='BG25_042_G'
 
 
@@ -454,7 +454,7 @@ if BG25__Felstomper:# 6/3/7 demon/beast ## new 25.2.2 ### need check############
 #Ghastcoiler (6/7/7) ### maybe OK ###
 if BG_Ghastcoiler:
 	BG_Minion_Beast += ['BGS_008','TB_BaconUps_057',]#Ghastcoiler(6)
-	BG_PoolSet_Beast[6].append('BGS_008')
+	BG_PoolSet_Beast.append('BGS_008')
 	BG_Beast_Gold['BGS_008']='TB_BaconUps_057'
 class BGS_008:# <6>[1453]
 	""" Ghastcoiler (6/7/7)
@@ -472,7 +472,7 @@ class TB_BaconUps_057:# <6>[1453]
 # Goldrinn, the Great Wolf (6/4/4)  ### maybe OK ###
 if BG_Goldrinn_the_Great_Wolf:
 	BG_Minion_Beast += ['BGS_018','BGS_018e','TB_BaconUps_085','TB_BaconUps_085e']#Goldrinn, the Great Wolf(6)
-	BG_PoolSet_Beast[6].append('BGS_018')
+	BG_PoolSet_Beast.append('BGS_018')
 	BG_Beast_Gold['BGS_018']='TB_BaconUps_085'
 class BGS_018:# <12>[1453]
 	""" Goldrinn, the Great Wolf (6/4/4)
@@ -491,7 +491,7 @@ TB_BaconUps_085e=buff(10,10)
 #Maexxna (BAN)   ### I'M WAITING  ###
 if BG_Maexxna:
 	BG_Minion_Beast += ['FP1_010','TB_BaconUps_155',]# Maexxna (BAN)(6)
-	BG_PoolSet_Beast[6].append('FP1_010')
+	BG_PoolSet_Beast.append('FP1_010')
 	BG_Beast_Gold['FP1_010']='TB_BaconUps_155'
 class FP1_010:
 	""" Maexxna (BAN)
@@ -505,5 +505,5 @@ class TB_BaconUps_155:
 from .BG_minion_demon import BG25__Felstomper
 if BG25__Felstomper:# 6/3/7 demon/beast ## new 25.2.2 ##
 	##BG_Minion_Beast+=['BG25_042','BG25_042_G','BG25_042_Ge','BG25_042e'] ## no need
-	BG_PoolSet_Beast[6].append('BG25_042')
+	BG_PoolSet_Beast.append('BG25_042')
 	BG_Beast_Gold['BG25_042']='BG25_042_G'
