@@ -6,7 +6,7 @@ BG_Swampstriker=True ## (1)
 BG_Murloc_Warleader=True ## (2)
 BG_Saltscale_Honcho=True ## (2)
 BG_Tad=True ## (2)
-BG_Blazing_Sklyfin=True ## (2/1/3)
+BG_Blazing_Skyfin=True ## (2/1/3)
 
 BG_Coldlight_Seer=True ## (3)
 BG_Felfin_Navigator=True ## (3)
@@ -23,7 +23,7 @@ BG_Young_Murk_Eye=True ## (6)
 
 BG_Minion_Murloc =[]
 
-BG_PoolSet_Murloc=[[],[],[],[],[],[],[]]
+BG_PoolSet_Murloc=[]
 
 BG_Murloc_Gold={}
 
@@ -31,7 +31,7 @@ BG_Murloc_Gold={}
 #Rockpool Hunter (1)  ## OK ##
 if BG_Rockpool_Hunter:
 	BG_Minion_Murloc+=['BG_UNG_073','UNG_073e','TB_BaconUps_061','TB_BaconUps_061e',]
-	BG_PoolSet_Murloc[1].append('BG_UNG_073')
+	BG_PoolSet_Murloc.append('BG_UNG_073')
 	BG_Murloc_Gold['BG_UNG_073']='TB_BaconUps_061'
 class BG_UNG_073:
 	""" >Rockpool Hunter
@@ -52,7 +52,7 @@ TB_BaconUps_061e=buff(2,2)
 #Swampstriker (1)  ## OK ##
 if BG_Swampstriker:
 	BG_Minion_Murloc+=['BG22_401','BG22_401e','BG22_401_G','BG22_401_Ge',]
-	BG_PoolSet_Murloc[1].append('BG22_401')
+	BG_PoolSet_Murloc.append('BG22_401')
 	BG_Murloc_Gold['BG22_401']='BG22_401_G'
 class BG22_401:# <12>[1453]
 	""" Swampstriker
@@ -72,7 +72,7 @@ BG22_401_Ge=buff(2,0)
 #Murloc Warleader (2)  ### maybe ###
 if BG_Murloc_Warleader:
 	BG_Minion_Murloc+=['BG_EX1_507','EX1_507e','TB_BaconUps_008','TB_BaconUps_008e',]
-	BG_PoolSet_Murloc[2].append('BG_EX1_507')
+	BG_PoolSet_Murloc.append('BG_EX1_507')
 	BG_Murloc_Gold['BG_EX1_507']='TB_BaconUps_008'
 class BG_EX1_507:
 	"""Murloc Warleader 戦隊長
@@ -93,7 +93,7 @@ TB_BaconUps_008e=buff(4,0)# <12>[1453]
 #Saltscale Honcho (2) ### maybe ###
 if BG_Saltscale_Honcho:
 	BG_Minion_Murloc+=['BG21_008','BG21_008e','BG21_008_G','BG21_008_Ge',]
-	BG_PoolSet_Murloc[2].append('BG21_008')
+	BG_PoolSet_Murloc.append('BG21_008')
 	BG_Murloc_Gold['BG21_008']='BG21_008_G'
 class BG21_008:# <12>[1453] そるとすけいる
 	""" Saltscale Honcho
@@ -116,7 +116,7 @@ BG21_008_Ge=buff(0,2)# <12>[1453]
 #Tad (2) ### maybe ###
 if BG_Tad:
 	BG_Minion_Murloc+=['BG22_202','BG22_202_G',]
-	BG_PoolSet_Murloc[2].append('BG22_202')
+	BG_PoolSet_Murloc.append('BG22_202')
 	BG_Murloc_Gold['BG22_202']='BG22_202_G'
 class BG22_202:# <12>[1453]
 	""" Tad
@@ -131,9 +131,9 @@ class BG22_202_G:# <12>[1453]
 
 
 ### Blazing Skyfin (2/1/3) ## new 25.2.2
-if BG_Blazing_Sklyfin:
+if BG_Blazing_Skyfin:
 	BG_Minion_Murloc+=['BG25_040','BG25_040_G','BG25_040e','BG25_040_Ge']
-	BG_PoolSet_Murloc[2].append('BG25_040')
+	BG_PoolSet_Murloc.append('BG25_040')
 	BG_Murloc_Gold['BG25_040']='BG25_040_G'
 class BG25_040:
 	""" Blazing Skyfin (2/1/3)
@@ -153,7 +153,7 @@ BG25_040_Ge=buff(2,2)
 #Coldlight Seer (3)
 if BG_Coldlight_Seer:
 	BG_Minion_Murloc+=['BG_EX1_103','EX1_103e','TB_BaconUps_064','TB_BaconUps_064e',]
-	BG_PoolSet_Murloc[3].append('BG_EX1_103')
+	BG_PoolSet_Murloc.append('BG_EX1_103')
 	BG_Murloc_Gold['BG_EX1_103']='TB_BaconUps_064'
 class BG_EX1_103:
 	""" Coldlight Seer
@@ -173,7 +173,7 @@ TB_BaconUps_064e=buff(0,4)
 #Felfin Navigator (3) ### maybe ###
 if BG_Felfin_Navigator:
 	BG_Minion_Murloc+=['BG_BT_010','BT_010e','TB_BaconUps_124','TB_BaconUps_124e',]
-	BG_PoolSet_Murloc[3].append('BG_BT_010')
+	BG_PoolSet_Murloc.append('BG_BT_010')
 	BG_Murloc_Gold['BG_BT_010']='TB_BaconUps_124'
 class BG_BT_010:
 	""" Felfin Navigator
@@ -192,7 +192,7 @@ TB_BaconUps_124e=buff(2,2)
 #Swolefin (3) ### need check ###
 if BG_Swolefin:
 	BG_Minion_Murloc+=['BG21_010','BG21_010e','BG21_010_G','BG21_010_Ge',]
-	BG_PoolSet_Murloc[3].append('BG21_010')
+	BG_PoolSet_Murloc.append('BG21_010')
 	BG_Murloc_Gold['BG21_010']='BG21_010_G'
 class BG21_010:# <12>[1453] ムキムキ
 	""" Swolefin
@@ -216,7 +216,7 @@ BG21_010_Ge=buff(4,2)# <12>[1453]
 #Primalfin Lookout (4) ### maybe ###
 if BG_Primalfin_Lookout:
 	BG_Minion_Murloc+=['BGS_020','TB_BaconUps_089',]
-	BG_PoolSet_Murloc[4].append('BGS_020')
+	BG_PoolSet_Murloc.append('BGS_020')
 	BG_Murloc_Gold['BGS_020']='TB_BaconUps_089'
 class BGS_020_Choice(Choice):
 	def choose(self, card):
@@ -262,7 +262,7 @@ class TB_BaconUps_089:# <12>[1453]
 
 if BG_Toxfin: ##(4) new 24.2 -> (6) 25.0.4
 	BG_Minion_Murloc+=['BG_DAL_077','TB_BaconUps_152']
-	BG_PoolSet_Murloc[6].append('BG_DAL_077')
+	BG_PoolSet_Murloc.append('BG_DAL_077')
 	BG_Murloc_Gold['BG_DAL_077']='TB_BaconUps_152'
 class BG_DAL_077:
 	""" Toxfin (4)-> (6) 25.0.4
@@ -280,7 +280,7 @@ class TB_BaconUps_152:
 #King Bagurgle (5) ### OK ###
 if BG_King_Bagurgle:
 	BG_Minion_Murloc+=['BGS_030','BGS_030e','TB_BaconUps_100','TB_BaconUps_100e',]
-	BG_PoolSet_Murloc[5].append('BGS_030')
+	BG_PoolSet_Murloc.append('BGS_030')
 	BG_Murloc_Gold['BGS_030']='TB_BaconUps_100'
 class BGS_030:# <12>[1453] バガァグル
 	""" King Bagurgle
@@ -302,7 +302,7 @@ TB_BaconUps_100e=buff(4,4)
 #SI:Sefin (5)  ### maybe ### banned 24.2
 if BG_SI_Sefin:
 	BG_Minion_Murloc+=['BG21_009','BG21_009e','BG21_009_G',]
-	BG_PoolSet_Murloc[5].append('BG21_009')
+	BG_PoolSet_Murloc.append('BG21_009')
 	BG_Murloc_Gold['BG21_009']='BG21_009_G'
 class BG21_009:# <12>[1453] セブリ
 	""" SI:Sefin
@@ -327,7 +327,7 @@ class BG21_009_G:# <12>[1453]
 ## Young Murk-Eye (6) 
 if BG_Young_Murk_Eye:
 	BG_Minion_Murloc+=['BG22_403','BG22_403_G']
-	BG_PoolSet_Murloc[6].append('BG22_403')
+	BG_PoolSet_Murloc.append('BG22_403')
 	BG_Murloc_Gold['BG22_403']='BG22_403_G'
 class BG22_403:
 	""" Young Murk-Eye (6) 

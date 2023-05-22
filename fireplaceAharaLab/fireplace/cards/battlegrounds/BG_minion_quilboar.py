@@ -35,7 +35,7 @@ BG_Darkgaze_Elder=True## NEW 23.2 -> quilboar
 
 BG_Minion_Quilboar=[]
 
-BG_PoolSet_Quilboar=[[],[],[],[],[],[],[]]
+BG_PoolSet_Quilboar=[]
 
 BG_Quilboar_Gold={}
 
@@ -43,7 +43,7 @@ BG_Quilboar_Gold={}
 #Razorfen Geomancer	1 ### OK ###
 if BG_Razorfen_Geomancer:
 	BG_Minion_Quilboar += [ 'BG20_100','BG20_100_G',]#	
-	BG_PoolSet_Quilboar[1].append('BG20_100')
+	BG_PoolSet_Quilboar.append('BG20_100')
 	BG_Quilboar_Gold['BG20_100']='BG20_100_G'
 class BG20_100:# <12>[1453]
 	""" Razorfen Geomancer
@@ -61,7 +61,7 @@ class BG20_100_G:# <12>[1453]
 #Sun-Bacon Relaxer	1 ### OK ###
 if BG_Sun_Bacon_Relaxer:
 	BG_Minion_Quilboar += [ 'BG20_301','BG20_301_G',]#	
-	BG_PoolSet_Quilboar[1].append('BG20_301')
+	BG_PoolSet_Quilboar.append('BG20_301')
 	BG_Quilboar_Gold['BG20_301']='BG20_301_G'
 class BG20_301:# <12>[1453] コンガリ 
 	""" Sun-Bacon Relaxer
@@ -77,7 +77,7 @@ class BG20_301_G:# <12>[1453]
 
 if BG25__Thorncaptain:# 1/4/2 quilboar/pirate ## new 25.2.2
 	BG_Minion_Quilboar+=['BG25_045','BG25_045_G','BG25_045e','BG25_045e2']
-	BG_PoolSet_Quilboar[1].append('BG25_045')
+	BG_PoolSet_Quilboar.append('BG25_045')
 	BG_Quilboar_Gold['BG25_045']='BG25_045_G'
 class BG25_045:# (minion)
 	""" Thorncaptain
@@ -107,7 +107,7 @@ class BG25_045e2:# (enchantment)
 #Roadboar	2  ### OK ###
 if BG_Roadboar:
 	BG_Minion_Quilboar += [ 'BG20_101','BG20_101_G',]#	
-	BG_PoolSet_Quilboar[2].append('BG20_101')
+	BG_PoolSet_Quilboar.append('BG20_101')
 	BG_Quilboar_Gold['BG20_101']='BG20_101_G'
 class BG20_101_Action(TargetedAction):
 	TARGET = ActionArg()
@@ -134,7 +134,7 @@ class BG20_101_G:# <12>[1453]
 #Tough Tusk	2 ### OK ###
 if BG_Tough_Tusk:
 	BG_Minion_Quilboar += [ 'BG20_102','BG20_102e','BG20_102_G','BG20_102_Ge',]#	
-	BG_PoolSet_Quilboar[2].append('BG20_102')
+	BG_PoolSet_Quilboar.append('BG20_102')
 	BG_Quilboar_Gold['BG20_102']='BG20_102_G'
 class BG20_102:# <12>[1453]
 	""" Tough Tusk
@@ -160,7 +160,7 @@ class BG20_102_Ge:# <12>[1453]
 #Bristlemane Scrapsmith (quilboar 3) (BG24_707)# ### OK ###
 if BG_Bristlemane_Scrapsmith:
 	BG_Minion_Quilboar += [ 'BG24_707','BG24_707_G',]#	
-	BG_PoolSet_Quilboar[3].append('BG24_707')
+	BG_PoolSet_Quilboar.append('BG24_707')
 	BG_Quilboar_Gold['BG24_707']='BG24_707_G'
 class BG24_707_Action(TargetedAction):
 	CONTROLLER=ActionArg()
@@ -187,7 +187,7 @@ class BG24_707_G:
 #Bannerboar	3  ### OK ###
 if BG_Bannerboar:
 	BG_Minion_Quilboar += [ 'BG20_201','BG20_201_G',]#	
-	BG_PoolSet_Quilboar[3].append('BG20_201')
+	BG_PoolSet_Quilboar.append('BG20_201')
 	BG_Quilboar_Gold['BG20_201']='BG20_201_G'
 class BG20_201:# <12>[1453]
 	""" Bannerboar
@@ -211,7 +211,7 @@ class BG20_201_G:# <12>[1453]
 #Bristleback Brute	3   ### OK ###
 if BG_Bristleback_Brute:
 	BG_Minion_Quilboar += [ 'BG20_103','BG20_103_G',]#	
-	BG_PoolSet_Quilboar[3].append('BG20_103')
+	BG_PoolSet_Quilboar.append('BG20_103')
 	BG_Quilboar_Gold['BG20_103']='BG20_103_G'
 class GB20_103_Action(TargetedAction):
 	TARGET = ActionArg()
@@ -238,7 +238,7 @@ class BG20_103_G:# <12>[1453]
 #Gemsplitter	3 ### OK ### banned 24.6
 if BG_Gemsplitter:
 	BG_Minion_Quilboar += [ 'BG21_037','BG21_037_G',]#	
-	BG_PoolSet_Quilboar[3].append('BG21_037')
+	BG_PoolSet_Quilboar.append('BG21_037')
 	BG_Quilboar_Gold['BG21_037']='BG21_037_G'
 class BG21_037_Action(TargetedAction):
 	TARGET = ActionArg()
@@ -262,7 +262,7 @@ class BG21_037_G:# <12>[1453]
 #Thorncaller	3  ### OK ###
 if BG_Thorncaller:
 	BG_Minion_Quilboar += [ 'BG20_105','BG20_105_G',]#	
-	BG_PoolSet_Quilboar[3].append('BG20_105')
+	BG_PoolSet_Quilboar.append('BG20_105')
 	BG_Quilboar_Gold['BG20_105']='BG20_105_G'
 class GiveGemToOriginal(TargetedAction):
 	TARGET = ActionArg()
@@ -291,7 +291,7 @@ class BG20_105_G:# <12>[1453]
 #Bonker	4  ### OK ###
 if BG_Bonker:
 	BG_Minion_Quilboar += [ 'BG20_104','BG20_104_G',]#	
-	BG_PoolSet_Quilboar[4].append('BG20_104')
+	BG_PoolSet_Quilboar.append('BG20_104')
 	BG_Quilboar_Gold['BG20_104']='BG20_104_G'
 class BG20_104:# <12>[1453]
 	""" Bonker
@@ -310,7 +310,7 @@ class BG20_104_G:# <12>[1453]
 #Dynamic Duo	4 ### OK ###
 if BG_Dynamic_Duo:
 	BG_Minion_Quilboar += [ 'BG20_207','BG20_207e','BG20_207_G','BG20_207_Ge',]#	
-	BG_PoolSet_Quilboar[4].append('BG20_207')
+	BG_PoolSet_Quilboar.append('BG20_207')
 	BG_Quilboar_Gold['BG20_207']='BG20_207_G'
 class BG20_207:# <12>[1453]
 	""" Dynamic Duo
@@ -332,7 +332,7 @@ BG20_207_Ge=buff(2,2)# <12>[1453]
 #Groundshaker	4  ## OK ###
 if BG_Groundshaker:
 	BG_Minion_Quilboar += [ 'BG20_106','BG20_106e','BG20_106_G',]#	
-	BG_PoolSet_Quilboar[4].append('BG20_106')
+	BG_PoolSet_Quilboar.append('BG20_106')
 	BG_Quilboar_Gold['BG20_106']='BG20_106_G'
 class BG20_106:# <12>[1453]
 	""" Groundshaker
@@ -356,7 +356,7 @@ class BG20_106_G:# <12>[1453]
 #Necrolyte	4  ### OK ###
 if BG_Necrolyte:
 	BG_Minion_Quilboar += [ 'BG20_202','BG20_202_G',]#	
-	BG_PoolSet_Quilboar[4].append('BG20_202')
+	BG_PoolSet_Quilboar.append('BG20_202')
 	BG_Quilboar_Gold['BG20_202']='BG20_202_G'
 class BG20_202:# <12>[1453]
 	""" Necrolyte
@@ -380,7 +380,7 @@ class BG20_202_G:# <12>[1453]
 
 if BG25__Pufferquil:# 4/2/6, quilbour/naga
 	BG_Minion_Quilboar+=['BG25_039','BG25_039_G','BG25_039_Ge','BG25_039e']
-	BG_PoolSet_Quilboar[4].append('BG25_039')
+	BG_PoolSet_Quilboar.append('BG25_039')
 	BG_Quilboar_Gold['BG25_039']='BG25_039_G'
 class BG25_039_Action(TargetedAction):
 	TARGET=ActionArg()
@@ -415,7 +415,7 @@ BG25_039_Ge=buff(poisonous=True)# (enchantment)
 #Aggem Thorncurse	5  ### OK ###
 if BG_Aggem_Thorncurse:
 	BG_Minion_Quilboar += [ 'BG20_302','BG20_302e','BG20_302_G','BG20_302_Ge',]#	
-	BG_PoolSet_Quilboar[5].append('BG20_302')
+	BG_PoolSet_Quilboar.append('BG20_302')
 	BG_Quilboar_Gold['BG20_302']='BG20_302_G'
 class BG20_302_Action(TargetedAction):
 	TARGET = ActionArg()
@@ -462,7 +462,7 @@ BG20_302_Ge=buff(2,2)# <12>[1453]
 ###BG_Bristleback_Knight
 if BG_Bristleback_Knight:
 	BG_Minion_Quilboar += [ 'BG20_204','BG20_302e','BG20_302_G','BG20_302_Ge',]#	
-	BG_PoolSet_Quilboar[5].append('BG20_204')
+	BG_PoolSet_Quilboar.append('BG20_204')
 	BG_Quilboar_Gold['BG20_204']='BG20_302_G'
 class BG20_204:
 	"""Bristleback_Knight
@@ -483,7 +483,7 @@ class BG20_204_G:
 #Captain Flat Tusk	6  ### OK ###
 if BG_Captain_Flat_Tusk:
 	BG_Minion_Quilboar += [ 'BG20_206','BG20_206_G',]#	
-	BG_PoolSet_Quilboar[6].append('BG20_206')
+	BG_PoolSet_Quilboar.append('BG20_206')
 	BG_Quilboar_Gold['BG20_206']='BG20_206_G'
 class BG20_206_Action(TargetedAction):
 	TARGET = ActionArg()
@@ -517,7 +517,7 @@ class BG20_206_G:# <12>[1453]
 #Charlga	6 ### OK ###
 if BG_Charlga:
 	BG_Minion_Quilboar += [ 'BG20_303','BG20_303_G',]#	
-	BG_PoolSet_Quilboar[6].append('BG20_303')
+	BG_PoolSet_Quilboar.append('BG20_303')
 	BG_Quilboar_Gold['BG20_303']='BG20_303_G'
 class BG20_303:# <12>[1453] ちゃるが
 	""" Charlga
@@ -534,7 +534,7 @@ class BG20_303_G:# <12>[1453]
 
 if BG_Darkgaze_Elder:## Darkgaze Elder (6) (quilboar)  ### maybe OK ### NEW 23.2
 	BG_Minion_Quilboar += ['BG23_018','BG23_018t','BG23_018_G', ]#	
-	BG_PoolSet_Quilboar[6].append('BG23_018')
+	BG_PoolSet_Quilboar.append('BG23_018')
 	BG_Quilboar_Gold['BG23_018']='BG23_018_G'
 	# Darkgaze Elder 6 NEW 23.2
 	pass

@@ -49,7 +49,9 @@ class BG_main:
 		self.BG_decks=[[],[],[],[],[],[],[]]
 		if Config.RANDOM_RACE:
 			# sample races randomly
-			self.BG_races = races = random.sample(['beast','demon','dragon','elemental','mecha','murloc','naga','pirate','quilboar','undead'],5)## add naga 23.2.2 ## add undead 25.2.2
+			self.BG_races = races = random.sample(['beast','demon','dragon','elemental','mecha','murloc','naga','pirate','quilboar','undead'],5)
+			## add naga 23.2.2 
+			## add undead 25.2.2
 		else:
 			# or specific race set. 
 			self.BG_races = races=Config.RACE_CHOICE
@@ -80,42 +82,37 @@ class BG_main:
 			if v.tags.get(GameTag.CARDTYPE)==CardType.MINION:
 				pool_on=False
 				if k in cards.battlegrounds.BG_minion.BG_PoolSet_Minion:
-					pool_on=False
-				elif 'beast' in races and k in cards.battlegrounds.BG_minion_beast.BG_PoolSet_Beast:
+					pool_on=True
+				if 'beast' in races and k in cards.battlegrounds.BG_minion_beast.BG_PoolSet_Beast:
+					pool_on=True
+				if 'demon' in races and k in cards.battlegrounds.BG_minion_demon.BG_PoolSet_Demon:
+					pool_on=True
+				if 'dragon' in races and k in cards.battlegrounds.BG_minion_dragon.BG_PoolSet_Dragon:
+					pool_on=True
+				if 'elemental' in races and k in cards.battlegrounds.BG_minion_elemental.BG_PoolSet_Elemental:
+					pool_on=True
+				if 'mecha' in races and k in cards.battlegrounds.BG_minion_mecha.BG_PoolSet_Mecha:
+					pool_on=True
+				if 'murloc' in races and k in cards.battlegrounds.BG_minion_murloc.BG_PoolSet_Murloc:
+					pool_on=True
+				if 'naga' in races and k in cards.battlegrounds.BG_minion_naga.BG_PoolSet_Naga:
+					pool_on=True
+				if 'pirate' in races and k in cards.battlegrounds.BG_minion_pirate.BG_PoolSet_Pirate:
+					pool_on=True
+				if 'quilboar' in races and k in cards.battlegrounds.BG_minion_quilboar.BG_PoolSet_Quilboar:
+					pool_on=True
+				if 'undead' in races and k in cards.battlegrounds.BG_minion_undead.BG_PoolSet_Undead:
 					pool_on=True
 				if pool_on:
 					tier=v.tags.get(GameTag.TECH_LEVEL)
 					if 1<=tier and tier<=6:
 						if tier<5:
-							rep=1
+							rep=8
 						else:
-							rep=1
+							rep=4
 						for repeat in range(rep):
 							self.BG_decks[tier].append(k)
-		for i in range(6):
-			if i<5:
-				rep=8
-			else:
-				rep=4
-			for repeat in range(rep):	
-				if 'demon' in races:
-					self.BG_decks[i+1] += cards.battlegrounds.BG_minion_demon.BG_PoolSet_Demon[i+1]
-				if 'dragon' in races:
-					self.BG_decks[i+1] += cards.battlegrounds.BG_minion_dragon.BG_PoolSet_Dragon[i+1]
-				if 'elemental' in races:
-					self.BG_decks[i+1] += cards.battlegrounds.BG_minion_elemental.BG_PoolSet_Elemental[i+1]
-				if 'mecha' in races:
-					self.BG_decks[i+1] += cards.battlegrounds.BG_minion_mecha.BG_PoolSet_Mecha[i+1]
-				if 'murloc' in races:
-					self.BG_decks[i+1] += cards.battlegrounds.BG_minion_murloc.BG_PoolSet_Murloc[i+1]
-				if 'naga' in races:
-					self.BG_decks[i+1] += cards.battlegrounds.BG_minion_naga.BG_PoolSet_Naga[i+1]
-				if 'pirate' in races:
-					self.BG_decks[i+1] += cards.battlegrounds.BG_minion_pirate.BG_PoolSet_Pirate[i+1]
-				if 'quilboar' in races:
-					self.BG_decks[i+1] += cards.battlegrounds.BG_minion_quilboar.BG_PoolSet_Quilboar[i+1]
-				if 'undead' in races:## new 25.2.2
-					self.BG_decks[i+1] += cards.battlegrounds.BG_minion_undead.BG_PoolSet_Undead[i+1]## new 25.2.2
+
 		if not 'dragon' in self.BG_races and 'TB_BaconShop_HERO_56' in self.Heroes:
 			self.Heroes.remove('TB_BaconShop_HERO_56')#2 dragon ban
 		if not 'elemental' in self.BG_races and 'TB_BaconShop_HERO_78' in self.Heroes:
@@ -870,37 +867,36 @@ def GetMoveCandidates(bar, controller, bartender):
 def getRacesInCards(cards):
 	for card in cards:
 		count=[]
-		tech_level=card.tech_level
-		if card.id in cards.battlegrounds.BG_minion_beast.BG_PoolSet_Beast[tech_level]:
+		if card.id in cards.battlegrounds.BG_minion_beast.BG_PoolSet_Beast:
 			if not Race.BEAST in count:
-				count.append[Race.BEAST]
-		if card.id in cards.battlegrounds.BG_minion_demon.BG_PoolSet_Demon[tech_level]:
+				count.append(Race.BEAST)
+		if card.id in cards.battlegrounds.BG_minion_demon.BG_PoolSet_Demon:
 			if not Race.DEMON in count:
-				count.append[Race.DEMON]
-		if card.id in cards.battlegrounds.BG_minion_dragon.BG_PoolSet_Dragon[tech_level]:
+				count.append(Race.DEMON)
+		if card.id in cards.battlegrounds.BG_minion_dragon.BG_PoolSet_Dragon:
 			if not Race.DRAGON in count:
-				count.append[Race.DRAGON]
-		if card.id in cards.battlegrounds.BG_minion_elemental.BG_PoolSet_Elemental[tech_level]:
+				count.append(Race.DRAGON)
+		if card.id in cards.battlegrounds.BG_minion_elemental.BG_PoolSet_Elemental:
 			if not Race.ELEMENTAL in count:
-				count.append[Race.ELEMENTAL]
-		if card.id in cards.battlegrounds.BG_minion_mecha.BG_PoolSet_Mecha[tech_level]:
+				count.append(Race.ELEMENTAL)
+		if card.id in cards.battlegrounds.BG_minion_mecha.BG_PoolSet_Mecha:
 			if not Race.MECHANICAL in count:
-				count.append[Race.MECHANICAL]
-		if card.id in cards.battlegrounds.BG_minion_murloc.BG_PoolSet_Murloc[tech_level]:
+				count.append(Race.MECHANICAL)
+		if card.id in cards.battlegrounds.BG_minion_murloc.BG_PoolSet_Murloc:
 			if not Race.MURLOC in count:
-				count.append[Race.MURLOC]
-		if card.id in cards.battlegrounds.BG_minion_naga.BG_PoolSet_Naga[tech_level]:
+				count.append(Race.MURLOC)
+		if card.id in cards.battlegrounds.BG_minion_naga.BG_PoolSet_Naga:
 			if not Race.NAGA in count:
-				count.append[Race.NAGA]
-		if card.id in cards.battlegrounds.BG_minion_pirate.BG_PoolSet_Pirate[tech_level]:
+				count.append(Race.NAGA)
+		if card.id in cards.battlegrounds.BG_minion_pirate.BG_PoolSet_Pirate:
 			if not Race.PIRATE in count:
-				count.append[Race.PIRATE]
-		if card.id in cards.battlegrounds.BG_minion_quilboar.BG_PoolSet_Quilboar[tech_level]:
+				count.append(Race.PIRATE)
+		if card.id in cards.battlegrounds.BG_minion_quilboar.BG_PoolSet_Quilboar:
 			if not Race.QUILBOAR in count:
-				count.append[Race.QUILBOAR]
-		if card.id in cards.battlegrounds.BG_minion_undead.BG_PoolSet_Undead[tech_level]:
+				count.append(Race.QUILBOAR)
+		if card.id in cards.battlegrounds.BG_minion_undead.BG_PoolSet_Undead:
 			if not Race.UNDEAD in count:
-				count.append[Race.UNDEAD]
+				count.append(Race.UNDEAD)
 	return count
 
 

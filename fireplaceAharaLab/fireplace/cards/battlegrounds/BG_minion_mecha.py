@@ -27,7 +27,7 @@ BG_Omega_Buster=True#(6)
 BG_Grease_Bot=True#(4->6) 23.6, 24.0.3
 	
 BG_Minion_Mecha =[]
-BG_PoolSet_Mecha=[[],[],[],[],[],[],[]]
+BG_PoolSet_Mecha = []
 BG_Mecha_Gold={}
 
 #25.2.2 -
@@ -35,7 +35,7 @@ BG_Mecha_Gold={}
 #Micro Mummy(1) ### OK ###
 if BG_Micro_Mummy:
 	BG_Minion_Mecha+=['BG_ULD_217', 'ULD_217e','TB_BaconUps_250','TB_BaconUps_250e',]
-	BG_PoolSet_Mecha[1].append('BG_ULD_217')
+	BG_PoolSet_Mecha.append('BG_ULD_217')
 	BG_Mecha_Gold['BG_ULD_217']='TB_BaconUps_250'
 class BG_ULD_217:
 	"""
@@ -54,7 +54,7 @@ TB_BaconUps_250e=buff(2,0)
 #Pupbot(1) ### OK ###
 if BG_Pupbot:
 	BG_Minion_Mecha+=['BG21_022','BG21_022_G',]
-	BG_PoolSet_Mecha[1].append('BG21_022')
+	BG_PoolSet_Mecha.append('BG21_022')
 	BG_Mecha_Gold['BG21_022']='BG21_022_G'
 class BG21_022:# <12>[1453]
 	""" Pupbot
@@ -69,7 +69,7 @@ class BG21_022_G:# <12>[1453]
 #Harvest Golem(2) ### OK ###
 if BG_Harvest_Golem:
 	BG_Minion_Mecha+=['BG_EX1_556', 'BG_EX1_556t','TB_BaconUps_006','TB_BaconUps_006t',]
-	BG_PoolSet_Mecha[2].append('BG_EX1_556')
+	BG_PoolSet_Mecha.append('BG_EX1_556')
 	BG_Mecha_Gold['BG_EX1_556']='TB_BaconUps_006'
 class BG_EX1_556:
 	"""
@@ -93,7 +93,7 @@ class TB_BaconUps_006t:# <12>[1453]
 #Kaboom Bot(2)  ### OK ###
 if BG_Kaboom_Bot:
 	BG_Minion_Mecha+=['BG_BOT_606', 'TB_BaconUps_028',]
-	BG_PoolSet_Mecha[2].append('BG_BOT_606')
+	BG_PoolSet_Mecha.append('BG_BOT_606')
 	BG_Mecha_Gold['BG_BOT_606']='TB_BaconUps_028'
 class BG_BOT_606:
 	"""
@@ -110,7 +110,7 @@ class TB_BaconUps_028:# <12>[1453]
 #Metaltooth Leaper(2) ### OK ###
 if BG_Metaltooth_Leaper:
 	BG_Minion_Mecha+=['BG_GVG_048','GVG_048e','TB_BaconUps_066','TB_BaconUps_066e',]
-	BG_PoolSet_Mecha[2].append('BG_GVG_048')
+	BG_PoolSet_Mecha.append('BG_GVG_048')
 	BG_Mecha_Gold['BG_GVG_048']='TB_BaconUps_066'
 class BG_GVG_048:
 	"""
@@ -128,7 +128,7 @@ TB_BaconUps_066e=buff(4,0)
 #Deflect-o-Bot(3) ### OK ###
 if BG_Deflect_o_Bot:
 	BG_Minion_Mecha+=['BGS_071', 'BGS_071e', 'TB_BaconUps_123', 'TB_BaconUps_123e',]
-	BG_PoolSet_Mecha[3].append('BGS_071')
+	BG_PoolSet_Mecha.append('BGS_071')
 	BG_Mecha_Gold['BGS_071']='TB_BaconUps_123'
 class BGS_071_Action(TargetedAction):
 	TARGET = ActionArg()#SELF
@@ -156,7 +156,7 @@ TB_BaconUps_123e=buff(4,0)
 #Replicating Menace(3)  ### OK ###
 if BG_Replicating_Menace:
 	BG_Minion_Mecha+=['BG_BOT_312', 'BG_BOT_312e','BG_BOT_312t','TB_BaconUps_032','TB_BaconUps_032e','TB_BaconUps_032t',]
-	BG_PoolSet_Mecha[3].append('BG_BOT_312')
+	BG_PoolSet_Mecha.append('BG_BOT_312')
 	BG_Mecha_Gold['BG_BOT_312']='TB_BaconUps_032'
 class BG_BOT_312:
 	"""Replicating Menace
@@ -215,7 +215,7 @@ class TB_BaconUps_032t:# <12>[1453]
 #Screwjank Clunker(3) ### OK ###
 if BG_Screwjank_Clunker:
 	BG_Minion_Mecha+=['GVG_055', 'GVG_055e', 'TB_BaconUps_069','TB_BaconUps_069e',]
-	BG_PoolSet_Mecha[3].append('GVG_055')
+	BG_PoolSet_Mecha.append('GVG_055')
 	BG_Mecha_Gold['GVG_055']='TB_BaconUps_069'
 class GVG_055:
 	""" Screwjank Clunker
@@ -237,7 +237,7 @@ TB_BaconUps_069e=buff(4,4)
 
 if BG_Iron_Sensei:
 	BG_Minion_Mecha+=['BG_GVG_027', 'GVG_027e', 'TB_BaconUps_044','TB_BaconUps_044e',]
-	BG_PoolSet_Mecha[3].append('BG_GVG_027')
+	BG_PoolSet_Mecha.append('BG_GVG_027')
 	BG_Mecha_Gold['BG_GVG_027']='TB_BaconUps_044'
 class BG_GVG_027:
 	"""Iron Sensei"""
@@ -252,7 +252,7 @@ TB_BaconUps_044e = buff(4,4)
 #Annoy-o-Module(4) ### OK ###
 if BG_Annoy_o_Module:
 	BG_Minion_Mecha+=['BG_BOT_911', 'BG_BOT_911e', 'TB_BaconUps_099','TB_BaconUps_099e',]
-	BG_PoolSet_Mecha[4].append('BG_BOT_911')
+	BG_PoolSet_Mecha.append('BG_BOT_911')
 	BG_Mecha_Gold['BG_BOT_911']='TB_BaconUps_099'
 class BG_BOT_911:
 	"""
@@ -287,7 +287,7 @@ class TB_BaconUps_099e:
 #Mechano-Egg(4) ### OK ### -> renew 25.0.4
 if BG_Mechano_Eg_g:
 	BG_Minion_Mecha+=['BOT_537', 'BOT_537t','TB_BaconUps_039', 'TB_BaconUps_039t',]
-	BG_PoolSet_Mecha[4].append('BOT_537')
+	BG_PoolSet_Mecha.append('BOT_537')
 	BG_Mecha_Gold['BOT_537']='TB_BaconUps_039'
 class BOT_537:
 	"""
@@ -309,7 +309,7 @@ class TB_BaconUps_039t:
 #Mechano-Tank(4)-> banned 25.0.4
 if BG_Mechano_Tank:
 	BG_Minion_Mecha+=['BG21_023', 'BG21_023_G',]
-	BG_PoolSet_Mecha[4].append('BG21_023')
+	BG_PoolSet_Mecha.append('BG21_023')
 	BG_Mecha_Gold['BG21_023']='BG21_023_G'
 class BG21_023:# <12>[1453]
 	""" Mechano-Tank
@@ -327,7 +327,7 @@ class BG21_023_G:# <12>[1453]
 ##  Wargear (4) 23.6  ### OK ###
 if BG_Wargear:
 	BG_Minion_Mecha+=['BG_BOT_563','BG_BOT_563e','BG_BOT_563_G','BG_BOT_563_Ge',]
-	BG_PoolSet_Mecha[4].append('BG_BOT_563')
+	BG_PoolSet_Mecha.append('BG_BOT_563')
 	BG_Mecha_Gold['BG_BOT_563']='BG_BOT_563_G'
 class BG_BOT_563:
 	""" Wargear
@@ -357,7 +357,7 @@ else:
 #Holy Mecherel(5)
 if BG_Holy_Mecherel:
 	BG_Minion_Mecha+=['BG20_401', 'BG20_401_G',]
-	BG_PoolSet_Mecha[5].append('BG20_401')
+	BG_PoolSet_Mecha.append('BG20_401')
 	BG_Mecha_Gold['BG20_401']='BG20_401_G'
 class BG20_401:# <12>[1453]
 	""" Holy Mecherel  さば
@@ -374,7 +374,7 @@ class BG20_401_G:# <12>[1453]
 # Dr. Boombox
 if BG_Dr_Boombox:
 	BG_Minion_Mecha+=['BG25_165', 'BG25_165_G',]
-	BG_PoolSet_Mecha[5].append('BG25_165')
+	BG_PoolSet_Mecha.append('BG25_165')
 	BG_Mecha_Gold['BG25_165']='BG25_165_G'
 class BG25_165_Action(GameAction):
 	def do(self, source):
@@ -424,7 +424,7 @@ class BG25_165_G:
 #Foe Reaper 4000(6)
 if BG_Foe_Reaper_4000:
 	BG_Minion_Mecha+=['BG_GVG_113', 'TB_BaconUps_153',]
-	BG_PoolSet_Mecha[6].append('BG_GVG_113')
+	BG_PoolSet_Mecha.append('BG_GVG_113')
 	BG_Mecha_Gold['BG_GVG_113']='TB_BaconUps_153'
 class BG_GVG_113:## エネリ
 	""" Foe Reaper 4000
@@ -442,7 +442,7 @@ class TB_BaconUps_153:# <12>[1453]
 #Omega Buster(6)
 if BG_Omega_Buster:
 	BG_Minion_Mecha+=['BG21_025','BG21_025e','BG21_025_G',]
-	BG_PoolSet_Mecha[6].append('BG21_025')
+	BG_PoolSet_Mecha.append('BG21_025')
 	BG_Mecha_Gold['BG21_025']='BG21_025_G'
 if Omega_Buster: #
 	pass
@@ -483,7 +483,7 @@ class TB_BaconUps_032t:
 #Grease Bot(4->6) 23.6
 if BG_Grease_Bot:
 	BG_Minion_Mecha+=['BG21_024', 'BG21_024e','BG21_024_G','BG21_024_Ge',]
-	BG_PoolSet_Mecha[6].append('BG21_024')
+	BG_PoolSet_Mecha.append('BG21_024')
 	BG_Mecha_Gold['BG21_024']='BG21_024_G'
 class BG21_024:# <12>[1453]
 	""" Grease Bot
@@ -504,7 +504,7 @@ from .BG_minion_demon import BG25__Mecha_Jaraxxus
 if BG25__Mecha_Jaraxxus:# 6/3/15 MECH/DEMON ## new 25.2.2 ##
 	##BG_Minion_Mecha+=['BG25_807','BG25_807_G','BG25_807e','BG25_807e2','BG25_807e3']
 	##BG_Minion_Mecha+=['BG25_807t','BG25_807t_G','BG25_807t2','BG25_807t2_G','BG25_807t3','BG25_807t3_G']
-	BG_PoolSet_Mecha[6].append('BG25_807')
+	BG_PoolSet_Mecha.append('BG25_807')
 	BG_Mecha_Gold['BG25_807']='BG25_807_G'
 	BG_Mecha_Gold['BG25_807t']='BG25_807t_G'
 	BG_Mecha_Gold['BG25_807t2']='BG25_807t2_G'

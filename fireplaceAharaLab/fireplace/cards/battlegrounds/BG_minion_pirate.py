@@ -26,7 +26,7 @@ BG_Nosy_Looter=False ##,6 ### banned 24.6
 
 BG_Minion_Pirate=[]
 
-BG_PoolSet_Pirate=[[],[],[],[],[],[],[]]
+BG_PoolSet_Pirate=[]
 
 BG_Pirate_Gold={}
 
@@ -37,7 +37,7 @@ BG_Pirate_Gold={}
 #Deck Swabbie,1,2,2,Pirate,Battlecry ### OK ###
 if BG_Deck_Swabbie:
 	BG_Minion_Pirate +=['BGS_055','TB_BaconUps_126']
-	BG_PoolSet_Pirate[1].append('BGS_055')
+	BG_PoolSet_Pirate.append('BGS_055')
 	BG_Pirate_Gold['BGS_055']='TB_BaconUps_126'
 class BGS_055:#
 	""" Deck Swabbie <pirate>  (2/2)
@@ -54,7 +54,7 @@ class TB_BaconUps_126:
 #Scallywag,1,3,1,Pirate,Deathrattle  ### OK ###
 if BG_Scallywag:
 	BG_Minion_Pirate +=['BGS_061','BGS_061t','TB_BaconUps_141','TB_BaconUps_141t']
-	BG_PoolSet_Pirate[1].append('BGS_061')
+	BG_PoolSet_Pirate.append('BGS_061')
 	BG_Pirate_Gold['BGS_061']='TB_BaconUps_141'
 class BGS_061_Action(TargetedAction):
 	TARGET=ActionArg()
@@ -90,7 +90,7 @@ class TB_BaconUps_141t:# <7>[1453]
 from .BG_minion_quilboar import BG25__Thorncaptain
 if BG25__Thorncaptain:# 1/4/2 quilboar/pirate ## new 25.2.2
 	#BG_Minion_Pirate+=['BG25_045','BG25_045_G','BG25_045e','BG25_045e2']
-	BG_PoolSet_Pirate[1].append('BG25_045')
+	BG_PoolSet_Pirate.append('BG25_045')
 	BG_Pirate_Gold['BG25_045']='BG25_045_G'
 
 ########## tavern tier 2
@@ -98,7 +98,7 @@ if BG25__Thorncaptain:# 1/4/2 quilboar/pirate ## new 25.2.2
 #Freedealing Gambler,2,3,3,Pirate,- ### OK ###
 if BG_Freedealing_Gambler:
 	BG_Minion_Pirate +=['BGS_049','TB_BaconUps_127']
-	BG_PoolSet_Pirate[2].append('BGS_049')
+	BG_PoolSet_Pirate.append('BGS_049')
 	BG_Pirate_Gold['BGS_049']='TB_BaconUps_127'
 class BGS_049:# <12>[1453]
 	""" Freedealing Gambler
@@ -116,7 +116,7 @@ class TB_BaconUps_127:# <12>[1453]
 #Southsea Captain,2,3,3,Pirate,- ### OK ###
 if BG_Southsea_Captain:
 	BG_Minion_Pirate +=['BG_NEW1_027','NEW1_027e','TB_BaconUps_136','TB_BaconUps_136e']
-	BG_PoolSet_Pirate[2].append('BG_NEW1_027')
+	BG_PoolSet_Pirate.append('BG_NEW1_027')
 	BG_Pirate_Gold['BG_NEW1_027']='TB_BaconUps_136'
 class BG_NEW1_027:
 	""" Southsea Captain
@@ -136,7 +136,7 @@ TB_BaconUps_136e = buff(+2, +2)
 #Yo-Ho-Ogre,2/3/5,Pirate,Taunt  ### OK ###
 if BG_Yo_Ho_Ogre:# 2/3/6 24.2.2
 	BG_Minion_Pirate +=['BGS_060','TB_BaconUps_150']
-	BG_PoolSet_Pirate[2].append('BGS_060')
+	BG_PoolSet_Pirate.append('BGS_060')
 	BG_Pirate_Gold['BGS_060']='TB_BaconUps_150'
 class BGS_060_Action(GameAction):
 	TARGET=ActionArg()# target=source
@@ -163,7 +163,7 @@ class TB_BaconUps_150:# <12>[1453]
 from .BG_minion_undead import BG25__Corpse_Refiner
 if BG25__Corpse_Refiner:# 2/2/3 undead/pirate ## new 25.2.2
 	##BG_Minion_Pirate+=['BG25_033','BG25_033_G']  ## no need
-	BG_PoolSet_Pirate[2]+=['BG25_033']
+	BG_PoolSet_Pirate+=['BG25_033']
 	BG_Pirate_Gold['BG25_033']='BG25_033_G'
 
 
@@ -173,7 +173,7 @@ if BG25__Corpse_Refiner:# 2/2/3 undead/pirate ## new 25.2.2
 #Briny Bootlegger,3,4,4,Pirate,- ### OK ### banned 24.2
 if BG_Briny_Bootlegger:
 	BG_Minion_Pirate +=['BG21_017','BG21_017_G']
-	BG_PoolSet_Pirate[3].append('BG21_017')
+	BG_PoolSet_Pirate.append('BG21_017')
 	BG_Pirate_Gold['BG21_017']='BG21_017_G'
 class BG21_017_Action(TargetedAction):
 	TARGET=ActionArg()
@@ -204,7 +204,7 @@ class BG21_017_G:# <12>[1453]
 #Salty Looter,3,4,5,Pirate,- ### OK ###
 if BG_Salty_Looter:
 	BG_Minion_Pirate +=['BGS_081','BGS_081e','TB_BaconUps_143','TB_BaconUps_143e']
-	BG_PoolSet_Pirate[3].append('BGS_081')
+	BG_PoolSet_Pirate.append('BGS_081')
 	BG_Pirate_Gold['BGS_081']='TB_BaconUps_143'
 class BGS_081:# <7>[1453]
 	""" Salty Looter
@@ -224,7 +224,7 @@ TB_BaconUps_143e=buff(2,2)
 #Southsea Strongarm,3,4,3,Pirate,Battlecry  ### OK ###
 if BG_Southsea_Strongarm:
 	BG_Minion_Pirate +=['BGS_048','BGS_048e','TB_BaconUps_140','TB_BaconUps_140e']
-	BG_PoolSet_Pirate[3].append('BGS_048')
+	BG_PoolSet_Pirate.append('BGS_048')
 	BG_Pirate_Gold['BGS_048']='TB_BaconUps_140'
 class BGS_048:# <12>[1453]
 	""" Southsea Strongarm
@@ -260,7 +260,7 @@ TB_BaconUps_140e=buff(2,2)
 ##### BG23_192 #######
 if BG_First_Mate_Pip: ##(3) new 24.2
 	BG_Minion_Pirate +=['BG23_192','BG23_192_G']
-	BG_PoolSet_Pirate[3].append('BG23_192')
+	BG_PoolSet_Pirate.append('BG23_192')
 	BG_Pirate_Gold['BG23_192']='BG23_192_G'
 class BG23_192:
 	""" First Mate Pip (3)
@@ -274,7 +274,7 @@ class BG23_192_G:
 #Goldgrubber,4,4,4,Pirate,- 金ぴか ### OK ###
 if BG_Goldgrubber:
 	BG_Minion_Pirate +=['BGS_066','BGS_066e','TB_BaconUps_130','TB_BaconUps_130e']
-	BG_PoolSet_Pirate[4].append('BGS_066')
+	BG_PoolSet_Pirate.append('BGS_066')
 	BG_Pirate_Gold['BGS_066']='TB_BaconUps_130'
 class BGS_066_Action(TargetedAction):
 	TARGET=ActionArg()
@@ -307,7 +307,7 @@ TB_BaconUps_130e=buff(4,4)
 #Peggy Brittlebone,4,6,5,Pirate,- ### OK ###
 if BG_Peggy_Brittlebone:
 	BG_Minion_Pirate +=['BG21_016','BG21_016e','BG21_016_G','BG21_016_Ge']
-	BG_PoolSet_Pirate[4].append('BG21_016')
+	BG_PoolSet_Pirate.append('BG21_016')
 	BG_Pirate_Gold['BG21_016']='BG21_016_G'
 class BG21_016:# <12>[1453] 義足
 	""" Peggy Brittlebone
@@ -330,7 +330,7 @@ BG21_016_Ge=buff(2,2)
 
 if BG25__Peggy_Sturdybone:# 
 	BG_Minion_Pirate+=['BG25_032','BG25_032_G','BG25_032_Ge','BG25_032e']
-	BG_PoolSet_Pirate[4].append('BG25_032')
+	BG_PoolSet_Pirate.append('BG25_032')
 	BG_Pirate_Gold['BG25_032']='BG25_032_G'
 class BG25_032:# (minion) 4/6/5
 	""" Peggy Sturdybone
@@ -357,7 +357,7 @@ BG25_032_Ge=buff(2,2)# (enchantment)
 #Ripsnarl Captain,4,4,6,Pirate,- ### OK ###
 if BG_Ripsnarl_Captain:
 	BG_Minion_Pirate +=['BGS_056','BGS_056e','TB_BaconUps_139','TB_BaconUps_139e']
-	BG_PoolSet_Pirate[4].append('BGS_056')
+	BG_PoolSet_Pirate.append('BGS_056')
 	BG_Pirate_Gold['BGS_056']='TB_BaconUps_139'
 class BGS_056:# <12>[1453] ギリガルル
 	""" Ripsnarl Captain
@@ -377,7 +377,7 @@ TB_BaconUps_139e=buff(4,4)
 #Cap'n Hoggarr,5,6,6,Pirate,- ### OK ###
 if BG_Cap_n_Hoggarr:
 	BG_Minion_Pirate +=['BGS_072','TB_BaconUps_133']
-	BG_PoolSet_Pirate[5].append('BGS_072')
+	BG_PoolSet_Pirate.append('BGS_072')
 	BG_Pirate_Gold['BGS_072']='TB_BaconUps_133'
 class BGS_072:# <12>[1453] ホガァ
 	""" Cap'n Hoggarr
@@ -395,7 +395,7 @@ class TB_BaconUps_133:# <12>[1453]
 #Tony Two-Tusk,5,4,6,Pirate,Avenge (X) ### OK ###
 if BG_Tony_Two_Tusk:
 	BG_Minion_Pirate +=['BG21_031','BG21_031_G']
-	BG_PoolSet_Pirate[5].append('BG21_031')
+	BG_PoolSet_Pirate.append('BG21_031')
 	BG_Pirate_Gold['BG21_031']='BG21_031_G'
 class BG21_031_Action(TargetedAction):
 	TARGET = ActionArg()
@@ -430,7 +430,7 @@ class BG21_031_G:# <12>[1453]
 #Vanessa VanCleef( parate 5, BG24_708)### OK ###
 if BG_Vanessa_VanCleef:
 	BG_Minion_Pirate +=['BG24_708','BG24_708e','BG24_708_G','BG24_708e_G']
-	BG_PoolSet_Pirate[5].append('BG24_708')
+	BG_PoolSet_Pirate.append('BG24_708')
 	BG_Pirate_Gold['BG24_708']='BG24_708_G'
 class BG24_708:
 	""" Vanessa VanCleef (3/7)
@@ -453,7 +453,7 @@ BG24_708e_G=buff(4,2)
 #Dread Admiral Eliza,6,6,7,Pirate,- ### OK ###
 if BG_Dread_Admiral_Eliza:
 	BG_Minion_Pirate +=['BGS_047','BGS_047e','TB_BaconUps_134','TB_BaconUps_134e']
-	BG_PoolSet_Pirate[6].append('BGS_047')
+	BG_PoolSet_Pirate.append('BGS_047')
 	BG_Pirate_Gold['BGS_047']='TB_BaconUps_134'
 class BGS_047:# <12>[1453]  イライザ
 	""" Dread Admiral Eliza
@@ -474,7 +474,7 @@ TB_BaconUps_134e=buff(4,2)
 #Nosy Looter,6,9,8,Pirate,-  ### OK ### banned 24.6
 if BG_Nosy_Looter:
 	BG_Minion_Pirate +=['BG21_019','BG21_019_G']
-	BG_PoolSet_Pirate[6].append('BG21_019')
+	BG_PoolSet_Pirate.append('BG21_019')
 	BG_Pirate_Gold['BG21_019']='BG21_019_G'
 class BG21_019_Action(TargetedAction):
 	TARGET = ActionArg()
@@ -503,6 +503,6 @@ class BG21_019_G:# <12>[1453]
 from .BG_minion_naga import BG25__Greta_Gold_Gun
 if BG25__Greta_Gold_Gun:# 6/2/9 naga/pirate ## new 25.2.2###
 	#BG_Minion_Pirate+=['BG25_044','BG25_044_G','BG25_044e2','BG25_044t']
-	BG_PoolSet_Pirate[6].append('BG25_044')
+	BG_PoolSet_Pirate.append('BG25_044')
 	BG_Pirate_Gold['BG25_044']='BG25_044_G'
 

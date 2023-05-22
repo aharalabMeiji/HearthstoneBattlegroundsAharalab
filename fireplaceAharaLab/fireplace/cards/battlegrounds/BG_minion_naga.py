@@ -28,7 +28,7 @@ BG25__Greta_Gold_Gun=True# 6/2/9 naga/pirate ## new 25.2.2
 
 BG_Minion_Naga=[]
 
-BG_PoolSet_Naga=[[],[],[],[],[],[],[]]
+BG_PoolSet_Naga=[]
 
 BG_Naga_Gold={}
 
@@ -36,7 +36,7 @@ BG_Naga_Gold={}
 ## Mini-Myrmidon(1)  ## OK ##
 if BG_Mini_Myrmidon:
 	BG_Minion_Naga+=['BG23_000','BG23_000e','BG23_000t','BG23_000_G','BG23_000_Ge','BG23_000_Gt', ]#
-	BG_PoolSet_Naga[1].append('BG23_000')
+	BG_PoolSet_Naga.append('BG23_000')
 	BG_Naga_Gold['BG23_000']='BG23_000_G'
 class BG23_000:# <12>[1453]
 	""" Mini-Myrmidon(1)
@@ -79,7 +79,7 @@ class BG23_000_Gt:
 ## Shell Collector(1) ## OK ##
 if BG_Shell_Collector:
 	BG_Minion_Naga+=['BG23_002','BG23_002_G', ]#
-	BG_PoolSet_Naga[1].append('BG23_002')
+	BG_PoolSet_Naga.append('BG23_002')
 	BG_Naga_Gold['BG23_002']='BG23_002_G'
 class BG23_002:# <12>[1453]
 	""" Shell Collector(1)
@@ -98,7 +98,7 @@ class BG23_002_G:# <12>[1453]
 ## Snail Cavalry(2)   ## OK ##
 if BG_Snail_Cavalry:
 	BG_Minion_Naga+=['BG23_001','BG23_001e','BG23_001_G','BG23_001_Ge', ]#
-	BG_PoolSet_Naga[2].append('BG23_001')
+	BG_PoolSet_Naga.append('BG23_001')
 	BG_Naga_Gold['BG23_001']='BG23_001_G'
 class BG23_001_Action(TargetedAction):
 	TARGET=ActionArg()
@@ -126,7 +126,7 @@ BG23_001_Ge=buff(0,4)
 ## Deep-Sea Angler (2) ### OK ###
 if BG_Deep_Sea_Angler:
 	BG_Minion_Naga+=['BG23_004','BG23_004e','BG23_004t','BG23_004_G','BG23_004_Ge','BG23_004_Gt', ]#
-	BG_PoolSet_Naga[2].append('BG23_004')
+	BG_PoolSet_Naga.append('BG23_004')
 	BG_Naga_Gold['BG23_004']='BG23_004_G'
 class BG23_004:# <12>[1453]
 	""" Deep-Sea Angler (2)
@@ -168,7 +168,7 @@ class BG23_004_Gt:
 ## Lava Lurker (2)  ### OK ###
 if BG_Lava_Lurker:#(2/2/5)
 	BG_Minion_Naga+=['BG23_009','BG23_009_G', ]#
-	BG_PoolSet_Naga[2].append('BG23_009')
+	BG_PoolSet_Naga.append('BG23_009')
 	BG_Naga_Gold['BG23_009']='BG23_009_G'
 class BG23_009_Action(TargetedAction):
 	BUFF=ActionArg()
@@ -204,7 +204,7 @@ class BG23_009_G:# <12>[1453]
 ## Stormscale Siren (3)  ### OK ### ### BANNED ###
 if BG_Stormscale_Siren:
 	BG_Minion_Naga+=['BG23_005','BG23_005_G', ]#
-	BG_PoolSet_Naga[3].append('BG23_005')
+	BG_PoolSet_Naga.append('BG23_005')
 	BG_Naga_Gold['BG23_005']='BG23_005_G'
 class BG23_005_Action(TargetedAction): ## 
 	TARGET = ActionArg()
@@ -233,7 +233,7 @@ class BG23_005_G:# <12>[1453]
 ## Pashmar the Vengeful (3) ### OK ###
 if BG_Pashmar_the_Vengeful:
 	BG_Minion_Naga+=['BG23_014','BG23_014_G', ]#
-	BG_PoolSet_Naga[3].append('BG23_014')
+	BG_PoolSet_Naga.append('BG23_014')
 	BG_Naga_Gold['BG23_014']='BG23_014_G'
 class BG23_014_Action(GameAction):
 	"""
@@ -288,7 +288,7 @@ class BG23_014_G:# <12>[1453]
 ## Warden of Old (3) ### OK ###
 if BG_Warden_of_Old:
 	BG_Minion_Naga+=['BGS_200','TB_BaconUps_256', ]#
-	BG_PoolSet_Naga[3].append('BGS_200')
+	BG_PoolSet_Naga.append('BGS_200')
 	BG_Naga_Gold['BGS_200']='TB_BaconUps_256'
 class BGS_200_Action(TargetedAction):
 	"""
@@ -320,7 +320,7 @@ class TB_BaconUps_256:# <12>[1453]
 ### Shoal Commander (3)
 if BG_Shoal_Commander:
 	BG_Minion_Naga+=['BG23_011','BG23_011e','BG23_011t','BG23_011_G','BG23_011_Ge','BG23_011_Gt', ]#
-	BG_PoolSet_Naga[3].append('BG23_011')
+	BG_PoolSet_Naga.append('BG23_011')
 	BG_Naga_Gold['BG23_011']='BG23_011_G'
 class BG23_011:# <12>[1453]  ### OK ###
 	""" Shoal Commander (3)
@@ -364,7 +364,7 @@ class BG23_011_Gt:
 #Eelbound Archer (4) ### OK ###
 if BG_Eelbound_Archer:
 	BG_Minion_Naga+=['BG23_006','BG23_006e','BG23_006t','BG23_006_G','BG23_006_Ge','BG23_006_Gt', ]#
-	BG_PoolSet_Naga[4].append('BG23_006')
+	BG_PoolSet_Naga.append('BG23_006')
 	BG_Naga_Gold['BG23_006']='BG23_006_G'
 class BG23_006:# <12>[1453]
 	""" Eelbound Archer (4)
@@ -407,7 +407,7 @@ class BG23_006_Gt:
 ## Waverider (4) ### OK ### too hard to manage windfury buff
 if BG_Waverider:
 	BG_Minion_Naga+=['BG23_007','BG23_007e','BG23_007t','BG23_007_G','BG23_007_Ge','BG23_007_Gt', ]#
-	BG_PoolSet_Naga[4].append('BG23_007')
+	BG_PoolSet_Naga.append('BG23_007')
 	BG_Naga_Gold['BG23_007']='BG23_007_G'
 class BG23_007:# <12>[1453]
 	""" Waverider (4)
@@ -455,7 +455,7 @@ class BG23_007_Gt:
 ## Eventide Brute (4)  ### OK ##
 if BG_Eventide_Brute:
 	BG_Minion_Naga+=['BG23_010','BG23_010e','BG23_010_G','BG23_010_Ge', ]#
-	BG_PoolSet_Naga[4].append('BG23_010')
+	BG_PoolSet_Naga.append('BG23_010')
 	BG_Naga_Gold['BG23_010']='BG23_010_G'
 class BG23_010:# <12>[1453]
 	""" Eventide Brute (4)
@@ -474,7 +474,7 @@ BG23_010_Ge=buff(2,2)
 from .BG_minion_quilboar import BG25__Pufferquil
 if BG25__Pufferquil:# 4/2/6, quilbour/naga
 	BG_Minion_Naga+=['BG25_039','BG25_039_G','BG25_039_Ge','BG25_039e']
-	BG_PoolSet_Naga[4].append('BG25_039')
+	BG_PoolSet_Naga.append('BG25_039')
 	BG_Naga_Gold['BG25_039']='BG25_039_G'
 
 ########### tavern tierr 5
@@ -482,7 +482,7 @@ if BG25__Pufferquil:# 4/2/6, quilbour/naga
 ## Critter Wrangler(5)  ### OK ###
 if BG_Critter_Wrangler:
 	BG_Minion_Naga+=['BG23_003','BG23_003e','BG23_003_G','BG23_003_Ge', ]#
-	BG_PoolSet_Naga[5].append('BG23_003')
+	BG_PoolSet_Naga.append('BG23_003')
 	BG_Naga_Gold['BG23_003']='BG23_003_G'
 class BG23_003_Action(TargetedAction):
 	TARGET=ActionArg()
@@ -514,7 +514,7 @@ BG23_003_Ge=buff(4,4) ## 23.4.3
 ## Glowscale (5)  ### OK ###
 if BG_Glowscale:
 	BG_Minion_Naga+=['BG23_008','BG23_008e','BG23_008t','BG23_008_G','BG23_008_Ge','BG23_008_Gt', ]#
-	BG_PoolSet_Naga[5].append('BG23_008')
+	BG_PoolSet_Naga.append('BG23_008')
 	BG_Naga_Gold['BG23_008']='BG23_008_G'
 class BG23_008:# <12>[1453]
 	""" Glowscale (5)
@@ -560,7 +560,7 @@ class BG23_008_Gt:
 #Corrupted Myrmidon (5) ### OK ###
 if BG_Corrupted_Myrmidon:
 	BG_Minion_Naga+=['BG23_012','BG23_012e','BG23_012_G','BG23_012_Ge', ]#
-	BG_PoolSet_Naga[5].append('BG23_012')
+	BG_PoolSet_Naga.append('BG23_012')
 	BG_Naga_Gold['BG23_012']='BG23_012_G'
 class BG23_012_Buff(TargetedAction):
 	TARGET = ActionArg()
@@ -595,7 +595,7 @@ class BG23_012_Ge:
 ##Tidemistress Athissa (6)  アジッサ  ### OK ###
 if BG_Tidemistress_Athissa:
 	BG_Minion_Naga+=['BG23_013','BG23_013e','BG23_013_G','BG23_013_Ge', ]#
-BG_PoolSet_Naga[6].append('BG23_013')
+BG_PoolSet_Naga.append('BG23_013')
 BG_Naga_Gold['BG23_013']='BG23_013_G'
 class BG23_013_Action(TargetedAction):
 	TARGET=ActionArg()
@@ -627,7 +627,7 @@ BG23_013_Ge=buff(2,2)
 
 if BG25__Greta_Gold_Gun:# 6/2/9 naga/pirate ## new 25.2.2#########################################
 	BG_Minion_Naga+=['BG25_044','BG25_044_G','BG25_044e2','BG25_044t']
-	BG_PoolSet_Naga[6].append('BG25_044')
+	BG_PoolSet_Naga.append('BG25_044')
 	BG_Naga_Gold['BG25_044']='BG25_044_G'
 class BG25_044:# (minion)
 	""" Greta Gold-Gun

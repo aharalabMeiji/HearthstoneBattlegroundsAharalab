@@ -23,7 +23,7 @@ BG_Mama_Bear=True#5/5/5
 BG_Palescale_Crocolisk=False#5 banned 25.6
 #BG_Sinrunner_Blanchy=True # 5/3/3 new 25.2.2 -> undead
 
-#BG25__Felstomper=True ## 6/3/7 -> demon
+#BG25__Felstomper=True ## 6/3/7 -> demon/beast
 BG_Ghastcoiler=True#6/7/7
 BG_Goldrinn_the_Great_Wolf=True#6/4/4
 BG_Maexxna=False## banned 23.2

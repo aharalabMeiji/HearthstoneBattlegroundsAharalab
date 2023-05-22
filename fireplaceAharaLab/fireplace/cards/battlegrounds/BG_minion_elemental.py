@@ -26,13 +26,13 @@ BG_Lieutenant_Garr=True # (6)
 
 
 BG_Minion_Elemental =[]
-BG_PoolSet_Elemental=[[],[],[],[],[],[],[]]
+BG_PoolSet_Elemental=[]
 BG_Elemental_Gold={}
 
 #Refreshing Anomaly(1)  ### OK ###
 if BG_Refreshing_Anomaly: # 
 	BG_Minion_Elemental+=['BGS_116','TB_BaconUps_167']
-	BG_PoolSet_Elemental[1].append('BGS_116')
+	BG_PoolSet_Elemental.append('BGS_116')
 	BG_Elemental_Gold['BGS_116']='TB_BaconUps_167'
 class BGS_116:# <12>[1453] 
 	""" Refreshing Anomaly
@@ -49,7 +49,7 @@ class TB_BaconUps_167:# <12>[1453]
 #Sellemental(1)  ### OK ###
 if BG_Sellemental: # 
 	BG_Minion_Elemental+=['BGS_115','BGS_115t','TB_BaconUps_156']
-	BG_PoolSet_Elemental[1].append('BGS_115')
+	BG_PoolSet_Elemental.append('BGS_115')
 	BG_Elemental_Gold['BGS_115']='TB_BaconUps_156'
 class BGS_115:# <12>[1453] ウレメンタル
 	""" Sellemental
@@ -68,7 +68,7 @@ class TB_BaconUps_156:# <12>[1453]
 
 if BG_Bubblette:
 	BG_Minion_Elemental+=['BG_TID_713','BG_TID_713_G']
-	BG_PoolSet_Elemental[1].append('BG_TID_713')
+	BG_PoolSet_Elemental.append('BG_TID_713')
 	BG_Elemental_Gold['BG_TID_713']='BG_TID_713_G'
 class BG_TID_713:#あわわわ ## banned 24.2
 	""" Bubblette
@@ -86,7 +86,7 @@ class BG_TID_713_G:#あわわわ
 if BG_Molten_Rock: # 
 #Molten Rock(2)  ### MAYBE ###
 	BG_Minion_Elemental+=['BGS_127','BGS_127e','TB_Baconups_202','TB_Baconups_202e']
-	BG_PoolSet_Elemental[2].append('BGS_127')
+	BG_PoolSet_Elemental.append('BGS_127')
 	BG_Elemental_Gold['BGS_127']='TB_Baconups_202'
 class BGS_127:# <12>[1453] ようがん
 	""" Molten Rock
@@ -106,7 +106,7 @@ TB_Baconups_202e=buff(0,2)
 if BG_Party_Elemental: # ## MAYBE ###
 #Party Elemental(2)  #(2/4/2)
 	BG_Minion_Elemental+=['BGS_120','BGS_120e','TB_BaconUps_160']
-	BG_PoolSet_Elemental[2].append('BGS_120')
+	BG_PoolSet_Elemental.append('BGS_120')
 	BG_Elemental_Gold['BGS_120']='TB_BaconUps_160'
 class BGS_120:# <12>[1453]
 	""" Party Elemental
@@ -126,7 +126,7 @@ class TB_BaconUps_160:# <12>[1453]
 if BG_Crackling_Cyclone: # 
 #Crackling Cyclone(3)   ### OK ###
 	BG_Minion_Elemental+=['BGS_119','TB_BaconUps_159']
-	BG_PoolSet_Elemental[3].append('BGS_119')
+	BG_PoolSet_Elemental.append('BGS_119')
 	BG_Elemental_Gold['BGS_119']='TB_BaconUps_159'
 class BGS_119:# <12>[1453] ばりばり
 	""" Crackling Cyclone
@@ -142,7 +142,7 @@ class TB_BaconUps_159:# <12>[1453]
 if BG_Smogger: # 
 #Smogger(3)   ### need check ###
 	BG_Minion_Elemental+=['BG21_021','BG21_021e','BG21_021_G',]
-	BG_PoolSet_Elemental[3].append('BG21_021')
+	BG_PoolSet_Elemental.append('BG21_021')
 	BG_Elemental_Gold['BG21_021']='BG21_021_G'
 class BG21_021:# <12>[1453]
 	""" Smogger
@@ -190,7 +190,7 @@ class BG21_021_G:# <12>[1453]
 #Stasis Elemental(3)   ### OK ###
 if BG_Stasis_Elemental: # 
 	BG_Minion_Elemental+=['BGS_122','TB_BaconUps_161']
-	BG_PoolSet_Elemental[3].append('BGS_122')
+	BG_PoolSet_Elemental.append('BGS_122')
 	BG_Elemental_Gold['BGS_122']='TB_BaconUps_161'
 class BGS_122:# <12>[1453] ###
 	""" Stasis Elemental 
@@ -237,7 +237,7 @@ class TB_BaconUps_161:# <12>[1453]
 
 if BG25__Felemental:# 3/3/1 elemental/demon ## new 25.2.2 ##
 	BG_Minion_Elemental+=['BG25_041','BG25_041_G','BG25_041e','BG25_041e2']
-	BG_PoolSet_Elemental[3].append('BG25_041')
+	BG_PoolSet_Elemental.append('BG25_041')
 	BG_Elemental_Gold['BG25_041']='BG25_041_G'
 class BG25_041_Action(GameAction):
 	def do(self, source):
@@ -273,7 +273,7 @@ class BG25_041e2:# (enchantment)
 #Dazzling Lightspawn(4) ### OK ###
 if BG_Dazzling_Lightspawn: # 
 	BG_Minion_Elemental+=['BG21_020','BG21_020e','BG21_020pe','BG21_020_G']
-	BG_PoolSet_Elemental[4].append('BG21_020')
+	BG_PoolSet_Elemental.append('BG21_020')
 	BG_Elemental_Gold['BG21_020']='BG21_020_G'
 class BG21_020_Action(TargetedAction):
 	TARGET = ActionArg()
@@ -306,7 +306,7 @@ class BG21_020_G:# <12>[1453]
 #Recycling Wraith(4)   ### maybe ###
 if BG_Recycling_Wraith: # 
 	BG_Minion_Elemental+=['BG21_040','BG21_040_G']
-	BG_PoolSet_Elemental[4].append('BG21_040')
+	BG_PoolSet_Elemental.append('BG21_040')
 	BG_Elemental_Gold['BG21_040']='BG21_040_G'
 class BG21_040:# <12>[1453] レイス
 	""" Recycling Wraith
@@ -324,7 +324,7 @@ class BG21_040_G:# <12>[1453]
 #Wildfire Elemental(4) ### OK ###
 if BG_Wildfire_Elemental: # 
 	BG_Minion_Elemental+=['BGS_126','TB_BaconUps_166']
-	BG_PoolSet_Elemental[4].append('BGS_126')
+	BG_PoolSet_Elemental.append('BGS_126')
 	BG_Elemental_Gold['BGS_126']='TB_BaconUps_166'
 class BGS_126_Action(TargetedAction):
 	TARGET = ActionArg()
@@ -356,7 +356,7 @@ class TB_BaconUps_166:# <12>[1453]
 #Tavern Tempest(5)   ### need check ###
 if BG_Tavern_Tempest: # 
 	BG_Minion_Elemental+=['BGS_123','TB_BaconUps_162']
-	BG_PoolSet_Elemental[5].append('BGS_123')
+	BG_PoolSet_Elemental.append('BGS_123')
 	BG_Elemental_Gold['BGS_123']='TB_BaconUps_162'
 class BGS_123:# <12>[1453] 逆巻き風
 	""" Tavern Tempest
@@ -396,7 +396,7 @@ class TB_BaconUps_162:# <12>[1453]
 #Lil' Rag (6->5, 24.0.3)   ### OK ###
 if BG_Lil_Rag: # 
 	BG_Minion_Elemental+=['BGS_100','BGS_100e','TB_BaconUps_200']
-	BG_PoolSet_Elemental[5].append('BGS_100')
+	BG_PoolSet_Elemental.append('BGS_100')
 	BG_Elemental_Gold['BGS_100']='TB_BaconUps_200'
 class BGS_100_Action(TargetedAction):
 	TARGET = ActionArg()
@@ -425,7 +425,7 @@ class TB_BaconUps_200:# <12>[1453]
 
 if BG25__Magmaloc:# 5/1/1 murloc ## new 25.2.2
 	BG_Minion_Elemental+=['BG25_046','BG25_046e','BG25_046_G','BG25_046_Ge']
-	BG_PoolSet_Elemental[5].append('BG25_046')
+	BG_PoolSet_Elemental.append('BG25_046')
 	BG_Elemental_Gold['BG25_046']='BG25_046_G'
 class BG25_046_Action(GameAction):
 	def do(self, source):
@@ -463,7 +463,7 @@ class BG25_046_Ge:# (enchantment)
 #Gentle Djinni(6)   ### OK ###
 if BG_Gentle_Djinni: # 
 	BG_Minion_Elemental+=['BGS_121','TB_BaconUps_165']
-	BG_PoolSet_Elemental[6].append('BGS_121')
+	BG_PoolSet_Elemental.append('BGS_121')
 	BG_Elemental_Gold['BGS_121']='TB_BaconUps_165'
 class BGS_121_Action(TargetedAction):
 	TARGET = ActionArg()
@@ -499,7 +499,7 @@ class TB_BaconUps_165:# <12>[1453]
 # Lieutenant Garr (6)(8/8) ### HP OK ###
 if BG_Lieutenant_Garr: # 
 	BG_Minion_Elemental+=['BGS_124','BGS_124e','TB_BaconUps_163','TB_BaconUps_163e']
-	BG_PoolSet_Elemental[6].append('BGS_124')
+	BG_PoolSet_Elemental.append('BGS_124')
 	BG_Elemental_Gold['BGS_124']='TB_BaconUps_163'
 class BGS_124_Action(TargetedAction):
 	TARGET = ActionArg()# SELF

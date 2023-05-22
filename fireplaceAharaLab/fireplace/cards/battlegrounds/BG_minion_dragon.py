@@ -4,7 +4,7 @@ BG_Dozy_Whelp=True #(1) new 24.6 ### OK ###
 BG_Evolving_Chromawing=True##(1) banned 23.6, revive 24.0, revised 24.0.3
 BG_Red_Whelp=True ## ##(1)
 
-#BG_Blazing_Sklyfin=True ## (2/1/3) -> murloc
+#BG_Blazing_Sklyfin=True ## (2/1/3) -> dragon/murloc
 BG_Glyph_Guardian=False ## ##(2) ###banned 25.?
 BG_Steward_of_Time=False ####(2) ##banned 24.2
 BG_Twilight_Emissary=True ##(2/3/3)
@@ -30,13 +30,13 @@ BG_Kalecgos_Arcane_Aspect=True ## (6)
 
 BG_Minion_Dragon =[]
 
-BG_PoolSet_Dragon=[[],[],[],[],[],[],[]]
+BG_PoolSet_Dragon=[]
 
 BG_Dragon_Gold={}
 
 if BG_Evolving_Chromawing:#Evolving Chromawing(1) ## banned 23.6, revive 26.0
 	BG_Minion_Dragon+=['BG21_027','BG21_027e','BG21_027_G','BG21_027_Ge',]#
-	BG_PoolSet_Dragon[1].append('BG21_027')
+	BG_PoolSet_Dragon.append('BG21_027')
 	BG_Dragon_Gold['BG21_027']='BG21_027_G' #	
 #Evolving Chromawing(1)  ### OK ###
 class BG21_027_Buff(TargetedAction):
@@ -72,7 +72,7 @@ class BG21_027_Ge:
 #Red Whelp(1) ### need check ###
 if BG_Red_Whelp:
 	BG_Minion_Dragon+=['BGS_019','TB_BaconUps_102']#
-	BG_PoolSet_Dragon[1].append('BGS_019')
+	BG_PoolSet_Dragon.append('BGS_019')
 	BG_Dragon_Gold['BGS_019']='TB_BaconUps_102' #	
 class BGS_019_Action(TargetedAction):
 	TARGET=ActionArg()
@@ -106,7 +106,7 @@ class TB_BaconUps_102:# <12>[1453]
 #Dozy Whelp（dragon 1）(BG24_300) ### OK ###
 if BG_Dozy_Whelp:
 	BG_Minion_Dragon+=['BG24_300','BG24_300e','BG24_300_G','BG24_300_Ge']#
-	BG_PoolSet_Dragon[1].append('BG24_300')
+	BG_PoolSet_Dragon.append('BG24_300')
 	BG_Dragon_Gold['BG24_300']='BG24_300_G' #	
 class BG24_300_Target(TargetedAction):
 	CARD=ActionArg()
@@ -131,7 +131,7 @@ BG24_300_Ge=buff(2,0)
 #Glyph Guardian(2)   ### need check ###
 if BG_Glyph_Guardian:
 	BG_Minion_Dragon+=['BGS_045','BGS_045e','TB_BaconUps_115','TB_BaconUps_115e']#
-	BG_PoolSet_Dragon[2].append('BGS_045')
+	BG_PoolSet_Dragon.append('BGS_045')
 	BG_Dragon_Gold['BGS_045']='TB_BaconUps_115' #	
 class BGS_045_Buff(TargetedAction):
 	TARGET = ActionArg()
@@ -158,7 +158,7 @@ class TB_BaconUps_115e:
 #Steward of Time(2) ### OK ### ### banned 24.2
 if BG_Steward_of_Time:
 	BG_Minion_Dragon+=['BGS_037','BGS_037e','TB_BaconUps_107','TB_BaconUps_107e']#
-	BG_PoolSet_Dragon[2].append('BGS_037')
+	BG_PoolSet_Dragon.append('BGS_037')
 	BG_Dragon_Gold['BGS_037']='TB_BaconUps_107' #	
 class BGS_037:
 	""" Steward of Time
@@ -171,13 +171,22 @@ class TB_BaconUps_107:
 	events = Sell(CONTROLLER, FRIENDLY + ID('TB_BaconUps_107')).on(Buff(ENEMY_MINIONS, 'TB_BaconUps_107e'))
 TB_BaconUps_107e=buff(4,2)
 
+
+from .BG_minion_murloc import BG_Blazing_Skyfin
+### Blazing Skyfin (2/1/3) ## new 25.2.2
+if BG_Blazing_Skyfin:
+	##BG_Minion_Dragon+=['BG25_040','BG25_040_G','BG25_040e','BG25_040_Ge']
+	BG_PoolSet_Dragon.append('BG25_040')
+	BG_Dragon_Gold['BG25_040']='BG25_040_G'
+
+
 #### TIER 3 #########
 
 
 
 if BG24__Nether_Drake:# (3)  new 24.2 ### visually OK
 	BG_Minion_Dragon+=['BG24_003','BG24_003e','BG24_003_G','BG24_003_Ge']
-	BG_PoolSet_Dragon[3].append('BG24_003')
+	BG_PoolSet_Dragon.append('BG24_003')
 	BG_Dragon_Gold['BG24_003']='BG24_003_G'
 class BG24_003:# (minion) (2/0/4)
 	""" Nether Drake
@@ -197,7 +206,7 @@ BG24_003_Ge=buff(2,0)
 #Bronze Warden(3)  ### OK ###
 if BG_Bronze_Warden:
 	BG_Minion_Dragon+=['BGS_034','TB_BaconUps_149']#
-	BG_PoolSet_Dragon[3].append('BGS_034')
+	BG_PoolSet_Dragon.append('BGS_034')
 	BG_Dragon_Gold['BGS_034']='TB_BaconUps_149' #	
 class BGS_034:# <12>[1453]
 	""" Bronze Warden
@@ -216,7 +225,7 @@ class TB_BaconUps_149:# <12>[1453]
 #Drakonid Enforcer(4)  ### OK ## (3)->(4)
 if BG_Drakonid_Enforcer:
 	BG_Minion_Dragon+=['BGS_067','BGS_067e','TB_BaconUps_117','TB_BaconUps_117e']#
-	BG_PoolSet_Dragon[4].append('BGS_067')
+	BG_PoolSet_Dragon.append('BGS_067')
 	BG_Dragon_Gold['BGS_067']='TB_BaconUps_117' #	
 class BGS_067:# <12>[1453]
 	""" Drakonid Enforcer
@@ -237,7 +246,7 @@ TB_BaconUps_117e=buff(4,4)
 #Twilight Emissary(3)  ### OK ### (3)->(2)
 if BG_Twilight_Emissary:
 	BG_Minion_Dragon+=['BGS_038','BGS_038e','TB_BaconUps_108','TB_BaconUps_108e']#
-	BG_PoolSet_Dragon[2].append('BGS_038')
+	BG_PoolSet_Dragon.append('BGS_038')
 	BG_Dragon_Gold['BGS_038']='TB_BaconUps_108' #	
 class BGS_038:# <12>[1453]
 	""" Twilight Emissary
@@ -257,7 +266,7 @@ TB_BaconUps_108e=buff(4,4)
 
 if BG24__Amber_Guardian:# (3) new 24.2 ## 
 	BG_Minion_Dragon+=['BG24_500','BG24_500e','BG24_500_G','BG24_500_Ge']
-	BG_PoolSet_Dragon[3].append('BG24_500')
+	BG_PoolSet_Dragon.append('BG24_500')
 	BG_Dragon_Gold['BG24_500']='BG24_500_G'
 class BG24_500:# (minion)
 	""" Amber Guardian
@@ -294,7 +303,7 @@ class BG24_500_Ge:
 #Cobalt Scalebane(4)  ### OK ### banned 24.2
 if BG_Cobalt_Scalebane:
 	BG_Minion_Dragon+=['ICC_029','ICC_029e','TB_BaconUps_120','TB_BaconUps_120e']#
-	BG_PoolSet_Dragon[4].append('ICC_029')
+	BG_PoolSet_Dragon.append('ICC_029')
 	BG_Dragon_Gold['ICC_029']='TB_BaconUps_120' #	
 class ICC_029:
 	""" Cobalt Scalebane
@@ -312,7 +321,7 @@ TB_BaconUps_120e=buff(6,0)
 #Prestor's Pyrospawn(4)  ### maybe ###
 if BG_Prestor_s_Pyrospawn:
 	BG_Minion_Dragon+=['BG21_012','BG21_012_G']#
-	BG_PoolSet_Dragon[4].append('BG21_012')
+	BG_PoolSet_Dragon.append('BG21_012')
 	BG_Dragon_Gold['BG21_012']='BG21_012_G' #	
 class BG21_012:# <12>[1453]
 	""" Prestor's Pyrospawn
@@ -330,7 +339,7 @@ class BG21_012_G:# <12>[1453]
 #Prized Promo-Drake(4)   ### maybe ###
 if BG_Prized_Promo_Drake:
 	BG_Minion_Dragon+=['BG21_014','BG21_014e','BG21_014_G']#
-	BG_PoolSet_Dragon[4].append('BG21_014')
+	BG_PoolSet_Dragon.append('BG21_014')
 	BG_Dragon_Gold['BG21_014']='BG21_014_G' #	
 class BG21_014_Action(TargetedAction):
 	TARGET = ActionArg()
@@ -369,7 +378,7 @@ class BG21_014_G:# <12>[1453]
 #Atramedes (4)   23.6 ### OK ###
 if BG_Atramedes:
 	BG_Minion_Dragon+=['BG23_362','BG23_362_G']#
-	BG_PoolSet_Dragon[4].append('BG23_362')
+	BG_PoolSet_Dragon.append('BG23_362')
 	BG_Dragon_Gold['BG23_362']='BG23_362_G' #	
 class BG23_362:
 	"""Atramedes
@@ -385,7 +394,7 @@ class BG23_362_G:
 
 if BG25__Chronormu:# 4/4/4 dragon ## 25.2.2
 	BG_Minion_Dragon+=['BG25_104','BG25_104_G','BG25_104e']
-	BG_PoolSet_Dragon[4].append('BG25_104')
+	BG_PoolSet_Dragon.append('BG25_104')
 	BG_Dragon_Gold['BG25_104']='BG25_104_G' #
 class BG25_104_Action(TargetedAction):
 	TARGET = ActionArg()
@@ -416,7 +425,7 @@ class BG25_104e:# (enchantment)
 
 if BG25__General_Drakkisath:# 4/2/8 DRAGON ## new 25.2.2
 	BG_Minion_Dragon+=['BG25_309','BG25_309e','BG25_309_G','BG25_309_Ge','BG25_309_Gt','BG25_309t']
-	BG_PoolSet_Dragon[4].append('BG25_309')
+	BG_PoolSet_Dragon.append('BG25_309')
 	BG_Dragon_Gold['BG25_309']='BG25_309_G' 
 	BG_Dragon_Gold['BG25_309t']='BG25_309_Gt' 
 class BG25_309:# (minion)
@@ -448,7 +457,7 @@ BG25_309_Ge=buff(10,0)
 #Tarecgosa(3)->(4)    ## OK ###
 if BG_Tarecgosa:
 	BG_Minion_Dragon+=['BG21_015','BG21_015_G']#
-	BG_PoolSet_Dragon[3].append('BG21_015')
+	BG_PoolSet_Dragon.append('BG21_015')
 	BG_Dragon_Gold['BG21_015']='BG21_015_G' #	
 class BG21_015_Action0(TargetedAction):
 	TARGET = ActionArg()# self
@@ -505,7 +514,7 @@ class BG21_015_G:# <12>[1453]
 #Murozond(5)   ### OK ####
 if BG_Murozond:
 	BG_Minion_Dragon+=['BGS_043','TB_BaconUps_110']#
-	BG_PoolSet_Dragon[5].append('BGS_043')
+	BG_PoolSet_Dragon.append('BGS_043')
 	BG_Dragon_Gold['BGS_043']='TB_BaconUps_110' #	
 class BGS_043:# <12>[1453]
 	""" Murozond
@@ -536,7 +545,7 @@ class TB_BaconUps_110:# <12>[1453]
 #Razorgore, the Untamed (5)  ### need check (alternative) ###
 if BG_Razorgore_the_Untamed:
 	BG_Minion_Dragon+=['BGS_036','BGS_036e','TB_BaconUps_106','TB_BaconUps_106e']#
-	BG_PoolSet_Dragon[5].append('BGS_036')
+	BG_PoolSet_Dragon.append('BGS_036')
 	BG_Dragon_Gold['BGS_036']='TB_BaconUps_106' #	
 class BGS_036_Action(TargetedAction):
 	TARGET = ActionArg()
@@ -587,7 +596,7 @@ BG25_043_Ge=buff(20,0)
 #Kalecgos, Arcane Aspect (6)  ### maybe ###
 if BG_Kalecgos_Arcane_Aspect:
 	BG_Minion_Dragon+=['BGS_041','BGS_041e','TB_BaconUps_109','TB_BaconUps_109e']#
-	BG_PoolSet_Dragon[6].append('BGS_041')
+	BG_PoolSet_Dragon.append('BGS_041')
 	BG_Dragon_Gold['BGS_041']='TB_BaconUps_109' #	
 class BGS_041:# <12>[1453]
 	""" Kalecgos, Arcane Aspect

@@ -1,19 +1,19 @@
 from ..utils import *
 
-BG_Icky_Imp=True ##(1) banned 24.2 ## renew 25.2.2
-BG24__Picky_Eater=True ## (1) new 24.2
+BG_Icky_Imp=(Config.BG_VERSION<2420 or Config.BG_VERSION>=2522) ##(1) banned 24.2 ## renew 25.2.2
+BG24__Picky_Eater=(Config.BG_VERSION>=2420) ## (1) new 24.2
 
 BG_Imprisoner=False ##(2)->(1)-> banned when? 
 BG_Impulsive_Trickster=True ##(1)->(2)
-BG_Mind_Muck=True #(2) new 24.2
-BG_Nathrezim_Overseer=False ##(2) banned 24.2
-BG_Piggyback_Imp=True #(2) new 24.2
+BG_Mind_Muck=(Config.BG_VERSION>=2420) #(2) new 24.2
+BG_Nathrezim_Overseer=(Config.BG_VERSION<2420) ##(2) banned 24.2
+BG_Piggyback_Imp=(Config.BG_VERSION>=2420) #(2) new 24.2
 
 #BG_Felemental : -> ELEMENTAL
 BG_Kathra_natir=True ##(3)
-BG_Leeching_Felhound=True ## 3/3/3 new 25.6 #########
-BG_Legion_Overseer=True## (3) new 24.2 
-BG_Soul_Devourer=False ##(3) banned 24.2
+BG_Leeching_Felhound=(Config.BG_VERSION>=2560) ## 3/3/3 new 25.6 #########
+BG_Legion_Overseer=(Config.BG_VERSION>=2420)## (3) new 24.2 
+BG_Soul_Devourer=(Config.BG_VERSION<2420) ##(3) banned 24.2
 
 BG_Bigfernal=True ##(4)
 BG_Ring_Matron=True ##(4)
@@ -23,21 +23,21 @@ BG_Insatiable_Ur_zul=True ##(5)
 BG_Voidlord=True ##(5)
 
 BG_Famished_Felbat=True ##(6)
-BG_Imp_Mama=False ##(6) ## banned? 25.2.2
-BG25__Felstomper=True# 6/3/7 demon/beast ## new 25.2.2
-BG25__Mecha_Jaraxxus=True# 6/3/15 MECH/DEMON ## new 25.2.2
+BG_Imp_Mama=(Config.BG_VERSION<2522) ##(6) ## banned? 25.2.2
+BG25__Felstomper=(Config.BG_VERSION>=2522)# 6/3/7 demon/beast ## new 25.2.2
+BG25__Mecha_Jaraxxus=(Config.BG_VERSION>=2522)# 6/3/15 MECH/DEMON ## new 25.2.2
 
 
 BG_Minion_Demon =[]
 
-BG_PoolSet_Demon=[[],[],[],[],[],[],[]]
+BG_PoolSet_Demon = []
 
 BG_Demon_Gold={}
 
 #################### インプ ### OK ### banned 24.2 ## renew 25.2.2
 if BG_Icky_Imp:
 	BG_Minion_Demon +=['BG21_029','BG_BRM_006t','BG21_029_G','TB_BaconUps_030t']
-	BG_PoolSet_Demon[1].append('BG21_029')
+	BG_PoolSet_Demon.append('BG21_029')
 	BG_Demon_Gold['BG21_029']='BG21_029_G'
 class BG21_029:# <12>[1453]
 	""" Icky Imp (1)
@@ -58,7 +58,7 @@ class TB_BaconUps_030t:#
 
 if BG24__Picky_Eater:# (1) #### visually OK###
 	BG_Minion_Demon+=['BG24_009','BG24_009e','BG24_009_G']
-	BG_PoolSet_Demon[1].append('BG24_009')
+	BG_PoolSet_Demon.append('BG24_009')
 	BG_Demon_Gold['BG24_009']='BG24_009_G'
 class BG24_009:# (minion)(demon)
 	""" Picky Eater
@@ -89,7 +89,7 @@ class BG24_009_G:# (minion)(demon)
 #################### トリックスター(1)->(2)  ### OK ###
 if BG_Impulsive_Trickster:
 	BG_Minion_Demon +=['BG21_006','BG21_006e','BG21_006_G']
-	BG_PoolSet_Demon[2].append('BG21_006')
+	BG_PoolSet_Demon.append('BG21_006')
 	BG_Demon_Gold['BG21_006']='BG21_006_G'
 class BG21_006_Action(TargetedAction):
 	TARGET = ActionArg()
@@ -125,7 +125,7 @@ class BG21_006_G:# <12>[1453]
 #########BG23_357(2)############
 if BG_Mind_Muck: #(2) new 24.2
 	BG_Minion_Demon +=['BG23_357','BG23_357_G']
-	BG_PoolSet_Demon[2].append('BG23_357')
+	BG_PoolSet_Demon.append('BG23_357')
 	BG_Demon_Gold['BG23_357']='BG23_357_G'
 class BG23_357:# 
 	""" Mind Muck(2)
@@ -151,7 +151,7 @@ class BG23_357_G:#
 ####### BG_AV_309 ############
 if BG_Piggyback_Imp: #(2) new 24.2
 	BG_Minion_Demon +=['BG_AV_309','BG_AV_309t','BG_AV_309_G','BG_AV_309_Gt']
-	BG_PoolSet_Demon[2].append('BG_AV_309')
+	BG_PoolSet_Demon.append('BG_AV_309')
 	BG_Demon_Gold['BG_AV_309']='BG_AV_309_G'
 class BG_AV_309:# 
 	""" Piggyback Imp(2)
@@ -170,7 +170,7 @@ class BG_AV_309_Gt:
 ####################ナスレズィム (2)### OK ### banned 24.2
 if BG_Nathrezim_Overseer:
 	BG_Minion_Demon +=['BGS_001','BGS_001e','TB_BaconUps_062','TB_BaconUps_062e']
-	BG_PoolSet_Demon[2].append('BGS_001')
+	BG_PoolSet_Demon.append('BGS_001')
 	BG_Demon_Gold['BGS_001']='TB_BaconUps_062'
 class BGS_001:# <12>[1453] 
 	""" Nathrezim Overseer (2)
@@ -196,7 +196,7 @@ TB_BaconUps_062e=buff(4,4)
 ####################  禁固番  (1) ### OK ### banned when?
 if BG_Imprisoner:
 	BG_Minion_Demon +=['BGS_014','BRM_006t','TB_BaconUps_113','TB_BaconUps_030t']
-	BG_PoolSet_Demon[1].append('BGS_014')
+	BG_PoolSet_Demon.append('BGS_014')
 	BG_Demon_Gold['BGS_014']='TB_BaconUps_113'
 class BGS_014:# <12>[1453]
 	""" Imprisoner (2)
@@ -217,7 +217,7 @@ class TB_BaconUps_113:# <12>[1453]
 #################### カスラナティール（カステラ） (3)### maybe OK ###
 if BG_Kathra_natir:
 	BG_Minion_Demon +=['BG21_039','BG21_039e','BG21_039_G','BG21_039_Ge']
-	BG_PoolSet_Demon[3].append('BG21_039')
+	BG_PoolSet_Demon.append('BG21_039')
 	BG_Demon_Gold['BG21_039']='BG21_039_G'
 class BG21_039:# <12>[1453]
 	""" Kathra'natir (3)
@@ -236,7 +236,7 @@ BG21_039_Ge=buff(4,0)
 ## Leeching Felhound 3/3/3
 if BG_Leeching_Felhound: ## 3/3/3 new 25.6 #########
 	BG_Minion_Demon +=['BG25_520','BG25_520_G']
-	BG_PoolSet_Demon[3].append('BG25_520')
+	BG_PoolSet_Demon.append('BG25_520')
 	BG_Demon_Gold['BG25_520']='BG25_520_G'
 class BG25_520:
 	""" Leeching Felhound
@@ -251,7 +251,7 @@ class BG25_520_G:
 #### BG23_361 #####
 if BG_Legion_Overseer:## (3) new 24.2 
 	BG_Minion_Demon +=['BG23_361','BG23_361e','BG23_361_G']
-	BG_PoolSet_Demon[3].append('BG23_361')
+	BG_PoolSet_Demon.append('BG23_361')
 	BG_Demon_Gold['BG23_361']='BG23_361_G'
 class BG23_361:
 	""" Legion Overseer (3)
@@ -279,7 +279,7 @@ class BG23_361_Ge:
 ####################   魂喰らい魔 (3)### maybe OK ### banned 24.2
 if BG_Soul_Devourer:
 	BG_Minion_Demon +=['BGS_059','BGS_059e','TB_BaconUps_119']
-	BG_PoolSet_Demon[3].append('BGS_059')
+	BG_PoolSet_Demon.append('BGS_059')
 	BG_Demon_Gold['BGS_059']='TB_BaconUps_119'
 class BGS_059_Action(TargetedAction):
 	TARGET = ActionArg()
@@ -316,7 +316,7 @@ class TB_BaconUps_119:# <12>[1453]
 from .BG_minion_elemental import BG25__Felemental
 if BG25__Felemental:# 3/3/1 elemental/demon ## new 25.2.2 ##
 	##BG_Minion_Demon+=['BG25_041','BG25_041_G','BG25_041e','BG25_041e2']## no need
-	BG_PoolSet_Demon[3].append('BG25_041')
+	BG_PoolSet_Demon.append('BG25_041')
 	BG_Demon_Gold['BG25_041']='BG25_041_G'
 
 ############ tavern tier 4
@@ -324,7 +324,7 @@ if BG25__Felemental:# 3/3/1 elemental/demon ## new 25.2.2 ##
 ################### 焦熱の圧鬼（あっき）(4)### maybe ###
 if BG_Bigfernal:
 	BG_Minion_Demon +=['BGS_204','BGS_204e','TB_BaconUps_304','TB_BaconUps_304e']
-	BG_PoolSet_Demon[4].append('BGS_204')
+	BG_PoolSet_Demon.append('BGS_204')
 	BG_Demon_Gold['BGS_204']='TB_BaconUps_304'
 class BGS_204:# <12>[1453]
 	""" Bigfernal (4)
@@ -343,7 +343,7 @@ TB_BaconUps_304e=buff(2,2)
 ###################  火の輪くぐらせ嬢  (4)### OK ###
 if BG_Ring_Matron:
 	BG_Minion_Demon +=['BG_DMF_533','DMF_533t','TB_BaconUps_309','TB_BaconUps_309t']
-	BG_PoolSet_Demon[4].append('BG_DMF_533')
+	BG_PoolSet_Demon.append('BG_DMF_533')
 	BG_Demon_Gold['BG_DMF_533']='TB_BaconUps_309'
 class DMF_533:# <9>[1453]
 	""" Ring Matron (4)
@@ -369,7 +369,7 @@ class TB_BaconUps_309t:# <9>[1453]
 ####################   アニヒラン  (5)### OK ###
 if BG_Annihilan_Battlemaster:
 	BG_Minion_Demon +=['BGS_010','TB_BaconUps_083']
-	BG_PoolSet_Demon[5].append('BGS_010')
+	BG_PoolSet_Demon.append('BGS_010')
 	BG_Demon_Gold['BGS_010']='TB_BaconUps_083'
 class BGS_010:# <12>[1453]
 	""" Annihilan Battlemaster (5)
@@ -390,7 +390,7 @@ class TB_BaconUps_083:# <12>[1453]
 ####################   ウルズール  (5)### need check ###
 if BG_Insatiable_Ur_zul:
 	BG_Minion_Demon +=['BG21_004','BG21_004e','BG21_004_G']
-	BG_PoolSet_Demon[5].append('BG21_004')
+	BG_PoolSet_Demon.append('BG21_004')
 	BG_Demon_Gold['BG21_004']='BG21_004_G'
 class BG21_004:# <12>[1453]
 	""" Insatiable Ur'zul (5)
@@ -412,7 +412,7 @@ class BG21_004_G:# <12>[1453]
 #################### ヴォイドロード (5)### OK ###
 if BG_Voidlord:
 	BG_Minion_Demon +=['BG_LOOT_368','CS2_065','TB_BaconUps_059','TB_BaconUps_059t']
-	BG_PoolSet_Demon[5].append('BG_LOOT_368')
+	BG_PoolSet_Demon.append('BG_LOOT_368')
 	BG_Demon_Gold['BG_LOOT_368']='TB_BaconUps_059'
 class BG_LOOT_368:# <9>[1453]
 	""" Voidlord (5)
@@ -438,7 +438,7 @@ class TB_BaconUps_059t:# <9>[1453]
 ####################   フェルバット (6)### need check ###
 if BG_Famished_Felbat:
 	BG_Minion_Demon +=['BG21_005','BG21_005e','BG21_005_G']
-	BG_PoolSet_Demon[6].append('BG21_005')
+	BG_PoolSet_Demon.append('BG21_005')
 	BG_Demon_Gold['BG21_005']='BG21_005_G'
 class BG21_005:# <12>[1453]
 	""" Famished Felbat (6)
@@ -460,7 +460,7 @@ class BG21_005_G:# <12>[1453]
 #################### ママ  (6)### maybe ### banned? 25.2.2
 if BG_Imp_Mama:
 	BG_Minion_Demon +=['BGS_044','BGS_044e','TB_BaconUps_116']
-	BG_PoolSet_Demon[6].append('BGS_044')
+	BG_PoolSet_Demon.append('BGS_044')
 	BG_Demon_Gold['BGS_044']='TB_BaconUps_116'
 class BGS_044:# <9>[1453]
 	""" Imp Mama (6)
@@ -480,7 +480,7 @@ class TB_BaconUps_116:# <9>[1453]
 if BG25__Mecha_Jaraxxus:# 6/3/15 MECH/DEMON ## new 25.2.2 #########################
 	BG_Minion_Demon+=['BG25_807','BG25_807_G','BG25_807e','BG25_807e2','BG25_807e3']
 	BG_Minion_Demon+=['BG25_807t','BG25_807t_G','BG25_807t2','BG25_807t2_G','BG25_807t3','BG25_807t3_G']
-	BG_PoolSet_Demon[6].append('BG25_807')
+	BG_PoolSet_Demon.append('BG25_807')
 	BG_Demon_Gold['BG25_807']='BG25_807_G'
 	BG_Demon_Gold['BG25_807t']='BG25_807t_G'
 	BG_Demon_Gold['BG25_807t2']='BG25_807t2_G'
@@ -581,7 +581,7 @@ class BG25_807t3_G:# (minion)
 
 if BG25__Felstomper:# 6/3/7 demon/beast ## new 25.2.2 ### need check##############
 	BG_Minion_Demon+=['BG25_042','BG25_042_G','BG25_042_Ge','BG25_042e']
-	BG_PoolSet_Demon[6].append('BG25_042')
+	BG_PoolSet_Demon.append('BG25_042')
 	BG_Demon_Gold['BG25_042']='BG25_042_G'
 class BG25_042_Action(GameAction):
 	def do(self,source):
