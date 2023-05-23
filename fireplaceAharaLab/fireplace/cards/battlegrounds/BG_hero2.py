@@ -556,12 +556,20 @@ class BG20_HERO_283_Buddy:# <12>[1453]
 	""" Flight Trainer
 	Your flightpaths trigger twice."""
 	### At the end of your turn, progress your flight path by_1 turn. ### old one
+	if Config.BG_VERSION>=2562:
+		option_tags={GameTag.TECH_LEVEL:2, GameTag.ATK:2, GameTag.HEALTH:3}
+	else:
+		option_tags={GameTag.TECH_LEVEL:3, GameTag.ATK:3, GameTag.HEALTH:4}
 	#
 	pass
 class BG20_HERO_283_Buddy_G:# <12>[1453]
 	""" Flight Trainer
 	Your flightpaths trigger three times."""
 	### At the end of your turn, progress your flightpath by_2 turns. ### old one
+	if Config.BG_VERSION>=2562:
+		option_tags={GameTag.TECH_LEVEL:2, GameTag.ATK:4, GameTag.HEALTH:6}
+	else:
+		option_tags={GameTag.TECH_LEVEL:3, GameTag.ATK:6, GameTag.HEALTH:8}
 	#
 	pass
 
@@ -632,12 +640,20 @@ TB_BaconShop_HP_107e=buff(1,2,taunt=True)
 class TB_BaconShop_HERO_95_Buddy:# <12>[1453]
 	""" Wandering Treant
 	Whenever you summon a [Taunt] minion, give it +2/+2. """
+	if Config.BG_VERSION>=2562:
+		option_tags={GameTag.TECH_LEVEL:2, GameTag.ATK:3, GameTag.HEALTH:5}
+	else:
+		option_tags={GameTag.TECH_LEVEL:3, GameTag.ATK:4, GameTag.HEALTH:7}
 	events = Summon(CONTROLLER, FRIENDLY + TAUNT).on(Buff(Summon.CARD, 'TB_BaconShop_HERO_95_Buddy_e'))
 	pass
 TB_BaconShop_HERO_95_Buddy_e=buff(2,2)# <12>[1453]
 class TB_BaconShop_HERO_95_Buddy_G:# <12>[1453]
 	""" Wandering Treant
 	Whenever you summon a [Taunt] minion, give it +4/+4. """
+	if Config.BG_VERSION>=2562:
+		option_tags={GameTag.TECH_LEVEL:2, GameTag.ATK:6, GameTag.HEALTH:10}
+	else:
+		option_tags={GameTag.TECH_LEVEL:3, GameTag.ATK:8, GameTag.HEALTH:14}
 	events = Summon(CONTROLLER, FRIENDLY + TAUNT).on(Buff(Summon.CARD, 'TB_BaconShop_HERO_95_Buddy_G_e'))
 	pass
 TB_BaconShop_HERO_95_Buddy_G_e=buff(4,4)# <12>[1453]

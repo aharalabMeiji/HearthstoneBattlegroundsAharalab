@@ -56,6 +56,10 @@ TB_BaconShop_HP_087te=buff(3,3)
 class TB_BaconShop_HERO_11_Buddy:# <12>[1453]
 	""" Lucifron
 	Your end of turn effects trigger twice. """
+	if Config.BG_VERSION>=2562:
+		option_tags={GameTag.ATK:6, GameTag.HEALTH:5}
+	else:
+		option_tags={GameTag.ATK:5, GameTag.HEALTH:3}
 	events = [
 		BG_Play(SELF).on(SetAttr(CONTROLLER, 'turn_end_effects_twice',1)),
 		Summon(CONTROLLER, SELF).on(SetAttr(CONTROLLER, 'turn_end_effects_twice',1)),
@@ -71,6 +75,10 @@ class TB_BaconShop_HERO_11_Buddy_e:# <12>[1453]
 class TB_BaconShop_HERO_11_Buddy_G:# <12>[1453]
 	""" Lucifron
 	Your end of turn effects trigger three times. """
+	if Config.BG_VERSION>=2562:
+		option_tags={GameTag.ATK:12, GameTag.HEALTH:10}
+	else:
+		option_tags={GameTag.ATK:10, GameTag.HEALTH:8}
 	events = [
 		BG_Play(SELF).on(SetAttr(CONTROLLER, 'turn_end_effects_twice',2)),
 		Summon(CONTROLLER, SELF).on(SetAttr(CONTROLLER, 'turn_end_effects_twice',2)),
@@ -367,10 +375,18 @@ class TB_BaconShop_HP_101t2:## discover card
 class TB_BaconShop_HERO_90_Buddy:# <12>[1453]
 	""" Burth
 	After you buy a minion with a Darkmoon Ticket, gain1_Gold this turn only. """
+	if Config.BG_VERSION>=2562:
+		option_tags={GameTag.ATK:5, GameTag.HEALTH:6}
+	else:
+		option_tags={GameTag.ATK:3, GameTag.HEALTH:6}
 	pass
 class TB_BaconShop_HERO_90_Buddy_G:# <12>[1453]
 	""" Burth
 	After you buy a minion witha Darkmoon Ticket, gain2_Gold this turn only. """
+	if Config.BG_VERSION>=2562:
+		option_tags={GameTag.ATK:10, GameTag.HEALTH:12}
+	else:
+		option_tags={GameTag.ATK:6, GameTag.HEALTH:12}
 	pass
 
 
@@ -603,8 +619,10 @@ class BG21_HERO_030_Buddy:# <12>[1453]
 			   PlayReq.REQ_TARGET_WITH_DEATHRATTLE:1}
 	if Config.BG_VERSION>=2602:
 		option_tags={GameTag.TECH_LEVEL:2}
+	elif Config.BG_VERSION>=2562:
+		option_tags={GameTag.TECH_LEVEL:3, GameTag.ATK:4, GameTag.HEALTH:3}
 	else:
-		option_tags={GameTag.TECH_LEVEL:3}
+		option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:5, GameTag.HEALTH:4}
 	play = BG21_HERO_030_Buddy_Action(TARGET, 'BG21_HERO_030_Buddy_e',1) 
 	pass
 class BG21_HERO_030_Buddy_e:# <12>[1453]
@@ -617,13 +635,19 @@ class BG21_HERO_030_Buddy_G:# <12>[1453]
 	[Battlecry:] Copy a friendly minion's [Deathrattles] twice. """
 	requirements={PlayReq.REQ_TARGET_IF_AVAILABLE:0,  PlayReq.REQ_MINION_TARGET:0, PlayReq.REQ_FRIENDLY_TARGET:0,
 			   PlayReq.REQ_TARGET_WITH_DEATHRATTLE:1}
+	if Config.BG_VERSION>=2602:
+		option_tags={GameTag.TECH_LEVEL:2}
+	elif Config.BG_VERSION>=2562:
+		option_tags={GameTag.TECH_LEVEL:3, GameTag.ATK:8, GameTag.HEALTH:6}
+	else:
+		option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:10, GameTag.HEALTH:8}
 	play = BG21_HERO_030_Buddy_Action(TARGET, 'BG21_HERO_030_Buddy_e',2) 
 	pass
 
 
 
 ##Sylvanas Windrunner    ### OK ### new 24.4
-BG_Hero4+=['BG23_HERO_306','BG23_HERO_306p','BG23_HERO_306e','BG23_HERO_306_Buddy','BG23_HERO_306_Buddy_G']
+BG_Hero4+=['BG23_HERO_306','BG23_HERO_306p','BG23_HERO_306e','BG23_HERO_306_Buddy','BG23_HERO_306_Buddy_e','BG23_HERO_306_Buddy_G']
 BG_PoolSet_Hero4.append('BG23_HERO_306')
 BG_Hero4_Buddy['BG23_HERO_306']='BG23_HERO_306_Buddy'
 BG_Hero4_Buddy_Gold['BG23_HERO_306_Buddy']='BG23_HERO_306_Buddy_G'
@@ -660,3 +684,38 @@ class BG23_HERO_306p:
 	]
 	pass
 BG23_HERO_306e=buff(2,1)
+###### BUDDY ######
+class BG23_HERO_306_Buddy_Action(TargetedAction):
+	TARGET=ActionArg()
+	AMOUNT=IntArg()
+	def do(self, source, target, amount):
+		atk=target.atk*amount
+		hlt=target.max_health*amount
+		if target in source.controller.field:
+			index = source.controller.field.index(target)
+			if index>0:
+				Buff(source.controller.field[index-1], 'BG23_HERO_306_Buddy_e', atk=atk, max_health=hlt).trigger(source)
+			if index<len(source.controller.field)-1:
+				Buff(source.controller.field[index+1], 'BG23_HERO_306_Buddy_e', atk=atk, max_health=hlt).trigger(source)
+			Destroy(target).trigger(source)
+class BG23_HERO_306_Buddy:
+	""" Nathanos Blightcaller
+	&lt;b&gt;Battlecry:&lt;/b&gt; Remove a friendly minion. Give its stats to its neighbors."""
+	if Config.BG_VERSION>=2562:
+		option_tags={GameTag.TECH_LEVEL:2, GameTag.ATK:4, GameTag.HEALTH:4}
+	else:
+		option_tags={GameTag.TECH_LEVEL:3, GameTag.ATK:6, GameTag.HEALTH:6}
+	reqirements = {PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_FRIENDLY_TARGET:0, PlayReq.REQ_MINION_TARGET:0}
+	play=BG23_HERO_306_Buddy_Action(TARGET, 1)
+	pass
+class BG23_HERO_306_Buddy_e:
+	pass
+class BG23_HERO_306_Buddy_G:
+	""" Nathanos Blightcaller
+	&lt;b&gt;Battlecry:&lt;/b&gt; Remove a friendly minion. Give double its stats to its neighbors."""
+	if Config.BG_VERSION>=2562:
+		option_tags={GameTag.TECH_LEVEL:2, GameTag.ATK:4, GameTag.HEALTH:4}
+	else:
+		option_tags={GameTag.TECH_LEVEL:3, GameTag.ATK:6, GameTag.HEALTH:6}
+	play=BG23_HERO_306_Buddy_Action(TARGET, 2)
+	pass

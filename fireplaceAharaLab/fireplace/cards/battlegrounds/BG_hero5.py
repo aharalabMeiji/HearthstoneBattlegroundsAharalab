@@ -545,10 +545,18 @@ class TB_BaconShop_HP_702e:
 class TB_BaconShop_HERO_702_Buddy:
 	""" Mawsworn Soulkeeper
 	[Deathrattle:] Summon 3 random Tier 1 minions."""
+	if Config.BG_VERSION>=2562:
+		option_tags={GameTag.TECH_LEVEL:2, GameTag.ATK:2, GameTag.HEALTH:2}
+	else:
+		option_tags={GameTag.TECH_LEVEL:3, GameTag.ATK:3, GameTag.HEALTH:3}
 	deathrattle = Summon(CONTROLLER, RandomBGMinion(tech_level=3))
 class TB_BaconShop_HERO_702_Buddy_G:
 	""" Mawsworn Soulkeeper
 	[Deathrattle:] Summon 6 random Tier 1 minions."""
+	if Config.BG_VERSION>=2562:
+		option_tags={GameTag.TECH_LEVEL:2, GameTag.ATK:4, GameTag.HEALTH:4}
+	else:
+		option_tags={GameTag.TECH_LEVEL:3, GameTag.ATK:6, GameTag.HEALTH:6}
 	deathrattle = Summon(CONTROLLER, RandomBGMinion(tech_level=6))
 	pass
 
