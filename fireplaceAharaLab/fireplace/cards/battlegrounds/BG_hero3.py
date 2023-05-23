@@ -108,11 +108,18 @@ class TB_BaconShop_HERO_25_Buddy_Action(TargetedAction):# <12>[1453]
 class TB_BaconShop_HERO_25_Buddy:# <12>[1453]
 	""" Unearthed Underling
 	Whenever your hero takes damage, this minion gains +2/+2 instead.<i>(@ left this turn.)</i> """
-	###Whenever your hero takes damage, this minion gains +3/+3 instead.<i>(@ left this turn.)</i> """
+	if Config.BG_VERSION>= 2562:
+		option_tags={GameTag.ATK:2, GameTag.HEALTH:2}
+	else:
+		option_tags={GameTag.ATK:3, GameTag.HEALTH:3}
+	###Whenever your hero takes damage, this minion gains +3/+3 instead.<i>(@ left this turn.)</i> """ ## <2562
 	#<Tag enumID="2" name="TAG_SCRIPT_DATA_NUM_1" type="Int" value="2"/>
 	events = Predamage(FRIENDLY_HERO).on(TB_BaconShop_HERO_25_Buddy_Action(Predamage.TARGET))
 	pass
-TB_BaconShop_HERO_25_Buddy_e=buff(2,2)# <12>[1453]
+if Config.BG_VERSION>= 2562:
+	TB_BaconShop_HERO_25_Buddy_e=buff(2,2)# <12>[1453]
+else:
+	TB_BaconShop_HERO_25_Buddy_e=buff(3,3)# <12>[1453]
 class TB_BaconShop_HERO_25_Buddy_G_Action(TargetedAction):# <12>[1453]
 	TARGET=ActionArg()
 	def do(self, source, target):
@@ -123,9 +130,16 @@ class TB_BaconShop_HERO_25_Buddy_G:# <12>[1453]
 	""" Unearthed Underling
 	Whenever your hero takes damage, this minion gains +4/+4 instead.<i>(@ left this turn.)</i> """
 	##Whenever your hero takesdamage, this miniongains +6/+6 instead.<i>(@ left this turn.)</i> """
+	if Config.BG_VERSION>= 2562:
+		option_tags={GameTag.ATK:4, GameTag.HEALTH:4}
+	else:
+		option_tags={GameTag.ATK:6, GameTag.HEALTH:6}
 	events = Predamage(FRIENDLY_HERO).on(TB_BaconShop_HERO_25_Buddy_G_Action(Predamage.TARGET))
 	pass
-TB_BaconShop_HERO_25_Buddy_Ge=buff(4,4)# <12>[1453]
+if Config.BG_VERSION>= 2562:
+	TB_BaconShop_HERO_25_Buddy_Ge=buff(4,4)# <12>[1453]
+else:
+	TB_BaconShop_HERO_25_Buddy_Ge=buff(6,6)# <12>[1453]
 """ Recovery,+6/+6. """
 
 
