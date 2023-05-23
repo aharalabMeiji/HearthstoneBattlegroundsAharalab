@@ -400,6 +400,10 @@ class TB_BaconShop_HERO_02_Buddy_Action(GameAction):
 class TB_BaconShop_HERO_02_Buddy:# <12>[1453]
 	""" Apostle of Galakrond
 	[Battlecry:] Replace minions in Bob's Tavern with ones of a higher Tavern Tier. """
+	if Config.BG_VERSION>=2562:
+		option_tags={GameTag.TECH_LEVEL:2, GameTag.ATK:2, GameTag.HEALTH:4}
+	else:
+		option_tags={GameTag.TECH_LEVEL:3, GameTag.ATK:3, GameTag.HEALTH:5}
 	play = TB_BaconShop_HERO_02_Buddy_Action()
 	pass
 class TB_BaconShop_HERO_02_Buddy_G_Action(GameAction):
@@ -411,6 +415,10 @@ class TB_BaconShop_HERO_02_Buddy_G_Action(GameAction):
 class TB_BaconShop_HERO_02_Buddy_G:# <12>[1453]
 	""" Apostle of Galakrond
 	[Battlecry:] Replaceminions in Bob's Tavernwith ones of a higherTavern Tier twice. """
+	if Config.BG_VERSION>=2562:
+		option_tags={GameTag.TECH_LEVEL:2, GameTag.ATK:4, GameTag.HEALTH:8}
+	else:
+		option_tags={GameTag.TECH_LEVEL:3, GameTag.ATK:6, GameTag.HEALTH:10}
 	play = TB_BaconShop_HERO_02_Buddy_G_Action()
 	pass
 
