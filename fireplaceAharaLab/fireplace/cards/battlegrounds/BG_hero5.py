@@ -313,8 +313,10 @@ class TB_BaconShop_HERO_50:# <12>[1453]
 	pass
 	if Config.BG_VERSION>=2604:
 		tags={GameTag.ARMOR: 18, }
+	elif Config.BG_VERSION>=2562:
+		option_tags={GameTag.ARMOR:15}
 	else:
-		tags={GameTag.ARMOR: 15, }### check
+		option_tags={GameTag.ARMOR:10} ## check
 	pass
 class TB_BaconShop_HP_077_Action(GameAction):
 	def do(self, source):
@@ -844,6 +846,10 @@ BG_Hero5_Buddy['TB_BaconShop_HERO_10']='TB_BaconShop_HERO_10_Buddy'
 BG_Hero5_Buddy_Gold['TB_BaconShop_HERO_10_Buddy']='TB_BaconShop_HERO_10_Buddy_G'
 class TB_BaconShop_HERO_10:# <12>[1453]
 	""" Trade Prince Gallywix """
+	if Config.BG_VERSION>=2562:
+		option_tags={GameTag.ARMOR:7}
+	else:
+		option_tags={GameTag.ARMOR:10} ### undefined
 class TB_BaconShop_HP_008:
 	""" 
 	[Passive] After you sell a minion, get 1 extra Gold next turn. <i>(Can exceed 10.)</i>"""

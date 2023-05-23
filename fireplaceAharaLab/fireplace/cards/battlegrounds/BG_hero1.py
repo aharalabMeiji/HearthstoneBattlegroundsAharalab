@@ -305,6 +305,11 @@ BG_Hero1_Buddy['BG22_HERO_201']='BG22_HERO_201_Buddy'
 BG_Hero1_Buddy_Gold['BG22_HERO_201_Buddy']='BG22_HERO_201_Buddy_G'
 class BG22_HERO_201:# <12>[1453]
 	""" Ambassador Faelin	"""
+	if Config.BG_VERSION>=2562:
+		option_tags={GameTag.ARMOR:15}
+	else:
+		option_tags={GameTag.ARMOR:10} ## check
+	pass
 class BG22_HERO_201p_Choice(Choice):
 	def choose(self, card):
 		source = self.source
@@ -919,9 +924,11 @@ class TB_BaconShop_HERO_78:# <12>[1453]
 	""" Chenvaala
 	"""
 	if Config.BG_VERSION>=2604:
-		tags={GameTag.ARMOR: 5, }
+		option_tags={GameTag.ARMOR: 5}
+	elif Config.BG_VERSION>=2562:
+		option_tags={GameTag.ARMOR:17}
 	else:
-		tags={GameTag.ARMOR: 7, }
+		option_tags={GameTag.ARMOR:10} ## undefined
 class TB_BaconShop_HP_088:
 	""" Avalanche
 	[Passive] After you play 3 Elementals, reduce the cost of upgrading Bob's Tavern by (3)."""
@@ -1064,6 +1071,10 @@ BG_Hero1_Buddy['BG20_HERO_103']='BG20_HERO_103_Buddy'
 BG_Hero1_Buddy_Gold['BG20_HERO_103_Buddy']='BG20_HERO_103_Buddy_G'
 class BG20_HERO_103:# <12>[1453]
 	""" Death Speaker Blackthorn	 """
+	if Config.BG_VERSION>=2562:
+		option_tags={GameTag.ARMOR: 10, }
+	else:
+		option_tags={GameTag.ARMOR: 10, } ## undefined
 class BG20_HERO_103p:# <12>[1453]
 	""" Bloodbound
 	[Passive]After you upgrade Bob's Tavern, gain 2 [Blood Gems]. """
@@ -1091,9 +1102,11 @@ class TB_BaconShop_HERO_52:
 	""" Deathwing
 	"""
 	if Config.BG_VERSION>=2604:
-		tags={GameTag.ARMOR: 18, }
+		option_tags={GameTag.ARMOR: 18, }
+	elif Config.BG_VERSION>=2562:
+		option_tags={GameTag.ARMOR: 10, }
 	else:
-		tags={GameTag.ARMOR: 16, }### check
+		option_tags={GameTag.ARMOR: 10, }### check
 	pass
 class TB_BaconShop_HP_061:
 	""" ALL Will Burn!

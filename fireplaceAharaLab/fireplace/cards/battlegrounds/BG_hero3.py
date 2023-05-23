@@ -139,9 +139,11 @@ BG_Hero3_Buddy_Gold['TB_BaconShop_HERO_72_Buddy']='TB_BaconShop_HERO_72_Buddy_G'
 class TB_BaconShop_HERO_72:# <12>[1453]
 	""" Lord Barov	 """
 	if Config.BG_VERSION>=2604:
-		tags={GameTag.ARMOR: 19, }
+		option_tags={GameTag.ARMOR: 19 }
+	elif Config.BG_VERSION>=2562:
+		option_tags={GameTag.ARMOR:15}
 	else:
-		tags={GameTag.ARMOR: 16, }### check
+		option_tags={GameTag.ARMOR:10} ## check
 	pass
 class TB_BaconShop_HP_081_Choice(Choice):
 	def choose(self, card):
@@ -402,6 +404,8 @@ class BG20_HERO_202:# <12>[1453]
 	""" Master Nguyen """
 	if Config.BG_VERSION>=2602:
 		option_tags={GameTag.ARMOR:12}
+	elif Config.BG_VERSION>=2562:
+		option_tags={GameTag.ARMOR:15}
 	else:
 		option_tags={GameTag.ARMOR:10} ## check
 class BG20_HERO_202p_Choice(Choice):
@@ -474,6 +478,8 @@ class TB_BaconShop_HERO_49:# <12>[1453]
 		option_tags={GameTag.ARMOR:5, }
 	elif Config.BG_VERSION>=2602:
 		option_tags={GameTag.ARMOR:6}
+	elif Config.BG_VERSION>=2562:
+		option_tags={GameTag.ARMOR:14}
 	else:
 		option_tags={GameTag.ARMOR:10} ## check
 	pass
@@ -844,6 +850,10 @@ BG_Hero3_Buddy['TB_BaconShop_HERO_93']='TB_BaconShop_HERO_93_Buddy'#
 BG_Hero3_Buddy_Gold['TB_BaconShop_HERO_93_Buddy']='TB_BaconShop_HERO_93_Buddy_G'#
 class TB_BaconShop_HERO_93:# <12>[1453]
 	""" N'Zoth 	 """
+	if Config.BG_VERSION>=2562:
+		option_tags={GameTag.ARMOR:16}
+	else:
+		option_tags={GameTag.ARMOR:10} ## check
 class TB_BaconShop_HP_105_Action(TargetedAction):
 	TARGET=ActionArg()
 	CARD=ActionArg()
@@ -933,6 +943,10 @@ BG_Hero3_Buddy['TB_BaconShop_HERO_57']='TB_BaconShop_HERO_57_Buddy'#
 BG_Hero3_Buddy_Gold['TB_BaconShop_HERO_57_Buddy']='TB_BaconShop_HERO_57_Buddy_G'#
 class TB_BaconShop_HERO_57:# <12>[1453]
 	""" Nozdormu  """
+	if Config.BG_VERSION>=2562:
+		option_tags={GameTag.ARMOR:18}
+	else:
+		option_tags={GameTag.ARMOR:10} ## check
 class TB_BaconShop_HP_063:
 	""" Clairvoyance
 	[Passive] Your first [Refresh] each turn costs (0)"""
@@ -1168,8 +1182,10 @@ class TB_BaconShop_HERO_18:# <12>[1453]
 	""" Patches the Pirate """
 	if Config.BG_VERSION>=2604:
 		option_tags={GameTag.ARMOR: 5, }
+	elif Config.BG_VERSION>=2562:
+		option_tags={GameTag.ARMOR: 8, }
 	else:
-		option_tags={GameTag.ARMOR: 7, } ## check
+		option_tags={GameTag.ARMOR: 10, } ## undefined
 class TB_BaconShop_HP_072_Action(GameAction):
 	def do(self, source):
 		controller=source.controller

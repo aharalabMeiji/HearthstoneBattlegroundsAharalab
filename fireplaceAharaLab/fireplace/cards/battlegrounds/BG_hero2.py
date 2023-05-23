@@ -110,6 +110,10 @@ BG_Hero2_Buddy['TB_BaconShop_HERO_42']='TB_BaconShop_HERO_42_Buddy'
 BG_Hero2_Buddy_Gold['TB_BaconShop_HERO_42_Buddy']='TB_BaconShop_HERO_42_Buddy_G'
 class TB_BaconShop_HERO_42:# <12>[1453]
 	""" Elise Starseeker """
+	if Config.BG_VERSION>=2562:
+		option_tags={GameTag.ARMOR:10}
+	else:
+		option_tags={GameTag.ARMOR:10} ## undefined
 class TB_BaconShop_HP_047_Choice(Choice):
 	def do(self, source, player, cards, option=None):
 		if len(cards)==1 and cards[0]==[]:
@@ -252,6 +256,10 @@ BG_Hero2_Buddy['TB_BaconShop_HERO_74']='TB_BaconShop_HERO_74_Buddy'
 BG_Hero2_Buddy_Gold['TB_BaconShop_HERO_74_Buddy']='TB_BaconShop_HERO_74_Buddy_G'
 class TB_BaconShop_HERO_74:# <12>[1453]
 	""" Forest Warden Omu  """
+	if Config.BG_VERSION>=2562:
+		option_tags={GameTag.ARMOR:14}
+	else:
+		option_tags={GameTag.ARMOR:10} ## check
 class TB_BaconShop_HP_082:
 	""" Everbloom
 	[Passive] After you upgrade Bob's Tavern, gain 2 Gold this turn only."""
@@ -526,8 +534,10 @@ class TB_BaconShop_HERO_15:# <12>[1453]
 	""" George the Fallen  """
 	if Config.BG_VERSION>=2602:
 		option_tags={GameTag.ARMOR:13}
+	elif Config.BG_VERSION>=2562:
+		option_tags={GameTag.ARMOR:13}
 	else:
-		option_tags={GameTag.ARMOR:10}### check
+		option_tags={GameTag.ARMOR:10} ## check
 class TB_BaconShop_HP_010:
 	""" Boon of Light
 	Give a minion [Divine Shield]."""
@@ -889,6 +899,10 @@ BG_Hero2_Buddy['TB_BaconShop_HERO_71']='TB_BaconShop_HERO_71_Buddy'
 BG_Hero2_Buddy_Gold['TB_BaconShop_HERO_71_Buddy']='TB_BaconShop_HERO_71_Buddy_G'
 class TB_BaconShop_HERO_71:# <12>[1453]
 	""" Jandice Barov """
+	if Config.BG_VERSION>=2562:
+		option_tags={GameTag.ARMOR:12}
+	else:
+		option_tags={GameTag.ARMOR:10} ## check
 class TB_BaconShop_HP_084:
 	""" Swap, Lock, &amp; Shop It
 	Swap a friendly non-golden minion with a random one in Bob's Tavern."""

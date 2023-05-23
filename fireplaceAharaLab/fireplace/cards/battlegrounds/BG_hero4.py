@@ -21,6 +21,10 @@ BG_Hero4_Buddy['TB_BaconShop_HERO_11']='TB_BaconShop_HERO_11_Buddy'#
 BG_Hero4_Buddy_Gold['TB_BaconShop_HERO_11_Buddy']='TB_BaconShop_HERO_11_Buddy_G'#
 class TB_BaconShop_HERO_11:# <12>[1453]
 	""" Ragnaros the Firelord """
+	if Config.BG_VERSION>=2562:
+		option_tags={GameTag.ARMOR:16}
+	else:
+		option_tags={GameTag.ARMOR:10} ## check
 class TB_BaconShop_HP_087t_Action(GameAction):
 	def do(self, source):
 		controller=source.controller
@@ -319,9 +323,11 @@ BG_Hero4_Buddy_Gold['TB_BaconShop_HERO_90_Buddy']='TB_BaconShop_HERO_90_Buddy_G'
 class TB_BaconShop_HERO_90:# <12>[1453]
 	""" Silas Darkmoon """
 	if Config.BG_VERSION>=2604:
-		option_tags={GameTag.ARMOR:12, }
+		option_tags={GameTag.ARMOR:12}
 	elif Config.BG_VERSION>=2602:
 		option_tags={GameTag.ARMOR:10}
+	elif Config.BG_VERSION>=2562:
+		option_tags={GameTag.ARMOR:15}
 	else:
 		option_tags={GameTag.ARMOR:10} ## check
 	pass
@@ -369,6 +375,10 @@ BG_Hero4_Buddy['TB_BaconShop_HERO_27']='TB_BaconShop_HERO_27_Buddy'
 BG_Hero4_Buddy_Gold['TB_BaconShop_HERO_27_Buddy']='TB_BaconShop_HERO_27_Buddy_G'
 class TB_BaconShop_HERO_27:# <12>[1453]
 	""" Sindragosa """
+	if Config.BG_VERSION>=2562:
+		option_tags={GameTag.ARMOR:12}
+	else:
+		option_tags={GameTag.ARMOR:10} ## check
 	pass
 class TB_BaconShop_HP_014_Action(GameAction):
 	def do(self, source):
