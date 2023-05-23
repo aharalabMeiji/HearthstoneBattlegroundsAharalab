@@ -484,10 +484,10 @@ class TB_BaconShop_HERO_21_Buddy_G:# <12>[1453]
 
 
 ##The Jailer TB_BaconShop_HERO_702 ## new 24.6 ### OK ###
-BG_Hero5+=['TB_BaconShop_HERO_702','TB_BaconShop_HP_702','TB_BaconShop_HERO_702_Buddy','TB_BaconShop_HERO_22_Buddy_G']
+BG_Hero5+=['TB_BaconShop_HERO_702','TB_BaconShop_HP_702','TB_BaconShop_HERO_702_Buddy','TB_BaconShop_HERO_702_Buddy_G']
 BG_PoolSet_Hero5.append('TB_BaconShop_HERO_702')
 BG_Hero5_Buddy['TB_BaconShop_HERO_702']='TB_BaconShop_HERO_702_Buddy'
-BG_Hero5_Buddy_Gold['TB_BaconShop_HERO_22_Buddy']='TB_BaconShop_HERO_22_Buddy_G'
+BG_Hero5_Buddy_Gold['TB_BaconShop_HERO_702_Buddy']='TB_BaconShop_HERO_702_Buddy_G'
 class TB_BaconShop_HERO_702:
 	""" The Jailer """
 	if Config.BG_VERSION>=2602:
@@ -580,6 +580,10 @@ class TB_BaconShop_HERO_22_Buddy_Action(TargetedAction):
 class TB_BaconShop_HERO_22_Buddy:
 	""" Arfus 
 	After a friendly minion is [Reborn], give it this minion's Attack."""
+	if Config.BG_VERSION>=2562:
+		option_tags={GameTag.ATK:6, GameTag.HEALTH:3}
+	else:
+		option_tags={GameTag.ATK:4, GameTag.HEALTH:3}
 	events = Reborn(FRIENDLY + MINION).on(TB_BaconShop_HERO_22_Buddy_Action(Reborn.TARGET))
 class TB_BaconShop_HERO_22_Buddye:
 	pass
@@ -591,6 +595,10 @@ class TB_BaconShop_HERO_22_Buddy_G_Action(TargetedAction):
 class TB_BaconShop_HERO_22_Buddy_G:
 	""" Arfus 
 	After a friendly minion is [Reborn], give it this minion's Attack twice."""
+	if Config.BG_VERSION>=2562:
+		option_tags={GameTag.ATK:12, GameTag.HEALTH:6}
+	else:
+		option_tags={GameTag.ATK:8, GameTag.HEALTH:6}
 	events = Reborn(FRIENDLY + MINION).on(TB_BaconShop_HERO_22_Buddy_G_Action(Reborn.TARGET))
 
 
