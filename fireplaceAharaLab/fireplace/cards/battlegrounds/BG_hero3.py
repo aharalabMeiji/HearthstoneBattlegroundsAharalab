@@ -1468,6 +1468,10 @@ class TB_BaconShop_HERO_14_Buddy:# <12>[1453]################################
 	""" Elder Taggawag
 	Whenever you play a minionof a type you don't control,trigger your Hero Power.<i>(@ left this turn.)</i> #old buddy
 	[Battlecry:] Gain 1 Gold for each minion type you control. """
+	if Config.BG_VERSION>=2562:
+		option_tags={GameTag.TECH_LEVEL:2, GameTag.ATK:3, GameTag.HEALTH:2}
+	else:
+		option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:5, GameTag.HEALTH:3}
 	play = TB_BaconShop_HERO_14_Buddy_Action()
 	pass
 class TB_BaconShop_HERO_14_Buddy_G_Action(GameAction):
@@ -1482,6 +1486,10 @@ class TB_BaconShop_HERO_14_Buddy_G:# <12>[1453]#################################
 	""" Elder Taggawag
 	Whenever you play a minionof a type you don't control,trigger your Hero Power__twice. <i>(@ left this turn.)</i> ## old buddy
 	[Battlecry:] Gain 2 Gold for each minion type you control."""
+	if Config.BG_VERSION>=2562:
+		option_tags={GameTag.TECH_LEVEL:2, GameTag.ATK:6, GameTag.HEALTH:4}
+	else:
+		option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:10, GameTag.HEALTH:6}
 	play = TB_BaconShop_HERO_14_Buddy_G_Action()
 	pass
 
