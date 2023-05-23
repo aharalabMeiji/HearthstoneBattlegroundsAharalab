@@ -152,11 +152,19 @@ class TB_BaconShop_HP_046:
 class TB_BaconShop_HERO_41_Buddy:# <12>[1453]
 	""" Sr. Tomb Diver
 	[Deathrattle:] Make your right-most minion Golden. """
+	if Config.BG_VERSION>=2562:
+		option_tags={GameTag.TECH_LEVEL:1, GameTag.TAUNT:True}
+	else:
+		option_tags={GameTag.TECH_LEVEL:2, GameTag.TAUNT:False}
 	deathrattle = MorphGold(RIGHT_MOST(SELF))
 	pass
 class TB_BaconShop_HERO_41_Buddy_G:# <12>[1453]
 	""" Sr. Tomb Diver
 	[Deathrattle:] Make your two right-most minions Golden. """
+	if Config.BG_VERSION>=2562:
+		option_tags={GameTag.TECH_LEVEL:1, GameTag.TAUNT:True}
+	else:
+		option_tags={GameTag.TECH_LEVEL:2, GameTag.TAUNT:False}
 	deathrattle = MorphGold(LEFT_OF(RIGHT_MOST(SELF)))
 	deathrattle = MorphGold(RIGHT_MOST(SELF))
 	pass
