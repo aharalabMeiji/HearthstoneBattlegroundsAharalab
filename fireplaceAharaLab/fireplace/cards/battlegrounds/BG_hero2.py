@@ -123,6 +123,7 @@ class TB_BaconShop_HP_047_Choice(Choice):
 			for repeat in range(3):
 				cards += RandomBGAdmissible(tech_level=player.tavern_tier).evaluate(source)
 		super().do(source, player, cards, option)
+		source.cost += 1
 	def choose(self, card):
 		self.next_choice=None
 		super().choose(card)
@@ -132,7 +133,7 @@ class TB_BaconShop_HP_047_Choice(Choice):
 class TB_BaconShop_HP_047:
 	""" Lead Explorer 
 	[Discover] a minion from your Tavern tier. Costs (1) more after each use."""
-	activate = TB_BaconShop_HP_047_Choice(CONTROLLER, RandomBGAdmissible(tech_level=TIER(CONTROLLER))*3),Buff(SELF,'TB_BaconShop_HP_047e')
+	activate = TB_BaconShop_HP_047_Choice(CONTROLLER, RandomBGAdmissible(tech_level=TIER(CONTROLLER))*3)
 	## until 24.0
 	##[Passive] When you upgrade  Bob's Tavern get a 'Recruitment Map'."""
 	##events = UpgradeTier(CONTROLLER).after(Give(CONTROLLER, 'TB_BaconShop_HP_047t').then(SetScriptDataNum1(Give.CARD, TIER(CONTROLLER))))
@@ -157,19 +158,36 @@ class TB_BaconShop_HP_047e:
 		GameTag.COST: 1,
 	}
 ###### BUDDY ######
-class TB_BaconShop_HERO_42_Buddy:# <12>[1453] ######################################################
+class TB_BaconShop_HERO_42_Buddy_Action(GameAction):# <12>[1453]
+	def do(self, source):
+		hp = source.controller.hero.power
+		if hp.id=='TB_BaconShop_HP_047':
+			Buff(hp, 'TB_BaconShop_HERO_42_Buddy_e').trigger(source)
+class TB_BaconShop_HERO_42_Buddy:# <12>[1453]
 	""" Jr. Navigator
 	[Battlecry:] Reduce the Cost of 'Lead Explorer' by (2)."""
-	###At the start of your turn,get a 'Recruitment Map.'Your Maps cost (1). ### old one
-	play = Buff(FRIENDLY_HERO_POWER, 'TB_BaconShop_HERO_42_Buddy_e')
+	###Reduce the Cost of your Hero Power by (2). ## former one
+	###At the start of your turn,get a 'Recruitment Map.'Your Maps cost (1). ### older one
+	if Config.BG_VERSION>=2562:
+		play = TB_BaconShop_HERO_42_Buddy_Action()
+	else:
+		play = Buff(FRIENDLY_HERO_POWER, 'TB_BaconShop_HERO_42_Buddy_e')
 	pass
 TB_BaconShop_HERO_42_Buddy_e=buff(cost=-2)# <12>[1453]
 """ In The Distance,	Costs (2) less. """
+class TB_BaconShop_HERO_42_Buddy_G_Action(GameAction):# <12>[1453]
+	def do(self, source):
+		hp = source.controller.hero.power
+		if hp.id=='TB_BaconShop_HP_047':
+			Buff(hp, 'TB_BaconShop_HERO_42_Buddy_G_e').trigger(source)
 class TB_BaconShop_HERO_42_Buddy_G:# <12>[1453]
 	""" Jr. Navigator
 	[Battlecry:] Reduce the Cost of 'Lead Explorer' by (4)."""
 	###At the start of your turn,get 2 'Recruitment Maps.'Your Maps cost (1). ###
-	play = Buff(FRIENDLY_HERO_POWER, 'TB_BaconShop_HERO_42_Buddy_G_e')
+	if Config.BG_VERSION>=2562:
+		play = TB_BaconShop_HERO_42_Buddy_G_Action()
+	else:
+		play = Buff(FRIENDLY_HERO_POWER, 'TB_BaconShop_HERO_42_Buddy_G_e')
 	pass
 TB_BaconShop_HERO_42_Buddy_G_e=buff(cost=-4)# <12>[1453]
 """ In The Distance, 	Costs (4) less. """
