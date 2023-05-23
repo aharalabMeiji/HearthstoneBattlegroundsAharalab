@@ -213,33 +213,49 @@ class BG24_HERO_204p:
 ###### Buddy ######
 class BG24_HERO_204_Buddy_Action(GameAction):
 	def do(self, source):
+		if Config.BG_VERSION>=2562:
+			amount1=2
+			amount2=2
+		else:
+			amount1=1
+			amount2=1
 		for card in source.controller.opponent.field:
 			if card.taunt:
-				Buff(card, 'BG24_HERO_204_Buddye2', atk=2, max_health=2).trigger(source)
+				Buff(card, 'BG24_HERO_204_Buddye2', atk=amount1, max_health=amount2).trigger(source)
 			if card.reborn:
-				Buff(card, 'BG24_HERO_204_Buddye2', atk=2, max_health=2).trigger(source)
+				Buff(card, 'BG24_HERO_204_Buddye2', atk=amount1, max_health=amount2).trigger(source)
 			if card.windfury>0:
-				Buff(card, 'BG24_HERO_204_Buddye2', atk=2, max_health=2).trigger(source)
+				Buff(card, 'BG24_HERO_204_Buddye2', atk=amount1, max_health=amount2).trigger(source)
 			if card.devine_shield:
-				Buff(card, 'BG24_HERO_204_Buddye2', atk=2, max_health=2).trigger(source)
+				Buff(card, 'BG24_HERO_204_Buddye2', atk=amount1, max_health=amount2).trigger(source)
 class BG24_HERO_204_Buddy:
 	""" Enhance-o Medico
 	Minions in Bob's Tavern with [Taunt], [Reborn], [Windfury], or [Divine Shield] have +2/+2 for each."""
+	if Config.BG_VERSION>=2562:
+		option_tags={GameTag.TECH_LEVEL:1, GameTag.ATK:2, GameTag.HEALTH:2}
+	else:
+		option_tags={GameTag.TECH_LEVEL:2, GameTag.ATK:2, GameTag.HEALTH:3}
 	events = Rerole(CONTROLLER).on(BG24_HERO_204_Buddy_Action())
 	pass
 class BG24_HERO_204_Buddye2:
 	pass
 class BG24_HERO_204_Buddy_G_Action(GameAction):
 	def do(self, source):
+		if Config.BG_VERSION>=2562:
+			amount1=4
+			amount2=4
+		else:
+			amount1=2
+			amount2=2
 		for card in source.controller.opponent.field:
 			if card.taunt:
-				Buff(card, 'BG24_HERO_204_Buddye2', atk=4, max_health=4).trigger(source)
+				Buff(card, 'BG24_HERO_204_Buddye2', atk=amount1, max_health=amount2).trigger(source)
 			if card.reborn:
-				Buff(card, 'BG24_HERO_204_Buddye2', atk=4, max_health=4).trigger(source)
+				Buff(card, 'BG24_HERO_204_Buddye2', atk=amount1, max_health=amount2).trigger(source)
 			if card.windfury>0:
-				Buff(card, 'BG24_HERO_204_Buddye2', atk=4, max_health=4).trigger(source)
+				Buff(card, 'BG24_HERO_204_Buddye2', atk=amount1, max_health=amount2).trigger(source)
 			if card.devine_shield:
-				Buff(card, 'BG24_HERO_204_Buddye2', atk=4, max_health=4).trigger(source)
+				Buff(card, 'BG24_HERO_204_Buddye2', atk=amount1, max_health=amount2).trigger(source)
 class BG24_HERO_204_Buddy_G:
 	""" Enhance-o Medico
 	Minions in Bob's Tavern with [Taunt], [Reborn], [Windfury], or [Divine Shield] have +4/+4  for each."""
@@ -1140,7 +1156,7 @@ BG20_HERO_280p3e2=buff(2,2)# <12>[1453]
 class BG20_HERO_280_Buddy:# <12>[1453]
 	""" Living Nightmare
 	After you buy a minion, minions in Bob's Tavern have +2/+1 this turn."""
-	##After you buy a minion, minions in Bob's Tavern have +1/+1 this turn. 
+	##After you buy a minion, minions in Bob's Tavern have +1/+1 this turn. #<2562
 	if Config.BG_VERSION>=2602:
 		option_tags={GameTag.TECH_LEVEL:3, GameTag.ATK:6, GameTag.HEALTH:4}
 	else:
@@ -1150,11 +1166,14 @@ class BG20_HERO_280_Buddy:# <12>[1453]
 		OWN_TURN_END.on(RemoveBuff(ENEMY_MINIONS, 'BG20_HERO_280_Buddye'))
 	]
 	pass
-BG20_HERO_280_Buddye=buff(2,1)# <12>[1453]
+if Config.BG_VERSION>=2562:
+	BG20_HERO_280_Buddye=buff(2,1)# <12>[1453]
+else:
+	BG20_HERO_280_Buddye=buff(1,1)# <12>[1453]
 class BG20_HERO_280_Buddy_G:# <12>[1453]
 	""" Living Nightmare
 	After you buy a minion, minions in Bob's Tavern have +4/+2 this turn. """
-	##After you buy a minion,minions in Bob's Tavernhave +2/+2 this turn.
+	##After you buy a minion,minions in Bob's Tavernhave +2/+2 this turn. #<2562
 	if Config.BG_VERSION>=2602:
 		option_tags={GameTag.TECH_LEVEL:3, GameTag.ATK:6, GameTag.HEALTH:4}
 	else:
@@ -1164,8 +1183,10 @@ class BG20_HERO_280_Buddy_G:# <12>[1453]
 		OWN_TURN_END.on(RemoveBuff(ENEMY_MINIONS, 'BG20_HERO_280_Buddye2'))
 	]
 	pass
-BG20_HERO_280_Buddye2=buff(4,2)# <12>[1453]
-
+if Config.BG_VERSION>=2562:
+	BG20_HERO_280_Buddye2=buff(4,2)# <12>[1453]
+else:
+	BG20_HERO_280_Buddye2=buff(2,2)# <12>[1453]
 
 
 
