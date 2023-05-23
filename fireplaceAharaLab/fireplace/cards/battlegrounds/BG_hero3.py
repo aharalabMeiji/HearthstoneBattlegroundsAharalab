@@ -1297,19 +1297,19 @@ class BG25_HERO_100p:
 class BG25_HERO_100_Buddy:######################
 	""" Festergut
 	[Deathrattle:] Summon a random Undead Creation."""
-	if Config.BG_VERSION>=2602:
-		option_tags={GameTag.TECH_LEVEL:3}
+	if Config.BG_VERSION>=2562:
+		option_tags={GameTag.TECH_LEVEL:3, GameTag.ATK:4, GameTag.HEALTH:2}
 	else:
-		option_tags={GameTag.TECH_LEVEL:4}
+		option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:5, GameTag.HEALTH:2}
 	### after 2602, "Ticking Abomination has been removed from the Festergut minion pool. "
 class BG25_HERO_100_Buddy_G:#
 	""" Festergut
 	[x][Deathrattle:] Summon 2 random Undead Creations."""
 	### after 2602, "Ticking Abomination has been removed from the Festergut minion pool. "
-	if Config.BG_VERSION>=2602:
-		option_tags={GameTag.TECH_LEVEL:3}
+	if Config.BG_VERSION>=2562:
+		option_tags={GameTag.TECH_LEVEL:3, GameTag.ATK:8, GameTag.HEALTH:4}
 	else:
-		option_tags={GameTag.TECH_LEVEL:4}
+		option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:10, GameTag.HEALTH:4}
 class BG25_HERO_100pt:
 	""" Putricide's Creation
 	"""
