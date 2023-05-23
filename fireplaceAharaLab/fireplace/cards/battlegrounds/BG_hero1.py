@@ -1,3 +1,4 @@
+from ast import If
 from ..utils import *
 
 ##
@@ -788,10 +789,12 @@ class TB_BaconShop_HP_075_Action(TargetedAction):
 		controller = source.controller
 		tier = max(target.tech_level-1, 1)
 		amount=2
-		if len([card for card in controller.field if card.id=='TB_BaconShop_HERO_67_Buddy'])>0:
-			amount=3
-		if len([card for card in controller.field if card.id=='TB_BaconShop_HERO_67_Buddy_G'])>0:
-			amount=4
+		if Config.BG_VERSION<2562:
+			if len([card for card in controller.field if card.id=='TB_BaconShop_HERO_67_Buddy'])>0:
+				amount=3
+			if len([card for card in controller.field if card.id=='TB_BaconShop_HERO_67_Buddy_G'])>0:
+				amount=4
+			pass
 		Destroy(target).trigger(source)
 		GenericChoice(controller, RandomBGAdmissible(tech_level=tier)*amount).trigger(source)
 class TB_BaconShop_HP_075:
@@ -804,18 +807,43 @@ class TB_BaconShop_HP_075:
 		}
 	activate = TB_BaconShop_HP_075_Action(TARGET)
 ######## BUDDY
+class TB_BaconShop_HERO_67_Buddy_Action(TargetedAction):
+	TARGET=ActionArg()
+	AMOUNT=IntArg()
+	def do(self, source, target, amount):
+		num = target.tech_level * amount
+		for repeat in range(num):
+			Give(source.controller, 'GAME_005').trigger(source)
+		pass
 class TB_BaconShop_HERO_67_Buddy:# <12>[1453]
 	""" Raging Contender
-	'Trash for Treasure' offers 3 options instead of 2. """
+	[Tavern Tier 4] 5 Attack, 4 Health.
+	After you use ‘Trash for Treasure,’ gain Gold equal to the removed minion’s Tavern Tier."""
+	## [Tavern Tier 1] 4 Attack, 2 Health, 
+	##'Trash for Treasure' offers 3 options instead of 2. ## <2562
 	if Config.BG_VERSION>=2602:
 		option_tags={GameTag.TECH_LEVEL:5}
-	else:
+	elif Config.BG_VERSION>=2562:
 		option_tags={GameTag.TECH_LEVEL:4}
+	else:
+		option_tags={GameTag.TECH_LEVEL:1}
+	if Config.BG_VERSION>=2562:
+		events = Activate(CONTROLLER).after(TB_BaconShop_HERO_67_Buddy_Action(Activate.TARGET, 1))
 	pass
 
 class TB_BaconShop_HERO_67_Buddy_G:# <12>[1453]
 	""" Raging Contender
-	'Trash for Treasure' offers 4 options instead of 2. """
+	After you use ‘Trash for Treasure,’ gain Gold equal to twice the removed minion’s Tavern Tier. """
+	## [Tavern Tier 1] 8 Attack, 4 Health, 
+	##'Trash for Treasure' offers 4 options instead of 2. ## <2562
+	if Config.BG_VERSION>=2602:
+		option_tags={GameTag.TECH_LEVEL:5}
+	elif Config.BG_VERSION>=2562:
+		option_tags={GameTag.TECH_LEVEL:4}
+	else:
+		option_tags={GameTag.TECH_LEVEL:1}
+	if Config.BG_VERSION>=2562:
+		events = Activate(CONTROLLER).after(TB_BaconShop_HERO_67_Buddy_Action(Activate.TARGET, 2))
 	pass
 
 
@@ -1225,17 +1253,33 @@ class BG22_HERO_002pe3:# <12>[1453]
 	Attack is increased or decreased for next combat only. """
 	pass
 ###### Buddy ######
+class BG22_HERO_002_Buddy_Action(GameAction):
+	def do(self, source):
+		source.controller.drekthar_buddy_powered_up += 1
+		pass
 class BG22_HERO_002_Buddy:# <12>[1453]
 	""" Frostwolf Lieutenant
 	[Avenge (2):] Give your minions +1 Attack permanently. """
-	events=Death(FRIENDLY + MINION).on(Avenge(SELF, 2, [BuffPermanently(FRIENDLY_MINIONS, 'BG22_HERO_002_Buddy_e')]))
+	## Avenge (3): Minions in Bob’s Tavern have +1 Attack for the rest of the game. ##<2562
+	if Config.BG_VERSION>=2562:
+		events=Death(FRIENDLY + MINION).on(Avenge(SELF, 2, [BuffPermanently(FRIENDLY_MINIONS, 'BG22_HERO_002_Buddy_e')]))
+	else:
+		events=Death(FRIENDLY + MINION).on(Avenge(SELF, 3, [BG22_HERO_002_Buddy_Action()]))
 	pass
 BG22_HERO_002_Buddy_e=buff(1,0)# <12>[1453]
 """ Lieutenant's Leadership, +1 Attack. """
+class BG22_HERO_002_Buddy_G_Action(GameAction):
+	def do(self, source):
+		source.controller.drekthar_buddy_powered_up += 2
+		pass
 class BG22_HERO_002_Buddy_G:# <12>[1453]
 	""" Frostwolf Lieutenant
 	[Avenge (2):] Give your minions +2 Attack permanently. """
-	events = Death(FRIENDLY + MINION).on(Avenge(SELF, 2, [BuffPermanently(FRIENDLY_MINIONS, 'BG22_HERO_002_Buddy_Ge')]))
+	## Avenge (3): Minions in Bob’s Tavern have +2 Attack for the rest of the game. ##<2562
+	if Config.BG_VERSION>=2562:
+		events = Death(FRIENDLY + MINION).on(Avenge(SELF, 2, [BuffPermanently(FRIENDLY_MINIONS, 'BG22_HERO_002_Buddy_Ge')]))
+	else:
+		events=Death(FRIENDLY + MINION).on(Avenge(SELF, 3, [BG22_HERO_002_Buddy_G_Action()]))
 	pass
 BG22_HERO_002_Buddy_Ge=buff(2,0)# <12>[1453]
 """ Lieutenant's Leadership,+2 Attack. """
