@@ -88,6 +88,10 @@ class TB_BaconShop_HP_001e:
 class TB_BaconShop_HERO_01_Buddy:# <12>[1453]
 	""" SI:7 Scout
 	After you buy a minion, gain +1/+1. """
+	if Config.BG_VERSION>=2562:
+		option_tags={GameTag.TECH_LEVEL:2}
+	else:
+		option_tags={GameTag.TECH_LEVEL:3}#undefined
 	events = Buy(CONTROLLER).after(Buff(SELF, 'TB_BaconShop_HERO_01_Buddy_e'))
 	pass
 TB_BaconShop_HERO_01_Buddy_e=buff(1,1)# <12>[1453]
@@ -95,6 +99,10 @@ TB_BaconShop_HERO_01_Buddy_e=buff(1,1)# <12>[1453]
 class TB_BaconShop_HERO_01_Buddy_G:# <12>[1453]
 	""" SI:7 Scout
 	After you buy a minion, gain +2/+2. """
+	if Config.BG_VERSION>=2562:
+		option_tags={GameTag.TECH_LEVEL:2}
+	else:
+		option_tags={GameTag.TECH_LEVEL:3}#undefined
 	events = Buy(CONTROLLER).after(Buff(SELF, 'TB_BaconShop_HERO_01_Buddy_G_e'))
 	pass
 TB_BaconShop_HERO_01_Buddy_G_e=buff(2,2)# <12>[1453]
@@ -849,6 +857,10 @@ TB_BaconShop_HP_069e=buff(2,0)
 class TB_BaconShop_HERO_08_Buddy:# <12>[1453]
 	""" Eclipsion Illidari
 	Your first minion that attacks has "[Immune]while Attacking" for one attack only. """
+	if Config.BG_VERSION>=2562:
+		option_tags={GameTag.TECH_LEVEL:2}
+	else:
+		option_tags={GameTag.TECH_LEVEL:3}## undefined
 	events =[
 		BeginBattle(CONTROLLER).on(Buff(FRIENDLY_MINIONS, 'TB_BaconShop_HERO_08_Buddy_e')),
 		BG_Attack(CONTROLLER).on(RemoveBuff(FRIENDLY_MINIONS, 'TB_BaconShop_HERO_08_Buddy_e'))
@@ -858,6 +870,10 @@ TB_BaconShop_HERO_08_Buddy_e=buff(immune_while_attacking = True)# <12>[1453]
 class TB_BaconShop_HERO_08_Buddy_G:# <12>[1453]
 	""" Eclipsion Illidari
 	Your first two minions thatattack have "[Immune]while Attacking" for oneattack only. """
+	if Config.BG_VERSION>=2562:
+		option_tags={GameTag.TECH_LEVEL:2}
+	else:
+		option_tags={GameTag.TECH_LEVEL:3}## undefined
 	events =[
 		BeginBattle(CONTROLLER).on(Buff(FRIENDLY_MINIONS, 'TB_BaconShop_HERO_08_Buddy_e')),
 		BG_Attack(CONTROLLER).on(SidequestCounter(SELF, 2, [RemoveBuff(FRIENDLY_MINIONS, 'TB_BaconShop_HERO_08_Buddy_e')]))
@@ -1079,6 +1095,10 @@ DMF_065e=buff(1,1)##
 class TB_BaconShop_HERO_38_Buddy:# <12>[1453]
 	""" Crazy Monkey
 	After you feed a minion a Banana, give it +1/+1."""
+	if Config.BG_VERSION>=2562:
+		option_tags={GameTag.TECH_LEVEL:2}
+	else:
+		option_tags={GameTag.TECH_LEVEL:3}## undefined
 	events = ApplyBanana(FRIENDLY + MINION).after(Buff(ApplyBanana.TARGET, 'TB_BaconShop_HERO_38_Buddy_e'))
 	pass
 TB_BaconShop_HERO_38_Buddy_e=buff(1,1)# <12>[1453] ・・ｽo・・ｽi・・ｽi・・ｽ・瑚ｲｻ・ｿ・ｽ
@@ -1086,6 +1106,10 @@ TB_BaconShop_HERO_38_Buddy_e=buff(1,1)# <12>[1453] ・・ｽo・・ｽi・・ｽ
 class TB_BaconShop_HERO_38_Buddy_G:# <12>[1453]
 	""" Crazy Monkey
 	After you feed a minion a Banana, give it +2/+2."""
+	if Config.BG_VERSION>=2562:
+		option_tags={GameTag.TECH_LEVEL:2}
+	else:
+		option_tags={GameTag.TECH_LEVEL:3}## undefined
 	events = ApplyBanana(FRIENDLY + MINION).after(Buff(ApplyBanana.TARGET, 'TB_BaconShop_HERO_38_Buddy_Ge'))
 	pass
 TB_BaconShop_HERO_38_Buddy_Ge=buff(2,2)# <12>[1453]

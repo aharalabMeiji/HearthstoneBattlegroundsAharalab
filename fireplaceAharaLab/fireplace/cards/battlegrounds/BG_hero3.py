@@ -1044,12 +1044,20 @@ class BG22_HERO_305t:# <12>[1453]
 class BG22_HERO_305_Buddy:# <12>[1453]
 	""" Many Whelps
 	Whenever you summon a Whelp, gain +2/+2 permanently. """
+	if Config.BG_VERSION>=2562:
+		option_tags={GameTag.TECH_LEVEL:2}
+	else:
+		option_tags={GameTag.TECH_LEVEL:3}
 	events = Summon(CONTROLLER, ID('BG22_HERO_305t')).after(BuffPermanently(SELF, 'BG22_HERO_305_Buddy_e'))
 	pass
 BG22_HERO_305_Buddy_e=buff(2,2)# <12>[1453]
 class BG22_HERO_305_Buddy_G:# <12>[1453]
 	""" Many Whelps
 	Whenever you summon a Whelp, gain +4/+4 permanently. """
+	if Config.BG_VERSION>=2562:
+		option_tags={GameTag.TECH_LEVEL:2}
+	else:
+		option_tags={GameTag.TECH_LEVEL:3}
 	events = Summon(CONTROLLER, ID('BG22_HERO_305t')).after(BuffPermanently(SELF, 'BG22_HERO_305_Buddy_Ge'))
 	pass
 BG22_HERO_305_Buddy_Ge=buff(4,4)# <12>[1453]
@@ -1174,6 +1182,10 @@ class BG23_HERO_201_Buddy_Action(GameAction):
 class BG23_HERO_201_Buddy:
 	""" Tamuzo
 	[Avenge (2):] Upgrade 'Tentacular' by +1/+1. """
+	if Config.BG_VERSION>=2562:
+		option_tags={GameTag.TECH_LEVEL:2}
+	else:
+		option_tags={GameTag.TECH_LEVEL:3}#undefined
 	events=Death(FRIENDLY + MINION).on(Avenge(SELF, 2, [BG23_HERO_201_Buddy_Action()]))
 class BG23_HERO_201_Buddy_G_Action(GameAction):
 	def do(self, source):
@@ -1183,6 +1195,10 @@ class BG23_HERO_201_Buddy_G_Action(GameAction):
 class BG23_HERO_201_Buddy_G:
 	""" Tamuzo
 	[Avenge (2):] Upgrade 'Tentacular' by +2/+2. """
+	if Config.BG_VERSION>=2562:
+		option_tags={GameTag.TECH_LEVEL:2}
+	else:
+		option_tags={GameTag.TECH_LEVEL:3}#undefined
 	events=Death(FRIENDLY + MINION).on(Avenge(SELF, 2, [BG23_HERO_201_Buddy_G_Action()]))
 
 
@@ -1348,9 +1364,13 @@ class TB_BaconShop_HP_040:
 class TB_BaconShop_HP_040e:
 	pass
 ######## BUDDY
-class TB_BaconShop_HERO_39_Buddy:# <12>[1453]
+class TB_BaconShop_HERO_39_Buddy:# <12>[1453]#############
 	""" Titanic Guardian
 	Whenever a different friendly minion gains Health, this gains it too. """
+	if Config.BG_VERSION>=2562:
+		option_tags={GameTag.ATK:5, GameTag.HEALTH:2}
+	else:
+		option_tags={GameTag.ATK:6, GameTag.HEALTH:2}
 	#
 	pass
 class TB_BaconShop_HERO_39_Buddy_e:# <12>[1453]
@@ -1358,9 +1378,13 @@ class TB_BaconShop_HERO_39_Buddy_e:# <12>[1453]
 	Increased Health """
 	#
 	pass
-class TB_BaconShop_HERO_39_Buddy_G:# <12>[1453]
+class TB_BaconShop_HERO_39_Buddy_G:# <12>[1453]#################
 	""" Titanic Guardian
 	Whenever a different friendly minion gains Health, this gains twice that amount. """
+	if Config.BG_VERSION>=2562:
+		option_tags={GameTag.ATK:10, GameTag.HEALTH:4}
+	else:
+		option_tags={GameTag.ATK:12, GameTag.HEALTH:4}
 	#
 	pass
 

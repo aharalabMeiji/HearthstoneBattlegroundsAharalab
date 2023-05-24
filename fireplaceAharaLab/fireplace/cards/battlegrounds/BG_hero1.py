@@ -428,6 +428,10 @@ class TB_BaconShop_HERO_59_Buddy:# <12>[1453]
 	""" Sklibb, Demon Hunter
 	After you buy a minion, your next [Refresh] costs (0)."""
 	### After you play a minion,your next [Refresh] costs (0). ### old one -25.6
+	if Config.BG_VERSION>=2562:
+		option_tags={GameTag.TECH_LEVEL:1}
+	else:
+		option_tags={GameTag.TECH_LEVEL:2}#undefined
 	events = Buy(CONTROLLER, MINION).on(GetFreeRerole(CONTROLLER))
 	pass
 class TB_BaconShop_HERO_59_Buddy_G:# <12>[1453]
@@ -473,6 +477,10 @@ class TB_BaconShop_HERO_45_Buddy_Action(TargetedAction):
 class TB_BaconShop_HERO_45_Buddy:# <12>[1453]
 	""" Loyal Henchman
 	After you kill a second minion each combat,get a plain copy of it. """
+	if Config.BG_VERSION>=2562:
+		option_tags={GameTag.ATK:4, GameTag.HEALTH:6}
+	else:
+		option_tags={GameTag.ATK:6, GameTag.HEALTH:6}
 	events = BeginBar(CONTROLLER).on(TB_BaconShop_HERO_45_Buddy_Action(CONTROLLER))
 	pass
 class TB_BaconShop_HERO_45_Buddy_G_Action(GameAction):
@@ -487,6 +495,10 @@ class TB_BaconShop_HERO_45_Buddy_G_Action(GameAction):
 class TB_BaconShop_HERO_45_Buddy_G:# <12>[1453]
 	""" Loyal Henchman
 	After you kill a second minion each combat,_get 2 plain copies of it. """
+	if Config.BG_VERSION>=2562:
+		option_tags={GameTag.ATK:8, GameTag.HEALTH:12}
+	else:
+		option_tags={GameTag.ATK:12, GameTag.HEALTH:12}
 	events = BeginBar(CONTROLLER).on(TB_BaconShop_HERO_45_Buddy_G_Action())
 	pass
 
@@ -704,6 +716,10 @@ class TB_BaconShop_HERO_29_Buddy_Action(TargetedAction):# <12>[1453]
 class TB_BaconShop_HERO_29_Buddy:# <12>[1453]
 	""" Tentacle of C'Thun
 	After a different friendly minion gains stats, gain_+1/+1 until your next turn. """
+	if Config.BG_VERSION>=2562:
+		option_tags={GameTag.TECH_LEVEL:3, GameTag.ATK:3, GameTag.HEALTH:3}
+	else:
+		option_tags={GameTag.TECH_LEVEL:2, GameTag.ATK:1, GameTag.HEALTH:1}
 	events = [
 		Buff(FRIENDLY + MINION - SELF).after(TB_BaconShop_HERO_29_Buddy_Action(Buff.BUFF)),
 		BeginBar(CONTROLLER).on(RemoveBuff(SELF, 'TB_BaconShop_HERO_29_Buddy_e'))
@@ -719,6 +735,10 @@ class TB_BaconShop_HERO_29_Buddy_G_Action(TargetedAction):# <12>[1453]
 class TB_BaconShop_HERO_29_Buddy_G:# <12>[1453]
 	""" Tentacle of C'Thun
 	After a different friendly minion gains stats, gain_+2/+2  until your next turn. """
+	if Config.BG_VERSION>=2562:
+		option_tags={GameTag.TECH_LEVEL:3, GameTag.ATK:6, GameTag.HEALTH:6}
+	else:
+		option_tags={GameTag.TECH_LEVEL:2, GameTag.ATK:2, GameTag.HEALTH:2}
 	events = [
 		Buff(FRIENDLY + MINION - SELF).after(TB_BaconShop_HERO_29_Buddy_G_Action(Buff.BUFF)),
 		BeginBar(CONTROLLER).on(RemoveBuff(SELF, 'TB_BaconShop_HERO_29_Buddy_Ge'))

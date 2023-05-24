@@ -256,14 +256,22 @@ class BG21_HERO_010p:# <7>[1453]
 	activate = BG21_HERO_010p_Action(CONTROLLER, [])
 	pass
 ########### BUDDY
-class BG21_HERO_010_Buddy:# <12>[1453]
+class BG21_HERO_010_Buddy:# <12>[1453] ###################################
 	""" Warden Thelwater
 	At the start of your turn, add your next opponent's Buddy to your hand. """
+	if Config.BG_VERSION>=2562:
+		option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:2, GameTag.HEALTH:6}
+	else:
+		option_tags={GameTag.TECH_LEVEL:3, GameTag.ATK:4, GameTag.HEALTH:6}
 	#events = OWN_TURN_BEGIN.on(Give(CONTROLLER, ID(NEXT_OPPONENT_BUDDY)))
 	pass
 class BG21_HERO_010_Buddy_G:# <12>[1453]
 	""" Warden Thelwater
 	At the start of your turn, add 2 of your next opponent's Buddy to your hand. """
+	if Config.BG_VERSION>=2562:
+		option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:4, GameTag.HEALTH:12}
+	else:
+		option_tags={GameTag.TECH_LEVEL:3, GameTag.ATK:8, GameTag.HEALTH:12}
 	#events = OWN_TURN_BEGIN.on(Give(CONTROLLER, ID(NEXT_OPPONENT_BUDDY))*2)
 	pass
 
@@ -312,17 +320,25 @@ class TB_BaconShop_HP_022t:##[Battlecry:] Repeat all other [Battlecries] from ca
 class TB_BaconShop_HP_022t_G:
 	pass
 ########## BUDDY
-class TB_BaconShop_HERO_23_Buddy:# <12>[1453]
+class TB_BaconShop_HERO_23_Buddy:# <12>[1453]##############
 	""" Muckslinger
 	After you play a minion,add a [Battlecry] minionto Bob's Tavern.Give it +2/+2. """
+	if Config.BG_VERSION>=2562:
+		option_tags={GameTag.TECH_LEVEL:3, GameTag.ATK:5, GameTag.HEALTH:5}
+	else:
+		option_tags={GameTag.TECH_LEVEL:2, GameTag.ATK:5, GameTag.HEALTH:3}
 	pass
 class TB_BaconShop_HERO_23_Buddy_e:# <12>[1453]
 	""" Mucked Up
 	+2/+2. """
 	pass
-class TB_BaconShop_HERO_23_Buddy_G:# <12>[1453]
+class TB_BaconShop_HERO_23_Buddy_G:# <12>[1453]#####################
 	""" Muckslinger
 	After you play a minion,add a [Battlecry] minionto Bob's Tavern.Give it +4/+4. """
+	if Config.BG_VERSION>=2562:
+		option_tags={GameTag.TECH_LEVEL:3, GameTag.ATK:10, GameTag.HEALTH:10}
+	else:
+		option_tags={GameTag.TECH_LEVEL:2, GameTag.ATK:10, GameTag.HEALTH:6}
 	pass
 class TB_BaconShop_HERO_23_Buddy_Ge:# <12>[1453]
 	""" Mucked Up
@@ -702,9 +718,9 @@ class BG23_HERO_306_Buddy:
 	""" Nathanos Blightcaller
 	&lt;b&gt;Battlecry:&lt;/b&gt; Remove a friendly minion. Give its stats to its neighbors."""
 	if Config.BG_VERSION>=2562:
-		option_tags={GameTag.TECH_LEVEL:2, GameTag.ATK:4, GameTag.HEALTH:4}
+		option_tags={GameTag.TECH_LEVEL:6, GameTag.ATK:6, GameTag.HEALTH:6}
 	else:
-		option_tags={GameTag.TECH_LEVEL:3, GameTag.ATK:6, GameTag.HEALTH:6}
+		option_tags={GameTag.TECH_LEVEL:5, GameTag.ATK:3, GameTag.HEALTH:6}
 	reqirements = {PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_FRIENDLY_TARGET:0, PlayReq.REQ_MINION_TARGET:0}
 	play=BG23_HERO_306_Buddy_Action(TARGET, 1)
 	pass
@@ -714,8 +730,8 @@ class BG23_HERO_306_Buddy_G:
 	""" Nathanos Blightcaller
 	&lt;b&gt;Battlecry:&lt;/b&gt; Remove a friendly minion. Give double its stats to its neighbors."""
 	if Config.BG_VERSION>=2562:
-		option_tags={GameTag.TECH_LEVEL:2, GameTag.ATK:4, GameTag.HEALTH:4}
+		option_tags={GameTag.TECH_LEVEL:6, GameTag.ATK:12, GameTag.HEALTH:12}
 	else:
-		option_tags={GameTag.TECH_LEVEL:3, GameTag.ATK:6, GameTag.HEALTH:6}
+		option_tags={GameTag.TECH_LEVEL:5, GameTag.ATK:6, GameTag.HEALTH:12}
 	play=BG23_HERO_306_Buddy_Action(TARGET, 2)
 	pass
