@@ -468,6 +468,10 @@ class TB_BaconShop_HP_020:
 class TB_BaconShop_HERO_21_Buddy:# <12>[1453]
 	""" Street Magician
 	[Deathrattle:] Put a random [Secret] into the battlefield. """
+	if Config.BG_VERSION>=2562:
+		option_tags={GameTag.TECH_LEVEL:3}
+	else:
+		option_tags={GameTag.TECH_LEVEL:4}#undefined
 	entourage=[
 		'TB_Bacon_Secrets_01','TB_Bacon_Secrets_02','TB_Bacon_Secrets_04',
 		'TB_Bacon_Secrets_05','TB_Bacon_Secrets_07','TB_Bacon_Secrets_08',]	
@@ -476,6 +480,10 @@ class TB_BaconShop_HERO_21_Buddy:# <12>[1453]
 class TB_BaconShop_HERO_21_Buddy_G:# <12>[1453]
 	""" Street Magician
 	[Deathrattle:] Put 2 random[Secrets] into the battlefield. """
+	if Config.BG_VERSION>=2562:
+		option_tags={GameTag.TECH_LEVEL:3}
+	else:
+		option_tags={GameTag.TECH_LEVEL:4}#undefined
 	entourage=[
 		'TB_Bacon_Secrets_01','TB_Bacon_Secrets_02','TB_Bacon_Secrets_04',
 		'TB_Bacon_Secrets_05','TB_Bacon_Secrets_07','TB_Bacon_Secrets_08',]	
@@ -822,6 +830,10 @@ class TB_BaconShop_HERO_94_Buddy_Action(GameAction):# <12>[1453]
 class TB_BaconShop_HERO_94_Buddy:# <12>[1453]
 	""" Ticket Collector
 	[Battlecry:] [Discover] a Darkmoon Prize fromthe next Prize turn. """
+	if Config.BG_VERSION>=2562:
+		option_tags={TECH_LEVEL:5}
+	else:
+		option_tags={TECH_LEVEL:4}# undefined
 	play = TB_BaconShop_HERO_94_Buddy_Action()
 	pass
 class TB_BaconShop_HERO_94_Buddy_G_Choice(Choice):# <12>[1453]
@@ -848,6 +860,10 @@ class TB_BaconShop_HERO_94_Buddy_G_Action(GameAction):# <12>[1453]
 class TB_BaconShop_HERO_94_Buddy_G:# <12>[1453]
 	""" Ticket Collector
 	[Battlecry:] [Discover] 2 Darkmoon Prizes from the next Prize turn. """
+	if Config.BG_VERSION>=2562:
+		option_tags={TECH_LEVEL:5}
+	else:
+		option_tags={TECH_LEVEL:4}# undefined
 	play = TB_BaconShop_HERO_94_Buddy_G_Action()
 	pass
 
@@ -1022,6 +1038,10 @@ class BG22_HERO_004_Buddy_Action(GameAction):# <12>[1453]
 class BG22_HERO_004_Buddy:# <12>[1453]
 	""" Varden's Aquarrior
 	'Twice as Nice' also gives the copy stats equal to your Tavern Tier. """
+	if Config.BG_VERSION>=2562:
+		option_tags={TECH_LEVEL:4}
+	else:
+		option_tags={TECH_LEVEL:3}# undefined
 	play = BG22_HERO_004_Buddy_Action()
 	pass
 class BG22_HERO_004_Buddy_e2:# <12>[1453]
@@ -1037,6 +1057,10 @@ class BG22_HERO_004_Buddy_G_Action(GameAction):# <12>[1453]
 class BG22_HERO_004_Buddy_G:# <12>[1453]
 	""" Varden's Aquarrior
 	'Twice as Nice' also givesthe copy stats equal toyour Tavern Tier twice. """
+	if Config.BG_VERSION>=2562:
+		option_tags={TECH_LEVEL:4}
+	else:
+		option_tags={TECH_LEVEL:3}# undefined
 	play = BG22_HERO_004_Buddy_G_Action()
 	pass
 
@@ -1184,12 +1208,20 @@ class BG20_HERO_101_Buddy_Action(TargetedAction):
 class BG20_HERO_101_Buddy:### OK ###
 	""" Baby Elekk
 	After you play a minion with Attack equal to its Health, gain +2/+2. """
+	if Config.BG_VERSION>=2562:
+		option_tags={GameTag.TECH_LEVEL:3}
+	else:
+		option_tags={GameTag.TECH_LEVEL:4}#undefined
 	events = BG_Play(CONTROLLER, FRIENDLY + MINION).on(BG20_HERO_101_Buddy_Action(BG_Play.CARD, 'BG20_HERO_101_Buddy_e'))
 	pass
 BG20_HERO_101_Buddy_e=buff(2,2)
 class BG20_HERO_101_Buddy_G:
 	""" 
 	After you play a minion with Attack equal to its Health, gain +4/+4.""" 
+	if Config.BG_VERSION>=2562:
+		option_tags={GameTag.TECH_LEVEL:3}
+	else:
+		option_tags={GameTag.TECH_LEVEL:4}#undefined
 	events = BG_Play(CONTROLLER, FRIENDLY + MINION).on(BG20_HERO_101_Buddy_Action(BG_Play.CARD, 'BG20_HERO_101_Buddy_Ge'))
 	pass
 BG20_HERO_101_Buddy_Ge=buff(4,4)
@@ -1301,6 +1333,10 @@ class TB_BaconShop_HERO_35_Buddy_Action(GameAction):
 class TB_BaconShop_HERO_35_Buddy:### OK ###
 	""" Acolyte of Yogg-Saron
 	When you sell this, spin the Wheel of Yogg-Saron."""
+	if Config.BG_VERSION>=2562:
+		option_tags={GameTag.TECH_LEVEL:4}
+	else:
+		option_tags={GameTag.TECH_LEVEL:3}#undefined
 	events = Sell(CONTROLLER, SELF).on(TB_BaconShop_HERO_35_Buddy_Action())
 	pass
 class TB_BaconShop_HERO_35_Buddy_t1_Action(GameAction):# <12>[1453]
@@ -1446,6 +1482,10 @@ class TB_BaconShop_HERO_35_Buddy_t7:### OK ###
 class TB_BaconShop_HERO_35_Buddy_G:
 	""" Acolyte of Yogg-Saron
 	When you sell this, spin the Wheel of Yogg-Saron twice."""
+	if Config.BG_VERSION>=2562:
+		option_tags={GameTag.TECH_LEVEL:4}
+	else:
+		option_tags={GameTag.TECH_LEVEL:3}#undefined
 	events = Sell(CONTROLLER, SELF).on(TB_BaconShop_HERO_35_Buddy_Action(), TB_BaconShop_HERO_35_Buddy_Action())
 	pass
 

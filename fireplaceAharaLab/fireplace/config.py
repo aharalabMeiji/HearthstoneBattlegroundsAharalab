@@ -44,6 +44,10 @@ class Config:# ()is the default value
 		NEW_BUDDY_SYSTEM = 1 ### buddy system 25.6 - 26.0
 	else:
 		NEW_BUDDY_SYSTEM = 0
+	if BG_VERSION>=2560:
+		STARTING_HERO_HEALTH = 30
+	else:
+		STARTING_HERO_HEALTH = 40
 	DARKMOON_TICKET_FOR_ALL=0 ## darkmoon tickets for all player anytime
 	DARKMOON_TICKET_FOR_ALL_BY_HALF=0 ## darkmoon tickets for all player sometimes
 	QUEST_REWARD=0 ## quest and reward system（24.2 - 25.2.2)

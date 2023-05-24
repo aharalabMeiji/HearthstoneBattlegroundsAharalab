@@ -486,6 +486,10 @@ class TB_BaconShop_HERO_40_Buddy_Action(GameAction):
 class TB_BaconShop_HERO_40_Buddy:
 	"""  Maxwell, Mighty Steed
 	[Battlecry:] Add the Buddy of your Hero Power to your_hand."""
+	if Config.BG_VERSION>=2562:
+		option_tags={TECH_LEVEL:4}
+	else:
+		option_tags={TECH_LEVEL:3}# undefined
 	play = TB_BaconShop_HERO_40_Buddy_Action()
 class TB_BaconShop_HERO_40_Buddy_G_Action(GameAction):
 	def do(self, source):
@@ -502,6 +506,10 @@ class TB_BaconShop_HERO_40_Buddy_G_Action(GameAction):
 class TB_BaconShop_HERO_40_Buddy_G:
 	"""  Maxwell, Mighty Steed
 	[Battlecry:] Add 2 Buddies of your Hero Power to your_hand."""
+	if Config.BG_VERSION>=2562:
+		option_tags={TECH_LEVEL:4}
+	else:
+		option_tags={TECH_LEVEL:3}# undefined
 	play = TB_BaconShop_HERO_40_Buddy_G_Action()
 
 

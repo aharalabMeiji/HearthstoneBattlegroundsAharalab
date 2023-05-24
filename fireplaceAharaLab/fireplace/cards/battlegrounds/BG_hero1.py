@@ -159,9 +159,11 @@ BG_Hero1_Buddy_Gold['TB_BaconShop_HERO_16_Buddy']='TB_BaconShop_HERO_16_Buddy_G'
 class TB_BaconShop_HERO_16:# <12>[1453]
 	""" A. F. Kay	 """
 	if Config.BG_VERSION>=2602:
-		option_tags={GameTag.ARMOR:18}
+		option_tags={GameTag.ARMOR:18, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2560:
+		option_tags={GameTag.ARMOR:15, GameTag.HEALTH:30}
 	else:
-		option_tags={GameTag.ARMOR:12}
+		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
 	pass
 class TB_BaconShop_HP_044_Action(GameAction):
 	def do(self, source):
@@ -189,6 +191,7 @@ class TB_BaconShop_HERO_16_Buddy_Action(GameAction):
 class TB_BaconShop_HERO_16_Buddy:# <12>[1453] #########################
 	""" Snack Vendor
 	At the end of your turn, give your Tavern Tier 3 minions +1/+2."""
+	## tavern tier = 4
 	events = OWN_TURN_END.on(TB_BaconShop_HERO_16_Buddy_Action())
 	pass
 TB_BaconShop_HERO_16_Buddy_e=buff(1,2)# <12>[1453] """ Snack-Filled +1/+2. """
@@ -202,6 +205,7 @@ class TB_BaconShop_HERO_16_Buddy_G_Action(GameAction):
 class TB_BaconShop_HERO_16_Buddy_G:# <12>[1453]##########################
 	""" Snack Vendor
 	At the end of your turn, give your Tavern Tier 3 minions +2/+4. """
+	## tavern tier = 4
 	events = OWN_TURN_END.on(TB_BaconShop_HERO_16_Buddy_G_Action())
 	pass
 TB_BaconShop_HERO_16_Buddy_G_e=buff(2,4)# <12>[1453] """ Snack-Filled +2/+4. """
@@ -217,6 +221,10 @@ BG_Hero1_Buddy['TB_BaconShop_HERO_76']='TB_BaconShop_HERO_76_Buddy'
 BG_Hero1_Buddy_Gold['TB_BaconShop_HERO_76_Buddy']='TB_BaconShop_HERO_76_Buddy_G'
 class TB_BaconShop_HERO_76:# <12>[1453]
 	""" Al'Akir	 """
+	if Config.BG_VERSION>=2560:
+		option_tags={GameTag.ARMOR:13, GameTag.HEALTH:30}
+	else:
+		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
 class TB_BaconShop_HP_086_Action(GameAction):
 	def do(self, source):
 		controller=source.controller
@@ -242,6 +250,7 @@ class TB_BaconShop_HERO_76_Buddy:######################################
 	"""Spirit of Air
 	[Deathrattle:] Give a random friendly minion [Windfury],___[Divine Shield], and [Taunt].___
 	"""
+	## tavern tier = 3
 	deathrattle = TB_BaconShop_HP_086_BuddyAction()
 	pass
 class TB_BaconShop_HERO_76_Buddy_e:# <12>[1453]
@@ -261,6 +270,7 @@ class TB_BaconShop_HP_086_Buddy_G_Action(GameAction):
 class TB_BaconShop_HERO_76_Buddy_G:
 	""" Spirit of Air
 	[Deathrattle:] Give 2 random friendly minions [Windfury],[Divine Shield], and [Taunt]."""
+	## tavern tier = 3
 	deathrattle =  TB_BaconShop_HP_086_Buddy_G_Action()
 	pass
 
@@ -272,6 +282,11 @@ BG_Hero1_Buddy['TB_BaconShop_HERO_56']='TB_BaconShop_HERO_56_Buddy'
 BG_Hero1_Buddy_Gold['TB_BaconShop_HERO_56_Buddy']='TB_BaconShop_HERO_56_Buddy_G'
 class TB_BaconShop_HERO_56:# <12>[1453]
 	""" Alexstrasza	"""
+	if Config.BG_VERSION>=2560:
+		option_tags={GameTag.ARMOR:15, GameTag.HEALTH:30}
+	else:
+		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
+
 class TB_BaconShop_HP_064_Action(GameAction):
 	TARGET = ActionArg()
 	def do(self, source):
@@ -289,12 +304,20 @@ class TB_BaconShop_HERO_56_Buddy:
 	[Battlecry:] Add a random Dragon of your Tavern Tier to your hand."""
 	if Config.BG_VERSION>=2602:
 		option_tags={GameTag.TECH_LEVEL:3}
+	elif Config.BG_VERSION>=2560:
+		option_tags={GameTag.TECH_LEVEL:4}# OK
 	else:
-		option_tags={GameTag.TECH_LEVEL:4}
+		option_tags={GameTag.TECH_LEVEL:4}# 
 	play = Give(CONTROLLER, RandomBGDragon(tech_level=TIER(CONTROLLER)))
 class TB_BaconShop_HERO_56_Buddy_G:
 	""" Vaelastrasz
 	[Battlecry:] Add two random Dragons of your Tavern Tier to your hand."""
+	if Config.BG_VERSION>=2602:
+		option_tags={GameTag.TECH_LEVEL:3}
+	elif Config.BG_VERSION>=2560:
+		option_tags={GameTag.TECH_LEVEL:4}# OK
+	else:
+		option_tags={GameTag.TECH_LEVEL:4}# 
 	play = Give(CONTROLLER, RandomBGDragon(tech_level=TIER(CONTROLLER))) * 2
 
 
@@ -307,9 +330,11 @@ BG_Hero1_Buddy_Gold['BG22_HERO_201_Buddy']='BG22_HERO_201_Buddy_G'
 class BG22_HERO_201:# <12>[1453]
 	""" Ambassador Faelin	"""
 	if Config.BG_VERSION>=2562:
-		option_tags={GameTag.ARMOR:15}
+		option_tags={GameTag.ARMOR:15, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2560:
+		option_tags={GameTag.ARMOR:15, GameTag.HEALTH:30}
 	else:
-		option_tags={GameTag.ARMOR:10} ## check
+		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
 	pass
 class BG22_HERO_201p_Choice(Choice):
 	def choose(self, card):
@@ -375,6 +400,7 @@ class BG22_HERO_201pe:# <12>[1453]
 class BG22_HERO_201_Buddy:# <12>[1453]
 	""" Submersible Chef
 	[Battlecry:] Add a random Tier 1, 3, and 5 minion to your hand. """
+	# tavern tier=5
 	play = (
 		Give(CONTROLLER, RandomBGAdmissible(tech_level=1)),
 		Give(CONTROLLER, RandomBGAdmissible(tech_level=3)),
@@ -383,6 +409,7 @@ class BG22_HERO_201_Buddy:# <12>[1453]
 class BG22_HERO_201_Buddy_G:# <12>[1453]
 	""" Submersible Chef
 	[Battlecry:] Add a random Tier 1, 3, and 5 minion to your hand twice. """
+	# tavern tier=5
 	play = (
 		Give(CONTROLLER, RandomBGAdmissible(tech_level=1)),
 		Give(CONTROLLER, RandomBGAdmissible(tech_level=3)),
@@ -403,9 +430,11 @@ class TB_BaconShop_HERO_59:# <12>[1453]
 	""" Aranna Starseeker
 	"""
 	if Config.BG_VERSION>=2604:
-		tags={GameTag.ARMOR: 14, }
+		option_tags={GameTag.ARMOR: 14, GameTag.HEALTH:30 }
+	elif Config.BG_VERSION>=2560:
+		option_tags={GameTag.ARMOR: 17, GameTag.HEALTH:30 }
 	else:
-		tags={GameTag.ARMOR: 12, }
+		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
 class TB_BaconShop_HP_065:
 	""" Demon Hunter Training
 	[Passive] After you [Refresh] 5 times, Bob always has 7 minions.<i>(@ left!)</i>"""
@@ -451,6 +480,11 @@ BG_Hero1_Buddy_Gold['TB_BaconShop_HERO_45_Buddy']='TB_BaconShop_HERO_45_Buddy_G'
 class TB_BaconShop_HERO_45:# <12>[1453]
 	""" Arch-Villain Rafaam
 	"""
+	if Config.BG_VERSION>=2560:
+		option_tags={GameTag.ARMOR:10, GameTag.HEALTH:30 }
+	else:
+		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
+
 class TB_BaconShop_HP_053_Action(GameAction):
 	def do(self, source):
 		controller = source.controller
@@ -512,9 +546,11 @@ BG_Hero1_Buddy_Gold['BG22_HERO_001_Buddy']='BG22_HERO_001_Buddy_G'
 class BG22_HERO_001:# <12>[1453]
 	""" Bru'kan 	"""
 	if Config.BG_VERSION>=2602:
-		option_tags={GameTag.ARMOR:12}
+		option_tags={GameTag.ARMOR:12, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2560:
+		option_tags={GameTag.ARMOR:16, GameTag.HEALTH:30 }
 	else:
-		option_tags={GameTag.ARMOR:10} ## check
+		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
 class BG22_HERO_001p_Choice(Choice):
 	def do(self, source, target, cards, option=None):
 		super().do(source, target, cards, option)
@@ -659,12 +695,20 @@ class BG22_HERO_001_Buddy_Deathrattle(TargetedAction):
 class BG22_HERO_001_Buddy:# <12>[1453]
 	""" Spirit Raptor
 	After you call upon a new Element, this remembers it.[Deathrattle:] Call upon those Elements. """
+	if Config.BG_VERSION>=2562:
+		option_tags={GameTag.TECH_LEVEL:3}
+	else:
+		option_tags={GameTag.TECH_LEVEL:4}#undefined
 	events = Play(CONTROLLER).on(BG22_HERO_001_Buddy_Events(SELF, Play.CARD))
 	deathrattle = BG22_HERO_001_Buddy_Deathrattle(SELF,1)
 	pass
 class BG22_HERO_001_Buddy_G:# <12>[1453]
 	""" Spirit Raptor
 	After you call upon a newElement, this remembers it.[Deathrattle:] Call upon thoseElements twice. """
+	if Config.BG_VERSION>=2562:
+		option_tags={GameTag.TECH_LEVEL:3}
+	else:
+		option_tags={GameTag.TECH_LEVEL:4}#undefined
 	events = Play(CONTROLLER).on(BG22_HERO_001_Buddy_Events(SELF, Play.CARD))
 	deathrattle = BG22_HERO_001_Buddy_Deathrattle(SELF,2)
 	pass
@@ -682,9 +726,12 @@ BG_Hero1_Buddy_Gold['TB_BaconShop_HERO_29_Buddy']='TB_BaconShop_HERO_29_Buddy_G'
 class TB_BaconShop_HERO_29:# <12>[1453]
 	""" C'Thun	"""
 	if Config.BG_VERSION>=2604:
-		tags={GameTag.ARMOR: 5, }
+		option_tags={GameTag.ARMOR: 5, GameTag.HEALTH:30 }
+	elif Config.BG_VERSION>=2560:
+		option_tags={GameTag.ARMOR:10, GameTag.HEALTH:30 }
 	else:
-		tags={GameTag.ARMOR: 7, }
+		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
+
 class TB_BaconShop_HP_104_Action(TargetedAction):
 	TARGET=ActionArg()
 	BUFF = ActionArg()
@@ -756,6 +803,11 @@ BG_Hero1_Buddy_Gold['TB_BaconShop_HERO_64_Buddy']='TB_BaconShop_HERO_64_Buddy_G'
 class TB_BaconShop_HERO_64:# <12>[1453]
 	""" Captain Eudora
 	"""
+	if Config.BG_VERSION>=2560:
+		option_tags={GameTag.ARMOR:15, GameTag.HEALTH:30 }
+	else:
+		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
+
 class TB_BaconShop_HP_074_Action(GameAction):
 	def do(self, source):
 		controller = source.controller
@@ -780,11 +832,19 @@ class TB_BaconShop_HP_074:
 class TB_BaconShop_HERO_64_Buddy:
 	""" Dagwik Stickytoe
 	At the end of your turn, give a random friendly Golden minion +5/+5."""
+	if Config.BG_VERSION>=2562:
+		option_tags={GameTag.TECH_LEVEL:3}
+	else:
+		option_tags={GameTag.TECH_LEVEL:4}#undefined
 	events = OWN_TURN_END.on(Buff(RANDOM(FRIENDLY_MINIONS + GOLDEN), 'TB_BaconShop_HERO_64_Buddy_e'))
 TB_BaconShop_HERO_64_Buddy_e=buff(5,5)# <12>[1453]
 class TB_BaconShop_HERO_64_Buddy_G:
 	""" Dagwik Stickytoe 
 	At the end of your turn, give a random friendly Golden minion +10/+10. """
+	if Config.BG_VERSION>=2562:
+		option_tags={GameTag.TECH_LEVEL:3}
+	else:
+		option_tags={GameTag.TECH_LEVEL:4}#undefined
 	events = OWN_TURN_END.on(Buff(RANDOM(FRIENDLY_MINIONS + GOLDEN), 'TB_BaconShop_HERO_64_Buddy_G_e'))
 TB_BaconShop_HERO_64_Buddy_G_e=buff(10,10)# <12>[1453]
 
@@ -799,9 +859,11 @@ class TB_BaconShop_HERO_67:# <12>[1453]
 	""" Captain Hooktusk
 	"""
 	if Config.BG_VERSION>=2604:
-		tags={GameTag.ARMOR: 15, }
+		option_tags={GameTag.ARMOR: 15, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2560:
+		option_tags={GameTag.ARMOR:10, GameTag.HEALTH:30 }
 	else:
-		tags={GameTag.ARMOR: 12, }### check
+		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
 	pass
 class TB_BaconShop_HP_075_Action(TargetedAction):
 	TARGET = ActionArg()
@@ -879,6 +941,11 @@ BG_Hero1_Buddy['BG21_HERO_000']='BG21_HERO_000_Buddy'
 BG_Hero1_Buddy_Gold['BG21_HERO_000_Buddy']='BG21_HERO_000_Buddy_G'
 class BG21_HERO_000:# <5>[1453]
 	""" Cariel Roame	"""
+	if Config.BG_VERSION>=2560:
+		option_tags={GameTag.ARMOR:13, GameTag.HEALTH:30 }
+	else:
+		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
+
 	pass
 class BG21_HERO_000e:
 	"""Cariel Watcher	"""
@@ -944,6 +1011,10 @@ class BG21_HERO_000_Buddy:# <12>[1453]
 	[Choose One] - 'Conviction' gives an additional +2 Attack for the rest of the game; or +2 Health."""
 	### At the end of your turn, give five random friendly minions +1/+1. ### old
 	###events = OWN_TURN_END.on(BuffRandomFriendlyMinion(CONTROLLER,'BG21_HERO_000_Buddy_e', 5))
+	if Config.BG_VERSION>=2562:
+		option_tags={TECH_LEVEL:5}
+	else:
+		option_tags={TECH_LEVEL:4}# undefined
 	choose = ('BG21_HERO_000_Buddyt', 'BG21_HERO_000_Buddyt2')
 	pass
 class BG21_HERO_000_Buddyt:
@@ -955,6 +1026,10 @@ class BG21_HERO_000_Buddy_G:# <12>[1453]
 	[Choose One] - 'Conviction' gives an additional +4 Attack for the rest of the game; or +4 Health."""
 	###At the end of your turn, give five random friendly minions +2/+2. 
 	###events = OWN_TURN_END.on(BuffRandomFriendlyMinion(CONTROLLER,'BG21_HERO_000_Buddy_G_e', 5))
+	if Config.BG_VERSION>=2562:
+		option_tags={TECH_LEVEL:5}
+	else:
+		option_tags={TECH_LEVEL:4}# undefined
 	choose = ('BG21_HERO_000_Buddy_Gt', 'BG21_HERO_000_Buddy_Gt2')
 	pass
 class BG21_HERO_000_Buddy_Gt:
@@ -972,11 +1047,13 @@ class TB_BaconShop_HERO_78:# <12>[1453]
 	""" Chenvaala
 	"""
 	if Config.BG_VERSION>=2604:
-		option_tags={GameTag.ARMOR: 5}
+		option_tags={GameTag.ARMOR: 5, GameTag.HEALTH:30}
 	elif Config.BG_VERSION>=2562:
-		option_tags={GameTag.ARMOR:17}
+		option_tags={GameTag.ARMOR:17, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2560:
+		option_tags={GameTag.ARMOR:15, GameTag.HEALTH:30 }
 	else:
-		option_tags={GameTag.ARMOR:10} ## undefined
+		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
 class TB_BaconShop_HP_088:
 	""" Avalanche
 	[Passive] After you play 3 Elementals, reduce the cost of upgrading Bob's Tavern by (3)."""
@@ -1015,6 +1092,10 @@ BG_Hero1_Buddy_Gold['BG21_HERO_020_Buddy']='BG21_HERO_020_Buddy_G'
 class BG21_HERO_020:# <12>[1453]
 	""" Cookie the Cook
 	 """
+	if Config.BG_VERSION>=2560:
+		option_tags={GameTag.ARMOR:8, GameTag.HEALTH:30 }
+	else:
+		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
 	pass
 class BG21_HERO_020p_Choice(Choice):
 	def choose(self, card):
@@ -1090,7 +1171,12 @@ BG_Hero1_Buddy['TB_BaconShop_HERO_36']='TB_BaconShop_HERO_36_Buddy'
 BG_Hero1_Buddy_Gold['TB_BaconShop_HERO_36_Buddy']='TB_BaconShop_HERO_36_Buddy_G'
 class TB_BaconShop_HERO_36:# <12>[1453]
 	""" Dancin' Deryl
-	 """
+	"""
+	if Config.BG_VERSION>=2560:
+		option_tags={GameTag.ARMOR:18, GameTag.HEALTH:30 }
+	else:
+		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
+	pass
 class TB_BaconShop_HP_042:
 	""" Hat Trick
 	[Passive.] After you sell a minion, randomly give a minion in Bob's Tavern +1/+1 three times."""
@@ -1120,9 +1206,11 @@ BG_Hero1_Buddy_Gold['BG20_HERO_103_Buddy']='BG20_HERO_103_Buddy_G'
 class BG20_HERO_103:# <12>[1453]
 	""" Death Speaker Blackthorn	 """
 	if Config.BG_VERSION>=2562:
-		option_tags={GameTag.ARMOR: 10, }
+		option_tags={GameTag.ARMOR: 10, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2560:
+		option_tags={GameTag.ARMOR:15, GameTag.HEALTH:30 }
 	else:
-		option_tags={GameTag.ARMOR: 10, } ## undefined
+		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
 class BG20_HERO_103p:# <12>[1453]
 	""" Bloodbound
 	[Passive]After you upgrade Bob's Tavern, gain 2 [Blood Gems]. """
@@ -1150,11 +1238,13 @@ class TB_BaconShop_HERO_52:
 	""" Deathwing
 	"""
 	if Config.BG_VERSION>=2604:
-		option_tags={GameTag.ARMOR: 18, }
+		option_tags={GameTag.ARMOR: 18, GameTag.HEALTH:30 }
 	elif Config.BG_VERSION>=2562:
-		option_tags={GameTag.ARMOR: 10, }
+		option_tags={GameTag.ARMOR: 10, GameTag.HEALTH:30 }
+	elif Config.BG_VERSION>=2560:
+		option_tags={GameTag.ARMOR:13, GameTag.HEALTH:30 }
 	else:
-		option_tags={GameTag.ARMOR: 10, }### check
+		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
 	pass
 class TB_BaconShop_HP_061:
 	""" ALL Will Burn!
@@ -1186,7 +1276,11 @@ BG_Hero1_Buddy['TB_BaconShop_HERO_43']='TB_BaconShop_HERO_43_Buddy'
 BG_Hero1_Buddy_Gold['TB_BaconShop_HERO_43_Buddy']='TB_BaconShop_HERO_43_Buddy_G'
 class TB_BaconShop_HERO_43:# <12>[1453]
 	""" Dinotamer Brann
-	 """
+	"""
+	if Config.BG_VERSION>=2560:
+		option_tags={GameTag.ARMOR:15, GameTag.HEALTH:30 }
+	else:
+		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
 class TB_BaconShop_HP_048:
 	""" Battle Brand
 	[Passive.] After you buy 5 [Battlecry] minions, add Brann Bronzebeard to your _hand. <i>(Once per game.)</i>@[x][Passive.] After you buy 5 [Battlecry] minions, add Brann Bronzebeard to your hand. <i>({0} left!)</i>"""
@@ -1208,11 +1302,19 @@ class TB_BaconShop_HERO_43_Buddy_Action(TargetedAction):
 class TB_BaconShop_HERO_43_Buddy:# <12>[1453]
 	""" Brann's Epic Egg
 	[Taunt]. [Deathrattle:] Summon a random [Battlecry] minion and add a copy of it to your hand. """
+	if Config.BG_VERSION>=2562:
+		option_tags={GameTag.TECH_LEVEL:3}
+	else:
+		option_tags={GameTag.TECH_LEVEL:2}#undefined
 	deathrattle = TB_BaconShop_HERO_43_Buddy_Action(CONTROLLER, RandomBGAdmissible(has_battlecry=True, tech_level_less=TIER(CONTROLLER)))
 	pass
 class TB_BaconShop_HERO_43_Buddy_G:# <12>[1453]
 	""" Brann's Epic Egg
 	[Taunt]. [Deathrattle:] Summon2 random [Battlecry] minionsand add copies of themto your hand. """
+	if Config.BG_VERSION>=2562:
+		option_tags={GameTag.TECH_LEVEL:3}
+	else:
+		option_tags={GameTag.TECH_LEVEL:2}#undefined
 	deathrattle = (\
 		Summon(CONTROLLER, RandomBGAdmissible(has_battlecry=True)).then(Give(CONTROLLER,Copy(Summon.CARD))),\
 		Summon(CONTROLLER, RandomBGAdmissible(has_battlecry=True)).then(Give(CONTROLLER,Copy(Summon.CARD)))\
@@ -1230,6 +1332,10 @@ BG_Hero1_Buddy['BG22_HERO_002']='BG22_HERO_002_Buddy'
 BG_Hero1_Buddy_Gold['BG22_HERO_002_Buddy']='BG22_HERO_002_Buddy_G'
 class BG22_HERO_002:# <12>[1453]
 	""" Drek'Thar 	 """
+	if Config.BG_VERSION>=2560:
+		option_tags={GameTag.ARMOR:13, GameTag.HEALTH:30 }
+	else:
+		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
 class BG22_HERO_002p_Action(TargetedAction):
 	TARGET=ActionArg()
 	BUFF=ActionArg()

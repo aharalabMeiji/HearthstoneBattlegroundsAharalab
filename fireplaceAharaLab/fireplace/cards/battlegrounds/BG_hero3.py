@@ -266,6 +266,10 @@ class TB_BaconShop_HERO_37_Buddy_Action(GameAction):
 class TB_BaconShop_HERO_37_Buddy:
 	"""Kil'rek
 	[Taunt] [Deathrattle:] Add a random Demon to your hand."""
+	if Config.BG_VERSION>=2562:
+		option_tags={TECH_LEVEL:4}
+	else:
+		option_tags={TECH_LEVEL:3}# undefined
 	deathrattle = TB_BaconShop_HERO_37_Buddy_Action()
 class TB_BaconShop_HERO_37_Buddy_G_Action(GameAction):
 	def do(self, source):
@@ -281,6 +285,10 @@ class TB_BaconShop_HERO_37_Buddy_G_Action(GameAction):
 class TB_BaconShop_HERO_37_Buddy_G:
 	""" Kil'rek
 	[Taunt] [Deathrattle:] Add 2 random Demons to your hand."""
+	if Config.BG_VERSION>=2562:
+		option_tags={TECH_LEVEL:4}
+	else:
+		option_tags={TECH_LEVEL:3}# undefined
 	deathrattle = TB_BaconShop_HERO_37_Buddy_G_Action()
 	pass
 
@@ -395,6 +403,10 @@ class TB_BaconShop_HERO_58_Buddy_Action(GameAction):
 class TB_BaconShop_HERO_58_Buddy:# <12>[1453]
 	""" Nexus Lord
 	'Arcane Alteration'replaces with a minion one Tavern Tier higher. """
+	if Config.BG_VERSION>=2562:
+		option_tags={TECH_LEVEL:4}
+	else:
+		option_tags={TECH_LEVEL:3}# undefined
 	play = TB_BaconShop_HERO_58_Buddy_Action()
 	pass
 class TB_BaconShop_HERO_58_Buddy_G_Action(GameAction):
@@ -404,6 +416,10 @@ class TB_BaconShop_HERO_58_Buddy_G_Action(GameAction):
 class TB_BaconShop_HERO_58_Buddy_G:# <12>[1453]
 	""" Nexus Lord
 	'Arcane Alteration'replaces with a minion two Tavern Tiers higher. """
+	if Config.BG_VERSION>=2562:
+		option_tags={TECH_LEVEL:4}
+	else:
+		option_tags={TECH_LEVEL:3}# undefined
 	play = TB_BaconShop_HERO_58_Buddy_G_Action()
 	pass
 
@@ -689,6 +705,10 @@ class TB_BaconShop_HERO_70_Buddy_Action(GameAction):
 class TB_BaconShop_HERO_70_Buddy:# <12>[1453]
 	""" Lil' K.T.
 	At the start of your turn,get a plain minion from your lowest Health opponent's warband. """
+	if Config.BG_VERSION>=2562:
+		option_tags={GameTag.TECH_LEVEL:3}
+	else:
+		option_tags={GameTag.TECH_LEVEL:2}#undefined
 	events = BeginBar(CONTROLLER).on(TB_BaconShop_HERO_70_Buddy_Action())
 	pass
 class TB_BaconShop_HERO_70_Buddy_G_Action(GameAction):
@@ -718,6 +738,10 @@ class TB_BaconShop_HERO_70_Buddy_G_Action(GameAction):
 class TB_BaconShop_HERO_70_Buddy_G:# <12>[1453]
 	""" Lil' K.T.
 	At the start of your turn,get 2 plain minions fromyour lowest Health opponent's warband. """
+	if Config.BG_VERSION>=2562:
+		option_tags={GameTag.TECH_LEVEL:3}
+	else:
+		option_tags={GameTag.TECH_LEVEL:2}#undefined
 	events = BeginBar(CONTROLLER).on(TB_BaconShop_HERO_70_Buddy_G_Action())
 	pass
 
@@ -933,6 +957,10 @@ class TB_BaconShop_HERO_93_Buddy_Action(GameAction):# <12>[1453]
 class TB_BaconShop_HERO_93_Buddy:# <12>[1453]
 	""" Baby N'Zoth
 	[Battlecry:] Make a friendly[Deathrattle] minion Golden. """
+	if Config.BG_VERSION>=2562:
+		option_tags={GameTag.TECH_LEVEL:4}
+	else:
+		option_tags={GameTag.TECH_LEVEL:5}#undefined
 	play = TB_BaconShop_HERO_93_Buddy_Action()
 	pass
 class TB_BaconShop_HERO_93_Buddy_G_Action(GameAction):# <12>[1453]
@@ -944,6 +972,10 @@ class TB_BaconShop_HERO_93_Buddy_G_Action(GameAction):# <12>[1453]
 class TB_BaconShop_HERO_93_Buddy_G:# <12>[1453]
 	""" Baby N'Zoth
 	[Battlecry:] Make all friendly[Deathrattle] minions Golden. """
+	if Config.BG_VERSION>=2562:
+		option_tags={GameTag.TECH_LEVEL:4}
+	else:
+		option_tags={GameTag.TECH_LEVEL:5}#undefined
 	play = TB_BaconShop_HERO_93_Buddy_G_Action()
 	pass
 
@@ -1428,18 +1460,30 @@ class BG22_HERO_007t:
 	pass
 ##### Buddy ######
 class BG22_HERO_007_Buddy_Action(TargetedAction):
-	CARD=ActionArg()
-	TARGET=ActionArg()
-	def do(self, source, buff, target):
+	BUFF=ActionArg()
+	AMOUNT=IntArg()
+	def do(self, source, buff, amount):
+		# SpellcraftSpell.CARD is a buff card
+		SpellcraftSpell(source, buff.id).trigger(source)
+		if amount==2:
+			SpellcraftSpell(source, buff.id).trigger(source)
 		pass
 class BG22_HERO_007_Buddy:
 	""" Imperial Defender
 	Whenever you cast a [Spellcraft] spell on a _different minion, you also cast it on this."""
-	events = Spellcraft(FRIENDLY + MINION - SELF).on(BG22_HERO_007_Buddy_Action(Spellcraft.SPELLCARD,Spellcraft.TARGET))
+	if Config.BG_VERSION>=2562:
+		option_tags={GameTag.TECH_LEVEL:4}
+	else:
+		option_tags={GameTag.TECH_LEVEL:3}#undefined
+	events = SpellcraftSpell(FRIENDLY + MINION - SELF).on(BG22_HERO_007_Buddy_Action(SpellcraftSpell.CARD, 1))
 class BG22_HERO_007_Buddy_G:
 	""" Imperial Defender
 	Whenever you cast a [Spellcraft] spell on a _different minion, you also cast it on this twice."""
-
+	if Config.BG_VERSION>=2562:
+		option_tags={GameTag.TECH_LEVEL:4}
+	else:
+		option_tags={GameTag.TECH_LEVEL:3}#undefined
+	events = SpellcraftSpell(FRIENDLY + MINION - SELF).on(BG22_HERO_007_Buddy_Action(SpellcraftSpell.CARD, 2))
 
 
 ##Queen Wagtoggle ### HP OK ### need check buddy 23/4/6

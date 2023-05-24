@@ -723,11 +723,19 @@ class BG20_HERO_242_Buddy_Action(GameAction):
 class BG20_HERO_242_Buddy:
 	""" Baby Kodo
 	[Battlecry: Refresh] Bob's Tavern with a minion of each Tavern Tier. """
+	if Config.BG_VERSION>=2562:
+		option_tags={TECH_LEVEL:5}
+	else:
+		option_tags={TECH_LEVEL:4}# undefined
 	play = BG20_HERO_242_Buddy_Action()
 	pass
 class BG20_HERO_242_Buddy_G:
 	""" Baby Kodo
 	[Battlecry: Refresh] Bob's Tavern with a minion of each Tavern Tier. """
+	if Config.BG_VERSION>=2562:
+		option_tags={TECH_LEVEL:5}
+	else:
+		option_tags={TECH_LEVEL:4}# undefined
 	play = BG20_HERO_242_Buddy_Action()
 	pass
 
@@ -923,11 +931,19 @@ class TB_BaconShop_HP_028:
 class TB_BaconShop_HERO_28_Buddy:# <12>[1453]
 	""" Clockwork Assistant
 	[Battlecry:] [Discover] a minion from a higher Tavern Tier. """
+	if Config.BG_VERSION>=2562:
+		option_tags={TECH_LEVEL:5}
+	else:
+		option_tags={TECH_LEVEL:4}# undefined
 	play = Discover(CONTROLLER, RandomBGAdmissible(tech_level=(TIER(CONTROLLER)+1)))
 	pass
 class TB_BaconShop_HERO_28_Buddy_G:# <12>[1453]
 	"""
 	[Battlecry:] [Discover] two minions from a higher Tavern Tier."""
+	if Config.BG_VERSION>=2562:
+		option_tags={TECH_LEVEL:5}
+	else:
+		option_tags={TECH_LEVEL:4}# undefined
 	play = DiscoverTwice(CONTROLLER, RandomBGAdmissible(tech_level=(TIER(CONTROLLER)+1))*3)
 	pass
 
@@ -1051,11 +1067,19 @@ TB_BaconShop_HP_066e=buff(2,2)
 class TB_BaconShop_HERO_60_Buddy:# <12>[1453]
 	""" Crimson Hand Centurion
 	After 'Verdant Spheres' triggers, give your hand and board +1/+1. """
+	if Config.BG_VERSION>=2562:
+		option_tags={TECH_LEVEL:5}
+	else:
+		option_tags={TECH_LEVEL:4}# undefined
 	pass
 TB_BaconShop_HERO_60_Buddy_e=buff(1,1)# <12>[1453]
 class TB_BaconShop_HERO_60_Buddy_G:# <12>[1453]
 	""" Crimson Hand Centurion
 	After 'Verdant Spheres' triggers, give your hand and board +2/+2. """
+	if Config.BG_VERSION>=2562:
+		option_tags={TECH_LEVEL:5}
+	else:
+		option_tags={TECH_LEVEL:4}# undefined
 	pass
 TB_BaconShop_HERO_60_Buddy_G_e=buff(2,2)# <12>[1453]
 

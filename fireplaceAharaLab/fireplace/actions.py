@@ -3974,7 +3974,7 @@ class SummonOnce(Summon):
 class UpgradeTier(TargetedAction):
 	TARGET=ActionArg()#controller
 	def do(self, source, target):
-		if Config.BUDDY_SYSTEM or Config.NEW_BUDDY_SYSTEM:
+		if Config.BUDDY_SYSTEM or (Config.BG_VERSION>=2560):
 			tavern_tierup_cost={1:5, 2:7, 3:8, 4:11, 5:10, 6:10} ## 
 		else :
 			tavern_tierup_cost={1:5, 2:7, 3:8, 4:9, 5:10, 6:10} ## new 23.2.2

@@ -15,7 +15,7 @@ BG_Drakonid_Enforcer=False ##(3) ## banned when?
 BG24__Nether_Drake=True# (3) new 24.2 (2)->(3)
 
 BG_Atramedes=True ## (4)  23.6 ##OK##
-BG25__Chronormu=True# 4/4/4 dragon ## 25.2.2
+BG25__Chronormu=(Config.BG_VERSION<2562)# 4/4/4 dragon ## 25.2.2
 BG_Cobalt_Scalebane=False ##(4) banned 24.2
 BG25__General_Drakkisath=True# 4/2/8 DRAGON ## new 25.2.2
 BG_Prestor_s_Pyrospawn=False ## (4) banned
@@ -23,7 +23,7 @@ BG_Prized_Promo_Drake=True ##(4)
 BG_Tarecgosa=True ##(3)->(4)
 
 BG_Murozond=True ##(5)
-BG_Razorgore_the_Untamed=True ## (5) ## banned when? ## revive 25.?
+BG_Razorgore_the_Untamed=(Config.BG_VERSION>=2562) ## (5) ## banned when? ## revive 25.6.2
 BG25__Cyborg_Drake=True# 5/2/8 dragon ## new 25.2.2
 
 BG_Kalecgos_Arcane_Aspect=True ## (6)
