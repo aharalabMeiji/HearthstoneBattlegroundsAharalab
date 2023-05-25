@@ -234,7 +234,7 @@ BG21_039_Ge=buff(4,0)
 
 
 ## Leeching Felhound 3/3/3
-if BG_Leeching_Felhound: ## 3/3/3 new 25.6 #########
+if BG_Leeching_Felhound: ## 3/3/3 new 25.6 ###################
 	BG_Minion_Demon +=['BG25_520','BG25_520_G']
 	BG_PoolSet_Demon.append('BG25_520')
 	BG_Demon_Gold['BG25_520']='BG25_520_G'
@@ -373,17 +373,24 @@ if BG_Annihilan_Battlemaster:
 	BG_Demon_Gold['BGS_010']='TB_BaconUps_083'
 class BGS_010:# <12>[1453]
 	""" Annihilan Battlemaster (5)
-	[Battlecry:] Gain +1 Health for each Health your hero_is missing. """
+	[Battlecry:] Gain +2 Health for each Health your hero is missing."""
+	##[Battlecry:] Gain +1 Health for each Health your hero_is missing. ### <2560
 	def play(self):
 		hero = self.controller.hero
-		self.max_health += hero.damage
+		if Config.BG_VERSION>=2560:
+			self.max_health += (hero.damage*2)
+		else:
+			self.max_health += (hero.damage)
 	pass
 class TB_BaconUps_083:# <12>[1453]
 	""" Annihilan Battlemaster
 	[Battlecry:] Gain +2 Health for each Health your hero_is missing. """
 	def play(self):
 		hero = self.controller.hero
-		self.max_health += hero.damage*2
+		if Config.BG_VERSION>=2560:
+			self.max_health += (hero.damage*4)
+		else:
+			self.max_health += (hero.damage*2)
 	pass
 
 

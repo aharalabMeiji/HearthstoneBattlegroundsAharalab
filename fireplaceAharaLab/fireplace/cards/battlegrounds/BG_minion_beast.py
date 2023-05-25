@@ -300,6 +300,7 @@ class BG25_806_Action(GameAction):
 class BG25_806:
 	""" Sly Raptor
 	Deathrattle: Summon another random Beast. Set its stats to 7/7."""
+	option_tags={GameTag.TECH_LEVEL:4}
 	deathrattle = BG25_806_Action()
 class BG25_806_Action(GameAction):
 	def do(self, source):
@@ -310,6 +311,7 @@ class BG25_806_Action(GameAction):
 class BG25_806_G:
 	""" Sly Raptor
 	Deathrattle: Summon another random Beast. Set its stats to 14/14."""
+	option_tags={GameTag.TECH_LEVEL:4}
 	deathrattle = BG25_806_Action()
 
 

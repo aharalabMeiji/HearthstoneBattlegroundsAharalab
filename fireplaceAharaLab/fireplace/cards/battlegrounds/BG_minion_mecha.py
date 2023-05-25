@@ -10,7 +10,7 @@ Omega_Buster=True#Omega Buster(6)
 BG_Micro_Mummy=True#(1) <-> undead/mecha
 BG_Pupbot=True#(1)
 BG_Harvest_Golem=True#(2)
-BG_Kaboom_Bot=True#(2)
+BG_Kaboom_Bot=(Config.BG_VERSION<2560)#(2)
 BG_Metaltooth_Leaper=True#(2)
 BG_Deflect_o_Bot=True#(3)
 BG_Replicating_Menace=True#(3)
@@ -417,6 +417,10 @@ class BG25_165_G_Action(GameAction):
 class BG25_165_G:
 	""" Dr. Boombox
 	&lt;b&gt;Deathrattle:&lt;/b&gt; Deal 14 damage to the 2 nearest enemy minions."""
+	if Config.BG_VERSION>=2602:
+		option_tags = {GameTag.TECH_LEVEL:5}
+	else:
+		option_tags = {GameTag.TECH_LEVEL:4}
 	deathrattle = BG25_165_G_Action()
 	pass
 

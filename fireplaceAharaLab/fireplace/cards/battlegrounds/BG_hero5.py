@@ -299,11 +299,13 @@ class BG25_HERO_103_Buddy_Action(TargetedAction):
 class BG25_HERO_103_Buddy:
 	""" Shadowy Construct
 	[x]After a friendly minion dies, give its neighbors +1/+1."""
+	option_tags={GameTag.TECH_LEVEL:3, GameTag.ATK:3, GameTag.HEALTH:4}
 	events = Death(FRIENDLY + MINION).on(BG25_HERO_103_Buddy_Action(Death.ENTITY, 'BG25_HERO_103_Buddye'))
 BG25_HERO_103_Buddye=buff(1,1)
 class BG25_HERO_103_Buddy_G:
 	""" Shadowy Construct
 	[x]After a friendly minion dies, give its neighbors +2/+2."""
+	option_tags={GameTag.TECH_LEVEL:3, GameTag.ATK:6, GameTag.HEALTH:8}
 	events = Death(FRIENDLY + MINION).on(BG25_HERO_103_Buddy_Action(Death.ENTITY, 'BG25_HERO_103_Buddy_Ge'))
 BG25_HERO_103_Buddy_Ge=buff(2,2)
 
@@ -575,7 +577,7 @@ class TB_BaconShop_HERO_702_Buddy:
 		option_tags={GameTag.TECH_LEVEL:2, GameTag.ATK:2, GameTag.HEALTH:2}
 	else:
 		option_tags={GameTag.TECH_LEVEL:3, GameTag.ATK:3, GameTag.HEALTH:3}
-	deathrattle = Summon(CONTROLLER, RandomBGMinion(tech_level=3))
+	deathrattle = Summon(CONTROLLER, RandomBGMinion(tech_level=1))*3
 class TB_BaconShop_HERO_702_Buddy_G:
 	""" Mawsworn Soulkeeper
 	[Deathrattle:] Summon 6 random Tier 1 minions."""
@@ -583,7 +585,7 @@ class TB_BaconShop_HERO_702_Buddy_G:
 		option_tags={GameTag.TECH_LEVEL:2, GameTag.ATK:4, GameTag.HEALTH:4}
 	else:
 		option_tags={GameTag.TECH_LEVEL:3, GameTag.ATK:6, GameTag.HEALTH:6}
-	deathrattle = Summon(CONTROLLER, RandomBGMinion(tech_level=6))
+	deathrattle = Summon(CONTROLLER, RandomBGMinion(tech_level=1))*6
 	pass
 
 
@@ -609,7 +611,7 @@ class TB_BaconShop_HP_024:
 class TB_BaconShop_HP_024e2:
 	tags={GameTag.REBORN:True,}
 	events=BeginBar(CONTROLLER).on(Destroy(SELF))
-########  BUDDY
+########  BUDDY ######
 class TB_BaconShop_HERO_22_Buddy_Action(TargetedAction):
 	TARGET=ActionArg()
 	def do(self, source, target):
@@ -857,11 +859,12 @@ class TB_BaconShop_HERO_94_Buddy_Action(GameAction):# <12>[1453]
 		pass
 class TB_BaconShop_HERO_94_Buddy:# <12>[1453]
 	""" Ticket Collector
-	[Battlecry:] [Discover] a Darkmoon Prize fromthe next Prize turn. """
+	When you sell this, Discover a Darkmoon Prize from the next prize turn."""
+	###[Battlecry:] [Discover] a Darkmoon Prize fromthe next Prize turn. ### <2560
 	if Config.BG_VERSION>=2562:
 		option_tags={TECH_LEVEL:5}
 	else:
-		option_tags={TECH_LEVEL:4}# undefined
+		option_tags={TECH_LEVEL:4}# 
 	play = TB_BaconShop_HERO_94_Buddy_Action()
 	pass
 class TB_BaconShop_HERO_94_Buddy_G_Choice(Choice):# <12>[1453]
@@ -891,7 +894,7 @@ class TB_BaconShop_HERO_94_Buddy_G:# <12>[1453]
 	if Config.BG_VERSION>=2562:
 		option_tags={TECH_LEVEL:5}
 	else:
-		option_tags={TECH_LEVEL:4}# undefined
+		option_tags={TECH_LEVEL:4}#
 	play = TB_BaconShop_HERO_94_Buddy_G_Action()
 	pass
 
@@ -927,7 +930,8 @@ class TB_BaconShop_HERO_10_Buddy_Action(TargetedAction):# <12>[1453]
 		Buff(target, 'TB_BaconShop_HERO_10_Buddye', atk=amount, max_health=amount).trigger(source)
 class TB_BaconShop_HERO_10_Buddy:# <12>[1453]
 	""" Bilgewater Mogul
-	[Battlecry:] Give a minion +1/+1 for each Gold spent this turn. """
+	Choose One – Give a minion +1 Attack for each Gold you’ve spent this turn; or +1 Health."""
+	### [Battlecry:] Give a minion +1/+1 for each Gold spent this turn. ### <2560
 	reuqirements = { PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_FRIENDLY_TARGET:0, PlayReq.REQ_MINION_TARGET:0 }
 	if Config.BG_VERSION>=2604:
 		tags={ GameTag.TECH_LEVEL:4}
@@ -947,6 +951,10 @@ class TB_BaconShop_HERO_10_Buddy_G:# <12>[1453]
 	""" Bilgewater Mogul
 	[Battlecry:] Give a minion +2/+2 for each Gold spent this turn. """
 	reuqirements = { PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_FRIENDLY_TARGET:0, PlayReq.REQ_MINION_TARGET:0 }
+	if Config.BG_VERSION>=2604:
+		tags={ GameTag.TECH_LEVEL:4}
+	else:
+		tags={ GameTag.TECH_LEVEL:3}
 	play = TB_BaconShop_HERO_10_Buddy_G_Action(TARGET)
 	pass
 
@@ -1013,6 +1021,7 @@ class BG22_HERO_003_Buddy:# <12>[1453]
 	[Avenge (2):] Minions in Bob's Tavern have +1 Health for the rest of the game."""
 	### [Avenge (2):] Give your minions +1 Health permanently. 
 	###events = Death(FRIENDLY + MINION).on(Avenge(SELF, 2, [BuffPermanently(FRIENDLY_MINIONS, 'BG22_HERO_003_Buddy_e')]))
+	option_tags={GameTag.TECH_LEVEL:3,GameTag.ATK:4,GameTag.HEALTH:7}
 	events = Death(FRIENDLY + MINION).on(Avenge(SELF, 2, [BG22_HERO_003_Buddy_Action()]))
 	pass
 class BG22_HERO_003_Buddy_e:# <12>[1453]
@@ -1026,6 +1035,7 @@ class BG22_HERO_003_Buddy_G:# <12>[1453]
 	[Avenge (2):] Minions in Bob's Tavern have +2 Health for the rest of the game."""
 	###[Avenge (2):] Give your minions +2 Health permanently. """
 	###events = Death(FRIENDLY + MINION).on(Avenge(SELF, 2, [BuffPermanently(FRIENDLY_MINIONS, 'BG22_HERO_003_Buddy_Ge')]))
+	option_tags={GameTag.TECH_LEVEL:3,GameTag.ATK:4,GameTag.HEALTH:7}
 	events = Death(FRIENDLY + MINION).on(Avenge(SELF, 2, [BG22_HERO_003_Buddy_G_Action()]))
 	pass
 BG22_HERO_003_Buddy_Ge=buff(0,2)# <12>[1453]
@@ -1390,7 +1400,7 @@ class TB_BaconShop_HERO_35_Buddy:### OK ###
 	if Config.BG_VERSION>=2562:
 		option_tags={GameTag.TECH_LEVEL:4}
 	else:
-		option_tags={GameTag.TECH_LEVEL:3}#undefined
+		option_tags={GameTag.TECH_LEVEL:3}#
 	events = Sell(CONTROLLER, SELF).on(TB_BaconShop_HERO_35_Buddy_Action())
 	pass
 class TB_BaconShop_HERO_35_Buddy_t1_Action(GameAction):# <12>[1453]
@@ -1539,7 +1549,7 @@ class TB_BaconShop_HERO_35_Buddy_G:
 	if Config.BG_VERSION>=2562:
 		option_tags={GameTag.TECH_LEVEL:4}
 	else:
-		option_tags={GameTag.TECH_LEVEL:3}#undefined
+		option_tags={GameTag.TECH_LEVEL:3}#
 	events = Sell(CONTROLLER, SELF).on(TB_BaconShop_HERO_35_Buddy_Action(), TB_BaconShop_HERO_35_Buddy_Action())
 	pass
 

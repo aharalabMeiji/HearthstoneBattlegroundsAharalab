@@ -23,6 +23,7 @@ BG_Dynamic_Duo=True##	4
 BG_Groundshaker=True##	4
 BG_Necrolyte=True##	4
 BG25__Pufferquil=True# 4/2/6, quilbour/naga, new 25.2.2
+BG_Gem_Smuggler=(Config.BG_VERSION>=2560)
 
 BG_Aggem_Thorncurse=True##	5
 BG_Bristleback_Knight=True## 5 BG20_204
@@ -410,6 +411,25 @@ class BG25_039_G:# (minion)
 BG25_039_Ge=buff(poisonous=True)# (enchantment)
 """ Puffed Full	<b>Poisonous</b>. """
 
+
+#Gem Smuggler
+if BG_Gem_Smuggler:
+	BG_Minion_Quilboar += [ 'BG25_155','BG25_155_G']#	
+	BG_PoolSet_Quilboar.append('BG25_155')
+	BG_Quilboar_Gold['BG25_155']='BG25_155_G'
+class BG25_155:
+	""" Gem Smuggler
+	Battlecry: Play a Blood Gem on all your other Quilboar."""
+	#[Tavern Tier 4, Quilboar] 3 Attack, 4 Health. Battlecry: Play a Blood Gem on all your other Quilboar.
+	option_tags={GameTag.TECH_LEVEL:4}
+	play = BG_Play(CONTROLLER, 'GAME_005', FRIENDLY_MINIONS - SELF)
+	pass
+class BG25_155_G:
+	""" Gem Smuggler
+	Battlecry: Play 2 Blood Gems on all your other Quilboar."""
+	option_tags={GameTag.TECH_LEVEL:4}
+	play = BG_Play(CONTROLLER, 'GAME_005', FRIENDLY_MINIONS - SELF) * 2
+	pass
 ########tavern tier 5
 
 #Aggem Thorncurse	5  ### OK ###

@@ -418,18 +418,20 @@ class TB_BaconShop_HP_101t2:## discover card
 class TB_BaconShop_HERO_90_Buddy:# <12>[1453]
 	""" Burth
 	After you buy a minion with a Darkmoon Ticket, gain1_Gold this turn only. """
+	##Whenever you Discover a minion, give it +4/+4 and upgrade this by +1/+1. ## >= 2560
 	if Config.BG_VERSION>=2562:
-		option_tags={GameTag.ATK:5, GameTag.HEALTH:6}
+		option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:5, GameTag.HEALTH:6}
 	else:
-		option_tags={GameTag.ATK:3, GameTag.HEALTH:6}
+		option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:3, GameTag.HEALTH:6}
 	pass
 class TB_BaconShop_HERO_90_Buddy_G:# <12>[1453]
 	""" Burth
 	After you buy a minion witha Darkmoon Ticket, gain2_Gold this turn only. """
+	##Whenever you Discover a minion, give it +8/+8 and upgrade this by +2/+2. ## >= 2560
 	if Config.BG_VERSION>=2562:
-		option_tags={GameTag.ATK:10, GameTag.HEALTH:12}
+		option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:10, GameTag.HEALTH:12}
 	else:
-		option_tags={GameTag.ATK:6, GameTag.HEALTH:12}
+		option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:6, GameTag.HEALTH:12}
 	pass
 
 
@@ -577,10 +579,13 @@ class BG24_HERO_100_Buddy:
 	""" Shady Aristocrat
 	&lt;b&gt;Battlecry:&lt;/b&gt; &lt;b&gt;Discover&lt;/b&gt; a lt;b&gt;Quest&lt;/b&gt;. Complete it to get an 8-Gold Coin Pouch."""
 	### old buddy <2604
+	### Battlecry: Discover a Quest. Complete it to get a 8-Gold Coin Pouch.
+	option_tags={GameTag.TECH_LEVEL:2,GameTag.ATK:2,GameTag.HEALTH:2}
 	pass
 class BG24_HERO_100_Buddy_G:
 	""" Shady Aristocrat
 	"""
+	option_tags={GameTag.TECH_LEVEL:2,GameTag.ATK:4,GameTag.HEALTH:4}
 #
 
 

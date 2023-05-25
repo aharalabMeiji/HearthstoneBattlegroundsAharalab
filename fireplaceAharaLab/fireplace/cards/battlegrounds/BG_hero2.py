@@ -184,6 +184,7 @@ class TB_BaconShop_HERO_42_Buddy:# <12>[1453]
 	[Battlecry:] Reduce the Cost of 'Lead Explorer' by (2)."""
 	###Reduce the Cost of your Hero Power by (2). ## former one
 	###At the start of your turn,get a 'Recruitment Map.'Your Maps cost (1). ### older one
+	option_tags={GameTag.TECH_LEVEL:2,GameTag.ATK:3,GameTag.HEALTH:3}
 	if Config.BG_VERSION>=2562:
 		play = TB_BaconShop_HERO_42_Buddy_Action()
 	else:
@@ -200,6 +201,7 @@ class TB_BaconShop_HERO_42_Buddy_G:# <12>[1453]
 	""" Jr. Navigator
 	[Battlecry:] Reduce the Cost of 'Lead Explorer' by (4)."""
 	###At the start of your turn,get 2 'Recruitment Maps.'Your Maps cost (1). ###
+	option_tags={GameTag.TECH_LEVEL:2,GameTag.ATK:6,GameTag.HEALTH:6}
 	if Config.BG_VERSION>=2562:
 		play = TB_BaconShop_HERO_42_Buddy_G_Action()
 	else:
@@ -295,6 +297,10 @@ class BG24_HERO_204_Buddy_G_Action(GameAction):
 class BG24_HERO_204_Buddy_G:
 	""" Enhance-o Medico
 	Minions in Bob's Tavern with [Taunt], [Reborn], [Windfury], or [Divine Shield] have +4/+4  for each."""
+	if Config.BG_VERSION>=2562:
+		option_tags={GameTag.TECH_LEVEL:1, GameTag.ATK:4, GameTag.HEALTH:4}
+	else:
+		option_tags={GameTag.TECH_LEVEL:2, GameTag.ATK:4, GameTag.HEALTH:6}
 	events = Rerole(CONTROLLER).on(BG24_HERO_204_Buddy_G_Action())
 	pass
 
@@ -846,17 +852,17 @@ class BG23_HERO_305_Buddy:
 	""" Waxadred, the Drippy
 	[Battlecry: Refresh] Bob's Tavern with the highest Tier minion from each opponent's warband."""
 	if Config.BG_VERSION>=2602:
-		option_tags={GameTag.TECH_LEVEL:5}
+		option_tags={GameTag.TECH_LEVEL:5, GameTag.ATK:7, GameTag.HEALTH:5}
 	else:
-		option_tags={GameTag.TECH_LEVEL:4}
+		option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:7, GameTag.HEALTH:5}
 	play = BG23_HERO_305_Buddy_Action()
 class BG23_HERO_305_Buddy_G:
 	""" Waxadred, the Drippy
 	[Battlecry: Refresh] Bob's Tavern with the highest Tier minion from each opponent's warband."""
 	if Config.BG_VERSION>=2602:
-		option_tags={GameTag.TECH_LEVEL:5}
+		option_tags={GameTag.TECH_LEVEL:5, GameTag.ATK:14, GameTag.HEALTH:10}
 	else:
-		option_tags={GameTag.TECH_LEVEL:4}
+		option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:14, GameTag.HEALTH:10}
 	play = BG23_HERO_305_Buddy_Action()
 
 

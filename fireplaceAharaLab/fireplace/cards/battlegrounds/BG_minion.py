@@ -21,7 +21,7 @@ BG_Bird_Buddy=True##(3/2/4)
 BG_Boulderfist_Ogre=True##(3/6/7)
 BG_Budding_Greenthumb=True##(3/1/4) banned 23.6 ## renew 25.2.2
 BG_Faceless_Disciple=True ## (3/6/4) new 24.6 ### OK ###
-BG_Houndmaster=False##(3/4/3) ### banned 25.6?
+BG_Houndmaster=(Config.BG_VERSION<2560)##(3/4/3) ### banned 25.6
 BG_Khadgar=False##(3) ## banned when? 
 BG_Nightmare_Amalgam=False##(3) RENEW  23.2 ## banned 24.6
 BG_Shifter_Zerus=False##(3) new 23.6 banned 24.2 ## revive 24.6 ## banned when?
@@ -36,7 +36,7 @@ BG_Majordomo_Executus=False##(4) banned when?
 BG_Master_of_Realities=True ##(5/6/6)->(4/4/4) when?
 BG_Menagerie_Jug=True##(4/3/3)
 BG_Reef_Explorer=False##(4)# NEW 23.2 ### banned 24.6
-BG24__Rendle_the_Mistermind=False ## (4/4/5) new 24.2 banned 25.6
+BG24__Rendle_the_Mistermind=(Config.BG_VERSION>= 2420 and Config.BG_VERSION<2560) ## (4/4/5) new 24.2 banned 25.6
 BG25__Sindorei_Straight_Shot=True ## (4/3/4) new 25.2.2
 BG_Strongshell_Scavenger=True##(4/2/3)
 BG_Treasure_Seeker_Elise=True ##(4/5/5) new 24.2
@@ -68,7 +68,7 @@ BG24__Tea_Master_Theotar=True# (6/6/6) new 24.2
 BG24_The_Walking_Fort=False ##(6) new 24.6 ### banned until 25.2.2 ###
 BG_Uther_the_Lightbringer=True ##(6/5/6) new 23.6
 BG_Zapp_Slywick=True##(6/7/10)
-
+BG_Archdruid_Hamuul=(Config.BG_VERSION<2560) ## (6/8/8)
 
 
 
@@ -1813,7 +1813,18 @@ class TB_BaconUps_091:# <12>[1453]
 	pass
 
 
-
+if BG_Archdruid_Hamuul:
+	BG_Minion += ['BG20_304','BG20_304_G',]#	
+	BG_PoolSet_Minion.append('BG20_304')
+	BG_Minion_Gold['BG20_304']='BG20_304_G'
+class BG20_304:#(6/8/8) # 大ドルイド・ハムウル
+	""" Archdruid Hamuul
+	&lt;b&gt;Battlecry:&lt;/b&gt; &lt;b&gt;Refresh&lt;/b&gt; Bob's Tavern with minions of your most common type."""
+	pass
+class BG20_304_G:#(6/16/16)
+	""" Archdruid Hamuul
+	&lt;b&gt;Battlecry:&lt;/b&gt; &lt;b&gt;Refresh&lt;/b&gt; Bob's Tavern with minions of your most common type."""
+	pass
 
 #######################
 

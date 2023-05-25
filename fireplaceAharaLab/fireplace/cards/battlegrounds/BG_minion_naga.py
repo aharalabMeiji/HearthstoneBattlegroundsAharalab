@@ -84,11 +84,19 @@ if BG_Shell_Collector:
 class BG23_002:# <12>[1453]
 	""" Shell Collector(1)
 	[Battlecry:] Add a Gold Coin to your hand. """
+	if Config.BG_VERSION>=2560:
+		option_tags={GameTag.TECH_LEVEL:1, GameTag.ATK:2, GameTag.HEALTH:1}
+	else:
+		option_tags={GameTag.TECH_LEVEL:1, GameTag.ATK:3, GameTag.HEALTH:1}
 	play = Give(CONTROLLER, THE_COIN)
 	pass
 class BG23_002_G:# <12>[1453]
 	""" Shell Collector
 	[Battlecry:] Add 2 Gold Coinsto your hand. """
+	if Config.BG_VERSION>=2560:
+		option_tags={GameTag.TECH_LEVEL:1, GameTag.ATK:4, GameTag.HEALTH:2}
+	else:
+		option_tags={GameTag.TECH_LEVEL:1, GameTag.ATK:6, GameTag.HEALTH:2}
 	play = Give(CONTROLLER, THE_COIN)*2
 	pass
 

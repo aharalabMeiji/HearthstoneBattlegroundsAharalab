@@ -458,7 +458,7 @@ class TB_BaconShop_HERO_59t:# <12>[1453]
 class TB_BaconShop_HP_065t2:### 条件が満たされるとヒロパが交代になる
 	""" Spectral Sight
 	[Passive]Bob's Tavern refreshes with 7 minions."""
-### BUDDY ###
+###### BUDDY ######
 class TB_BaconShop_HERO_59_Buddy:# <12>[1453]
 	""" Sklibb, Demon Hunter
 	After you buy a minion, your next [Refresh] costs (0)."""
@@ -914,11 +914,11 @@ class TB_BaconShop_HERO_67_Buddy:# <12>[1453]
 	## [Tavern Tier 1] 4 Attack, 2 Health, 
 	##'Trash for Treasure' offers 3 options instead of 2. ## <2562
 	if Config.BG_VERSION>=2602:
-		option_tags={GameTag.TECH_LEVEL:5}
+		option_tags={GameTag.TECH_LEVEL:5, GameTag.ATK:4,GameTag.HEALTH:2}
 	elif Config.BG_VERSION>=2562:
-		option_tags={GameTag.TECH_LEVEL:4}
+		option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:4,GameTag.HEALTH:2}
 	else:
-		option_tags={GameTag.TECH_LEVEL:1}
+		option_tags={GameTag.TECH_LEVEL:1, GameTag.ATK:4,GameTag.HEALTH:2}
 	if Config.BG_VERSION>=2562:
 		events = Activate(CONTROLLER).after(TB_BaconShop_HERO_67_Buddy_Action(Activate.TARGET, 1))
 	pass
@@ -929,11 +929,11 @@ class TB_BaconShop_HERO_67_Buddy_G:# <12>[1453]
 	## [Tavern Tier 1] 8 Attack, 4 Health, 
 	##'Trash for Treasure' offers 4 options instead of 2. ## <2562
 	if Config.BG_VERSION>=2602:
-		option_tags={GameTag.TECH_LEVEL:5}
+		option_tags={GameTag.TECH_LEVEL:5, GameTag.ATK:8, GameTag.HEALTH:4}
 	elif Config.BG_VERSION>=2562:
-		option_tags={GameTag.TECH_LEVEL:4}
+		option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:8, GameTag.HEALTH:4}
 	else:
-		option_tags={GameTag.TECH_LEVEL:1}
+		option_tags={GameTag.TECH_LEVEL:1, GameTag.ATK:8, GameTag.HEALTH:4}
 	if Config.BG_VERSION>=2562:
 		events = Activate(CONTROLLER).after(TB_BaconShop_HERO_67_Buddy_Action(Activate.TARGET, 2))
 	pass
@@ -1410,7 +1410,7 @@ class BG22_HERO_002_Buddy:# <12>[1453]
 	""" Frostwolf Lieutenant
 	[Avenge (2):] Give your minions +1 Attack permanently. """
 	## Avenge (3): Minions in Bob’s Tavern have +1 Attack for the rest of the game. ##<2562
-	option_tags={GameTag.TECH_LEVEL:3}
+	option_tags={GameTag.TECH_LEVEL:3, GameTag.ATK:7, GameTag.HEALTH:4}
 	if Config.BG_VERSION>=2562:
 		events=Death(FRIENDLY + MINION).on(Avenge(SELF, 2, [BuffPermanently(FRIENDLY_MINIONS, 'BG22_HERO_002_Buddy_e')]))
 	else:
@@ -1426,7 +1426,7 @@ class BG22_HERO_002_Buddy_G:# <12>[1453]
 	""" Frostwolf Lieutenant
 	[Avenge (2):] Give your minions +2 Attack permanently. """
 	## Avenge (3): Minions in Bob’s Tavern have +2 Attack for the rest of the game. ##<2562
-	option_tags={GameTag.TECH_LEVEL:3}
+	option_tags={GameTag.TECH_LEVEL:3, GameTag.ATK:14, GameTag.HEALTH:8}
 	if Config.BG_VERSION>=2562:
 		events = Death(FRIENDLY + MINION).on(Avenge(SELF, 2, [BuffPermanently(FRIENDLY_MINIONS, 'BG22_HERO_002_Buddy_Ge')]))
 	else:

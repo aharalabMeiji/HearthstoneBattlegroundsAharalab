@@ -491,6 +491,10 @@ class BG21_015_Action3(TargetedAction):
 class BG21_015:# <12>[1453]
 	""" Tarecgosa
 	This permanently keeps enchantments from combat. """
+	if Config.BG_VERSION>=2560:
+		option_tags={GameTag.TECH_LEVEL:4}
+	else:
+		option_tags={GameTag.TECH_LEVEL:3}
 	events = [
 		BeginBattle(CONTROLLER).on(BG21_015_Action0(SELF)),
 		Buff(SELF).on(BG21_015_Action1(SELF, Buff.BUFF)),
@@ -500,6 +504,10 @@ class BG21_015:# <12>[1453]
 class BG21_015_G:# <12>[1453]
 	""" Tarecgosa
 	This permanently doubles and keeps enchantments from combat. """
+	if Config.BG_VERSION>=2560:
+		option_tags={GameTag.TECH_LEVEL:4}
+	else:
+		option_tags={GameTag.TECH_LEVEL:3}
 	events = [
 		BeginBattle(CONTROLLER).on(BG21_015_Action0(SELF)),
 		Buff(SELF).on(BG21_015_Action1(SELF, Buff.BUFF)),

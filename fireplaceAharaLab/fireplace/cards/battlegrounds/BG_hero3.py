@@ -81,6 +81,10 @@ class BG23_HERO_304_Buddy_G_Action(GameAction):
 class BG23_HERO_304_Buddy_G:
 	""" Coilfang Elite
 	After a [Spellcraft] minion appears in Bob's Tavern, get 2 copies of its spell."""
+	if Config.BG_VERSION>=2602:
+		option_tags={GameTag.TECH_LEVEL:1, GameTag.ATK:6, GameTag.HEALTH:4}
+	else:
+		option_tags={GameTag.TECH_LEVEL:2, GameTag.ATK:6, GameTag.HEALTH:8}
 	events = Rerole(CONTROLLER).after(BG23_HERO_304_Buddy_G_Action())
 	pass
 
@@ -501,6 +505,7 @@ class BG20_HERO_202_Buddy_Action(GameAction):# <12>[1453]
 class BG20_HERO_202_Buddy:# <12>[1453]
 	""" Lei Flamepaw
 	'Power of the Storm' offers 3 options instead of 2. """
+	### 1/2/5
 	play = BG20_HERO_202_Buddy_Action()
 	pass
 class BG20_HERO_202_Buddy_G_Action(GameAction):# <12>[1453]
@@ -510,6 +515,7 @@ class BG20_HERO_202_Buddy_G_Action(GameAction):# <12>[1453]
 class BG20_HERO_202_Buddy_G:# <12>[1453]
 	""" Lei Flamepaw
 	'Power of the Storm' offers 4 options instead of 2. """
+	### 1/4/10
 	play = BG20_HERO_202_Buddy_G_Action()
 	pass
 
@@ -636,6 +642,7 @@ class TB_BaconShop_HERO_17_Buddy:# <12>[1453]
 	""" Elementium Squirrel Bomb
 	[Deathrattle:] Deal 2 damage to a random enemy minion for each of your Mechs that died this combat."""
 	###[Deathrattle:] Deal 3 damage to a random enemy minion for each of your Mechs that died this combat. """
+	option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:4, GameTag.HEALTH:4}
 	deathrattle = TB_BaconShop_HERO_17_Buddy_Deathrattle()
 	pass
 class TB_BaconShop_HERO_17_Buddy_G_Deathrattle(GameAction):
@@ -652,6 +659,7 @@ class TB_BaconShop_HERO_17_Buddy_G_Deathrattle(GameAction):
 class TB_BaconShop_HERO_17_Buddy_G:
 	""" 
 	[Deathrattle:] Deal 4 damage to a random enemy minion for each of your Mechs that died this combat.""" 
+	option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:4, GameTag.HEALTH:4}
 	deathrattle = TB_BaconShop_HERO_17_Buddy_G_Deathrattle()
 
 from fireplace.cards import db
@@ -828,10 +836,12 @@ class BG23_HERO_303pt:
 class BG23_HERO_303_Buddy:
 	""" Watfin
 	After you guess correctly with 'Detective for Hire', get a plain copy of the minion. """
+	option_tags={GameTag.TECH_LEVEL:3, GameTag.ATK:2, GameTag.HEALTH:6}
 	pass
 class BG23_HERO_303_Buddy_G:
 	""" Watfin
 	After you guess correctly with 'Detective for Hire', get 2 plain copies of the minion. """
+	option_tags={GameTag.TECH_LEVEL:3, GameTag.ATK:4, GameTag.HEALTH:12}
 	pass
 
 
@@ -1627,7 +1637,7 @@ class TB_BaconShop_HERO_14_Buddy_Action(GameAction):
 class TB_BaconShop_HERO_14_Buddy:# <12>[1453]################################
 	""" Elder Taggawag
 	Whenever you play a minionof a type you don't control,trigger your Hero Power.<i>(@ left this turn.)</i> #old buddy
-	[Battlecry:] Gain 1 Gold for each minion type you control. """
+	[Battlecry:] Gain 1 Gold for each minion type you control. ## >=2560"""
 	if Config.BG_VERSION>=2562:
 		option_tags={GameTag.TECH_LEVEL:2, GameTag.ATK:3, GameTag.HEALTH:2}
 	else:
