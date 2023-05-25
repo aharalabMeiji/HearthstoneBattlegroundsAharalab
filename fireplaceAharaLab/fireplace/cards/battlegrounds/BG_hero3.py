@@ -64,7 +64,7 @@ class BG23_HERO_304_Buddy:
 	if Config.BG_VERSION>=2602:
 		option_tags={GameTag.TECH_LEVEL:1, GameTag.ATK:3, GameTag.HEALTH:2}
 	else:
-		option_tags={GameTag.TECH_LEVEL:2, GameTag.ATK:4, GameTag.HEALTH:3}
+		option_tags={GameTag.TECH_LEVEL:2, GameTag.ATK:3, GameTag.HEALTH:4}
 	events = Rerole(CONTROLLER).after(BG23_HERO_304_Buddy_Action())
 	pass
 class BG23_HERO_304_Buddy_G_Action(GameAction):
@@ -73,7 +73,7 @@ class BG23_HERO_304_Buddy_G_Action(GameAction):
 		cards=[card for card in controller.opponent.field if getattr(card, 'spellcraft', None)!=None]
 		if len(cards):
 			for card in cards:
-				spellcardIDD=getattr(card, 'spellcraft', None)
+				spellcardID=getattr(card, 'spellcraft', None)
 				if spellcardID!=None:
 					Give(controller, spellcardID).trigger(source)
 					Give(controller, spellcardID).trigger(source)
@@ -1263,7 +1263,7 @@ class BG23_HERO_201_Buddy:
 	if Config.BG_VERSION>=2562:
 		option_tags={GameTag.TECH_LEVEL:2}
 	else:
-		option_tags={GameTag.TECH_LEVEL:3}#undefined
+		option_tags={GameTag.TECH_LEVEL:3}#
 	events=Death(FRIENDLY + MINION).on(Avenge(SELF, 2, [BG23_HERO_201_Buddy_Action()]))
 class BG23_HERO_201_Buddy_G_Action(GameAction):
 	def do(self, source):
@@ -1276,7 +1276,7 @@ class BG23_HERO_201_Buddy_G:
 	if Config.BG_VERSION>=2562:
 		option_tags={GameTag.TECH_LEVEL:2}
 	else:
-		option_tags={GameTag.TECH_LEVEL:3}#undefined
+		option_tags={GameTag.TECH_LEVEL:3}#
 	events=Death(FRIENDLY + MINION).on(Avenge(SELF, 2, [BG23_HERO_201_Buddy_G_Action()]))
 
 
@@ -1536,7 +1536,7 @@ class BG22_HERO_007_Buddy:
 	if Config.BG_VERSION>=2562:
 		option_tags={GameTag.TECH_LEVEL:4}
 	else:
-		option_tags={GameTag.TECH_LEVEL:3}#undefined
+		option_tags={GameTag.TECH_LEVEL:3}#
 	events = SpellcraftSpell(FRIENDLY + MINION - SELF).on(BG22_HERO_007_Buddy_Action(SpellcraftSpell.CARD, 1))
 class BG22_HERO_007_Buddy_G:
 	""" Imperial Defender
@@ -1544,7 +1544,7 @@ class BG22_HERO_007_Buddy_G:
 	if Config.BG_VERSION>=2562:
 		option_tags={GameTag.TECH_LEVEL:4}
 	else:
-		option_tags={GameTag.TECH_LEVEL:3}#undefined
+		option_tags={GameTag.TECH_LEVEL:3}#
 	events = SpellcraftSpell(FRIENDLY + MINION - SELF).on(BG22_HERO_007_Buddy_Action(SpellcraftSpell.CARD, 2))
 
 
@@ -1581,12 +1581,40 @@ class TB_BaconShop_HP_037a_Action(GameAction):
 				races.append(card.race)
 				cards.append(card)
 		for card in cards:
-			Buff(card, 'TB_BaconShop_HP_037te').trigger(source)
+			Buff(card, 'TB_BaconShop_HP_037te', atk=1, max_health=1).trigger(source)
+class TB_BaconShop_HP_037a_Action2560(GameAction):
+	def do(self, source):
+		controller = source.controller
+		races=[]
+		cards=[]
+		field = copy(controller.field)
+		random.shuffle(field)
+		for card in field:
+			if card.race==Race.INVALID:
+				pass
+			elif card.race==Race.ALL:
+				races.append(card.race)
+				cards.append(card)
+			elif not card.race in races:
+				races.append(card.race)
+				cards.append(card)
+		if len(cards)>3:
+			cards=random.sample(cards, 3)
+		for card in cards:
+			amount = card.tech_level
+			Buff(card, 'TB_BaconShop_HP_037te', atk=amount, max_health=amount).trigger(source)
 class TB_BaconShop_HP_037a:
 	""" Wax Warband
-	Give a friendly minion of each minion type +1/+1.""" 
-	activate = TB_BaconShop_HP_037a_Action()
-TB_BaconShop_HP_037te=buff(1,1)
+	Passive. Start of Combat: Give 3 friendly minions of different types stats equal to their Tavern Tiers."""
+	## Give a friendly minion of each minion type +1/+1.### < 2560 
+	if Config.BG_VERSION>=2560:
+		option_tag={GameTag.COST:0}
+		events = BeginBattle(CONTROLLER).on(TB_BaconShop_HP_037a_Action2560())
+	else:
+		option_tag={GameTag.COST:1}
+		activate = TB_BaconShop_HP_037a_Action()
+class TB_BaconShop_HP_037te:
+	pass#=buff(1,1)
 ######## BUDDY
 class TB_BaconShop_HERO_14_Buddy_Action(GameAction):
 	def do(self, source):
