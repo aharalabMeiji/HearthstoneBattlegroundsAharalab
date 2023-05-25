@@ -16,9 +16,11 @@ class BG20_HERO_282:# <9>[1453]
 	""" Tamsin Roame """
 	pass
 	if Config.BG_VERSION>=2604:
-		tags={GameTag.ARMOR: 16, }
+		tags={GameTag.ARMOR: 16, GameTag.HEALTH:30 }
+	elif Config.BG_VERSION>=2560:
+		option_tags={GameTag.ARMOR:13, GameTag.HEALTH:30}
 	else:
-		tags={GameTag.ARMOR: 12, }### check
+		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
 	pass
 class BG20_HERO_282p_Action(GameAction):
 	def do(self, source):
@@ -97,11 +99,13 @@ class BG22_HERO_000:# <12>[1453]
 	""" Tavish Stormpike """
 	pass
 	if Config.BG_VERSION>=2604:
-		option_tags={GameTag.ARMOR: 12, }
+		option_tags={GameTag.ARMOR: 12, GameTag.HEALTH:30 }
 	elif Config.BG_VERSION>=2602:
-		option_tags={GameTag.ARMOR:10}
+		option_tags={GameTag.ARMOR:10, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2560:
+		option_tags={GameTag.ARMOR:10, GameTag.HEALTH:30}
 	else:
-		option_tags={GameTag.ARMOR:10} ## check
+		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
 	pass
 class BG22_HERO_000p:# <12>[1453]
 	""" Deadeye
@@ -246,9 +250,11 @@ class BG25_HERO_103:
 	""" Teron Gorefiend
 	"""
 	if Config.BG_VERSION>=2604:
-		tags={GameTag.ARMOR: 10, }
+		option_tags={GameTag.ARMOR: 10, GameTag.HEALTH:30 }
+	elif Config.BG_VERSION>=2560:
+		option_tags={GameTag.ARMOR:10, GameTag.HEALTH:30}
 	else:
-		tags={GameTag.ARMOR: 7, }### check
+		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
 	pass
 class BG25_HERO_103p_Activate(TargetedAction):
 	TARGET=ActionArg()
@@ -312,11 +318,13 @@ class TB_BaconShop_HERO_50:# <12>[1453]
 	""" Tess Greymane """
 	pass
 	if Config.BG_VERSION>=2604:
-		tags={GameTag.ARMOR: 18, }
+		option_tags={GameTag.ARMOR: 18, GameTag.HEALTH:30 }
 	elif Config.BG_VERSION>=2562:
-		option_tags={GameTag.ARMOR:15}
+		option_tags={GameTag.ARMOR:15, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2560:
+		option_tags={GameTag.ARMOR:12, GameTag.HEALTH:30}
 	else:
-		option_tags={GameTag.ARMOR:10} ## check
+		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
 	pass
 class TB_BaconShop_HP_077_Action(GameAction):
 	def do(self, source):
@@ -404,6 +412,10 @@ BG_Hero5_Buddy['TB_BaconShop_HERO_33']='TB_BaconShop_HERO_33_Buddy'
 BG_Hero5_Buddy_Gold['TB_BaconShop_HERO_33_Buddy']='TB_BaconShop_HERO_33_Buddy_G'
 class TB_BaconShop_HERO_33:# <12>[1453]
 	""" The Curator	 """
+	if Config.BG_VERSION>=2560:
+		option_tags={GameTag.ARMOR:13, GameTag.HEALTH:30}
+	else:
+		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
 	pass
 class TB_BaconShop_HP_033:
 	"""  
@@ -454,6 +466,10 @@ BG_Hero5_Buddy['TB_BaconShop_HERO_21']='TB_BaconShop_HERO_21_Buddy'
 BG_Hero5_Buddy_Gold['TB_BaconShop_HERO_21_Buddy']='TB_BaconShop_HERO_21_Buddy_G'
 class TB_BaconShop_HERO_21:# <12>[1453]
 	""" The Great Akazamzarak """
+	if Config.BG_VERSION>=2560:
+		option_tags={GameTag.ARMOR:13, GameTag.HEALTH:30}
+	else:
+		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
 	pass
 class TB_BaconShop_HP_020:
 	"""  [Discover] a [Secret]. Put it into the battlefield."""
@@ -499,9 +515,11 @@ BG_Hero5_Buddy_Gold['TB_BaconShop_HERO_702_Buddy']='TB_BaconShop_HERO_702_Buddy_
 class TB_BaconShop_HERO_702:
 	""" The Jailer """
 	if Config.BG_VERSION>=2602:
-		option_tags={GameTag.ARMOR:15}
+		option_tags={GameTag.ARMOR:15, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2560:
+		option_tags={GameTag.ARMOR:15, GameTag.HEALTH:30}
 	else:
-		option_tags={GameTag.ARMOR:10} ## check
+		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
 class TB_BaconShop_HP_702_Action1(TargetedAction):
 	TARGET=ActionArg()
 	def do(self, source, target):
@@ -578,6 +596,10 @@ BG_Hero5_Buddy['TB_BaconShop_HERO_22']='TB_BaconShop_HERO_22_Buddy'
 BG_Hero5_Buddy_Gold['TB_BaconShop_HERO_22_Buddy']='TB_BaconShop_HERO_22_Buddy_G'
 class TB_BaconShop_HERO_22:# <12>[1453]
 	""" The Lich King """
+	if Config.BG_VERSION>=2560:
+		option_tags={GameTag.ARMOR:10, GameTag.HEALTH:30}
+	else:
+		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
 	pass
 class TB_BaconShop_HP_024:
 	"""  
@@ -632,9 +654,11 @@ BG_Hero5_Buddy_Gold['TB_BaconShop_HERO_12_Buddy']='TB_BaconShop_HERO_12_Buddy_G'
 class TB_BaconShop_HERO_12:# <12>[1453]
 	""" The Rat King """
 	if Config.BG_VERSION>=2602:
-		option_tags={GameTag.ARMOR:9}
+		option_tags={GameTag.ARMOR:9, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2560:
+		option_tags={GameTag.ARMOR:10, GameTag.HEALTH:30}
 	else:
-		option_tags={GameTag.ARMOR:10} ## check
+		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
 	pass
 class TB_BaconShop_HP_041_Action(GameAction):
 	def do(self, source):
@@ -794,6 +818,10 @@ BG_Hero5_Buddy['TB_BaconShop_HERO_94']='TB_BaconShop_HERO_94_Buddy'
 BG_Hero5_Buddy_Gold['TB_BaconShop_HERO_94_Buddy']='TB_BaconShop_HERO_94_Buddy_G'
 class TB_BaconShop_HERO_94:# <12>[1453]
 	""" Tickatus """
+	if Config.BG_VERSION>=2560:
+		option_tags={GameTag.ARMOR:16, GameTag.HEALTH:30}
+	else:
+		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
 class TB_BaconShop_HP_106_Action(GameAction):
 	def do(self, source):
 		controller=source.controller
@@ -879,9 +907,11 @@ BG_Hero5_Buddy_Gold['TB_BaconShop_HERO_10_Buddy']='TB_BaconShop_HERO_10_Buddy_G'
 class TB_BaconShop_HERO_10:# <12>[1453]
 	""" Trade Prince Gallywix """
 	if Config.BG_VERSION>=2562:
-		option_tags={GameTag.ARMOR:7}
+		option_tags={GameTag.ARMOR:7, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2560:
+		option_tags={GameTag.ARMOR:10, GameTag.HEALTH:30}
 	else:
-		option_tags={GameTag.ARMOR:10} ### undefined
+		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
 class TB_BaconShop_HP_008:
 	""" 
 	[Passive] After you sell a minion, get 1 extra Gold next turn. <i>(Can exceed 10.)</i>"""
@@ -930,6 +960,10 @@ BG_Hero5_Buddy['BG22_HERO_003']='BG22_HERO_003_Buddy'
 BG_Hero5_Buddy_Gold['BG22_HERO_003_Buddy']='BG22_HERO_003_Buddy_G'
 class BG22_HERO_003:# <12>[1453]
 	""" Vanndar Stormpike """
+	if Config.BG_VERSION>=2560:
+		option_tags={GameTag.ARMOR:10, GameTag.HEALTH:30}
+	else:
+		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
 class BG22_HERO_003p:# <12>[1453]
 	""" Lead the Stormpikes
 	[Passive] [Avenge (2):] Give your minions +1 Health permanently.""" ## new 24.2
@@ -1007,6 +1041,10 @@ BG_Hero5_Buddy['BG22_HERO_004']='BG22_HERO_004_Buddy'
 BG_Hero5_Buddy_Gold['BG22_HERO_004_Buddy']='BG22_HERO_004_Buddy_G'
 class BG22_HERO_004:# <4>[1453]
 	""" Varden Dawngrasp """
+	if Config.BG_VERSION>=2560:
+		option_tags={GameTag.ARMOR:13, GameTag.HEALTH:30}
+	else:
+		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
 class BG22_HERO_004p_Action(TargetedAction):
 	TARGET = ActionArg()
 	def do(self, source, target):
@@ -1078,6 +1116,10 @@ BG_Hero5_Buddy['BG20_HERO_201']='BG20_HERO_201_Buddy'
 BG_Hero5_Buddy_Gold['BG20_HERO_201_Buddy']='BG20_HERO_201_Buddy_G'
 class BG20_HERO_201:# <12>[1453]
 	""" Vol'jin  """
+	if Config.BG_VERSION>=2560:
+		option_tags={GameTag.ARMOR:10, GameTag.HEALTH:30}
+	else:
+		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
 class ChooseTwice(Choice):
 	card1=None
 	card2=None
@@ -1179,6 +1221,10 @@ BG_Hero5_Buddy['BG20_HERO_101']='BG20_HERO_101_Buddy'
 BG_Hero5_Buddy_Gold['BG20_HERO_101_Buddy']='BG20_HERO_101_Buddy_G'
 class BG20_HERO_101:# <12>[1453]
 	""" Xyrella """
+	if Config.BG_VERSION>=2560:
+		option_tags={GameTag.ARMOR:10, GameTag.HEALTH:30}
+	else:
+		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
 class BG20_HERO_101p_Action(TargetedAction):
 	TARGET=ActionArg()
 	def do(self, source, target):
@@ -1235,6 +1281,10 @@ BG_Hero5_Buddy['TB_BaconShop_HERO_92']='TB_BaconShop_HERO_92_Buddy'
 BG_Hero5_Buddy_Gold['TB_BaconShop_HERO_92_Buddy']='TB_BaconShop_HERO_92_Buddy_G'
 class TB_BaconShop_HERO_92:# <12>[1453]
 	""" Y'Shaarj """
+	if Config.BG_VERSION>=2560:
+		option_tags={GameTag.ARMOR:13, GameTag.HEALTH:30}
+	else:
+		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
 class TB_BaconShop_HP_103_Action(GameAction):
 	def do(self, source):
 		controller = source.controller# in the battle
@@ -1299,6 +1349,10 @@ BG_Hero5_Buddy['TB_BaconShop_HERO_35']='TB_BaconShop_HERO_35_Buddy'
 BG_Hero5_Buddy_Gold['TB_BaconShop_HERO_35_Buddy']='TB_BaconShop_HERO_35_Buddy_G'
 class TB_BaconShop_HERO_35:# <12>[1453]
 	""" Yogg-Saron, Hope's End """
+	if Config.BG_VERSION>=2560:
+		option_tags={GameTag.ARMOR:15, GameTag.HEALTH:30}
+	else:
+		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
 class TB_BaconShop_HP_039_Action(GameAction):
 	def do(self, source):
 		controller = source.controller # in the bar
@@ -1500,6 +1554,10 @@ BG_Hero5_Buddy['TB_BaconShop_HERO_53']='TB_BaconShop_HERO_53_Buddy'
 BG_Hero5_Buddy_Gold['TB_BaconShop_HERO_53_Buddy']='TB_BaconShop_HERO_53_Buddy_G'
 class TB_BaconShop_HERO_53:# <12>[1453]  ## if dragon is not banned
 	""" Ysera """
+	if Config.BG_VERSION>=2560:
+		option_tags={GameTag.ARMOR:8, GameTag.HEALTH:30}
+	else:
+		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
 class TB_BaconShop_HP_062_Action(GameAction):
 	def do(self, source):
 		from fireplace import cards
@@ -1566,11 +1624,13 @@ BG_Hero5_Buddy_Gold['TB_BaconShop_HERO_91_Buddy']='TB_BaconShop_HERO_91_Buddy_G'
 class TB_BaconShop_HERO_91:# <12>[1453]
 	""" Zephrys, the Great """
 	if Config.BG_VERSION>=2604:
-		option_tags={GameTag.ARMOR:18, }
+		option_tags={GameTag.ARMOR:18, GameTag.HEALTH:30 }
 	if Config.BG_VERSION>=2602:
-		option_tags={GameTag.ARMOR:10}
+		option_tags={GameTag.ARMOR:10, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2560:
+		option_tags={GameTag.ARMOR:14, GameTag.HEALTH:30}
 	else:
-		option_tags={GameTag.ARMOR:10} ## check
+		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
 	pass
 class TB_BaconShop_HP_102_Action(GameAction):
 	def do(self, source):
@@ -1598,6 +1658,7 @@ class TB_BaconShop_HERO_91_Buddy_Action(GameAction):
 		cardsId=[card.id for card in source.controller.field if self.isolate(card, source.controller.field)==True]
 		Discover(source.controller, RandomID(*cardsId)*3).trigger(source)
 		pass
+###### BUDDY ######
 class TB_BaconShop_HERO_91_Buddy:
 	"""  Phyresz
 	[Battlecry: Discover] a plain copy of a minion that you have exactly one of."""

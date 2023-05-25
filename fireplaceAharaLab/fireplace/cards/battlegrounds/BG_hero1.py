@@ -192,6 +192,7 @@ class TB_BaconShop_HERO_16_Buddy:# <12>[1453] #########################
 	""" Snack Vendor
 	At the end of your turn, give your Tavern Tier 3 minions +1/+2."""
 	## tavern tier = 4
+	option_tags={GameTag.TECH_LEVEL:4}
 	events = OWN_TURN_END.on(TB_BaconShop_HERO_16_Buddy_Action())
 	pass
 TB_BaconShop_HERO_16_Buddy_e=buff(1,2)# <12>[1453] """ Snack-Filled +1/+2. """
@@ -206,6 +207,7 @@ class TB_BaconShop_HERO_16_Buddy_G:# <12>[1453]##########################
 	""" Snack Vendor
 	At the end of your turn, give your Tavern Tier 3 minions +2/+4. """
 	## tavern tier = 4
+	option_tags={GameTag.TECH_LEVEL:4}
 	events = OWN_TURN_END.on(TB_BaconShop_HERO_16_Buddy_G_Action())
 	pass
 TB_BaconShop_HERO_16_Buddy_G_e=buff(2,4)# <12>[1453] """ Snack-Filled +2/+4. """
@@ -251,6 +253,7 @@ class TB_BaconShop_HERO_76_Buddy:######################################
 	[Deathrattle:] Give a random friendly minion [Windfury],___[Divine Shield], and [Taunt].___
 	"""
 	## tavern tier = 3
+	option_tags={GameTag.TECH_LEVEL:3}
 	deathrattle = TB_BaconShop_HP_086_BuddyAction()
 	pass
 class TB_BaconShop_HERO_76_Buddy_e:# <12>[1453]
@@ -271,6 +274,7 @@ class TB_BaconShop_HERO_76_Buddy_G:
 	""" Spirit of Air
 	[Deathrattle:] Give 2 random friendly minions [Windfury],[Divine Shield], and [Taunt]."""
 	## tavern tier = 3
+	option_tags={GameTag.TECH_LEVEL:3}
 	deathrattle =  TB_BaconShop_HP_086_Buddy_G_Action()
 	pass
 
@@ -401,6 +405,7 @@ class BG22_HERO_201_Buddy:# <12>[1453]
 	""" Submersible Chef
 	[Battlecry:] Add a random Tier 1, 3, and 5 minion to your hand. """
 	# tavern tier=5
+	option_tags={GameTag.TECH_LEVEL:5}
 	play = (
 		Give(CONTROLLER, RandomBGAdmissible(tech_level=1)),
 		Give(CONTROLLER, RandomBGAdmissible(tech_level=3)),
@@ -410,6 +415,7 @@ class BG22_HERO_201_Buddy_G:# <12>[1453]
 	""" Submersible Chef
 	[Battlecry:] Add a random Tier 1, 3, and 5 minion to your hand twice. """
 	# tavern tier=5
+	option_tags={GameTag.TECH_LEVEL:5}
 	play = (
 		Give(CONTROLLER, RandomBGAdmissible(tech_level=1)),
 		Give(CONTROLLER, RandomBGAdmissible(tech_level=3)),
@@ -460,13 +466,17 @@ class TB_BaconShop_HERO_59_Buddy:# <12>[1453]
 	if Config.BG_VERSION>=2562:
 		option_tags={GameTag.TECH_LEVEL:1}
 	else:
-		option_tags={GameTag.TECH_LEVEL:2}#undefined
+		option_tags={GameTag.TECH_LEVEL:2}#
 	events = Buy(CONTROLLER, MINION).on(GetFreeRerole(CONTROLLER))
 	pass
 class TB_BaconShop_HERO_59_Buddy_G:# <12>[1453]
 	""" Sklibb, Demon Hunter
 	After you buy a minion, your next two [Refreshes] cost (0)."""
 	### After you play a minion, your next two [Refreshes] cost (0). ### old one -25.6
+	if Config.BG_VERSION>=2562:
+		option_tags={GameTag.TECH_LEVEL:1}
+	else:
+		option_tags={GameTag.TECH_LEVEL:2}#
 	events = Buy(CONTROLLER, MINION).after(GetFreeRerole(CONTROLLER), GetFreeRerole(CONTROLLER))
 	pass
 
@@ -512,9 +522,9 @@ class TB_BaconShop_HERO_45_Buddy:# <12>[1453]
 	""" Loyal Henchman
 	After you kill a second minion each combat,get a plain copy of it. """
 	if Config.BG_VERSION>=2562:
-		option_tags={GameTag.ATK:4, GameTag.HEALTH:6}
+		option_tags={GameTag.TECH_LEVEL:3, GameTag.ATK:4, GameTag.HEALTH:6}
 	else:
-		option_tags={GameTag.ATK:6, GameTag.HEALTH:6}
+		option_tags={GameTag.TECH_LEVEL:3, GameTag.ATK:6, GameTag.HEALTH:6}
 	events = BeginBar(CONTROLLER).on(TB_BaconShop_HERO_45_Buddy_Action(CONTROLLER))
 	pass
 class TB_BaconShop_HERO_45_Buddy_G_Action(GameAction):
@@ -530,9 +540,9 @@ class TB_BaconShop_HERO_45_Buddy_G:# <12>[1453]
 	""" Loyal Henchman
 	After you kill a second minion each combat,_get 2 plain copies of it. """
 	if Config.BG_VERSION>=2562:
-		option_tags={GameTag.ATK:8, GameTag.HEALTH:12}
+		option_tags={GameTag.TECH_LEVEL:3,GameTag.ATK:8, GameTag.HEALTH:12}
 	else:
-		option_tags={GameTag.ATK:12, GameTag.HEALTH:12}
+		option_tags={GameTag.TECH_LEVEL:3,GameTag.ATK:12, GameTag.HEALTH:12}
 	events = BeginBar(CONTROLLER).on(TB_BaconShop_HERO_45_Buddy_G_Action())
 	pass
 
@@ -698,7 +708,7 @@ class BG22_HERO_001_Buddy:# <12>[1453]
 	if Config.BG_VERSION>=2562:
 		option_tags={GameTag.TECH_LEVEL:3}
 	else:
-		option_tags={GameTag.TECH_LEVEL:4}#undefined
+		option_tags={GameTag.TECH_LEVEL:4}#
 	events = Play(CONTROLLER).on(BG22_HERO_001_Buddy_Events(SELF, Play.CARD))
 	deathrattle = BG22_HERO_001_Buddy_Deathrattle(SELF,1)
 	pass
@@ -708,7 +718,7 @@ class BG22_HERO_001_Buddy_G:# <12>[1453]
 	if Config.BG_VERSION>=2562:
 		option_tags={GameTag.TECH_LEVEL:3}
 	else:
-		option_tags={GameTag.TECH_LEVEL:4}#undefined
+		option_tags={GameTag.TECH_LEVEL:4}#
 	events = Play(CONTROLLER).on(BG22_HERO_001_Buddy_Events(SELF, Play.CARD))
 	deathrattle = BG22_HERO_001_Buddy_Deathrattle(SELF,2)
 	pass
@@ -835,7 +845,7 @@ class TB_BaconShop_HERO_64_Buddy:
 	if Config.BG_VERSION>=2562:
 		option_tags={GameTag.TECH_LEVEL:3}
 	else:
-		option_tags={GameTag.TECH_LEVEL:4}#undefined
+		option_tags={GameTag.TECH_LEVEL:4}#
 	events = OWN_TURN_END.on(Buff(RANDOM(FRIENDLY_MINIONS + GOLDEN), 'TB_BaconShop_HERO_64_Buddy_e'))
 TB_BaconShop_HERO_64_Buddy_e=buff(5,5)# <12>[1453]
 class TB_BaconShop_HERO_64_Buddy_G:
@@ -844,7 +854,7 @@ class TB_BaconShop_HERO_64_Buddy_G:
 	if Config.BG_VERSION>=2562:
 		option_tags={GameTag.TECH_LEVEL:3}
 	else:
-		option_tags={GameTag.TECH_LEVEL:4}#undefined
+		option_tags={GameTag.TECH_LEVEL:4}#
 	events = OWN_TURN_END.on(Buff(RANDOM(FRIENDLY_MINIONS + GOLDEN), 'TB_BaconShop_HERO_64_Buddy_G_e'))
 TB_BaconShop_HERO_64_Buddy_G_e=buff(10,10)# <12>[1453]
 
@@ -1014,7 +1024,7 @@ class BG21_HERO_000_Buddy:# <12>[1453]
 	if Config.BG_VERSION>=2562:
 		option_tags={TECH_LEVEL:5}
 	else:
-		option_tags={TECH_LEVEL:4}# undefined
+		option_tags={TECH_LEVEL:4}#
 	choose = ('BG21_HERO_000_Buddyt', 'BG21_HERO_000_Buddyt2')
 	pass
 class BG21_HERO_000_Buddyt:
@@ -1029,7 +1039,7 @@ class BG21_HERO_000_Buddy_G:# <12>[1453]
 	if Config.BG_VERSION>=2562:
 		option_tags={TECH_LEVEL:5}
 	else:
-		option_tags={TECH_LEVEL:4}# undefined
+		option_tags={TECH_LEVEL:4}# 
 	choose = ('BG21_HERO_000_Buddy_Gt', 'BG21_HERO_000_Buddy_Gt2')
 	pass
 class BG21_HERO_000_Buddy_Gt:
@@ -1080,6 +1090,10 @@ class TB_BaconShop_HERO_78_Buddy:
 class TB_BaconShop_HERO_78_Buddy_G:
 	""" Snow Elemental
 	Bob always offers 2 extra [Frozen] Elementals whenever the Tavern is [Refreshed]."""
+	if Config.BG_VERSION>=2602:
+		option_tags={GameTag.TECH_LEVEL:3}
+	else:
+		option_tags={GameTag.TECH_LEVEL:4}
 	events = Rerole(CONTROLLER).after(TB_BaconShop_HERO_78_Buddy_Action(), TB_BaconShop_HERO_78_Buddy_Action())
 
 
@@ -1155,10 +1169,12 @@ class BG21_HERO_020p:# <12>[1453] ####### difficult
 class BG21_HERO_020_Buddy:# <12>[1453]
 	""" Sous Chef
 	You can use your Hero Power an extra time each_turn. """
+	option_tags={GameTag.TECH_LEVEL:2}
 	pass
 class BG21_HERO_020_Buddy_G:# <12>[1453]
 	""" Sous Chef
 	You can use your Hero Power 2 extra times each_turn. """
+	option_tags={GameTag.TECH_LEVEL:2}
 	#
 	pass
 
@@ -1182,9 +1198,11 @@ class TB_BaconShop_HP_042:
 	[Passive.] After you sell a minion, randomly give a minion in Bob's Tavern +1/+1 three times."""
 	events = Sell(CONTROLLER).after(Buff(RANDOM(ENEMY_MINIONS), 'TB_BaconShop_HERO_36_Buddy_e')*3)
 TB_BaconShop_HP_042e=buff(1,1)
+###### BUDDY ######
 class TB_BaconShop_HERO_36_Buddy:# <12>[1453]
 	""" Asher the Haberdasher
 	After you sell a minion, gain +1/+1. """
+	option_tags={GameTag.TECH_LEVEL:3}
 	events = Sell(CONTROLLER).after(Buff(SELF, 'TB_BaconShop_HERO_36_Buddy_e'))
 	pass
 TB_BaconShop_HERO_36_Buddy_e=buff(1,1)# <12>[1453]
@@ -1192,6 +1210,7 @@ TB_BaconShop_HERO_36_Buddy_e=buff(1,1)# <12>[1453]
 class TB_BaconShop_HERO_36_Buddy_G:# <12>[1453]
 	""" Asher the Haberdasher
 	After you sell a minion, gain +2/+2. """
+	option_tags={GameTag.TECH_LEVEL:3}
 	events = Sell(CONTROLLER).after(Buff(SELF, 'TB_BaconShop_HERO_36_Buddy_Ge'))
 	pass
 TB_BaconShop_HERO_36_Buddy_Ge=buff(2,2)# <12>[1453]
@@ -1221,10 +1240,12 @@ class BG20_HERO_103p:# <12>[1453]
 class BG20_HERO_103_Buddy:
 	""" Death's Head Sage
 	After you gain a [Blood Gem], gain an extra one. """
+	option_tags={GameTag.TECH_LEVEL:4}
 	events = Give(CONTROLLER, ID('BG20_GEM')).after(Give(CONTROLLER, 'BG20_GEM'))
 class BG20_HERO_103_Buddy_G:
 	""" Death's Head Sage
 	After you gain a [Blood Gem], gain two extra. """
+	option_tags={GameTag.TECH_LEVEL:4}
 	events = Give(CONTROLLER, ID('BG20_GEM')).after(Give(CONTROLLER, 'BG20_GEM')*2)
 
 
@@ -1256,11 +1277,13 @@ TB_BaconShop_HP_061e=buff(3,0) ## 24.0.3
 class TB_BaconShop_HERO_52_Buddy:
 	""" Lady Sinestra
 	Your minions have +3_Attack. """
+	option_tags={GameTag.TECH_LEVEL:3}
 	update = Refresh(FRIENDLY_MINIONS, buff='TB_BaconShop_HERO_52_Buddy_e')
 TB_BaconShop_HERO_52_Buddy_e=buff(3,0)
 class TB_BaconShop_HERO_52_Buddy_G:
 	""" Lady Sinestra
 	Your minions have +6_Attack. """
+	option_tags={GameTag.TECH_LEVEL:3}
 	update = Refresh(FRIENDLY_MINIONS, buff='TB_BaconShop_HERO_52_Buddy_G_e')
 TB_BaconShop_HERO_52_Buddy_G_e=buff(6,0)
 
@@ -1305,7 +1328,7 @@ class TB_BaconShop_HERO_43_Buddy:# <12>[1453]
 	if Config.BG_VERSION>=2562:
 		option_tags={GameTag.TECH_LEVEL:3}
 	else:
-		option_tags={GameTag.TECH_LEVEL:2}#undefined
+		option_tags={GameTag.TECH_LEVEL:2}#
 	deathrattle = TB_BaconShop_HERO_43_Buddy_Action(CONTROLLER, RandomBGAdmissible(has_battlecry=True, tech_level_less=TIER(CONTROLLER)))
 	pass
 class TB_BaconShop_HERO_43_Buddy_G:# <12>[1453]
@@ -1314,7 +1337,7 @@ class TB_BaconShop_HERO_43_Buddy_G:# <12>[1453]
 	if Config.BG_VERSION>=2562:
 		option_tags={GameTag.TECH_LEVEL:3}
 	else:
-		option_tags={GameTag.TECH_LEVEL:2}#undefined
+		option_tags={GameTag.TECH_LEVEL:2}#
 	deathrattle = (\
 		Summon(CONTROLLER, RandomBGAdmissible(has_battlecry=True)).then(Give(CONTROLLER,Copy(Summon.CARD))),\
 		Summon(CONTROLLER, RandomBGAdmissible(has_battlecry=True)).then(Give(CONTROLLER,Copy(Summon.CARD)))\
@@ -1387,6 +1410,7 @@ class BG22_HERO_002_Buddy:# <12>[1453]
 	""" Frostwolf Lieutenant
 	[Avenge (2):] Give your minions +1 Attack permanently. """
 	## Avenge (3): Minions in Bob’s Tavern have +1 Attack for the rest of the game. ##<2562
+	option_tags={GameTag.TECH_LEVEL:3}
 	if Config.BG_VERSION>=2562:
 		events=Death(FRIENDLY + MINION).on(Avenge(SELF, 2, [BuffPermanently(FRIENDLY_MINIONS, 'BG22_HERO_002_Buddy_e')]))
 	else:
@@ -1402,6 +1426,7 @@ class BG22_HERO_002_Buddy_G:# <12>[1453]
 	""" Frostwolf Lieutenant
 	[Avenge (2):] Give your minions +2 Attack permanently. """
 	## Avenge (3): Minions in Bob’s Tavern have +2 Attack for the rest of the game. ##<2562
+	option_tags={GameTag.TECH_LEVEL:3}
 	if Config.BG_VERSION>=2562:
 		events = Death(FRIENDLY + MINION).on(Avenge(SELF, 2, [BuffPermanently(FRIENDLY_MINIONS, 'BG22_HERO_002_Buddy_Ge')]))
 	else:
