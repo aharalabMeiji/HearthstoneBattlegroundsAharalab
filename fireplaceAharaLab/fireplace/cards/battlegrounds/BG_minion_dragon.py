@@ -1,30 +1,30 @@
 from ..utils import *
 
-BG_Dozy_Whelp=True #(1) new 24.6 ### OK ###
-BG_Evolving_Chromawing=True##(1) banned 23.6, revive 24.0, revised 24.0.3
+BG_Dozy_Whelp=(Config.BG_VERSION>=2460) #(1) new 24.6 ### OK ###
+BG_Evolving_Chromawing=(Config.BG_VERSION<2360 or Config.BG_VERSION>=2400)##(1) banned 23.6, revive 24.0, revised 24.0.3
 BG_Red_Whelp=True ## ##(1)
 
 #BG_Blazing_Sklyfin=True ## (2/1/3) -> dragon/murloc
-BG_Glyph_Guardian=False ## ##(2) ###banned 25.?
-BG_Steward_of_Time=False ####(2) ##banned 24.2
+BG_Glyph_Guardian=(Config.BG_VERSION<2560) ## ##(2) ###banned 25.?
+BG_Steward_of_Time=(Config.BG_VERSION<2420) ####(2) ##banned 24.2
 BG_Twilight_Emissary=True ##(2/3/3)
 
-BG24__Amber_Guardian=True# (3) new 24.2
+BG24__Amber_Guardian=(Config.BG_VERSION>=2420)# (3) new 24.2
 BG_Bronze_Warden=True ##(3)
 BG_Drakonid_Enforcer=False ##(3) ## banned when?
-BG24__Nether_Drake=True# (3) new 24.2 (2)->(3)
+BG24__Nether_Drake=(Config.BG_VERSION>=2420)# (3) new 24.2 (2)->(3)
 
-BG_Atramedes=True ## (4)  23.6 ##OK##
+BG_Atramedes=(Config.BG_VERSION>=2360) ## (4)  23.6 ##OK##
 BG25__Chronormu=(Config.BG_VERSION<2562)# 4/4/4 dragon ## 25.2.2
-BG_Cobalt_Scalebane=False ##(4) banned 24.2
-BG25__General_Drakkisath=True# 4/2/8 DRAGON ## new 25.2.2
+BG_Cobalt_Scalebane=(Config.BG_VERSION<2420) ##(4) banned 24.2
+BG25__General_Drakkisath=(Config.BG_VERSION>=2522)# 4/2/8 DRAGON ## new 25.2.2
 BG_Prestor_s_Pyrospawn=False ## (4) banned
 BG_Prized_Promo_Drake=True ##(4)
 BG_Tarecgosa=True ##(3)->(4)
 
 BG_Murozond=True ##(5)
 BG_Razorgore_the_Untamed=(Config.BG_VERSION>=2562) ## (5) ## banned when? ## revive 25.6.2
-BG25__Cyborg_Drake=True# 5/2/8 dragon ## new 25.2.2
+BG25__Cyborg_Drake=(Config.BG_VERSION>=2522)# 5/2/8 dragon ## new 25.2.2
 
 BG_Kalecgos_Arcane_Aspect=True ## (6)
 
