@@ -1,72 +1,72 @@
 from ..utils import *
 
-BG_Tavern_Tipper=True ##(1/2/2) new 23.6
+BG_Tavern_Tipper=(Config.BG_VERSION>=2360) ##(1/2/2) new 23.6
 BG_Wrath_Weaver=True #(1/1/3)
 
-BG_Acolyte_of_C_Thun=False## (2) banned 23.6
-BG_Kooky_Chemist=False##(2) new 23.6 banned 24.2
-BG_Menagerie_Mug=True##(2/2/2) banned 23.6 ### renew 24.6
-BG_Patient_Scout=True ## (2/1/1) ## new 24.6 ### OK ###
-BG_PoeticPenPal=True ## (2/2/4) ## new 25.6 ##
+BG_Acolyte_of_C_Thun=(Config.BG_VERSION<2360)## (2) banned 23.6
+BG_Kooky_Chemist=(Config.BG_VERSION>=2360 and Config.BG_VERSION<2420)##(2) new 23.6 banned 24.2
+BG_Menagerie_Mug=(Config.BG_VERSION<2360 or Config.BG_VERSION>=2460)##(2/2/2) banned 23.6 ### renew 24.6
+BG_Patient_Scout=(Config.BG_VERSION>=2460) ## (2/1/1) ## new 24.6 ### OK ###
+BG_PoeticPenPal=(Config.BG_VERSION>=2560) ## (2/2/4) ## new 25.6 ##
 BG_Prophet_of_the_Boar=True##(2/2/3)
 BG_Selfless_Hero=True##(2/2/1)
-BG_Sparring_Partner=True##(2/3/2) new 23.6
-BG_Spawn_of_N_Zoth=False##(2) ### banned 24.6
-BG_Unstable_Ghoul=False##(2) banned 23.6
-BG_Whelp_Smuggler=False##(2/2/5) banned when? ## renew 25.? ####
-BG_Yrel=False##(2) new 23.6 ### banned 24.6
+BG_Sparring_Partner=(Config.BG_VERSION>=2360)##(2/3/2) new 23.6
+BG_Spawn_of_N_Zoth=(Config.BG_VERSION<2460)##(2) ### banned 24.6
+BG_Unstable_Ghoul=(Config.BG_VERSION<2360)##(2) banned 23.6
+BG_Whelp_Smuggler=False##(2/2/5) banned when? ## renew 25.? #########
+BG_Yrel=(Config.BG_VERSION>=2360 and Config.BG_VERSION<2460)##(2) new 23.6 ### banned 24.6
 
 BG_Arm_of_the_Empire=True##(3/4/4)
 BG_Bird_Buddy=True##(3/2/4)
 BG_Boulderfist_Ogre=True##(3/6/7)
-BG_Budding_Greenthumb=True##(3/1/4) banned 23.6 ## renew 25.2.2
-BG_Faceless_Disciple=True ## (3/6/4) new 24.6 ### OK ###
+BG_Budding_Greenthumb=(Config.BG_VERSION<2360 or Config.BG_VERSION>=2522)##(3/1/4) banned 23.6 ## renew 25.2.2
+BG_Faceless_Disciple=(Config.BG_VERSION>=2460) ## (3/6/4) new 24.6 ### OK ###
 BG_Houndmaster=(Config.BG_VERSION<2560)##(3/4/3) ### banned 25.6
-BG_Khadgar=False##(3) ## banned when? 
-BG_Nightmare_Amalgam=False##(3) RENEW  23.2 ## banned 24.6
-BG_Shifter_Zerus=False##(3) new 23.6 banned 24.2 ## revive 24.6 ## banned when?
+BG_Khadgar=False##(3) ## banned when? ###############################
+BG_Nightmare_Amalgam=(Config.BG_VERSION>=2320 and Config.BG_VERSION<2460)##(3) RENEW  23.2 ## banned 24.6
+BG_Shifter_Zerus=((Config.BG_VERSION>=2360 and Config.BG_VERSION<2420))##(3) new 23.6 banned 24.2 ## revive 24.6 as a reward option## 
 BG_Soul_Juggler=True##(3/3/5)
 
-BG_Ball_of_Minions=True ##(4) new 24.6  ### OK ###
-BG_Champion_of_Y_Shaarj=False##(4)banned 23.6
-BG_Defender_of_Argus=False##(4)banned 23.6
-BG_Fireworks_Fanatic=True ##(4/4/3) new 25.6
+BG_Ball_of_Minions=(Config.BG_VERSION>=2460) ##(4) new 24.6  ### OK ###
+BG_Champion_of_Y_Shaarj=(Config.BG_VERSION<2360)##(4)banned 23.6
+BG_Defender_of_Argus=(Config.BG_VERSION<2360)##(4)banned 23.6
+BG_Fireworks_Fanatic=(Config.BG_VERSION>=2560) ##(4/4/3) new 25.6
 BG_Impatient_Doomsayer=True##(4/2/6)
 BG_Majordomo_Executus=False##(4) banned when?
 BG_Master_of_Realities=True ##(5/6/6)->(4/4/4) when?
 BG_Menagerie_Jug=True##(4/3/3)
-BG_Reef_Explorer=False##(4)# NEW 23.2 ### banned 24.6
+BG_Reef_Explorer=(Config.BG_VERSION>=2320 and Config.BG_VERSION<2460)##(4)# NEW 23.2 ### banned 24.6
 BG24__Rendle_the_Mistermind=(Config.BG_VERSION>= 2420 and Config.BG_VERSION<2560) ## (4/4/5) new 24.2 banned 25.6
-BG25__Sindorei_Straight_Shot=True ## (4/3/4) new 25.2.2
+BG25__Sindorei_Straight_Shot=(Config.BG_VERSION>=2522) ## (4/3/4) new 25.2.2
 BG_Strongshell_Scavenger=True##(4/2/3)
-BG_Treasure_Seeker_Elise=True ##(4/5/5) new 24.2
-BG_Tunnel_Blaster=True##(4/3/7) new 23.6
-BG_Vigilant_Stoneborn=True ## (4/2/6) new 24.6 ### OK ###
-BG_Witchwing_Nestmatron=False ##(4) banned 24.2 renew 25.0.4 banned when?
+BG_Treasure_Seeker_Elise=(Config.BG_VERSION>=2420) ##(4/5/5) new 24.2
+BG_Tunnel_Blaster=(Config.BG_VERSION>=2360)##(4/3/7) new 23.6
+BG_Vigilant_Stoneborn=(Config.BG_VERSION>=2460) ## (4/2/6) new 24.6 ### OK ###
+BG_Witchwing_Nestmatron=(Config.BG_VERSION<2420 or (Config.BG_VERSION>=2504 and Config.BG_VERSION<2560)) ##(4) banned 24.2 renew 25.0.4 banned when?
 
 
-BG_Baron_Rivendare=False##(5) ## banned 25.2.2
+BG_Baron_Rivendare=(Config.BG_VERSION<2522)##(5) ## banned 25.2.2
 BG_Brann_Bronzebeard=True##(5/2/4)
-BG_Deadly_Spore=False##(5)banned 23.6
-BG_Interrogator_Whitemane=False ## (5) new 24.6  ## banned 25.0.4
+BG_Deadly_Spore=(Config.BG_VERSION<2360)##(5)banned 23.6
+BG_Interrogator_Whitemane=(Config.BG_VERSION>=2460 and Config.BG_VERSION<2504) ## (5) new 24.6  ## banned 25.0.4
 BG_Kangor_s_Apprentice=True##(5/3/6)
-BG_Leeroy_the_Reckless=True##(5/6/2) NEW 23.2
+BG_Leeroy_the_Reckless=(Config.BG_VERSION>=2320)##(5/6/2) NEW 23.2
 BG_Lightfang_Enforcer=True##(5/2/2)
-BG_Mythrax_the_Unraveler=False ##(5) banned 24.2  ## revive 25.0.4 banned 25.2.2
+BG_Mythrax_the_Unraveler=(Config.BG_VERSION<2420 or (Config.BG_VERSION>=2504 and Config.BG_VERSION<2522)) ##(5) banned 24.2  ## revive 25.0.4 banned 25.2.2
 BG_Nomi_Kitchen_Nightmare=True##(5/4/4)
-BG25__Titus_Rivendare=True# 5/1/7 neutral ## new 25.2.2
-BG24__Tortollan_Blue_Shell=True ## (5/4/7) new 24.2 ### OK ###
+BG25__Titus_Rivendare=(Config.BG_VERSION>=2522)# 5/1/7 neutral ## new 25.2.2
+BG24__Tortollan_Blue_Shell=(Config.BG_VERSION>=2420) ## (5/4/7) new 24.2 ### OK ###
 ##(6)->(5)  banned 22.3 ## new 26.0 
 BG_Friend_of_a_Friend=(Config.BG_VERSION>=2600 or Config.BG_VERSION<2230) 
 
-BG_Amalgadon=False##(6) banned 22.3
+BG_Amalgadon=(Config.BG_VERSION<2230)##(6) banned 22.3
 BG_Mantid_Queen=True ## (6/5/5) ## new when?
 BG_Nadina_the_Red=True##(6/7/4)
-BG_Orgozoa_the_Tender=True###(6/3/7) NEW 23.2
-BG_Seafood_Slinger=True ##(6/5/5) banned -> resurrect 25.0.4
-BG24__Tea_Master_Theotar=True# (6/6/6) new 24.2
-BG24_The_Walking_Fort=False ##(6) new 24.6 ### banned until 25.2.2 ###
-BG_Uther_the_Lightbringer=True ##(6/5/6) new 23.6
+BG_Orgozoa_the_Tender=(Config.BG_VERSION>=2320)###(6/3/7) NEW 23.2
+BG_Seafood_Slinger=(Config.BG_VERSION>=2504) ##(6/5/5) banned -> resurrect 25.0.4
+BG24__Tea_Master_Theotar=(Config.BG_VERSION>=2420)# (6/6/6) new 24.2
+BG24_The_Walking_Fort=(Config.BG_VERSION>=2460 and Config.BG_VERSION<2522) ##(6) new 24.6 ### banned until 25.2.2 ###
+BG_Uther_the_Lightbringer=(Config.BG_VERSION>=2360) ##(6/5/6) new 23.6
 BG_Zapp_Slywick=True##(6/7/10)
 BG_Archdruid_Hamuul=(Config.BG_VERSION<2560) ## (6/8/8)
 
