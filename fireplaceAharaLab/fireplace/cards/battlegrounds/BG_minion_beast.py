@@ -3,7 +3,7 @@ from ..utils import *
 BG_Alleycat=True#1/1/1
 BG_Scavenging_Hyena=True#1/2/2
 
-BG_Silverback_Patriarch=False#new 23.6 banned 24.2 
+BG_Silverback_Patriarch=(Config.BG_VERSION>=2360 and Config.BG_VERSION<2420)#new 23.6 banned 24.2 
 BG_Leapfrogger=True#2/3/3
 BG_Rabid_Saurolisk=True#2/3/2
 BG_Sewer_Rat=True#2/3/2
@@ -17,16 +17,16 @@ BG_Savannah_Highmane=(Config.BG_VERSION<2560) #4/6/5 banned 25.6
 BG_Sly_Raptor=True#4/1/3
 
 BG_Agamaggan_the_Great_Boar=True#5/6/6
-BG_Baby_Krush=False# 5  #new 23.2 banned 25.6
-BG_Bonemare=True#5/5/5 #new 25.6
+BG_Baby_Krush=(Config.BG_VERSION>=2320 and Config.BG_VERSION<2560)# 5  #new 23.2 banned 25.6
+BG_Bonemare=(Config.BG_VERSION>=2560)#5/5/5 #new 25.6
 BG_Mama_Bear=True#5/5/5
-BG_Palescale_Crocolisk=False#5 banned 25.6
-#BG_Sinrunner_Blanchy=True # 5/3/3 new 25.2.2 -> undead
+BG_Palescale_Crocolisk=(Config.BG_VERSION<2560)#5 banned 25.6
+#BG_Sinrunner_Blanchy=(Config.BG_VERSION>=2522) # 5/3/3 new 25.2.2 -> undead
 
-#BG25__Felstomper=True ## 6/3/7 -> demon/beast
+#BG25__Felstomper=(Config.BG_VERSION>=2522) ## 6/3/7 -> demon/beast
 BG_Ghastcoiler=True#6/7/7
 BG_Goldrinn_the_Great_Wolf=True#6/4/4
-BG_Maexxna=False## banned 23.2
+BG_Maexxna=(Config.BG_VERSION<2320)## banned 23.2
 
 
 BG_Minion_Beast = []

@@ -10,10 +10,11 @@ BG_Hero2_Buddy_Gold={}
 ############ source ############################
 
 ## E.T.C., Band Manager BG25_HERO_105 ##
-BG_Hero2+=['BG25_HERO_105','BG25_HERO_105p','BG25_HERO_105_Buddy','BG25_HERO_105_Buddy_G']
-BG_PoolSet_Hero2+=['BG25_HERO_105']
-BG_Hero2_Buddy['BG25_HERO_105']='BG25_HERO_105_Buddy'
-BG_Hero2_Buddy_Gold['BG25_HERO_105_Buddy']='BG25_HERO_105_Buddy_G'
+if Config.BG_VERSION>=2560:
+	BG_Hero2+=['BG25_HERO_105','BG25_HERO_105p','BG25_HERO_105_Buddy','BG25_HERO_105_Buddy_G']
+	BG_PoolSet_Hero2+=['BG25_HERO_105']
+	BG_Hero2_Buddy['BG25_HERO_105']='BG25_HERO_105_Buddy'
+	BG_Hero2_Buddy_Gold['BG25_HERO_105_Buddy']='BG25_HERO_105_Buddy_G'
 class BG25_HERO_105:
 	"""E.T.C., Band Manager
 	"""

@@ -19,7 +19,7 @@ BG25__Handless_Forsaken=True#4 undead ## new 25.2.2
 BG25__Possessive_Banshee=True#4 undead ## new 25.2.2
 
 BG25__Hungering_Abomination=True#5 undead ## new 25.2.2
-BG24__Sinrunner_Blanchy=True#5 undead/beast ## new 25.2.2
+BG24__Sinrunner_Blanchy=(Config.BG_VERSION>=2522)#5 undead/beast ## new 25.2.2
 BG25__Soulsplitter=True#5 undead ## new 25.2.2
 
 BG25__Colossus_of_the_Sun=True #6 undead ## new 25.2.2
