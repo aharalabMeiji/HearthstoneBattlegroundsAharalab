@@ -287,7 +287,9 @@ BG_Hero1_Buddy['TB_BaconShop_HERO_56']='TB_BaconShop_HERO_56_Buddy'
 BG_Hero1_Buddy_Gold['TB_BaconShop_HERO_56_Buddy']='TB_BaconShop_HERO_56_Buddy_G'
 class TB_BaconShop_HERO_56:# <12>[1453]
 	""" Alexstrasza	"""
-	if Config.BG_VERSION>=2560:
+	if Config.BG_VERSION>=2620:
+		option_tags={GameTag.ARMOR:10, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:15, GameTag.HEALTH:30}
 	else:
 		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
@@ -334,7 +336,9 @@ BG_Hero1_Buddy['BG22_HERO_201']='BG22_HERO_201_Buddy'
 BG_Hero1_Buddy_Gold['BG22_HERO_201_Buddy']='BG22_HERO_201_Buddy_G'
 class BG22_HERO_201:# <12>[1453]
 	""" Ambassador Faelin	"""
-	if Config.BG_VERSION>=2562:
+	if Config.BG_VERSION>=2620:
+		option_tags={GameTag.ARMOR:12, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2562:
 		option_tags={GameTag.ARMOR:15, GameTag.HEALTH:30}
 	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:15, GameTag.HEALTH:30}
@@ -736,7 +740,9 @@ BG_Hero1_Buddy['TB_BaconShop_HERO_29']='TB_BaconShop_HERO_29_Buddy'
 BG_Hero1_Buddy_Gold['TB_BaconShop_HERO_29_Buddy']='TB_BaconShop_HERO_29_Buddy_G'
 class TB_BaconShop_HERO_29:# <12>[1453]
 	""" C'Thun	"""
-	if Config.BG_VERSION>=2604:
+	if Config.BG_VERSION>=2620:
+		option_tags={GameTag.ARMOR:10, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2604:
 		option_tags={GameTag.ARMOR: 5, GameTag.HEALTH:30 }
 	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:10, GameTag.HEALTH:30 }
@@ -869,7 +875,9 @@ BG_Hero1_Buddy_Gold['TB_BaconShop_HERO_67_Buddy']='TB_BaconShop_HERO_67_Buddy_G'
 class TB_BaconShop_HERO_67:# <12>[1453]
 	""" Captain Hooktusk
 	"""
-	if Config.BG_VERSION>=2604:
+	if Config.BG_VERSION>=2620:
+		option_tags={GameTag.ARMOR: 15, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2604:
 		option_tags={GameTag.ARMOR: 15, GameTag.HEALTH:30}
 	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:10, GameTag.HEALTH:30 }
@@ -952,7 +960,9 @@ BG_Hero1_Buddy['BG21_HERO_000']='BG21_HERO_000_Buddy'
 BG_Hero1_Buddy_Gold['BG21_HERO_000_Buddy']='BG21_HERO_000_Buddy_G'
 class BG21_HERO_000:# <5>[1453]
 	""" Cariel Roame	"""
-	if Config.BG_VERSION>=2560:
+	if Config.BG_VERSION>=2620:
+		option_tags={GameTag.ARMOR:10, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:13, GameTag.HEALTH:30 }
 	else:
 		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
@@ -1057,7 +1067,9 @@ BG_Hero1_Buddy_Gold['TB_BaconShop_HERO_78_Buddy']='TB_BaconShop_HERO_78_Buddy_G'
 class TB_BaconShop_HERO_78:# <12>[1453]
 	""" Chenvaala
 	"""
-	if Config.BG_VERSION>=2604:
+	if Config.BG_VERSION>=2620:
+		option_tags={GameTag.ARMOR:12, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2604:
 		option_tags={GameTag.ARMOR: 5, GameTag.HEALTH:30}
 	elif Config.BG_VERSION>=2562:
 		option_tags={GameTag.ARMOR:17, GameTag.HEALTH:30}
@@ -1225,8 +1237,10 @@ BG_Hero1_Buddy['BG20_HERO_103']='BG20_HERO_103_Buddy'
 BG_Hero1_Buddy_Gold['BG20_HERO_103_Buddy']='BG20_HERO_103_Buddy_G'
 class BG20_HERO_103:# <12>[1453]
 	""" Death Speaker Blackthorn	 """
-	if Config.BG_VERSION>=2562:
-		option_tags={GameTag.ARMOR: 10, GameTag.HEALTH:30}
+	if Config.BG_VERSION>=2620:
+		option_tags={GameTag.ARMOR:14, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2562:
+		option_tags={GameTag.ARMOR:10, GameTag.HEALTH:30}
 	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:15, GameTag.HEALTH:30 }
 	else:
@@ -1301,7 +1315,9 @@ BG_Hero1_Buddy_Gold['TB_BaconShop_HERO_43_Buddy']='TB_BaconShop_HERO_43_Buddy_G'
 class TB_BaconShop_HERO_43:# <12>[1453]
 	""" Dinotamer Brann
 	"""
-	if Config.BG_VERSION>=2560:
+	if Config.BG_VERSION>=2620:
+		option_tags={GameTag.ARMOR:13, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:15, GameTag.HEALTH:30 }
 	else:
 		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
@@ -1356,7 +1372,9 @@ BG_Hero1_Buddy['BG22_HERO_002']='BG22_HERO_002_Buddy'
 BG_Hero1_Buddy_Gold['BG22_HERO_002_Buddy']='BG22_HERO_002_Buddy_G'
 class BG22_HERO_002:# <12>[1453]
 	""" Drek'Thar 	 """
-	if Config.BG_VERSION>=2560:
+	if Config.BG_VERSION>=2620:
+		option_tags={GameTag.ARMOR:16, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:13, GameTag.HEALTH:30 }
 	else:
 		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}

@@ -98,7 +98,9 @@ BG_Hero5_Buddy_Gold['BG22_HERO_000_Buddy']='BG22_HERO_000_Buddy_G'
 class BG22_HERO_000:# <12>[1453]
 	""" Tavish Stormpike """
 	pass
-	if Config.BG_VERSION>=2604:
+	if Config.BG_VERSION>=2620:
+		option_tags={GameTag.ARMOR:15, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2604:
 		option_tags={GameTag.ARMOR: 12, GameTag.HEALTH:30 }
 	elif Config.BG_VERSION>=2602:
 		option_tags={GameTag.ARMOR:10, GameTag.HEALTH:30}
@@ -319,7 +321,9 @@ BG_Hero5_Buddy_Gold['TB_BaconShop_HERO_50_Buddy']='TB_BaconShop_HERO_50_Buddy_G'
 class TB_BaconShop_HERO_50:# <12>[1453]
 	""" Tess Greymane """
 	pass
-	if Config.BG_VERSION>=2604:
+	if Config.BG_VERSION>=2620:
+		option_tags={GameTag.ARMOR:14, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2604:
 		option_tags={GameTag.ARMOR: 18, GameTag.HEALTH:30 }
 	elif Config.BG_VERSION>=2562:
 		option_tags={GameTag.ARMOR:15, GameTag.HEALTH:30}
@@ -414,7 +418,9 @@ BG_Hero5_Buddy['TB_BaconShop_HERO_33']='TB_BaconShop_HERO_33_Buddy'
 BG_Hero5_Buddy_Gold['TB_BaconShop_HERO_33_Buddy']='TB_BaconShop_HERO_33_Buddy_G'
 class TB_BaconShop_HERO_33:# <12>[1453]
 	""" The Curator	 """
-	if Config.BG_VERSION>=2560:
+	if Config.BG_VERSION>=2620:
+		option_tags={GameTag.ARMOR:18, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:13, GameTag.HEALTH:30}
 	else:
 		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}

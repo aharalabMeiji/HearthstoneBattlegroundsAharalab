@@ -67,7 +67,9 @@ BG_Hero2_Buddy['TB_BaconShop_HERO_01']='TB_BaconShop_HERO_01_Buddy'
 BG_Hero2_Buddy_Gold['TB_BaconShop_HERO_01_Buddy']='TB_BaconShop_HERO_01_Buddy_G'
 class TB_BaconShop_HERO_01:# <12>[1453]
 	""" Edwin VanCleef  """
-	if Config.BG_VERSION>=2560:
+	if Config.BG_VERSION>=2620:
+		option_tags={GameTag.ARMOR:19, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:17, GameTag.HEALTH:30}
 	else:
 		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
@@ -222,7 +224,9 @@ BG_Hero2_Buddy['BG24_HERO_204']='BG24_HERO_204_Buddy'
 BG_Hero2_Buddy_Gold['BG24_HERO_204_Buddy']='BG24_HERO_204_Buddy_G'
 class BG24_HERO_204:
 	""" Enhance-o Mechano """
-	if Config.BG_VERSION>=2602:
+	if Config.BG_VERSION>=2620:
+		option_tags={GameTag.ARMOR:15, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2602:
 		option_tags={GameTag.ARMOR:8, GameTag.HEALTH:30}
 	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:15, GameTag.HEALTH:30}
@@ -315,7 +319,9 @@ BG_Hero2_Buddy['TB_BaconShop_HERO_74']='TB_BaconShop_HERO_74_Buddy'
 BG_Hero2_Buddy_Gold['TB_BaconShop_HERO_74_Buddy']='TB_BaconShop_HERO_74_Buddy_G'
 class TB_BaconShop_HERO_74:# <12>[1453]
 	""" Forest Warden Omu  """
-	if Config.BG_VERSION>=2562:
+	if Config.BG_VERSION>=2620:
+		option_tags={GameTag.ARMOR:10, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2562:
 		option_tags={GameTag.ARMOR:14, GameTag.HEALTH:30}
 	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:12, GameTag.HEALTH:30}
@@ -349,7 +355,9 @@ BG_Hero2_Buddy['TB_BaconShop_HERO_55']='TB_BaconShop_HERO_55_Buddy'
 BG_Hero2_Buddy_Gold['TB_BaconShop_HERO_55_Buddy']='TB_BaconShop_HERO_55_Buddy_G'
 class TB_BaconShop_HERO_55:# <12>[1453]
 	""" Fungalmancer Flurgl  """
-	if Config.BG_VERSION>=2560:
+	if Config.BG_VERSION>=2620:
+		option_tags={GameTag.ARMOR:8, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:12, GameTag.HEALTH:30}
 	else:
 		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
@@ -398,7 +406,9 @@ BG_Hero2_Buddy['TB_BaconShop_HERO_02']='TB_BaconShop_HERO_02_Buddy'
 BG_Hero2_Buddy_Gold['TB_BaconShop_HERO_02_Buddy']='TB_BaconShop_HERO_02_Buddy_G'
 class TB_BaconShop_HERO_02:# <12>[1453]
 	""" Galakrond """
-	if Config.BG_VERSION>=2560:
+	if Config.BG_VERSION>=2620:
+		option_tags={GameTag.ARMOR:18, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:13, GameTag.HEALTH:30}
 	else:
 		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
@@ -470,7 +480,9 @@ BG_Hero2_Buddy['BG20_HERO_283']='BG20_HERO_283_Buddy'
 BG_Hero2_Buddy_Gold['BG20_HERO_283_Buddy']='BG20_HERO_283_Buddy_G'
 class BG20_HERO_283:# <12>[1453]
 	""" Galewing """
-	if Config.BG_VERSION>=2602:
+	if Config.BG_VERSION>=2620:
+		option_tags={GameTag.ARMOR:8, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2602:
 		option_tags={GameTag.ARMOR:14, GameTag.HEALTH:30}
 	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:8, GameTag.HEALTH:30}
@@ -619,7 +631,9 @@ BG_Hero2_Buddy['TB_BaconShop_HERO_15']='TB_BaconShop_HERO_15_Buddy'
 BG_Hero2_Buddy_Gold['TB_BaconShop_HERO_15_Buddy']='TB_BaconShop_HERO_15_Buddy_G'
 class TB_BaconShop_HERO_15:# <12>[1453]
 	""" George the Fallen  """
-	if Config.BG_VERSION>=2602:
+	if Config.BG_VERSION>=2620:
+		option_tags={GameTag.ARMOR:17, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2602:
 		option_tags={GameTag.ARMOR:13, GameTag.HEALTH:30}
 	elif Config.BG_VERSION>=2562:
 		option_tags={GameTag.ARMOR:13, GameTag.HEALTH:30}
@@ -711,7 +725,9 @@ BG_Hero2_Buddy['BG20_HERO_242']='BG20_HERO_242_Buddy'
 BG_Hero2_Buddy_Gold['BG20_HERO_242_Buddy']='BG20_HERO_242_Buddy_G'
 class BG20_HERO_242:# <2>[1453]
 	""" Guff Runetotem """
-	if Config.BG_VERSION>=2560:
+	if Config.BG_VERSION>=2620:
+		option_tags={GameTag.ARMOR:10, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:13, GameTag.HEALTH:30}
 	else:
 		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
@@ -941,7 +957,9 @@ BG_Hero2_Buddy['TB_BaconShop_HERO_28']='TB_BaconShop_HERO_28_Buddy'
 BG_Hero2_Buddy_Gold['TB_BaconShop_HERO_28_Buddy']='TB_BaconShop_HERO_28_Buddy_G'
 class TB_BaconShop_HERO_28:# <12>[1453]
 	""" Infinite Toki  """
-	if Config.BG_VERSION>=2604:
+	if Config.BG_VERSION>=2620:
+		option_tags={GameTag.ARMOR:10, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2604:
 		option_tags={GameTag.ARMOR: 13, GameTag.HEALTH:30}
 	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:14, GameTag.HEALTH:30}
@@ -1001,7 +1019,9 @@ BG_Hero2_Buddy_Gold['BG22_HERO_200_Buddy']='BG22_HERO_200_Buddy_G'
 class BG22_HERO_200:
 	""" Ini Stormcoil
 	"""
-	if Config.BG_VERSION>=2604:
+	if Config.BG_VERSION>=2620:
+		option_tags={GameTag.ARMOR:8, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2604:
 		option_tags={GameTag.ARMOR: 5, GameTag.HEALTH:30}
 	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:10, GameTag.HEALTH:30}
@@ -1095,7 +1115,9 @@ BG_Hero2_Buddy['TB_BaconShop_HERO_60']='TB_BaconShop_HERO_60_Buddy'
 BG_Hero2_Buddy_Gold['TB_BaconShop_HERO_60_Buddy']='TB_BaconShop_HERO_60_Buddy_G'
 class TB_BaconShop_HERO_60:# <12>[1453]
 	""" Kael'thas Sunstrider """
-	if Config.BG_VERSION>=2560:
+	if Config.BG_VERSION>=2620:
+		option_tags={GameTag.ARMOR:15, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:14, GameTag.HEALTH:30}
 	else:
 		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
@@ -1204,7 +1226,9 @@ BG_Hero2_Buddy['BG20_HERO_280']='BG20_HERO_280_Buddy'
 BG_Hero2_Buddy_Gold['BG20_HERO_280_Buddy']='BG20_HERO_280_Buddy_G'
 class BG20_HERO_280:# <14>[1453]
 	""" Kurtrus Ashfallen """
-	if Config.BG_VERSION>=2604:
+	if Config.BG_VERSION>=2620:
+		option_tags={GameTag.ARMOR:17, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2604:
 		option_tags={GameTag.ARMOR: 20, GameTag.HEALTH:30}
 	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:15, GameTag.HEALTH:30}

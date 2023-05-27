@@ -21,7 +21,9 @@ BG_Hero4_Buddy['TB_BaconShop_HERO_11']='TB_BaconShop_HERO_11_Buddy'#
 BG_Hero4_Buddy_Gold['TB_BaconShop_HERO_11_Buddy']='TB_BaconShop_HERO_11_Buddy_G'#
 class TB_BaconShop_HERO_11:# <12>[1453]
 	""" Ragnaros the Firelord """
-	if Config.BG_VERSION>=2562:
+	if Config.BG_VERSION>=2620:
+		option_tags={GameTag.ARMOR:10, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2562:
 		option_tags={GameTag.ARMOR:16, GameTag.HEALTH:30}
 	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:13, GameTag.HEALTH:30}
@@ -102,7 +104,9 @@ BG_Hero4_Buddy['TB_BaconShop_HERO_75']='TB_BaconShop_HERO_75_Buddy'
 BG_Hero4_Buddy_Gold['TB_BaconShop_HERO_75_Buddy']='TB_BaconShop_HERO_75_Buddy_G'
 class TB_BaconShop_HERO_75:# <12>[1453]
 	""" Rakanishu """
-	if Config.BG_VERSION>=2602:
+	if Config.BG_VERSION>=2620:
+		option_tags={GameTag.ARMOR:14, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2602:
 		option_tags={GameTag.ARMOR:18, GameTag.HEALTH:30}
 	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:16, GameTag.HEALTH:30}
@@ -196,7 +200,7 @@ class BG26_HERO_104: ##
 	"""Rock Master Voone
 	"""
 	if Config.BG_VERSION>=2620:
-		option_tags={GameTag.ARMOR:15, GameTag.HEALTH:30}
+		option_tags={GameTag.ARMOR:10, GameTag.HEALTH:30}
 class BG26_HERO_104p_Action(GameAction):##
 	def do(self, source):
 		if len(source.controller.hand):
@@ -320,7 +324,9 @@ BG_Hero4_Buddy['TB_BaconShop_HERO_23']='TB_BaconShop_HERO_23_Buddy'
 BG_Hero4_Buddy_Gold['TB_BaconShop_HERO_23_Buddy']='TB_BaconShop_HERO_23_Buddy_G'
 class TB_BaconShop_HERO_23:# <12>[1453]
 	""" Shudderwock """
-	if Config.BG_VERSION>=2560:
+	if Config.BG_VERSION>=2620:
+		option_tags={GameTag.ARMOR:10, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:16, GameTag.HEALTH:30}
 	else:
 		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
@@ -466,7 +472,9 @@ BG_Hero4_Buddy['TB_BaconShop_HERO_27']='TB_BaconShop_HERO_27_Buddy'
 BG_Hero4_Buddy_Gold['TB_BaconShop_HERO_27_Buddy']='TB_BaconShop_HERO_27_Buddy_G'
 class TB_BaconShop_HERO_27:# <12>[1453]
 	""" Sindragosa """
-	if Config.BG_VERSION>=2562:
+	if Config.BG_VERSION>=2620:
+		option_tags={GameTag.ARMOR:18, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2562:
 		option_tags={GameTag.ARMOR:12, GameTag.HEALTH:30}
 	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:15, GameTag.HEALTH:30}
@@ -619,7 +627,9 @@ BG_Hero4_Buddy['TB_BaconShop_HERO_68']='TB_BaconShop_HERO_68_Buddy'
 BG_Hero4_Buddy_Gold['TB_BaconShop_HERO_68_Buddy']='TB_BaconShop_HERO_68_Buddy_G'
 class TB_BaconShop_HERO_68:# <12>[1453]
 	""" Skycap'n Kragg """
-	if Config.BG_VERSION>=2602:
+	if Config.BG_VERSION>=2620:
+		option_tags={GameTag.ARMOR:15, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2602:
 		option_tags={GameTag.ARMOR:11, GameTag.HEALTH:30}
 	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:15, GameTag.HEALTH:30}
@@ -669,7 +679,9 @@ BG_Hero4_Buddy['BG21_HERO_030']='BG21_HERO_030_Buddy'
 BG_Hero4_Buddy_Gold['BG21_HERO_030_Buddy']='BG21_HERO_030_Buddy_G'
 class BG21_HERO_030:# <10>[1453]
 	""" Sneed """
-	if Config.BG_VERSION>=2602:
+	if Config.BG_VERSION>=2620:
+		option_tags={GameTag.ARMOR:17, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2602:
 		option_tags={GameTag.ARMOR:12, GameTag.HEALTH:30}
 	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:15, GameTag.HEALTH:30}
@@ -737,13 +749,16 @@ class BG21_HERO_030_Buddy_G:# <12>[1453]
 
 
 ##Sylvanas Windrunner    ### OK ### new 24.4
-BG_Hero4+=['BG23_HERO_306','BG23_HERO_306p','BG23_HERO_306e','BG23_HERO_306_Buddy','BG23_HERO_306_Buddy_e','BG23_HERO_306_Buddy_G']
-BG_PoolSet_Hero4.append('BG23_HERO_306')
-BG_Hero4_Buddy['BG23_HERO_306']='BG23_HERO_306_Buddy'
-BG_Hero4_Buddy_Gold['BG23_HERO_306_Buddy']='BG23_HERO_306_Buddy_G'
+if Config.BG_VERSION>=2440:
+	BG_Hero4+=['BG23_HERO_306','BG23_HERO_306p','BG23_HERO_306e','BG23_HERO_306_Buddy','BG23_HERO_306_Buddy_e','BG23_HERO_306_Buddy_G']
+	BG_PoolSet_Hero4.append('BG23_HERO_306')
+	BG_Hero4_Buddy['BG23_HERO_306']='BG23_HERO_306_Buddy'
+	BG_Hero4_Buddy_Gold['BG23_HERO_306_Buddy']='BG23_HERO_306_Buddy_G'
 class BG23_HERO_306:
 	""" Sylvanas Windrunner """
-	if Config.BG_VERSION>=2560:
+	if Config.BG_VERSION>=2620:
+		option_tags={GameTag.ARMOR:14, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:13, GameTag.HEALTH:30}
 	else:
 		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
