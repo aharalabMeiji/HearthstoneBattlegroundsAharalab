@@ -273,6 +273,7 @@ CARD_ATTRIBUTE_MAP = {
 	GameTag.TECH_LEVEL: "tech_level",
 	GameTag.TRADEABLE: "tradeable",
 	GameTag.TRADE_COST: "trade_cost",
+	GameTag.VENOMOUS: "venomous",
 	GameTag.WINDFURY: "windfury",
 	GameTag.ZONE: "zone",
 	GameTag.ZONE_POSITION: "zone_position",

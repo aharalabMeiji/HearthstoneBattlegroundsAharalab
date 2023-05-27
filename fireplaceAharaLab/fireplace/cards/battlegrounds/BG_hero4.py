@@ -210,7 +210,7 @@ class BG26_HERO_104p_Action(GameAction):##
 class BG26_HERO_104p:##
 	""" Upbeat Harmony
 	Passive. At the end of every 3 turns, get a plain copy of the left-most card in your hand.	"""
-	events = OWN_TURN_END.on(SidequestCounter(CONTROLLER, 3, [BG26_HERO_104p_Action()]))
+	events = OWN_TURN_END.on(SidequestCounter(SELF, 3, [BG26_HERO_104p_Action()]))
 	pass
 
 

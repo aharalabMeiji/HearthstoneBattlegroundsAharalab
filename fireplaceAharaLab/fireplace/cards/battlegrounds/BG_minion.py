@@ -43,6 +43,7 @@ BG_Treasure_Seeker_Elise=(Config.BG_VERSION>=2420) ##(4/5/5) new 24.2
 BG_Tunnel_Blaster=(Config.BG_VERSION>=2360)##(4/3/7) new 23.6
 BG_Vigilant_Stoneborn=(Config.BG_VERSION>=2460) ## (4/2/6) new 24.6 ### OK ###
 BG_Witchwing_Nestmatron=(Config.BG_VERSION<2420 or (Config.BG_VERSION>=2504 and Config.BG_VERSION<2560)) ##(4) banned 24.2 renew 25.0.4 banned when?
+BG_Upbeat_Duo=(Config.BG_VERSION>=2620)### new 26.2
 
 
 BG_Baron_Rivendare=(Config.BG_VERSION<2522)##(5) ## banned 25.2.2
@@ -130,6 +131,23 @@ class TB_BaconUps_079:# <12>[1453]
 TB_BaconUps_079e=buff(4,4)# <12>[1453]
 """ Wrath Woven,	Increased stats. """
 
+
+### Mistake ()
+BG_Mistake=(Config.BG_VERSION>=2620)### new 26.2
+if BG_Mistake:
+	BG_Minion += ['BG_NX2_050', 'BG_NX2_050_G']
+	BG_PoolSet_Minion.append('BG_NX2_050')
+	BG_Minion_Gold['BG_NX2_050']='BG_NX2_050_G'
+class BG_NX2_050: ##
+	""" Mistake
+	&lt;i&gt;This has all minion types&lt;/i&gt;. """ 
+	#
+	pass
+class BG_NX2_050_G: ##
+	""" Mistake
+	&lt;i&gt;This has all minion types&lt;/i&gt;. """ 
+	#
+	pass
 
 ########### TIER 2 #################################
 
@@ -1164,6 +1182,37 @@ class BG21_038_G:# <12>[1453]
 
 
 
+##
+
+### Upbeat Duo (4)
+#BG_Upbeat_Duo=(Config.BG_VERSION>=2620)### new 26.2
+if BG_Upbeat_Duo:
+	BG_Minion += ['BG_NX2_050', 'BG_NX2_050_G']
+	BG_PoolSet_Minion.append('BG_NX2_050')
+	BG_Minion_Gold['BG_NX2_050']='BG_NX2_050_G'
+class BG_NX2_050_Action(TargetedAction): ##
+	TARGET=ActionArg()
+	AMOUNT=IntArg()
+	def do(self, source, target, amount):
+		if target!=None and getattr(target, 'this_is_minion'):
+			Give(source.controller, target.id).trigger(source)
+			if amount==2:
+				Give(source.controller, target.id).trigger(source)
+		pass
+class BG_NX2_050: ##
+	""" Upbeat Duo
+	4 Attack, 2 Health. Battlecry: Choose a minion. At the end of every 2 turns, this gives you a plain copy.""" 
+	requirements = {PlayReq.REQ_TARGET_IF_AVAILABLE:0, PlayReq.REQ_FRIENDLY_TARGET:0, PlayReq.REQ_MINION_TARGET:0}
+	events = OWN_TURN_END.on(SidequestCounter(SELF, 2, [BG_NX2_050_Action(TARGET, 1)]))
+	pass
+class BG_NX2_050_G: ##
+	""" Upbeat Duo
+	4 Attack, 2 Health. Battlecry: Choose a minion. At the end of every 2 turns, this gives you 2 plain copy.""" 
+	requirements = {PlayReq.REQ_TARGET_IF_AVAILABLE:0, PlayReq.REQ_FRIENDLY_TARGET:0, PlayReq.REQ_MINION_TARGET:0}
+	events = OWN_TURN_END.on(SidequestCounter(SELF, 2, [BG_NX2_050_Action(TARGET, 2)]))
+	#
+	pass
+
 
 ######## TIER 5 ################
 
@@ -1540,6 +1589,35 @@ class BG22_404_G:# <12>[1453] #############################
 
 
 
+### Drakkari Enchanter (5)
+BG_Drakkari_Enchanter =(Config.BG_VERSION>=2620)### new 26.2
+if BG_Drakkari_Enchanter:
+	BG_Minion += ['BG_NX2_050', 'BG_NX2_050_G']
+	BG_PoolSet_Minion.append('BG_NX2_050')
+	BG_Minion_Gold['BG_NX2_050']='BG_NX2_050_G'
+class BG_NX2_050: ##
+	""" Drakkari Enchanter
+	1 Attack, 5 Health. Your end of turn effects trigger twice.""" 
+	events = [
+		BG_Play(SELF).on(SetAttr(CONTROLLER, 'turn_end_effects_twice',1)),
+		Summon(CONTROLLER, SELF).on(SetAttr(CONTROLLER, 'turn_end_effects_twice',1)),
+		Destroy(SELF).on(SetAttr(CONTROLLER, 'turn_end_effects_twice',0)),
+		Sell(CONTROLLER, SELF).on(SetAttr(CONTROLLER, 'turn_end_effects_twice',0)),
+	]
+	pass
+class BG_NX2_050_G: ##
+	""" Drakkari Enchanter
+	2 Attack, 10 Health. Your end of turn effects trigger three times.""" 
+	events = [
+		BG_Play(SELF).on(SetAttr(CONTROLLER, 'turn_end_effects_twice',2)),
+		Summon(CONTROLLER, SELF).on(SetAttr(CONTROLLER, 'turn_end_effects_twice',2)),
+		Destroy(SELF).on(SetAttr(CONTROLLER, 'turn_end_effects_twice',0)),
+		Sell(CONTROLLER, SELF).on(SetAttr(CONTROLLER, 'turn_end_effects_twice',0)),
+	]
+	pass
+
+
+
 #############TIER 6######################
 
 
@@ -1603,13 +1681,75 @@ if BG_Mantid_Queen:##########
 	BG_Minion += ['BG22_402', 'BG22_402_G', 'BG22_402e', 'BG22_402e2', 'BG22_402e3', 'BG22_402e4' ]#	
 	BG_PoolSet_Minion.append('BG22_402')
 	BG_Minion_Gold['BG22_402']='BG22_402_G'
+class BG22_402_Action(GameAction):
+	def do(self, source):
+		types=[]
+		for card in source.controller.field:
+			if types==[]:
+				if card.type!=CardType.INVALID:
+					types.append(card.type)
+			else:
+				if card.type!=CardType.INVALID and not card.type in types:
+					types.append(card.type)
+		amount=len(types)
+		if amount>0:
+			if amount>4:
+				amount=4
+			buffs=['55','windfury', 'reborn', 'taunt']
+			if amount<4:
+				buffs=random.sample(buffs, amount)
+			for buff in buffs:
+				if buff=='55':
+					Buff(source, 'BG22_402e').trigger(source)
+				elif buff=='windfury':
+					Buff(source, 'BG22_402e2').trigger(source)
+				elif buff=='reborn':
+					Buff(source, 'BG22_402e3').trigger(source)
+				elif buff=='taunt':
+					Buff(source, 'BG22_402e4').trigger(source)
 class BG22_402: ###########################################
 	""" Mantid Queen
-	[Poisonous]. [Start of Combat:] For each of your minion types gain +5/+5, [Windfury], ___[Divine Shield], or [Taunt]."""
+	Venomous. Start of Combat: For each of your minion types gain +5/+5, Windfury, Reborn, or Taunt."""
+	### <2620
+	###[Poisonous]. [Start of Combat:] For each of your minion types gain +5/+5, [Windfury], ___[Divine Shield], or [Taunt]."""
+	if Config.BG_VERSION>=2620:
+		##<Tag enumID="2853" name="VENOMOUS" type="Int" value="1"/>
+		pass
+	else:
+		##<Tag enumID="363" name="POISONOUS" type="Int" value="1"/>
+		pass
+	events = BeginBattle(CONTROLLER).on(BG22_402_Action())
 	pass
+class BG22_402_G_Action(GameAction):
+	def do(self, source):
+		types=[]
+		for card in source.controller.field:
+			if types==[]:
+				if card.type!=CardType.INVALID:
+					types.append(card.type)
+			else:
+				if card.type!=CardType.INVALID and not card.type in types:
+					types.append(card.type)
+		amount=len(types)*2
+		if amount>0:
+			if amount>5:
+				amount=5
+			buffs=['55','55','windfury', 'reborn', 'taunt']
+			if amount<5:
+				buffs=random.sample(buffs, amount)
+			for buff in buffs:
+				if buff=='55':
+					Buff(source, 'BG22_402e').trigger(source)
+				elif buff=='windfury':
+					Buff(source, 'BG22_402e2').trigger(source)
+				elif buff=='reborn':
+					Buff(source, 'BG22_402e3').trigger(source)
+				elif buff=='taunt':
+					Buff(source, 'BG22_402e4').trigger(source)
 class BG22_402_G: 
 	""" Mantid Queen
 	[Poisonous]. [Start of Combat:] For each of your minion types gain [Windfury], [Divine Shield], _[Taunt], or +5/+5, twice."""
+	events = BeginBattle(CONTROLLER).on(BG22_402_G_Action())	
 	pass
 BG22_402e=buff(5,5)
 BG22_402e2=buff(windfury=True)
@@ -1827,6 +1967,36 @@ class BG20_304_G:#(6/16/16)
 	&lt;b&gt;Battlecry:&lt;/b&gt; &lt;b&gt;Refresh&lt;/b&gt; Bob's Tavern with minions of your most common type."""
 	pass
 
+
+### The Boogie Monster ## new 26.2
+BG_The_Boogie_Monster=(Config.BG_VERSION>=2620)
+if BG_The_Boogie_Monster: ###
+	BG_Minion += ['BG26_176','BG20_304_G','BG26_176_Ge']#	
+	BG_PoolSet_Minion.append('BG26_176')
+	BG_Minion_Gold['BG26_176']='BG20_304_G'
+class BG26_176_Action(TargetedAction):
+	TARGET=ActionArg()
+	BUFF=ActionArg()
+	def do(self, source, target, buff):
+		tech_level = getattr(target, 'tech_level')
+		if source.script_data_num_1==tech_level:
+			for card in source.controller.field:
+				Buff(card, buff).trigger(source)
+		pass
+class BG26_176:
+	""" The Boogie Monster
+	3 Attack, 8 Health. After you play a Tier 1 minion, progress to the next Tier and give your minions +1/+2."""
+	### <Tag enumID="2" name="TAG_SCRIPT_DATA_NUM_1" type="Int" value="1"/>
+	events = BG_Play(CONTROLLER).after(BG26_176_Action(BG_Play.CARD, 'BG26_176e'))
+	pass
+BG26_176e=buff(1,2)
+class BG26_176_G:
+	""" The Boogie Monster
+	3 Attack, 8 Health. After you play a Tier 1 minion, progress to the next Tier and give your minions +2/+4."""
+	events = BG_Play(CONTROLLER).after(BG26_176_Action(BG_Play.CARD, 'BG26_176_Ge'))
+
+	pass
+BG26_176_Ge=buff(2,4)
 #######################
 
 

@@ -89,7 +89,11 @@ class BG_Battle(Game):
 			#attacker
 			attacker = self.current_player.field[self.current_player.attacker_index]
 			if attacker.atk>0:
-				for repeat in range(attacker.windfury+1):## procedure for windfury
+				if Config.BG_VERSION>=2620:
+					windfury=min(2,getattr(attacker,'windfury')+1)
+				else:
+					windfury=getattr(attacker,'windfury')+1
+				for repeat in range(windfury):## procedure for windfury
 					#defender
 					taunts=[]
 					for card in self.current_player.opponent.field:

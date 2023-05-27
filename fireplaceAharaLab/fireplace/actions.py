@@ -1173,13 +1173,21 @@ class Damage(TargetedAction):
 			elif hasattr(source, "lifesteal") and source.lifesteal and source.type != CardType.WEAPON:
 				source.heal(source.controller.hero, amount)
 			self.broadcast(source, EventListener.ON, target, amount, source)
-			# poisonous can not destory hero
+			# poisonous can not destroy hero
 			if hasattr(source, "poisonous") and source.poisonous and (
 				target.type != CardType.HERO and source.type != CardType.WEAPON):
 				if Config.LOGINFO:
 					Config.log("Damage.do","%r destroys %r by poison"%(source, target))
 				#target.destroy()
 				Destroy(target).trigger(source)
+			if Config.BG_VERSION>=2620:
+				if hasattr(source, "venomous") and source.venomous and (
+					target.type != CardType.HERO and source.type != CardType.WEAPON):
+					if Config.LOGINFO:
+						Config.log("Damage.do","%r destroys %r by venomous"%(source, target))
+					#target.destroy()
+					Destroy(target).trigger(source)
+					source.venomous=False
 			Deaths().trigger(source.controller)###ここに追加してみた
 		return amount
 
