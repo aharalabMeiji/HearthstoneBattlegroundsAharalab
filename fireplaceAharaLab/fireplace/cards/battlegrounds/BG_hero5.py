@@ -826,7 +826,9 @@ BG_Hero5_Buddy['TB_BaconShop_HERO_94']='TB_BaconShop_HERO_94_Buddy'
 BG_Hero5_Buddy_Gold['TB_BaconShop_HERO_94_Buddy']='TB_BaconShop_HERO_94_Buddy_G'
 class TB_BaconShop_HERO_94:# <12>[1453]
 	""" Tickatus """
-	if Config.BG_VERSION>=2560:
+	if Config.BG_VERSION>=2620:
+		option_tags={GameTag.ARMOR:14, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:16, GameTag.HEALTH:30}
 	else:
 		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
@@ -915,7 +917,9 @@ BG_Hero5_Buddy['TB_BaconShop_HERO_10']='TB_BaconShop_HERO_10_Buddy'
 BG_Hero5_Buddy_Gold['TB_BaconShop_HERO_10_Buddy']='TB_BaconShop_HERO_10_Buddy_G'
 class TB_BaconShop_HERO_10:# <12>[1453]
 	""" Trade Prince Gallywix """
-	if Config.BG_VERSION>=2562:
+	if Config.BG_VERSION>=2620:
+		option_tags={GameTag.ARMOR:10, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2562:
 		option_tags={GameTag.ARMOR:7, GameTag.HEALTH:30}
 	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:10, GameTag.HEALTH:30}
@@ -1057,7 +1061,9 @@ BG_Hero5_Buddy['BG22_HERO_004']='BG22_HERO_004_Buddy'
 BG_Hero5_Buddy_Gold['BG22_HERO_004_Buddy']='BG22_HERO_004_Buddy_G'
 class BG22_HERO_004:# <4>[1453]
 	""" Varden Dawngrasp """
-	if Config.BG_VERSION>=2560:
+	if Config.BG_VERSION>=2620:
+		option_tags={GameTag.ARMOR:9, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:13, GameTag.HEALTH:30}
 	else:
 		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
@@ -1132,7 +1138,9 @@ BG_Hero5_Buddy['BG20_HERO_201']='BG20_HERO_201_Buddy'
 BG_Hero5_Buddy_Gold['BG20_HERO_201_Buddy']='BG20_HERO_201_Buddy_G'
 class BG20_HERO_201:# <12>[1453]
 	""" Vol'jin  """
-	if Config.BG_VERSION>=2560:
+	if Config.BG_VERSION>=2620:
+		option_tags={GameTag.ARMOR:15, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:10, GameTag.HEALTH:30}
 	else:
 		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
@@ -1237,7 +1245,9 @@ BG_Hero5_Buddy['BG20_HERO_101']='BG20_HERO_101_Buddy'
 BG_Hero5_Buddy_Gold['BG20_HERO_101_Buddy']='BG20_HERO_101_Buddy_G'
 class BG20_HERO_101:# <12>[1453]
 	""" Xyrella """
-	if Config.BG_VERSION>=2560:
+	if Config.BG_VERSION>=2620:
+		option_tags={GameTag.ARMOR:15, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:10, GameTag.HEALTH:30}
 	else:
 		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
@@ -1365,7 +1375,9 @@ BG_Hero5_Buddy['TB_BaconShop_HERO_35']='TB_BaconShop_HERO_35_Buddy'
 BG_Hero5_Buddy_Gold['TB_BaconShop_HERO_35_Buddy']='TB_BaconShop_HERO_35_Buddy_G'
 class TB_BaconShop_HERO_35:# <12>[1453]
 	""" Yogg-Saron, Hope's End """
-	if Config.BG_VERSION>=2560:
+	if Config.BG_VERSION>=2620:
+		option_tags={GameTag.ARMOR:12, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:15, GameTag.HEALTH:30}
 	else:
 		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
@@ -1570,7 +1582,9 @@ BG_Hero5_Buddy['TB_BaconShop_HERO_53']='TB_BaconShop_HERO_53_Buddy'
 BG_Hero5_Buddy_Gold['TB_BaconShop_HERO_53_Buddy']='TB_BaconShop_HERO_53_Buddy_G'
 class TB_BaconShop_HERO_53:# <12>[1453]  ## if dragon is not banned
 	""" Ysera """
-	if Config.BG_VERSION>=2560:
+	if Config.BG_VERSION>=2620:
+		option_tags={GameTag.ARMOR:5, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:8, GameTag.HEALTH:30}
 	else:
 		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
@@ -1639,7 +1653,9 @@ BG_Hero5_Buddy['TB_BaconShop_HERO_91']='TB_BaconShop_HERO_91_Buddy'
 BG_Hero5_Buddy_Gold['TB_BaconShop_HERO_91_Buddy']='TB_BaconShop_HERO_91_Buddy_G'
 class TB_BaconShop_HERO_91:# <12>[1453]
 	""" Zephrys, the Great """
-	if Config.BG_VERSION>=2604:
+	if Config.BG_VERSION>=2620:
+		option_tags={GameTag.ARMOR:13, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2604:
 		option_tags={GameTag.ARMOR:18, GameTag.HEALTH:30 }
 	if Config.BG_VERSION>=2602:
 		option_tags={GameTag.ARMOR:10, GameTag.HEALTH:30}
