@@ -186,6 +186,28 @@ class TB_BaconShop_HERO_41_Buddy_G:# <12>[1453]
 	pass
 
 
+##Rock Master Voone ####
+if Config.BG_VERSION>=2620:
+	BG_Hero4+=['BG26_HERO_104','BG26_HERO_104p']
+	BG_PoolSet_Hero4.append('BG26_HERO_104')
+	#BG_Hero4_Buddy['BG26_HERO_104']=''
+	#BG_Hero4_Buddy_Gold['']=''
+class BG26_HERO_104: ##
+	"""Rock Master Voone
+	"""
+	if Config.BG_VERSION>=2620:
+		option_tags={GameTag.ARMOR:15, GameTag.HEALTH:30}
+class BG26_HERO_104p_Action(GameAction):##
+	def do(self, source):
+		if len(source.controller.hand):
+			cardID=source.controller.hand[0].id
+			Give(source.controller, cardID).trigger(source)
+		pass
+class BG26_HERO_104p:##
+	""" Upbeat Harmony
+	Passive. At the end of every 3 turns, get a plain copy of the left-most card in your hand.	"""
+	events = OWN_TURN_END.on(SidequestCounter(CONTROLLER, 3, [BG26_HERO_104p_Action()]))
+	pass
 
 
 

@@ -115,6 +115,7 @@ BG_Hero1_Buddy_Gold={}
 ##Ragnaros the Firelord TB_BaconShop_HERO_11	
 ##Rakanishu TB_BaconShop_HERO_75
 ##Reno Jackson TB_BaconShop_HERO_41
+##Rock Master Voone ## BG26_HERO_104 ## >=2620
 ##Rokara BG20_HERO_100 
 ##Scabbs Cutterbutter BG21_HERO_010
 ##Shudderwock TB_BaconShop_HERO_23
@@ -699,7 +700,7 @@ class BG22_HERO_001_Buddy_Deathrattle(TargetedAction):
 		controller = target.controller
 		for cardId in target.sidequest_list0:
 			for repeat in range(amount):
-				Play(CONTROLLER,cardID).trigger(controller)
+				Play(CONTROLLER,cardId).trigger(controller)
 		pass
 	pass
 class BG22_HERO_001_Buddy:# <12>[1453]

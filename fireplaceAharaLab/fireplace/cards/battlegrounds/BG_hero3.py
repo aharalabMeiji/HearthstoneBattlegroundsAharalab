@@ -31,16 +31,20 @@ class BG23_HERO_304p_Action(TargetedAction):
 	BUFF=ActionArg()
 	def do(self, source, buff):
 		if hasattr(buff.source,'spellcraft_spellcard') or buff.data.tags.get(2594)==1:### 2594 = spellcraft_buff
-			if source.script_data_num_1<1:
+			if Config.BG_VERSION>=2620:
 				buff.permanent_buff = True
-				source.script_data_num_1+=1
+			else:
+				if source.script_data_num_1<1:
+					buff.permanent_buff = True
+					source.script_data_num_1+=1
 class BG23_HERO_304p_Action2(TargetedAction):
 	TARGET=ActionArg()
 	def do(self, source, target):
 		source.script_data_num_1=0
 class BG23_HERO_304p:
 	""" Relics of the Deep
-	[Discover] a [Spellcraft] spell of your Tier or lower. [Passive:] Your first one __each turn is permanent."""
+	#New2620: Discover a Spellcraft spell of your Tier or lower. Its effect is permanent."""
+	#[Discover] a [Spellcraft] spell of your Tier or lower. [Passive:] Your first one __each turn is permanent.### <2620
 	events = [
 		Buff(FRIENDLY).on(BG23_HERO_304p_Action(Buff.BUFF)),
 		BeginBar(CONTROLLER).on(BG23_HERO_304p_Action2(SELF))
@@ -101,12 +105,29 @@ class TB_BaconShop_HERO_25:# <12>[1453]
 		option_tags={GameTag.ARMOR:13, GameTag.HEALTH:30}
 	else:
 		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
+class TB_BaconShop_HP_049_Action(TargetedAction):
+	TARGET=ActionArg()
+	def do(self, source, target):
+		target.zone=Zone.SETASIDE
+		target.controller=source.controller
+		target.zone=Zone.HAND
+		amount = target.tech_level
+		Hit(source.controller.hero, amount).trigger(source)
 class TB_BaconShop_HP_049:
 	""" Graveyard Shift
-	Take $4 damage. Gain 2 Gold. """ ## 25.?
-	## Take $4 damage. Gain 2 Gold this turn only.""" # 24.0.3
-	## Take $2_damage and add a Gold Coin to your hand. 24.0
-	activate = Hit(FRIENDLY_HERO, 4), Give(CONTROLLER, 'GAME_005')*2
+	New2620: [1 Gold] Steal a minion in BobÅfs Tavern. Take damage equal to its Tavern Tier. """
+	## Take $4 damage. Gain 2 Gold. """ ## 25.? < 2620
+	## Take $4 damage. Gain 2 Gold this turn only.""" # 24.0.3<=
+	## Take $2_damage and add a Gold Coin to your hand. 24.0<=
+	if Config.BG_VERSION>=2620:
+		requirements = {PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_MINION_TARGET:0, PlayReq.REQ_ENEMY_TARGET:0}
+		activate = TB_BaconShop_HP_049_Action(TARGET)
+	elif Config.BG_VERSION>=2560:
+		activate = Hit(FRIENDLY_HERO, 4), Give(CONTROLLER, 'GAME_005')*2
+	elif Config.BG_VERSION>=2403:
+		activate = Hit(FRIENDLY_HERO, 4), ManaThisTurnOnly(CONTROLLER, 2)
+	else:
+		activate = Hit(FRIENDLY_HERO, 2), Give(CONTROLLER, 'GAME_005')
 	pass
 ######## BUDDY
 class TB_BaconShop_HERO_25_Buddy_Action(TargetedAction):# <12>[1453]
