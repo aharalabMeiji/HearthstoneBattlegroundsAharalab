@@ -612,10 +612,15 @@ CTHUN = FRIENDLY + ID("OG_280")
 
 TIER1 = AttrValue(GameTag.TECH_LEVEL)==1
 TIER2 = AttrValue(GameTag.TECH_LEVEL)==2
+TIER2LESS = AttrValue(GameTag.TECH_LEVEL)<=2
 TIER3 = AttrValue(GameTag.TECH_LEVEL)==3
+TIER3LESS = AttrValue(GameTag.TECH_LEVEL)<=3
 TIER4 = AttrValue(GameTag.TECH_LEVEL)==4
+TIER4LESS = AttrValue(GameTag.TECH_LEVEL)<=4
 TIER5 = AttrValue(GameTag.TECH_LEVEL)==5
+TIER5LESS = AttrValue(GameTag.TECH_LEVEL)<=5
 TIER6 = AttrValue(GameTag.TECH_LEVEL)==6
+TIER6LESS = AttrValue(GameTag.TECH_LEVEL)<=6
 
 EVEN_TECH_LEVEL = (AttrValue(GameTag.TECH_LEVEL)==2 or AttrValue(GameTag.TECH_LEVEL)==4 or AttrValue(GameTag.TECH_LEVEL)==6)
 ODD_TECH_LEVEL = (AttrValue(GameTag.TECH_LEVEL)==1 or AttrValue(GameTag.TECH_LEVEL)==3 or AttrValue(GameTag.TECH_LEVEL)==5)

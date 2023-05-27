@@ -1662,6 +1662,7 @@ class BG23_015_G:# <12>[1453]
 	pass
 class BG23_015_Gt:
 	play = DiscoverTwice(CONTROLLER, RandomBGNaga(tech_level_less=TIER(CONTROLLER))*3)
+	tags = {GameTag.TECH_LEVEL:5}
 	class Hand:
 		events = EndTurn(CONTROLLER).on(Destroy(SELF))
 	pass

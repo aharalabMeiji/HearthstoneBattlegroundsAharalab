@@ -2,29 +2,29 @@ from ..utils import *
 
 
 
-BG25__Risen_Rider=True#1 undead ## new 25.2.2
-BG25__Rot_Hide_Gnoll=True#1 undead ## new 25.2.2
+BG25__Risen_Rider=(Config.BG_VERSION>=2522)#1 undead ## new 25.2.2
+BG25__Rot_Hide_Gnoll=(Config.BG_VERSION>=2522)#1 undead ## new 25.2.2
 
-BG25__Eternal_Knight=True#2 undead ## new 25.2.2
-BG25__Nerubian_Deathswarmer=True#2 undead ## new 25.2.2
-BG25__Scarlet_Skull=True#2 undead ## new 25.2.2
-BG25__Corpse_Refiner=True# 2/2/3 undead/pirate ## new 25.2.2 
+BG25__Eternal_Knight=(Config.BG_VERSION>=2522)#2 undead ## new 25.2.2
+BG25__Nerubian_Deathswarmer=(Config.BG_VERSION>=2522)#2 undead ## new 25.2.2
+BG25__Scarlet_Skull=(Config.BG_VERSION>=2522)#2 undead ## new 25.2.2
+BG25__Corpse_Refiner=(Config.BG_VERSION>=2522)# 2/2/3 undead/pirate ## new 25.2.2 
 
-BG25__Ghoul_of_the_Feast=True # 3 undead ## new 25.2.2
-BG25__Jelly_Belly=True#3 undead ## new 25.2.2
-BG25__Lich_Doctor=True#3 undead ## new 25.2.2
+BG25__Ghoul_of_the_Feast=(Config.BG_VERSION>=2522) # 3 undead ## new 25.2.2
+BG25__Jelly_Belly=(Config.BG_VERSION>=2522)#3 undead ## new 25.2.2
+BG25__Lich_Doctor=(Config.BG_VERSION>=2522)#3 undead ## new 25.2.2
 
-BG25__Anubarak_Nerubian_King=True#4 undead ## new 25.2.2
-BG25__Handless_Forsaken=True#4 undead ## new 25.2.2
-BG25__Possessive_Banshee=True#4 undead ## new 25.2.2
+BG25__Anubarak_Nerubian_King=(Config.BG_VERSION>=2522)#4 undead ## new 25.2.2
+BG25__Handless_Forsaken=(Config.BG_VERSION>=2522)#4 undead ## new 25.2.2
+BG25__Possessive_Banshee=(Config.BG_VERSION>=2522)#4 undead ## new 25.2.2
 
-BG25__Hungering_Abomination=True#5 undead ## new 25.2.2
+BG25__Hungering_Abomination=(Config.BG_VERSION>=2522)#5 undead ## new 25.2.2
 BG24__Sinrunner_Blanchy=(Config.BG_VERSION>=2522)#5 undead/beast ## new 25.2.2
-BG25__Soulsplitter=True#5 undead ## new 25.2.2
+BG25__Soulsplitter=(Config.BG_VERSION>=2522)#5 undead ## new 25.2.2
 
-BG25__Colossus_of_the_Sun=True #6 undead ## new 25.2.2
-BG25__Eternal_Summoner=True#6 undead ## new 25.2.2
-BG25__Sister_Deathwhisper=True#6 undead ## new 25.2.2
+BG25__Colossus_of_the_Sun=(Config.BG_VERSION>=2522) #6 undead ## new 25.2.2
+BG25__Eternal_Summoner=(Config.BG_VERSION>=2522)#6 undead ## new 25.2.2
+BG25__Sister_Deathwhisper=T(Config.BG_VERSION>=2522)rue#6 undead ## new 25.2.2
 
 BG_Minion_Undead = []
 BG_PoolSet_Undead=[ ]

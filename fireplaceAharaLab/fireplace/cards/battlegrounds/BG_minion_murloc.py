@@ -16,7 +16,7 @@ BG_Primalfin_Lookout=True ## (4)
 
 BG_King_Bagurgle=True ## (5)
 BG_SI_Sefin=False ## (5) banned 4.2
-BG_Toxfin=True ##(4) new 24.2 -> (6) ## 25.2.2 (5)
+BG_Toxfin=(Config.BG_VERSION>=2420) ##(4) new 24.2 -> (6) ## 25.2.2 (5)
 
 BG_Young_Murk_Eye=True ## (6) 
 
@@ -268,11 +268,19 @@ class BG_DAL_077:
 	""" Toxfin (4)-> (6) 25.0.4
 	[Battlecry:] Give a friendly Murloc [Poisonous].""" 
 	requirements = {PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_MINION_TARGET:0, PlayReq.REQ_FRIENDLY_TARGET:0, PlayReq.REQ_TARGET_WITH_RACE:Race.MURLOC }	
+	if Config.BG_VERSION>=2504:
+		option_tags={GameTag.TECH_LEVEL:6}
+	else:
+		option_tags={GameTag.TECH_LEVEL:4}
 	play = SetTag(TARGET, (GameTag.POISONOUS,))
 class TB_BaconUps_152:
 	""" Toxfin
 	[Battlecry:] Give a friendly Murloc [Poisonous]."""
 	requirements = {PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_MINION_TARGET:0, PlayReq.REQ_FRIENDLY_TARGET:0, PlayReq.REQ_TARGET_WITH_RACE:Race.MURLOC }
+	if Config.BG_VERSION>=2504:
+		option_tags={GameTag.TECH_LEVEL:6}
+	else:
+		option_tags={GameTag.TECH_LEVEL:4}
 	play = SetTag(TARGET, (GameTag.POISONOUS,))
 
 

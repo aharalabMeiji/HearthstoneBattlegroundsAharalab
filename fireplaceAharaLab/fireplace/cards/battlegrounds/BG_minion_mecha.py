@@ -7,7 +7,7 @@ Omega_Buster=True#Omega Buster(6)
 
 
 
-BG_Micro_Mummy=True#(1) <-> undead/mecha
+BG_Micro_Mummy=(Config.BG_VERSION>=2522)#(1) <-> undead/mecha
 BG_Pupbot=True#(1)
 BG_Harvest_Golem=True#(2)
 BG_Kaboom_Bot=(Config.BG_VERSION<2560)#(2)
@@ -17,14 +17,14 @@ BG_Replicating_Menace=True#(3)
 BG_Screwjank_Clunker=False#(3)banned
 BG_Iron_Sensei=True#(3)
 BG_Annoy_o_Module=True#(4)
-BG_Mechano_Eg_g=True#(4) banned  -> renew 25.0.4
-BG_Mechano_Tank=False#(4) -> banned 25.0.4
-BG_Wargear=True#(4) # after 23.6
+BG_Mechano_Eg_g=(Config.BG_VERSION>=2504)#(4) banned  -> renew 25.0.4
+BG_Mechano_Tank=(Config.BG_VERSION<2504)#(4) -> banned 25.0.4
+BG_Wargear=(Config.BG_VERSION>=2360)#(4) # after 23.6
 BG_Holy_Mecherel=True#(5)
 BG_Dr_Boombox=True#(5)
 BG_Foe_Reaper_4000=True#(6)
 BG_Omega_Buster=True#(6)
-BG_Grease_Bot=True#(4->6) 23.6, 24.0.3
+BG_Grease_Bot=(Config.BG_VERSION>=2360)#(4->6) 23.6, 24.0.3
 	
 BG_Minion_Mecha =[]
 BG_PoolSet_Mecha = []
@@ -492,6 +492,10 @@ if BG_Grease_Bot:
 class BG21_024:# <12>[1453]
 	""" Grease Bot
 	After a friendly minion loses [Divine Shield], give it +2/+2_permanently. """
+	if Config.BG_VERSION>=2360:
+		option_tags={GameTag.TECH_LEVEL:6}
+	else:
+		option_tags={GameTag.TECH_LEVEL:4}
 	events = LoseDivineShield(FRIENDLY_MINIONS).on(BuffPermanently(LoseDivineShield.TARGET, 'BG21_024e'))
 	pass
 BG21_024e=buff(2,2)#24.0.3
@@ -499,6 +503,10 @@ BG21_024e=buff(2,2)#24.0.3
 class BG21_024_G:# <12>[1453]
 	""" Grease Bot
 	After a friendly minion loses [Divine Shield], give it +4/+4_permanently. """
+	if Config.BG_VERSION>=2360:
+		option_tags={GameTag.TECH_LEVEL:6}
+	else:
+		option_tags={GameTag.TECH_LEVEL:4}
 	events = LoseDivineShield(FRIENDLY_MINIONS).on(BuffPermanently(LoseDivineShield.TARGET, 'BG21_024_Ge'))
 	pass
 BG21_024_Ge=buff(4,4)# 24.0.3

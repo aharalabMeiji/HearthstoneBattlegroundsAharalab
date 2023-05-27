@@ -7,22 +7,22 @@ from ..utils import *
 
 BG_Razorfen_Geomancer=True##	1
 BG_Sun_Bacon_Relaxer=True##	1
-BG25__Thorncaptain=True# 1/4/2 quilboar ## new 25.2.2
+BG25__Thorncaptain=(Config.BG_VERSION>=2522)# 1/4/2 quilboar ## new 25.2.2
 
 BG_Roadboar=True##	2
 BG_Tough_Tusk=True##	2
 
 BG_Bannerboar=True##	3
 BG_Bristleback_Brute=True## Brute	3
-BG_Gemsplitter=False##	3 ### banned 24.6
+BG_Gemsplitter=(Config.BG_VERSION<2460)##	3 ### banned 24.6
 BG_Thorncaller=True##	3
-BG_Bristlemane_Scrapsmith=True ## 3 ## new 24.6 ### OK ###
+BG_Bristlemane_Scrapsmith=(Config.BG_VERSION>=2460) ## 3 ## new 24.6 ### OK ###
 
 BG_Bonker=True##	4
 BG_Dynamic_Duo=True##	4
 BG_Groundshaker=True##	4
 BG_Necrolyte=True##	4
-BG25__Pufferquil=True# 4/2/6, quilbour/naga, new 25.2.2
+BG25__Pufferquil=(Config.BG_VERSION>=2522)# 4/2/6, quilbour/naga, new 25.2.2
 BG_Gem_Smuggler=(Config.BG_VERSION>=2560)
 
 BG_Aggem_Thorncurse=True##	5
@@ -30,7 +30,7 @@ BG_Bristleback_Knight=True## 5 BG20_204
 
 BG_Captain_Flat_Tusk=False##	6 banned when?
 BG_Charlga=True##	6
-BG_Darkgaze_Elder=True## NEW 23.2 -> quilboar
+BG_Darkgaze_Elder=(Config.BG_VERSION>=2320)## NEW 23.2 -> quilboar
 
 
 

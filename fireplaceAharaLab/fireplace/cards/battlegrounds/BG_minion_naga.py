@@ -24,7 +24,7 @@ BG_Glowscale=True## (5)
 BG_Corrupted_Myrmidon=True## (5)
 
 BG_Tidemistress_Athissa=True## (6)
-BG25__Greta_Gold_Gun=True# 6/2/9 naga/pirate ## new 25.2.2
+BG25__Greta_Gold_Gun=(Config.BG_VERSION>=2522)# 6/2/9 naga/pirate ## new 25.2.2
 
 BG_Minion_Naga=[]
 

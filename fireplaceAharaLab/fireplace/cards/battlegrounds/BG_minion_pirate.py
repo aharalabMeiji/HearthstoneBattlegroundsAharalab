@@ -5,24 +5,24 @@ BG_Scallywag=True ##,1
 
 BG_Freedealing_Gambler=True ##,2
 BG_Southsea_Captain=True ##,2
-BG_Yo_Ho_Ogre=True ##,2 ## banned 25.2.2
+BG_Yo_Ho_Ogre=(Config.BG_VERSION<2522) ##,2 ## banned 25.2.2
 
-BG_Briny_Bootlegger=False ##,3 banned 24.2
+BG_Briny_Bootlegger=(Config.BG_VERSION<2420) ##,3 banned 24.2
 BG_Salty_Looter=True ##,3
 BG_Southsea_Strongarm=True ##,3,
-BG_First_Mate_Pip=True ##(3) new 24.2
+BG_First_Mate_Pip=(Config.BG_VERSION>=2420) ##(3) new 24.2
 
 BG_Goldgrubber=True ##,4
-BG_Peggy_Brittlebone=False ##,4  banned 25.2.2
-BG25__Peggy_Sturdybone=True ## ,4 new 25.2.2
+BG_Peggy_Brittlebone=(Config.BG_VERSION<2522) ##,4  banned 25.2.2
+BG25__Peggy_Sturdybone=(Config.BG_VERSION>=2522) ## ,4 new 25.2.2
 BG_Ripsnarl_Captain=True ##,4
 
 BG_Cap_n_Hoggarr=True ##,5
-BG_Tony_Two_Tusk=True ##,5 ## banned 25.2.2
-BG_Vanessa_VanCleef=True ##, 5 ## new 24.6
+BG_Tony_Two_Tusk=(Config.BG_VERSION<2522) ##,5 ## banned 25.2.2
+BG_Vanessa_VanCleef=(Config.BG_VERSION>=2460) ##, 5 ## new 24.6
 
 BG_Dread_Admiral_Eliza=True ##,6
-BG_Nosy_Looter=False ##,6 ### banned 24.6
+BG_Nosy_Looter=(Config.BG_VERSION<2460) ##,6 ### banned 24.6
 
 BG_Minion_Pirate=[]
 

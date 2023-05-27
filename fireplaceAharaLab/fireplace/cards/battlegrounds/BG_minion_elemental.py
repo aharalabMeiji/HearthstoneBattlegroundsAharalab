@@ -3,7 +3,7 @@ from ..utils import *
 
 BG_Refreshing_Anomaly=True ## (1)
 BG_Sellemental=True ## (1)
-BG_Bubblette=False ## (1) ## new 24.0 banned 24.2
+BG_Bubblette=(Config.BG_VERSION>=2400 and Config.BG_VERSION<2420) ## (1) ## new 24.0 banned 24.2
 
 BG_Molten_Rock=True ## (2)
 BG_Party_Elemental=True ## (2)
@@ -11,7 +11,7 @@ BG_Party_Elemental=True ## (2)
 BG_Crackling_Cyclone=True ## (3)
 BG_Smogger=True ## (3)
 BG_Stasis_Elemental=False ## (3) ## banned when?
-BG25__Felemental=True# 3/3/1 elemental/demon ## new 25.2.2
+BG25__Felemental=(Config.BG_VERSION>=2522)# 3/3/1 elemental/demon ## new 25.2.2
 
 BG_Dazzling_Lightspawn=True ## (4)
 BG_Recycling_Wraith=True # (4)
@@ -19,7 +19,7 @@ BG_Wildfire_Elemental=True # (4)
 
 BG_Tavern_Tempest=True # (5)
 BG_Lil_Rag=True # (5)
-BG25__Magmaloc=True# (5/1/1) murloc ## new 25.2.2
+BG25__Magmaloc=(Config.BG_VERSION>=2522)# (5/1/1) murloc ## new 25.2.2
 
 BG_Gentle_Djinni=True # (6)
 BG_Lieutenant_Garr=True # (6)
@@ -429,6 +429,10 @@ class BGS_100_Action(TargetedAction):
 class BGS_100:# <12>[1453] チビラグ
 	""" Lil' Rag
 	After you play an Elemental,give a friendly minion stats equal to the Elemental's Tavern Tier. """
+	if Config.BG_VERSION>=2403:
+		option_tags={GameTag.TECH_LEVEL:5}
+	else:
+		option_tags={GameTag.TECH_LEVEL:6}
 	events = BG_Play(CONTROLLER, FRIENDLY + ELEMENTAL).on(BGS_100_Action(CONTROLLER, BG_Play.CARD))
 	pass
 class BGS_100e:
@@ -436,8 +440,14 @@ class BGS_100e:
 class TB_BaconUps_200:# <12>[1453]
 	""" Lil' Rag
 	After you play an Elemental,give a friendly minion statsequal to the Elemental'sTavern Tier twice. """
+	if Config.BG_VERSION>=2403:
+		option_tags={GameTag.TECH_LEVEL:5}
+	else:
+		option_tags={GameTag.TECH_LEVEL:6}
 	events = BG_Play(CONTROLLER, FRIENDLY + ELEMENTAL).on(BGS_100_Action(CONTROLLER, BG_Play.CARD)*2)
 	pass
+
+
 
 if BG25__Magmaloc:# 5/1/1 murloc ## new 25.2.2
 	BG_Minion_Elemental+=['BG25_046','BG25_046e','BG25_046_G','BG25_046_Ge']
