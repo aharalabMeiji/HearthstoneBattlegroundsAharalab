@@ -2,6 +2,7 @@ from ..utils import *
 
 BG_Alleycat=True#1/1/1
 BG_Scavenging_Hyena=True#1/2/2
+BG26__Manasaber=(Config.BG_VERSION>=2620)
 
 BG_Silverback_Patriarch=(Config.BG_VERSION>=2360 and Config.BG_VERSION<2420)#new 23.6 banned 24.2 
 BG_Leapfrogger=True#2/3/3
@@ -10,6 +11,7 @@ BG_Sewer_Rat=True#2/3/2
 
 BG_Monstrous_Macaw=True#3/5/3
 BG_Rat_Pack=True#3/2/2
+BG26__Rylak_Metalhead=(Config.BG_VERSION>=2620)
 
 BG_Cave_Hydra=True#4/2/4
 BG_Reanimating_Rattler=True#4/5/3
@@ -91,6 +93,41 @@ class BG_CS2_127_G:
 	[Taunt] """
 	pass
 
+## Manasaber (Beast) (1)
+#BG26__Manasaber=(Config.BG_VERSION>=2620)
+if BG26__Manasaber:# 
+	BG_Minion_Beast+=['BG26_800']
+	BG_Minion_Beast+=['BG26_800_G']
+	BG_Minion_Beast+=['BG26_800_Gt']
+	BG_Minion_Beast+=['BG26_800t']
+	BG_PoolSet_Beast.append('BG26_800')
+	BG_Beast_Gold['BG26_800']='BG26_800_G'
+class BG26_800:# (minion)
+	""" Manasaber
+	<b>Deathrattle:</b> Summon two 0/1 Cublings with <b>Taunt</b>. """
+	deathrattle = Summon(CONTROLLER, 'BG26_800t') * 2
+	pass
+
+class BG26_800_G:# (minion)
+	""" Manasaber
+	<b>Deathrattle:</b> Summon two 0/2 Cublings with <b>Taunt</b>. """
+	deathrattle = Summon(CONTROLLER, 'BG26_800_Gt') * 2
+	pass
+
+class BG26_800t:# (minion)
+	""" Cubling
+	<b>Taunt</b> """
+	#
+	pass
+class BG26_800_Gt:# (minion)
+	""" Cubling
+	<b>Taunt</b> """
+	#
+	pass
+
+
+
+#### TIER 2 ####
 
 #Leapfrogger(2/3/3)  ###  need check ###
 if BG_Leapfrogger:
@@ -165,6 +202,7 @@ class BG19_010_Gt:# <12>[1453]
 	pass
 
 
+#### TIER 3 ####
 
 # Monstrous Macaw (3/5/3)  #### need check ###
 if BG_Monstrous_Macaw:
@@ -223,6 +261,52 @@ class TB_BaconUps_027t:
 	""" Rat """
 	pass
 
+## Rylak Metalhead (Beast) (3)
+#BG26__Rylak_Metalhead=(Config.BG_VERSION>=2620)
+if BG26__Rylak_Metalhead:# 
+	BG_Minion_Beast+=['BG26_801']
+	BG_Minion_Beast+=['BG26_801_G']
+	BG_PoolSet_Beast.append('BG26_801')
+	BG_Beast_Gold['BG26_801']='BG26_801_G'
+class BG26_801_Action(GameAction):# 
+	def do(self, source):# 
+		controller = source.controller
+		if source in controller.field:
+			index = controller.field.index(source)
+			if index>0:
+				adjacent=controller.field[index-1]
+				PlayBattlecry(adjacent).trigger(source)
+			if index<len(controller.field)-1:
+				adjacent=controller.field[index+1]
+				PlayBattlecry(adjacent).trigger(source)
+		pass# 
+class BG26_801:# (minion)
+	""" Rylak Metalhead
+	<b>Taunt</b> <b>Deathrattle:</b> Trigger the <b>Battlecries</b> of adjacent minions. """
+	deathrattle = BG26_801_Action()
+	pass
+class BG26_801_G_Action(GameAction):# 
+	def do(self, source):# 
+		controller = source.controller
+		if source in controller.field:
+			index = controller.field.index(source)
+			if index>0:
+				adjacent=controller.field[index-1]
+				PlayBattlecry(adjacent).trigger(source)
+				PlayBattlecry(adjacent).trigger(source)
+			if index<len(controller.field)-1:
+				adjacent=controller.field[index+1]
+				PlayBattlecry(adjacent).trigger(source)
+				PlayBattlecry(adjacent).trigger(source)
+		pass# 
+class BG26_801_G:# (minion)
+	""" Rylak Metalhead
+	<b>Taunt</b> <b>Deathrattle:</b> Trigger the <b>Battlecries</b> of adjacent minions twice. """
+	deathrattle = BG26_801_G_Action()
+	pass
+
+
+#### TIER 4 ####
 
 ##Cave Hydra (4/2/4) ### maybe ###
 if BG_Cave_Hydra:
