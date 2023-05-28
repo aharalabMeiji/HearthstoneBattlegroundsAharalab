@@ -68,7 +68,7 @@ class TB_BaconShop_HERO_11_Buddy:# <12>[1453]
 		BG_Play(SELF).on(SetAttr(CONTROLLER, 'turn_end_effects_twice',1)),
 		Summon(CONTROLLER, SELF).on(SetAttr(CONTROLLER, 'turn_end_effects_twice',1)),
 		Destroy(SELF).on(SetAttr(CONTROLLER, 'turn_end_effects_twice',0)),
-		Buy(CONTROLLER, SELF).on(SetAttr(CONTROLLER, 'turn_end_effects_twice',0)),
+		Sell(CONTROLLER, SELF).on(SetAttr(CONTROLLER, 'turn_end_effects_twice',0)),
 	]
 	pass
 class TB_BaconShop_HERO_11_Buddy_e:# <12>[1453]
@@ -87,7 +87,7 @@ class TB_BaconShop_HERO_11_Buddy_G:# <12>[1453]
 		BG_Play(SELF).on(SetAttr(CONTROLLER, 'turn_end_effects_twice',2)),
 		Summon(CONTROLLER, SELF).on(SetAttr(CONTROLLER, 'turn_end_effects_twice',2)),
 		Destroy(SELF).on(SetAttr(CONTROLLER, 'turn_end_effects_twice',0)),
-		Buy(CONTROLLER, SELF).on(SetAttr(CONTROLLER, 'turn_end_effects_twice',0)),
+		Sell(CONTROLLER, SELF).on(SetAttr(CONTROLLER, 'turn_end_effects_twice',0)),
 	]
 	pass
 class TB_BaconShop_HERO_11_Buddy_G_e:# <12>[1453]
