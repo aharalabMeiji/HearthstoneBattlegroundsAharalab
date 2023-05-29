@@ -2,21 +2,23 @@ from ..utils import *
 
 BG_Alleycat=True#1/1/1
 BG_Scavenging_Hyena=True#1/2/2
-BG26__Manasaber=(Config.BG_VERSION>=2620)
+BG26__Manasaber=(Config.BG_VERSION>=2620)(1)
 
 BG_Silverback_Patriarch=(Config.BG_VERSION>=2360 and Config.BG_VERSION<2420)#new 23.6 banned 24.2 
 BG_Leapfrogger=True#2/3/3
 BG_Rabid_Saurolisk=True#2/3/2
 BG_Sewer_Rat=True#2/3/2
+BG26__Humming_Bird=(Config.BG_VERSION>=2620)(2)
 
 BG_Monstrous_Macaw=True#3/5/3
 BG_Rat_Pack=True#3/2/2
-BG26__Rylak_Metalhead=(Config.BG_VERSION>=2620)
+BG26__Rylak_Metalhead=(Config.BG_VERSION>=2620)(3)
 
 BG_Cave_Hydra=True#4/2/4
 BG_Reanimating_Rattler=True#4/5/3
 BG_Savannah_Highmane=(Config.BG_VERSION<2560) #4/6/5 banned 25.6
 BG_Sly_Raptor=True#4/1/3
+BG26__Banana_Slamma=(Config.BG_VERSION>=2620)(4)
 
 BG_Agamaggan_the_Great_Boar=True#5/6/6
 BG_Baby_Krush=(Config.BG_VERSION>=2320 and Config.BG_VERSION<2560)# 5  #new 23.2 banned 25.6
@@ -29,6 +31,7 @@ BG_Palescale_Crocolisk=(Config.BG_VERSION<2560)#5 banned 25.6
 BG_Ghastcoiler=True#6/7/7
 BG_Goldrinn_the_Great_Wolf=True#6/4/4
 BG_Maexxna=(Config.BG_VERSION<2320)## banned 23.2
+BG26__Octosari_Wrap_God=(Config.BG_VERSION>=2620)## (6/6/7)
 
 
 BG_Minion_Beast = []
@@ -200,6 +203,32 @@ class BG19_010_Gt:# <12>[1453]
 	""" Half-Shell
 	[Taunt] """
 	pass
+
+
+
+## Humming Bird (Beast) (2)
+#BG26__Humming_Bird=(Config.BG_VERSION>=2620)(2)
+if BG26__Humming_Bird:# 
+	BG_Minion_Beast+=['BG26_805','BG26_805e']
+	BG_Minion_Beast+=['BG26_805_G','BG26_805_Ge']
+	BG_PoolSet_Beast.append('BG26_805')
+	BG_Beast_Gold['BG26_805']='BG26_805_G'
+class BG26_805_Action(GameAction):# 
+	def do(self, source):# 
+		pass# 
+class BG26_805:# (minion)
+	""" Humming Bird
+	Your other Beasts have +2 Attack. """
+	update = Refresh(FRIENDLY_MINIONS + BEAST, buff='BG26_805e')
+	pass
+BG26_805e=buff(2,0)
+class BG26_805_G:# (minion)
+	""" Humming Bird
+	Your other Beasts have +4 Attack. """
+	update = Refresh(FRIENDLY_MINIONS + BEAST, buff='BG26_805_Ge')
+	pass
+BG26_805_Ge=buff(2,0)
+
 
 
 #### TIER 3 ####
@@ -399,6 +428,44 @@ class BG25_806_G:
 	deathrattle = BG25_806_Action()
 
 
+## Banana Slamma (Beast) (4)
+#BG26__Banana_Slamma=(Config.BG_VERSION>=2620)
+if BG26__Banana_Slamma:# 
+	BG_Minion_Beast+=['BG26_802','BG26_802e']
+	BG_Minion_Beast+=['BG26_802_G','BG26_802_Ge']
+	BG_PoolSet_Beast.append('BG26_802')
+	BG_Beast_Gold['BG26_802']='BG26_802_G'
+class BG26_802_Action(TargetedAction):# 
+	TARGET=ActionArg()
+	def do(self, source, target):# 
+		target=get00(target)
+		atk=target.atk
+		hlt=target.max_health
+		Buff(target, 'BG26_802e', atk=atk, max_health=hlt).trigger(source)
+		pass# 
+class BG26_802:# (minion)
+	""" Banana Slamma
+	After you summon a Beast in combat, double its stats. """
+	events = Summon(CONTROLLER).after(BG26_802_Action(Summon.CARD))
+	pass
+class BG26_802e:
+	pass
+class BG26_802_G_Action(TargetedAction):# 
+	TARGET=ActionArg()
+	def do(self, source, target):# 
+		target=get00(target)
+		atk=target.atk
+		hlt=target.max_health
+		Buff(target, 'BG26_802_Ge', atk=atk, max_health=hlt).trigger(source)
+		pass# 
+class BG26_802_G:# (minion)
+	""" Banana Slamma
+	After you summon a Beast in combat, triple its stats. """
+	events = Summon(CONTROLLER).after(BG26_802_G_Action(Summon.CARD))
+	pass
+class BG26_802_Ge:
+	pass
+
 ###### tier 5 ######
 
 #Agamaggan, the Great Boar (5/6/6)   ### maybe ###
@@ -527,6 +594,8 @@ if BG24__Sinrunner_Blanchy:
 
 
 ########### tavern tier 6
+
+
 from .BG_minion_demon import BG25__Felstomper
 #Felstomper
 if BG25__Felstomper:# 6/3/7 demon/beast ## new 25.2.2 ### need check##############
@@ -593,3 +662,53 @@ if BG25__Felstomper:# 6/3/7 demon/beast ## new 25.2.2 ##
 	##BG_Minion_Beast+=['BG25_042','BG25_042_G','BG25_042_Ge','BG25_042e'] ## no need
 	BG_PoolSet_Beast.append('BG25_042')
 	BG_Beast_Gold['BG25_042']='BG25_042_G'
+
+## Octosari, Wrap God (Beast) (6)
+#BG26__Octosari_Wrap_God=(Config.BG_VERSION>=2620)
+if BG26__Octosari_Wrap_God:# 
+	BG_Minion_Beast+=['BG26_804']
+	BG_Minion_Beast+=['BG26_804_G']
+	BG_Minion_Beast+=['BG26_803t']
+	BG_Minion_Beast+=['BG26_803_Gt']
+	BG_PoolSet_Beast.append('BG26_804')
+	BG_Beast_Gold['BG26_804']='BG26_804_G'
+class BG26_804_Action(GameAction):# 
+	CARDID=ActionArg()
+	def do(self, source, cardid):# 
+		newcard=Summon(source.controller, cardid).trigger(source)
+		newcard=get00(newcard)
+		newcard.atk=source.script_data_num_1
+		newcard.max_health=source.script_data_num_1
+		pass# 
+class BG26_804_Action2(GameAction):# 
+	CARDID=ActionArg()
+	def do(self, source, cardid):# 
+		if hasattr(source.controller.game,'this_is_battle') and source.controller.game.this_is_battle:
+			source.script_data_num_1 += 2
+class BG26_804:# (minion)
+	""" Octosari, Wrap God
+	<b>Deathrattle:</b> Summon a @/@ Tentacle. <i>(It gains +2/+2  permanently after you summon a minion in combat!)</i> """
+	deathrattle = BG26_804_Action('BG26_803t')
+	##<Tag enumID="2" name="TAG_SCRIPT_DATA_NUM_1" type="Int" value="2"/>
+	events = Summon(CONTROLLER).after(BG26_804_Action2())
+	pass
+class BG26_803t:# (minion)
+	""" Tentacle of Octosari
+	"""
+	#
+class BG26_804_G_Action2(GameAction):# 
+	CARDID=ActionArg()
+	def do(self, source, cardid):# 
+		if hasattr(source.controller.game,'this_is_battle') and source.controller.game.this_is_battle:
+			source.script_data_num_1 += 4
+class BG26_804_G:# (minion)
+	""" Octosari, Wrap God
+	<b>Deathrattle:</b> Summon a @/@ Tentacle. <i>(It gains +4/+4  permanently after you summon a minion in combat!)</i> """
+	deathrattle = BG26_804_Action('BG26_803t')
+	##<Tag enumID="2" name="TAG_SCRIPT_DATA_NUM_1" type="Int" value="4"/>
+	events = Summon(CONTROLLER).after(BG26_804_G_Action2())
+	pass
+class BG26_803_Gt:# (minion)
+	""" Tentacle of Octosari
+	"""
+	#
