@@ -1,29 +1,3 @@
-from ..utils import *
-
-BG26_=[]
-
-
-## Soul Rewinder (Demon) (2)
-BG26__Soul_Rewinder=(Config.BG_VERSION>=2620)
-if BG26__Soul_Rewinder:# 
-	BG_Minion_Demon+=['BG26_174']
-	BG_PoolSet_Demon.append('BG26_174')
-	BG_Demon_Gold['BG26_174']=''
-class BG26_174_Action(GameAction):# 
-	def do(self, source):# 
-		pass# 
-class BG26_174:# (minion)(demon)
-	""" Soul Rewinder
-	After your hero takes damage, rewind it and give this +1 Health. """
-	#
-	pass
-
-	BG_Minion_Demon+=['BG26_174_G']
-class BG26_174_G:# (minion)(demon)
-	""" Soul Rewinder
-	After your hero takes damage, rewind it and give this +2 Health. """
-	#
-	pass
 
 ## Keyboard Igniter (Demon) (3)
 BG26__Keyboard_Igniter=(Config.BG_VERSION>=2620)

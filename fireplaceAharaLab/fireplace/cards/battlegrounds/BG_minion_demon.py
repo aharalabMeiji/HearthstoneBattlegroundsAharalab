@@ -8,12 +8,14 @@ BG_Impulsive_Trickster=True ##(1)->(2)
 BG_Mind_Muck=(Config.BG_VERSION>=2420) #(2) new 24.2
 BG_Nathrezim_Overseer=(Config.BG_VERSION<2420) ##(2) banned 24.2
 BG_Piggyback_Imp=(Config.BG_VERSION>=2420) #(2) new 24.2
+BG26__Soul_Rewinder=(Config.BG_VERSION>=2620)(2)
 
 #BG_Felemental : -> ELEMENTAL
 BG_Kathra_natir=True ##(3)
 BG_Leeching_Felhound=(Config.BG_VERSION>=2560) ## 3/3/3 new 25.6 #########
 BG_Legion_Overseer=(Config.BG_VERSION>=2420)## (3) new 24.2 
 BG_Soul_Devourer=(Config.BG_VERSION<2420) ##(3) banned 24.2
+BG26__Keyboard_Igniter=(Config.BG_VERSION>=2620)#(3) ########## NOT YET 
 
 BG_Bigfernal=True ##(4)
 BG_Ring_Matron=True ##(4)
@@ -210,6 +212,40 @@ class TB_BaconUps_113:# <12>[1453]
 	pass
 
 
+## Soul Rewinder (Demon) (2)
+#BG26__Soul_Rewinder=(Config.BG_VERSION>=2620)(2)
+if BG26__Soul_Rewinder:# 
+	BG_Minion_Demon+=['BG26_174','BG26_174e']
+	BG_Minion_Demon+=['BG26_174_G','BG26_174_Ge']
+	BG_PoolSet_Demon.append('BG26_174')
+	BG_Demon_Gold['BG26_174']='BG26_174_G'
+class BG26_174_Action(GameAction):# 
+	AMOUNT=IntArg()
+	def do(self, source, amount):#
+		hero = source.controller.hero
+		hero.damage -= amount
+		Buff(source ,'BG26_174e').trigger(source)
+		pass# 
+class BG26_174:# (minion)(demon)
+	""" Soul Rewinder
+	After your hero takes damage, rewind it and give this +1 Health. """
+	events = Hit(FRIENDLY_HERO).after(BG26_174_Action(Hit.AMOUNT))
+	pass
+BG26_174e=buff(0,1)
+class BG26_174_G_Action(GameAction):# 
+	AMOUNT=IntArg()
+	def do(self, source, amount):#
+		hero = source.controller.hero
+		hero.damage -= amount
+		Buff(source ,'BG26_174_Ge').trigger(source)
+		pass# 
+class BG26_174_G:# (minion)(demon)
+	""" Soul Rewinder
+	After your hero takes damage, rewind it and give this +2 Health. """
+	events = Hit(FRIENDLY_HERO).after(BG26_174_Action(Hit.AMOUNT))
+	pass
+BG26_174_Ge=buff(0,2)
+
 
 ########### tavern tier 3
 
@@ -318,6 +354,46 @@ if BG25__Felemental:# 3/3/1 elemental/demon ## new 25.2.2 ##
 	##BG_Minion_Demon+=['BG25_041','BG25_041_G','BG25_041e','BG25_041e2']## no need
 	BG_PoolSet_Demon.append('BG25_041')
 	BG_Demon_Gold['BG25_041']='BG25_041_G'
+
+
+
+## Keyboard Igniter (Demon) (3) ########################################
+#BG26__Keyboard_Igniter=(Config.BG_VERSION>=2620)#(3)
+if BG26__Keyboard_Igniter:# 
+	BG_Minion_Demon+=['BG26_522','BG26_522e']
+	BG_Minion_Demon+=['BG26_522_G','BG26_522_Ge']
+	BG_PoolSet_Demon.append('BG26_522')
+	BG_Demon_Gold['BG26_522']=''
+class BG26_522_Action(GameAction):# 
+	def do(self, source):# 
+		add_buff=False
+		##when the hero lost at the former battle
+		##when a minion hit the hero
+		if add_buff:
+			Buff(source, 'BG26_522e').trigger(source)
+		pass# 
+class BG26_522:# (minion)(demon)
+	""" Keyboard Igniter
+	<b>Battlecry:</b> If you've taken damage since last turn, give your other Demons +1/+2. """
+	play = BG26_522_Action()
+	pass
+BG26_522e=buff(1,2)
+class BG26_522_Action(GameAction):# 
+	def do(self, source):# 
+		add_buff=False
+		##when the hero lost at the former battle
+		##when a minion hit the hero
+		if add_buff:
+			Buff(source, 'BG26_522_Ge').trigger(source)
+		pass# 
+class BG26_522_G:# (minion)(demon)
+	""" Keyboard Igniter
+	<b>Battlecry:</b> If you've taken damage since last turn, give your other Demons +2/+4. """
+	play = BG26_522_G_Action()
+	pass
+BG26_522_Ge=buff(2,4)
+
+
 
 ############ tavern tier 4
 
