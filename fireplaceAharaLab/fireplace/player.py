@@ -149,6 +149,8 @@ class Player(Entity, TargetableByAuras):
 		self.spellpower_by_spell=0
 		self.gorefiend_cardID=None ## battlegrounds ## BG25_HERO_103
 		self.turn_end_effects_twice=0 ## battlegrounds 
+		self.hit_hero_by_lose=False
+		self.hit_hero_by_minion_this_turn=False
 
 		self.im_a_player=True # battlegrounds
 

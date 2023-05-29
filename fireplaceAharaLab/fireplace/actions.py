@@ -269,6 +269,7 @@ class BeginBar(GameAction):
 	AMOUNT = IntArg()
 	def do(self, source, player, amount):
 		player.game.refresh_auras()## refresh aura_buff
+		player.hit_hero_by_minion_this_turn=False
 		if source.game.turn==amount or amount==0:	
 			self.broadcast(source, EventListener.ON, player)
 		#### discover a darkmoon tickets see tag{2044}(darkmoon_ticket_tier) after 23.6
@@ -1188,6 +1189,9 @@ class Damage(TargetedAction):
 					#target.destroy()
 					Destroy(target).trigger(source)
 					source.venomous=False
+			if getattr(target,'this_is_hero'):
+				target.controller.hit_hero_by_minion_this_turn=True
+
 			Deaths().trigger(source.controller)###ここに追加してみた
 		return amount
 
@@ -4005,6 +4009,7 @@ class TieGame(TargetedAction):
 	TARGET=ActionArg()#controller
 	def do(self, source, target):
 		self.broadcast(source, EventListener.ON, target)
+		target.hit_hero_by_lose=False
 		self.broadcast(source, EventListener.AFTER, target)		
 		pass
 
@@ -4012,6 +4017,7 @@ class WinGame(TargetedAction):
 	TARGET=ActionArg()#controller
 	def do(self, source, target):
 		self.broadcast(source, EventListener.ON, target)
+		target.hit_hero_by_lose=False
 		self.broadcast(source, EventListener.AFTER, target)		
 		pass
 
@@ -4019,6 +4025,7 @@ class LoseGame(TargetedAction):
 	TARGET=ActionArg()#controller
 	def do(self, source, target):
 		self.broadcast(source, EventListener.ON, target)
+		target.hit_hero_by_lose=True
 		self.broadcast(source, EventListener.AFTER, target)		
 		pass
 

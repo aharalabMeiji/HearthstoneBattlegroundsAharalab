@@ -1,26 +1,4 @@
 
-## Keyboard Igniter (Demon) (3)
-BG26__Keyboard_Igniter=(Config.BG_VERSION>=2620)
-if BG26__Keyboard_Igniter:# 
-	BG_Minion_Demon+=['BG26_522']
-	BG_PoolSet_Demon.append('BG26_522')
-	BG_Demon_Gold['BG26_522']=''
-class BG26_522_Action(GameAction):# 
-	def do(self, source):# 
-		pass# 
-class BG26_522:# (minion)(demon)
-	""" Keyboard Igniter
-	<b>Battlecry:</b> If you've taken damage since last turn, give your other Demons +1/+2. """
-	#
-	pass
-
-	BG_Minion_Demon+=['BG26_522_G']
-class BG26_522_G:# (minion)(demon)
-	""" Keyboard Igniter
-	<b>Battlecry:</b> If you've taken damage since last turn, give your other Demons +2/+4. """
-	#
-	pass
-
 ## Tichondrius (Demon) (5)
 BG26__Tichondrius=(Config.BG_VERSION>=2620)
 if BG26__Tichondrius:# 
@@ -86,26 +64,3 @@ class BG26_525_G:# (minion)(demon)
 	<b>Battlecry: Discover</b> 2 Demons. Deal damage to your hero equal to their Tiers._ """
 	#
 	pass
-
-## Backstage Security (Demon) (2)
-BG26__Backstage_Security=(Config.BG_VERSION>=2620)
-if BG26__Backstage_Security:# 
-	BG_Minion_Demon+=['BG26_528']
-	BG_PoolSet_Demon.append('BG26_528')
-	BG_Demon_Gold['BG26_528']=''
-class BG26_528_Action(GameAction):# 
-	def do(self, source):# 
-		pass# 
-class BG26_528:# (minion)(demon)
-	""" Backstage Security
-	At the start of your turn, deal 1 damage to your hero. """
-	#
-	pass
-
-	BG_Minion_Demon+=['BG26_528_G']
-class BG26_528_G:# (minion)(demon)
-	""" Backstage Security
-	At the start of your turn, deal 1 damage to your hero. """
-	#
-	pass
-

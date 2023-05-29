@@ -9,13 +9,14 @@ BG_Mind_Muck=(Config.BG_VERSION>=2420) #(2) new 24.2
 BG_Nathrezim_Overseer=(Config.BG_VERSION<2420) ##(2) banned 24.2
 BG_Piggyback_Imp=(Config.BG_VERSION>=2420) #(2) new 24.2
 BG26__Soul_Rewinder=(Config.BG_VERSION>=2620)(2)
+BG26__Backstage_Security=(Config.BG_VERSION>=2620)(2)
 
 #BG_Felemental : -> ELEMENTAL
 BG_Kathra_natir=True ##(3)
 BG_Leeching_Felhound=(Config.BG_VERSION>=2560) ## 3/3/3 new 25.6 #########
 BG_Legion_Overseer=(Config.BG_VERSION>=2420)## (3) new 24.2 
 BG_Soul_Devourer=(Config.BG_VERSION<2420) ##(3) banned 24.2
-BG26__Keyboard_Igniter=(Config.BG_VERSION>=2620)#(3) ########## NOT YET 
+BG26__Keyboard_Igniter=(Config.BG_VERSION>=2620)#(3) #
 
 BG_Bigfernal=True ##(4)
 BG_Ring_Matron=True ##(4)
@@ -247,6 +248,27 @@ class BG26_174_G:# (minion)(demon)
 BG26_174_Ge=buff(0,2)
 
 
+## Backstage Security (Demon) (2)
+#BG26__Backstage_Security=(Config.BG_VERSION>=2620)(2)
+if BG26__Backstage_Security:# 
+	BG_Minion_Demon+=['BG26_528']
+	BG_Minion_Demon+=['BG26_528_G']
+	BG_PoolSet_Demon.append('BG26_528')
+	BG_Demon_Gold['BG26_528']=''
+class BG26_528:# (minion)(demon)
+	""" Backstage Security
+	At the start of your turn, deal 1 damage to your hero. """
+	events = BeginBar(CONTROLLER).on(Hit(FRIENDLY_HERO,1))
+	pass
+
+class BG26_528_G:# (minion)(demon)
+	""" Backstage Security
+	At the start of your turn, deal 1 damage to your hero. """
+	events = BeginBar(CONTROLLER).on(Hit(FRIENDLY_HERO,1))
+	pass
+
+
+
 ########### tavern tier 3
 
 
@@ -368,7 +390,11 @@ class BG26_522_Action(GameAction):#
 	def do(self, source):# 
 		add_buff=False
 		##when the hero lost at the former battle
+		if source.controller.hit_hero_by_lose:
+			add_buff=True
 		##when a minion hit the hero
+		if source.controller.hit_hero_by_minion_this_turn:
+			add_buff=True
 		if add_buff:
 			Buff(source, 'BG26_522e').trigger(source)
 		pass# 
@@ -378,11 +404,15 @@ class BG26_522:# (minion)(demon)
 	play = BG26_522_Action()
 	pass
 BG26_522e=buff(1,2)
-class BG26_522_Action(GameAction):# 
+class BG26_522_G_Action(GameAction):# 
 	def do(self, source):# 
 		add_buff=False
 		##when the hero lost at the former battle
+		if source.controller.hit_hero_by_lose:
+			add_buff=True
 		##when a minion hit the hero
+		if source.controller.hit_hero_by_minion_this_turn:
+			add_buff=True
 		if add_buff:
 			Buff(source, 'BG26_522_Ge').trigger(source)
 		pass# 
@@ -392,6 +422,8 @@ class BG26_522_G:# (minion)(demon)
 	play = BG26_522_G_Action()
 	pass
 BG26_522_Ge=buff(2,4)
+
+
 
 
 
