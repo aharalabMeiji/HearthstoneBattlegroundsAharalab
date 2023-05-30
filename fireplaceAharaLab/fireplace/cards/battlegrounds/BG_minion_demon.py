@@ -17,6 +17,7 @@ BG_Leeching_Felhound=(Config.BG_VERSION>=2560) ## 3/3/3 new 25.6 #########
 BG_Legion_Overseer=(Config.BG_VERSION>=2420)## (3) new 24.2 
 BG_Soul_Devourer=(Config.BG_VERSION<2420) ##(3) banned 24.2
 BG26__Keyboard_Igniter=(Config.BG_VERSION>=2620)#(3) #
+BG26__Malchezaar_Prince_of_Dance=(Config.BG_VERSION>=2620)(3)
 
 BG_Bigfernal=True ##(4)
 BG_Ring_Matron=True ##(4)
@@ -24,6 +25,7 @@ BG_Ring_Matron=True ##(4)
 BG_Annihilan_Battlemaster=True ##(5)
 BG_Insatiable_Ur_zul=True ##(5)
 BG_Voidlord=True ##(5)
+BG26__Tichondrius=(Config.BG_VERSION>=2620)#(5)
 
 BG_Famished_Felbat=True ##(6)
 BG_Imp_Mama=(Config.BG_VERSION<2522) ##(6) ## banned? 25.2.2
@@ -425,6 +427,42 @@ BG26_522_Ge=buff(2,4)
 
 
 
+## Malchezaar, Prince of Dance (Demon) (3)
+#BG26__Malchezaar_Prince_of_Dance=(Config.BG_VERSION>=2620)
+if BG26__Malchezaar_Prince_of_Dance:# 
+	BG_Minion_Demon+=['BG26_524']
+	BG_Minion_Demon+=['BG26_524_G']
+	BG_PoolSet_Demon.append('BG26_524')
+	BG_Demon_Gold['BG26_524']='BG26_524_G'
+class BG26_524_Action(GameAction):# 
+	def do(self, source):# 
+		if source.script_data_num_1>0:
+			source.script_data_num_1 -=1
+		else:
+			source.controller.pay_rerole_cost_by_health=False
+		pass# 
+class BG26_524_Action1(GameAction):# 
+	def do(self, source):# 
+		source.controller.pay_rerole_cost_by_health=True
+		source.script_data_num_1 = 2
+		pass# 
+class BG26_524:# (minion)(demon)
+	""" Malchezaar, Prince of Dance
+	2 Refreshes each turn cost Health instead of Gold. <i>(@ left!)</i> """
+	#<Tag enumID="2" name="TAG_SCRIPT_DATA_NUM_1" type="Int" value="2"/>
+	events = [Rerole(CONTROLLER).on(BG26_524_Action()), BeginBar(CONTROLLER).on(BG26_524_Action1())]
+	pass
+class BG26_524_Action1(GameAction):# 
+	def do(self, source):# 
+		source.controller.pay_rerole_cost_by_health=True
+		source.script_data_num_1 = 4
+		pass# 
+class BG26_524_G:# (minion)(demon)
+	""" Malchezaar, Prince of Dance
+	4 Refreshes each turn cost Health instead of Gold. <i>(@ left!)</i> """
+	events = [Rerole(CONTROLLER).on(BG26_524_Action()), BeginBar(CONTROLLER).on(BG26_524_Action2())]
+	pass
+
 
 
 ############ tavern tier 4
@@ -545,6 +583,77 @@ class TB_BaconUps_059:# <9>[1453]
 class TB_BaconUps_059t:# <9>[1453]
 	""" Voidwalker
 	[Taunt] """
+	pass
+
+
+
+## Tichondrius (Demon) (5)
+#BG26__Tichondrius=(Config.BG_VERSION>=2620)#(5)
+if BG26__Tichondrius:# 
+	BG_Minion_Demon+=['BG26_523','BG26_523e']
+	BG_Minion_Demon+=['BG26_523_G','BG26_523_Ge']
+	BG_PoolSet_Demon.append('BG26_523')
+	BG_Demon_Gold['BG26_523']='BG26_523_G'
+class BG26_523_Action(GameAction):# 
+	def do(self, source):# 
+		for card in source.controller.field:
+			if card!=source:
+				Buff(card, 'BG26_523e').trigger(source)
+		pass# 
+class BG26_523:# (minion)(demon)
+	""" Tichondrius
+	After your hero takes damage, give your other Demons +1/+1. """
+	events = Hit(FRIENDLY_HERO).after(BG26_523_Action())
+	pass
+BG26_523e=buff(1,1)
+class BG26_523_G_Action(GameAction):# 
+	def do(self, source):# 
+		for card in source.controller.field:
+			if card!=source:
+				Buff(card, 'BG26_523_Ge').trigger(source)
+		pass# 
+class BG26_523_G:# (minion)(demon)
+	""" Tichondrius
+	After your hero takes damage, give your other Demons +2/+2. """
+	events = Hit(FRIENDLY_HERO).after(BG26_523_g_Action())
+	pass
+BG26_523_Ge=buff(2,2)
+
+
+## Imposing Percussionist (Demon) (5)
+BG26__Imposing_Percussionist=(Config.BG_VERSION>=2620)
+if BG26__Imposing_Percussionist:# 
+	BG_Minion_Demon+=['BG26_525']
+	BG_Minion_Demon+=['BG26_525_G']
+	BG_PoolSet_Demon.append('BG26_525')
+	BG_Demon_Gold['BG26_525']=''
+class BG26_525_Choice(Choice):# 
+	def choose(self, card):#
+		self.next_choice=None
+		super().choose(card)
+		amount=card.tech_level
+		Hit(self.player.hero, amount).trigger(self.source)
+		pass# 
+class BG26_525:# (minion)(demon)
+	""" Imposing Percussionist
+	<b>Battlecry: Discover</b> a Demon. Deal damage to your hero equal to its Tier._ """
+	play = BG26_525_Choice(CONTROLLER, RandomBGDemon(tech_level_less=TIER(CONTROLLER)))
+	pass
+class BG26_525_G_Choice(Choice):# 
+	def choose(self, card):#
+		self.source.script_data_num_1 +=1
+		if self.source.script_data_num_1==1:
+			self.next_choice=self
+		else:
+			self.next_choice=None
+		super().choose(card)
+		amount=card.tech_level
+		Hit(self.player.hero, amount).trigger(self.source)
+		pass# 
+class BG26_525_G:# (minion)(demon)
+	""" Imposing Percussionist
+	<b>Battlecry: Discover</b> 2 Demons. Deal damage to your hero equal to their Tiers._ """
+	play = BG26_525_G_Choice(CONTROLLER, RandomBGDemon(tech_level_less=TIER(CONTROLLER)))
 	pass
 
 

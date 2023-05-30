@@ -3858,8 +3858,29 @@ class Rerole(TargetedAction): ## battlegrounds
 		controller = target
 		game = controller.game
 		bartender = game.bartender
-		if controller.mana>=game.reroleCost:
-			self.broadcast(source, EventListener.ON, target)
+		self.broadcast(source, EventListener.ON, target)
+		if controller.pay_rerole_cost_by_health and controller.hero.health>=game.reroleCost:
+			controller.hero.damage += game.reroleCost
+			for i in range(len(bartender.field)):
+				card=bartender.field[0]
+				game.parent.ReturnCard(card)
+			if controller.hero.power.id=='TB_BaconShop_HP_065t2':### アランナフラグ
+				bartender.len_bobs_field=7
+			for repeat in range(bartender.len_bobs_field):
+				card = game.parent.DealCard(bartender, controller.tavern_tier)
+				if controller.hero.power.id=='TB_BaconShop_HP_101':### サイラスフラグ
+					if random.choice([0,1]):
+						card.darkmoon_ticket = True
+			if game.free_rerole>1:
+				game.free_rerole -= 1
+				game.reroleCost=0
+			else:
+				game.free_rerole = 0
+				game.reroleCost=1
+				if controller.hero.power.id=='TB_BaconShop_HP_054':## Millhouse flag
+					game.reroleCost=2
+			self.broadcast(source, EventListener.AFTER, target)
+		elif controller.mana>=game.reroleCost:
 			controller.used_mana += game.reroleCost
 			controller.total_used_mana_this_turn += game.reroleCost
 			controller.spentmoney_in_this_turn += game.reroleCost

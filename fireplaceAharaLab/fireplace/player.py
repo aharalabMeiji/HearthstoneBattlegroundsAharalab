@@ -151,7 +151,7 @@ class Player(Entity, TargetableByAuras):
 		self.turn_end_effects_twice=0 ## battlegrounds 
 		self.hit_hero_by_lose=False
 		self.hit_hero_by_minion_this_turn=False
-
+		self.pay_rerole_cost_by_health=False
 		self.im_a_player=True # battlegrounds
 
 	def __str__(self):
