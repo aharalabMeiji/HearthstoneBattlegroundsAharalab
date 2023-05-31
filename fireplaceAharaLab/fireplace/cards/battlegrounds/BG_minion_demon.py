@@ -26,6 +26,7 @@ BG_Annihilan_Battlemaster=True ##(5)
 BG_Insatiable_Ur_zul=True ##(5)
 BG_Voidlord=True ##(5)
 BG26__Tichondrius=(Config.BG_VERSION>=2620)#(5)
+BG26__Imposing_Percussionist=(Config.BG_VERSION>=2620)#(5)
 
 BG_Famished_Felbat=True ##(6)
 BG_Imp_Mama=(Config.BG_VERSION<2522) ##(6) ## banned? 25.2.2
@@ -621,7 +622,7 @@ BG26_523_Ge=buff(2,2)
 
 
 ## Imposing Percussionist (Demon) (5)
-BG26__Imposing_Percussionist=(Config.BG_VERSION>=2620)
+#BG26__Imposing_Percussionist=(Config.BG_VERSION>=2620)#(5)
 if BG26__Imposing_Percussionist:# 
 	BG_Minion_Demon+=['BG26_525']
 	BG_Minion_Demon+=['BG26_525_G']

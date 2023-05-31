@@ -1,8 +1,3 @@
-from ..utils import *
-
-BG26_=[]
-
-
 ## Disco Shuffler (Dragon) (5)
 BG26__Disco_Shuffler=(Config.BG_VERSION>=2620)
 if BG26__Disco_Shuffler:# 
