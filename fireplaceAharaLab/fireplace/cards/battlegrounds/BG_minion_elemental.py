@@ -609,7 +609,7 @@ class BG26_534_Action(TargetedAction):#
 			source.script_data_num_1 -= 1
 			if source.script_data_num_1==0:
 				for repeat in range(amount):
-					newcard=RandomBGElemental(tech_level_less=source.controller.tavern_tier)
+					newcard=RandomBGElemental(tech_level_less=source.controller.tavern_tier).evaluate(source)
 					newcard=get00(newcard)
 					newcard.zone=Zone.SETASIDE
 					newcard.controller=source.controller

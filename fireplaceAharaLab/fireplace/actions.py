@@ -3782,7 +3782,7 @@ class LoseDivineShield(GameAction):#聖盾を失ったとき
 
 class Magnetic(TargetedAction):#超電磁
 	TARGET = ActionArg()
-	BUFF = ActionArg()
+	BUFFS = ActionArg()
 	def do(self, source, target, buffs):
 		if not target in target.controller.field:
 			return
@@ -3805,6 +3805,8 @@ class Magnetic(TargetedAction):#超電磁
 					Buff(other, buff).trigger(target.controller)
 				target.deathrattle_valid=False### deathrattle を止めたい
 				Destroy(target).trigger(target.controller)
+		self.broadcast(source, EventListener.ON, target, buffs)
+		self.broadcast(source, EventListener.AFTER, target, buffs)		
 		pass
 
 class MakeCardUnplayable(TargetedAction):

@@ -985,6 +985,7 @@ class Minion(Character):
 	manathirst = boolean_property("manathirst")
 	imp = boolean_property("imp")
 	extra_deathrattles_minion = boolean_property("extra_deathrattles_base") ## RLK_912
+	magnetic = boolean_property("magnetic")
 	
 	silenceable_attributes = (
 		"always_wins_brawls", "aura", "cant_attack", "cant_be_targeted_by_abilities",
@@ -1303,6 +1304,7 @@ class Enchantment(BaseCard):
 	incoming_damage_multiplier = int_property("incoming_damage_multiplier")
 	max_health = int_property("max_health")
 	spellpower = int_property("spellpower")
+	magnetic = boolean_property("magnetic")
 	buffs = []
 	slots = []
 

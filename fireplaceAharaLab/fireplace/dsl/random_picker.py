@@ -136,6 +136,7 @@ RandomBGMinion = lambda **kw: RandomBGCollectible(type=CardType.MINION, **kw)
 RandomBGUndead = lambda **kw: RandomBGMinion(race=Race.UNDEAD, **kw)
 RandomBGSpellcraft = lambda **kw: RandomBGCollectible(spellcraft=1, **kw)
 RandomBGSpellcraftSpellcard = lambda **kw: RandomCardPicker(spellcraft_spellcard=1, **kw)
+RandomBGMagnetic = lambda **kw: RandomBGMinion(magnetic=True, **kw)
 
 
 class RandomEntourage(RandomCardPicker):

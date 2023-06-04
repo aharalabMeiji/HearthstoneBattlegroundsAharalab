@@ -494,6 +494,7 @@ COMBO = EnumSelector(GameTag.COMBO)
 POISONOUS = EnumSelector(GameTag.POISONOUS)
 SI7_MINION = EnumSelector(ExtendedGameTag.SI7_MINION)
 CONCOCTION = EnumSelector(ExtendedGameTag.CONCOCTION)## concoctions 25.0
+MAGNETIC = EnumSelector(GameTag.MAGNETIC)
 
 ALWAYS_WINS_BRAWLS = AttrValue(enums.ALWAYS_WINS_BRAWLS) == True  # noqa
 KILLED_THIS_TURN = AttrValue(enums.KILLED_THIS_TURN) == True  # noqa

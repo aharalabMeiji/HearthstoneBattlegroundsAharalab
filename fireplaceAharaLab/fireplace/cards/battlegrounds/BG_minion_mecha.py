@@ -9,22 +9,32 @@ Omega_Buster=True#Omega Buster(6)
 
 BG_Micro_Mummy=(Config.BG_VERSION>=2522)#(1) <-> undead/mecha
 BG_Pupbot=True#(1)
+
 BG_Harvest_Golem=True#(2)
 BG_Kaboom_Bot=(Config.BG_VERSION<2560)#(2)
 BG_Metaltooth_Leaper=True#(2)
+BG26__Lullabot=(Config.BG_VERSION>=2620)#(2)
+
 BG_Deflect_o_Bot=True#(3)
 BG_Replicating_Menace=True#(3)
 BG_Screwjank_Clunker=False#(3)banned
 BG_Iron_Sensei=True#(3)
+BG26__Accord_o_Tron=(Config.BG_VERSION>=2620)#(3)
+
 BG_Annoy_o_Module=True#(4)
 BG_Mechano_Eg_g=(Config.BG_VERSION>=2504)#(4) banned  -> renew 25.0.4
 BG_Mechano_Tank=(Config.BG_VERSION<2504)#(4) -> banned 25.0.4
 BG_Wargear=(Config.BG_VERSION>=2360)#(4) # after 23.6
+BG26__Scrap_Scraper=(Config.BG_VERSION>=2620)# (4)
+
 BG_Holy_Mecherel=True#(5)
 BG_Dr_Boombox=True#(5)
+BG26__Utility_Drone=(Config.BG_VERSION>=2620)#(5)
+
 BG_Foe_Reaper_4000=True#(6)
 BG_Omega_Buster=True#(6)
 BG_Grease_Bot=(Config.BG_VERSION>=2360)#(4->6) 23.6, 24.0.3
+BG26__Polarizing_Beatboxer=(Config.BG_VERSION>=2620) # (6)
 	
 BG_Minion_Mecha =[]
 BG_PoolSet_Mecha = []
@@ -124,6 +134,42 @@ class TB_BaconUps_066:# <3>[1453]
 	pass
 TB_BaconUps_066e=buff(4,0)
 
+
+
+## Lullabot (Mecha) (2)
+#BG26__Lullabot=(Config.BG_VERSION>=2620)#(2)
+if BG26__Lullabot:# 
+	BG_Minion_Mecha+=['BG26_146','BG26_146e','BG26_146e2']
+	BG_Minion_Mecha+=['BG26_146_G','BG26_146_Ge','BG26_146_Ge2']
+	BG_PoolSet_Mecha.append('BG26_146')
+	BG_Mecha_Gold['BG26_146']='BG26_146_G'
+class BG26_146_Action(GameAction):# 
+	def do(self, source):# 
+		pass# 
+class BG26_146:# (minion)
+	""" Lullabot
+	<b>Magnetic</b> At the end of your turn, gain +1/+1. """
+	play = Magnetic(SELF, ['BG26_146e2'])
+	events = OWN_TURN_END.on(Buff(SELF, 'BG26_146e'))
+	pass
+BG26_146e=buff(1,1)
+class BG26_146e2:
+	events = OWN_TURN_END.on(Buff(OWNER, 'BG26_146e'))
+	pass
+class BG26_146_G:# (minion)
+	""" Lullabot
+	<b>Magnetic</b> At the end of your turn, gain +2/+2. """
+	play = Magnetic(SELF, ['BG26_146_Ge2'])
+	events = OWN_TURN_END.on(Buff(SELF, 'BG26_146_Ge'))
+	pass
+BG26_146_Ge=buff(2,2)
+class BG26_146_Ge2:
+	events = OWN_TURN_END.on(Buff(OWNER, 'BG26_146_Ge'))
+	pass
+
+
+
+##### TIER 3 ####
 
 #Deflect-o-Bot(3) ### OK ###
 if BG_Deflect_o_Bot:
@@ -234,13 +280,14 @@ TB_BaconUps_069e=buff(4,4)
 
 
 
-
+## Iron Sensei (Mecha) (3)
 if BG_Iron_Sensei:
 	BG_Minion_Mecha+=['BG_GVG_027', 'GVG_027e', 'TB_BaconUps_044','TB_BaconUps_044e',]
 	BG_PoolSet_Mecha.append('BG_GVG_027')
 	BG_Mecha_Gold['BG_GVG_027']='TB_BaconUps_044'
 class BG_GVG_027:
-	"""Iron Sensei"""
+	"""Iron Sensei
+	At the end of your turn, give another friendly Mech +2/+2."""
 	events = OWN_TURN_END.on(Buff(RANDOM(FRIENDLY_MINIONS + MECH - SELF), "GVG_027e"))
 GVG_027e = buff(+2, +2)
 class TB_BaconUps_044:
@@ -248,6 +295,42 @@ class TB_BaconUps_044:
 	At the end of your turn, give another friendly Mech +4/+4."""
 	events = OWN_TURN_END.on(Buff(RANDOM(FRIENDLY_MINIONS + MECH - SELF), "TB_BaconUps_044e"))
 TB_BaconUps_044e = buff(4,4)
+
+
+
+## Accord-o-Tron (Mecha) (3)
+#BG26__Accord_o_Tron=(Config.BG_VERSION>=2620)#(3)
+if BG26__Accord_o_Tron:# 
+	BG_Minion_Mecha+=['BG26_147','BG26_147e']
+	BG_Minion_Mecha+=['BG26_147_G','BG26_147_Ge']
+	BG_PoolSet_Mecha.append('BG26_147')
+	BG_Mecha_Gold['BG26_147']='BG26_147_G'
+class BG26_147_Action(GameAction):# 
+	def do(self, source):# 
+		pass# 
+class BG26_147:# (minion)
+	""" Accord-o-Tron
+	<b>Magnetic</b> At the start of your turn, gain 1 extra Gold. """
+	play = Magnetic(SELF, ['BG26_147e'])
+	events = OWN_TURN_BEGIN.on(Give(CONTROLLER, 'GAME_005'))
+	pass
+class BG26_147e:
+	""" """
+	events = OWN_TURN_END.on(Give(CONTROLLER, 'GAME_005'))
+	pass
+class BG26_147_G:# (minion)
+	""" Accord-o-Tron
+	<b>Magnetic</b> At the start of your turn, gain 2 extra Gold. """
+	play = Magnetic(SELF, ['BG26_147_Ge'])
+	events = OWN_TURN_BEGIN.on((Give(CONTROLLER, 'GAME_005'), Give(CONTROLLER, 'GAME_005')))
+	pass
+class BG26_147_Ge:
+	""" """
+	events = OWN_TURN_BEGIN.on((Give(CONTROLLER, 'GAME_005'), Give(CONTROLLER, 'GAME_005')))
+	pass
+
+
+#### TIER 4 ####
 
 #Annoy-o-Module(4) ### OK ###
 if BG_Annoy_o_Module:
@@ -354,6 +437,39 @@ if Config.BG_VERSION>=2600:
 else:
 	BG_BOT_563_Ge=buff(10,10)
 
+
+## Scrap Scraper (Mecha) (4)
+#BG26__Scrap_Scraper=(Config.BG_VERSION>=2620)# (4)
+if BG26__Scrap_Scraper:# 
+	BG_Minion_Mecha+=['BG26_148']
+	BG_Minion_Mecha+=['BG26_148_G']
+	BG_PoolSet_Mecha.append('BG26_148')
+	BG_Mecha_Gold['BG26_148']='BG26_148_G'
+class BG26_148_Action(GameAction):# 
+	def do(self, source):
+		newcard=RandomBGMagnetic().evaluate(source)#
+		newcard=get00(newcard)
+		newcard.zone=Zone.SETASIDE
+		newcard.controller.source.controller
+		newcard.zone=Zone.HAND
+		pass# 
+class BG26_148:# (minion)
+	""" Scrap Scraper
+	<b>Avenge (4):</b> Get a random <b>Magnetic</b> Mech. """
+	#magnetic = <Tag enumID="849" name="MAGNETIC" type="Int" value="1"/>
+	events = Death(FRIENDLY).on(Avenge(SELF, 4, [BG26_148_Action()]))
+	pass
+class BG26_148_G:# (minion)
+	""" Scrap Scraper
+	<b>Avenge (4):</b> Get 2 random <b>Magnetic</b> Mechs. """
+	events = Death(FRIENDLY).on(Avenge(SELF, 4, [BG26_148_Action(), BG26_148_Action()]))
+	pass
+
+
+
+
+#### TIER 5 ####
+
 #Holy Mecherel(5)
 if BG_Holy_Mecherel:
 	BG_Minion_Mecha+=['BG20_401', 'BG20_401_G',]
@@ -371,7 +487,7 @@ class BG20_401_G:# <12>[1453]
 	pass
 
 
-# Dr. Boombox
+# Dr. Boombox (5)
 if BG_Dr_Boombox:
 	BG_Minion_Mecha+=['BG25_165', 'BG25_165_G',]
 	BG_PoolSet_Mecha.append('BG25_165')
@@ -424,6 +540,45 @@ class BG25_165_G:
 	deathrattle = BG25_165_G_Action()
 	pass
 
+
+
+## Utility Drone (Mecha) (5)
+#BG26__Utility_Drone=(Config.BG_VERSION>=2620)#(5)
+if BG26__Utility_Drone:# 
+	BG_Minion_Mecha+=['BG26_152','BG26_152e']
+	BG_Minion_Mecha+=['BG26_152_G','BG26_152_Ge']
+	BG_PoolSet_Mecha.append('BG26_152')
+	BG_Mecha_Gold['BG26_152']='BG26_152_G'
+class BG26_152_Action(GameAction):# 
+	def do(self, source):# 
+		for card in source.controller.field:
+			for buff in card.buffs:
+				if getattr(buff, 'magnetic'):
+					Buff(card, 'BG26_152e').trigger(source)
+		pass# 
+class BG26_152:# (minion)
+	""" Utility Drone
+	At the end of your turn, give your minions +1/+1 for each <b>Magnetization</b> they have. """
+	events = OWN_TURN_END.on(BG26_152_Action())
+	pass
+BG26_152e=buff(1,1)
+class BG26_152_G_Action(GameAction):# 
+	def do(self, source):# 
+		for card in source.controller.field:
+			for buff in card.buffs:
+				if getattr(buff, 'magnetic'):
+					Buff(card, 'BG26_152_Ge').trigger(source)
+		pass# 
+class BG26_152_G:# (minion)
+	""" Utility Drone
+	At the end of your turn, give your minions +2/+2 for each <b>Magnetization</b> they have. """
+	events = OWN_TURN_END.on(BG26_152_G_Action())
+	pass
+BG26_152_Ge=buff(1,1)
+
+
+
+#### TIER 6 ####
 
 #Foe Reaper 4000(6)
 if BG_Foe_Reaper_4000:
@@ -521,3 +676,44 @@ if BG25__Mecha_Jaraxxus:# 6/3/15 MECH/DEMON ## new 25.2.2 ##
 	BG_Mecha_Gold['BG25_807t']='BG25_807t_G'
 	BG_Mecha_Gold['BG25_807t2']='BG25_807t2_G'
 	BG_Mecha_Gold['BG25_807t3']='BG25_807t3_G'
+
+
+
+## Polarizing Beatboxer (Mecha) (6)
+#BG26__Polarizing_Beatboxer=(Config.BG_VERSION>=2620) # (6)
+if BG26__Polarizing_Beatboxer:# 
+	BG_Minion_Mecha+=['BG26_149']
+	BG_Minion_Mecha+=['BG26_149_G']
+	BG_PoolSet_Mecha.append('BG26_149')
+	BG_Mecha_Gold['BG26_149']=''
+class BG26_149_Action(TargetedAction):#
+	TARGET=ActionArg()
+	def do(self, source, target):#target = buffs
+		for buff in target:
+			if getattr(buff, 'this_is_enchantment'):
+				Buff(source, buff.id).trigger(source)
+			elif isinstance(buff, str):
+				Buff(source, buff).trigger(source)
+		pass# 
+class BG26_149:# (minion)
+	""" Polarizing Beatboxer
+	Whenever you <b>Magnetize</b> another minion, it also <b>Magnetizes</b> to this. """
+	events = Magnetic(FRIENDLY + MINION - SELF).after(BG26_149_Action(Magnetic.BUFFS))
+	pass
+class BG26_149_G_Action(TargetedAction):#
+	TARGET=ActionArg()
+	def do(self, source, target):#target = buffs
+		for buff in target:
+			if getattr(buff, 'this_is_enchantment'):
+				Buff(source, buff.id).trigger(source)
+				Buff(source, buff.id).trigger(source)
+			elif isinstance(buff, str):
+				Buff(source, buff).trigger(source)
+				Buff(source, buff).trigger(source)
+		pass# 
+class BG26_149_G:# (minion)
+	""" Polarizing Beatboxer
+	Whenever you <b>Magnetize</b> another minion, it also _<b>Magnetizes</b> to this twice. """
+	events = Magnetic(FRIENDLY + MINION - SELF).after(BG26_149_G_Action(Magnetic.BUFFS))
+	pass
+
