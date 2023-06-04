@@ -13,6 +13,7 @@ BG_Felfin_Navigator=True ## (3)
 BG_Swolefin=True ## (3)
 
 BG_Primalfin_Lookout=True ## (4)
+BG26__Bream_Counter=(Config.BG_VERSION>=2620)# (4)
 
 BG_King_Bagurgle=True ## (5)
 BG_SI_Sefin=False ## (5) banned 4.2
@@ -213,6 +214,8 @@ BG21_010_Ge=buff(4,2)# <12>[1453]
 
 
 
+#### TIER 4 ####
+
 #Primalfin Lookout (4) ### maybe ###
 if BG_Primalfin_Lookout:
 	BG_Minion_Murloc+=['BGS_020','TB_BaconUps_089',]
@@ -260,30 +263,37 @@ class TB_BaconUps_089:# <12>[1453]
 	pass
 
 
-if BG_Toxfin: ##(4) new 24.2 -> (6) 25.0.4
-	BG_Minion_Murloc+=['BG_DAL_077','TB_BaconUps_152']
-	BG_PoolSet_Murloc.append('BG_DAL_077')
-	BG_Murloc_Gold['BG_DAL_077']='TB_BaconUps_152'
-class BG_DAL_077:
-	""" Toxfin (4)-> (6) 25.0.4
-	[Battlecry:] Give a friendly Murloc [Poisonous].""" 
-	requirements = {PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_MINION_TARGET:0, PlayReq.REQ_FRIENDLY_TARGET:0, PlayReq.REQ_TARGET_WITH_RACE:Race.MURLOC }	
-	if Config.BG_VERSION>=2504:
-		option_tags={GameTag.TECH_LEVEL:6}
-	else:
-		option_tags={GameTag.TECH_LEVEL:4}
-	play = SetTag(TARGET, (GameTag.POISONOUS,))
-class TB_BaconUps_152:
-	""" Toxfin
-	[Battlecry:] Give a friendly Murloc [Poisonous]."""
-	requirements = {PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_MINION_TARGET:0, PlayReq.REQ_FRIENDLY_TARGET:0, PlayReq.REQ_TARGET_WITH_RACE:Race.MURLOC }
-	if Config.BG_VERSION>=2504:
-		option_tags={GameTag.TECH_LEVEL:6}
-	else:
-		option_tags={GameTag.TECH_LEVEL:4}
-	play = SetTag(TARGET, (GameTag.POISONOUS,))
 
 
+
+## Bream Counter (Murloc) (4)
+#BG26__Bream_Counter=(Config.BG_VERSION>=2620)# (4)
+if BG26__Bream_Counter:# 
+	BG_Minion_Murloc+=['BG26_137','BG26_137e']
+	BG_Minion_Murloc+=['BG26_137_G','BG26_137_Ge']
+	BG_PoolSet_Murloc.append('BG26_137')
+	BG_Murloc_Gold['BG26_137']=''
+class BG26_137_Action(GameAction):# 
+	def do(self, source):# 
+		pass# 
+class BG26_137:# (minion)(murloc)
+	""" Bream Counter
+	While this is in your hand, after you play a Murloc, gain +3/+2. """
+	class Hand:
+		events = BG_Play(CONTROLLER, FRIENDLY + MINION + MURLOC).after(Buff(SELF, 'BG26_137e'))
+	pass
+BG26_137e=buff(3,2)
+class BG26_137_G:# (minion)(murloc)
+	""" Bream Counter
+	While this is in your hand, after you play a Murloc, gain +6/+4. """
+	class Hand:
+		events = BG_Play(CONTROLLER, FRIENDLY + MINION + MURLOC).after(Buff(SELF, 'BG26_137e'))
+	pass
+BG26_137_Ge=buff(6,4)
+
+
+
+#### TIER 5 ####
 
 #King Bagurgle (5) ### OK ###
 if BG_King_Bagurgle:
@@ -330,7 +340,7 @@ class BG21_009_G:# <12>[1453]
 
 
 
-##### tavern tier 6
+#### TIER 6 ####
 
 ## Young Murk-Eye (6) 
 if BG_Young_Murk_Eye:
@@ -346,5 +356,30 @@ class BG22_403_G:
 	At the end of your turn, adjacent Murlocs trigger their [Battlecries]."""
 	pass
 
+
+
+## Toxfin (6)
+if BG_Toxfin: ##(4) new 24.2 -> (6) 25.0.4
+	BG_Minion_Murloc+=['BG_DAL_077','TB_BaconUps_152']
+	BG_PoolSet_Murloc.append('BG_DAL_077')
+	BG_Murloc_Gold['BG_DAL_077']='TB_BaconUps_152'
+class BG_DAL_077:
+	""" Toxfin (4)-> (6) 25.0.4
+	[Battlecry:] Give a friendly Murloc [Poisonous].""" 
+	requirements = {PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_MINION_TARGET:0, PlayReq.REQ_FRIENDLY_TARGET:0, PlayReq.REQ_TARGET_WITH_RACE:Race.MURLOC }	
+	if Config.BG_VERSION>=2504:
+		option_tags={GameTag.TECH_LEVEL:6}
+	else:
+		option_tags={GameTag.TECH_LEVEL:4}
+	play = SetTag(TARGET, (GameTag.POISONOUS,))
+class TB_BaconUps_152:
+	""" Toxfin
+	[Battlecry:] Give a friendly Murloc [Poisonous]."""
+	requirements = {PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_MINION_TARGET:0, PlayReq.REQ_FRIENDLY_TARGET:0, PlayReq.REQ_TARGET_WITH_RACE:Race.MURLOC }
+	if Config.BG_VERSION>=2504:
+		option_tags={GameTag.TECH_LEVEL:6}
+	else:
+		option_tags={GameTag.TECH_LEVEL:4}
+	play = SetTag(TARGET, (GameTag.POISONOUS,))
 
 

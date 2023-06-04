@@ -3,28 +3,6 @@ from ..utils import *
 BG26_=[]
 
 
-## Bream Counter (Murloc) (4)
-BG26__Bream_Counter=(Config.BG_VERSION>=2620)
-if BG26__Bream_Counter:# 
-	BG_Minion_Murloc+=['BG26_137']
-	BG_PoolSet_Murloc.append('BG26_137')
-	BG_Murloc_Gold['BG26_137']=''
-class BG26_137_Action(GameAction):# 
-	def do(self, source):# 
-		pass# 
-class BG26_137:# (minion)(murloc)
-	""" Bream Counter
-	While this is in your hand, after you play a Murloc, gain +3/+2. """
-	#
-	pass
-
-	BG_Minion_Murloc+=['BG26_137_G']
-class BG26_137_G:# (minion)(murloc)
-	""" Bream Counter
-	While this is in your hand, after you play a Murloc, gain +6/+4. """
-	#
-	pass
-
 ## Bassgill (Murloc) (4)
 BG26__Bassgill=(Config.BG_VERSION>=2620)
 if BG26__Bassgill:# 
