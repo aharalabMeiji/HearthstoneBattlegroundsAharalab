@@ -43,7 +43,7 @@ BG_Treasure_Seeker_Elise=(Config.BG_VERSION>=2420) ##(4/5/5) new 24.2
 BG_Tunnel_Blaster=(Config.BG_VERSION>=2360)##(4/3/7) new 23.6
 BG_Vigilant_Stoneborn=(Config.BG_VERSION>=2460) ## (4/2/6) new 24.6 ### OK ###
 BG_Witchwing_Nestmatron=(Config.BG_VERSION<2420 or (Config.BG_VERSION>=2504 and Config.BG_VERSION<2560)) ##(4) banned 24.2 renew 25.0.4 banned when?
-BG_Upbeat_Duo=(Config.BG_VERSION>=2620)### new 26.2
+BG26__Upbeat_Duo=(Config.BG_VERSION>=2620)### new 26.2
 
 
 BG_Baron_Rivendare=(Config.BG_VERSION<2522)##(5) ## banned 25.2.2
@@ -59,6 +59,8 @@ BG25__Titus_Rivendare=(Config.BG_VERSION>=2522)# 5/1/7 neutral ## new 25.2.2
 BG24__Tortollan_Blue_Shell=(Config.BG_VERSION>=2420) ## (5/4/7) new 24.2 ### OK ###
 ##(6)->(5)  banned 22.3 ## new 26.0 
 BG_Friend_of_a_Friend=(Config.BG_VERSION>=2600 or Config.BG_VERSION<2230) 
+BG26__Drakkari_Enchanter =(Config.BG_VERSION>=2620)### new 26.2
+
 
 BG_Amalgadon=(Config.BG_VERSION<2230)##(6) banned 22.3
 BG_Mantid_Queen=True ## (6/5/5) ## new when?
@@ -70,6 +72,7 @@ BG24_The_Walking_Fort=(Config.BG_VERSION>=2460 and Config.BG_VERSION<2522) ##(6)
 BG_Uther_the_Lightbringer=(Config.BG_VERSION>=2360) ##(6/5/6) new 23.6
 BG_Zapp_Slywick=True##(6/7/10)
 BG_Archdruid_Hamuul=(Config.BG_VERSION<2560) ## (6/8/8)
+BG_The_Boogie_Monster=(Config.BG_VERSION>=2620)
 
 
 
@@ -1185,8 +1188,8 @@ class BG21_038_G:# <12>[1453]
 ##
 
 ### Upbeat Duo (4)
-#BG_Upbeat_Duo=(Config.BG_VERSION>=2620)### new 26.2
-if BG_Upbeat_Duo:
+#BG26__Upbeat_Duo=(Config.BG_VERSION>=2620)### new 26.2
+if BG26__Upbeat_Duo:
 	BG_Minion += ['BG_NX2_050', 'BG_NX2_050_G']
 	BG_PoolSet_Minion.append('BG_NX2_050')
 	BG_Minion_Gold['BG_NX2_050']='BG_NX2_050_G'
@@ -1590,7 +1593,7 @@ class BG22_404_G:# <12>[1453] #############################
 
 
 ### Drakkari Enchanter (5)
-BG_Drakkari_Enchanter =(Config.BG_VERSION>=2620)### new 26.2
+#BG26__Drakkari_Enchanter =(Config.BG_VERSION>=2620)### new 26.2
 if BG_Drakkari_Enchanter:
 	BG_Minion += ['BG_NX2_050', 'BG_NX2_050_G']
 	BG_PoolSet_Minion.append('BG_NX2_050')
@@ -1615,6 +1618,7 @@ class BG_NX2_050_G: ##
 		Sell(CONTROLLER, SELF).on(SetAttr(CONTROLLER, 'turn_end_effects_twice',0)),
 	]
 	pass
+
 
 
 
@@ -1969,7 +1973,7 @@ class BG20_304_G:#(6/16/16)
 
 
 ### The Boogie Monster ## new 26.2
-BG_The_Boogie_Monster=(Config.BG_VERSION>=2620)
+##BG_The_Boogie_Monster=(Config.BG_VERSION>=2620)
 if BG_The_Boogie_Monster: ###
 	BG_Minion += ['BG26_176','BG20_304_G','BG26_176_Ge']#	
 	BG_PoolSet_Minion.append('BG26_176')

@@ -7,6 +7,7 @@ BG_Bubblette=(Config.BG_VERSION>=2400 and Config.BG_VERSION<2420) ## (1) ## new 
 
 BG_Molten_Rock=True ## (2)
 BG_Party_Elemental=True ## (2)
+BG26__Flourishing_Frostling=(Config.BG_VERSION>=2620)#(2)
 
 BG_Crackling_Cyclone=True ## (3)
 BG_Smogger=True ## (3)
@@ -16,13 +17,18 @@ BG25__Felemental=(Config.BG_VERSION>=2522)# 3/3/1 elemental/demon ## new 25.2.2
 BG_Dazzling_Lightspawn=True ## (4)
 BG_Recycling_Wraith=True # (4)
 BG_Wildfire_Elemental=True # (4)
+BG26__Upbeat_Upstart=(Config.BG_VERSION>=2620)#(4)
+BG26__Dancing_Barnstormer=(Config.BG_VERSION>=2620)#(4)
 
 BG_Tavern_Tempest=True # (5)
 BG_Lil_Rag=True # (5)
 BG25__Magmaloc=(Config.BG_VERSION>=2522)# (5/1/1) murloc ## new 25.2.2
+BG26__Gusty_Trumpeter=(Config.BG_VERSION>=2620)#(5)
 
 BG_Gentle_Djinni=True # (6)
 BG_Lieutenant_Garr=True # (6)
+BG26__Elemental_of_Surprise=(Config.BG_VERSION>=2620)#(6)
+BG26__Rock_Rock=(Config.BG_VERSION>=2620)#(6)
 
 
 BG_Minion_Elemental =[]
@@ -119,6 +125,38 @@ class TB_BaconUps_160:# <12>[1453]
 	After you play an Elemental, give another random friendly Elemental +1/+1 twice. """
 	events = BG_Play(CONTROLLER, FRIENDLY + ELEMENTAL).on(Buff(RANDOM(FRIENDLY_MINIONS + ELEMENTAL - SELF), 'BGS_120e') * 2)
 	pass
+
+
+
+## Flourishing Frostling (Elemental) (2)
+#BG26__Flourishing_Frostling=(Config.BG_VERSION>=2620)#(2)
+if BG26__Flourishing_Frostling:# 
+	BG_Minion_Elemental+=['BG26_537','BG26_537e','BG26_537pe']
+	BG_Minion_Elemental+=['BG26_537_G']
+	BG_PoolSet_Elemental.append('BG26_537')
+	BG_Elemental_Gold['BG26_537']=''
+class BG26_537_Action(GameAction):#
+	AMOUNT=IntArg()
+	def do(self, source,amount):# 
+		source.controller.flourishing_frostling_powered_up += amount
+		cards = [card for card in source.controller.field + source.controller.hand if isRaceCard(card, Race.ELEMENTAL)]
+		for card in cards:
+			Buff(card, 'BG26_537e', atk=source.controller.flourishing_frostling_powered_up).trigger(source)
+		pass# 
+class BG26_537:# (minion)
+	""" Flourishing Frostling
+	Has +1 Attack for each Elemental you played this ___game <i>(wherever this is)</i>. """
+	play = BG26_537_Action(1)
+	pass
+class BG26_537e:
+	pass
+class BG26_537_G:# (minion)
+	""" Flourishing Frostling
+	Has +2 Attack for each Elemental you played this ___game <i>(wherever this is)</i>. """
+	play = BG26_537_Action(2)
+	pass
+
+
 
 #### tavern tier 3
 
@@ -359,6 +397,79 @@ class TB_BaconUps_166:# <12>[1453]
 	events = Attack(SELF, ENEMY_MINIONS).on(BGS_126_Action(Attack.DEFENDER, 2))
 	pass
 
+
+
+## Upbeat Upstart (Elemental) (4)
+#BG26__Upbeat_Upstart=(Config.BG_VERSION>=2620)#(4)
+if BG26__Upbeat_Upstart:# 
+	BG_Minion_Elemental+=['BG26_120','BG26_120e']
+	BG_Minion_Elemental+=['BG26_120_G','BG26_120_Ge']
+	BG_PoolSet_Elemental.append('BG26_120')
+	BG_Elemental_Gold['BG26_120']='BG26_120_G'
+class BG26_120_Action(GameAction):# 
+	def do(self, source):# 
+		controller=source.controller
+		amount= max([card.max_health for card in controller.field])
+		amount -= source.max_health
+		if amount>0:
+			Buff(source, 'BG26_120e').trigger(source)
+		pass# 
+class BG26_120:# (minion)
+	""" Upbeat Upstart
+	<b><b>Taunt</b>.</b> At the end of every 2 turns, set this minion's Health to the highest in your warband. <i>({0} |4(turn, turns) left!)</i>@"""
+	#<Tag enumID="2" name="TAG_SCRIPT_DATA_NUM_1" type="Int" value="2"/>
+	events = OWN_TURN_END.on(SidequestCounter(SELF, 2, [BG26_120_Action()]))
+	pass
+class BG26_120e:
+	""" """
+	pass
+class BG26_120_G_Action(GameAction):# 
+	def do(self, source):# 
+		controller=source.controller
+		amount= max([card.max_health for card in controller.field])*2
+		amount -= source.max_health
+		if amount>0:
+			Buff(source, 'BG26_120_Ge').trigger(source)
+		pass# 
+class BG26_120_G:# (minion)
+	""" Upbeat Upstart
+	<b><b>Taunt</b>.</b> At the end of every 2 turns, set this minion's Health to double the highest in your warband. <i>({0} |4(turn, turns) left!)</i></i> """
+	events = OWN_TURN_END.on(SidequestCounter(SELF, 2, [BG26_120_G_Action()]))
+	#
+	pass
+class BG26_120_Ge:
+	""" """
+	pass
+
+
+
+## Dancing Barnstormer (Elemental) (4)
+if BG26__Dancing_Barnstormer:# 
+	BG_Minion_Elemental+=['BG26_162','BG26_162e','BG26_162pe']
+	BG_Minion_Elemental+=['BG26_162_G']
+	BG_PoolSet_Elemental.append('BG26_162')
+	BG_Elemental_Gold['BG26_162']='BG26_162_G'
+class BG26_162_Action(GameAction):# 
+	AMOUNT=IntArg()
+	def do(self, source, amount):#
+		source.controller.dancing_barnstormer_powered_up += amount
+		if source.controller.deepcopy_original!=None:
+			source.controller.deepcopy_original.dancing_barnstormer_powered_up += amount
+		pass# 
+class BG26_162:# (minion)
+	""" Dancing Barnstormer
+	<b>Deathrattle:</b> Elementals in Bob's Tavern have +3/+2 __for the rest of the game. """
+	deathrattle = BG26_162_Action(1)
+	pass
+class BG26_162e:
+	pass
+class BG26_162_G:# (minion)
+	""" Dancing Barnstormer
+	<b>Deathrattle:</b> Elementals in Bob's Tavern have +6/+4 __for the rest of the game. """
+	deathrattle = BG26_162_Action(2)
+	pass
+
+
 #### tavern tier 5
 
 #Tavern Tempest(5)   ### need check ###
@@ -484,6 +595,44 @@ class BG25_046_Ge:# (enchantment)
 
 
 
+## Gusty Trumpeter (Elemental) (5)
+#BG26__Gusty_Trumpeter=(Config.BG_VERSION>=2620)#(5)
+if BG26__Gusty_Trumpeter:# 
+	BG_Minion_Elemental+=['BG26_534']
+	BG_PoolSet_Elemental.append('BG26_534')
+	BG_Elemental_Gold['BG26_534']=''
+class BG26_534_Action(TargetedAction):# 
+	TARGET=ActionArg()
+	AMOUNT=IntArg()
+	def do(self, source, target, amount):#
+		if isRaceCard(target, Race.ELEMENTAL):
+			source.script_data_num_1 -= 1
+			if source.script_data_num_1==0:
+				for repeat in range(amount):
+					newcard=RandomBGElemental(tech_level_less=source.controller.tavern_tier)
+					newcard=get00(newcard)
+					newcard.zone=Zone.SETASIDE
+					newcard.controller=source.controller
+					newcard.zone=Zone.HAND
+				source.script_data_num_1=5
+		pass# 
+class BG26_534:# (minion)
+	""" Gusty Trumpeter
+	After you sell 5 Elementals, get another random Elemental. <i>(@ left!)</i> """
+	#<Tag enumID="2" name="TAG_SCRIPT_DATA_NUM_1" type="Int" value="5"/>
+	events = Sell(CONTROLLER).after(BG26_534_Action(Sell.CARD, 1))
+	pass
+
+	BG_Minion_Elemental+=['BG26_534_G']
+class BG26_534_G:# (minion)
+	""" Gusty Trumpeter
+	After you sell 5 Elementals, get two other random Elementals. <i>(@ left!)</i> """
+	events = Sell(CONTROLLER).after(BG26_534_Action(Sell.CARD, 2))
+	pass
+
+
+
+
 #### tavern tier 6
 
 #Gentle Djinni(6)   ### OK ###
@@ -554,14 +703,71 @@ class TB_BaconUps_163e:
 
 
 
+## Elemental of Surprise (Elemental) (6)
+#BG26__Elemental_of_Surprise=(Config.BG_VERSION>=2620)#(6)
+if BG26__Elemental_of_Surprise:# 
+	BG_Minion_Elemental+=['BG26_175']
+	BG_Minion_Elemental+=['BG26_175_G']
+	BG_PoolSet_Elemental.append('BG26_175')
+	BG_Elemental_Gold['BG26_175']='BG26_175_G'
+class BG26_175:# (minion)
+	""" Elemental of Surprise
+	<b>Divine Shield</b> This minion can triple with any Elemental. """
+	#
+	pass
+class BG26_175_G:# (minion)
+	""" Elemental of Surprise
+	<b>Divine Shield</b> This minion can triple with any Elemental. """
+	#
+	pass
 
 
 
-
-
-
-
-
-
-
+## Rock Rock (Elemental) (6)
+#BG26__Rock_Rock=(Config.BG_VERSION>=2620)#(6)
+if BG26__Rock_Rock:# 
+	BG_Minion_Elemental+=['BG26_535','BG26_535e','BG26_535e2']
+	BG_Minion_Elemental+=['BG26_535_G','BG26_535_Ge','BG26_535_Ge2']
+	BG_PoolSet_Elemental.append('BG26_535')
+	BG_Elemental_Gold['BG26_535']=''
+class BG26_535_Action(GameAction):# 
+	def do(self, source):# 
+		if source.script_data_num_1!=0:
+			source.script_data_num_1=0
+			for card in source.controller.field:
+				if card!=source:
+					Buff(card, 'BG26_535e2').trigger(source)
+		else:
+			source.script_data_num_1=1
+			for card in source.controller.field:
+				if card!=source:
+					Buff(card, 'BG26_535e').trigger(source)
+		pass# 
+class BG26_535:# (minion)
+	""" Rock Rock
+	After you play an Elemental, give your other minions +2 Attack. <i>(Swaps to Health next turn!)</i> """
+	events = BG_Play(CONTROLLER, FRIENDLY+MINION+ELEMENTAL).after(BG26_535_Action())
+	pass
+BG26_535e=buff(2,0)
+BG26_535e2=buff(0,2)
+class BG26_535_G_Action(GameAction):# 
+	def do(self, source):# 
+		if source.script_data_num_1!=0:
+			source.script_data_num_1=0
+			for card in source.controller.field:
+				if card!=source:
+					Buff(card, 'BG26_535_Ge2').trigger(source)
+		else:
+			source.script_data_num_1=1
+			for card in source.controller.field:
+				if card!=source:
+					Buff(card, 'BG26_535_Ge').trigger(source)
+		pass# 
+class BG26_535_G:# (minion)
+	""" Rock Rock
+	After you play an Elemental, give your other minions +4 Attack. <i>(Swaps to Health next turn!)</i> """
+	events = BG_Play(CONTROLLER, FRIENDLY+MINION+ELEMENTAL).after(BG26_535_Action())
+	pass
+BG26_535_Ge=buff(4,0)
+BG26_535_Ge2=buff(0,4)
 

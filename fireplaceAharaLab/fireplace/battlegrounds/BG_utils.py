@@ -515,6 +515,15 @@ class BG_main:
 			Buff(card, 'BG22_HERO_002_Buddy_e',
 				atk=bartender.opponent.drekthar_buddy_powered_up
 				).trigger(bartender)
+		if bartender.opponent.dancing_barnstormer_powered_up>0:## >2620
+			Buff(card, 'BG26_162e',
+				atk=bartender.opponent.dancing_barnstormer_powered_up*3,
+				max_health=bartender.opponent.dancing_barnstormer_powered_up*2
+				).trigger(bartender)
+		if bartender.opponent.flourishing_frostling_powered_up>0: ## > 2620
+			Buff(card, 'BG26_162e',
+				atk=bartender.opponent.dancing_barnstormer_powered_up,
+				).trigger(bartender)
 		if cardID in self.BG_decks[card.tech_level]:
 			self.BG_decks[card.tech_level].remove(cardID)
 		else:
@@ -903,5 +912,28 @@ def getRacesInCards(cards):
 				count.append(Race.UNDEAD)
 	return count
 
+def isRacesCards(card, race):
+	if getattr(card, 'this_is_minion'):
+		if race==Race.BEAST and card.id in cards.battlegrounds.BG_minion_beast.BG_PoolSet_Beast:
+			return True
+		if race==Race.DEMON and card.id in cards.battlegrounds.BG_minion_demon.BG_PoolSet_Demon:
+			return True
+		if race==Race.DRAGON and card.id in cards.battlegrounds.BG_minion_dragon.BG_PoolSet_Dragon:
+			return True
+		if race==Race.ELEMENTAL and card.id in cards.battlegrounds.BG_minion_elemental.BG_PoolSet_Elemental:
+			return True
+		if race==Race.MECHANICAL and card.id in cards.battlegrounds.BG_minion_mecha.BG_PoolSet_Mecha:
+			return True
+		if race==Race.MURLOC and card.id in cards.battlegrounds.BG_minion_murloc.BG_PoolSet_Murloc:
+			return True
+		if race==Race.NAGA and card.id in cards.battlegrounds.BG_minion_naga.BG_PoolSet_Naga:
+			return True
+		if race==Race.PIRATE and card.id in cards.battlegrounds.BG_minion_pirate.BG_PoolSet_Pirate:
+			return True
+		if race==Race.QUILBOAR and card.id in cards.battlegrounds.BG_minion_quilboar.BG_PoolSet_Quilboar:
+			return True
+		if race==Race.UNDEAD and card.id in cards.battlegrounds.BG_minion_undead.BG_PoolSet_Undead:
+			return True
+	return False
 
 

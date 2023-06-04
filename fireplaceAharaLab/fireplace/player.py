@@ -136,6 +136,8 @@ class Player(Entity, TargetableByAuras):
 		self.felemental_powered_up = 0## battlegrounds, Felemental, new 25.2.2
 		self.stormpike_powered_up = 0## battlegrounds, Vanndar Stormpike, new 25.6
 		self.drekthar_buddy_powered_up=0 ## battlegrounds, Frostwolf Lieutenant (Drek'Thar's Buddy) new 25.6
+		self.dancing_barnstormer_powered_up=0 ## battlegrounds, new 26.2
+		self.flourishing_frostling_powered_up=0 ## battlegrounds, new 26.2
 		self.spentmoney_in_this_turn=0 ## battlegrounds, #Captain Flat Tusk
 		self.buddy_gauge=0## battlegrounds, # buddy
 		self.got_buddy=0## battlegrounds, # buddy

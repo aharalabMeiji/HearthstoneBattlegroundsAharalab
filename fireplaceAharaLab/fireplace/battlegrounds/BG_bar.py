@@ -89,7 +89,7 @@ class BG_Bar(Game):
 		for id in characters:
 			count=0
 			for jd in characters:
-				if id==jd:
+				if id==jd or (Config.BG_VERSION>=2620 and jd=='BG26_175'):
 					count+=1
 					# First Mate Pip (BG23_192) (3)
 					#You only need 2 copies of this minion to make it Golden.
