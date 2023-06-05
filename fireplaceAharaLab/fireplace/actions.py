@@ -3946,11 +3946,17 @@ class Spellcraft(TargetedAction):
 class SpellcraftSpell(TargetedAction):
 	TARGET = ActionArg()
 	SPELLCARD = ActionArg()
-	def do(self, source, target, spellcard):
+	OPTIONATK = IntArg()
+	OPTIONHLT = IntArg()
+	OPTIONAMOUNT = IntArg()
+	def do(self, source, target, spellcard, optionatk=0, optionhlt=0, optionamount=1):
 		controller=source.controller
 		if target!=None and target.this_is_minion:
 			self.broadcast(source, EventListener.ON, controller, spellcard, target)
-			Buff(target, spellcard).trigger(controller)
+			if optionatk!=0 or optionhlt!=0:
+				Buff(target, spellcard, atk=optionatk*optionamount, max_health=optionhlt*optionamount).trigger(controller)
+			else:
+				Buff(target, spellcard).trigger(controller)
 			self.broadcast(source, EventListener.AFTER, controller, spellcard, target)
 		pass
 

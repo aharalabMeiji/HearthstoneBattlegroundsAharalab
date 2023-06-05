@@ -1,4 +1,5 @@
 from fireplace.card import THE_COIN
+from fireplaceAharaLab.fireplace import card
 from ..utils import *
 
 
@@ -8,11 +9,13 @@ BG_Shell_Collector=True##(1)
 BG_Snail_Cavalry=True##(2)
 BG_Deep_Sea_Angler=True## (2)
 BG_Lava_Lurker=True## (2)
+BG26__Reef_Riffer=(Config.BG_VERSION>=2620)#(2)
 
-BG_Stormscale_Siren=False## (3) BANNED!
+BG_Stormscale_Siren=False## (3) BANNED! when?
 BG_Pashmar_the_Vengeful=True## (3)
 BG_Warden_of_Old=True## (3)
 BG_Shoal_Commander=True## (3)
+BG26__Zesty_Shaker=(Config.BG_VERSION>=2620) # (3)
 
 BG_Eelbound_Archer=True## (4)
 BG_Waverider=True## (4)
@@ -112,10 +115,10 @@ class BG23_001_Action(TargetedAction):
 	TARGET=ActionArg()
 	BUFF=ActionArg()
 	def do(self,source,target, buff):
-		controller = source.controller
-		if controller.once_per_turn==0:
+		#controller = source.controller
+		if source.once_per_turn==0:
 			Buff(target, buff).trigger(source)
-			controller.once_per_turn=1
+			source.once_per_turn=1
 class BG23_001:# <12>[1453]
 	""" Snail Cavalry(2)
 	[Once per Turn:]After you cast a spell,gain +2_Health. """
@@ -208,6 +211,60 @@ class BG23_009_G:# <12>[1453]
 	pass
 
 
+
+## Reef Riffer (Naga) (2)
+#BG26__Reef_Riffer=(Config.BG_VERSION>=2620)#(2)
+if BG26__Reef_Riffer:# 
+	BG_Minion_Naga+=['BG26_501','BG26_501e','BG26_501t']
+	BG_Minion_Naga+=['BG26_501_G','BG26_501_Ge','BG26_501_Gt']
+	BG_PoolSet_Naga.append('BG26_501')
+	BG_Naga_Gold['BG26_501']=''
+class BG26_501_Action(GameAction):# 
+	def do(self, source):# 
+		pass# 
+class BG26_501:# (minion)
+	""" Reef Riffer
+	<b>Spellcraft:</b> Give a minion stats equal to your Tavern Tier until next turn. """
+	play=Spellcraft(CONTROLLER,'BG26_501t')
+	events = BeginBar(CONTROLLER).on(Spellcraft(CONTROLLER,'BG26_501t'))
+	tags={2359:'BG26_501t'}
+	pass
+class BG26_501e:
+	""" """
+	events = BeginBar(CONTROLLER).on(Destroy_spellcraft(SELF))	
+class BG26_501t:
+	"""
+	"""
+	requirements={PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_MINION_TARGET:0, PlayReq.REQ_FRIENDLY_TARGET:0}
+	play = SpellcraftSpell(TARGET, 'BG26_501e', TIER(CONTROLLER), TIER(CONTROLLER), 1) 
+	tags = {GameTag.TECH_LEVEL:2}
+	class Hand:
+		events = EndTurn(CONTROLLER).on(Destroy(SELF))
+class BG26_501_G:# (minion)
+	""" Reef Riffer
+	<b>Spellcraft:</b> Give a minion stats equal to twice your Tavern Tier until next turn. """
+	play=Spellcraft(CONTROLLER,'BG26_501_Gt')
+	events = BeginBar(CONTROLLER).on(Spellcraft(CONTROLLER,'BG26_501_Gt'))
+	tags={2359:'BG26_501_Gt'}
+	pass
+class BG26_501_Ge:
+	""" """
+	events = BeginBar(CONTROLLER).on(Destroy_spellcraft(SELF))	
+class BG26_501_Gt:
+	"""
+	"""
+	requirements={PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_MINION_TARGET:0, PlayReq.REQ_FRIENDLY_TARGET:0}
+	play = SpellcraftSpell(TARGET, 'BG26_501e', TIER(CONTROLLER), TIER(CONTROLLER), 2) 
+	tags = {GameTag.TECH_LEVEL:2}
+	class Hand:
+		events = EndTurn(CONTROLLER).on(Destroy(SELF))
+
+
+
+
+
+
+#### TIER 3 ####
 
 ## Stormscale Siren (3)  ### OK ### ### BANNED ###
 if BG_Stormscale_Siren:
@@ -368,6 +425,48 @@ class BG23_011_Gt:
 
 
 
+## Zesty Shaker (Naga) (3)
+#BG26__Zesty_Shaker=(Config.BG_VERSION>=2620) # (3)
+if BG26__Zesty_Shaker:# 
+	BG_Minion_Naga+=['BG26_505']
+	BG_PoolSet_Naga.append('BG26_505')
+	BG_Naga_Gold['BG26_505']=''
+class BG26_505_Action(TargetedAction):# 
+	CARD=ActionArg()
+	TARGET=ActionArg()
+	def do(self, source, card, target):# 
+		if card.spellcraft_spellcard and target==source:
+			if source.once_per_turn:
+				source.once_per_turn=0
+				Give(source.controller, card.id).trigger(source)
+		pass# 
+class BG26_505:# (minion)
+	""" Zesty Shaker
+	<b>Once per Turn:</b> After you cast a <b>Spellcraft</b> spell on this, add a new copy of it to your hand. """
+	events = BG_Play(CONTROLLER).after(BG26_505_Action(BG_Play.CARD, BG_Play.TARGET))
+	pass
+
+	BG_Minion_Naga+=['BG26_505_G']
+class BG26_505_G_Action(TargetedAction):# 
+	CARD=ActionArg()
+	TARGET=ActionArg()
+	def do(self, source, card, target):# 
+		if card.spellcraft_spellcard and target==source:
+			if source.once_per_turn:
+				source.once_per_turn=0
+				Give(source.controller, card.id).trigger(source)
+				Give(source.controller, card.id).trigger(source)
+		pass# 
+class BG26_505_G:# (minion)
+	""" Zesty Shaker
+	<b>Once per Turn:</b> After you cast a <b>Spellcraft</b> spell on this, add 2 new copies of it to your hand. """
+	events = BG_Play(CONTROLLER).after(BG26_505_G_Action(BG_Play.CARD, BG_Play.TARGET))
+	pass
+
+
+
+
+#### TIER 4 ####
 
 #Eelbound Archer (4) ### OK ###
 if BG_Eelbound_Archer:
