@@ -3,27 +3,7 @@ from ..utils import *
 BG26_=[]
 
 
-## Bassgill (Murloc) (4)
-BG26__Bassgill=(Config.BG_VERSION>=2620)
-if BG26__Bassgill:# 
-	BG_Minion_Murloc+=['BG26_350']
-	BG_PoolSet_Murloc.append('BG26_350')
-	BG_Murloc_Gold['BG26_350']=''
-class BG26_350_Action(GameAction):# 
-	def do(self, source):# 
-		pass# 
-class BG26_350:# (minion)(murloc)
-	""" Bassgill
-	<b>Deathrattle:</b> Summon the highest Health minion from your hand for this combat only. """
-	#
-	pass
 
-	BG_Minion_Murloc+=['BG26_350_G']
-class BG26_350_G:# (minion)(murloc)
-	""" Bassgill
-	<b>Deathrattle:</b> Summon the 2 highest Health minions from your hand for this combat only. """
-	#
-	pass
 
 ## Upbeat Flutist (Murloc) (2)
 BG26__Upbeat_Flutist=(Config.BG_VERSION>=2620)

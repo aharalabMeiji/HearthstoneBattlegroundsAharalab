@@ -7,6 +7,7 @@ BG_Murloc_Warleader=True ## (2)
 BG_Saltscale_Honcho=True ## (2)
 BG_Tad=True ## (2)
 BG_Blazing_Skyfin=True ## (2/1/3)
+BG26__Upbeat_Flutist=(Config.BG_VERSION>=2620)#(2)
 
 BG_Coldlight_Seer=True ## (3)
 BG_Felfin_Navigator=True ## (3)
@@ -14,6 +15,7 @@ BG_Swolefin=True ## (3)
 
 BG_Primalfin_Lookout=True ## (4)
 BG26__Bream_Counter=(Config.BG_VERSION>=2620)# (4)
+BG26__Bassgill=(Config.BG_VERSION>=2620) #(4)
 
 BG_King_Bagurgle=True ## (5)
 BG_SI_Sefin=False ## (5) banned 4.2
@@ -68,7 +70,7 @@ class BG22_401_G:# <12>[1453]
 	pass
 BG22_401_Ge=buff(2,0)
 
-
+#### TIER 2 ####
 
 #Murloc Warleader (2)  ### maybe ###
 if BG_Murloc_Warleader:
@@ -148,6 +150,35 @@ class BG25_040_G:
 	events = Play(CONTROLLER, FRIENDLY + BATTLECRY).after(Buff(SELF, 'BG25_040_Ge'))
 	pass
 BG25_040_Ge=buff(2,2)
+
+
+
+## Upbeat Flutist (Murloc) (2)
+#BG26__Upbeat_Flutist=(Config.BG_VERSION>=2620)#(2)
+if BG26__Upbeat_Flutist:# 
+	BG_Minion_Murloc+=['BG26_352','BG26_352e']
+	BG_Minion_Murloc+=['BG26_352_G','BG26_352_Ge']
+	BG_PoolSet_Murloc.append('BG26_352')
+	BG_Murloc_Gold['BG26_352']=''
+class BG26_352_Action(GameAction):# 
+	BUFF=ActionArg()
+	def do(self, source, buff):# 
+		if len(source.controller.hand):
+			Buff(source.controller.hand[0], buff)
+		pass# 
+class BG26_352:# (minion)(murloc)
+	""" Upbeat Flutist
+	At the end of every 2 turns, give a random minion in your hand +9 Health. <i>({0} |4(turn, turns) left!)</i>@At the end of every 2 turns, give a random minion in your hand +9 Health. <i>(End of this turn!)</i> """
+	events = OWN_TURN_END.on(SidequestCounter(SELF, 2,[BG26_352_Action('BG26_352e')]))
+	pass
+BG26_352e=buff(0,9)
+class BG26_352_G:# (minion)(murloc)
+	""" Upbeat Flutist
+	At the end of every 2 turns, give a random minion in your hand +18 Health. <i>({0} |4(turn, turns) left!)</i>@At the end of every 2 turns, give a random minion in your hand +18 Health. <i>(End of this turn!)</i> """
+	events = OWN_TURN_END.on(SidequestCounter(SELF, 2,[BG26_352_Action('BG26_352_Ge')]))
+	pass
+BG26_352_Ge=buff(0,18)
+
 
 ###### tavern tier 3
 
@@ -290,6 +321,62 @@ class BG26_137_G:# (minion)(murloc)
 		events = BG_Play(CONTROLLER, FRIENDLY + MINION + MURLOC).after(Buff(SELF, 'BG26_137e'))
 	pass
 BG26_137_Ge=buff(6,4)
+
+
+
+## Bassgill (Murloc) (4)
+#BG26__Bassgill=(Config.BG_VERSION>=2620) #(4)
+if BG26__Bassgill:# 
+	BG_Minion_Murloc+=['BG26_350','BG26_350e2']
+	BG_Minion_Murloc+=['BG26_350_G']
+	BG_PoolSet_Murloc.append('BG26_350')
+	BG_Murloc_Gold['BG26_350']=''
+class BG26_350_Action(GameAction):# 
+	def do(self, source):# 
+		cards=[]
+		if len(source.controller.hand):
+			for card in source.controller.hand:
+				if card.type==CardType.MINION:
+					if cards==[]:
+						cards=[card]
+					elif cards[0].max_health<card.max_health:
+						cards=[card]
+					elif cards[0].max_health==card.max_health:
+						cards.append(card)
+		if len(cards):
+			card = random.choice(cards)
+			Summon(source.controller, card.id).trigger(source) 
+		pass# 
+class BG26_350:# (minion)(murloc)
+	""" Bassgill
+	<b>Deathrattle:</b> Summon the highest Health minion from your hand for this combat only. """
+	deathrattle = BG26_350_Action()
+	pass
+class BG26_350_G_Action(GameAction):# 
+	def do(self, source):# 
+		cards=[]
+		if len(source.controller.hand):
+			for card in source.controller.hand:
+				if card.type==CardType.MINION:
+					if cards==[]:
+						cards=[card]
+					elif cards[0].max_health<card.max_health:
+						cards=[card]
+					elif cards[0].max_health==card.max_health:
+						cards.append(card)
+		if len(cards)>=2:
+			cards = random.sample(cards,2)
+			Summon(source.controller, cards[0].id).trigger(source) 
+			Summon(source.controller, cards[1].id).trigger(source) 
+		elif len(cards)==1:
+			Summon(source.controller, cards[0].id).trigger(source) 
+			Summon(source.controller, cards[0].id).trigger(source) 
+		pass# 
+class BG26_350_G:# (minion)(murloc)
+	""" Bassgill
+	<b>Deathrattle:</b> Summon the 2 highest Health minions from your hand for this combat only. """
+	deathrattle = BG26_350_G_Action()
+	pass
 
 
 
