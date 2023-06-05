@@ -12,16 +12,20 @@ BG26__Upbeat_Flutist=(Config.BG_VERSION>=2620)#(2)
 BG_Coldlight_Seer=True ## (3)
 BG_Felfin_Navigator=True ## (3)
 BG_Swolefin=True ## (3)
+BG26__Scourfin=(Config.BG_VERSION>=2620)#(3)
 
 BG_Primalfin_Lookout=True ## (4)
 BG26__Bream_Counter=(Config.BG_VERSION>=2620)# (4)
 BG26__Bassgill=(Config.BG_VERSION>=2620) #(4)
+BG26__Plagued_Tidewalker=(Config.BG_VERSION>=2620)#(4)
 
 BG_King_Bagurgle=True ## (5)
 BG_SI_Sefin=False ## (5) banned 4.2
-BG_Toxfin=(Config.BG_VERSION>=2420) ##(4) new 24.2 -> (6) ## 25.2.2 (5)
+BG26__Operatic_Belcher=(Config.BG_VERSION>=2620)#(5)
 
 BG_Young_Murk_Eye=True ## (6) 
+BG_Toxfin=(Config.BG_VERSION>=2420) ##(4) new 24.2 -> (6) ## 25.2.2 (5)
+BG26__Choral_Mrrrglr=(Config.BG_VERSION>=2620)#(6)
 
 
 BG_Minion_Murloc =[]
@@ -245,6 +249,37 @@ BG21_010_Ge=buff(4,2)# <12>[1453]
 
 
 
+## Scourfin (Murloc) (3)
+#BG26__Scourfin=(Config.BG_VERSION>=2620)#(3)
+if BG26__Scourfin:# 
+	BG_Minion_Murloc+=['BG26_360','BG26_360e']
+	BG_Minion_Murloc+=['BG26_360_G','BG26_360_Ge']
+	BG_PoolSet_Murloc.append('BG26_360')
+	BG_Murloc_Gold['BG26_360']=''
+class BG26_360_Action(GameAction):# 
+	BUFF=ActionArg()
+	def do(self, source, buff):# 
+		original_controller = getattr(source.controller,'deepcopy_original')
+		if original_controller != None:
+			if len(original_controller.hand):
+				card=random.choice(original_controller.hand)
+				Buff(card, buff).trigger(source)
+		pass# 
+class BG26_360:# (minion)(murloc)
+	""" Scourfin
+	<b>Deathrattle:</b> Give a random minion in your hand +5/+5. """
+	deathrattle = BG26_360_Action('BG26_360e')
+	pass
+BG26_360e=buff(5,5)
+class BG26_360_G:# (minion)(murloc)
+	""" Scourfin
+	<b>Deathrattle:</b> Give a random minion in your hand +10/+10. """
+	deathrattle = BG26_360_Action('BG26_360_Ge')
+	pass
+BG26_360_Ge=buff(10,10)
+
+
+
 #### TIER 4 ####
 
 #Primalfin Lookout (4) ### maybe ###
@@ -380,6 +415,30 @@ class BG26_350_G:# (minion)(murloc)
 
 
 
+## Plagued Tidewalker (Murloc) (4)
+#BG26__Plagued_Tidewalker=(Config.BG_VERSION>=2620)#(4)
+if BG26__Plagued_Tidewalker:# 
+	BG_Minion_Murloc+=['BG26_361']
+	BG_Minion_Murloc+=['BG26_361_G']
+	BG_PoolSet_Murloc.append('BG26_361')
+	BG_Murloc_Gold['BG26_361']=''
+class BG26_361_Action(GameAction):# 
+	def do(self, source):# 
+		pass# 
+class BG26_361:# (minion)(murloc)
+	""" Plagued Tidewalker
+	<b>Venomous</b> """
+	#<Tag enumID="2853" name="VENOMOUS" type="Int" value="1"/>
+	pass
+class BG26_361_G:# (minion)(murloc)
+	""" Plagued Tidewalker
+	<b>Venomous</b> """
+	#<Tag enumID="2853" name="VENOMOUS" type="Int" value="1"/>
+	pass
+
+
+
+
 #### TIER 5 ####
 
 #King Bagurgle (5) ### OK ###
@@ -425,6 +484,43 @@ class BG21_009_G:# <12>[1453]
 
 
 
+## Operatic Belcher (Murloc) (5)
+#BG26__Operatic_Belcher=(Config.BG_VERSION>=2620)#(5)
+if BG26__Operatic_Belcher:# 
+	BG_Minion_Murloc+=['BG26_888']
+	BG_Minion_Murloc+=['BG26_888_G']
+	BG_PoolSet_Murloc.append('BG26_888')
+	BG_Murloc_Gold['BG26_888']=''
+class BG26_888_Action(GameAction):# 
+	def do(self, source):# 
+		cards=[card for card in source.controller.field if card.Race==Race.MURLOC]
+		if len(cards):
+			card = random.choice(cards)
+			card.venomous=True
+		pass# 
+class BG26_888:# (minion)(murloc)
+	""" Operatic Belcher
+	<b>Venomous.</b> <b>Deathrattle:</b> Give a friendly Murloc <b>Venomous</b>. """
+	deathrattle = BG26_888_Action()
+	pass
+class BG26_888_G_Action(GameAction):# 
+	def do(self, source):# 
+		cards=[card for card in source.controller.field if card.Race==Race.MURLOC]
+		if len(cards)==1:
+			card = random.choice(cards)
+			card.venomous=True
+		elif len(cards)>1:
+			cards=random.sample(cards, 2)
+			for card in cards:
+				card.venomous=True
+		pass# 
+class BG26_888_G:# (minion)(murloc)
+	""" Operatic Belcher
+	<b>Venomous.</b> <b>Deathrattle:</b> Give 2 friendly Murlocs <b>Venomous</b>. """
+	deathrattle = BG26_888_G_Action()
+	pass
+
+
 
 
 #### TIER 6 ####
@@ -468,5 +564,36 @@ class TB_BaconUps_152:
 	else:
 		option_tags={GameTag.TECH_LEVEL:4}
 	play = SetTag(TARGET, (GameTag.POISONOUS,))
+
+
+
+## Choral Mrrrglr (Murloc) (6)
+#BG26__Choral_Mrrrglr=(Config.BG_VERSION>=2620)#(6)
+if BG26__Choral_Mrrrglr:# 
+	BG_Minion_Murloc+=['BG26_354','BG26_354e']
+	BG_Minion_Murloc+=['BG26_354_G']
+	BG_PoolSet_Murloc.append('BG26_354')
+	BG_Murloc_Gold['BG26_354']=''
+class BG26_354_Action(GameAction):#
+	AMOUNT=IntArg()
+	def do(self, source, amount):# 
+		if len(source.controller.hand):
+			atk=0
+			hlt=0
+			for card in source.controller.hand:
+				atk += (card.atk*amount)
+				hlt += (card.max_health*amount)
+			Buff(source, 'BG26_354e', atk=atk, max_health=hlt).trigger(source)
+		pass# 
+class BG26_354:# (minion)(murloc)
+	""" Choral Mrrrglr
+	<b>Start of Combat:</b> Gain the stats of all the minions in your hand. """
+	events = BeginBattle(CONTROLLER).on(BG26_354_Action(1))
+	pass
+class BG26_354_G:# (minion)(murloc)
+	""" Choral Mrrrglr
+	<b>Start of Combat:</b> Gain the stats of all the minions in your hand twice. """
+	events = BeginBattle(CONTROLLER).on(BG26_354_Action(2))
+	pass
 
 
