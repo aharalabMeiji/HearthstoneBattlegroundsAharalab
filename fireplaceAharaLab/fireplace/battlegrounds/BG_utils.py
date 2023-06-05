@@ -311,8 +311,11 @@ class BG_main:
 					controller.used_mana = 0
 					controller.total_used_mana_this_turn = 0
 					if controller.hero.power.id=='TB_BaconShop_HP_008':
-						controller.used_mana = -controller.sells_in_this_turn
+						controller.used_mana -= controller.sells_in_this_turn
 					controller.sells_in_this_turn=0
+					if controller.southsea_busker_powered_up>0:
+						controller.used_mana -= controller.southsea_busker_powered_up
+						controller.southsea_busker_powered_up=0
 					### deal cards to tavern
 					frozencard=0
 					for card in reversed(bartender.field):

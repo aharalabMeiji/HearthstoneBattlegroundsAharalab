@@ -25,27 +25,6 @@ class BG26_124_G:# (minion)
 	#
 	pass
 
-## Southsea Busker (Pirate) (1)
-BG26__Southsea_Busker=(Config.BG_VERSION>=2620)
-if BG26__Southsea_Busker:# 
-	BG_Minion_Pirate+=['BG26_135']
-	BG_PoolSet_Pirate.append('BG26_135')
-	BG_Pirate_Gold['BG26_135']=''
-class BG26_135_Action(GameAction):# 
-	def do(self, source):# 
-		pass# 
-class BG26_135:# (minion)
-	""" Southsea Busker
-	<b>Battlecry:</b> Gain 1 Gold next turn. """
-	#
-	pass
-
-	BG_Minion_Pirate+=['BG26_135_G']
-class BG26_135_G:# (minion)
-	""" Southsea Busker
-	<b>Battlecry:</b> Gain 2 Gold next turn. """
-	#
-	pass
 
 ## Fleet Admiral Tethys (Pirate) (6)
 BG26__Fleet_Admiral_Tethys=(Config.BG_VERSION>=2620)
@@ -69,27 +48,7 @@ class BG26_766_G:# (minion)
 	#
 	pass
 
-## Gunpowder Courier (Pirate) (3)
-BG26__Gunpowder_Courier=(Config.BG_VERSION>=2620)
-if BG26__Gunpowder_Courier:# 
-	BG_Minion_Pirate+=['BG26_810']
-	BG_PoolSet_Pirate.append('BG26_810')
-	BG_Pirate_Gold['BG26_810']=''
-class BG26_810_Action(GameAction):# 
-	def do(self, source):# 
-		pass# 
-class BG26_810:# (minion)
-	""" Gunpowder Courier
-	After you spend 5 Gold, give your Pirates +1 Attack. <i>(@ Gold left!)</i> """
-	#
-	pass
 
-	BG_Minion_Pirate+=['BG26_810_G']
-class BG26_810_G:# (minion)
-	""" Gunpowder Courier
-	After you spend 5 Gold, give your Pirates +2 Attack. <i>(@ Gold left!)</i> """
-	#
-	pass
 
 ## Record Smuggler (Pirate) (5)
 BG26__Record_Smuggler=(Config.BG_VERSION>=2620)

@@ -2,6 +2,7 @@ from ..utils import *
 
 BG_Deck_Swabbie=True ## (1)
 BG_Scallywag=True ##,1
+BG26__Southsea_Busker=(Config.BG_VERSION>=2620)#(1)
 
 BG_Freedealing_Gambler=True ##,2
 BG_Southsea_Captain=True ##,2
@@ -11,6 +12,7 @@ BG_Briny_Bootlegger=(Config.BG_VERSION<2420) ##,3 banned 24.2
 BG_Salty_Looter=True ##,3
 BG_Southsea_Strongarm=True ##,3,
 BG_First_Mate_Pip=(Config.BG_VERSION>=2420) ##(3) new 24.2
+BG26__Gunpowder_Courier=(Config.BG_VERSION>=2620) # (3)
 
 BG_Goldgrubber=True ##,4
 BG_Peggy_Brittlebone=(Config.BG_VERSION<2522) ##,4  banned 25.2.2
@@ -33,6 +35,7 @@ BG_Pirate_Gold={}
 ## 25.2.2-
 #Corpse Refiner 2/2/3/Pirate, Undead	Avenge (X)
 
+#### TIER 1 ####
 
 #Deck Swabbie,1,2,2,Pirate,Battlecry ### OK ###
 if BG_Deck_Swabbie:
@@ -93,7 +96,35 @@ if BG25__Thorncaptain:# 1/4/2 quilboar/pirate ## new 25.2.2
 	BG_PoolSet_Pirate.append('BG25_045')
 	BG_Pirate_Gold['BG25_045']='BG25_045_G'
 
-########## tavern tier 2
+
+
+## Southsea Busker (Pirate) (1)
+#BG26__Southsea_Busker=(Config.BG_VERSION>=2620)#(1)
+if BG26__Southsea_Busker:# 
+	BG_Minion_Pirate+=['BG26_135']
+	BG_Minion_Pirate+=['BG26_135_G']
+	BG_PoolSet_Pirate.append('BG26_135')
+	BG_Pirate_Gold['BG26_135']=''
+class BG26_135_Action(GameAction):# 
+	AMOUNT=IntArg()
+	def do(self, source, amount):# 
+		source.southsea_busker_powered_up=amount
+		pass# 
+class BG26_135:# (minion)
+	""" Southsea Busker
+	<b>Battlecry:</b> Gain 1 Gold next turn. """
+	play = BG26_135_Action(1)
+	pass
+
+class BG26_135_G:# (minion)
+	""" Southsea Busker
+	<b>Battlecry:</b> Gain 2 Gold next turn. """
+	play = BG26_135_Action(2)
+	pass
+
+
+
+#### tavern tier 2 ####
 
 #Freedealing Gambler,2,3,3,Pirate,- ### OK ###
 if BG_Freedealing_Gambler:
@@ -257,7 +288,7 @@ class TB_BaconUps_140:# <12>[1453]
 TB_BaconUps_140e=buff(2,2)
 
 
-##### BG23_192 #######
+## First Mate Pip (3) ### BG23_192 #######
 if BG_First_Mate_Pip: ##(3) new 24.2
 	BG_Minion_Pirate +=['BG23_192','BG23_192_G']
 	BG_PoolSet_Pirate.append('BG23_192')
@@ -270,6 +301,61 @@ class BG23_192_G:
 	""" First Mate Pip (3)
 	<i>(Only 2 copies of this minion were needed to make it Golden.)</i>"""
 	pass
+
+
+
+## Gunpowder Courier (Pirate) (3)
+#BG26__Gunpowder_Courier=(Config.BG_VERSION>=2620) # (3)
+if BG26__Gunpowder_Courier:# 
+	BG_Minion_Pirate+=['BG26_810']
+	BG_PoolSet_Pirate.append('BG26_810')
+	BG_Pirate_Gold['BG26_810']=''
+class BG26_810_Action(GameAction):# 
+	def do(self, source):# 
+		pass# 
+class BG26_810_Action(GameAction):
+	"""
+	AMOUNT = IntArg() #
+	"""
+	AMOUNT = IntArg() #spent mana
+	def do(self, source, amount):
+		triggeramount=5
+		if amount==1:#buy a minion
+			spent=source.controller.game.minionCost
+		elif amount==2:# rerole
+			spent=source.controller.game.reroleCost
+		else:# upgrade
+			spent=source.controller.tavern_tierup_cost
+		source.sidequest_counter += spent
+		if source.sidequest_counter>= triggeramount:
+			## trigger action
+			source.sidequest_counter -= triggeramount
+			source.script_data_num_1 = source.sidequest_counter
+			i=0###################################################
+			if targetaction!=None:
+				if not isinstance(targetaction,list):
+					targetaction = [targetaction]
+				for action in targetaction:
+					if isinstance(action, TargetedAction):
+						action.trigger(source)
+class BG26_810:# (minion)
+	""" Gunpowder Courier
+	After you spend 5 Gold, give your Pirates +1 Attack. <i>(@ Gold left!)</i> """
+	events = [Buy(CONTROLLER).after(BG26_810_Action(1)), 
+		   Rerole(CONTROLLER).after(BG26_810_Action(2)), 
+		   UpgradeTier(CONTROLLER).after(BG26_810_Action(3))]
+	pass
+
+	BG_Minion_Pirate+=['BG26_810_G']
+class BG26_810_G:# (minion)
+	""" Gunpowder Courier
+	After you spend 5 Gold, give your Pirates +2 Attack. <i>(@ Gold left!)</i> """
+	#
+	pass
+
+
+#### TIER 4 ####
+
 
 #Goldgrubber,4,4,4,Pirate,- 金ぴか ### OK ###
 if BG_Goldgrubber:

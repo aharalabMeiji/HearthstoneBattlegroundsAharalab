@@ -2723,6 +2723,8 @@ class SidequestManaCounter(TargetedAction):
 					if isinstance(action, TargetedAction):
 						action.trigger(source)
 
+
+
 class SidequestLostInTheParkCounter(TargetedAction):##  SW_428 Lost in the park
 	""" count ATK buffed on the hero """
 	TARGET = ActionArg()# sidequest card
