@@ -20,7 +20,9 @@ BG26__Zesty_Shaker=(Config.BG_VERSION>=2620) # (3)
 BG_Eelbound_Archer=True## (4)
 BG_Waverider=True## (4)
 BG_Eventide_Brute=True## (4)
-#BG_Pufferquil=True(4/2/6): quilboar
+from .BG_minion_quilboar import BG25__Pufferquil#BG_Pufferquil=True(4/2/6): quilboar
+BG26__Silent_Swimmer=(Config.BG_VERSION>=2620)#(4)
+BG26__Deep_Blue_Crooner=(Config.BG_VERSION>=2620)#(4)
 
 BG_Critter_Wrangler=True##(5)
 BG_Glowscale=True## (5)
@@ -578,13 +580,110 @@ class BG23_010_G:# <12>[1453]
 BG23_010_Ge=buff(2,2)
 	
 
-from .BG_minion_quilboar import BG25__Pufferquil
 if BG25__Pufferquil:# 4/2/6, quilbour/naga
 	BG_Minion_Naga+=['BG25_039','BG25_039_G','BG25_039_Ge','BG25_039e']
 	BG_PoolSet_Naga.append('BG25_039')
 	BG_Naga_Gold['BG25_039']='BG25_039_G'
 
-########### tavern tierr 5
+
+
+## Silent Swimmer (Naga) (4)
+#BG26__Silent_Swimmer=(Config.BG_VERSION>=2620)#(4)
+if BG26__Silent_Swimmer:# 
+	BG_Minion_Naga+=['BG26_171','BG26_171e','BG26_171t']
+	BG_Minion_Naga+=['BG26_171_G','BG26_171_Ge','BG26_171_Gt']
+	BG_PoolSet_Naga.append('BG26_171')
+	BG_Naga_Gold['BG26_171']='BG26_171_G'
+class BG26_171:# (minion)
+	""" Silent Swimmer
+	<b>Spellcraft:</b> Give a minion +3/+5 and <b>Stealth</b> until next turn. """
+	play=Spellcraft(CONTROLLER,'BG26_171t')
+	events = BeginBar(CONTROLLER).on(Spellcraft(CONTROLLER,'BG26_171t'))
+	tags={2359:'BG26_171t'}
+	pass
+class BG26_171t:# (minion)
+	""" """
+	requirements={PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_MINION_TARGET:0, PlayReq.REQ_FRIENDLY_TARGET:0}
+	play = SpellcraftSpell(TARGET, 'BG26_171e')	
+	tags = {GameTag.TECH_LEVEL:4}
+	class Hand:
+		events = EndTurn(CONTROLLER).on(Destroy(SELF))
+	pass
+BG26_1761e=buff(3,5, stealth=True)
+class BG26_171_G:# (minion)
+	""" Silent Swimmer
+	<b>Spellcraft:</b> Give a minion +6/+10 and <b>Stealth</b> until next turn. """
+	play=Spellcraft(CONTROLLER,'BG26_171t')
+	events = BeginBar(CONTROLLER).on(Spellcraft(CONTROLLER,'BG26_171t'))
+	tags={2359:'BG26_171t'}
+	pass
+class BG26_171_Gt:# (minion)
+	""" """
+	requirements={PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_MINION_TARGET:0, PlayReq.REQ_FRIENDLY_TARGET:0}
+	play = SpellcraftSpell(TARGET, 'BG26_171e')	
+	tags = {GameTag.TECH_LEVEL:4}
+	class Hand:
+		events = EndTurn(CONTROLLER).on(Destroy(SELF))
+BG26_171_Ge=buff(6,10, stealth=True)
+
+
+
+## Deep Blue Crooner (Naga) (4)
+#BG26__Deep_Blue_Crooner=(Config.BG_VERSION>=2620)#(4)
+if BG26__Deep_Blue_Crooner:# 
+	BG_Minion_Naga+=['BG26_502','BG26_502e','BG26_502t']
+	BG_Minion_Naga+=['BG26_502_G','BG26_502_Ge','BG26_502_Gt']
+	BG_PoolSet_Naga.append('BG26_502')
+	BG_Naga_Gold['BG26_502']=''
+class BG26_502:# (minion)
+	""" Deep Blue Crooner
+	<b>Spellcraft:</b> Give a minion +@/+@ until next turn. Improve your future Deep Blues. """
+	#<Tag enumID="2" name="TAG_SCRIPT_DATA_NUM_1" type="Int" value="1"/>
+	play=Spellcraft(CONTROLLER,'BG26_502t')
+	events = BeginBar(CONTROLLER).on(Spellcraft(CONTROLLER,'BG26_502t'))
+	tags={2359:'BG26_502t'}
+	pass
+class BG26_502t_action(TargetedAction):
+	TARGET = ActionArg()
+	def do(self, source, target):
+		if getattr(source, 'parent_card')!=None:
+			amount = source.parent_card.script_data_num_1
+			SpellcraftSpell(target, 'BG26_502e', optionatk=amount, optionhlt=amount),
+			source.parent_card.script_data_num_1 += 1
+class BG26_502t:# (minion)
+	requirements={PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_MINION_TARGET:0, PlayReq.REQ_FRIENDLY_TARGET:0}
+	play = 	BG26_502t_action(TARGET)
+	tags = {GameTag.TECH_LEVEL:4}
+	class Hand:
+		events = EndTurn(CONTROLLER).on(Destroy(SELF))
+class BG26_502e:# 
+	pass
+class BG26_502_G:# (minion)
+	""" Deep Blue Crooner
+	<b>Spellcraft:</b> Give a minion +@/+@ until next turn. Improve your future Deep Blues. """
+	#<Tag enumID="2" name="TAG_SCRIPT_DATA_NUM_1" type="Int" value="2"/>
+	play=Spellcraft(CONTROLLER,'BG26_502_Gt')
+	events = BeginBar(CONTROLLER).on(Spellcraft(CONTROLLER,'BG26_502_Gt'))
+	tags={2359:'BG26_502_Gt'}
+	pass
+class BG26_502_Gt_action(TargetedAction):
+	TARGET = ActionArg()
+	def do(self, source, target):
+			amount = source.parent_card.script_data_num_1
+			SpellcraftSpell(target, 'BG26_502e', optionatk=amount, optionhlt=amount),
+			source.parent_card.script_data_num_1 += 2
+class BG26_502_Gt:# (minion)
+	requirements={PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_MINION_TARGET:0, PlayReq.REQ_FRIENDLY_TARGET:0}
+	play = 	BG26_502_Gt_action(TARGET)
+	tags = {GameTag.TECH_LEVEL:4}
+	class Hand:
+		events = EndTurn(CONTROLLER).on(Destroy(SELF))
+class BG26_502_Ge:# 
+	pass
+
+
+
+#### tavern tierr 5 ####
 
 ## Critter Wrangler(5)  ### OK ###
 if BG_Critter_Wrangler:

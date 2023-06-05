@@ -12,6 +12,7 @@ from .logging import log
 from .utils import random_class
 from .config import Config
 from .dsl.random_picker import RandomEntourage, RandomID
+from .cards.utils import get00
 
 def _eval_card(source, card):
 	"""
@@ -3939,7 +3940,9 @@ class Spellcraft(TargetedAction):
 		if controller!=source.controller:
 			controller=source.controller## why! no way.
 		self.broadcast(source, EventListener.ON, controller, spellcard)
-		Give(controller, spellcard).trigger(source)
+		newcard=Give(controller, spellcard).trigger(source)
+		newcard=get00(newcard)
+		newcard.parent_card=source
 		self.broadcast(source, EventListener.AFTER, controller, spellcard)
 		pass
 
