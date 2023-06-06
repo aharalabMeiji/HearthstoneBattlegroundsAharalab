@@ -307,7 +307,8 @@ class BG23_192_G:
 ## Gunpowder Courier (Pirate) (3)
 #BG26__Gunpowder_Courier=(Config.BG_VERSION>=2620) # (3)
 if BG26__Gunpowder_Courier:# 
-	BG_Minion_Pirate+=['BG26_810']
+	BG_Minion_Pirate+=['BG26_810','BG26_810e']
+	BG_Minion_Pirate+=['BG26_810_G']
 	BG_PoolSet_Pirate.append('BG26_810')
 	BG_Pirate_Gold['BG26_810']=''
 class BG26_810_Action(GameAction):# 
@@ -330,28 +331,30 @@ class BG26_810_Action(GameAction):
 		if source.sidequest_counter>= triggeramount:
 			## trigger action
 			source.sidequest_counter -= triggeramount
-			source.script_data_num_1 = source.sidequest_counter
-			i=0###################################################
-			if targetaction!=None:
-				if not isinstance(targetaction,list):
-					targetaction = [targetaction]
-				for action in targetaction:
-					if isinstance(action, TargetedAction):
-						action.trigger(source)
+			source.script_data_num_1 = triggeramount - source.sidequest_counter
+			for card in source.controller.field:
+				if isRaceCard(card, Race.PIRATE):
+					Buff(card, 'BG26_810e').trigger(source)
 class BG26_810:# (minion)
 	""" Gunpowder Courier
 	After you spend 5 Gold, give your Pirates +1 Attack. <i>(@ Gold left!)</i> """
-	events = [Buy(CONTROLLER).after(BG26_810_Action(1)), 
-		   Rerole(CONTROLLER).after(BG26_810_Action(2)), 
-		   UpgradeTier(CONTROLLER).after(BG26_810_Action(3))]
+	tags={GameTag.DATA_SCRIPT_DATA_NUM_1:5}
+	events = [Buy(CONTROLLER).after(BG26_810_Action(1,'BG26_810e')), 
+		   Rerole(CONTROLLER).after(BG26_810_Action(2,'BG26_810e')), 
+		   UpgradeTier(CONTROLLER).after(BG26_810_Action(3,'BG26_810e'))]
 	pass
+BG26_810e=buff(1,0)
 
-	BG_Minion_Pirate+=['BG26_810_G']
 class BG26_810_G:# (minion)
 	""" Gunpowder Courier
 	After you spend 5 Gold, give your Pirates +2 Attack. <i>(@ Gold left!)</i> """
 	#
+	tags={GameTag.DATA_SCRIPT_DATA_NUM_1:5}
+	events = [Buy(CONTROLLER).after(BG26_810_Action(1,'BG26_810e')), 
+		   Rerole(CONTROLLER).after(BG26_810_Action(2,'BG26_810e')), 
+		   UpgradeTier(CONTROLLER).after(BG26_810_Action(3,'BG26_810e'))]	
 	pass
+BG26_810_Ge=buff(2,0)
 
 
 #### TIER 4 ####
