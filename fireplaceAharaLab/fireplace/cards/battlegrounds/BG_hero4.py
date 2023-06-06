@@ -344,7 +344,7 @@ class TB_BaconShop_HP_022:
 	##Add a 1/1 Shudderling to your hand that repeats all [Battlecries] you've played. <i>(Twice per game.)</i>"##<2560
 	if Config.BG_VERSION>=2560:
 		option_tags={GameTag.COST:0}
-		requirements = {PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_MINION_TARGET:0, PlayReq.REQ_FRIENDLY_TARGET:0}
+		requirements = {PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_MINION_TARGET:0, PlayReq.REQ_FRIENDLY_TARGET:0, PlayReq.REQ_TARGET_WITH_BATTLECRY:0}
 		activate = PlayBattlecry(TARGET)
 	else:
 		option_tags={GameTag.COST:1}
