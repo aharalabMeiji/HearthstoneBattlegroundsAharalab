@@ -7,26 +7,26 @@ BG_Imprisoner=False ##(2)->(1)-> banned when?
 BG_Impulsive_Trickster=True ##(1)->(2)
 BG_Mind_Muck=(Config.BG_VERSION>=2420) #(2) new 24.2
 BG_Nathrezim_Overseer=(Config.BG_VERSION<2420) ##(2) banned 24.2
-BG_Piggyback_Imp=(Config.BG_VERSION>=2420) #(2) new 24.2
+BG_Piggyback_Imp=(Config.BG_VERSION>=2420 and Config.BG_VERSION<2620) #(2) new 24.2 banned 26.2
 BG26__Soul_Rewinder=(Config.BG_VERSION>=2620)(2)
 BG26__Backstage_Security=(Config.BG_VERSION>=2620)(2)
 
 #BG_Felemental : -> ELEMENTAL
-BG_Kathra_natir=True ##(3)
+BG_Kathra_natir=(Config.BG_VERSION<2620) ##(3) banned 26.2
 BG_Leeching_Felhound=(Config.BG_VERSION>=2560) ## 3/3/3 new 25.6 #########
 BG_Legion_Overseer=(Config.BG_VERSION>=2420)## (3) new 24.2 
 BG_Soul_Devourer=(Config.BG_VERSION<2420) ##(3) banned 24.2
 BG26__Keyboard_Igniter=(Config.BG_VERSION>=2620)#(3) #
 BG26__Malchezaar_Prince_of_Dance=(Config.BG_VERSION>=2620)(3)
 
-BG_Bigfernal=True ##(4)
+BG_Bigfernal=(Config.BG_VERSION<2620) ##(4) banned 26.2
 BG_Ring_Matron=True ##(4)
 
 BG_Annihilan_Battlemaster=True ##(5)
 BG_Insatiable_Ur_zul=True ##(5)
-BG_Voidlord=True ##(5)
-BG26__Tichondrius=(Config.BG_VERSION>=2620)#(5)
-BG26__Imposing_Percussionist=(Config.BG_VERSION>=2620)#(5)
+BG_Voidlord=(Config.BG_VERSION<2620) ##(5) banned 26.2
+BG26__Tichondrius=(Config.BG_VERSION>=2620)#(5/4/4)
+BG26__Imposing_Percussionist=(Config.BG_VERSION>=2620)#(5/6/6)
 
 BG_Famished_Felbat=True ##(6)
 BG_Imp_Mama=(Config.BG_VERSION<2522) ##(6) ## banned? 25.2.2
@@ -275,7 +275,7 @@ class BG26_528_G:# (minion)(demon)
 ########### tavern tier 3
 
 
-#################### カスラナティール（カステラ） (3)### maybe OK ###
+#################### カスラナティール（カステラ） (3)### maybe OK ### banned 26.2
 if BG_Kathra_natir:
 	BG_Minion_Demon +=['BG21_039','BG21_039e','BG21_039_G','BG21_039_Ge']
 	BG_PoolSet_Demon.append('BG21_039')
@@ -468,7 +468,7 @@ class BG26_524_G:# (minion)(demon)
 
 ############ tavern tier 4
 
-################### 焦熱の圧鬼（あっき）(4)### maybe ###
+################### 焦熱の圧鬼（あっき）(4)### maybe ### banned 26.2
 if BG_Bigfernal:
 	BG_Minion_Demon +=['BGS_204','BGS_204e','TB_BaconUps_304','TB_BaconUps_304e']
 	BG_PoolSet_Demon.append('BGS_204')
@@ -563,7 +563,7 @@ class BG21_004_G:# <12>[1453]
 	pass
 
 
-#################### ヴォイドロード (5)### OK ###
+#################### ヴォイドロード (5)### OK ### banned 26.2
 if BG_Voidlord:
 	BG_Minion_Demon +=['BG_LOOT_368','CS2_065','TB_BaconUps_059','TB_BaconUps_059t']
 	BG_PoolSet_Demon.append('BG_LOOT_368')

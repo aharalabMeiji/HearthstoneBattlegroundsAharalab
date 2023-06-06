@@ -13,23 +13,23 @@ BG26__Reef_Riffer=(Config.BG_VERSION>=2620)#(2)
 
 BG_Stormscale_Siren=False## (3) BANNED! when?
 BG_Pashmar_the_Vengeful=True## (3)
-BG_Warden_of_Old=True## (3)
-BG_Shoal_Commander=True## (3)
+BG_Warden_of_Old=(Config.BG_VERSION<2620)## (3) ## banned 26.2
+BG_Shoal_Commander=(Config.BG_VERSION<2620)## (3) ## banned 26.2
 BG26__Zesty_Shaker=(Config.BG_VERSION>=2620) # (3)
 
-BG_Eelbound_Archer=True## (4)
-BG_Waverider=True## (4)
+BG_Eelbound_Archer=(Config.BG_VERSION<2620)## (4) ## banned 26.2
+BG_Waverider=(Config.BG_VERSION<2620)## (4) banned 26.2
 BG_Eventide_Brute=True## (4)
 from .BG_minion_quilboar import BG25__Pufferquil#BG_Pufferquil=True(4/2/6): quilboar
-BG26__Silent_Swimmer=(Config.BG_VERSION>=2620)#(4)
-BG26__Deep_Blue_Crooner=(Config.BG_VERSION>=2620)#(4)
+BG26__Silent_Swimmer=(Config.BG_VERSION>=2620)#(4/5/3)
+BG26__Deep_Blue_Crooner=(Config.BG_VERSION>=2620)#(4/2/2)
 
 BG_Critter_Wrangler=True##(5)
 BG_Glowscale=True## (5)
 BG_Corrupted_Myrmidon=True## (5)
 
 BG_Tidemistress_Athissa=True## (6)
-BG25__Greta_Gold_Gun=(Config.BG_VERSION>=2522)# 6/2/9 naga/pirate ## new 25.2.2
+BG25__Greta_Gold_Gun=(Config.BG_VERSION>=2522)# 6/2/9 naga/pirate ## new 25.2.2 ## banned 26.2
 
 BG_Minion_Naga=[]
 
@@ -124,12 +124,20 @@ class BG23_001_Action(TargetedAction):
 class BG23_001:# <12>[1453]
 	""" Snail Cavalry(2)
 	[Once per Turn:]After you cast a spell,gain +2_Health. """
+	if Config.BG_VERSION>=2620:
+		option_tags={GameTag.ATK:5, GameTag.HEALTH:2}
+	else:
+		option_tags={GameTag.ATK:4, GameTag.HEALTH:2}
 	events = BG_Play(CONTROLLER, SPELL).on(BG23_001_Action(SELF, 'BG23_001e'))
 	pass
 BG23_001e=buff(0,2)
 class BG23_001_G:# <12>[1453]
 	""" Snail Cavalry
 	[Once per Turn:]After you cast a spell,gain +4_Health. """
+	if Config.BG_VERSION>=2620:
+		option_tags={GameTag.ATK:10, GameTag.HEALTH:4}
+	else:
+		option_tags={GameTag.ATK:8, GameTag.HEALTH:4}
 	events = BG_Play(CONTROLLER, SPELL).on(BG23_001_Action(SELF, 'BG23_001_Ge'))
 	pass
 BG23_001_Ge=buff(0,4)
@@ -143,13 +151,17 @@ if BG_Deep_Sea_Angler:
 	BG_Naga_Gold['BG23_004']='BG23_004_G'
 class BG23_004:# <12>[1453]
 	""" Deep-Sea Angler (2)
-	[Spellcraft:] Give a minion+3 Health and [Taunt]until next turn. """
+	[Spellcraft:] Give a minion+4 Health and [Taunt]until next turn. """
+	##[Spellcraft:] Give a minion+3 Health and [Taunt]until next turn. """
 	play=Spellcraft(CONTROLLER,'BG23_004t')
 	events = BeginBar(CONTROLLER).on(Spellcraft(CONTROLLER,'BG23_004t'))
 	tags={2359:'BG23_004t'}
 	pass
 class BG23_004e:
-	tags={GameTag.HEALTH:3, GameTag.TAUNT:True}
+	if Config.BG_VERSION>=2620:
+		tags={GameTag.HEALTH:4, GameTag.TAUNT:True}
+	else:
+		tags={GameTag.HEALTH:3, GameTag.TAUNT:True}
 	events = BeginBar(CONTROLLER).on(Destroy_spellcraft(SELF))	
 	pass
 class BG23_004t:
@@ -167,7 +179,10 @@ class BG23_004_G:# <12>[1453]
 	tags={2359:'BG23_004_Gt'}
 	pass
 class BG23_004_Ge:
-	tags={GameTag.HEALTH:6, GameTag.TAUNT:True}
+	if Config.BG_VERSION>=2620:
+		tags={GameTag.HEALTH:8, GameTag.TAUNT:True}
+	else:
+		tags={GameTag.HEALTH:6, GameTag.TAUNT:True}
 	events = BeginBar(CONTROLLER).on(Destroy_spellcraft(SELF))	
 	pass
 class BG23_004_Gt:
@@ -352,7 +367,7 @@ class BG23_014_G:# <12>[1453]
 
 
 
-## Warden of Old (3) ### OK ###
+## Warden of Old (3) ### OK ### banned 26.2
 if BG_Warden_of_Old:
 	BG_Minion_Naga+=['BGS_200','TB_BaconUps_256', ]#
 	BG_PoolSet_Naga.append('BGS_200')
@@ -384,7 +399,7 @@ class TB_BaconUps_256:# <12>[1453]
 
 
 
-### Shoal Commander (3)
+### Shoal Commander (3) ## banned 26.2
 if BG_Shoal_Commander:
 	BG_Minion_Naga+=['BG23_011','BG23_011e','BG23_011t','BG23_011_G','BG23_011_Ge','BG23_011_Gt', ]#
 	BG_PoolSet_Naga.append('BG23_011')
@@ -470,7 +485,7 @@ class BG26_505_G:# (minion)
 
 #### TIER 4 ####
 
-#Eelbound Archer (4) ### OK ###
+#Eelbound Archer (4) ### OK ### banned 26.2
 if BG_Eelbound_Archer:
 	BG_Minion_Naga+=['BG23_006','BG23_006e','BG23_006t','BG23_006_G','BG23_006_Ge','BG23_006_Gt', ]#
 	BG_PoolSet_Naga.append('BG23_006')
@@ -513,7 +528,7 @@ class BG23_006_Gt:
 
 
 
-## Waverider (4) ### OK ### too hard to manage windfury buff
+## Waverider (4) ### OK ### too hard to manage windfury buff ## banned 26.2
 if BG_Waverider:
 	BG_Minion_Naga+=['BG23_007','BG23_007e','BG23_007t','BG23_007_G','BG23_007_Ge','BG23_007_Gt', ]#
 	BG_PoolSet_Naga.append('BG23_007')
@@ -831,7 +846,7 @@ class BG23_013_G:# <12>[1453]
 BG23_013_Ge=buff(2,2)
 
 
-if BG25__Greta_Gold_Gun:# 6/2/9 naga/pirate ## new 25.2.2#########################################
+if BG25__Greta_Gold_Gun:# 6/2/9 naga/pirate ## new 25.2.2##### banned 26.2 #############
 	BG_Minion_Naga+=['BG25_044','BG25_044_G','BG25_044e2','BG25_044t']
 	BG_PoolSet_Naga.append('BG25_044')
 	BG_Naga_Gold['BG25_044']='BG25_044_G'

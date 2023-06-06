@@ -9,19 +9,19 @@ BG_Razorfen_Geomancer=True##	1
 BG_Sun_Bacon_Relaxer=True##	1
 BG25__Thorncaptain=(Config.BG_VERSION>=2522)# 1/4/2 quilboar ## new 25.2.2
 
-BG_Roadboar=True##	2
+BG_Roadboar=(Config.BG_VERSION<2620)##	2 ## banned 26.2
 BG_Tough_Tusk=True##	2
+BG_Thorncaller=True##	3->2(26.2)
 
 BG_Bannerboar=True##	3
-BG_Bristleback_Brute=True## Brute	3
+BG_Bristleback_Brute=(Config.BG_VERSION<2620)## Brute	3 ## banned 26.2
 BG_Gemsplitter=(Config.BG_VERSION<2460)##	3 ### banned 24.6
-BG_Thorncaller=True##	3
 BG_Bristlemane_Scrapsmith=(Config.BG_VERSION>=2460) ## 3 ## new 24.6 ### OK ###
 BG26__Moon_Bacon_Jazzer=(Config.BG_VERSION>=2620) # (3)
 
 BG_Bonker=True##	4
 BG_Dynamic_Duo=True##	4
-BG_Groundshaker=True##	4
+BG_Groundshaker=(Config.BG_VERSION<2620)##	4 ## banned 26.2
 BG_Necrolyte=True##	4
 BG25__Pufferquil=(Config.BG_VERSION>=2522)# 4/2/6, quilbour/naga, new 25.2.2
 BG_Gem_Smuggler=(Config.BG_VERSION>=2560)
@@ -29,12 +29,12 @@ BG26__Prickly_Piper=(Config.BG_VERSION>=2620)#(4)
 
 BG_Aggem_Thorncurse=True##	5
 BG_Bristleback_Knight=True## 5 BG20_204
-BG26__Bongo_Bopper=(Config.BG_VERSION>=2620)# (5)
+BG26__Bongo_Bopper=(Config.BG_VERSION>=2620)# (5/5/5)
 
 BG_Captain_Flat_Tusk=False##	6 banned when?
 BG_Charlga=True##	6
-BG_Darkgaze_Elder=(Config.BG_VERSION>=2320)## NEW 23.2 -> quilboar
-BG26__Bristlebach=(Config.BG_VERSION>=2620)# (6)
+BG_Darkgaze_Elder=(Config.BG_VERSION>=2320 and Config.BG_VERSION<2620)## NEW 23.2 -> quilboar ## banned 26.2
+BG26__Bristlebach=(Config.BG_VERSION>=2620)# (6/2/10)
 
 
 
@@ -109,7 +109,7 @@ class BG25_045e2:# (enchantment)
 
 
 
-#Roadboar	2  ### OK ###
+#Roadboar	2  ### OK ### banned 26.2
 if BG_Roadboar:
 	BG_Minion_Quilboar += [ 'BG20_101','BG20_101_G',]#	
 	BG_PoolSet_Quilboar.append('BG20_101')
@@ -162,6 +162,47 @@ class BG20_102_Ge:# <12>[1453]
 	pass
 
 
+
+#Thorncaller	3->2  ### OK ###
+if BG_Thorncaller:
+	BG_Minion_Quilboar += [ 'BG20_105','BG20_105_G',]#	
+	BG_PoolSet_Quilboar.append('BG20_105')
+	BG_Quilboar_Gold['BG20_105']='BG20_105_G'
+class GiveGemToOriginal(TargetedAction):
+	TARGET = ActionArg()
+	CARD = CardArg()
+	def do(self, source, target, card):
+		if target.deepcopy_original:
+			Give(target.deepcopy_original,card).trigger(target.deepcopy_original)
+class BG20_105:# <12>[1453] 荊使い
+	""" Thorncaller
+	[Deathrattle:] Gain a [Blood Gem]. """
+	###[Battlecry and Deathrattle:] Gain a [Blood Gem]. """ <2620
+	#<Tag enumID="217" name="DEATHRATTLE" type="Int" value="1"/>
+	if Config.BG_VERSION>=2620:
+		option_tags = {GameTag.TECH_LEVEL:2, GameTag.ATK:3, GameTag.HEALTH:2}
+		pass
+	else:
+		option_tags = {GameTag.TECH_LEVEL:3, GameTag.ATK:4, GameTag.HEALTH:3}
+		play = Give(CONTROLLER, 'BG20_GEM')
+	deathrattle = GiveGemToOriginal(CONTROLLER, 'BG20_GEM')
+	pass
+class BG20_105_G:# <12>[1453]
+	""" Thorncaller
+	[Battlecry and Deathrattle:] Gain 2 [Blood Gems]. """
+	if Config.BG_VERSION>=2620:
+		option_tags = {GameTag.TECH_LEVEL:2, GameTag.ATK:6, GameTag.HEALTH:4}
+		pass
+	else:
+		option_tags = {GameTag.TECH_LEVEL:3, GameTag.ATK:8, GameTag.HEALTH:6}
+		play = Give(CONTROLLER, 'BG20_GEM')*2
+	deathrattle = GiveGemToOriginal(CONTROLLER, 'BG20_GEM')*2
+	pass
+
+
+
+#### TIER 3 ####
+
 #Bristlemane Scrapsmith (quilboar 3) (BG24_707)# ### OK ###
 if BG_Bristlemane_Scrapsmith:
 	BG_Minion_Quilboar += [ 'BG24_707','BG24_707_G',]#	
@@ -213,7 +254,7 @@ class BG20_201_G:# <12>[1453]
 
 
 
-#Bristleback Brute	3   ### OK ###
+#Bristleback Brute	3   ### OK ### banned 26.2
 if BG_Bristleback_Brute:
 	BG_Minion_Quilboar += [ 'BG20_103','BG20_103_G',]#	
 	BG_PoolSet_Quilboar.append('BG20_103')
@@ -262,32 +303,6 @@ class BG21_037_G:# <12>[1453]
 	events = LoseDivineShield(FRIENDLY_MINIONS).on(GiveInBattle(CONTROLLER, 'BG20_GEM')*2)
 	pass
 
-
-
-#Thorncaller	3  ### OK ###
-if BG_Thorncaller:
-	BG_Minion_Quilboar += [ 'BG20_105','BG20_105_G',]#	
-	BG_PoolSet_Quilboar.append('BG20_105')
-	BG_Quilboar_Gold['BG20_105']='BG20_105_G'
-class GiveGemToOriginal(TargetedAction):
-	TARGET = ActionArg()
-	CARD = CardArg()
-	def do(self, source, target, card):
-		if target.deepcopy_original:
-			Give(target.deepcopy_original,card).trigger(target.deepcopy_original)
-class BG20_105:# <12>[1453] 荊使い
-	""" Thorncaller
-	[Battlecry and Deathrattle:] Gain a [Blood Gem]. """
-	#<Tag enumID="217" name="DEATHRATTLE" type="Int" value="1"/>
-	play = Give(CONTROLLER, 'BG20_GEM')
-	deathrattle = GiveGemToOriginal(CONTROLLER, 'BG20_GEM')
-	pass
-class BG20_105_G:# <12>[1453]
-	""" Thorncaller
-	[Battlecry and Deathrattle:] Gain 2 [Blood Gems]. """
-	play = Give(CONTROLLER, 'BG20_GEM')*2
-	deathrattle = GiveGemToOriginal(CONTROLLER, 'BG20_GEM')*2
-	pass
 
 
 
@@ -361,7 +376,7 @@ BG20_207_Ge=buff(2,2)# <12>[1453]
 
 
 
-#Groundshaker	4  ## OK ###
+#Groundshaker	4  ## OK ### banned 26.2
 if BG_Groundshaker:
 	BG_Minion_Quilboar += [ 'BG20_106','BG20_106e','BG20_106_G',]#	
 	BG_PoolSet_Quilboar.append('BG20_106')
@@ -647,7 +662,7 @@ class BG20_303_G:# <12>[1453]
 	pass
 
 
-if BG_Darkgaze_Elder:## Darkgaze Elder (6) (quilboar)  ### maybe OK ### NEW 23.2
+if BG_Darkgaze_Elder:## Darkgaze Elder (6) (quilboar)  ### maybe OK ### NEW 23.2 ## banned 26.2
 	BG_Minion_Quilboar += ['BG23_018','BG23_018t','BG23_018_G', ]#	
 	BG_PoolSet_Quilboar.append('BG23_018')
 	BG_Quilboar_Gold['BG23_018']='BG23_018_G'

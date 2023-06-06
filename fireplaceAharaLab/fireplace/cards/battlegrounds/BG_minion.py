@@ -1,13 +1,14 @@
 from ..utils import *
 
-BG_Tavern_Tipper=(Config.BG_VERSION>=2360) ##(1/2/2) new 23.6
+BG_Tavern_Tipper=(Config.BG_VERSION>=2360 and Config.BG_VERSION<2620) ##(1/2/2) new 23.6 ## banned 26.2
 BG_Wrath_Weaver=True #(1/1/3)
+BG_Mistake=(Config.BG_VERSION>=2620)### (1/1/3)new 26.2
 
 BG_Acolyte_of_C_Thun=(Config.BG_VERSION<2360)## (2) banned 23.6
 BG_Kooky_Chemist=(Config.BG_VERSION>=2360 and Config.BG_VERSION<2420)##(2) new 23.6 banned 24.2
 BG_Menagerie_Mug=(Config.BG_VERSION<2360 or Config.BG_VERSION>=2460)##(2/2/2) banned 23.6 ### renew 24.6
 BG_Patient_Scout=(Config.BG_VERSION>=2460) ## (2/1/1) ## new 24.6 ### OK ###
-BG_PoeticPenPal=(Config.BG_VERSION>=2560) ## (2/2/4) ## new 25.6 ##
+BG_PoeticPenPal=(Config.BG_VERSION>=2560 and Config.BG_VERSION<2620) ## (2/2/4) ## new 25.6 ## banned 26.2
 BG_Prophet_of_the_Boar=True##(2/2/3)
 BG_Selfless_Hero=True##(2/2/1)
 BG_Sparring_Partner=(Config.BG_VERSION>=2360)##(2/3/2) new 23.6
@@ -16,8 +17,8 @@ BG_Unstable_Ghoul=(Config.BG_VERSION<2360)##(2) banned 23.6
 BG_Whelp_Smuggler=False##(2/2/5) banned when? ## renew 25.? #########
 BG_Yrel=(Config.BG_VERSION>=2360 and Config.BG_VERSION<2460)##(2) new 23.6 ### banned 24.6
 
-BG_Arm_of_the_Empire=True##(3/4/4)
-BG_Bird_Buddy=True##(3/2/4)
+BG_Arm_of_the_Empire=(Config.BG_VERSION<2620)##(3/4/4) banned 26.2
+BG_Bird_Buddy=(Config.BG_VERSION<2620)##(3/2/4) banned 26.2
 BG_Boulderfist_Ogre=True##(3/6/7)
 BG_Budding_Greenthumb=(Config.BG_VERSION<2360 or Config.BG_VERSION>=2522)##(3/1/4) banned 23.6 ## renew 25.2.2
 BG_Faceless_Disciple=(Config.BG_VERSION>=2460) ## (3/6/4) new 24.6 ### OK ###
@@ -25,15 +26,15 @@ BG_Houndmaster=(Config.BG_VERSION<2560)##(3/4/3) ### banned 25.6
 BG_Khadgar=False##(3) ## banned when? ###############################
 BG_Nightmare_Amalgam=(Config.BG_VERSION>=2320 and Config.BG_VERSION<2460)##(3) RENEW  23.2 ## banned 24.6
 BG_Shifter_Zerus=((Config.BG_VERSION>=2360 and Config.BG_VERSION<2420))##(3) new 23.6 banned 24.2 ## revive 24.6 as a reward option## 
-BG_Soul_Juggler=True##(3/3/5)
+BG_Soul_Juggler=(Config.BG_VERSION<2620)##(3/3/5) banned 26.2
 
-BG_Ball_of_Minions=(Config.BG_VERSION>=2460) ##(4) new 24.6  ### OK ###
+BG_Ball_of_Minions=(Config.BG_VERSION>=2460 and Config.BG_VERSION<2620) ##(4) new 24.6  banned 26,2### OK ###
 BG_Champion_of_Y_Shaarj=(Config.BG_VERSION<2360)##(4)banned 23.6
 BG_Defender_of_Argus=(Config.BG_VERSION<2360)##(4)banned 23.6
 BG_Fireworks_Fanatic=(Config.BG_VERSION>=2560) ##(4/4/3) new 25.6
-BG_Impatient_Doomsayer=True##(4/2/6)
+BG_Impatient_Doomsayer=(Config.BG_VERSION<2620)##(4/2/6) banned 26.2
 BG_Majordomo_Executus=False##(4) banned when?
-BG_Master_of_Realities=True ##(5/6/6)->(4/4/4) when?
+BG_Master_of_Realities=(Config.BG_VERSION<2620) ##(5/6/6)->(4/4/4) when? ### banned 26.2
 BG_Menagerie_Jug=True##(4/3/3)
 BG_Reef_Explorer=(Config.BG_VERSION>=2320 and Config.BG_VERSION<2460)##(4)# NEW 23.2 ### banned 24.6
 BG24__Rendle_the_Mistermind=(Config.BG_VERSION>= 2420 and Config.BG_VERSION<2560) ## (4/4/5) new 24.2 banned 25.6
@@ -58,21 +59,21 @@ BG_Nomi_Kitchen_Nightmare=True##(5/4/4)
 BG25__Titus_Rivendare=(Config.BG_VERSION>=2522)# 5/1/7 neutral ## new 25.2.2
 BG24__Tortollan_Blue_Shell=(Config.BG_VERSION>=2420) ## (5/4/7) new 24.2 ### OK ###
 ##(6)->(5)  banned 22.3 ## new 26.0 
-BG_Friend_of_a_Friend=(Config.BG_VERSION>=2600 or Config.BG_VERSION<2230) 
-BG26__Drakkari_Enchanter =(Config.BG_VERSION>=2620)### new 26.2
+BG_Friend_of_a_Friend=((Config.BG_VERSION>=2600 and Config.BG_VERSION<2620) or Config.BG_VERSION<2230)  ## banned 2620
+BG26__Drakkari_Enchanter =(Config.BG_VERSION>=2620)### (5/1/5) new 26.2
 
 
 BG_Amalgadon=(Config.BG_VERSION<2230)##(6) banned 22.3
 BG_Mantid_Queen=True ## (6/5/5) ## new when?
 BG_Nadina_the_Red=True##(6/7/4)
 BG_Orgozoa_the_Tender=(Config.BG_VERSION>=2320)###(6/3/7) NEW 23.2
-BG_Seafood_Slinger=(Config.BG_VERSION>=2504) ##(6/5/5) banned -> resurrect 25.0.4
-BG24__Tea_Master_Theotar=(Config.BG_VERSION>=2420)# (6/6/6) new 24.2
+BG_Seafood_Slinger=(Config.BG_VERSION>=2504 and Config.BG_VERSION<2620) ##(6/5/5) banned -> resurrect 25.0.4 ## banned 26.2
+BG24__Tea_Master_Theotar=(Config.BG_VERSION>=2420 and Config.BG_VERSION<2620)# (6/6/6) new 24.2 banned 26.2
 BG24_The_Walking_Fort=(Config.BG_VERSION>=2460 and Config.BG_VERSION<2522) ##(6) new 24.6 ### banned until 25.2.2 ###
 BG_Uther_the_Lightbringer=(Config.BG_VERSION>=2360) ##(6/5/6) new 23.6
 BG_Zapp_Slywick=True##(6/7/10)
 BG_Archdruid_Hamuul=(Config.BG_VERSION<2560) ## (6/8/8)
-BG_The_Boogie_Monster=(Config.BG_VERSION>=2620)
+BG_The_Boogie_Monster=(Config.BG_VERSION>=2620) ## (6/3/8) new 26.2
 
 
 
@@ -85,7 +86,7 @@ BG_Minion_Gold={}
 #### TIER 1 ####
 
 
-if BG_Tavern_Tipper:####Tavern Tipper (1) ### OK ### 23.6 new
+if BG_Tavern_Tipper:####Tavern Tipper (1) ### OK ### 23.6 new ## banned 26.2
 	BG_Minion += ['BG23_352','BG23_352e','BG23_352_G','BG23_352_Ge',]#	
 	BG_PoolSet_Minion.append('BG23_352')
 	BG_Minion_Gold['BG23_352']='BG23_352_G'
@@ -121,22 +122,37 @@ if BG_Wrath_Weaver:#Wrath Weaver	1	1	3	-	-
 #Wrath Weaver	1	1	3	 ### maybe ###
 class BGS_004:# <12>[1453] おりや
 	""" Wrath Weaver
-	After you play a Demon, deal 1 damage to your hero and gain +2/+2. """
+	After you play a Demon, deal 1 damage to your hero and gain +2/+1. """
+	##After you play a Demon, deal 1 damage to your hero and gain +2/+2. """
+	if Config.BG_VERSION>=2620:
+		option_tags={GameTag.ATK:1, GameTag.HEALTH:4}
+	else:
+		option_tags={GameTag.ATK:1, GameTag.HEALTH:3}
 	events = BG_Play(CONTROLLER, FRIENDLY + DEMON).after(Hit(FRIENDLY_HERO,1),Buff(SELF,'BGS_004e'))
 	pass
-BGS_004e=buff(2,2)# <12>[1453]
+if Config.BG_VERSION>=2620:
+	BGS_004e=buff(2,1)# <12>[1453]
+else:
+	BGS_004e=buff(2,2)# <12>[1453]
 """ Wrath Woven, Increased stats. """
 class TB_BaconUps_079:# <12>[1453]
 	""" Wrath Weaver
 	After you play a Demon, deal 1 damage to your hero and gain +4/+4. """
+	if Config.BG_VERSION>=2620:
+		option_tags={GameTag.ATK:2, GameTag.HEALTH:8}
+	else:
+		option_tags={GameTag.ATK:2, GameTag.HEALTH:6}
 	events = BG_Play(CONTROLLER, FRIENDLY + DEMON).after(Hit(FRIENDLY_HERO,1),Buff(SELF,'TB_BaconUps_079e'))
 	pass
-TB_BaconUps_079e=buff(4,4)# <12>[1453]
+if Config.BG_VERSION>=2620:
+	TB_BaconUps_079e=buff(4,2)# <12>[1453]
+else:
+	TB_BaconUps_079e=buff(4,4)# <12>[1453]
 """ Wrath Woven,	Increased stats. """
 
 
-### Mistake ()
-BG_Mistake=(Config.BG_VERSION>=2620)### new 26.2
+### Mistake (1)
+#BG_Mistake=(Config.BG_VERSION>=2620)### new 26.2
 if BG_Mistake:
 	BG_Minion += ['BG_NX2_050', 'BG_NX2_050_G']
 	BG_PoolSet_Minion.append('BG_NX2_050')
@@ -527,7 +543,7 @@ TB_BaconUps_302e=buff(4,0)# <12>[1453]
 
 
 
-if BG_Bird_Buddy:#Bird Buddy	3	2	4	-		 ### maybe ###
+if BG_Bird_Buddy:#Bird Buddy	3	2	4	-		 ### maybe ### banned 26.2
 	BG_Minion += ['BG21_002','BG21_002e','BG21_002_G','BG21_002_Ge',]#	
 	BG_PoolSet_Minion.append('BG21_002')
 	BG_Minion_Gold['BG21_002']='BG21_002_G'
@@ -720,7 +736,7 @@ class TB_BaconUps_095:
 
 
 
-if BG_Soul_Juggler:#Soul Juggler	3	3	5	-	 	 ### maybe ###
+if BG_Soul_Juggler:#Soul Juggler	3	3	5	-	 	 ### maybe ### banned 26.2
 	BG_Minion += ['BGS_002','TB_BaconUps_075',]#	
 	BG_PoolSet_Minion.append('BGS_002')
 	BG_Minion_Gold['BGS_002']='TB_BaconUps_075'
@@ -741,7 +757,7 @@ class TB_BaconUps_075:# <9>[1453]
 #################### TIER 4 ###################################
 
 #regions
-### Ball of Minions(BG24_017) ### OK ###
+### Ball of Minions(BG24_017) ### OK ### banned 26.2
 if BG_Ball_of_Minions:#Ball of Minions	4	5	5		
 	BG_Minion += ['BG24_017','BG24_017e','BG24_017_G',]#	
 	BG_PoolSet_Minion.append('BG24_017')
@@ -832,7 +848,7 @@ class BG25_922_G:
 BG25_922_Ge=buff(2,2)
 
 
-if BG_Impatient_Doomsayer:#Impatient Doomsayer	4	2	6		 ### maybe ###
+if BG_Impatient_Doomsayer:#Impatient Doomsayer	4	2	6	### maybe ### banned 26.2
 	BG_Minion += ['BG21_007','BG21_007_G',]#	
 	BG_PoolSet_Minion.append('BG21_007')
 	BG_Minion_Gold['BG21_007']='BG21_007_G'
@@ -900,7 +916,7 @@ class TB_BaconUps_207:# <12>[1453]
 	events = OWN_TURN_END.on(TB_BaconUps_207_Action(CONTROLLER))
 
 
-#Master of Realities(4)	 ### maybe ###
+#Master of Realities(4)	 ### maybe ### banned 26.2
 if BG_Master_of_Realities:
 	BG_Minion += ['BG21_036','BG21_036e','BG21_036_G','BG21_036_Ge',]#	
 	BG_PoolSet_Minion.append('BG21_036')
@@ -1814,7 +1830,7 @@ class BG23_015_Gt:
 
 
 
-if BG_Seafood_Slinger:#Seafood Slinger	6	5	5		 ### maybe ### ##banned -> resurrect 25.0.4
+if BG_Seafood_Slinger:#Seafood Slinger	6	5	5		 ### maybe ### ##banned -> resurrect 25.0.4 -> banned 26.2
 	BG_Minion += ['BG21_011','BG21_011e','BG21_011e2','BG21_011_G','BG21_011_Ge',]#	
 	BG_PoolSet_Minion.append('BG21_011')
 	BG_Minion_Gold['BG21_011']='BG21_011_G'

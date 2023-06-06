@@ -18,7 +18,7 @@ BG26__Lullabot=(Config.BG_VERSION>=2620)#(2)
 BG_Deflect_o_Bot=True#(3)
 BG_Replicating_Menace=True#(3)
 BG_Screwjank_Clunker=False#(3)banned
-BG_Iron_Sensei=True#(3)
+BG_Iron_Sensei=(Config.BG_VERSION<2620)#(3) banned 26.2
 BG26__Accord_o_Tron=(Config.BG_VERSION>=2620)#(3)
 
 BG_Annoy_o_Module=True#(4)
@@ -27,14 +27,14 @@ BG_Mechano_Tank=(Config.BG_VERSION<2504)#(4) -> banned 25.0.4
 BG_Wargear=(Config.BG_VERSION>=2360)#(4) # after 23.6
 BG26__Scrap_Scraper=(Config.BG_VERSION>=2620)# (4)
 
-BG_Holy_Mecherel=True#(5)
+BG_Holy_Mecherel=(Config.BG_VERSION<2620)#(5) banned 26.2
 BG_Dr_Boombox=True#(5)
-BG26__Utility_Drone=(Config.BG_VERSION>=2620)#(5)
+BG26__Utility_Drone=(Config.BG_VERSION>=2620)#(5/4/5)
 
 BG_Foe_Reaper_4000=True#(6)
 BG_Omega_Buster=True#(6)
-BG_Grease_Bot=(Config.BG_VERSION>=2360)#(4->6) 23.6, 24.0.3
-BG26__Polarizing_Beatboxer=(Config.BG_VERSION>=2620) # (6)
+BG_Grease_Bot=(Config.BG_VERSION>=2360 and Config.BG_VERSION<2620)#(4->6) 23.6, 24.0.3 banned 26.2
+BG26__Polarizing_Beatboxer=(Config.BG_VERSION>=2620) # (6/3/7)
 	
 BG_Minion_Mecha =[]
 BG_PoolSet_Mecha = []
@@ -280,7 +280,7 @@ TB_BaconUps_069e=buff(4,4)
 
 
 
-## Iron Sensei (Mecha) (3)
+## Iron Sensei (Mecha) (3) banned 26.2
 if BG_Iron_Sensei:
 	BG_Minion_Mecha+=['BG_GVG_027', 'GVG_027e', 'TB_BaconUps_044','TB_BaconUps_044e',]
 	BG_PoolSet_Mecha.append('BG_GVG_027')
@@ -470,7 +470,7 @@ class BG26_148_G:# (minion)
 
 #### TIER 5 ####
 
-#Holy Mecherel(5)
+#Holy Mecherel(5) banned 26.2
 if BG_Holy_Mecherel:
 	BG_Minion_Mecha+=['BG20_401', 'BG20_401_G',]
 	BG_PoolSet_Mecha.append('BG20_401')

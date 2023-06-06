@@ -1,35 +1,35 @@
 from ..utils import *
 
-BG_Alleycat=True#1/1/1
+BG_Alleycat=(Config.BG_VERSION<2620)#1/1/1 ## banned 26.2
 BG_Scavenging_Hyena=True#1/2/2
-BG26__Manasaber=(Config.BG_VERSION>=2620)(1)
+BG26__Manasaber=(Config.BG_VERSION>=2620)#(1)
 
 BG_Silverback_Patriarch=(Config.BG_VERSION>=2360 and Config.BG_VERSION<2420)#new 23.6 banned 24.2 
 BG_Leapfrogger=True#2/3/3
-BG_Rabid_Saurolisk=True#2/3/2
+BG_Rabid_Saurolisk=(Config.BG_VERSION<2620) #2/3/2 ## banned 26.2
 BG_Sewer_Rat=True#2/3/2
-BG26__Humming_Bird=(Config.BG_VERSION>=2620)(2)
+BG26__Humming_Bird=(Config.BG_VERSION>=2620)#(2)
 
 BG_Monstrous_Macaw=True#3/5/3
 BG_Rat_Pack=True#3/2/2
-BG26__Rylak_Metalhead=(Config.BG_VERSION>=2620)(3)
+BG26__Rylak_Metalhead=(Config.BG_VERSION>=2620)#(3)
+BG26__Banana_Slamma=(Config.BG_VERSION>=2620)#(3)
 
-BG_Cave_Hydra=True#4/2/4
+BG_Cave_Hydra=(Config.BG_VERSION<2620)#4/2/4 ## banned 26.2
 BG_Reanimating_Rattler=True#4/5/3
 BG_Savannah_Highmane=(Config.BG_VERSION<2560) #4/6/5 banned 25.6
 BG_Sly_Raptor=True#4/1/3
-BG26__Banana_Slamma=(Config.BG_VERSION>=2620)(4)
 
-BG_Agamaggan_the_Great_Boar=True#5/6/6
+BG_Agamaggan_the_Great_Boar=(Config.BG_VERSION<2620)#5/6/6 ## banned 26.2
 BG_Baby_Krush=(Config.BG_VERSION>=2320 and Config.BG_VERSION<2560)# 5  #new 23.2 banned 25.6
 BG_Bonemare=(Config.BG_VERSION>=2560)#5/5/5 #new 25.6
 BG_Mama_Bear=True#5/5/5
-BG_Palescale_Crocolisk=(Config.BG_VERSION<2560)#5 banned 25.6
-#BG_Sinrunner_Blanchy=(Config.BG_VERSION>=2522) # 5/3/3 new 25.2.2 -> undead
+BG_Palescale_Crocolisk=(Config.BG_VERSION<2560 or Config.BG_VERSION>=2620)#5 banned 25.6 revive 26.2
+#BG_Sinrunner_Blanchy=(Config.BG_VERSION>=2522) # 5/3/3 new 25.2.2 ## undead/beast
 
 #BG25__Felstomper=(Config.BG_VERSION>=2522) ## 6/3/7 -> demon/beast
 BG_Ghastcoiler=True#6/7/7
-BG_Goldrinn_the_Great_Wolf=True#6/4/4
+BG_Goldrinn_the_Great_Wolf=(Config.BG_VERSION<2620)#6/4/4 # banned 2620
 BG_Maexxna=(Config.BG_VERSION<2320)## banned 23.2
 BG26__Octosari_Wrap_God=(Config.BG_VERSION>=2620)## (6/6/7)
 
@@ -156,7 +156,7 @@ class BG21_000_Ge:
 
 
 
-#Rabid Saurolisk (2/3/2)  ### maybe ###
+#Rabid Saurolisk (2/3/2)  ### maybe ### banned 26.2
 if BG_Rabid_Saurolisk:
 	BG_Minion_Beast += ['BGS_075','BGS_075e','TB_BaconUps_125','TB_BaconUps_125e',]#Rabid Saurolisk(2)
 	BG_PoolSet_Beast.append('BGS_075')
@@ -334,6 +334,46 @@ class BG26_801_G:# (minion)
 	deathrattle = BG26_801_G_Action()
 	pass
 
+## Banana Slamma (Beast) (3)->(4)
+#BG26__Banana_Slamma=(Config.BG_VERSION>=2620)
+if BG26__Banana_Slamma:# 
+	BG_Minion_Beast+=['BG26_802','BG26_802e']
+	BG_Minion_Beast+=['BG26_802_G','BG26_802_Ge']
+	BG_PoolSet_Beast.append('BG26_802')
+	BG_Beast_Gold['BG26_802']='BG26_802_G'
+class BG26_802_Action(TargetedAction):# 
+	TARGET=ActionArg()
+	def do(self, source, target):# 
+		target=get00(target)
+		atk=target.atk
+		hlt=target.max_health
+		Buff(target, 'BG26_802e', atk=atk, max_health=hlt).trigger(source)
+		pass# 
+class BG26_802:# (minion)
+	""" Banana Slamma
+	After you summon a Beast in combat, double its stats. """
+	if Config.BG_VERSION>=2620:
+		option_tags={GameTag.TECH_LEVEL:3}
+	events = Summon(CONTROLLER).after(BG26_802_Action(Summon.CARD))
+	pass
+class BG26_802e:
+	pass
+class BG26_802_G_Action(TargetedAction):# 
+	TARGET=ActionArg()
+	def do(self, source, target):# 
+		target=get00(target)
+		atk=target.atk
+		hlt=target.max_health
+		Buff(target, 'BG26_802_Ge', atk=atk, max_health=hlt).trigger(source)
+		pass# 
+class BG26_802_G:# (minion)
+	""" Banana Slamma
+	After you summon a Beast in combat, triple its stats. """
+	events = Summon(CONTROLLER).after(BG26_802_G_Action(Summon.CARD))
+	pass
+class BG26_802_Ge:
+	pass
+
 
 #### TIER 4 ####
 
@@ -428,47 +468,10 @@ class BG25_806_G:
 	deathrattle = BG25_806_Action()
 
 
-## Banana Slamma (Beast) (4)
-#BG26__Banana_Slamma=(Config.BG_VERSION>=2620)
-if BG26__Banana_Slamma:# 
-	BG_Minion_Beast+=['BG26_802','BG26_802e']
-	BG_Minion_Beast+=['BG26_802_G','BG26_802_Ge']
-	BG_PoolSet_Beast.append('BG26_802')
-	BG_Beast_Gold['BG26_802']='BG26_802_G'
-class BG26_802_Action(TargetedAction):# 
-	TARGET=ActionArg()
-	def do(self, source, target):# 
-		target=get00(target)
-		atk=target.atk
-		hlt=target.max_health
-		Buff(target, 'BG26_802e', atk=atk, max_health=hlt).trigger(source)
-		pass# 
-class BG26_802:# (minion)
-	""" Banana Slamma
-	After you summon a Beast in combat, double its stats. """
-	events = Summon(CONTROLLER).after(BG26_802_Action(Summon.CARD))
-	pass
-class BG26_802e:
-	pass
-class BG26_802_G_Action(TargetedAction):# 
-	TARGET=ActionArg()
-	def do(self, source, target):# 
-		target=get00(target)
-		atk=target.atk
-		hlt=target.max_health
-		Buff(target, 'BG26_802_Ge', atk=atk, max_health=hlt).trigger(source)
-		pass# 
-class BG26_802_G:# (minion)
-	""" Banana Slamma
-	After you summon a Beast in combat, triple its stats. """
-	events = Summon(CONTROLLER).after(BG26_802_G_Action(Summon.CARD))
-	pass
-class BG26_802_Ge:
-	pass
 
 ###### tier 5 ######
 
-#Agamaggan, the Great Boar (5/6/6)   ### maybe ###
+#Agamaggan, the Great Boar (5/6/6)   ### maybe ### banned 26.2
 if BG_Agamaggan_the_Great_Boar:
 	BG_Minion_Beast += ['BG20_205','BG20_205_G',]#Agamaggan, the Great Boar(5)
 	BG_PoolSet_Beast.append('BG20_205')
@@ -562,7 +565,7 @@ TB_BaconUps_090e=buff(10,10)
 
 
 
-#Palescale Crocolisk(5/4/5) ### maybe OK ###
+#Palescale Crocolisk(5/4/5) ### maybe OK ### banned 25.6 revive 26.2
 if BG_Palescale_Crocolisk:
 	BG_Minion_Beast += ['BG21_001','BG21_001e','BG21_001_G','BG21_001e2',]#Palescale Crocolisk(5)
 	BG_PoolSet_Beast.append('BG21_001')

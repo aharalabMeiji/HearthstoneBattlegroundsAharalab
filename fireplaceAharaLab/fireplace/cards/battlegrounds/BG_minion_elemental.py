@@ -6,7 +6,7 @@ BG_Sellemental=True ## (1)
 BG_Bubblette=(Config.BG_VERSION>=2400 and Config.BG_VERSION<2420) ## (1) ## new 24.0 banned 24.2
 
 BG_Molten_Rock=True ## (2)
-BG_Party_Elemental=True ## (2)
+BG_Party_Elemental=(Config.BG_VERSION<2620) ## (2) ## banned 26.2
 BG26__Flourishing_Frostling=(Config.BG_VERSION>=2620)#(2)
 
 BG_Crackling_Cyclone=True ## (3)
@@ -14,21 +14,21 @@ BG_Smogger=True ## (3)
 BG_Stasis_Elemental=False ## (3) ## banned when?
 BG25__Felemental=(Config.BG_VERSION>=2522)# 3/3/1 elemental/demon ## new 25.2.2
 
-BG_Dazzling_Lightspawn=True ## (4)
+BG_Dazzling_Lightspawn=(Config.BG_VERSION<2620) ## (4) ## banned 26.2
 BG_Recycling_Wraith=True # (4)
 BG_Wildfire_Elemental=True # (4)
-BG26__Upbeat_Upstart=(Config.BG_VERSION>=2620)#(4)
-BG26__Dancing_Barnstormer=(Config.BG_VERSION>=2620)#(4)
+BG26__Upbeat_Upstart=(Config.BG_VERSION>=2620)#(4/4/4)
+BG26__Dancing_Barnstormer=(Config.BG_VERSION>=2620)#(4/4/2)
 
 BG_Tavern_Tempest=True # (5)
-BG_Lil_Rag=True # (5)
+BG_Lil_Rag=(Config.BG_VERSION<2620) # (5) ## banned 26.2
 BG25__Magmaloc=(Config.BG_VERSION>=2522)# (5/1/1) murloc ## new 25.2.2
-BG26__Gusty_Trumpeter=(Config.BG_VERSION>=2620)#(5)
+BG26__Gusty_Trumpeter=(Config.BG_VERSION>=2620)#(5/4/5)
 
-BG_Gentle_Djinni=True # (6)
-BG_Lieutenant_Garr=True # (6)
-BG26__Elemental_of_Surprise=(Config.BG_VERSION>=2620)#(6)
-BG26__Rock_Rock=(Config.BG_VERSION>=2620)#(6)
+BG_Gentle_Djinni=(Config.BG_VERSION<2620) # (6) banned 26.2
+BG_Lieutenant_Garr=(Config.BG_VERSION<2620) # (6) banned 26.2
+BG26__Elemental_of_Surprise=(Config.BG_VERSION>=2620)#(6/8/8)
+BG26__Rock_Rock=(Config.BG_VERSION>=2620)#(6/4/4)
 
 
 BG_Minion_Elemental =[]
@@ -109,7 +109,7 @@ TB_Baconups_202e=buff(0,2)
 
 
 
-if BG_Party_Elemental: # ## MAYBE ###
+if BG_Party_Elemental: # ## MAYBE ### banned 26.2
 #Party Elemental(2)  #(2/4/2)
 	BG_Minion_Elemental+=['BGS_120','BGS_120e','TB_BaconUps_160']
 	BG_PoolSet_Elemental.append('BGS_120')
@@ -316,7 +316,7 @@ class BG25_041e2:# (enchantment)
 
 
 
-#Dazzling Lightspawn(4) ### OK ###
+#Dazzling Lightspawn(4) ### OK ### banned 26.2
 if BG_Dazzling_Lightspawn: # 
 	BG_Minion_Elemental+=['BG21_020','BG21_020e','BG21_020pe','BG21_020_G']
 	BG_PoolSet_Elemental.append('BG21_020')
@@ -520,7 +520,7 @@ class TB_BaconUps_162:# <12>[1453]
 
 
 
-#Lil' Rag (6->5, 24.0.3)   ### OK ###
+#Lil' Rag (6->5, 24.0.3)   ### OK ### banned 26.2
 if BG_Lil_Rag: # 
 	BG_Minion_Elemental+=['BGS_100','BGS_100e','TB_BaconUps_200']
 	BG_PoolSet_Elemental.append('BGS_100')
@@ -635,7 +635,7 @@ class BG26_534_G:# (minion)
 
 #### tavern tier 6
 
-#Gentle Djinni(6)   ### OK ###
+#Gentle Djinni(6)   ### OK ### banned 26.2
 if BG_Gentle_Djinni: # 
 	BG_Minion_Elemental+=['BGS_121','TB_BaconUps_165']
 	BG_PoolSet_Elemental.append('BGS_121')
@@ -675,7 +675,7 @@ class TB_BaconUps_165:# <12>[1453]
 
 
 
-# Lieutenant Garr (6)(8/8) ### HP OK ###
+# Lieutenant Garr (6)(8/8) ### HP OK ### banned 26.2
 if BG_Lieutenant_Garr: # 
 	BG_Minion_Elemental+=['BGS_124','BGS_124e','TB_BaconUps_163','TB_BaconUps_163e']
 	BG_PoolSet_Elemental.append('BGS_124')

@@ -3,29 +3,29 @@ from ..utils import *
 BG_Rockpool_Hunter=True ##(1) 
 BG_Swampstriker=True ## (1)
 
-BG_Murloc_Warleader=True ## (2)
-BG_Saltscale_Honcho=True ## (2)
+BG_Murloc_Warleader=(Config.BG_VERSION<2620) ## (2) ## banned 26.2 
+BG_Saltscale_Honcho=(Config.BG_VERSION>=2620) ## (2) banned when? revive 26.2
 BG_Tad=True ## (2)
 BG_Blazing_Skyfin=True ## (2/1/3)
 BG26__Upbeat_Flutist=(Config.BG_VERSION>=2620)#(2)
 
 BG_Coldlight_Seer=True ## (3)
-BG_Felfin_Navigator=True ## (3)
-BG_Swolefin=True ## (3)
+BG_Felfin_Navigator=(Config.BG_VERSION<2620) ## (3) banned 26.2
+BG_Swolefin=(Config.BG_VERSION<2620) ## (3) banned 26.2
 BG26__Scourfin=(Config.BG_VERSION>=2620)#(3)
 
 BG_Primalfin_Lookout=True ## (4)
-BG26__Bream_Counter=(Config.BG_VERSION>=2620)# (4)
-BG26__Bassgill=(Config.BG_VERSION>=2620) #(4)
-BG26__Plagued_Tidewalker=(Config.BG_VERSION>=2620)#(4)
+BG26__Bream_Counter=(Config.BG_VERSION>=2620)# (4/4/4)
+BG26__Bassgill=(Config.BG_VERSION>=2620) #(4/6/2)
+BG26__Plagued_Tidewalker=(Config.BG_VERSION>=2620)#(4) undead/murloc
 
 BG_King_Bagurgle=True ## (5)
 BG_SI_Sefin=False ## (5) banned 4.2
-BG26__Operatic_Belcher=(Config.BG_VERSION>=2620)#(5)
+BG26__Operatic_Belcher=(Config.BG_VERSION>=2620)#(5/5/2)
 
 BG_Young_Murk_Eye=True ## (6) 
-BG_Toxfin=(Config.BG_VERSION>=2420) ##(4) new 24.2 -> (6) ## 25.2.2 (5)
-BG26__Choral_Mrrrglr=(Config.BG_VERSION>=2620)#(6)
+BG_Toxfin=(Config.BG_VERSION>=2420 and Config.BG_VERSION<2620) ##(4) new 24.2 -> (6) ## 25.2.2 (5) ## banned 26.2
+BG26__Choral_Mrrrglr=(Config.BG_VERSION>=2620)#(6/6/6)
 
 
 BG_Minion_Murloc =[]
@@ -76,7 +76,7 @@ BG22_401_Ge=buff(2,0)
 
 #### TIER 2 ####
 
-#Murloc Warleader (2)  ### maybe ###
+#Murloc Warleader (2)  ### maybe ### banned 26.2
 if BG_Murloc_Warleader:
 	BG_Minion_Murloc+=['BG_EX1_507','EX1_507e','TB_BaconUps_008','TB_BaconUps_008e',]
 	BG_PoolSet_Murloc.append('BG_EX1_507')
@@ -97,7 +97,7 @@ TB_BaconUps_008e=buff(4,0)# <12>[1453]
 
 
 
-#Saltscale Honcho (2) ### maybe ###
+#Saltscale Honcho (2) ### maybe ### revive 26.2
 if BG_Saltscale_Honcho:
 	BG_Minion_Murloc+=['BG21_008','BG21_008e','BG21_008_G','BG21_008_Ge',]
 	BG_PoolSet_Murloc.append('BG21_008')
@@ -128,11 +128,19 @@ if BG_Tad:
 class BG22_202:# <12>[1453]
 	""" Tad
 	When you sell this,add another random Murloc to your hand. """
+	if Config.BG_VERSION>=2620:
+		option_tags={GameTag.ATK:2, GameTag.HEALTH:2}
+	else:
+		option_tags={GameTag.ATK:2, GameTag.HEALTH:4}
 	events = Sell(CONTROLLER, SELF).on(Give(CONTROLLER, RandomBGMurloc(tech_level_less=TIER(CONTROLLER))))
 	pass
 class BG22_202_G:# <12>[1453]
 	""" Tad
 	When you sell this,add 2 other randomMurlocs to your hand. """
+	if Config.BG_VERSION>=2620:
+		option_tags={GameTag.ATK:4, GameTag.HEALTH:4}
+	else:
+		option_tags={GameTag.ATK:4, GameTag.HEALTH:8}
 	events = Sell(CONTROLLER, SELF).on(Give(CONTROLLER, RandomMurloc())*2)
 	pass
 
@@ -206,7 +214,7 @@ TB_BaconUps_064e=buff(0,4)
 
 
 
-#Felfin Navigator (3) ### maybe ###
+#Felfin Navigator (3) ### maybe ### banned 26.2
 if BG_Felfin_Navigator:
 	BG_Minion_Murloc+=['BG_BT_010','BT_010e','TB_BaconUps_124','TB_BaconUps_124e',]
 	BG_PoolSet_Murloc.append('BG_BT_010')
@@ -225,7 +233,7 @@ TB_BaconUps_124e=buff(2,2)
 
 
 
-#Swolefin (3) ### need check ###
+#Swolefin (3) ### need check ### banned 26.2
 if BG_Swolefin:
 	BG_Minion_Murloc+=['BG21_010','BG21_010e','BG21_010_G','BG21_010_Ge',]
 	BG_PoolSet_Murloc.append('BG21_010')

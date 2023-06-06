@@ -1,8 +1,8 @@
 from ..utils import *
 
 BG_Dozy_Whelp=(Config.BG_VERSION>=2460) #(1) new 24.6 ### OK ###
-BG_Evolving_Chromawing=(Config.BG_VERSION<2360 or Config.BG_VERSION>=2400)##(1) banned 23.6, revive 24.0, revised 24.0.3
-BG_Red_Whelp=True ## ##(1)
+BG_Evolving_Chromawing=(Config.BG_VERSION<2360 or (Config.BG_VERSION>=2400 and Config.BG_VERSION<2620))##(1) banned 23.6, revive 24.0, revised 24.0.3 ## banned 26.2
+BG_Red_Whelp=(Config.BG_VERSION<2620) ## ##(1) ## banned 26.2
 BG26__Upbeat_Frontdrake=(Config.BG_VERSION>=2620) # (1)
 
 #BG_Blazing_Sklyfin=True ## (2/1/3) -> dragon/murloc
@@ -14,9 +14,9 @@ BG26__Low_Flier=(Config.BG_VERSION>=2620) # (2)
 BG24__Amber_Guardian=(Config.BG_VERSION>=2420)# (3) new 24.2
 BG_Bronze_Warden=True ##(3)
 BG_Drakonid_Enforcer=False ##(3) ## banned when?
-BG24__Nether_Drake=(Config.BG_VERSION>=2420)# (3) new 24.2 (2)->(3)
+BG24__Nether_Drake=(Config.BG_VERSION>=2420 and Config.BG_VERSION<2620)# (3) new 24.2 (2)->(3) ## banned 26.2
 
-BG_Atramedes=(Config.BG_VERSION>=2360) ## (4)  23.6 ##OK##
+BG_Atramedes=(Config.BG_VERSION>=2360 and Config.BG_VERSION<2620) ## (4)  23.6 ##OK## banned 26.2
 BG25__Chronormu=(Config.BG_VERSION<2562)# 4/4/4 dragon ## 25.2.2
 BG_Cobalt_Scalebane=(Config.BG_VERSION<2420) ##(4) banned 24.2
 BG25__General_Drakkisath=(Config.BG_VERSION>=2522)# 4/2/8 DRAGON ## new 25.2.2
@@ -24,12 +24,14 @@ BG_Prestor_s_Pyrospawn=False ## (4) banned
 BG_Prized_Promo_Drake=True ##(4)
 BG_Tarecgosa=True ##(3)->(4)
 BG26__Electric_Synthesizer=(Config.BG_VERSION>=2620) #(4)
-BG26__Stormbringer=(Config.BG_VERSION>=2620) #(4)
+BG26__Stormbringer=(Config.BG_VERSION>=2620) #(4/1/7)
 
 
 BG_Murozond=True ##(5)
-BG_Razorgore_the_Untamed=(Config.BG_VERSION>=2562) ## (5) ## banned when? ## revive 25.6.2
-BG25__Cyborg_Drake=(Config.BG_VERSION>=2522)# 5/2/8 dragon ## new 25.2.2
+BG_Razorgore_the_Untamed=(Config.BG_VERSION>=2562 and Config.BG_VERSION<2620) ## (5) ## banned when? ## revive 25.6.2 ## banned 26.2
+BG25__Cyborg_Drake=(Config.BG_VERSION>=2522 and Config.BG_VERSION<2620)# 5/2/8 dragon ## new 25.2.2 ## banned 26.2
+BG26__Disco_Shuffler=(Config.BG_VERSION>=2620)# (5/4/3)
+BG26__Sanctum_Rester=(Config.BG_VERSION>=2620)# (5/5/5)
 
 BG_Kalecgos_Arcane_Aspect=True ## (6)
 
@@ -39,7 +41,7 @@ BG_PoolSet_Dragon=[]
 
 BG_Dragon_Gold={}
 
-if BG_Evolving_Chromawing:#Evolving Chromawing(1) ## banned 23.6, revive 26.0
+if BG_Evolving_Chromawing:#Evolving Chromawing(1) ## banned 23.6, revive 26.0 banned 26.2
 	BG_Minion_Dragon+=['BG21_027','BG21_027e','BG21_027_G','BG21_027_Ge',]#
 	BG_PoolSet_Dragon.append('BG21_027')
 	BG_Dragon_Gold['BG21_027']='BG21_027_G' #	
@@ -74,7 +76,7 @@ class BG21_027_Ge:
 	pass
 
 
-#Red Whelp(1) ### need check ###
+#Red Whelp(1) ### need check ### banned 26.2
 if BG_Red_Whelp:
 	BG_Minion_Dragon+=['BGS_019','TB_BaconUps_102']#
 	BG_PoolSet_Dragon.append('BGS_019')
@@ -247,7 +249,7 @@ BG26_969_Ge=buff(2,0)
 
 
 
-if BG24__Nether_Drake:# (3)  new 24.2 ### visually OK
+if BG24__Nether_Drake:# (3)  new 24.2 ### visually OK ## banned 26.2
 	BG_Minion_Dragon+=['BG24_003','BG24_003e','BG24_003_G','BG24_003_Ge']
 	BG_PoolSet_Dragon.append('BG24_003')
 	BG_Dragon_Gold['BG24_003']='BG24_003_G'
@@ -438,7 +440,7 @@ class BG21_014_G:# <12>[1453]
 
 
 
-#Atramedes (4)   23.6 ### OK ###
+#Atramedes (4)   23.6 ### OK ### banned 26.2
 if BG_Atramedes:
 	BG_Minion_Dragon+=['BG23_362','BG23_362_G']#
 	BG_PoolSet_Dragon.append('BG23_362')
@@ -581,28 +583,32 @@ class BG21_015_G:# <12>[1453]
 
 
 
-## Electric Synthesizer (Dragon) (4)
+## Electric Synthesizer (Dragon) (5)-> (4)
 #BG26__Electric_Synthesizer=(Config.BG_VERSION>=2620) #(4)
 if BG26__Electric_Synthesizer:# 
 	BG_Minion_Dragon+=['BG26_963','BG26_963e']
 	BG_Minion_Dragon+=['BG26_963_G','BG26_963_Ge']
 	BG_PoolSet_Dragon.append('BG26_963')
 	BG_Dragon_Gold['BG26_963']='BG26_963_G'
-class BG26_963_Action(GameAction):# 
-	def do(self, source):# 
-		pass# 
 class BG26_963:# (minion)
 	""" Electric Synthesizer
 	<b>Battlecry:</b> Give your other Dragons +3 Attack. """
+	#(5/3/7)<b>Battlecry:</b> Give your other Dragons +4 Attack. """
+	if Config.BG_VERSION>=2620:
+		option_tags={GameTag.TECH_LEVEL:5}
 	play = Buff(FIRNEDLY_MINIONS + DRAGON - SELF, 'BG26_963e')
 	pass
-BG26_963e=buff(3,0)
+if Config.BG_VERSION>=2620:
+	BG26_963e=buff(3,0)
 class BG26_963_G:# (minion)
 	""" Electric Synthesizer
 	<b>Battlecry:</b> Give your other Dragons +6 Attack. """
+	if Config.BG_VERSION>=2620:
+		option_tags={GameTag.TECH_LEVEL:5}
 	play = Buff(FIRNEDLY_MINIONS + DRAGON - SELF, 'BG26_963_Ge')
 	pass
-BG26_963_Ge=buff(6,0)
+if Config.BG_VERSION>=2620:
+	BG26_963_Ge=buff(6,0)
 
 
 
@@ -668,7 +674,7 @@ class TB_BaconUps_110:# <12>[1453]
 
 
 
-#Razorgore, the Untamed (5)  ### need check (alternative) ###
+#Razorgore, the Untamed (5)  ### need check (alternative) ### banned 26.2
 if BG_Razorgore_the_Untamed:
 	BG_Minion_Dragon+=['BGS_036','BGS_036e','TB_BaconUps_106','TB_BaconUps_106e']#
 	BG_PoolSet_Dragon.append('BGS_036')
@@ -701,7 +707,7 @@ TB_BaconUps_106e=buff(2,2)
 
 
 
-if BG25__Cyborg_Drake:# 5/2/8 dragon ## new 25.2.2
+if BG25__Cyborg_Drake:# 5/2/8 dragon ## new 25.2.2 banned 26.2
 	BG_Minion_Dragon+=['BG25_043','BG25_043e','BG25_043_G','BG25_043_Ge']
 class BG25_043:# (minion)
 	""" Cyborg Drake
@@ -718,7 +724,7 @@ BG25_043_Ge=buff(20,0)
 
 
 ## Disco Shuffler (Dragon) (5)
-BG26__Disco_Shuffler=(Config.BG_VERSION>=2620)
+#BG26__Disco_Shuffler=(Config.BG_VERSION>=2620)# (5/4/3)
 if BG26__Disco_Shuffler:# 
 	BG_Minion_Dragon+=['BG26_355','BG26_355t','BG26_355t2']
 	BG_Minion_Dragon+=['BG26_355_G','BG26_355_Gt','BG26_355_Gt2']
@@ -757,7 +763,7 @@ class BG26_355_Gt2:
 
 
 ## Sanctum Rester (Dragon) (5)
-BG26__Sanctum_Rester=(Config.BG_VERSION>=2620)
+#BG26__Sanctum_Rester=(Config.BG_VERSION>=2620)# (5/5/5)
 if BG26__Sanctum_Rester:# 
 	BG_Minion_Dragon+=['BG26_356','BG26_356e']
 	BG_Minion_Dragon+=['BG26_356_G','BG26_356_Ge']

@@ -1,36 +1,37 @@
 from ..utils import *
 
-BG_Deck_Swabbie=True ## (1)
+BG_Deck_Swabbie=(Config.BG_VERSION<2620) ## (1) ## banned 26.2
 BG_Scallywag=True ##,1
 BG26__Southsea_Busker=(Config.BG_VERSION>=2620)#(1)
 
 BG_Freedealing_Gambler=True ##,2
-BG_Southsea_Captain=True ##,2
+BG_Southsea_Captain=(Config.BG_VERSION<2620) ##,2 ## banned 26.2
 BG_Yo_Ho_Ogre=(Config.BG_VERSION<2522) ##,2 ## banned 25.2.2
 
 BG_Briny_Bootlegger=(Config.BG_VERSION<2420) ##,3 banned 24.2
-BG_Salty_Looter=True ##,3
-BG_Southsea_Strongarm=True ##,3,
-BG_First_Mate_Pip=(Config.BG_VERSION>=2420) ##(3) new 24.2
+BG_Salty_Looter=(Config.BG_VERSION<2620) ##,3 ## banned 26.2
+BG_Southsea_Strongarm=(Config.BG_VERSION<2620) ##,3 , ## banned 26.2
+BG_First_Mate_Pip=(Config.BG_VERSION>=2420 and Config.BG_VERSION<2620) ##(3) new 24.2 ## banned 26.2
 BG26__Gunpowder_Courier=(Config.BG_VERSION>=2620) # (3)
+BGS_Bloodsail_Cannoneer=(Config.BG_VERSION>=2620) ## banned when? revive 26.2
 
-BG_Goldgrubber=True ##,4
+BG_Goldgrubber=(Config.BG_VERSION<2620) ##,4 ## 26.2
 BG_Peggy_Brittlebone=(Config.BG_VERSION<2522) ##,4  banned 25.2.2
 BG25__Peggy_Sturdybone=(Config.BG_VERSION>=2522) ## ,4 new 25.2.2
 BG_Ripsnarl_Captain=True ##,4
 BG26__Lovesick_Balladist=(Config.BG_VERSION>=2620) # (4)
 BG26__Blade_Collector=(Config.BG_VERSION>=2620) #(4)
 
-BG_Cap_n_Hoggarr=True ##,5
+BG_Cap_n_Hoggarr=(Config.BG_VERSION<2620) ##,5 ## banned 26.2
 BG_Tony_Two_Tusk=(Config.BG_VERSION<2522) ##,5 ## banned 25.2.2
 BG_Vanessa_VanCleef=(Config.BG_VERSION>=2460) ##, 5 ## new 24.6
-BG26__Upbeat_Impressionist=(Config.BG_VERSION>=2620)#(5)
-BG26__Record_Smuggler=(Config.BG_VERSION>=2620)#(5)
-BG26__Underhanded_Dealer=(Config.BG_VERSION>=2620)#(5)
+BG26__Upbeat_Impressionist=(Config.BG_VERSION>=2620)#(5/8/4)
+BG26__Record_Smuggler=(Config.BG_VERSION>=2620)#(5/7/6)
+BG26__Underhanded_Dealer=(Config.BG_VERSION>=2620)#(4)->(5)
 
-BG_Dread_Admiral_Eliza=True ##,6
+BG_Dread_Admiral_Eliza=(Config.BG_VERSION<2620) ##,6 ## banned 26.2
 BG_Nosy_Looter=(Config.BG_VERSION<2460) ##,6 ### banned 24.6
-BG26__Fleet_Admiral_Tethys=(Config.BG_VERSION>=2620)#(6)
+BG26__Fleet_Admiral_Tethys=(Config.BG_VERSION>=2620)#(6/5/6)
 
 BG_Minion_Pirate=[]
 
@@ -43,7 +44,7 @@ BG_Pirate_Gold={}
 
 #### TIER 1 ####
 
-#Deck Swabbie,1,2,2,Pirate,Battlecry ### OK ###
+#Deck Swabbie,1,2,2,Pirate,Battlecry ### OK ### banned 26.2
 if BG_Deck_Swabbie:
 	BG_Minion_Pirate +=['BGS_055','TB_BaconUps_126']
 	BG_PoolSet_Pirate.append('BGS_055')
@@ -150,7 +151,7 @@ class TB_BaconUps_127:# <12>[1453]
 
 
 
-#Southsea Captain,2,3,3,Pirate,- ### OK ###
+#Southsea Captain,2,3,3,Pirate,- ### OK ### banned 26.2
 if BG_Southsea_Captain:
 	BG_Minion_Pirate +=['BG_NEW1_027','NEW1_027e','TB_BaconUps_136','TB_BaconUps_136e']
 	BG_PoolSet_Pirate.append('BG_NEW1_027')
@@ -238,7 +239,7 @@ class BG21_017_G:# <12>[1453]
 
 
 
-#Salty Looter,3,4,5,Pirate,- ### OK ###
+#Salty Looter,3,4,5,Pirate,- ### OK ### banned 26.2
 if BG_Salty_Looter:
 	BG_Minion_Pirate +=['BGS_081','BGS_081e','TB_BaconUps_143','TB_BaconUps_143e']
 	BG_PoolSet_Pirate.append('BGS_081')
@@ -258,7 +259,7 @@ TB_BaconUps_143e=buff(2,2)
 
 
 
-#Southsea Strongarm,3,4,3,Pirate,Battlecry  ### OK ###
+#Southsea Strongarm,3,4,3,Pirate,Battlecry  ### OK ### banned 26.2
 if BG_Southsea_Strongarm:
 	BG_Minion_Pirate +=['BGS_048','BGS_048e','TB_BaconUps_140','TB_BaconUps_140e']
 	BG_PoolSet_Pirate.append('BGS_048')
@@ -294,7 +295,7 @@ class TB_BaconUps_140:# <12>[1453]
 TB_BaconUps_140e=buff(2,2)
 
 
-## First Mate Pip (3) ### BG23_192 #######
+## First Mate Pip (3) ### BG23_192 ####### banned 26.2
 if BG_First_Mate_Pip: ##(3) new 24.2
 	BG_Minion_Pirate +=['BG23_192','BG23_192_G']
 	BG_PoolSet_Pirate.append('BG23_192')
@@ -364,10 +365,29 @@ class BG26_810_G:# (minion)
 BG26_810_Ge=buff(2,0)
 
 
+## Bloodsail Cannoneer (pirate ) (3/4/3)
+if BGS_Bloodsail_Cannoneer: ## banned when? revive 26.2
+	BG_Minion_Pirate+=['BGS_053','BGS_053e']
+	BG_Minion_Pirate+=['TB_BaconUps_138']
+	BG_PoolSet_Pirate.append('BGS_053')
+	BG_Pirate_Gold['BGS_053']='TB_BaconUps_138'
+class BGS_053:
+	""" Bloodsail Cannoneer
+	&lt;b&gt;Battlecry&lt;/b&gt;: Give your other Pirates +3 Attack."""
+	play = Buff(FRIENDLY_MINIONS + PIRATE, 'BGS_053e')
+	pass
+BGS_053e=buff(3,0)
+class TB_BaconUps_138:
+	""" Bloodsail Cannoneer
+	&lt;b&gt;Battlecry&lt;/b&gt;: Give your other Pirates +6 Attack. """
+	play = Buff(FRIENDLY_MINIONS + PIRATE, 'TB_BaconUps_138e')
+	pass
+TB_BaconUps_138e=buff(6,0)
+
 #### TIER 4 ####
 
 
-#Goldgrubber,4,4,4,Pirate,- 金ぴか ### OK ###
+#Goldgrubber,4,4,4,Pirate,- 金ぴか ### OK ### banned 26.2
 if BG_Goldgrubber:
 	BG_Minion_Pirate +=['BGS_066','BGS_066e','TB_BaconUps_130','TB_BaconUps_130e']
 	BG_PoolSet_Pirate.append('BGS_066')
@@ -539,7 +559,7 @@ class BG26_817_G:# (minion)
 
 #### TIER 5 ####
 
-#Cap'n Hoggarr,5,6,6,Pirate,- ### OK ###
+#Cap'n Hoggarr,5,6,6,Pirate,- ### OK ### banned 26.2
 if BG_Cap_n_Hoggarr:
 	BG_Minion_Pirate +=['BGS_072','TB_BaconUps_133']
 	BG_PoolSet_Pirate.append('BGS_072')
@@ -684,8 +704,8 @@ class BG26_812_G:# (minion)
 	pass
 
 
-## Underhanded Dealer (Pirate) (5)
-#BG26__Underhanded_Dealer=(Config.BG_VERSION>=2620)#(5)
+## Underhanded Dealer (Pirate) (4)->(5)
+#BG26__Underhanded_Dealer=(Config.BG_VERSION>=2620)#(4)->(5)
 if BG26__Underhanded_Dealer:# 
 	BG_Minion_Pirate+=['BG26_815','BG26_815e']
 	BG_Minion_Pirate+=['BG26_815_G','BG26_815_Ge']
@@ -694,6 +714,8 @@ if BG26__Underhanded_Dealer:#
 class BG26_815:# (minion)
 	""" Underhanded Dealer
 	After you gain Gold, gain +1/+1. """
+	if Config.BG_VERSION>=2620:
+		option_tags={GameTag.TECH_LEVEL:4}
 	events = Give(CONTROLLER, ID('GAME_005')).on(Buff(SELF, 'BG26_815e'))
 	pass
 BG26_815e=buff(1,1)
@@ -708,7 +730,7 @@ BG26_815_Ge=buff(2,2)
 ###### TIER 6 ######
 
 
-#Dread Admiral Eliza,6,6,7,Pirate,- ### OK ###
+#Dread Admiral Eliza,6,6,7,Pirate,- ### OK ### banned 26.2
 if BG_Dread_Admiral_Eliza:
 	BG_Minion_Pirate +=['BGS_047','BGS_047e','TB_BaconUps_134','TB_BaconUps_134e']
 	BG_PoolSet_Pirate.append('BGS_047')
@@ -759,7 +781,7 @@ class BG21_019_G:# <12>[1453]
 	pass
 
 from .BG_minion_naga import BG25__Greta_Gold_Gun
-if BG25__Greta_Gold_Gun:# 6/2/9 naga/pirate ## new 25.2.2###
+if BG25__Greta_Gold_Gun:# 6/2/9 naga/pirate ## new 25.2.2### banned 26.2
 	#BG_Minion_Pirate+=['BG25_044','BG25_044_G','BG25_044e2','BG25_044t']
 	BG_PoolSet_Pirate.append('BG25_044')
 	BG_Pirate_Gold['BG25_044']='BG25_044_G'

@@ -3,7 +3,9 @@ from ..utils import *
 
 
 BG25__Risen_Rider=(Config.BG_VERSION>=2522)#1 undead ## new 25.2.2
-BG25__Rot_Hide_Gnoll=(Config.BG_VERSION>=2522)#1 undead ## new 25.2.2
+BG25__Rot_Hide_Gnoll=(Config.BG_VERSION>=2522 and Config.BG_VERSION<2620)#1 undead ## new 25.2.2 ## banned 26.2
+BG26__Incorporeal_Corporal=(Config.VERSION>=2620) #(1)
+# BG_Micro_Mummy undead/mecha
 
 BG25__Eternal_Knight=(Config.BG_VERSION>=2522)#2 undead ## new 25.2.2
 BG25__Nerubian_Deathswarmer=(Config.BG_VERSION>=2522)#2 undead ## new 25.2.2
@@ -11,13 +13,15 @@ BG25__Scarlet_Skull=(Config.BG_VERSION>=2522)#2 undead ## new 25.2.2
 BG25__Corpse_Refiner=(Config.BG_VERSION>=2522)# 2/2/3 undead/pirate ## new 25.2.2 
 
 BG25__Ghoul_of_the_Feast=(Config.BG_VERSION>=2522) # 3 undead ## new 25.2.2
-BG25__Jelly_Belly=(Config.BG_VERSION>=2522)#3 undead ## new 25.2.2
-BG25__Lich_Doctor=(Config.BG_VERSION>=2522)#3 undead ## new 25.2.2
+BG25__Jelly_Belly=(Config.BG_VERSION>=2522 and Config.BG_VERSION<2620)#3 undead ## new 25.2.2 ## banned 26.2
+BG25__Lich_Doctor=(Config.BG_VERSION>=2522 and Config.BG_VERSION<2620)#3 undead ## new 25.2.2 ## banned 26.2
+BG25__Radio_Star=(Config.BG_VERSION>=2620) ## (3)
 
 BG25__Anubarak_Nerubian_King=(Config.BG_VERSION>=2522)#4 undead ## new 25.2.2
 BG25__Handless_Forsaken=(Config.BG_VERSION>=2522)#4 undead ## new 25.2.2
-BG25__Possessive_Banshee=(Config.BG_VERSION>=2522)#4 undead ## new 25.2.2
+BG25__Possessive_Banshee=(Config.BG_VERSION>=2522 and Config.BG_VERSION<2620)#4 undead ## new 25.2.2 ## banned 26.2
 BG26__Xylo_bones=(Config.BG_VERSION>=2620) # (4) new 26.2
+#BG26__Plagued_Tidewalker undead/murloc
 
 BG25__Hungering_Abomination=(Config.BG_VERSION>=2522)#5 undead ## new 25.2.2
 BG24__Sinrunner_Blanchy=(Config.BG_VERSION>=2522)#5 undead/beast ## new 25.2.2
@@ -49,7 +53,7 @@ class BG25_001_G:# (minion)
 
 
 
-#Rot Hide Gnoll 1/1/4/Undead	- ## new 25.2.2
+#Rot Hide Gnoll 1/1/4/Undead	- ## new 25.2.2 ## banned 26.2
 if BG25__Rot_Hide_Gnoll:# 
 	BG_Minion_Undead+=['BG25_013','BG25_013_G']
 	BG_PoolSet_Undead+=['BG25_013']
@@ -80,6 +84,21 @@ if BG_Micro_Mummy:
 	BG_PoolSet_Undead.append('BG_ULD_217')
 	BG_Undead_Gold['BG_ULD_217']='TB_BaconUps_250'
 
+#BG26__Incorporeal_Corporal=(Config.VERSION>=2620) #(1)
+if BG26__Incorporeal_Corporal:# 
+	BG_Minion_Undead+=['BG26_RLK_117','BG26_RLK_117_G']
+	BG_PoolSet_Undead+=['BG26_RLK_117']
+	BG_Undead_Gold['BG26_RLK_117']='BG26_RLK_117_G'
+class BG26_RLK_117:
+	""" Incorporeal Corporal
+	After this minion attacks, destroy it."""
+	events = BG_Attack(SELF).after(Destroy(SELF))
+	pass
+class BG26_RLK_117_G:
+	""" Incorporeal Corporal
+	After this minion attacks, destroy it. """
+	events = BG_Attack(SELF).after(Destroy(SELF))
+	pass
 
 ######## tavern tier 2
 
@@ -318,7 +337,7 @@ BG25_002_Ge=buff(6,0)
 
 
 
-#Jelly Belly 3/3/5/Undead	Reborn ## new 25.2.2
+#Jelly Belly 3/3/5/Undead	Reborn ## new 25.2.2 ## banned 26,2
 if BG25__Jelly_Belly:# 
 	BG_Minion_Undead+=['BG25_005']
 	BG_Minion_Undead+=['BG25_005_G']
@@ -341,7 +360,7 @@ BG25_005_Ge=buff(6,6)
 
 
 
-#Lich Doctor 3/3/2/Undead	Taunt ## new 25.2.2
+#Lich Doctor 3/3/2/Undead	Taunt ## new 25.2.2 ## banned 26.2
 if BG25__Lich_Doctor:# 
 	BG_Minion_Undead+=['BG25_006']
 	BG_Minion_Undead+=['BG25_006_G']
@@ -374,6 +393,34 @@ class BG25_006_G:# (minion)
 	pass
 BG25_006_Ge=buff(2,2)
 
+
+
+## Radio Star(3/3/1)
+#BG25__Radio_Star=(Config.BG_VERSION>=2620) ## (3/3/1)
+if BG25__Radio_Star:##
+	BG_Minion_Undead+=['BG25_399','BG25_399_G']
+	BG_PoolSet_Undead+=['BG25_399']
+	BG_Undead_Gold['BG25_399']='BG25_399_G'
+class BG25_399_Action(GameAction):
+	AMOUNT=ActionArg()
+	def do(self, source, amount):
+		last_action=source.controller.targetedaction_log[-1]
+		target = last_action['source']
+		if getattr(target, 'this_is_minion', False):
+			Give(source.controller, target.id).trigger(source)
+			if amount==2:
+				Give(source.controller, target.id).trigger(source)	
+		pass
+class BG25_399:
+	""" Radio Star
+	&lt;b&gt;Deathrattle:&lt;/b&gt; Add a plain copy of the minion that __killed this to your hand."""
+	deathrattle = BG25_399_Action(1)
+	pass
+class BG25_399_G:
+	""" Radio Star
+	&lt;b&gt;Deathrattle:&lt;/b&gt; Add 2 plain copies of the minion that killed this to your hand."""
+	deathrattle = BG25_399_Action(2)
+	pass
 
 
 ##### tavern tier 4
@@ -456,7 +503,7 @@ class BG25_010_Gt:# (minion)
 
 
 
-#Possessive Banshee 4/2/7/Undead	Battlecry ## new 25.2.2
+#Possessive Banshee 4/2/7/Undead	Battlecry ## new 25.2.2 banned 26.2
 if BG25__Possessive_Banshee:# 
 	BG_Minion_Undead+=['BG25_004']
 	BG_Minion_Undead+=['BG25_004e']
@@ -492,7 +539,7 @@ class BG26_172_Action(GameAction):#
 	BUFF=ActionArg()
 	def do(self, source, buff):#
 		if getattr(source.controller.game,'this_is_battle'):
-			BuffPermanently(SELF, buff)
+			BuffPermanently(source, buff)
 		pass# 
 class BG26_172:# (minion)
 	""" Xylo-bones
@@ -506,6 +553,15 @@ class BG26_172_G:# (minion)
 	events = Summon(CONTROLLER).after(BG26_172_Action('BG26_172_Ge')) #
 	pass
 BG26_172_Ge=buff(0,6)
+
+
+from .BG_minion_murloc import BG26__Plagued_Tidewalker
+#BG26__Plagued_Tidewalker=(Config.BG_VERSION>=2620)#(4)
+if BG26__Plagued_Tidewalker:# 
+	#BG_Minion_Undead+=['BG26_361']
+	#BG_Minion_Undead+=['BG26_361_G']
+	BG_PoolSet_Undead.append('BG26_361')
+	BG_Undead_Gold['BG26_361']='BG26_361_G'
 
 
 ###### tavern tier 5
