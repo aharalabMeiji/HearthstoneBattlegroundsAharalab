@@ -3591,6 +3591,10 @@ class ApplyGem(TargetedAction):
 	def do(self, source, target, gem):
 		if gem=='BG20_GEM':
 			Buff(target,'BG20_GEMe').trigger(source)
+			if source.controller.moon_bacon_jazzer_powered_up>0:
+				Buff(target, 'BG26_159pe', max_health=source.controller.moon_bacon_jazzer_powered_up).trigger(source)
+			if source.controller.prickly_piper_powered_up>0:
+				Buff(target, 'BG26_160e', atk=source.controller.prickly_piper_powered_up).trigger(source)
 			self.broadcast(source, EventListener.ON, target, gem)
 			self.broadcast(source, EventListener.AFTER, target, gem)
 			target.gem_applied_thisturn=True

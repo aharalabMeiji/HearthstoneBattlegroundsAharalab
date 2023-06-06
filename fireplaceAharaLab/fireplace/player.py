@@ -139,6 +139,8 @@ class Player(Entity, TargetableByAuras):
 		self.flourishing_frostling_powered_up=0 ## battlegrounds, new 26.2
 		self.southsea_busker_powered_up=0 ## battlegrounds new 26.2
 		self.spentmoney_in_this_turn=0 ## battlegrounds, #Captain Flat Tusk # BG26_814
+		self.moon_bacon_jazzer_powered_up=0 ## battlegrounds #BG26_159 new 26.2
+		self.prickly_piper_powered_up=0 ## battlegrounds ## BG26_160, new 26.2
 		self.buddy_gauge=0## battlegrounds, # buddy
 		self.got_buddy=0## battlegrounds, # buddy
 		self.buddy_id=''## battlegrounds, # buddy

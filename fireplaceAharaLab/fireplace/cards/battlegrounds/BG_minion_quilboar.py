@@ -17,6 +17,7 @@ BG_Bristleback_Brute=True## Brute	3
 BG_Gemsplitter=(Config.BG_VERSION<2460)##	3 ### banned 24.6
 BG_Thorncaller=True##	3
 BG_Bristlemane_Scrapsmith=(Config.BG_VERSION>=2460) ## 3 ## new 24.6 ### OK ###
+BG26__Moon_Bacon_Jazzer=(Config.BG_VERSION>=2620) # (3)
 
 BG_Bonker=True##	4
 BG_Dynamic_Duo=True##	4
@@ -24,13 +25,16 @@ BG_Groundshaker=True##	4
 BG_Necrolyte=True##	4
 BG25__Pufferquil=(Config.BG_VERSION>=2522)# 4/2/6, quilbour/naga, new 25.2.2
 BG_Gem_Smuggler=(Config.BG_VERSION>=2560)
+BG26__Prickly_Piper=(Config.BG_VERSION>=2620)#(4)
 
 BG_Aggem_Thorncurse=True##	5
 BG_Bristleback_Knight=True## 5 BG20_204
+BG26__Bongo_Bopper=(Config.BG_VERSION>=2620)# (5)
 
 BG_Captain_Flat_Tusk=False##	6 banned when?
 BG_Charlga=True##	6
 BG_Darkgaze_Elder=(Config.BG_VERSION>=2320)## NEW 23.2 -> quilboar
+BG26__Bristlebach=(Config.BG_VERSION>=2620)# (6)
 
 
 
@@ -287,7 +291,34 @@ class BG20_105_G:# <12>[1453]
 
 
 
-###### tavern tier 4
+## Moon-Bacon Jazzer (Quilboar) (3)
+#BG26__Moon_Bacon_Jazzer=(Config.BG_VERSION>=2620) # (3)
+if BG26__Moon_Bacon_Jazzer:# 
+	BG_Minion_Quilboar+=['BG26_159','BG26_159pe',]
+	BG_Minion_Quilboar+=['BG26_159_G']
+	BG_PoolSet_Quilboar.append('BG26_159')
+	BG_Quilboar_Gold['BG26_159']='BG26_159_G'
+class BG26_159_action(GameAction):
+	AMOUNT=IntArg()
+	def do(self, source, amount):
+		source.controller.moon_bacon_jazzer_powered_up+=amount
+class BG26_159:# (minion)
+	""" Moon-Bacon Jazzer
+	<b>Battlecry:</b> For the rest of the game, your <b>Blood Gems</b> __give an extra +1 Health. """
+	play = BG26_159_action(1)
+	pass
+class BG26_159pe:
+	pass
+class BG26_159_G:# (minion)
+	""" Moon-Bacon Jazzer
+	<b>Battlecry:</b> For the rest of the game, your <b>Blood Gems</b> __give an extra +2 Health. """
+	play = BG26_159_action(2)#
+	pass
+
+
+
+
+#### tavern tier 4 ####
 
 #Bonker	4  ### OK ###
 if BG_Bonker:
@@ -430,7 +461,42 @@ class BG25_155_G:
 	option_tags={GameTag.TECH_LEVEL:4}
 	play = BG_Play(CONTROLLER, 'GAME_005', FRIENDLY_MINIONS - SELF) * 2
 	pass
-########tavern tier 5
+
+
+
+## Prickly Piper (Quilboar) (4)
+#BG26__Prickly_Piper=(Config.BG_VERSION>=2620)#(4)
+if BG26__Prickly_Piper:# 
+	BG_Minion_Quilboar+=['BG26_160']
+	BG_Minion_Quilboar+=['BG26_160_G']
+	BG_PoolSet_Quilboar.append('BG26_160')
+	BG_Quilboar_Gold['BG26_160']='BG26_160_G'
+class BG26_160_Action(GameAction):#
+	AMOUNT=IntArg()
+	def do(self, source, amount):#
+		if hasattr(source.controller,'deepcopy_original'):
+			source.controller.deepcopy_original.prickly_piper_powered_up+=amount
+		pass# 
+class BG26_160:# (minion)
+	""" Prickly Piper
+	<b>Deathrattle:</b> For the rest of the game, your <b>Blood Gems</b> __give an extra +1 Attack. """
+	deathrattle = BG26_160_Action(1)
+	pass
+class BG26_160_G:# (minion)
+	""" Prickly Piper
+	<b>Deathrattle:</b> For the rest of the game, your <b>Blood Gems</b> __give an extra +2 Attack. """
+	deathrattle = BG26_160_Action(2)#
+	pass
+@custom_card
+class BG26_160e:
+	tags = {
+		GameTag.CARDNAME: "ZZZZ",
+		GameTag.CARDTYPE: CardType.ENCHANTMENT,
+	}
+
+
+
+#### tavern tier 5 3333
 
 #Aggem Thorncurse	5  ### OK ###
 if BG_Aggem_Thorncurse:
@@ -479,7 +545,9 @@ BG20_302_Ge=buff(2,2)# <12>[1453]
 """ Thorncursed
 +2/+2 """
 
-###BG_Bristleback_Knight
+
+
+###BG_Bristleback_Knight (5)
 if BG_Bristleback_Knight:
 	BG_Minion_Quilboar += [ 'BG20_204','BG20_302e','BG20_302_G','BG20_302_Ge',]#	
 	BG_PoolSet_Quilboar.append('BG20_204')
@@ -498,6 +566,33 @@ class BG20_204_G:
 	pass
 
 
+	
+## Bongo Bopper (Quilboar) (5)
+#BG26__Bongo_Bopper=(Config.BG_VERSION>=2620)# (5)
+if BG26__Bongo_Bopper:# 
+	BG_Minion_Quilboar+=['BG26_531']
+	BG_PoolSet_Quilboar.append('BG26_531')
+	BG_Quilboar_Gold['BG26_531']='BG26_531_G'
+class BG26_531:# (minion)
+	""" Bongo Bopper
+	At the end of your turn, get a <b>Blood Gem</b> and play 2 more on this. """
+	events = OWN_TURN_END.on((
+		Give(CONTROLLER, 'BG20_GEM'),
+		ApplyGem(SELF, 'BG20_GEM'), ApplyGem(SELF, 'BG20_GEM')))
+	pass
+
+	BG_Minion_Quilboar+=['BG26_531_G']
+class BG26_531_G:# (minion)
+	""" Bongo Bopper
+	At the end of your turn, get 2 <b>Blood Gems</b> and play 4 more on this. """
+	events = OWN_TURN_END.on((
+		Give(CONTROLLER, 'BG20_GEM'),Give(CONTROLLER, 'BG20_GEM'),
+		ApplyGem(SELF, 'BG20_GEM'),ApplyGem(SELF, 'BG20_GEM'),ApplyGem(SELF, 'BG20_GEM'),ApplyGem(SELF, 'BG20_GEM')))
+	pass
+
+
+
+#### TIER 6
 
 
 #Captain Flat Tusk	6  ### OK ###
@@ -596,6 +691,29 @@ class BG23_018_G:# <12>[1453]
 		]
 	pass
 class BG23_018t:# <12>[1453]
+	pass
+
+
+
+## Bristlebach (Quilboar) (6)
+#BG26__Bristlebach=(Config.BG_VERSION>=2620)# (6)
+if BG26__Bristlebach:# 
+	BG_Minion_Quilboar+=['BG26_157']
+	BG_Minion_Quilboar+=['BG26_157_G']
+	BG_PoolSet_Quilboar.append('BG26_157')
+	BG_Quilboar_Gold['BG26_157']='BG26_157_G'
+class BG26_157_Action(GameAction):# 
+	def do(self, source):# 
+		pass# 
+class BG26_157:# (minion)
+	""" Bristlebach
+	<b>Avenge (1):</b> Play a <b>Blood Gem</b> on all your Quilboar. """
+	events = Death(FRIENDLY + MINION).on(Avenge(SELF, 1, [ApplyGem( FRIENDLY_MINIONS + QUILBOAR, 'BG20_GEM')]))#
+	pass
+class BG26_157_G:# (minion)
+	""" Bristlebach
+	<b>Avenge (1):</b> Play 2 <b>Blood Gems</b> on all your Quilboar. """
+	events = Death(FRIENDLY + MINION).on(Avenge(SELF, 1, [ApplyGem( FRIENDLY_MINIONSW + QUILBOAR, 'BG20_GEM'),ApplyGem( FRIENDLY + QUILBOAR, 'BG20_GEM')]))
 	pass
 
 
