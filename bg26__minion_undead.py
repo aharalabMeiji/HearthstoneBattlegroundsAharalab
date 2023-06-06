@@ -8,7 +8,7 @@ BG26__Xylo_bones=(Config.BG_VERSION>=2620)
 if BG26__Xylo_bones:# 
 	BG_Minion_Undead+=['BG26_172']
 	BG_PoolSet_Undead.append('BG26_172')
-	BG_Undead_Gold['BG26_172']=''
+	BG_Undead_Gold['BG26_172']='BG26_172_G'
 class BG26_172_Action(GameAction):# 
 	def do(self, source):# 
 		pass# 

@@ -30,6 +30,7 @@ BG26__Underhanded_Dealer=(Config.BG_VERSION>=2620)#(5)
 
 BG_Dread_Admiral_Eliza=True ##,6
 BG_Nosy_Looter=(Config.BG_VERSION<2460) ##,6 ### banned 24.6
+BG26__Fleet_Admiral_Tethys=(Config.BG_VERSION>=2620)#(6)
 
 BG_Minion_Pirate=[]
 
@@ -109,7 +110,7 @@ if BG26__Southsea_Busker:#
 	BG_Minion_Pirate+=['BG26_135']
 	BG_Minion_Pirate+=['BG26_135_G']
 	BG_PoolSet_Pirate.append('BG26_135')
-	BG_Pirate_Gold['BG26_135']=''
+	BG_Pirate_Gold['BG26_135']='BG26_135_G'
 class BG26_135_Action(GameAction):# 
 	AMOUNT=IntArg()
 	def do(self, source, amount):# 
@@ -315,7 +316,7 @@ if BG26__Gunpowder_Courier:#
 	BG_Minion_Pirate+=['BG26_810','BG26_810e']
 	BG_Minion_Pirate+=['BG26_810_G','BG26_810_Ge']
 	BG_PoolSet_Pirate.append('BG26_810')
-	BG_Pirate_Gold['BG26_810']=''
+	BG_Pirate_Gold['BG26_810']='BG26_810_G'
 class BG26_810_Action(GameAction):# 
 	def do(self, source):# 
 		pass# 
@@ -334,10 +335,10 @@ class BG26_810_Action(GameAction):
 		else:# upgrade
 			spent=source.controller.tavern_tierup_cost
 		source.sidequest_counter += spent
+		source.script_data_num_1 = triggeramount - source.sidequest_counter
 		if source.sidequest_counter>= triggeramount:
 			## trigger action
 			source.sidequest_counter -= triggeramount
-			source.script_data_num_1 = triggeramount - source.sidequest_counter
 			for card in source.controller.field:
 				if isRaceCard(card, Race.PIRATE):
 					Buff(card, buff).trigger(source)
@@ -474,7 +475,7 @@ if BG26__Lovesick_Balladist:#
 	BG_Minion_Pirate+=['BG26_814','BG26_814e']
 	BG_Minion_Pirate+=['BG26_814_G']
 	BG_PoolSet_Pirate.append('BG26_814')
-	BG_Pirate_Gold['BG26_814']=''
+	BG_Pirate_Gold['BG26_814']='BG26_814_G'
 class BG26_814_Action(TargetedAction):# 
 	TARGET=ActionArg()
 	AMOUNT=IntArg()
@@ -509,7 +510,7 @@ if BG26__Blade_Collector:#
 	BG_Minion_Pirate+=['BG26_817']
 	BG_Minion_Pirate+=['BG26_817_G']
 	BG_PoolSet_Pirate.append('BG26_817')
-	BG_Pirate_Gold['BG26_817']=''
+	BG_Pirate_Gold['BG26_817']='BG26_817_G'
 class BG26_817_Action(TargetedAction):# 
 	TARGET=ActionArg()
 	def do(self, source, target):# 
@@ -616,7 +617,7 @@ if BG26__Upbeat_Impressionist:#
 	BG_Minion_Pirate+=['BG26_124']
 	BG_Minion_Pirate+=['BG26_124_G']
 	BG_PoolSet_Pirate.append('BG26_124')
-	BG_Pirate_Gold['BG26_124']=''
+	BG_Pirate_Gold['BG26_124']='BG26_124_G'
 class BG26_124_Action(GameAction):# 
 	amount=IntArg()
 	def do(self, source, amount):# 
@@ -663,7 +664,7 @@ if BG26__Record_Smuggler:#
 	BG_Minion_Pirate+=['BG26_812']
 	BG_Minion_Pirate+=['BG26_812_G']
 	BG_PoolSet_Pirate.append('BG26_812')
-	BG_Pirate_Gold['BG26_812']=''
+	BG_Pirate_Gold['BG26_812']='BG26_812_G'
 class BG26_812_Action(GameAction):# 
 	AMOUNT=IntArg()
 	def do(self, source, amount):# 
@@ -689,7 +690,7 @@ if BG26__Underhanded_Dealer:#
 	BG_Minion_Pirate+=['BG26_815','BG26_815e']
 	BG_Minion_Pirate+=['BG26_815_G','BG26_815_Ge']
 	BG_PoolSet_Pirate.append('BG26_815')
-	BG_Pirate_Gold['BG26_815']=''
+	BG_Pirate_Gold['BG26_815']='BG26_815_G'
 class BG26_815:# (minion)
 	""" Underhanded Dealer
 	After you gain Gold, gain +1/+1. """
@@ -762,4 +763,55 @@ if BG25__Greta_Gold_Gun:# 6/2/9 naga/pirate ## new 25.2.2###
 	#BG_Minion_Pirate+=['BG25_044','BG25_044_G','BG25_044e2','BG25_044t']
 	BG_PoolSet_Pirate.append('BG25_044')
 	BG_Pirate_Gold['BG25_044']='BG25_044_G'
+
+	
+## Fleet Admiral Tethys (Pirate) (6)
+#BG26__Fleet_Admiral_Tethys=(Config.BG_VERSION>=2620)#(6)
+if BG26__Fleet_Admiral_Tethys:# 
+	BG_Minion_Pirate+=['BG26_766']
+	BG_Minion_Pirate+=['BG26_766_G']
+	BG_PoolSet_Pirate.append('BG26_766')
+	BG_Pirate_Gold['BG26_766']='BG26_766_G'
+class BG26_766_Action(GameAction):
+	"""
+	AMOUNT = IntArg() #
+	"""
+	AMOUNT = IntArg() #spent mana
+	REPEAT = IntArg()
+	def do(self, source, amount, repeat):
+		triggeramount=8
+		if amount==1:#buy a minion
+			spent=source.controller.game.minionCost
+		elif amount==2:# rerole
+			spent=source.controller.game.reroleCost
+		else:# upgrade
+			spent=source.controller.tavern_tierup_cost
+		source.sidequest_counter += spent
+		source.script_data_num_1 = triggeramount - source.sidequest_counter
+		if source.sidequest_counter>= triggeramount:
+			## trigger action
+			source.sidequest_counter -= triggeramount
+			for i in range(repeat):
+				newcard=RandomBGPirate().evaluate(source)	
+				newcard=get00(newcard)
+				newcard.zone=Zone.SETASIDE
+				newcard.controller=source.controller
+				newcard.zone=Zone.HAND
+class BG26_766:# (minion)
+	""" Fleet Admiral Tethys
+	After you spend 8 Gold, get another random Pirate. <i>(@ Gold left!)</i> """
+	tags={GameTag.TAG_SCRIPT_DATA_NUM_1:8}
+	events = [Buy(CONTROLLER).after(BG26_810_Action(1,1)), 
+		   Rerole(CONTROLLER).after(BG26_810_Action(2,1)), 
+		   UpgradeTier(CONTROLLER).after(BG26_810_Action(3,1))]
+	pass
+class BG26_766_G:# (minion)
+	""" Fleet Admiral Tethys
+	After you spend 8 Gold, get 2 other random Pirates. <i>(@ Gold left!)</i> """
+	tags={GameTag.TAG_SCRIPT_DATA_NUM_1:8}
+	events = [Buy(CONTROLLER).after(BG26_810_Action(1,2)), 
+		   Rerole(CONTROLLER).after(BG26_810_Action(2,2)), 
+		   UpgradeTier(CONTROLLER).after(BG26_810_Action(3,2))]
+	#
+	pass
 

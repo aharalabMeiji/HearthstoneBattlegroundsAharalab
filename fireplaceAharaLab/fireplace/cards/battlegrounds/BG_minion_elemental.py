@@ -134,7 +134,7 @@ if BG26__Flourishing_Frostling:#
 	BG_Minion_Elemental+=['BG26_537','BG26_537e','BG26_537pe']
 	BG_Minion_Elemental+=['BG26_537_G']
 	BG_PoolSet_Elemental.append('BG26_537')
-	BG_Elemental_Gold['BG26_537']=''
+	BG_Elemental_Gold['BG26_537']='BG26_537_G'
 class BG26_537_Action(GameAction):#
 	AMOUNT=IntArg()
 	def do(self, source,amount):# 
@@ -600,7 +600,7 @@ class BG25_046_Ge:# (enchantment)
 if BG26__Gusty_Trumpeter:# 
 	BG_Minion_Elemental+=['BG26_534']
 	BG_PoolSet_Elemental.append('BG26_534')
-	BG_Elemental_Gold['BG26_534']=''
+	BG_Elemental_Gold['BG26_534']='BG26_537_G'
 class BG26_534_Action(TargetedAction):# 
 	TARGET=ActionArg()
 	AMOUNT=IntArg()
@@ -729,7 +729,7 @@ if BG26__Rock_Rock:#
 	BG_Minion_Elemental+=['BG26_535','BG26_535e','BG26_535e2']
 	BG_Minion_Elemental+=['BG26_535_G','BG26_535_Ge','BG26_535_Ge2']
 	BG_PoolSet_Elemental.append('BG26_535')
-	BG_Elemental_Gold['BG26_535']=''
+	BG_Elemental_Gold['BG26_535']='BG26_535_G'
 class BG26_535_Action(GameAction):# 
 	def do(self, source):# 
 		if source.script_data_num_1!=0:

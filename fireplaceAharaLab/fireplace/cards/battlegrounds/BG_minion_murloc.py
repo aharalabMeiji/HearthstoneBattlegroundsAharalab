@@ -163,7 +163,7 @@ if BG26__Upbeat_Flutist:#
 	BG_Minion_Murloc+=['BG26_352','BG26_352e']
 	BG_Minion_Murloc+=['BG26_352_G','BG26_352_Ge']
 	BG_PoolSet_Murloc.append('BG26_352')
-	BG_Murloc_Gold['BG26_352']=''
+	BG_Murloc_Gold['BG26_352']='BG26_352_G'
 class BG26_352_Action(GameAction):# 
 	BUFF=ActionArg()
 	def do(self, source, buff):# 
@@ -255,7 +255,7 @@ if BG26__Scourfin:#
 	BG_Minion_Murloc+=['BG26_360','BG26_360e']
 	BG_Minion_Murloc+=['BG26_360_G','BG26_360_Ge']
 	BG_PoolSet_Murloc.append('BG26_360')
-	BG_Murloc_Gold['BG26_360']=''
+	BG_Murloc_Gold['BG26_360']='BG26_360_G'
 class BG26_360_Action(GameAction):# 
 	BUFF=ActionArg()
 	def do(self, source, buff):# 
@@ -338,7 +338,7 @@ if BG26__Bream_Counter:#
 	BG_Minion_Murloc+=['BG26_137','BG26_137e']
 	BG_Minion_Murloc+=['BG26_137_G','BG26_137_Ge']
 	BG_PoolSet_Murloc.append('BG26_137')
-	BG_Murloc_Gold['BG26_137']=''
+	BG_Murloc_Gold['BG26_137']='BG26_137_G'
 class BG26_137_Action(GameAction):# 
 	def do(self, source):# 
 		pass# 
@@ -365,7 +365,7 @@ if BG26__Bassgill:#
 	BG_Minion_Murloc+=['BG26_350','BG26_350e2']
 	BG_Minion_Murloc+=['BG26_350_G']
 	BG_PoolSet_Murloc.append('BG26_350')
-	BG_Murloc_Gold['BG26_350']=''
+	BG_Murloc_Gold['BG26_350']='BG26_350_G'
 class BG26_350_Action(GameAction):# 
 	def do(self, source):# 
 		cards=[]
@@ -421,7 +421,7 @@ if BG26__Plagued_Tidewalker:#
 	BG_Minion_Murloc+=['BG26_361']
 	BG_Minion_Murloc+=['BG26_361_G']
 	BG_PoolSet_Murloc.append('BG26_361')
-	BG_Murloc_Gold['BG26_361']=''
+	BG_Murloc_Gold['BG26_361']='BG26_361_G'
 class BG26_361_Action(GameAction):# 
 	def do(self, source):# 
 		pass# 
@@ -490,7 +490,7 @@ if BG26__Operatic_Belcher:#
 	BG_Minion_Murloc+=['BG26_888']
 	BG_Minion_Murloc+=['BG26_888_G']
 	BG_PoolSet_Murloc.append('BG26_888')
-	BG_Murloc_Gold['BG26_888']=''
+	BG_Murloc_Gold['BG26_888']='BG26_888_G'
 class BG26_888_Action(GameAction):# 
 	def do(self, source):# 
 		cards=[card for card in source.controller.field if card.Race==Race.MURLOC]
@@ -573,7 +573,7 @@ if BG26__Choral_Mrrrglr:#
 	BG_Minion_Murloc+=['BG26_354','BG26_354e']
 	BG_Minion_Murloc+=['BG26_354_G']
 	BG_PoolSet_Murloc.append('BG26_354')
-	BG_Murloc_Gold['BG26_354']=''
+	BG_Murloc_Gold['BG26_354']='BG26_354_G'
 class BG26_354_Action(GameAction):#
 	AMOUNT=IntArg()
 	def do(self, source, amount):# 

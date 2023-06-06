@@ -3,7 +3,7 @@ BG26__Disco_Shuffler=(Config.BG_VERSION>=2620)
 if BG26__Disco_Shuffler:# 
 	BG_Minion_Dragon+=['BG26_355']
 	BG_PoolSet_Dragon.append('BG26_355')
-	BG_Dragon_Gold['BG26_355']=''
+	BG_Dragon_Gold['BG26_355']='BG26_355_G'
 class BG26_355_Action(GameAction):# 
 	def do(self, source):# 
 		pass# 
@@ -25,7 +25,7 @@ BG26__Sanctum_Rester=(Config.BG_VERSION>=2620)
 if BG26__Sanctum_Rester:# 
 	BG_Minion_Dragon+=['BG26_356']
 	BG_PoolSet_Dragon.append('BG26_356')
-	BG_Dragon_Gold['BG26_356']=''
+	BG_Dragon_Gold['BG26_356']='BG26_356_G'
 class BG26_356_Action(GameAction):# 
 	def do(self, source):# 
 		pass# 
@@ -47,7 +47,7 @@ BG26__Upbeat_Frontdrake=(Config.BG_VERSION>=2620)
 if BG26__Upbeat_Frontdrake:# 
 	BG_Minion_Dragon+=['BG26_529']
 	BG_PoolSet_Dragon.append('BG26_529')
-	BG_Dragon_Gold['BG26_529']=''
+	BG_Dragon_Gold['BG26_529']='BG26_529_G'
 class BG26_529_Action(GameAction):# 
 	def do(self, source):# 
 		pass# 
@@ -69,7 +69,7 @@ BG26__Electric_Synthesizer=(Config.BG_VERSION>=2620)
 if BG26__Electric_Synthesizer:# 
 	BG_Minion_Dragon+=['BG26_963']
 	BG_PoolSet_Dragon.append('BG26_963')
-	BG_Dragon_Gold['BG26_963']=''
+	BG_Dragon_Gold['BG26_963']='BG26_963_G'
 class BG26_963_Action(GameAction):# 
 	def do(self, source):# 
 		pass# 
@@ -91,7 +91,7 @@ BG26__Stormbringer=(Config.BG_VERSION>=2620)
 if BG26__Stormbringer:# 
 	BG_Minion_Dragon+=['BG26_966']
 	BG_PoolSet_Dragon.append('BG26_966')
-	BG_Dragon_Gold['BG26_966']=''
+	BG_Dragon_Gold['BG26_966']='BG26_966_G'
 class BG26_966_Action(GameAction):# 
 	def do(self, source):# 
 		pass# 
@@ -113,7 +113,7 @@ BG26__Low_Flier=(Config.BG_VERSION>=2620)
 if BG26__Low_Flier:# 
 	BG_Minion_Dragon+=['BG26_969']
 	BG_PoolSet_Dragon.append('BG26_969')
-	BG_Dragon_Gold['BG26_969']=''
+	BG_Dragon_Gold['BG26_969']='BG26_969_G'
 class BG26_969_Action(GameAction):# 
 	def do(self, source):# 
 		pass# 

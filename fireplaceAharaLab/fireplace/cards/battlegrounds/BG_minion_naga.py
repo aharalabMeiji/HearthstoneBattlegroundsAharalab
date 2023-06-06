@@ -220,7 +220,7 @@ if BG26__Reef_Riffer:#
 	BG_Minion_Naga+=['BG26_501','BG26_501e','BG26_501t']
 	BG_Minion_Naga+=['BG26_501_G','BG26_501_Ge','BG26_501_Gt']
 	BG_PoolSet_Naga.append('BG26_501')
-	BG_Naga_Gold['BG26_501']=''
+	BG_Naga_Gold['BG26_501']='BG26_501_G'
 class BG26_501_Action(GameAction):# 
 	def do(self, source):# 
 		pass# 
@@ -431,8 +431,9 @@ class BG23_011_Gt:
 #BG26__Zesty_Shaker=(Config.BG_VERSION>=2620) # (3)
 if BG26__Zesty_Shaker:# 
 	BG_Minion_Naga+=['BG26_505']
+	BG_Minion_Naga+=['BG26_505_G']
 	BG_PoolSet_Naga.append('BG26_505')
-	BG_Naga_Gold['BG26_505']=''
+	BG_Naga_Gold['BG26_505']='BG26_505_G'
 class BG26_505_Action(TargetedAction):# 
 	CARD=ActionArg()
 	TARGET=ActionArg()
@@ -448,7 +449,6 @@ class BG26_505:# (minion)
 	events = BG_Play(CONTROLLER).after(BG26_505_Action(BG_Play.CARD, BG_Play.TARGET))
 	pass
 
-	BG_Minion_Naga+=['BG26_505_G']
 class BG26_505_G_Action(TargetedAction):# 
 	CARD=ActionArg()
 	TARGET=ActionArg()
@@ -634,7 +634,7 @@ if BG26__Deep_Blue_Crooner:#
 	BG_Minion_Naga+=['BG26_502','BG26_502e','BG26_502t']
 	BG_Minion_Naga+=['BG26_502_G','BG26_502_Ge','BG26_502_Gt']
 	BG_PoolSet_Naga.append('BG26_502')
-	BG_Naga_Gold['BG26_502']=''
+	BG_Naga_Gold['BG26_502']='BG26_502_G'
 class BG26_502:# (minion)
 	""" Deep Blue Crooner
 	<b>Spellcraft:</b> Give a minion +@/+@ until next turn. Improve your future Deep Blues. """

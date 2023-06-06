@@ -8,7 +8,7 @@ BG26__Bristlebach=(Config.BG_VERSION>=2620)
 if BG26__Bristlebach:# 
 	BG_Minion_Quilboar+=['BG26_157']
 	BG_PoolSet_Quilboar.append('BG26_157')
-	BG_Quilboar_Gold['BG26_157']=''
+	BG_Quilboar_Gold['BG26_157']='BG26_157_G'
 class BG26_157_Action(GameAction):# 
 	def do(self, source):# 
 		pass# 
@@ -30,7 +30,7 @@ BG26__Moon_Bacon_Jazzer=(Config.BG_VERSION>=2620)
 if BG26__Moon_Bacon_Jazzer:# 
 	BG_Minion_Quilboar+=['BG26_159']
 	BG_PoolSet_Quilboar.append('BG26_159')
-	BG_Quilboar_Gold['BG26_159']=''
+	BG_Quilboar_Gold['BG26_159']='BG26_159_G'
 class BG26_159_Action(GameAction):# 
 	def do(self, source):# 
 		pass# 
@@ -52,7 +52,7 @@ BG26__Prickly_Piper=(Config.BG_VERSION>=2620)
 if BG26__Prickly_Piper:# 
 	BG_Minion_Quilboar+=['BG26_160']
 	BG_PoolSet_Quilboar.append('BG26_160')
-	BG_Quilboar_Gold['BG26_160']=''
+	BG_Quilboar_Gold['BG26_160']='BG26_160_G'
 class BG26_160_Action(GameAction):# 
 	def do(self, source):# 
 		pass# 
@@ -74,7 +74,7 @@ BG26__Bongo_Bopper=(Config.BG_VERSION>=2620)
 if BG26__Bongo_Bopper:# 
 	BG_Minion_Quilboar+=['BG26_531']
 	BG_PoolSet_Quilboar.append('BG26_531')
-	BG_Quilboar_Gold['BG26_531']=''
+	BG_Quilboar_Gold['BG26_531']='BG26_531_G'
 class BG26_531_Action(GameAction):# 
 	def do(self, source):# 
 		pass# 

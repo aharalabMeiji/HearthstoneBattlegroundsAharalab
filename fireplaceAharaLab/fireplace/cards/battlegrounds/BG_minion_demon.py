@@ -257,7 +257,7 @@ if BG26__Backstage_Security:#
 	BG_Minion_Demon+=['BG26_528']
 	BG_Minion_Demon+=['BG26_528_G']
 	BG_PoolSet_Demon.append('BG26_528')
-	BG_Demon_Gold['BG26_528']=''
+	BG_Demon_Gold['BG26_528']='BG26_528_G'
 class BG26_528:# (minion)(demon)
 	""" Backstage Security
 	At the start of your turn, deal 1 damage to your hero. """
@@ -388,7 +388,7 @@ if BG26__Keyboard_Igniter:#
 	BG_Minion_Demon+=['BG26_522','BG26_522e']
 	BG_Minion_Demon+=['BG26_522_G','BG26_522_Ge']
 	BG_PoolSet_Demon.append('BG26_522')
-	BG_Demon_Gold['BG26_522']=''
+	BG_Demon_Gold['BG26_522']='BG26_522_G'
 class BG26_522_Action(GameAction):# 
 	def do(self, source):# 
 		add_buff=False
@@ -627,7 +627,7 @@ if BG26__Imposing_Percussionist:#
 	BG_Minion_Demon+=['BG26_525']
 	BG_Minion_Demon+=['BG26_525_G']
 	BG_PoolSet_Demon.append('BG26_525')
-	BG_Demon_Gold['BG26_525']=''
+	BG_Demon_Gold['BG26_525']='BG26_525_G'
 class BG26_525_Choice(Choice):# 
 	def choose(self, card):#
 		self.next_choice=None

@@ -685,7 +685,7 @@ if BG26__Polarizing_Beatboxer:#
 	BG_Minion_Mecha+=['BG26_149']
 	BG_Minion_Mecha+=['BG26_149_G']
 	BG_PoolSet_Mecha.append('BG26_149')
-	BG_Mecha_Gold['BG26_149']=''
+	BG_Mecha_Gold['BG26_149']='BG26_149_G'
 class BG26_149_Action(TargetedAction):#
 	TARGET=ActionArg()
 	def do(self, source, target):#target = buffs
