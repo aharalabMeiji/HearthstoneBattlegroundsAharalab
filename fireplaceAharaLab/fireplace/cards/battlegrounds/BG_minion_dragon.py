@@ -744,7 +744,7 @@ class BG26_355t2:
 class BG26_355_G:# (minion)
 	""" Disco Shuffler
 	<b>Choose One - </b>Trigger a friendly minion's <b>Battlecry</b> twice; or <b>Discover</b> 2 <b>Battlecry</b> minions. """
-	#
+	choose = ('BG26_355_Gt','BG26_355_Gt2')
 	pass
 class BG26_355_Gt:
 	requirements = {PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_FRIENDLY_TARGET:0, PlayReq.REQ_MINION_TARGET:0, PlayReq.REQ_TARGET_WITH_BATTLECRY:0}
@@ -754,11 +754,13 @@ class BG26_355_Gt2:
 	play = DiscoverTwice(CONTROLLER, RandomBGMinion(has_battlecry=True))
 	pass
 
+
+
 ## Sanctum Rester (Dragon) (5)
 BG26__Sanctum_Rester=(Config.BG_VERSION>=2620)
 if BG26__Sanctum_Rester:# 
-	BG_Minion_Dragon+=['BG26_356']
-	BG_Minion_Dragon+=['BG26_356_G']
+	BG_Minion_Dragon+=['BG26_356','BG26_356e']
+	BG_Minion_Dragon+=['BG26_356_G','BG26_356_Ge']
 	BG_PoolSet_Dragon.append('BG26_356')
 	BG_Dragon_Gold['BG26_356']='BG26_356_G'
 class BG26_356_Action(GameAction):# 
@@ -767,14 +769,15 @@ class BG26_356_Action(GameAction):#
 class BG26_356:# (minion)
 	""" Sanctum Rester
 	<b>Start of Combat:</b> Give your other Dragons +8 Health. """
-	#
+	events = BeginBattle(CONTROLLER).on(Buff(FRIENDLY_MINIONS + DRAGON - SELF, 'BG26_356e'))
 	pass
-
+BG26_356e=buff(0,8)
 class BG26_356_G:# (minion)
 	""" Sanctum Rester
 	<b>Start of Combat:</b> Give your other Dragons +16 Health. """
-	#
+	events = BeginBattle(CONTROLLER).on(Buff(FRIENDLY_MINIONS + DRAGON - SELF, 'BG26_356_Ge'))
 	pass
+BG26_356_Ge=buff(0,8)
 
 
 ##### tavern tier 6
