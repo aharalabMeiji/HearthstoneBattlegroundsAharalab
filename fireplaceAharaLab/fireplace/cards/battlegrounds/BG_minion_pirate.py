@@ -18,6 +18,8 @@ BG_Goldgrubber=True ##,4
 BG_Peggy_Brittlebone=(Config.BG_VERSION<2522) ##,4  banned 25.2.2
 BG25__Peggy_Sturdybone=(Config.BG_VERSION>=2522) ## ,4 new 25.2.2
 BG_Ripsnarl_Captain=True ##,4
+BG26__Lovesick_Balladist=(Config.BG_VERSION>=2620) # (4)
+BG26__Blade_Collector=(Config.BG_VERSION>=2620) #(4)
 
 BG_Cap_n_Hoggarr=True ##,5
 BG_Tony_Two_Tusk=(Config.BG_VERSION<2522) ##,5 ## banned 25.2.2
@@ -308,7 +310,7 @@ class BG23_192_G:
 #BG26__Gunpowder_Courier=(Config.BG_VERSION>=2620) # (3)
 if BG26__Gunpowder_Courier:# 
 	BG_Minion_Pirate+=['BG26_810','BG26_810e']
-	BG_Minion_Pirate+=['BG26_810_G']
+	BG_Minion_Pirate+=['BG26_810_G','BG26_810_Ge']
 	BG_PoolSet_Pirate.append('BG26_810')
 	BG_Pirate_Gold['BG26_810']=''
 class BG26_810_Action(GameAction):# 
@@ -319,7 +321,8 @@ class BG26_810_Action(GameAction):
 	AMOUNT = IntArg() #
 	"""
 	AMOUNT = IntArg() #spent mana
-	def do(self, source, amount):
+	BUFF=ActionArg()
+	def do(self, source, amount, buff):
 		triggeramount=5
 		if amount==1:#buy a minion
 			spent=source.controller.game.minionCost
@@ -334,25 +337,25 @@ class BG26_810_Action(GameAction):
 			source.script_data_num_1 = triggeramount - source.sidequest_counter
 			for card in source.controller.field:
 				if isRaceCard(card, Race.PIRATE):
-					Buff(card, 'BG26_810e').trigger(source)
+					Buff(card, buff).trigger(source)
 class BG26_810:# (minion)
 	""" Gunpowder Courier
 	After you spend 5 Gold, give your Pirates +1 Attack. <i>(@ Gold left!)</i> """
-	tags={GameTag.DATA_SCRIPT_DATA_NUM_1:5}
+	#<Tag enumID="2" name="TAG_SCRIPT_DATA_NUM_1" type="Int" value="5"/>
+	tags={GameTag.TAG_SCRIPT_DATA_NUM_1:5}
 	events = [Buy(CONTROLLER).after(BG26_810_Action(1,'BG26_810e')), 
 		   Rerole(CONTROLLER).after(BG26_810_Action(2,'BG26_810e')), 
 		   UpgradeTier(CONTROLLER).after(BG26_810_Action(3,'BG26_810e'))]
 	pass
 BG26_810e=buff(1,0)
-
 class BG26_810_G:# (minion)
 	""" Gunpowder Courier
 	After you spend 5 Gold, give your Pirates +2 Attack. <i>(@ Gold left!)</i> """
 	#
-	tags={GameTag.DATA_SCRIPT_DATA_NUM_1:5}
-	events = [Buy(CONTROLLER).after(BG26_810_Action(1,'BG26_810e')), 
-		   Rerole(CONTROLLER).after(BG26_810_Action(2,'BG26_810e')), 
-		   UpgradeTier(CONTROLLER).after(BG26_810_Action(3,'BG26_810e'))]	
+	tags={GameTag.TAG_SCRIPT_DATA_NUM_1:5}
+	events = [Buy(CONTROLLER).after(BG26_810_Action(1,'BG26_810_Ge')), 
+		   Rerole(CONTROLLER).after(BG26_810_Action(2,'BG26_810_Ge')), 
+		   UpgradeTier(CONTROLLER).after(BG26_810_Action(3,'BG26_810_Ge'))]	
 	pass
 BG26_810_Ge=buff(2,0)
 
@@ -462,6 +465,75 @@ class TB_BaconUps_139:# <12>[1453]
 TB_BaconUps_139e=buff(4,4)
 
 
+## Lovesick Balladist (Pirate) (4)
+#BG26__Lovesick_Balladist=(Config.BG_VERSION>=2620) # (4)
+if BG26__Lovesick_Balladist:# 
+	BG_Minion_Pirate+=['BG26_814','BG26_814e']
+	BG_Minion_Pirate+=['BG26_814_G']
+	BG_PoolSet_Pirate.append('BG26_814')
+	BG_Pirate_Gold['BG26_814']=''
+class BG26_814_Action(TargetedAction):# 
+	TARGET=ActionArg()
+	AMOUNT=IntArg()
+	def do(self, source, target, amount):# 
+		if target!=None and getattr(target, 'this_is_minion'):
+			amount = source.controller.spentmoney_in_this_turn * amount
+			for card in source.controller.field:
+				if isRaceCard(card, Race.PIRATE):
+					Buff(card, 'BG26_814e', atk=amount).trigger(source)
+		pass# 
+class BG26_814:# (minion)
+	""" Lovesick Balladist
+	<b>Battlecry:</b> Give a Pirate +1 Health for each Gold spent this turn. """
+	requirements = {PlayReq.REQ_TARGET_IF_AVAILABLE:0, PlayReq.REQ_MINION_TARGET:0, PlayReq.REQ_FRIENDLY_TARGET:0}
+	play = BG26_814_Action(TARGET, 1)
+	pass
+class BG26_814e:
+	""" """
+	pass
+class BG26_814_G:# (minion)
+	""" Lovesick Balladist
+	<b>Battlecry:</b> Give a Pirate +2 Health for each Gold spent this turn. """
+	requirements = {PlayReq.REQ_TARGET_IF_AVAILABLE:0, PlayReq.REQ_MINION_TARGET:0, PlayReq.REQ_FRIENDLY_TARGET:0}
+	play = BG26_814_Action(TARGET, 2)
+	pass
+
+
+
+## Blade Collector (Pirate) (4)
+#BG26__Blade_Collector=(Config.BG_VERSION>=2620) #(4)
+if BG26__Blade_Collector:# 
+	BG_Minion_Pirate+=['BG26_817']
+	BG_Minion_Pirate+=['BG26_817_G']
+	BG_PoolSet_Pirate.append('BG26_817')
+	BG_Pirate_Gold['BG26_817']=''
+class BG26_817_Action(TargetedAction):# 
+	TARGET=ActionArg()
+	def do(self, source, target):# 
+		enemy_field=source.controller.opponent.field
+		if target in enemy_field:
+			amount = source.atk
+			index=enemy_field.index(target)
+			if index>0:
+				Hit(enemy_field[index-1], amount)
+			if index<len(enemy_field)-1:
+				Hit(enemy_field[index+1], amount)
+		pass# 
+class BG26_817:# (minion)
+	""" Blade Collector
+	Also damages the minions next to whomever this attacks. """
+	events = BG_Attack(SELF).on(BG26_817_Action(BG_Attack.OTHER))
+	pass
+class BG26_817_G:# (minion)
+	""" Blade Collector
+	Also damages the minions next to whomever this attacks. """
+	events = BG_Attack(SELF).on(BG26_817_Action(BG_Attack.OTHER))
+	pass
+
+
+
+
+#### TIER 5 ####
 
 #Cap'n Hoggarr,5,6,6,Pirate,- ### OK ###
 if BG_Cap_n_Hoggarr:
