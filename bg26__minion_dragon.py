@@ -42,28 +42,6 @@ class BG26_356_G:# (minion)
 	#
 	pass
 
-## Upbeat Frontdrake (Dragon) (1)
-BG26__Upbeat_Frontdrake=(Config.BG_VERSION>=2620)
-if BG26__Upbeat_Frontdrake:# 
-	BG_Minion_Dragon+=['BG26_529']
-	BG_PoolSet_Dragon.append('BG26_529')
-	BG_Dragon_Gold['BG26_529']='BG26_529_G'
-class BG26_529_Action(GameAction):# 
-	def do(self, source):# 
-		pass# 
-class BG26_529:# (minion)
-	""" Upbeat Frontdrake
-	At the end of every 3 turns, get another random Dragon. <i>({0} |4(turn, turns) left!)</i>@At the end of every 3 turns, get another random Dragon. <i>(End of this turn!)</i> """
-	#
-	pass
-
-	BG_Minion_Dragon+=['BG26_529_G']
-class BG26_529_G:# (minion)
-	""" Upbeat Frontdrake
-	At the end of every 3 turns, get 2 other random Dragons. <i>({0} |4(turn, turns) left!)</i>@At the end of every 3 turns, get 2 other random Dragons. <i>(End of this turn!)</i> """
-	#
-	pass
-
 ## Electric Synthesizer (Dragon) (4)
 BG26__Electric_Synthesizer=(Config.BG_VERSION>=2620)
 if BG26__Electric_Synthesizer:# 
@@ -107,26 +85,3 @@ class BG26_966_G:# (minion)
 	After a different friendly Dragon gains Attack, this also gains it twice. """
 	#
 	pass
-
-## Low-Flier (Dragon) (2)
-BG26__Low_Flier=(Config.BG_VERSION>=2620)
-if BG26__Low_Flier:# 
-	BG_Minion_Dragon+=['BG26_969']
-	BG_PoolSet_Dragon.append('BG26_969')
-	BG_Dragon_Gold['BG26_969']='BG26_969_G'
-class BG26_969_Action(GameAction):# 
-	def do(self, source):# 
-		pass# 
-class BG26_969:# (minion)
-	""" Low-Flier
-	At the end of your turn, give +1 Attack to your minions ___with less Attack than this. """
-	#
-	pass
-
-	BG_Minion_Dragon+=['BG26_969_G']
-class BG26_969_G:# (minion)
-	""" Low-Flier
-	At the end of your turn, give +2 Attack to your minions ___with less Attack than this. """
-	#
-	pass
-

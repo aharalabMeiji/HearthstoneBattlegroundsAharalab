@@ -3,11 +3,13 @@ from ..utils import *
 BG_Dozy_Whelp=(Config.BG_VERSION>=2460) #(1) new 24.6 ### OK ###
 BG_Evolving_Chromawing=(Config.BG_VERSION<2360 or Config.BG_VERSION>=2400)##(1) banned 23.6, revive 24.0, revised 24.0.3
 BG_Red_Whelp=True ## ##(1)
+BG26__Upbeat_Frontdrake=(Config.BG_VERSION>=2620) # (1)
 
 #BG_Blazing_Sklyfin=True ## (2/1/3) -> dragon/murloc
 BG_Glyph_Guardian=(Config.BG_VERSION<2560) ## ##(2) ###banned 25.?
 BG_Steward_of_Time=(Config.BG_VERSION<2420) ####(2) ##banned 24.2
 BG_Twilight_Emissary=True ##(2/3/3)
+BG26__Low_Flier=(Config.BG_VERSION>=2620) # (2)
 
 BG24__Amber_Guardian=(Config.BG_VERSION>=2420)# (3) new 24.2
 BG_Bronze_Warden=True ##(3)
@@ -128,6 +130,32 @@ class BG24_300_G:
 BG24_300_Ge=buff(2,0)
 
 
+## Upbeat Frontdrake (Dragon) (1)
+#BG26__Upbeat_Frontdrake=(Config.BG_VERSION>=2620) # (1)
+if BG26__Upbeat_Frontdrake:# 
+	BG_Minion_Dragon+=['BG26_529']
+	BG_Minion_Dragon+=['BG26_529_G']
+	BG_PoolSet_Dragon.append('BG26_529')
+	BG_Dragon_Gold['BG26_529']='BG26_529_G'
+class BG26_529_Action(GameAction):# 
+	def do(self, source):# 
+		pass# 
+class BG26_529:# (minion)
+	""" Upbeat Frontdrake
+	At the end of every 3 turns, get another random Dragon. <i>({0} |4(turn, turns) left!)</i>@At the end of every 3 turns, get another random Dragon. <i>(End of this turn!)</i> """
+	events = OWN_TURN_END.on(SidequestCounter(SELF, 3, [Give(CONTROLLER, RandomBGDragon(tech_level_less=TIER(CONTROLLER)))]))
+	pass
+class BG26_529_G:# (minion)
+	""" Upbeat Frontdrake
+	At the end of every 3 turns, get 2 other random Dragons. <i>({0} |4(turn, turns) left!)</i>@At the end of every 3 turns, get 2 other random Dragons. <i>(End of this turn!)</i> """
+	events = OWN_TURN_END.on(SidequestCounter(SELF, 3, [
+		Give(CONTROLLER, RandomBGDragon(tech_level_less=TIER(CONTROLLER))),
+		Give(CONTROLLER, RandomBGDragon(tech_level_less=TIER(CONTROLLER)))]))
+	pass
+
+
+#### TIER 2 ###
+
 #Glyph Guardian(2)   ### need check ###
 if BG_Glyph_Guardian:
 	BG_Minion_Dragon+=['BGS_045','BGS_045e','TB_BaconUps_115','TB_BaconUps_115e']#
@@ -178,6 +206,38 @@ if BG_Blazing_Skyfin:
 	##BG_Minion_Dragon+=['BG25_040','BG25_040_G','BG25_040e','BG25_040_Ge']
 	BG_PoolSet_Dragon.append('BG25_040')
 	BG_Dragon_Gold['BG25_040']='BG25_040_G'
+
+
+
+
+## Low-Flier (Dragon) (2)
+#BG26__Low_Flier=(Config.BG_VERSION>=2620) # (2)
+if BG26__Low_Flier:# 
+	BG_Minion_Dragon+=['BG26_969','BG26_969e']
+	BG_Minion_Dragon+=['BG26_969_G','BG26_969_Ge']
+	BG_PoolSet_Dragon.append('BG26_969')
+	BG_Dragon_Gold['BG26_969']='BG26_969_G'
+class BG26_969_Action(GameAction):# 
+	BUFF=ActionArg()
+	def do(self, source, buff):# 
+		amount = source.atk
+		for card in source.controller.field:
+			if card.atk<amount:
+				Buff(card, buff).trigger(source)
+		pass# 
+class BG26_969:# (minion)
+	""" Low-Flier
+	At the end of your turn, give +1 Attack to your minions ___with less Attack than this. """
+	events = OWN_TURN_END.on(BG26_969_Action('BG26_969e'))
+	pass
+BG26_969e=buff(1,0)
+class BG26_969_G:# (minion)
+	""" Low-Flier
+	At the end of your turn, give +2 Attack to your minions ___with less Attack than this. """
+	events = OWN_TURN_END.on(BG26_969_Action('BG26_969_Ge'))
+	pass
+BG26_969_Ge=buff(2,0)
+
 
 
 #### TIER 3 #########
