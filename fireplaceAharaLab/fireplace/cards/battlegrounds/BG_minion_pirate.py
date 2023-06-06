@@ -643,7 +643,7 @@ class BG26_124_Action(GameAction):#
 				newcard.gold_original = card
 		pass# 
 class BG26_124:# (minion)
-	""" Upbeat Impressionist
+	""" Upbeat ImpressionistGame_005
 	At the end of every 2 turns, make a random Pirate in your hand Golden. <i>({0} |4(turn, turns) left!)</i>@
 	At the end of every 2 turns, make a random Pirate in your hand Golden. <i>(End of this turn!)</i> """
 	events = OWN_TURN_END.on(SidequestCounter(SELF, 2, [BG26_124_Action(1)]))
@@ -668,7 +668,8 @@ class BG26_812_Action(GameAction):#
 	AMOUNT=IntArg()
 	def do(self, source, amount):# 
 		cards = [card for card in source.controller.field if isRaceCard(card, Race.PIRATE)]
-		source.controller.used_mana -= len(cards)*amount
+		for repeat in range(len(cards)*amount):
+			Give(source.controller, 'GAME_005').trigger(source)
 		pass# 
 class BG26_812:# (minion)
 	""" Record Smuggler
@@ -685,25 +686,22 @@ class BG26_812_G:# (minion)
 ## Underhanded Dealer (Pirate) (5)
 #BG26__Underhanded_Dealer=(Config.BG_VERSION>=2620)#(5)
 if BG26__Underhanded_Dealer:# 
-	BG_Minion_Pirate+=['BG26_815']
+	BG_Minion_Pirate+=['BG26_815','BG26_815e']
+	BG_Minion_Pirate+=['BG26_815_G','BG26_815_Ge']
 	BG_PoolSet_Pirate.append('BG26_815')
 	BG_Pirate_Gold['BG26_815']=''
-class BG26_815_Action(GameAction):# 
-	def do(self, source):# 
-		pass# 
 class BG26_815:# (minion)
 	""" Underhanded Dealer
 	After you gain Gold, gain +1/+1. """
-	#
+	events = Give(CONTROLLER, ID('GAME_005')).on(Buff(SELF, 'BG26_815e'))
 	pass
-
-	BG_Minion_Pirate+=['BG26_815_G']
+BG26_815e=buff(1,1)
 class BG26_815_G:# (minion)
 	""" Underhanded Dealer
 	After you gain Gold, gain +2/+2. """
-	#
+	events = Give(CONTROLLER, ID('GAME_005')).on(Buff(SELF, 'BG26_815_Ge'))
 	pass
-
+BG26_815_Ge=buff(2,2)
 
 
 ###### TIER 6 ######
