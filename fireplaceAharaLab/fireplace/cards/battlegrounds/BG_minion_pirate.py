@@ -661,22 +661,24 @@ class BG26_124_G:# (minion)
 #BG26__Record_Smuggler=(Config.BG_VERSION>=2620)#(5)
 if BG26__Record_Smuggler:# 
 	BG_Minion_Pirate+=['BG26_812']
+	BG_Minion_Pirate+=['BG26_812_G']
 	BG_PoolSet_Pirate.append('BG26_812')
 	BG_Pirate_Gold['BG26_812']=''
 class BG26_812_Action(GameAction):# 
-	def do(self, source):# 
+	AMOUNT=IntArg()
+	def do(self, source, amount):# 
+		cards = [card for card in source.controller.field if isRaceCard(card, Race.PIRATE)]
+		source.controller.used_mana -= len(cards)*amount
 		pass# 
 class BG26_812:# (minion)
 	""" Record Smuggler
 	At the start of your turn, gain 1 Gold. Repeat for each other friendly Pirate. """
-	#
+	events = BeginBar(CONTROLLER).on(BG26_812_Action(1))
 	pass
-
-	BG_Minion_Pirate+=['BG26_812_G']
 class BG26_812_G:# (minion)
 	""" Record Smuggler
 	At the start of your turn, gain 2 Gold. Repeat for each other friendly Pirate. """
-	#
+	events = BeginBar(CONTROLLER).on(BG26_812_Action(2))
 	pass
 
 
