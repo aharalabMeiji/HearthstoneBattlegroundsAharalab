@@ -1,0 +1,70 @@
+2620 update 
+
+Ripsnarl Captain
+
+Old: [Tier 4] 4 Attack, 6 Health. Whenever another friendly Pirate attacks, give it +3/+3.
+New: [Tier 2] 2 Attack, 4 Health. Whenever a friendly Pirate attacks, give it +3 Attack.
+
+
+Tarecgosa
+
+Old: [Tier 4]
+New: [Tier 3]
+
+
+Eventide Brute
+
+Old: [Tier 4] 5 Attack, 4 Health.
+New: [Tier 3] 3 Attack, 2 Health.
+
+
+Pufferquil
+
+Old: After a spell is played on this, gain Poisonous until end of turn.
+New: After a spell is played on this, gain Venomous until end of turn.
+
+
+Annihilan Battlemaster
+
+Old: [Tier 5] 5 Attack, 1 Health.
+New: [Tier 4] 3 Attack, 1 Health.
+
+
+Young Murk Eye
+
+Old: 8 Attack, 5 Health. At the end of your turn, the Murloc to the left of this triggers its Battlecry.
+New: 7 Attack, 4 Health. At the end of your turn, the minion to the left of this triggers its Battlecry.
+
+
+Vanessa VanCleef
+
+Old: 3 Attack, 4 Health. Whenever this attacks, give your Pirates +2/+2 permanently.
+New: 3 Attack, 7 Health. Whenever this attacks, give your Pirates +2/+1 permanently.
+
+
+Mantid Queen
+
+Old: Poisonous. Start of Combat: For each of your minion types gain +5/+5, Windfury, Divine Shield, or Taunt.
+New: Venomous. Start of Combat: For each of your minion types gain +5/+5, Windfury, Reborn, or Taunt.
+
+
+Famished Felbat
+
+Old: At the end of your turn, each friendly Demon consumes a minion in Bob’s Tavern to gain its stats.
+New: At the end of your turn, your other Demons consume a minion in Bob’s Tavern to gain its stats.
+
+
+Charlga
+
+Old: At the end of your turn, play a Blood Gem on all friendly minions.
+New: At the end of your turn, play a Blood Gem on your other minions.
+
+
+Kalecgos, Arcane Aspect
+
+Old: After you play a minion with Battlecry, give your Dragons +1/+1.
+New: After you trigger a Battlecry, give your Dragons +1/+1.
+Dev Comment: This means you get the bonus not just when you play a Battlecry minion, but also whenever any effect triggers a Battlecry—including an additional trigger from Brann. “Trigger” doesn’t require there’s a successful target for the Battlecry; you can still just play a Battlecry minion for this effect.
+
+
+

@@ -1,0 +1,29 @@
+Battlegrounds Updates
+New Heroes
+Inge, the Iron Hymn (15 Armor)
+
+Major Hymn
+[0 Gold] Give a minion Attack equal to your Tavern Tier. (Swaps to Health next turn!)
+Minor Hymn
+[0 Gold] Give a minion Health equal to your Tavern Tier. (Swaps to Attack next turn!)
+
+
+Cap’n Hoggarr (10 Armor)
+
+I’m the Cap’n Now
+[Passive] After you buy a Pirate, gain 1 Gold.
+
+
+Updated: Inge, the Iron Hymn will be guaranteed in every game for the first 2 weeks after launch. Cap'n Hoggarr will be guaranteed in every Pirates game for the first 2 weeks after launch.
+
+Diablo Returns!
+The lord of terror is back for a limited time! From June 5-7, Diablo will be available in every game, before he is removed from the hero pool once again.
+
+Diablo (10 Armor)
+
+Realm of Terror
+[Passive] Every 4 turns, ALL enemies fight the Lord of Terror and your warband for loot.
+
+
+New Epic Emotes!
+Battlegrounds Emotes are getting even more emotive. Introducing new Battlegrounds Epic Emotes! Epic Emotes are animated emotes that can be equipped in place of your base Battlegrounds emotes.
