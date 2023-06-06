@@ -609,23 +609,29 @@ BG26_963_Ge=buff(6,0)
 ## Stormbringer (Dragon) (4)
 #BG26__Stormbringer=(Config.BG_VERSION>=2620) #(4)
 if BG26__Stormbringer:# 
-	BG_Minion_Dragon+=['BG26_966']
+	BG_Minion_Dragon+=['BG26_966','BG26_966e']
 	BG_Minion_Dragon+=['BG26_966_G']
 	BG_PoolSet_Dragon.append('BG26_966')
 	BG_Dragon_Gold['BG26_966']='BG26_966_G'
 class BG26_966_Action(GameAction):# 
-	def do(self, source):# 
+	BUFF=ActionArg()
+	AMOUNT=IntArg()
+	def do(self, source, buff, amount):# 
+		if buff.atk>0:
+			Buff(source, 'BG26_966e', atk=buff.atk*amount).trigger(source)
 		pass# 
 class BG26_966:# (minion)
 	""" Stormbringer
 	After a different friendly Dragon gains Attack, this also gains it. """
-	#
+	events = Buff(FRIENDLY + DRAGON - SELF).on(BG26_966_Action(Buff.BUFF, 1))
 	pass
-
+class BG26_966e:
+	""" """
+	pass
 class BG26_966_G:# (minion)
 	""" Stormbringer
 	After a different friendly Dragon gains Attack, this also gains it twice. """
-	#
+	events = Buff(FRIENDLY + DRAGON - SELF).on(BG26_966_Action(Buff.BUFF, 2))
 	pass
 
 
