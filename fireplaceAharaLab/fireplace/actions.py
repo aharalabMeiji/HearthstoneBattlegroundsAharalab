@@ -3590,6 +3590,8 @@ class ApplyGem(TargetedAction):
 	GEM=ActionArg()
 	def do(self, source, target, gem):
 		if gem=='BG20_GEM':
+		if Config.LOGINFO:
+			Config.log("Avenge.do","Avenge Counter on %r -> %i, %r"%(source, (source.sidequest_counter+1), targetaction))
 			Buff(target,'BG20_GEMe').trigger(source)
 			if source.controller.moon_bacon_jazzer_powered_up>0:
 				Buff(target, 'BG26_159pe', max_health=source.controller.moon_bacon_jazzer_powered_up).trigger(source)

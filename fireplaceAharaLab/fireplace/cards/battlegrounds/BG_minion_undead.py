@@ -17,6 +17,7 @@ BG25__Lich_Doctor=(Config.BG_VERSION>=2522)#3 undead ## new 25.2.2
 BG25__Anubarak_Nerubian_King=(Config.BG_VERSION>=2522)#4 undead ## new 25.2.2
 BG25__Handless_Forsaken=(Config.BG_VERSION>=2522)#4 undead ## new 25.2.2
 BG25__Possessive_Banshee=(Config.BG_VERSION>=2522)#4 undead ## new 25.2.2
+BG26__Xylo_bones=(Config.BG_VERSION>=2620) # (4) new 26.2
 
 BG25__Hungering_Abomination=(Config.BG_VERSION>=2522)#5 undead ## new 25.2.2
 BG24__Sinrunner_Blanchy=(Config.BG_VERSION>=2522)#5 undead/beast ## new 25.2.2
@@ -24,7 +25,7 @@ BG25__Soulsplitter=(Config.BG_VERSION>=2522)#5 undead ## new 25.2.2
 
 BG25__Colossus_of_the_Sun=(Config.BG_VERSION>=2522) #6 undead ## new 25.2.2
 BG25__Eternal_Summoner=(Config.BG_VERSION>=2522)#6 undead ## new 25.2.2
-BG25__Sister_Deathwhisper=T(Config.BG_VERSION>=2522)rue#6 undead ## new 25.2.2
+BG25__Sister_Deathwhisper=T(Config.BG_VERSION>=2522)#6 undead ## new 25.2.2
 
 BG_Minion_Undead = []
 BG_PoolSet_Undead=[ ]
@@ -479,6 +480,32 @@ class BG25_004_G:# (minion)
 BG25_004_Ge=buff(4,14)
 
 
+
+## Xylo-bones (Undead) (4)
+#BG26__Xylo_bones=(Config.BG_VERSION>=2620) # (4)
+if BG26__Xylo_bones:# 
+	BG_Minion_Undead+=['BG26_172','BG26_172e']
+	BG_Minion_Undead+=['BG26_172_G','BG26_172_Ge']
+	BG_PoolSet_Undead.append('BG26_172')
+	BG_Undead_Gold['BG26_172']='BG26_172_G'
+class BG26_172_Action(GameAction):#
+	BUFF=ActionArg()
+	def do(self, source, buff):#
+		if getattr(source.controller.game,'this_is_battle'):
+			BuffPermanently(SELF, buff)
+		pass# 
+class BG26_172:# (minion)
+	""" Xylo-bones
+	After you summon a minion in combat, gain +3 Health permanently. """
+	events = Summon(CONTROLLER).after(BG26_172_Action('BG26_172e')) #
+	pass
+BG26_172e=buff(0,3)
+class BG26_172_G:# (minion)
+	""" Xylo-bones
+	After you summon a minion in combat, gain +6 Health permanently. """
+	events = Summon(CONTROLLER).after(BG26_172_Action('BG26_172_Ge')) #
+	pass
+BG26_172_Ge=buff(0,6)
 
 
 ###### tavern tier 5
