@@ -23,6 +23,9 @@ BG25__General_Drakkisath=(Config.BG_VERSION>=2522)# 4/2/8 DRAGON ## new 25.2.2
 BG_Prestor_s_Pyrospawn=False ## (4) banned
 BG_Prized_Promo_Drake=True ##(4)
 BG_Tarecgosa=True ##(3)->(4)
+BG26__Electric_Synthesizer=(Config.BG_VERSION>=2620) #(4)
+BG26__Stormbringer=(Config.BG_VERSION>=2620) #(4)
+
 
 BG_Murozond=True ##(5)
 BG_Razorgore_the_Untamed=(Config.BG_VERSION>=2562) ## (5) ## banned when? ## revive 25.6.2
@@ -575,6 +578,55 @@ class BG21_015_G:# <12>[1453]
 	]
 	pass
 
+
+
+
+## Electric Synthesizer (Dragon) (4)
+#BG26__Electric_Synthesizer=(Config.BG_VERSION>=2620) #(4)
+if BG26__Electric_Synthesizer:# 
+	BG_Minion_Dragon+=['BG26_963','BG26_963e']
+	BG_Minion_Dragon+=['BG26_963_G','BG26_963_Ge']
+	BG_PoolSet_Dragon.append('BG26_963')
+	BG_Dragon_Gold['BG26_963']='BG26_963_G'
+class BG26_963_Action(GameAction):# 
+	def do(self, source):# 
+		pass# 
+class BG26_963:# (minion)
+	""" Electric Synthesizer
+	<b>Battlecry:</b> Give your other Dragons +3 Attack. """
+	play = Buff(FIRNEDLY_MINIONS + DRAGON - SELF, 'BG26_963e')
+	pass
+BG26_963e=buff(3,0)
+class BG26_963_G:# (minion)
+	""" Electric Synthesizer
+	<b>Battlecry:</b> Give your other Dragons +6 Attack. """
+	play = Buff(FIRNEDLY_MINIONS + DRAGON - SELF, 'BG26_963_Ge')
+	pass
+BG26_963_Ge=buff(6,0)
+
+
+
+## Stormbringer (Dragon) (4)
+#BG26__Stormbringer=(Config.BG_VERSION>=2620) #(4)
+if BG26__Stormbringer:# 
+	BG_Minion_Dragon+=['BG26_966']
+	BG_Minion_Dragon+=['BG26_966_G']
+	BG_PoolSet_Dragon.append('BG26_966')
+	BG_Dragon_Gold['BG26_966']='BG26_966_G'
+class BG26_966_Action(GameAction):# 
+	def do(self, source):# 
+		pass# 
+class BG26_966:# (minion)
+	""" Stormbringer
+	After a different friendly Dragon gains Attack, this also gains it. """
+	#
+	pass
+
+class BG26_966_G:# (minion)
+	""" Stormbringer
+	After a different friendly Dragon gains Attack, this also gains it twice. """
+	#
+	pass
 
 
 #### tavern tier 5
