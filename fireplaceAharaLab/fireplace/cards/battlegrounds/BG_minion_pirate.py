@@ -24,6 +24,9 @@ BG26__Blade_Collector=(Config.BG_VERSION>=2620) #(4)
 BG_Cap_n_Hoggarr=True ##,5
 BG_Tony_Two_Tusk=(Config.BG_VERSION<2522) ##,5 ## banned 25.2.2
 BG_Vanessa_VanCleef=(Config.BG_VERSION>=2460) ##, 5 ## new 24.6
+BG26__Upbeat_Impressionist=(Config.BG_VERSION>=2620)#(5)
+BG26__Record_Smuggler=(Config.BG_VERSION>=2620)#(5)
+BG26__Underhanded_Dealer=(Config.BG_VERSION>=2620)#(5)
 
 BG_Dread_Admiral_Eliza=True ##,6
 BG_Nosy_Looter=(Config.BG_VERSION<2460) ##,6 ### banned 24.6
@@ -605,6 +608,99 @@ class BG24_708_G:
 	events = Attack(SELF, ENEMY).on(BuffPermanently(FRIENDLY_MINIONS + PIRATE, 'BG24_708e_G'))
 BG24_708e_G=buff(4,2)
 
+
+
+## Upbeat Impressionist (Pirate) (5)
+#BG26__Upbeat_Impressionist=(Config.BG_VERSION>=2620)#(5)
+if BG26__Upbeat_Impressionist:# 
+	BG_Minion_Pirate+=['BG26_124']
+	BG_Minion_Pirate+=['BG26_124_G']
+	BG_PoolSet_Pirate.append('BG26_124')
+	BG_Pirate_Gold['BG26_124']=''
+class BG26_124_Action(GameAction):# 
+	amount=IntArg()
+	def do(self, source, amount):# 
+		cards=[card for card in source.controller.hand if isRaceCard(card, Race.PIRATE) and not card.BG_is_gold]
+		if len(cards)==1 and amount==2:
+			amount=1
+		if len(cards)>=amount:
+			cards = random.sample(cards, amount)
+			controller=source.controller
+			for card in cards:
+				index = controller.hand.index(card)
+				gold_id = controller.game.parent.BG_Gold[card.id]
+				if not gold_id:
+					return
+				buffs=[]
+				for buff in card.buffs:## inferit buffs
+					buffs.append(buff)
+				card.zone=Zone.GRAVEYARD
+				newcard = controller.card(gold_id)
+				for buff in buffs:## inferit buffs
+					buff.apply(newcard)
+				newcard._summon_index=index
+				newcard.zone = Zone.HAND #
+				newcard.gold_original = card
+		pass# 
+class BG26_124:# (minion)
+	""" Upbeat Impressionist
+	At the end of every 2 turns, make a random Pirate in your hand Golden. <i>({0} |4(turn, turns) left!)</i>@
+	At the end of every 2 turns, make a random Pirate in your hand Golden. <i>(End of this turn!)</i> """
+	events = OWN_TURN_END.on(SidequestCounter(SELF, 2, [BG26_124_Action(1)]))
+	pass
+class BG26_124_G:# (minion)
+	""" Upbeat Impressionist
+	At the end of every 2 turns, make 2 random Pirates in your hand Golden. <i>({0} |4(turn, turns) left!)</i>@
+	At the end of every 2 turns, make 2 random Pirates in your hand Golden. <i>(End of this turn!)</i> """
+	events = OWN_TURN_END.on(SidequestCounter(SELF, 2, [BG26_124_Action(2)]))#
+	pass
+
+
+
+## Record Smuggler (Pirate) (5)
+#BG26__Record_Smuggler=(Config.BG_VERSION>=2620)#(5)
+if BG26__Record_Smuggler:# 
+	BG_Minion_Pirate+=['BG26_812']
+	BG_PoolSet_Pirate.append('BG26_812')
+	BG_Pirate_Gold['BG26_812']=''
+class BG26_812_Action(GameAction):# 
+	def do(self, source):# 
+		pass# 
+class BG26_812:# (minion)
+	""" Record Smuggler
+	At the start of your turn, gain 1 Gold. Repeat for each other friendly Pirate. """
+	#
+	pass
+
+	BG_Minion_Pirate+=['BG26_812_G']
+class BG26_812_G:# (minion)
+	""" Record Smuggler
+	At the start of your turn, gain 2 Gold. Repeat for each other friendly Pirate. """
+	#
+	pass
+
+
+## Underhanded Dealer (Pirate) (5)
+#BG26__Underhanded_Dealer=(Config.BG_VERSION>=2620)#(5)
+if BG26__Underhanded_Dealer:# 
+	BG_Minion_Pirate+=['BG26_815']
+	BG_PoolSet_Pirate.append('BG26_815')
+	BG_Pirate_Gold['BG26_815']=''
+class BG26_815_Action(GameAction):# 
+	def do(self, source):# 
+		pass# 
+class BG26_815:# (minion)
+	""" Underhanded Dealer
+	After you gain Gold, gain +1/+1. """
+	#
+	pass
+
+	BG_Minion_Pirate+=['BG26_815_G']
+class BG26_815_G:# (minion)
+	""" Underhanded Dealer
+	After you gain Gold, gain +2/+2. """
+	#
+	pass
 
 
 
