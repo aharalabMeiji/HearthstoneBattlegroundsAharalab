@@ -1,0 +1,61 @@
+Battlegrounds Updates
+Minion Pool Changes
+
+SinÅfdorei Straight Shot will now only appear in games with Undead.
+Archdruid Hamuul has been temporarily returned to the minion pool (just until Patch 25.6).
+
+
+Minion Changes
+
+Ghoul of the Feast
+
+Old: 2 Attack, 4 Health. Avenge (1): Give a friendly minion of each minion type +2 Attack.
+New: 2 Attack, 5 Health. Avenge (2): Give a friendly minion of each minion type +3 Attack.
+
+
+Legion Overseer
+
+Old: 4 Attack, 4 Health.
+New: 4 Attack, 2 Health.
+
+
+Chronormu
+
+Old: [Tavern Tier 4] 4 Attack, 4 Health.
+New: [Tavern Tier 5] 6 Attack, 6 Health.
+
+
+Magmaloc
+
+Old: 3 Attack, 3 Health.
+New: 1 Attack, 1 Health.
+
+
+Vanessa VanCleef
+
+Old: 3 Attack, 7 Health.
+New: 3 Attack, 4 Health.
+
+
+Jelly Belly
+
+Old: 3 Attack, 5 Health.
+New: 3 Attack, 6 Health.
+
+
+Groundshaker
+
+Old: 2 Attack, 6 Health.
+New: 3 Attack, 8 Health.
+
+
+Felstomper
+
+Old: 3 Attack, 8 Health. After you summon a minion in combat, give your minions +2 Attack.
+New: 3 Attack, 7 Health. After you summon a minion in combat, give your minions +3 Attack.
+
+
+Grease Bot
+
+Old: [Tavern Tier 6] 4 Attack, 7 Health. After a friendly minion loses Divine Shield, give it +3/+2 permanently.
+New: [Tavern Tier 4] 3 Attack, 6 Health. After a friendly minion loses Divine Shield, give it +2/+1 permanently.

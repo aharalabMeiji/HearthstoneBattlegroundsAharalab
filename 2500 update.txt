@@ -1,0 +1,36 @@
+Battlegrounds Updates
+The following updates will go live with Patch 25.0, on November 29.
+
+New Hero
+
+Enhance-o-Mechano (Armor Tier 1)
+
+Enhancification
+Passive. After each Refresh, give a minion in BobÅfs Tavern Taunt, Reborn, Windfury, or Divine Shield.
+Dev Comments: The odds for each enhancification are equal (25%), except that a minion wonÅft be given a keyword it already has. So if ALL minions in a shop offering already have one of the keywords, it will roll something else.
+
+
+This new hero will be available in all lobbies for two weeks after patch launch.
+
+New Quest Reward
+
+Enhance-a-matic: At the start of your turn, get an Enhanced Part that gives +5/+5 and a random bonus.
+
+
+
+Enhanced Parts:
+
+Mega Horn: Give a minion +5/+5 and Taunt.
+
+
+Blazing Blades: Give a minion +5/+5 and Windfury.
+
+
+Bunker Plating: Give a minion +5/+5 and Divine Shield.
+
+
+Death Rewinder: Give a minion +5/+5 and Reborn.
+
+
+Dev Comment: The odds for each of the Enhanced Parts are equal (25%).
+

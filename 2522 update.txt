@@ -1,0 +1,115 @@
+Battlegrounds Updates
+Hero Armor Changes
+
+The following heroes have less armor:
+
+Onyxia and Sneed are now Armor Tier 2 (2-5 Armor).
+The following heroes have more armor:
+
+Pyramad was moved to Armor Tier 3 (3-6 Armor).
+Sylvanas Windrunner was moved to Armor Tier 4 (4-7 Armor).
+Card Changes
+
+Thorncaptain
+
+Old: 4 Attack, 1 Health
+New: 4 Attack, 2 Health
+
+
+Eternal Knight
+
+Old: 4 Attack, 1 Health
+New: 3 Attack, 1 Health
+
+
+Ghoul of the Feast
+
+Old: Avenge (1): Give a friendly minion of each minion type +3 Attack.
+New: Avenge (1): Give a friendly minion of each minion type +2 Attack.
+
+
+Pufferquil
+
+Old: 2 Attack, 4 Health
+New: 2 Attack, 6 Health
+
+
+Ripsnarl Captain
+
+Old: When another friendly Pirate attacks, give it +2/+2.
+New: When another friendly Pirate attacks, give it +3/+3.
+
+
+Master of Realities
+
+Old: [Tavern Tier 5] 6 Attack, 6 Health
+New: [Tavern Tier 4] 4 Attack, 4 Health
+
+
+AnubÅfarak, Nerubian King
+
+Old: [Tavern Tier 5] 5 Attack, 3 Health. Deathrattle: Your Undead have +2 Attack for the rest of the game (wherever they are).
+New: [Tavern Tier 4] 4 Attack, 3 Health. Deathrattle: Your Undead have +1 Attack for the rest of the game (wherever they are).
+
+
+Magmaloc
+
+Old: [Tavern Tier 4] 1 Attack, 1 Health
+New: [Tavern Tier 5] 3 Attack, 3 Health
+
+
+Soulsplitter
+
+Old: [Tavern Tier 4] 4 Attack, 2 Health
+New: [Tavern Tier 5] 5 Attack, 2 Health
+
+
+Vanessa VanCleef
+
+Old: Whenever this attacks, give your Pirates +2/+1 permanently.
+New: Whenever this attacks, give your Pirates +2/+2 permanently.
+
+
+Cyborg Drake
+
+Old: 2 Attack, 8 Health. Divine Shield. Your Divine Shield minions have +10 Attack.
+New: 2 Attack, 10 Health. Divine Shield. Your Divine Shield minions have +8 Attack.
+
+
+Sinrunner Blanchy
+
+Old: 4 Attack, 4 Health
+New: 3 Attack, 3 Health
+
+
+Toxfin
+
+Old: Tavern Tier 6
+New: Tavern Tier 5
+
+
+Grease Bot
+
+Old: After a friendly minion loses Divine Shield, give it +2/+2 permanently.
+New: After a friendly minion loses Divine Shield, give it +3/+2 permanently.
+
+
+Felstomper
+
+Old: 3 Attack, 7 Health. After you summon a minion in combat, give your minions +3 Attack.
+New: 3 Attack, 8 Health. After you summon a minion in combat, give your minions +2 Attack.
+
+
+Sister Deathwhisper
+
+Old: 4 Attack, 11 Health. Whenever a friendly minion is Reborn, give your Undead +1/+3 permanently.
+New: 4 Attack, 9 Health. Whenever a friendly minion is Reborn, give your Undead +1/+2 permanently.
+
+
+Eternal Summoner
+
+Old: 8 Attack, 1 Health. Deathrattle: Summon 2 Eternal Knights.
+New: 6 Attack, 1 Health. Reborn. Deathrattle: Summon 1 Eternal Knight.
+
+
+Dev Comment: If Eternal Summoner is picked as the first pick from Professor PutricideÅfs hero power, you can no longer be offered a Reborn or Poisonous minion as the second option.

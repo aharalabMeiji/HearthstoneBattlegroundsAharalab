@@ -1,0 +1,360 @@
+Battlegrounds Season 3 is Here!
+Good news, everyone! Battlegrounds Season 3 brings Professor PutricideÅfs new Hero Power, Undead and dual-type minions, and tons more new and updated heroes and minions!
+
+
+
+General Updates
+On January 17, Battlegrounds Season 2 will end and Battlegrounds Season 3 will begin. That means that rankings will reset, Battlegrounds Quests will be removed, minion pools will update, and the Battlegrounds Track will switch over. All rewards that were earned, but not yet claimed, from the Season 2 Track will be automatically claimed.
+The 15-damage Damage Cap will now persist until both a hero has died and the game has reached turn 8 (the 10 Gold turn).
+Armor will now appear overlayed on health bars on the scoreboard.
+Undead and dual-type minions have been added as a regular part of Battlegrounds. The same number of minion types will be in each Battlegrounds game (meaning an additional minion type will be excluded each game after this change). If either type of a dual-type minion is in a game, the dual-type minion will be in that game.
+Undead will appear in every lobby for 2 weeks after the patch; they will then appear in 75% of lobbies for an additional 2 weeks. Then they will be part of the regular rotation of minion types.
+For a short time after the launch of Undead, turns 5+ will be 5 seconds longer to allow players time to learn the new cards. This is expected to be reverted in a planned hotfix following the patch.
+New Battlegrounds Track
+When the new Battlegrounds Season begins, rewards on last SeasonÅfs Battlegrounds Track will no longer be able to be earned, all rewards that were earned and not yet claimed will be automatically claimed, and a new Battlegrounds Track will begin. The Season 3 Battlegrounds Track features 40 new Battle for Silvermoon themed cosmetics, including 4 Legendary Hero Skins, 3 Epic Hero Skins, 8 Rare Hero Skins, 1 Rare Board, 1 Rare Bartender, and 9 Rare Emotes!
+
+
+
+For more details about the Season 3 Battlegrounds Track, see our Season 3 Announcement Blog.
+
+
+Hero Updates
+Professor Putricide has been reworked with new art and a whole new Hero Power for his return to the Hero Pool!
+
+Professor Putricide
+
+Build-An-Undead
+[4 Gold] Craft a custom Undead. (3 Creations left!)
+
+
+?Dev Comment: When you build an Undead, youÅfll be offered two sets of 3 minions to merge together. One set tends to have persistent in-combat rules while the other set tends to have keywords and in-shop effects. All minion offerings will be at or below your Tavern Tier. The Build-An-Undead pools include both minions that are available in BobÅfs Tavern and minions that are unique to this effect. PutricideÅfs creations are unnatural, so they canÅft be tripled.
+
+Professor Putricide will be available in all games for two weeks after launch.
+
+Millificent Manastorm (Tinker)
+
+Old: Passive. Mechs in BobÅfs Tavern have +1/+1.
+New: Passive. Whenever you summon a Mech, give it +2 Attack.
+
+
+Lord Jaraxxus (Bloodfury)
+
+Old: [1 Gold] Give your Demons +1/+1.
+New: [1 Gold] Choose a friendly Demon. It consumes a minion in BobÅfs Tavern to gain its stats.
+
+
+Pyramad (Brick by Brick)
+
+Old: [0 Gold] Give a minion +2 Health. (Gains +1 Health each turn you donÅft use this!)
+New: [0 Gold] Give a minion +1 Health. (Gains +1 Health each turn you donÅft use this!)
+
+
+Galewing (DungarÅfs Gryphon)
+
+You can no longer choose the same Flight Path twice in a row.
+
+
+Westfall
+Old: Passive. In 1 turn, give your left-most minion +2/+1.
+New: Passive. In 1 turn, give your left-most minion +2/+2.
+
+
+Ironforge
+Old: Passive. In 3 turns, Discover a minion of your Tavern Tier.
+New: Passive. In 2 turns, gain 2 Gold.
+
+
+Eastern Plaguelands:
+Old: Passive. In 5 turns, your next Tavern Tier upgrade costs (6) less.
+New: Passive. In 3 turns, Discover a minion of your Tavern Tier.
+
+
+Updated Hero Armor Tiers
+
+Many heroes have had their Armor Tiers adjusted for the new season. All armor tiers are as follows:
+
+Tier 1 (0 Armor)
+Arch-Villain Rafaam
+Captain Hooktusk
+Cookie the Cook
+CÅfThun
+Elise Starseeker
+Forest Warden Omu
+Galewing
+George the Fallen
+Lady Vashj
+Maiev Shadowsong
+Master Nguyen
+Millhouse Manastorm
+Murloc Holmes
+Mutanus the Devourer
+Pyramad
+Scabbs Cutterbutter
+Silas Darkmoon
+Sire Denathrius
+Tamsin Roame
+The Lich King
+The Rat King
+Trade Prince Gallywix
+Xyrella
+Vanndar Stormpike
+VolÅfjin
+Ysera
+
+Tier 2 (2-5 Armor)
+AlÅfAkir
+Cariel Roame
+DancinÅf Deryl
+Death Speaker Blackthorn
+Deathwing
+Fungalmancer Flurgl
+Ini Stormcoil
+Galakrond
+Guff Runetotem
+Jandice Barov
+Lich BazÅfhial
+Lord Barov
+Millificent Manastorm
+NÅfZoth
+Patchwerk
+Professor Putricide
+Reno Jackson
+Rokara
+Sir Finley Mrrgglton
+Tess Greymane
+The Great Akazamzarak
+Tickatus
+Varden Dawngrasp
+
+Tier 3 (3-6 Armor)
+Dinotamer Brann
+Enhance-o Mechano
+Heistbaron Togwaggle
+Infinite Toki
+Malygos
+Nozdormu
+Patches the Pirate
+Shudderwock
+SkycapÅfn Kragg
+Sylvanas Windrunner
+The Jailer
+Yogg-Saron, HopeÅfs End
+Jaraxxus
+Drek'Thar
+
+Tier 4 (4-7 Armor)
+Alexstrasza
+Ambassador Faelin
+BruÅfkan
+KaelÅfthas Sunstrider
+Onyxia
+Ozumat
+Ragnaros the Firelord
+Sneed
+YÅfShaarj
+Zephrys, the Great
+
+Tier 5 (5-8 Armor)
+Captain Eudora
+Chenvaala
+Edwin VanCleef
+Greybough
+Queen Azshara
+Rakanishu
+Tavish Stormpike
+
+Tier 6 (6-9 Armor)
+Illidan Stormrage
+Kurtrus Ashfallen
+Mr. Bigglesworth
+Sindragosa
+
+Tier 7 (7-10 Armor)
+A.F. Kay
+Aranna Starseeker
+King Mukla
+Overlord Saurfang
+Queen Wagtoggle
+The Curator
+
+
+New Minions
+Risen Rider [Tavern Tier 1, Undead]
+
+2 Attack, 1 Health. Taunt, Reborn.
+
+
+Rot Hide Gnoll [Tavern Tier 1, Undead]
+
+1 Attack, 4 Health. Has +1 Attack for each friendly minion that died this combat.
+
+
+Thorncaptain [Tavern Tier 1, Quilboar/Pirate]
+
+4 Attack, 1 Health. After a card is added to your hand, gain +1 Health until next turn.
+
+
+Scarlet Skull [Tavern Tier 2, Undead]
+
+1 Attack, 2 Health. Reborn, Deathrattle: Give a friendly Undead +1/+2.
+
+
+Eternal Knight [Tavern Tier 2, Undead]
+
+4 Attack, 1 Health.  Has +1/+1 for each friendly Eternal Knight that died this game (wherever this is).
+
+
+Nerubian Deathswarmer [Tavern Tier 2, Undead]
+
+1 Attack, 3 Health. Battlecry: Your Undead have +1 Attack for the rest of the game (wherever they are).
+
+
+Blazing Skyfin [Tavern Tier 2, Dragon/Murloc]
+
+1 Attack, 3 Health. After you play a Battlecry minion, gain +1/+1.
+
+
+Corpse Refiner [Tavern Tier 2, Undead/Pirate]
+
+2 Attack, 3 Health. Avenge (4): This sells for 1 more Gold.
+
+
+Jelly Belly [Tavern Tier 3, Undead]
+
+3 Attack, 5 Health. After a minion is Reborn, gain +3/+3.
+
+
+Ghoul of the Feast [Tavern Tier 3, Undead]
+
+2 Attack, 4 Health. Avenge (1): Give a friendly minion of each type +3 Attack.
+
+
+Lich Doctor [Tavern Tier 3, Undead]
+
+3 Attack, 2 Health. Taunt. At the start of your turn, give your minions that died last combat +1/+1.
+
+
+Felemental [Tavern Tier 3, Elemental/Demon]
+
+3 Attack, 1 Health. Battlecry: Minions in BobÅfs Tavern have +1/+1 for the rest of the game.
+
+
+Soulsplitter [Tavern Tier 4, Undead]
+
+4 Attack, 2 Health. Reborn. Start of Combat: Give a friendly Undead Reborn.
+
+
+Handless Forsaken [Tavern Tier 4, Undead]
+
+2 Attack, 3 Health. Deathrattle: Summon a 2/2 Hand with Reborn.
+
+
+
+
+Possessive Banshee [Tavern Tier 4, Undead]
+
+2 Attack, 7 Health. Battlecry: Give an Undead +2/+7.
+
+
+General Drakkisath [Tavern Tier 4, Dragon]
+
+2 Attack, 8 Health. Battlecry: Add a 2/1 Smolderwing to your hand that gives another Dragon +5 Attack.
+
+
+
+
+Peggy Sturdybone [Tavern Tier 4, Pirate]
+
+6 Attack, 5 Health. After a card is added to your hand, give another friendly Pirate +1/+1.
+
+
+Chronormu [Tavern Tier 4, Dragon]
+
+4 Attack, 4 Health. While this is in the Tavern, gain the stats of any minions sold.
+
+
+Magmaloc [Tavern Tier 4, Elemental/Murloc]
+
+1 Attack, 1 Health. At the end of your turn, gain +1/+1. Repeat for each minion you played this turn.
+
+
+Pufferquil [Tavern Tier 4, Naga/Quilboar]
+
+2 Attack, 4 Health. After a spell is played on this, gain Poisonous until next turn.
+
+
+SinÅfdorei Straight-Shot [Tavern Tier 4]
+
+3 Attack, 4 Health. Windfury. Divine Shield. Whenever this attacks, remove Reborn and Taunt from the target.
+
+
+AnubÅfarak, Nerubian King [Tavern Tier 5, Undead]
+
+5 Attack, 3 Health. Deathrattle: Your Undead have +2 Attack for the rest of the game (wherever they are).
+
+
+Hungering Abomination [Tavern Tier 5, Undead]
+
+3 Attack, 4 Health. Avenge (1): Gain +1/+1 permanently.
+
+
+Cyborg Drake [Tavern Tier 5, Mech/Dragon]
+
+2 Attack, 8 Health. Divine Shield. Your Divine Shield minions have +10 Attack.
+
+
+Sinrunner Blanchy [Tavern Tier 5, Undead/Beast]
+
+4 Attack, 4 Health. Reborn. This is Reborn with full Health and enchantments.
+
+
+Titus Rivendare [Tavern Tier 5]
+
+1 Attack, 7 Health. Your Deathrattles trigger an extra time.
+
+
+Eternal Summoner [Tavern Tier 6, Undead]
+
+8 Attack, 1 Health. Deathrattle: Summon 2 Eternal Knights.
+
+
+Colossus of the Sun [Tavern Tier 6, Undead]
+
+6 Attack, 6 Health. Divine Shield, Reborn.
+
+
+Sister Deathwhisper [Tavern Tier 6, Undead]
+
+4 Attack, 11 Health. After a friendly minion is Reborn, give your Undead +1/+3 permanently.
+
+
+Felstomper [Tavern Tier 6, Demon/Beast]
+
+3 Attack, 7 Health. After you summon a minion in combat, give your minions +3 Attack.
+
+
+Mecha-Jaraxxus [Tavern Tier 6, Mech/Demon]
+
+3 Attack, 15 Health. Battlecry: Add a random Mecha-Demon to your hand.
+
+
+Rusted Reggie: 5 Attack, 5 Health. Windfury. Can Magnetize to Mechs and Demons.
+
+
+Magtheridon Prime: 1 Attack, 10 Health. Taunt. Can Magnetize to Mechs and Demons.
+
+
+Baltharak: 10 Attack, 1 Health. Reborn. Can Magnetize to Mechs and Demons.
+
+
+Greta Gold-Gun [Tavern Tier 6, Naga/Pirate]
+
+2 Attack, 9 Health. Spellcraft: Make a different friendly Naga or Pirate Golden until next turn.
+
+
+Minion Pool Updates
+Icky Imp and Budding Greenthumb have been returned to the minion pool.
+Peggy Brittlebone, Baron Rivendare, Saltscale Honcho, Glyph Guardian, Yo-Ho-Ogre, Stasis Elemental, Majordomo Executus, Bonker, Mechano-Egg, Baby Krush, Palescale Crocolisk, Imp Mama, Tony Two-Tusk, Draconid Enforcer, Razorgore the Untamed, Witchwing Nestmatron, Imprisoner, Khadgar, and Mythrax the Unraveler have been removed from the minion pool.
+Other Minion Updates
+Micro Mummy has gained the Undead minion type.
+The Golden version of Amber Guardian will now hit two minions with the effect (giving each +2/+2 and Divine Shield), instead of doubling the effect on one minion (giving it +4/+4 and Divine Shield).

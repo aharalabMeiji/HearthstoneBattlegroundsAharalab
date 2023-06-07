@@ -1,0 +1,17 @@
+Battlegrounds Updates
+Quest and Reward Updates
+
+Golden Hammer and Kidnap Sack have been returned to the Quest Reward Pool.
+Hire an Investigator (Quest)
+Old Baseline: End your turn with unspent Gold 3 times.
+New Baseline: End your turn with unspent Gold 2 times.
+Volatile Venom (Quest Reward)
+Old: Your minions have +8/+8. After they attack, they die. Horribly.
+New: Your minions have +7/+7. After they attack, they die. Horribly.
+Tiny Henchmen, The Golden Hammer, and Volatile Venom have been made easier to earn.
+Stolen Gold has been made harder to earn.
+Interrogator Whitemane and Vigilant Stoneborn have been added to the pool of Neutral minions available in one of Wonderous WisdomballÅfs lucky rolls.
+Armor Tier Updates
+
+CÅfThun has less Armor (moved to Armor Tier 4).
+The Jailer has more Armor (moved to Armor Tier 4).

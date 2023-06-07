@@ -1,0 +1,15 @@
+Battlegrounds Updates
+ 
+General Updates
+You can now see how many cards your opponent has in their hand during combat.
+DrekÅfThar, Greybough, NÅfZoth, Onyxia, The Jailer, and Vanndar will now only be offered in games where at least one of Beasts, Demons, Mechs, or Undead are in the minion pool.
+Cyborg Drake and General Drakkisath received text-only updates to improve their clarity; neither change was a functional change.
+New Hero
+ 
+Teron Gorefiend (Armor Tier 1)
+
+Rapid Reanimation
+[0 Gold] Choose a friendly minion. Start of Combat: Destroy it. Once you have space, resummon an exact copy.
+
+
+Teron Gorefiend will be guaranteed in every lobby for two weeks after his launch. Except that, during this initial period and going forward, Teron Gorefiend will not be offered in any lobbies in which neither Undead nor Beasts are in that gameÅfs minion pool.
