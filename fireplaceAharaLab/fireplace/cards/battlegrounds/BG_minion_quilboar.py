@@ -482,7 +482,7 @@ class BG25_155_G:
 	""" Gem Smuggler
 	Battlecry: Play 2 Blood Gems on all your other Quilboar."""
 	option_tags={GameTag.TECH_LEVEL:4}
-	play = BG_Play(CONTROLLER, 'GAME_005', FRIENDLY_MINIONS - SELF) * 2
+	play = BG_Play(CONTROLLER, 'GAME_005', FRIENDLY_MINIONS - SELF), BG_Play(CONTROLLER, 'GAME_005', FRIENDLY_MINIONS - SELF)
 	pass
 
 
@@ -743,7 +743,10 @@ class BG26_157:# (minion)
 class BG26_157_G:# (minion)
 	""" Bristlebach
 	<b>Avenge (1):</b> Play 2 <b>Blood Gems</b> on all your Quilboar. """
-	events = Death(FRIENDLY + MINION).on(Avenge(SELF, 1, [ApplyGem( FRIENDLY_MINIONSW + QUILBOAR, 'BG20_GEM'),ApplyGem( FRIENDLY + QUILBOAR, 'BG20_GEM')]))
+	events = Death(FRIENDLY + MINION).on(Avenge(SELF, 1, [
+		ApplyGem( FRIENDLY_MINIONS + QUILBOAR, 'BG20_GEM'),
+		ApplyGem( FRIENDLY_MINIONS + QUILBOAR, 'BG20_GEM')]
+											 ))
 	pass
 
 

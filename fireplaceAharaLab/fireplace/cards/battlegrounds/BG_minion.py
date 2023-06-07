@@ -1610,7 +1610,7 @@ class BG22_404_G:# <12>[1453] #############################
 
 ### Drakkari Enchanter (5)
 #BG26__Drakkari_Enchanter =(Config.BG_VERSION>=2620)### new 26.2
-if BG_Drakkari_Enchanter:
+if BG26__Drakkari_Enchanter:
 	BG_Minion += ['BG_NX2_050', 'BG_NX2_050_G']
 	BG_PoolSet_Minion.append('BG_NX2_050')
 	BG_Minion_Gold['BG_NX2_050']='BG_NX2_050_G'
@@ -1638,7 +1638,7 @@ class BG_NX2_050_G: ##
 
 
 
-#############TIER 6######################
+#### TIER 6 ####
 
 
 if BG_Amalgadon:#Amalgadon	6	6	6	*	 	 ### need check ###  banned 22.3

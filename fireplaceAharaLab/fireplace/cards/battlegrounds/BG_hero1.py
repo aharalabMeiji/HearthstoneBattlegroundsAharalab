@@ -919,7 +919,7 @@ class TB_BaconShop_HERO_67_Buddy_Action(TargetedAction):
 class TB_BaconShop_HERO_67_Buddy:# <12>[1453]
 	""" Raging Contender
 	[Tavern Tier 4] 5 Attack, 4 Health.
-	After you use ‘Trash for Treasure,’ gain Gold equal to the removed minion’s Tavern Tier."""
+	After you use ‘Trash for Treasure,' gain Gold equal to the removed minion's Tavern Tier."""
 	## [Tavern Tier 1] 4 Attack, 2 Health, 
 	##'Trash for Treasure' offers 3 options instead of 2. ## <2562
 	if Config.BG_VERSION>=2602:
@@ -934,7 +934,7 @@ class TB_BaconShop_HERO_67_Buddy:# <12>[1453]
 
 class TB_BaconShop_HERO_67_Buddy_G:# <12>[1453]
 	""" Raging Contender
-	After you use ‘Trash for Treasure,’ gain Gold equal to twice the removed minion’s Tavern Tier. """
+	After you use ‘Trash for Treasure,' gain Gold equal to twice the removed minion's Tavern Tier. """
 	## [Tavern Tier 1] 8 Attack, 4 Health, 
 	##'Trash for Treasure' offers 4 options instead of 2. ## <2562
 	if Config.BG_VERSION>=2602:
@@ -1033,9 +1033,9 @@ class BG21_HERO_000_Buddy:# <12>[1453]
 	### At the end of your turn, give five random friendly minions +1/+1. ### old
 	###events = OWN_TURN_END.on(BuffRandomFriendlyMinion(CONTROLLER,'BG21_HERO_000_Buddy_e', 5))
 	if Config.BG_VERSION>=2562:
-		option_tags={TECH_LEVEL:5}
+		option_tags={GameTag.TECH_LEVEL:5}
 	else:
-		option_tags={TECH_LEVEL:4}#
+		option_tags={GameTag.TECH_LEVEL:4}#
 	choose = ('BG21_HERO_000_Buddyt', 'BG21_HERO_000_Buddyt2')
 	pass
 class BG21_HERO_000_Buddyt:
@@ -1048,9 +1048,9 @@ class BG21_HERO_000_Buddy_G:# <12>[1453]
 	###At the end of your turn, give five random friendly minions +2/+2. 
 	###events = OWN_TURN_END.on(BuffRandomFriendlyMinion(CONTROLLER,'BG21_HERO_000_Buddy_G_e', 5))
 	if Config.BG_VERSION>=2562:
-		option_tags={TECH_LEVEL:5}
+		option_tags={GameTag.TECH_LEVEL:5}
 	else:
-		option_tags={TECH_LEVEL:4}# 
+		option_tags={GameTag.TECH_LEVEL:4}# 
 	choose = ('BG21_HERO_000_Buddy_Gt', 'BG21_HERO_000_Buddy_Gt2')
 	pass
 class BG21_HERO_000_Buddy_Gt:
@@ -1428,7 +1428,7 @@ class BG22_HERO_002_Buddy_Action(GameAction):
 class BG22_HERO_002_Buddy:# <12>[1453]
 	""" Frostwolf Lieutenant
 	[Avenge (2):] Give your minions +1 Attack permanently. """
-	## Avenge (3): Minions in Bob’s Tavern have +1 Attack for the rest of the game. ##<2562
+	## Avenge (3): Minions in Bob's Tavern have +1 Attack for the rest of the game. ##<2562
 	option_tags={GameTag.TECH_LEVEL:3, GameTag.ATK:7, GameTag.HEALTH:4}
 	if Config.BG_VERSION>=2562:
 		events=Death(FRIENDLY + MINION).on(Avenge(SELF, 2, [BuffPermanently(FRIENDLY_MINIONS, 'BG22_HERO_002_Buddy_e')]))
@@ -1444,7 +1444,7 @@ class BG22_HERO_002_Buddy_G_Action(GameAction):
 class BG22_HERO_002_Buddy_G:# <12>[1453]
 	""" Frostwolf Lieutenant
 	[Avenge (2):] Give your minions +2 Attack permanently. """
-	## Avenge (3): Minions in Bob’s Tavern have +2 Attack for the rest of the game. ##<2562
+	## Avenge (3): Minions in Bob's Tavern have +2 Attack for the rest of the game. ##<2562
 	option_tags={GameTag.TECH_LEVEL:3, GameTag.ATK:14, GameTag.HEALTH:8}
 	if Config.BG_VERSION>=2562:
 		events = Death(FRIENDLY + MINION).on(Avenge(SELF, 2, [BuffPermanently(FRIENDLY_MINIONS, 'BG22_HERO_002_Buddy_Ge')]))

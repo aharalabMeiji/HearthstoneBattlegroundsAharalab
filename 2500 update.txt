@@ -6,8 +6,8 @@ New Hero
 Enhance-o-Mechano (Armor Tier 1)
 
 Enhancification
-Passive. After each Refresh, give a minion in BobÅfs Tavern Taunt, Reborn, Windfury, or Divine Shield.
-Dev Comments: The odds for each enhancification are equal (25%), except that a minion wonÅft be given a keyword it already has. So if ALL minions in a shop offering already have one of the keywords, it will roll something else.
+Passive. After each Refresh, give a minion in Bob's Tavern Taunt, Reborn, Windfury, or Divine Shield.
+Dev Comments: The odds for each enhancification are equal (25%), except that a minion won't be given a keyword it already has. So if ALL minions in a shop offering already have one of the keywords, it will roll something else.
 
 
 This new hero will be available in all lobbies for two weeks after patch launch.

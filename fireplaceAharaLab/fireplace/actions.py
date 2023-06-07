@@ -9,10 +9,9 @@ from .dsl import LazyNum, LazyValue, Selector
 from .entity import Entity
 from .exceptions import InvalidAction
 from .logging import log
-from .utils import random_class
+from .utils import random_class, get00
 from .config import Config
 from .dsl.random_picker import RandomEntourage, RandomID
-from .cards.utils import get00
 
 def _eval_card(source, card):
 	"""
@@ -1190,7 +1189,7 @@ class Damage(TargetedAction):
 					#target.destroy()
 					Destroy(target).trigger(source)
 					source.venomous=False
-			if getattr(target,'this_is_hero'):
+			if getattr(target,'this_is_hero', False):
 				target.controller.hit_hero_by_minion_this_turn=True
 
 			Deaths().trigger(source.controller)###ここに追加してみた
@@ -3952,7 +3951,8 @@ class Spellcraft(TargetedAction):
 		self.broadcast(source, EventListener.ON, controller, spellcard)
 		newcard=Give(controller, spellcard).trigger(source)
 		newcard=get00(newcard)
-		newcard.parent_card=source
+		if newcard:
+			newcard.parent_card=source
 		self.broadcast(source, EventListener.AFTER, controller, spellcard)
 		pass
 
@@ -3965,7 +3965,7 @@ class SpellcraftSpell(TargetedAction):
 	def do(self, source, target, spellcard, optionatk=0, optionhlt=0, optionamount=1):
 		controller=source.controller
 		if target!=None and target.this_is_minion:
-			self.broadcast(source, EventListener.ON, controller, spellcard, target)
+			self.broadcast(source, EventListener.ON, target, spellcard)
 			if optionatk!=0 or optionhlt!=0:
 				Buff(target, spellcard, atk=optionatk*optionamount, max_health=optionhlt*optionamount).trigger(controller)
 			else:

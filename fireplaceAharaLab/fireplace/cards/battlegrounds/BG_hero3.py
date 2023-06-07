@@ -119,7 +119,7 @@ class TB_BaconShop_HP_049_Action(TargetedAction):
 		Hit(source.controller.hero, amount).trigger(source)
 class TB_BaconShop_HP_049:
 	""" Graveyard Shift
-	New2620: [1 Gold] Steal a minion in BobÅfs Tavern. Take damage equal to its Tavern Tier. """
+	New2620: [1 Gold] Steal a minion in Bob's Tavern. Take damage equal to its Tavern Tier. """
 	## Take $4 damage. Gain 2 Gold. """ ## 25.? < 2620
 	## Take $4 damage. Gain 2 Gold this turn only.""" # 24.0.3<=
 	## Take $2_damage and add a Gold Coin to your hand. 24.0<=
@@ -308,9 +308,9 @@ class TB_BaconShop_HERO_37_Buddy:
 	"""Kil'rek
 	[Taunt] [Deathrattle:] Add a random Demon to your hand."""
 	if Config.BG_VERSION>=2562:
-		option_tags={TECH_LEVEL:4}
+		option_tags={GameTag.TECH_LEVEL:4}
 	else:
-		option_tags={TECH_LEVEL:3}# undefined
+		option_tags={GameTag.TECH_LEVEL:3}# undefined
 	deathrattle = TB_BaconShop_HERO_37_Buddy_Action()
 class TB_BaconShop_HERO_37_Buddy_G_Action(GameAction):
 	def do(self, source):
@@ -327,9 +327,9 @@ class TB_BaconShop_HERO_37_Buddy_G:
 	""" Kil'rek
 	[Taunt] [Deathrattle:] Add 2 random Demons to your hand."""
 	if Config.BG_VERSION>=2562:
-		option_tags={TECH_LEVEL:4}
+		option_tags={GameTag.TECH_LEVEL:4}
 	else:
-		option_tags={TECH_LEVEL:3}# undefined
+		option_tags={GameTag.TECH_LEVEL:3}# undefined
 	deathrattle = TB_BaconShop_HERO_37_Buddy_G_Action()
 	pass
 
@@ -453,9 +453,9 @@ class TB_BaconShop_HERO_58_Buddy:# <12>[1453]
 	""" Nexus Lord
 	'Arcane Alteration'replaces with a minion one Tavern Tier higher. """
 	if Config.BG_VERSION>=2562:
-		option_tags={TECH_LEVEL:4}
+		option_tags={GameTag.TECH_LEVEL:4}
 	else:
-		option_tags={TECH_LEVEL:3}# undefined
+		option_tags={GameTag.TECH_LEVEL:3}# undefined
 	play = TB_BaconShop_HERO_58_Buddy_Action()
 	pass
 class TB_BaconShop_HERO_58_Buddy_G_Action(GameAction):
@@ -466,9 +466,9 @@ class TB_BaconShop_HERO_58_Buddy_G:# <12>[1453]
 	""" Nexus Lord
 	'Arcane Alteration'replaces with a minion two Tavern Tiers higher. """
 	if Config.BG_VERSION>=2562:
-		option_tags={TECH_LEVEL:4}
+		option_tags={GameTag.TECH_LEVEL:4}
 	else:
-		option_tags={TECH_LEVEL:3}# undefined
+		option_tags={GameTag.TECH_LEVEL:3}# undefined
 	play = TB_BaconShop_HERO_58_Buddy_G_Action()
 	pass
 
@@ -1598,7 +1598,7 @@ class BG22_HERO_007_Buddy:
 		option_tags={GameTag.TECH_LEVEL:4}
 	else:
 		option_tags={GameTag.TECH_LEVEL:3}#
-	events = SpellcraftSpell(FRIENDLY + MINION - SELF).on(BG22_HERO_007_Buddy_Action(SpellcraftSpell.CARD, 1))
+	events = SpellcraftSpell(FRIENDLY + MINION - SELF).on(BG22_HERO_007_Buddy_Action(SpellcraftSpell.SPELLCARD, 1))
 class BG22_HERO_007_Buddy_G:
 	""" Imperial Defender
 	Whenever you cast a [Spellcraft] spell on a _different minion, you also cast it on this twice."""
@@ -1606,7 +1606,7 @@ class BG22_HERO_007_Buddy_G:
 		option_tags={GameTag.TECH_LEVEL:4}
 	else:
 		option_tags={GameTag.TECH_LEVEL:3}#
-	events = SpellcraftSpell(FRIENDLY + MINION - SELF).on(BG22_HERO_007_Buddy_Action(SpellcraftSpell.CARD, 2))
+	events = SpellcraftSpell(FRIENDLY + MINION - SELF).on(BG22_HERO_007_Buddy_Action(SpellcraftSpell.SPELLCARD, 2))
 
 
 ##Queen Wagtoggle ### HP OK ### need check buddy 23/4/6
@@ -1648,7 +1648,7 @@ class TB_BaconShop_HP_037a_Action2560(GameAction):
 		controller = source.controller
 		races=[]
 		cards=[]
-		field = copy(controller.field)
+		field = copy.copy(controller.field)
 		random.shuffle(field)
 		for card in field:
 			if card.race==Race.INVALID:

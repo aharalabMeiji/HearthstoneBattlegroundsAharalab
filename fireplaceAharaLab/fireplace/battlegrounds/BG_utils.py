@@ -1,7 +1,7 @@
 from fireplace import cards
 from fireplace.actions import BeginBar, BeginGame, BG_Play, Buff, Buy, CastSecret, EndTurn, EventListener, Give, LoseGame, Rerole, Sell, TieGame, UpgradeTier, WinGame
 #from fireplace.card import Card
-from fireplace.cards.utils import get00
+from fireplace.utils import get00
 from fireplace.config import Config
 from fireplace.player import Player
 from fireplace.dsl import random_picker

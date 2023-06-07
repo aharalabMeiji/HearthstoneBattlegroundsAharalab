@@ -8,8 +8,8 @@ BG_Impulsive_Trickster=True ##(1)->(2)
 BG_Mind_Muck=(Config.BG_VERSION>=2420) #(2) new 24.2
 BG_Nathrezim_Overseer=(Config.BG_VERSION<2420) ##(2) banned 24.2
 BG_Piggyback_Imp=(Config.BG_VERSION>=2420 and Config.BG_VERSION<2620) #(2) new 24.2 banned 26.2
-BG26__Soul_Rewinder=(Config.BG_VERSION>=2620)(2)
-BG26__Backstage_Security=(Config.BG_VERSION>=2620)(2)
+BG26__Soul_Rewinder=(Config.BG_VERSION>=2620) ## (2)
+BG26__Backstage_Security=(Config.BG_VERSION>=2620)#(2)
 
 #BG_Felemental : -> ELEMENTAL
 BG_Kathra_natir=(Config.BG_VERSION<2620) ##(3) banned 26.2
@@ -17,7 +17,7 @@ BG_Leeching_Felhound=(Config.BG_VERSION>=2560) ## 3/3/3 new 25.6 #########
 BG_Legion_Overseer=(Config.BG_VERSION>=2420)## (3) new 24.2 
 BG_Soul_Devourer=(Config.BG_VERSION<2420) ##(3) banned 24.2
 BG26__Keyboard_Igniter=(Config.BG_VERSION>=2620)#(3) #
-BG26__Malchezaar_Prince_of_Dance=(Config.BG_VERSION>=2620)(3)
+BG26__Malchezaar_Prince_of_Dance=(Config.BG_VERSION>=2620)##(3)
 
 BG_Bigfernal=(Config.BG_VERSION<2620) ##(4) banned 26.2
 BG_Ring_Matron=True ##(4)
@@ -453,7 +453,7 @@ class BG26_524:# (minion)(demon)
 	#<Tag enumID="2" name="TAG_SCRIPT_DATA_NUM_1" type="Int" value="2"/>
 	events = [Rerole(CONTROLLER).on(BG26_524_Action()), BeginBar(CONTROLLER).on(BG26_524_Action1())]
 	pass
-class BG26_524_Action1(GameAction):# 
+class BG26_524_Action2(GameAction):# 
 	def do(self, source):# 
 		source.controller.pay_rerole_cost_by_health=True
 		source.script_data_num_1 = 4
@@ -624,7 +624,7 @@ class BG26_523_G_Action(GameAction):#
 class BG26_523_G:# (minion)(demon)
 	""" Tichondrius
 	After your hero takes damage, give your other Demons +2/+2. """
-	events = Hit(FRIENDLY_HERO).after(BG26_523_g_Action())
+	events = Hit(FRIENDLY_HERO).after(BG26_523_G_Action())
 	pass
 BG26_523_Ge=buff(2,2)
 
@@ -675,7 +675,7 @@ if BG_Famished_Felbat:
 	BG_Demon_Gold['BG21_005']='BG21_005_G'
 class BG21_005:# <12>[1453]
 	""" Famished Felbat (6)
-	At the end of your turn, your other Demons consume a minion in Bob’s Tavern to gain its stats."""
+	At the end of your turn, your other Demons consume a minion in Bob's Tavern to gain its stats."""
 	##At the end of your turn, each friendly Demon consumes aminion in Bob's Tavern to__gain its stats. 
 	if Config.BG_VERSION>=2620:
 		events = OWN_TURN_END.on(EatsMinion(FRIENDLY + DEMON - SELF, RANDOM(ENEMY_MINIONS), 1, 'BG21_005e'))

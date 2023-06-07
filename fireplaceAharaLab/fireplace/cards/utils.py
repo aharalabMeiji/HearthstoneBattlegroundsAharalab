@@ -1,13 +1,14 @@
-from pickle import NONE
 import random
 
 from hearthstone.enums import CardClass, CardType, GameTag, PlayReq, Race, Rarity
 from hearthstone.utils import CARDRACE_TAG_MAP
 
+from ..actions import Summon
+
 from ..actions import *
 from ..aura import Refresh
 from ..dsl import *
-from ..events import *
+#from ..events import *
 
 
 # For buffs which are removed when the card is moved to play (eg. cost buffs)
@@ -266,18 +267,6 @@ def exactCopy(card, source):
 	ret.script_data_text_0=card.script_data_text_0
 	return ret
 
-def get00(card):
-	if isinstance(card, list) or isinstance(card, tuple):
-		if len(card)>0:
-			card=card[0]
-		else:
-			card=None
-	if isinstance(card, list) or isinstance(card, tuple):
-		if len(card)>0:
-			card=card[0]
-		else:
-			card=None
-	return card
 
 from fireplace import cards
 
@@ -288,7 +277,7 @@ def fid2id(fid):
 	return None
 
 def isRaceCard(card, race):
-	if getattr(card, 'this_is_minion'):
+	if getattr(card, 'this_is_minion', False):
 		if race==Race.BEAST and card.id in cards.battlegrounds.BG_minion_beast.BG_PoolSet_Beast:
 			return True
 		if race==Race.DEMON and card.id in cards.battlegrounds.BG_minion_demon.BG_PoolSet_Demon:
@@ -317,6 +306,22 @@ def isRaceCard(card, race):
 REQUIRE_ENEMY_MINION_TARGET={PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_MINION_TARGET:0, PlayReq.REQ_ENEMY_TARGET:0 }
 
 REQUIRE_FRIEND_MINION_TARGET={PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_MINION_TARGET:0, PlayReq.REQ_FRIENDLY_TARGET:0 }
+
+
+## events
+
+OWN_CARD_PLAY = BG_Play(CONTROLLER)
+OWN_MINION_PLAY = BG_Play(CONTROLLER, MINION)
+OWN_SECRET_PLAY = BG_Play(CONTROLLER, SECRET)
+OWN_SPELL_PLAY = BG_Play(CONTROLLER, SPELL)
+
+TURN_BEGIN = BeginTurn()
+OWN_TURN_BEGIN = BeginTurn(CONTROLLER)
+
+TURN_END = EndTurn()
+OWN_TURN_END = EndTurn(CONTROLLER)
+
+SELF_DAMAGE = Damage(SELF)
 
 
 #sample 

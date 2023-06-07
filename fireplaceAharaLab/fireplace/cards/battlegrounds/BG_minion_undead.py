@@ -4,7 +4,7 @@ from ..utils import *
 
 BG25__Risen_Rider=(Config.BG_VERSION>=2522)#1 undead ## new 25.2.2
 BG25__Rot_Hide_Gnoll=(Config.BG_VERSION>=2522 and Config.BG_VERSION<2620)#1 undead ## new 25.2.2 ## banned 26.2
-BG26__Incorporeal_Corporal=(Config.VERSION>=2620) #(1)
+BG26__Incorporeal_Corporal=(Config.BG_VERSION>=2620) #(1)
 # BG_Micro_Mummy undead/mecha
 
 BG25__Eternal_Knight=(Config.BG_VERSION>=2522)#2 undead ## new 25.2.2
@@ -29,7 +29,7 @@ BG25__Soulsplitter=(Config.BG_VERSION>=2522)#5 undead ## new 25.2.2
 
 BG25__Colossus_of_the_Sun=(Config.BG_VERSION>=2522) #6 undead ## new 25.2.2
 BG25__Eternal_Summoner=(Config.BG_VERSION>=2522)#6 undead ## new 25.2.2
-BG25__Sister_Deathwhisper=T(Config.BG_VERSION>=2522)#6 undead ## new 25.2.2
+BG25__Sister_Deathwhisper=(Config.BG_VERSION>=2522)#6 undead ## new 25.2.2
 
 BG_Minion_Undead = []
 BG_PoolSet_Undead=[ ]
@@ -84,7 +84,7 @@ if BG_Micro_Mummy:
 	BG_PoolSet_Undead.append('BG_ULD_217')
 	BG_Undead_Gold['BG_ULD_217']='TB_BaconUps_250'
 
-#BG26__Incorporeal_Corporal=(Config.VERSION>=2620) #(1)
+#BG26__Incorporeal_Corporal=(Config.BG_VERSION>=2620) #(1)
 if BG26__Incorporeal_Corporal:# 
 	BG_Minion_Undead+=['BG26_RLK_117','BG26_RLK_117_G']
 	BG_PoolSet_Undead+=['BG26_RLK_117']

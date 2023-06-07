@@ -1,7 +1,7 @@
 Battlegrounds Updates
 Minion Pool Changes
 
-SinÅfdorei Straight Shot will now only appear in games with Undead.
+Sin'dorei Straight Shot will now only appear in games with Undead.
 Archdruid Hamuul has been temporarily returned to the minion pool (just until Patch 25.6).
 
 

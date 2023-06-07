@@ -598,7 +598,7 @@ class BG26_963:# (minion)
 	#(5/3/7)<b>Battlecry:</b> Give your other Dragons +4 Attack. """
 	if Config.BG_VERSION>=2620:
 		option_tags={GameTag.TECH_LEVEL:5}
-	play = Buff(FIRNEDLY_MINIONS + DRAGON - SELF, 'BG26_963e')
+	play = Buff(FRIENDLY_MINIONS + DRAGON - SELF, 'BG26_963e')
 	pass
 if Config.BG_VERSION>=2620:
 	BG26_963e=buff(3,0)
@@ -607,7 +607,7 @@ class BG26_963_G:# (minion)
 	<b>Battlecry:</b> Give your other Dragons +6 Attack. """
 	if Config.BG_VERSION>=2620:
 		option_tags={GameTag.TECH_LEVEL:5}
-	play = Buff(FIRNEDLY_MINIONS + DRAGON - SELF, 'BG26_963_Ge')
+	play = Buff(FRIENDLY_MINIONS + DRAGON - SELF, 'BG26_963_Ge')
 	pass
 if Config.BG_VERSION>=2620:
 	BG26_963_Ge=buff(6,0)
@@ -621,10 +621,15 @@ if BG26__Stormbringer:#
 	BG_Minion_Dragon+=['BG26_966_G']
 	BG_PoolSet_Dragon.append('BG26_966')
 	BG_Dragon_Gold['BG26_966']='BG26_966_G'
+
 class BG26_966_Action(GameAction):# 
 	BUFF=ActionArg()
 	AMOUNT=IntArg()
 	def do(self, source, buff, amount):# 
+		if isinstance(buff, ActionArg):
+			buff=buff.evaluate(source)
+		if not getattr(buff, 'this_is_enchantment', False):
+			buff=source.event_args[1]
 		if buff.atk>0:
 			Buff(source, 'BG26_966e', atk=buff.atk*amount).trigger(source)
 		pass# 

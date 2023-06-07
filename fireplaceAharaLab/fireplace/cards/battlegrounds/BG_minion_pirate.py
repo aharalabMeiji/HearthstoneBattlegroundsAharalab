@@ -327,6 +327,11 @@ class BG26_810_Action(GameAction):
 	"""
 	AMOUNT = IntArg() #spent mana
 	BUFF=ActionArg()
+	def get_target_args(self, source):
+		amount = self._args[1]
+		bf = self._args[2]
+		return [amount, bf]
+
 	def do(self, source, amount, buff):
 		triggeramount=5
 		if amount==1:#buy a minion

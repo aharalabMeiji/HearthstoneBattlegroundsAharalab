@@ -870,9 +870,9 @@ class TB_BaconShop_HERO_94_Buddy:# <12>[1453]
 	When you sell this, Discover a Darkmoon Prize from the next prize turn."""
 	###[Battlecry:] [Discover] a Darkmoon Prize fromthe next Prize turn. ### <2560
 	if Config.BG_VERSION>=2562:
-		option_tags={TECH_LEVEL:5}
+		option_tags={GameTag.TECH_LEVEL:5}
 	else:
-		option_tags={TECH_LEVEL:4}# 
+		option_tags={GameTag.TECH_LEVEL:4}# 
 	play = TB_BaconShop_HERO_94_Buddy_Action()
 	pass
 class TB_BaconShop_HERO_94_Buddy_G_Choice(Choice):# <12>[1453]
@@ -900,9 +900,9 @@ class TB_BaconShop_HERO_94_Buddy_G:# <12>[1453]
 	""" Ticket Collector
 	[Battlecry:] [Discover] 2 Darkmoon Prizes from the next Prize turn. """
 	if Config.BG_VERSION>=2562:
-		option_tags={TECH_LEVEL:5}
+		option_tags={GameTag.TECH_LEVEL:5}
 	else:
-		option_tags={TECH_LEVEL:4}#
+		option_tags={GameTag.TECH_LEVEL:4}#
 	play = TB_BaconShop_HERO_94_Buddy_G_Action()
 	pass
 
@@ -940,7 +940,7 @@ class TB_BaconShop_HERO_10_Buddy_Action(TargetedAction):# <12>[1453]
 		Buff(target, 'TB_BaconShop_HERO_10_Buddye', atk=amount, max_health=amount).trigger(source)
 class TB_BaconShop_HERO_10_Buddy:# <12>[1453]
 	""" Bilgewater Mogul
-	Choose One – Give a minion +1 Attack for each Gold you’ve spent this turn; or +1 Health."""
+	Choose One – Give a minion +1 Attack for each Gold you've spent this turn; or +1 Health."""
 	### [Battlecry:] Give a minion +1/+1 for each Gold spent this turn. ### <2560
 	reuqirements = { PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_FRIENDLY_TARGET:0, PlayReq.REQ_MINION_TARGET:0 }
 	if Config.BG_VERSION>=2604:
@@ -1099,9 +1099,9 @@ class BG22_HERO_004_Buddy:# <12>[1453]
 	""" Varden's Aquarrior
 	'Twice as Nice' also gives the copy stats equal to your Tavern Tier. """
 	if Config.BG_VERSION>=2562:
-		option_tags={TECH_LEVEL:4}
+		option_tags={GameTag.TECH_LEVEL:4}
 	else:
-		option_tags={TECH_LEVEL:3}# undefined
+		option_tags={GameTag.TECH_LEVEL:3}# undefined
 	play = BG22_HERO_004_Buddy_Action()
 	pass
 class BG22_HERO_004_Buddy_e2:# <12>[1453]
@@ -1118,9 +1118,9 @@ class BG22_HERO_004_Buddy_G:# <12>[1453]
 	""" Varden's Aquarrior
 	'Twice as Nice' also givesthe copy stats equal toyour Tavern Tier twice. """
 	if Config.BG_VERSION>=2562:
-		option_tags={TECH_LEVEL:4}
+		option_tags={GameTag.TECH_LEVEL:4}
 	else:
-		option_tags={TECH_LEVEL:3}# undefined
+		option_tags={GameTag.TECH_LEVEL:3}# undefined
 	play = BG22_HERO_004_Buddy_G_Action()
 	pass
 

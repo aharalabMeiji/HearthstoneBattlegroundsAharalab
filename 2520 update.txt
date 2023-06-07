@@ -1,5 +1,5 @@
 Battlegrounds Season 3 is Here!
-Good news, everyone! Battlegrounds Season 3 brings Professor PutricideÅfs new Hero Power, Undead and dual-type minions, and tons more new and updated heroes and minions!
+Good news, everyone! Battlegrounds Season 3 brings Professor Putricide's new Hero Power, Undead and dual-type minions, and tons more new and updated heroes and minions!
 
 
 
@@ -11,7 +11,7 @@ Undead and dual-type minions have been added as a regular part of Battlegrounds.
 Undead will appear in every lobby for 2 weeks after the patch; they will then appear in 75% of lobbies for an additional 2 weeks. Then they will be part of the regular rotation of minion types.
 For a short time after the launch of Undead, turns 5+ will be 5 seconds longer to allow players time to learn the new cards. This is expected to be reverted in a planned hotfix following the patch.
 New Battlegrounds Track
-When the new Battlegrounds Season begins, rewards on last SeasonÅfs Battlegrounds Track will no longer be able to be earned, all rewards that were earned and not yet claimed will be automatically claimed, and a new Battlegrounds Track will begin. The Season 3 Battlegrounds Track features 40 new Battle for Silvermoon themed cosmetics, including 4 Legendary Hero Skins, 3 Epic Hero Skins, 8 Rare Hero Skins, 1 Rare Board, 1 Rare Bartender, and 9 Rare Emotes!
+When the new Battlegrounds Season begins, rewards on last Season's Battlegrounds Track will no longer be able to be earned, all rewards that were earned and not yet claimed will be automatically claimed, and a new Battlegrounds Track will begin. The Season 3 Battlegrounds Track features 40 new Battle for Silvermoon themed cosmetics, including 4 Legendary Hero Skins, 3 Epic Hero Skins, 8 Rare Hero Skins, 1 Rare Board, 1 Rare Bartender, and 9 Rare Emotes!
 
 
 
@@ -27,29 +27,29 @@ Build-An-Undead
 [4 Gold] Craft a custom Undead. (3 Creations left!)
 
 
-?Dev Comment: When you build an Undead, youÅfll be offered two sets of 3 minions to merge together. One set tends to have persistent in-combat rules while the other set tends to have keywords and in-shop effects. All minion offerings will be at or below your Tavern Tier. The Build-An-Undead pools include both minions that are available in BobÅfs Tavern and minions that are unique to this effect. PutricideÅfs creations are unnatural, so they canÅft be tripled.
+?Dev Comment: When you build an Undead, you'll be offered two sets of 3 minions to merge together. One set tends to have persistent in-combat rules while the other set tends to have keywords and in-shop effects. All minion offerings will be at or below your Tavern Tier. The Build-An-Undead pools include both minions that are available in Bob's Tavern and minions that are unique to this effect. Putricide's creations are unnatural, so they can't be tripled.
 
 Professor Putricide will be available in all games for two weeks after launch.
 
 Millificent Manastorm (Tinker)
 
-Old: Passive. Mechs in BobÅfs Tavern have +1/+1.
+Old: Passive. Mechs in Bob's Tavern have +1/+1.
 New: Passive. Whenever you summon a Mech, give it +2 Attack.
 
 
 Lord Jaraxxus (Bloodfury)
 
 Old: [1 Gold] Give your Demons +1/+1.
-New: [1 Gold] Choose a friendly Demon. It consumes a minion in BobÅfs Tavern to gain its stats.
+New: [1 Gold] Choose a friendly Demon. It consumes a minion in Bob's Tavern to gain its stats.
 
 
 Pyramad (Brick by Brick)
 
-Old: [0 Gold] Give a minion +2 Health. (Gains +1 Health each turn you donÅft use this!)
-New: [0 Gold] Give a minion +1 Health. (Gains +1 Health each turn you donÅft use this!)
+Old: [0 Gold] Give a minion +2 Health. (Gains +1 Health each turn you don't use this!)
+New: [0 Gold] Give a minion +1 Health. (Gains +1 Health each turn you don't use this!)
 
 
-Galewing (DungarÅfs Gryphon)
+Galewing (Dungar's Gryphon)
 
 You can no longer choose the same Flight Path twice in a row.
 
@@ -77,7 +77,7 @@ Tier 1 (0 Armor)
 Arch-Villain Rafaam
 Captain Hooktusk
 Cookie the Cook
-CÅfThun
+C'Thun
 Elise Starseeker
 Forest Warden Omu
 Galewing
@@ -98,13 +98,13 @@ The Rat King
 Trade Prince Gallywix
 Xyrella
 Vanndar Stormpike
-VolÅfjin
+Vol'jin
 Ysera
 
 Tier 2 (2-5 Armor)
-AlÅfAkir
+Al'Akir
 Cariel Roame
-DancinÅf Deryl
+Dancin' Deryl
 Death Speaker Blackthorn
 Deathwing
 Fungalmancer Flurgl
@@ -112,10 +112,10 @@ Ini Stormcoil
 Galakrond
 Guff Runetotem
 Jandice Barov
-Lich BazÅfhial
+Lich Baz'hial
 Lord Barov
 Millificent Manastorm
-NÅfZoth
+N'Zoth
 Patchwerk
 Professor Putricide
 Reno Jackson
@@ -135,23 +135,23 @@ Malygos
 Nozdormu
 Patches the Pirate
 Shudderwock
-SkycapÅfn Kragg
+Skycap'n Kragg
 Sylvanas Windrunner
 The Jailer
-Yogg-Saron, HopeÅfs End
+Yogg-Saron, Hope's End
 Jaraxxus
 Drek'Thar
 
 Tier 4 (4-7 Armor)
 Alexstrasza
 Ambassador Faelin
-BruÅfkan
-KaelÅfthas Sunstrider
+Bru'kan
+Kael'thas Sunstrider
 Onyxia
 Ozumat
 Ragnaros the Firelord
 Sneed
-YÅfShaarj
+Y'Shaarj
 Zephrys, the Great
 
 Tier 5 (5-8 Armor)
@@ -236,7 +236,7 @@ Lich Doctor [Tavern Tier 3, Undead]
 
 Felemental [Tavern Tier 3, Elemental/Demon]
 
-3 Attack, 1 Health. Battlecry: Minions in BobÅfs Tavern have +1/+1 for the rest of the game.
+3 Attack, 1 Health. Battlecry: Minions in Bob's Tavern have +1/+1 for the rest of the game.
 
 
 Soulsplitter [Tavern Tier 4, Undead]
@@ -283,12 +283,12 @@ Pufferquil [Tavern Tier 4, Naga/Quilboar]
 2 Attack, 4 Health. After a spell is played on this, gain Poisonous until next turn.
 
 
-SinÅfdorei Straight-Shot [Tavern Tier 4]
+Sin'dorei Straight-Shot [Tavern Tier 4]
 
 3 Attack, 4 Health. Windfury. Divine Shield. Whenever this attacks, remove Reborn and Taunt from the target.
 
 
-AnubÅfarak, Nerubian King [Tavern Tier 5, Undead]
+Anub'arak, Nerubian King [Tavern Tier 5, Undead]
 
 5 Attack, 3 Health. Deathrattle: Your Undead have +2 Attack for the rest of the game (wherever they are).
 

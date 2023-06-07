@@ -330,3 +330,16 @@ def modify_description(card, text):
 						catch_number *= 2
 				new_text = new_text[:i] + "*" +str(catch_number) +"*" + latter_text
 	return new_text
+
+def get00(card):
+	if isinstance(card, list) or isinstance(card, tuple):
+		if len(card)>0:
+			card=card[0]
+		else:
+			card=None
+	if isinstance(card, list) or isinstance(card, tuple):
+		if len(card)>0:
+			card=card[0]
+		else:
+			card=None
+	return card

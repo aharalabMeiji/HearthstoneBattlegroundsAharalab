@@ -1,7 +1,7 @@
 Armor Updates
-Master Nguyen’s Armor was reduced to 8.
-E.T.C., Band Manager’s Armor was reduced to 10.
-Patches the Pirate’s Armor was reduced to 10 in higher ranked lobbies; it is still 5 in lower ranked lobbies.
+Master Nguyen's Armor was reduced to 8.
+E.T.C., Band Manager's Armor was reduced to 10.
+Patches the Pirate's Armor was reduced to 10 in higher ranked lobbies; it is still 5 in lower ranked lobbies.
 Hero Updates
 E.T.C., Band Manager (Sign a New Artist)
 
@@ -86,8 +86,8 @@ New: 4 Attack, 2 Health
 
 Dancing Barnstormer
 
-Old: 4 Attack, 2 Health. Deathrattle: Elementals in Bob’s Tavern have +2/+2 for the rest of the game.
-New: 3 Attack, 2 Health. Deathrattle: Elementals in Bob’s Tavern have +3/+2 for the rest of the game.
+Old: 4 Attack, 2 Health. Deathrattle: Elementals in Bob's Tavern have +2/+2 for the rest of the game.
+New: 3 Attack, 2 Health. Deathrattle: Elementals in Bob's Tavern have +3/+2 for the rest of the game.
 
 
 Electric Synthesizer
@@ -152,4 +152,4 @@ New: 8 Attack, 16 Health
 
 Minion Pool Changes
 Monstrous Macaw has been returned to the minion pool.
-Sin’dorei Straight Shot is now available in all lobbies (not just Undead lobbies).
+Sin'dorei Straight Shot is now available in all lobbies (not just Undead lobbies).

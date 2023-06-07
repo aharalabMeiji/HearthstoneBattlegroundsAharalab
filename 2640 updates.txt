@@ -8,9 +8,9 @@ Minor Hymn
 [0 Gold] Give a minion Health equal to your Tavern Tier. (Swaps to Attack next turn!)
 
 
-Cap’n Hoggarr (10 Armor)
+Cap'n Hoggarr (10 Armor)
 
-I’m the Cap’n Now
+I'm the Cap'n Now
 [Passive] After you buy a Pirate, gain 1 Gold.
 
 

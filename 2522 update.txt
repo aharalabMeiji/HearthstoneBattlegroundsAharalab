@@ -46,7 +46,7 @@ Old: [Tavern Tier 5] 6 Attack, 6 Health
 New: [Tavern Tier 4] 4 Attack, 4 Health
 
 
-AnubÅfarak, Nerubian King
+Anub'arak, Nerubian King
 
 Old: [Tavern Tier 5] 5 Attack, 3 Health. Deathrattle: Your Undead have +2 Attack for the rest of the game (wherever they are).
 New: [Tavern Tier 4] 4 Attack, 3 Health. Deathrattle: Your Undead have +1 Attack for the rest of the game (wherever they are).
@@ -112,4 +112,4 @@ Old: 8 Attack, 1 Health. Deathrattle: Summon 2 Eternal Knights.
 New: 6 Attack, 1 Health. Reborn. Deathrattle: Summon 1 Eternal Knight.
 
 
-Dev Comment: If Eternal Summoner is picked as the first pick from Professor PutricideÅfs hero power, you can no longer be offered a Reborn or Poisonous minion as the second option.
+Dev Comment: If Eternal Summoner is picked as the first pick from Professor Putricide's hero power, you can no longer be offered a Reborn or Poisonous minion as the second option.

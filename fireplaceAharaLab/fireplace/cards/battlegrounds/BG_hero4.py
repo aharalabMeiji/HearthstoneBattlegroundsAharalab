@@ -340,7 +340,7 @@ class TB_BaconShop_HP_022_Action(GameAction):
 		pass
 class TB_BaconShop_HP_022:
 	""" Snicker-snack
-	Trigger a friendly minionÅfs Battlecry."""
+	Trigger a friendly minion's Battlecry."""
 	##Add a 1/1 Shudderling to your hand that repeats all [Battlecries] you've played. <i>(Twice per game.)</i>"##<2560
 	if Config.BG_VERSION>=2560:
 		option_tags={GameTag.COST:0}
@@ -550,9 +550,9 @@ class TB_BaconShop_HERO_40_Buddy:
 	"""  Maxwell, Mighty Steed
 	[Battlecry:] Add the Buddy of your Hero Power to your_hand."""
 	if Config.BG_VERSION>=2562:
-		option_tags={TECH_LEVEL:4}
+		option_tags={GameTag.TECH_LEVEL:4}
 	else:
-		option_tags={TECH_LEVEL:3}# undefined
+		option_tags={GameTag.TECH_LEVEL:3}# undefined
 	play = TB_BaconShop_HERO_40_Buddy_Action()
 class TB_BaconShop_HERO_40_Buddy_G_Action(GameAction):
 	def do(self, source):
@@ -570,9 +570,9 @@ class TB_BaconShop_HERO_40_Buddy_G:
 	"""  Maxwell, Mighty Steed
 	[Battlecry:] Add 2 Buddies of your Hero Power to your_hand."""
 	if Config.BG_VERSION>=2562:
-		option_tags={TECH_LEVEL:4}
+		option_tags={GameTag.TECH_LEVEL:4}
 	else:
-		option_tags={TECH_LEVEL:3}# undefined
+		option_tags={GameTag.TECH_LEVEL:3}# undefined
 	play = TB_BaconShop_HERO_40_Buddy_G_Action()
 
 
