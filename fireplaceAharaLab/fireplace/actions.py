@@ -1260,7 +1260,9 @@ class Battlecry(TargetedAction):
 			actions = card.get_actions("play")
 
 		source.target = target
+		self.broadcast(source, EventListener.ON, card, target)
 		source.game.main_power(source, actions, target)
+		self.broadcast(source, EventListener.AFTER, card, target)
 		if card.has_battlecry:
 			if hasattr(actions,'__iter__'):
 				for action in actions:

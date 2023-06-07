@@ -519,7 +519,7 @@ class BG25_309_Gt:# (minion)
 BG25_309_Ge=buff(10,0)
 
 
-#Tarecgosa(3)->(4)    ## OK ###
+#Tarecgosa(3)->(4)(25.6) ->(3)(26.2)    ## OK ###
 if BG_Tarecgosa:
 	BG_Minion_Dragon+=['BG21_015','BG21_015_G']#
 	BG_PoolSet_Dragon.append('BG21_015')
@@ -556,7 +556,9 @@ class BG21_015_Action3(TargetedAction):
 class BG21_015:# <12>[1453]
 	""" Tarecgosa
 	This permanently keeps enchantments from combat. """
-	if Config.BG_VERSION>=2560:
+	if Config.BG_VERSION>=2620:
+		option_tags={GameTag.TECH_LEVEL:3}
+	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.TECH_LEVEL:4}
 	else:
 		option_tags={GameTag.TECH_LEVEL:3}
@@ -795,14 +797,21 @@ if BG_Kalecgos_Arcane_Aspect:
 	BG_Dragon_Gold['BGS_041']='TB_BaconUps_109' #	
 class BGS_041:# <12>[1453]
 	""" Kalecgos, Arcane Aspect
-	After you play a minion with [Battlecry], give your Dragons +1/+1. """
-	events = BG_Play(CONTROLLER, FRIENDLY + BATTLECRY).on(Buff(FRIENDLY_MINIONS + DRAGON, 'BGS_041e'))
+	After you trigger a Battlecry, give your Dragons +1/+1.""" ## new 26.2
+	##	After you play a minion with [Battlecry], give your Dragons +1/+1. ## old
+	if Config.BG_VERSION>=2620:
+		events = Battlecry(FRIENDLY + BATTLECRY).on(Buff(FRIENDLY_MINIONS + DRAGON, 'BGS_041e'))
+	else:
+		events = BG_Play(CONTROLLER, FRIENDLY + BATTLECRY).on(Buff(FRIENDLY_MINIONS + DRAGON, 'BGS_041e'))
 	pass
 BGS_041e=buff(1,1)
 class TB_BaconUps_109:# <12>[1453]
 	""" Kalecgos, Arcane Aspect
 	After you play a minion with [Battlecry], give your Dragons +2/+2. """
-	events = BG_Play(CONTROLLER, FRIENDLY + BATTLECRY).on(Buff(FRIENDLY_MINIONS + DRAGON, 'TB_BaconUps_109e'))
+	if Config.BG_VERSION>=2620:
+		events = Battlecry(FRIENDLY + BATTLECRY).on(Buff(FRIENDLY_MINIONS + DRAGON, 'TB_BaconUps_109e'))
+	else:
+		events = BG_Play(CONTROLLER, FRIENDLY + BATTLECRY).on(Buff(FRIENDLY_MINIONS + DRAGON, 'TB_BaconUps_109e'))
 	pass
 TB_BaconUps_109e=buff(2,2)
 

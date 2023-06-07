@@ -436,13 +436,18 @@ class BG25_039_Action(TargetedAction):
 			Buff(target, 'BG25_039e').trigger(source)
 class BG25_039:# (minion)
 	""" Pufferquil
-	After a spell is played on this, gain <b>Poisonous</b> until next turn. """
-	events = Play(CONTROLLER).after(BG25_039_Action(Play.TARGET))
+	After a spell is played on this, gain Venomous until end of turn.""" ## new 26.2
+	##After a spell is played on this, gain <b>Poisonous</b> until next turn. """
+	
+	events = BG_Play(CONTROLLER).after(BG25_039_Action(Play.TARGET))
 	pass
 class BG25_039e:# (enchantment)
 	""" Puffed Up
 	<b>Poisonous</b> until next turn. """
-	tags = {GameTag.TAG_ONE_TURN_EFFECT:1, GameTag.POISONOUS:1 }
+	if Config.BG_VERSION>=2620:
+		tags = {GameTag.TAG_ONE_TURN_EFFECT:1, GameTag.VENOMOUS:1 }
+	else:
+		tags = {GameTag.TAG_ONE_TURN_EFFECT:1, GameTag.POISONOUS:1 }
 	pass
 class BG25_039_G_Action(TargetedAction):
 	TARGET=ActionArg()
@@ -452,9 +457,12 @@ class BG25_039_G_Action(TargetedAction):
 class BG25_039_G:# (minion)
 	""" Pufferquil
 	After a spell is played on this, gain <b>Poisonous</b>. """
-	events = Play(CONTROLLER).after(BG25_039_G_Action(Play.TARGET))
+	events = BG_Play(CONTROLLER).after(BG25_039_G_Action(Play.TARGET))
 	pass
-BG25_039_Ge=buff(poisonous=True)# (enchantment)
+if Config.BG_VERSION>=2620:
+	BG25_039_Ge=buff(venomous=True)# (enchantment)
+else:
+	BG25_039_Ge=buff(poisonous=True)# (enchantment)
 """ Puffed Full	<b>Poisonous</b>. """
 
 
@@ -651,14 +659,21 @@ if BG_Charlga:
 	BG_Quilboar_Gold['BG20_303']='BG20_303_G'
 class BG20_303:# <12>[1453] ちゃるが
 	""" Charlga
-	At the end of your turn, play a [Blood Gem] on all friendly minions. """
-	events = OWN_TURN_END.on(ApplyGem(FRIENDLY_MINIONS, 'BG20_GEM'))
+	At the end of your turn, play a Blood Gem on your other minions.""" ##new 26.2
+	##At the end of your turn, play a [Blood Gem] on all friendly minions. 
+	if Config.BG_VERSION>=2620:
+		events = OWN_TURN_END.on(ApplyGem(FRIENDLY_MINIONS - SELF, 'BG20_GEM'))
+	else:
+		events = OWN_TURN_END.on(ApplyGem(FRIENDLY_MINIONS, 'BG20_GEM'))
 	pass
 
 class BG20_303_G:# <12>[1453]
 	""" Charlga
 	At the end of your turn, play 2 [Blood Gems] on all friendly minions. """
-	events = OWN_TURN_END.on(ApplyGem(FRIENDLY_MINIONS, 'BG20_GEM')*2)
+	if Config.BG_VERSION>=2620:
+		events = OWN_TURN_END.on(ApplyGem(FRIENDLY_MINIONS - SELF, 'BG20_GEM')*2)
+	else:
+		events = OWN_TURN_END.on(ApplyGem(FRIENDLY_MINIONS, 'BG20_GEM')*2)
 	pass
 
 

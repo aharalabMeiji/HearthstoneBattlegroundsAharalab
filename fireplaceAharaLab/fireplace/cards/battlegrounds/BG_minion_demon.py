@@ -522,6 +522,10 @@ class BGS_010:# <12>[1453]
 	""" Annihilan Battlemaster (5)
 	[Battlecry:] Gain +2 Health for each Health your hero is missing."""
 	##[Battlecry:] Gain +1 Health for each Health your hero_is missing. ### <2560
+	if Config.BG_VERSION>=2620:
+		option_tags={GameTag.TECH_LEVEL:4,GameTag.ATK:3,GameTag.HEALTH:1 }
+	else:	
+		option_tags={GameTag.TECH_LEVEL:5,GameTag.ATK:5,GameTag.HEALTH:1 }
 	def play(self):
 		hero = self.controller.hero
 		if Config.BG_VERSION>=2560:
@@ -532,6 +536,10 @@ class BGS_010:# <12>[1453]
 class TB_BaconUps_083:# <12>[1453]
 	""" Annihilan Battlemaster
 	[Battlecry:] Gain +2 Health for each Health your hero_is missing. """
+	if Config.BG_VERSION>=2620:
+		option_tags={GameTag.TECH_LEVEL:4,GameTag.ATK:6,GameTag.HEALTH:2 }
+	else:	
+		option_tags={GameTag.TECH_LEVEL:5,GameTag.ATK:10,GameTag.HEALTH:2 }
 	def play(self):
 		hero = self.controller.hero
 		if Config.BG_VERSION>=2560:
@@ -667,8 +675,12 @@ if BG_Famished_Felbat:
 	BG_Demon_Gold['BG21_005']='BG21_005_G'
 class BG21_005:# <12>[1453]
 	""" Famished Felbat (6)
-	At the end of your turn, eachfriendly Demon consumes aminion in Bob's Tavern to__gain its stats. """
-	events = OWN_TURN_END.on(EatsMinion(FRIENDLY + DEMON, RANDOM(ENEMY_MINIONS), 1, 'BG21_005e'))
+	At the end of your turn, your other Demons consume a minion in Bob’s Tavern to gain its stats."""
+	##At the end of your turn, each friendly Demon consumes aminion in Bob's Tavern to__gain its stats. 
+	if Config.BG_VERSION>=2620:
+		events = OWN_TURN_END.on(EatsMinion(FRIENDLY + DEMON - SELF, RANDOM(ENEMY_MINIONS), 1, 'BG21_005e'))
+	else:
+		events = OWN_TURN_END.on(EatsMinion(FRIENDLY + DEMON, RANDOM(ENEMY_MINIONS), 1, 'BG21_005e'))
 	pass
 class BG21_005e:# <12>[1453]
 	""" Fed by the Felbat
@@ -678,7 +690,10 @@ class BG21_005e:# <12>[1453]
 class BG21_005_G:# <12>[1453]
 	""" Famished Felbat
 	At the end of your turn, eachfriendly Demon consumes aminion in Bob's Tavern to__gain double its stats. """
-	events = OWN_TURN_END.on(EatsMinion(FRIENDLY + DEMON, RANDOM(ENEMY_MINIONS), 2, 'BG21_005e'))
+	if Config.BG_VERSION>=2620:
+		events = OWN_TURN_END.on(EatsMinion(FRIENDLY + DEMON - SELF, RANDOM(ENEMY_MINIONS), 2, 'BG21_005e'))
+	else:
+		events = OWN_TURN_END.on(EatsMinion(FRIENDLY + DEMON, RANDOM(ENEMY_MINIONS), 2, 'BG21_005e'))
 	pass
 
 

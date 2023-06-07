@@ -584,19 +584,27 @@ if BG_Eventide_Brute:
 class BG23_010:# <12>[1453]
 	""" Eventide Brute (4)
 	After you cast a spell,gain +1/+1. """
+	if Config.BG_VERSION>=2620:
+		option_tags={GameTag.TECH_LEVEL:3, GameTag.ATK:3, GameTag.HEALTH:2}
+	else:
+		option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:5, GameTag.HEALTH:4}
 	events = BG_Play(CONTROLLER, SPELL).on(Buff(SELF,'BG23_010e'))
 	pass
 BG23_010e=buff(1,1)
 class BG23_010_G:# <12>[1453]
 	""" Eventide Brute
 	After you cast a spell,gain +2/+2. """
+	if Config.BG_VERSION>=2620:
+		option_tags={GameTag.TECH_LEVEL:3, GameTag.ATK:6, GameTag.HEALTH:4}
+	else:
+		option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:10, GameTag.HEALTH:8}
 	events = BG_Play(CONTROLLER, SPELL).on(Buff(SELF,'BG23_010_Ge'))
 	pass
 BG23_010_Ge=buff(2,2)
 	
 
 if BG25__Pufferquil:# 4/2/6, quilbour/naga
-	BG_Minion_Naga+=['BG25_039','BG25_039_G','BG25_039_Ge','BG25_039e']
+	##BG_Minion_Naga+=['BG25_039','BG25_039_G','BG25_039_Ge','BG25_039e']
 	BG_PoolSet_Naga.append('BG25_039')
 	BG_Naga_Gold['BG25_039']='BG25_039_G'
 

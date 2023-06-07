@@ -538,13 +538,42 @@ if BG_Young_Murk_Eye:
 	BG_Minion_Murloc+=['BG22_403','BG22_403_G']
 	BG_PoolSet_Murloc.append('BG22_403')
 	BG_Murloc_Gold['BG22_403']='BG22_403_G'
+class BG22_403_Action(GameAction):
+	def do(self, source):
+		index = source.controller.field.index(source)
+		if index>0 :
+			card = source.controller.field[index-1]
+			if card.has_battlecry:
+				PlayBattlecry(card).trigger(source)
 class BG22_403:
 	""" Young Murk-Eye (6) 
-	At the end of your turn, the Murloc to the left of this triggers its [Battlecry]."""
+	At the end of your turn, the minion to the left of this triggers its Battlecry."""
+	##	At the end of your turn, the Murloc to the left of this triggers its [Battlecry].""" old, <2620
+	if Config.BG_VERSION>=2620:
+		option_tags={GameTag.ATK:7, GameTag.HEALTH:4}
+	else:
+		option_tags={GameTag.ATK:8, GameTag.HEALTH:5}
+	events = OWN_TURN_END.on(BG22_403_Action())
 	pass
+class BG22_403_G_Action(GameAction):
+	def do(self, source):
+		index = source.controller.field.index(source)
+		if index>0 :
+			card = source.controller.field[index-1]
+			if card.has_battlecry:
+				PlayBattlecry(card).trigger(source)
+		if index<len(source.controller.field)-1 :
+			card = source.controller.field[index+1]
+			if card.has_battlecry:
+				PlayBattlecry(card).trigger(source)
 class BG22_403_G:
 	""" (6) 
 	At the end of your turn, adjacent Murlocs trigger their [Battlecries]."""
+	if Config.BG_VERSION>=2620:
+		option_tags={GameTag.ATK:14, GameTag.HEALTH:8}
+	else:
+		option_tags={GameTag.ATK:16, GameTag.HEALTH:10}
+	events = OWN_TURN_END.on(BG22_403_G_Action())
 	pass
 
 

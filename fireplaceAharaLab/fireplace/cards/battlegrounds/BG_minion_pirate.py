@@ -477,16 +477,34 @@ if BG_Ripsnarl_Captain:
 	BG_Pirate_Gold['BGS_056']='TB_BaconUps_139'
 class BGS_056:# <12>[1453] ギリガルル
 	""" Ripsnarl Captain
-	Whenever another friendly Pirate attacks, give it +2/+2. """
-	events = BG_Attack(FRIENDLY + PIRATE - SELF).on(Buff(BG_Attack.TARGET,'BGS_056e'))
+	Whenever a friendly Pirate attacks, give it +3 Attack.""" ### new 2620
+	##Whenever another friendly Pirate attacks, give it +3/+3. ## renew 2522
+	##Whenever another friendly Pirate attacks, give it +2/+2. """ ## very old
+	if Config.BG_VERSION>=2620:
+		events = BG_Attack(FRIENDLY + PIRATE).on(Buff(BG_Attack.TARGET,'BGS_056e'))
+	else:
+		events = BG_Attack(FRIENDLY + PIRATE - SELF).on(Buff(BG_Attack.TARGET,'BGS_056e'))
 	pass
-BGS_056e=buff(2,2)
+if Config.BG_VERSION>=2620:
+	BGS_056e=buff(3,0)
+elif Config.BG_VERSION>=2522:
+	BGS_056e=buff(3,3)
+else:
+	BGS_056e=buff(2,2)
 class TB_BaconUps_139:# <12>[1453]
 	""" Ripsnarl Captain
 	Whenever another friendly Pirate attacks, give it +4/+4. """
-	events = BG_Attack(FRIENDLY + PIRATE - SELF).on(Buff(BG_Attack.TARGET,'TB_BaconUps_139e'))
+	if Config.BG_VERSION>=2620:
+		events = BG_Attack(FRIENDLY + PIRATE).on(Buff(BG_Attack.TARGET,'TB_BaconUps_139e'))
+	else:
+		events = BG_Attack(FRIENDLY + PIRATE - SELF).on(Buff(BG_Attack.TARGET,'TB_BaconUps_139e'))
 	pass
-TB_BaconUps_139e=buff(4,4)
+if Config.BG_VERSION>=2620:
+	TB_BaconUps_139e=buff(6,0)
+elif Config.BG_VERSION>=2522:
+	TB_BaconUps_139e=buff(6,6)
+else:
+	TB_BaconUps_139e=buff(4,4)
 
 
 ## Lovesick Balladist (Pirate) (4)
@@ -619,15 +637,22 @@ if BG_Vanessa_VanCleef:
 	BG_Pirate_Gold['BG24_708']='BG24_708_G'
 class BG24_708:
 	""" Vanessa VanCleef (3/7)
-	Whenever this attacks, give your Pirates +2/+1 permanently."""
+	Whenever this attacks, give your Pirates +2/+1 permanently.""" ##new 26.2
+	#Whenever this attacks, give your Pirates +2/+2 permanently.
 	events = Attack(SELF, ENEMY).on(BuffPermanently(FRIENDLY_MINIONS + PIRATE, 'BG24_708e'))
 	pass
-BG24_708e=buff(2,1)
+if Config.BG_VERSION>=2620:
+	BG24_708e=buff(2,1)
+else:
+	BG24_708e=buff(2,2)
 class BG24_708_G:
 	""" Vanessa VanCleef
 	Whenever this attacks, give your Pirates +4/+2 permanently."""
 	events = Attack(SELF, ENEMY).on(BuffPermanently(FRIENDLY_MINIONS + PIRATE, 'BG24_708e_G'))
-BG24_708e_G=buff(4,2)
+if Config.BG_VERSION>=2620:
+	BG24_708e_G=buff(4,2)
+else:
+	BG24_708e_G=buff(2,2)
 
 
 

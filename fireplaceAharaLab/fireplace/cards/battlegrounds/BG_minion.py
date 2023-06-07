@@ -1730,13 +1730,16 @@ class BG22_402_Action(GameAction):
 class BG22_402: ###########################################
 	""" Mantid Queen
 	Venomous. Start of Combat: For each of your minion types gain +5/+5, Windfury, Reborn, or Taunt."""
+	##Start of Combat: For each of your minion types gain +5/+5, Windfury, Divine Shield, or Taunt. ## old <2620
 	### <2620
 	###[Poisonous]. [Start of Combat:] For each of your minion types gain +5/+5, [Windfury], ___[Divine Shield], or [Taunt]."""
 	if Config.BG_VERSION>=2620:
 		##<Tag enumID="2853" name="VENOMOUS" type="Int" value="1"/>
+		option_tags={GameTag.VENOMOUS:1,GameTag.POISONOUS:0}
 		pass
 	else:
 		##<Tag enumID="363" name="POISONOUS" type="Int" value="1"/>
+		option_tags={GameTag.POISONOUS:1,GameTag.VENOMOUS:0}
 		pass
 	events = BeginBattle(CONTROLLER).on(BG22_402_Action())
 	pass
@@ -1773,7 +1776,10 @@ class BG22_402_G:
 	pass
 BG22_402e=buff(5,5)
 BG22_402e2=buff(windfury=True)
-BG22_402e3=buff(divine_shield=True)
+if Config.BG_VERSION>=2620:
+	BG22_402e3=buff(reborn=True)
+else:
+	BG22_402e3=buff(divine_shield=True)
 BG22_402e4=buff(taunt=True)
 
 
