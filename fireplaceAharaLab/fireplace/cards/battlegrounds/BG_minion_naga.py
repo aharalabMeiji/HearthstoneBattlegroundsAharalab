@@ -198,10 +198,11 @@ if BG_Lava_Lurker:#(2/2/5)
 	BG_Minion_Naga+=['BG23_009','BG23_009_G', ]#
 	BG_PoolSet_Naga.append('BG23_009')
 	BG_Naga_Gold['BG23_009']='BG23_009_G'
-class BG23_009_Action(TargetedAction):
+class BG23_009_Action(GameAction):
 	BUFF=ActionArg()
 	AMOUNT=IntArg()
 	def do(self, source, buff, amount):
+		buff=source.event_args[0]
 		if hasattr(buff.source,'spellcraft_spellcard') or  buff.data.tags.get(2594)==1:
 			if source.script_data_num_1<amount:
 				buff.permanent_buff = True

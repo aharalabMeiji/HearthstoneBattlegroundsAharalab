@@ -450,7 +450,7 @@ class BG26_148_Action(GameAction):#
 		newcard=RandomBGMagnetic().evaluate(source)#
 		newcard=get00(newcard)
 		newcard.zone=Zone.SETASIDE
-		newcard.controller.source.controller
+		newcard.controller=source.controller
 		newcard.zone=Zone.HAND
 		pass# 
 class BG26_148:# (minion)

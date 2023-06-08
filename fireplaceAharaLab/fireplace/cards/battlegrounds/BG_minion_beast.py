@@ -345,9 +345,10 @@ class BG26_802_Action(TargetedAction):#
 	TARGET=ActionArg()
 	def do(self, source, target):# 
 		target=get00(target)
-		atk=target.atk
-		hlt=target.max_health
-		Buff(target, 'BG26_802e', atk=atk, max_health=hlt).trigger(source)
+		if getattr(target, 'this_is_minion', False):
+			atk=target.atk
+			hlt=target.max_health
+			Buff(target, 'BG26_802e', atk=atk, max_health=hlt).trigger(source)
 		pass# 
 class BG26_802:# (minion)
 	""" Banana Slamma
