@@ -434,7 +434,7 @@ class TB_BaconShop_HP_052_Action(TargetedAction):
 		newcard = RandomBGAdmissible(tech_level=tier).evaluate(bartender)
 		Summon(CONTROLLER, newcard).trigger(bartender)
 		pass
-class TB_BaconShop_HP_052:
+class TB_BaconShop_HP_052:#
 	""" Arcane Alteration
 	Replace a minion with a random one of the same Tavern Tier. <i>(Twice per turn.)</i>"""
 	tags={GameTag.HEROPOWER_ADDITIONAL_ACTIVATIONS:1}
