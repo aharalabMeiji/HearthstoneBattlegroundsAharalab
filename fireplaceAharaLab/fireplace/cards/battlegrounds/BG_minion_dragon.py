@@ -622,14 +622,14 @@ if BG26__Stormbringer:#
 	BG_PoolSet_Dragon.append('BG26_966')
 	BG_Dragon_Gold['BG26_966']='BG26_966_G'
 
-class BG26_966_Action(GameAction):# 
+class BG26_966_Action(TargetedAction):# 
 	BUFF=ActionArg()
 	AMOUNT=IntArg()
 	def do(self, source, buff, amount):# 
-		if isinstance(buff, ActionArg):
-			buff=buff.evaluate(source)
-		if not getattr(buff, 'this_is_enchantment', False):
-			buff=source.event_args[1]
+		#if isinstance(buff, ActionArg):
+		#	buff=buff.evaluate(source)
+		#if not getattr(buff, 'this_is_enchantment', False):
+		#	buff=source.event_args[1]
 		if buff.atk>0:
 			Buff(source, 'BG26_966e', atk=buff.atk*amount).trigger(source)
 		pass# 

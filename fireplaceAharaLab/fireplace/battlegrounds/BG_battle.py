@@ -79,6 +79,7 @@ class BG_Battle(Game):
 		self.first.controller.deepcopy_original.second_dead_minion=None
 		self.second.controller.deepcopy_original.second_dead_minion=None
 		# starting the infinite loop
+		no_attack_loop_count=0
 		while True:
 			BeginBattleTurn(self.current_player)
 			# display the field
@@ -88,7 +89,10 @@ class BG_Battle(Game):
 				break
 			#attacker
 			attacker = self.current_player.field[self.current_player.attacker_index]
-			if attacker.atk>0:
+			if attacker.atk==0:
+				no_attack_loop_count+=1
+			else:
+				no_attack_loop_count=0
 				if Config.BG_VERSION>=2620:
 					windfury=min(2,getattr(attacker,'windfury')+1)
 				else:
@@ -148,7 +152,8 @@ class BG_Battle(Game):
 			self.current_player = self.current_player.opponent
 			if self.current_player.attacker_index>= len(self.current_player.field):
 				self.current_player.attacker_index=0
-			pass
+			if no_attack_loop_count>=14:
+				break
 		#end of the battle
 		#self.state = State.COMPLETE
 		#self.manager.step(self.next_step, Step.FINAL_WRAPUP)
@@ -158,7 +163,7 @@ class BG_Battle(Game):
 		EndBattle(self.first).trigger(player)
 		EndBattle(self.second).trigger(player)
 		# draw
-		if (len(self.first.field)==0 and len(self.second.field)==0) or (sum([card.atk for card in self.first.field])==0 and sum([card.atk for card in self.second.field])==0):
+		if (len(self.first.field)==0 and len(self.second.field)==0) or (sum([card.atk for card in self.first.field])==0 and sum([card.atk for card in self.second.field])==0) or (no_attack_loop_count>=14):
 			#move buddy gauge
 			if Config.NEW_BUDDY_SYSTEM:
 				self.player1.buddy_gauge = max(self.player1.buddy_gauge-3, 0)
