@@ -1,4 +1,3 @@
-
 from ..utils import *
 
 BG_Refreshing_Anomaly=True ## (1)
@@ -125,7 +124,6 @@ class TB_BaconUps_160:# <12>[1453]
 	After you play an Elemental, give another random friendly Elemental +1/+1 twice. """
 	events = BG_Play(CONTROLLER, FRIENDLY + ELEMENTAL).on(Buff(RANDOM(FRIENDLY_MINIONS + ELEMENTAL - SELF), 'BGS_120e') * 2)
 	pass
-
 
 
 ## Flourishing Frostling (Elemental) (2)

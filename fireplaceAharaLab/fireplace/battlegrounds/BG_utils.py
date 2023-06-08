@@ -344,6 +344,9 @@ class BG_main:
 					# in this timing, some choice may occer.
 					choiceAction(controller)
 					while True:
+						if controller.hero.health==0:## if hero is killed by friend minions
+							EndTurn(controller).trigger(controller)## EndBar
+							break
 						##### get a list of all moves
 						candidates = GetMoveCandidates(bar, controller, bartender)
 						##### each agent choose a move
@@ -402,6 +405,7 @@ class BG_main:
 					LoseGame(battleplayer0).trigger(battleplayer0)	
 					WinGame(battleplayer1).trigger(battleplayer1)	
 					hero0 = battleplayer0.hero
+					hero1 = battleplayer1.hero
 					if hero0.armor>0:# add armor to health
 						if hero0.armor >= damage0:
 							hero0.armor -= damage0
@@ -420,10 +424,20 @@ class BG_main:
 						if winner:
 							print("Winner is %s(%s)"%(winner.controller.hero, winner.controller))
 							return
+					if hero1.health<=0:
+						hero1.max_health=0
+						hero1.game.hero_is_alive=False
+						# if dead hero, morph it to Kelse
+						winner = self.refresh_ranks()
+						self.warbandDeceased.append(battleplayer0.field)
+						if winner:
+							print("Winner is %s(%s)"%(winner.controller.hero, winner.controller))
+							return
 				if damage1>0:
 					self.winners.append(battleplayer0.hero.id)
 					WinGame(battleplayer0).trigger(battleplayer0)	
 					LoseGame(battleplayer1).trigger(battleplayer1)	
+					hero0 = battleplayer0.hero
 					hero1 = battleplayer1.hero
 					if hero1.armor>0:# armor
 						if hero1.armor >= damage1:
@@ -434,6 +448,15 @@ class BG_main:
 					else:
 						hero1.damage += damage1#
 					print_hero_stats(battleplayer0.hero, battleplayer1.hero)
+					if hero0.health<=0:
+						hero0.max_health=0
+						hero0.game.hero_is_alive=False
+						# if dead hero, morph it to Kelse
+						winner = self.refresh_ranks()
+						self.warbandDeceased.append(battleplayer1.field)
+						if winner:
+							print("Winner is %s(%s)"%(winner.controller.hero, winner.controller))
+							return
 					if hero1.health<=0:
 						hero1.max_health=0
 						hero1.game.hero_is_alive=False
@@ -448,6 +471,26 @@ class BG_main:
 					self.drawers.append(battleplayer1.hero.id)
 					TieGame(battleplayer0).trigger(battleplayer0)	
 					TieGame(battleplayer1).trigger(battleplayer1)	
+					hero0 = battleplayer0.hero
+					hero1 = battleplayer1.hero
+					if hero0.health<=0:
+						hero0.max_health=0
+						hero0.game.hero_is_alive=False
+						# if dead hero, morph it to Kelse
+						winner = self.refresh_ranks()
+						self.warbandDeceased.append(battleplayer1.field)
+						if winner:
+							print("Winner is %s(%s)"%(winner.controller.hero, winner.controller))
+							return
+					if hero1.health<=0:
+						hero1.max_health=0
+						hero1.game.hero_is_alive=False
+						# if dead hero, morph it to Kelse
+						winner = self.refresh_ranks()
+						self.warbandDeceased.append(battleplayer0.field)
+						if winner:
+							print("Winner is %s(%s)"%(winner.controller.hero, winner.controller))
+							return
 					pass
 			## end of battle
 			# next turn at tavern
@@ -865,12 +908,13 @@ def GetMoveCandidates(bar, controller, bartender):
 	for card in controller.field:
 		ret.append(Move(bar, card, MovePlay.SELL))
 	#POWER=5
-	if not controller.hero.power.cant_play and controller.hero.power.is_usable() and controller.hero.power.cost <= controller.mana:
-		if controller.hero.power.requires_target() and len(controller.hero.power.targets)>0:
-			for target in controller.hero.power.targets:
-				ret.append(Move(bar, target, MovePlay.POWER))
-		else:
-			ret.append(Move(bar, None, MovePlay.POWER))
+	if controller.hero.health>0:
+		if not controller.hero.power.cant_play and controller.hero.power.is_usable() and controller.hero.power.cost <= controller.mana:
+			if controller.hero.power.requires_target() and len(controller.hero.power.targets)>0:
+				for target in controller.hero.power.targets:
+					ret.append(Move(bar, target, MovePlay.POWER))
+			else:
+				ret.append(Move(bar, None, MovePlay.POWER))
 	#TIERUP=6
 	if controller.tavern_tier<=5 and controller.mana>=controller.tavern_tierup_cost:
 		ret.append(Move(bar, None, MovePlay.TIERUP))

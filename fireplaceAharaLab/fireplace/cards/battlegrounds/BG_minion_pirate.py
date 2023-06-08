@@ -373,7 +373,7 @@ BG26_810_Ge=buff(2,0)
 ## Bloodsail Cannoneer (pirate ) (3/4/3)
 if BGS_Bloodsail_Cannoneer: ## banned when? revive 26.2
 	BG_Minion_Pirate+=['BGS_053','BGS_053e']
-	BG_Minion_Pirate+=['TB_BaconUps_138']
+	BG_Minion_Pirate+=['TB_BaconUps_138','TB_BaconUps_138e']
 	BG_PoolSet_Pirate.append('BGS_053')
 	BG_Pirate_Gold['BGS_053']='TB_BaconUps_138'
 class BGS_053:

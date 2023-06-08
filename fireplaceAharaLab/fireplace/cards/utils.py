@@ -8,6 +8,7 @@ from ..actions import Summon
 from ..actions import *
 from ..aura import Refresh
 from ..dsl import *
+from ..utils import get00, isRaceCard
 #from ..events import *
 
 
@@ -268,37 +269,6 @@ def exactCopy(card, source):
 	return ret
 
 
-from fireplace import cards
-
-def fid2id(fid):
-	for k,v in cards.db.items():
-		if getattr(v, 'dbf_id')==fid:
-			return k
-	return None
-
-def isRaceCard(card, race):
-	if getattr(card, 'this_is_minion', False):
-		if race==Race.BEAST and card.id in cards.battlegrounds.BG_minion_beast.BG_PoolSet_Beast:
-			return True
-		if race==Race.DEMON and card.id in cards.battlegrounds.BG_minion_demon.BG_PoolSet_Demon:
-			return True
-		if race==Race.DRAGON and card.id in cards.battlegrounds.BG_minion_dragon.BG_PoolSet_Dragon:
-			return True
-		if race==Race.ELEMENTAL and card.id in cards.battlegrounds.BG_minion_elemental.BG_PoolSet_Elemental:
-			return True
-		if race==Race.MECHANICAL and card.id in cards.battlegrounds.BG_minion_mecha.BG_PoolSet_Mecha:
-			return True
-		if race==Race.MURLOC and card.id in cards.battlegrounds.BG_minion_murloc.BG_PoolSet_Murloc:
-			return True
-		if race==Race.NAGA and card.id in cards.battlegrounds.BG_minion_naga.BG_PoolSet_Naga:
-			return True
-		if race==Race.PIRATE and card.id in cards.battlegrounds.BG_minion_pirate.BG_PoolSet_Pirate:
-			return True
-		if race==Race.QUILBOAR and card.id in cards.battlegrounds.BG_minion_quilboar.BG_PoolSet_Quilboar:
-			return True
-		if race==Race.UNDEAD and card.id in cards.battlegrounds.BG_minion_undead.BG_PoolSet_Undead:
-			return True
-	return False
 
 
 
