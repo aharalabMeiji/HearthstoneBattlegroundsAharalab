@@ -501,7 +501,7 @@ if BG26__Operatic_Belcher:#
 	BG_Murloc_Gold['BG26_888']='BG26_888_G'
 class BG26_888_Action(GameAction):# 
 	def do(self, source):# 
-		cards=[card for card in source.controller.field if card.Race==Race.MURLOC]
+		cards=[card for card in source.controller.field if card.race==Race.MURLOC]
 		if len(cards):
 			card = random.choice(cards)
 			card.venomous=True
@@ -618,9 +618,11 @@ class BG26_354_Action(GameAction):#
 			atk=0
 			hlt=0
 			for card in source.controller.hand:
-				atk += (card.atk*amount)
-				hlt += (card.max_health*amount)
-			Buff(source, 'BG26_354e', atk=atk, max_health=hlt).trigger(source)
+				if getattr(card, 'this_is_minion', False):
+					atk += (card.atk*amount)
+					hlt += (card.max_health*amount)
+			if atk>0 or hlt>0:
+				Buff(source, 'BG26_354e', atk=atk, max_health=hlt).trigger(source)
 		pass# 
 class BG26_354:# (minion)(murloc)
 	""" Choral Mrrrglr

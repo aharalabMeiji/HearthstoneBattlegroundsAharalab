@@ -3769,12 +3769,17 @@ class EndBattle(TargetedAction):
 		self.broadcast(source, EventListener.ON, target)
 		self.broadcast(source, EventListener.AFTER, target)
 
+
 class GetFreeRerole(TargetedAction):
 	TARGET = ActionArg()
 	def do(self, source, target):
 		controller = target
-		controller.game.free_rerole += 1
-		controller.game.reroleCost=0
+		if controller.game.this_is_tavern:
+			controller.game.free_rerole += 1
+			controller.game.reroleCost = 0
+		else: ## this_is_battle
+			controller.deepcopy_original.game.free_rerole += 1
+			controller.deepcopy_original.game.reroleCost = 0
 		pass
 	pass
 
@@ -3971,7 +3976,7 @@ class SpellcraftSpell(TargetedAction):
 				Buff(target, spellcard, atk=optionatk*optionamount, max_health=optionhlt*optionamount).trigger(controller)
 			else:
 				Buff(target, spellcard).trigger(controller)
-			self.broadcast(source, EventListener.AFTER, controller, spellcard, target)
+			self.broadcast(source, EventListener.AFTER, target, spellcard)
 		pass
 
 class StealGem(TargetedAction):

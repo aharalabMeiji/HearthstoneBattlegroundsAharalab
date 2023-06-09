@@ -684,23 +684,23 @@ class BG26_804_Action(GameAction):#
 		newcard.atk=source.script_data_num_1
 		newcard.max_health=source.script_data_num_1
 		pass# 
-class BG26_804_Action2(GameAction):# 
-	CARDID=ActionArg()
-	def do(self, source, cardid):# 
+class BG26_804_Action2(TargetedAction):# 
+	CARD=CardArg()
+	def do(self, source, card):# 
 		if hasattr(source.controller.game,'this_is_battle') and source.controller.game.this_is_battle:
 			source.script_data_num_1 += 2
 class BG26_804:# (minion)
 	""" Octosari, Wrap God
 	<b>Deathrattle:</b> Summon a @/@ Tentacle. <i>(It gains +2/+2  permanently after you summon a minion in combat!)</i> """
-	deathrattle = BG26_804_Action('BG26_803t')
 	##<Tag enumID="2" name="TAG_SCRIPT_DATA_NUM_1" type="Int" value="2"/>
-	events = Summon(CONTROLLER).after(BG26_804_Action2())
+	deathrattle = BG26_804_Action('BG26_803t')
+	events = Summon(CONTROLLER).after(BG26_804_Action2(Summon.CARD))
 	pass
 class BG26_803t:# (minion)
 	""" Tentacle of Octosari
 	"""
 	#
-class BG26_804_G_Action2(GameAction):# 
+class BG26_804_G_Action2(TargetedAction):# 
 	CARDID=ActionArg()
 	def do(self, source, cardid):# 
 		if hasattr(source.controller.game,'this_is_battle') and source.controller.game.this_is_battle:
@@ -710,7 +710,7 @@ class BG26_804_G:# (minion)
 	<b>Deathrattle:</b> Summon a @/@ Tentacle. <i>(It gains +4/+4  permanently after you summon a minion in combat!)</i> """
 	deathrattle = BG26_804_Action('BG26_803t')
 	##<Tag enumID="2" name="TAG_SCRIPT_DATA_NUM_1" type="Int" value="4"/>
-	events = Summon(CONTROLLER).after(BG26_804_G_Action2())
+	events = Summon(CONTROLLER).after(BG26_804_G_Action2(Summon.CARD))
 	pass
 class BG26_803_Gt:# (minion)
 	""" Tentacle of Octosari

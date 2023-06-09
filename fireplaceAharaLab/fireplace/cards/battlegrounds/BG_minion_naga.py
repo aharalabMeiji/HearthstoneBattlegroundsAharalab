@@ -198,11 +198,12 @@ if BG_Lava_Lurker:#(2/2/5)
 	BG_Minion_Naga+=['BG23_009','BG23_009_G', ]#
 	BG_PoolSet_Naga.append('BG23_009')
 	BG_Naga_Gold['BG23_009']='BG23_009_G'
-class BG23_009_Action(GameAction):
-	BUFF=ActionArg()
+class BG23_009_Action(TargetedAction):
+	TARGET=ActionArg()
+	CARD=ActionArg()
 	AMOUNT=IntArg()
-	def do(self, source, buff, amount):
-		buff=source.event_args[0]
+	def do(self, source, target, card, amount):
+		buff=source.buffs[-1]
 		if hasattr(buff.source,'spellcraft_spellcard') or  buff.data.tags.get(2594)==1:
 			if source.script_data_num_1<amount:
 				buff.permanent_buff = True
@@ -215,7 +216,7 @@ class BG23_009:# <12>[1453]
 	The first [Spellcraft] spellcast on this each turn is permanent. """
 	## Only in this case, Buff.on activates for spellcraft spellcasts. 
 	events = [
-		SpellcraftSpell(SELF).on(BG23_009_Action(SpellcraftSpell.SPELLCARD, 1)),
+		SpellcraftSpell(SELF).after(BG23_009_Action(SpellcraftSpell.TARGET, SpellcraftSpell.SPELLCARD, 1)),
 		BeginBar(CONTROLLER).on(BG23_009_Action2())
 	]
 	pass
@@ -223,7 +224,7 @@ class BG23_009_G:# <12>[1453]
 	""" Lava Lurker
 	The first 2 [Spellcraft] spellscast on this each turnare permanent. """
 	events = [
-		SpellcraftSpell(SELF).on(BG23_009_Action(SpellcraftSpell.SPELLCARD, 2)),
+		SpellcraftSpell(SELF).after(BG23_009_Action(SpellcraftSpell.SPELLCARD, 2)),
 		BeginBar(CONTROLLER).on(BG23_009_Action2())
 	]
 	pass
