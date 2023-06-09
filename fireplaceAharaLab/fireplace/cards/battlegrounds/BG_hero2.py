@@ -18,7 +18,9 @@ if Config.BG_VERSION>=2560:
 class BG25_HERO_105:
 	"""E.T.C., Band Manager
 	"""
-	if Config.BG_VERSION>=2602:
+	if Config.BG_VERSION>=2622:
+		option_tags={GameTag.ARMOR:10, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2602:
 		option_tags={GameTag.ARMOR:10, GameTag.HEALTH:30}
 	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:10, GameTag.HEALTH:30}
@@ -33,6 +35,10 @@ class BG25_HERO_105p_Action(GameAction):##
 class BG25_HERO_105p:##
 	""" Sign a New Artist
 	[Discover] a Buddy. &lt;i&gt;(Unlocks at Tier 2.)&lt;/i&gt;"""
+	if Config.BG_VERSION>=2622:
+		option_tags={GameTag.COST:3}
+	else:
+		option_tags={GameTag.COST:4}	
 	requirements = { PlayReq.REQ_MINIMUM_TAVERN_TIER_LEVEL_TO_PLAY:2, }
 	play = BG25_HERO_105p_Action()
 ###### BUDDY ######

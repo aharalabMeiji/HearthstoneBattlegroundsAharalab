@@ -481,7 +481,9 @@ BG_Hero3_Buddy['BG20_HERO_202']='BG20_HERO_202_Buddy'#
 BG_Hero3_Buddy_Gold['BG20_HERO_202_Buddy']='BG20_HERO_202_Buddy_G'#
 class BG20_HERO_202:# <12>[1453]
 	""" Master Nguyen """
-	if Config.BG_VERSION>=2620:
+	if Config.BG_VERSION>=2622:
+		option_tags={GameTag.ARMOR:8, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2620:
 		option_tags={GameTag.ARMOR:10, GameTag.HEALTH:30}
 	elif Config.BG_VERSION>=2602:
 		option_tags={GameTag.ARMOR:12, GameTag.HEALTH:30}

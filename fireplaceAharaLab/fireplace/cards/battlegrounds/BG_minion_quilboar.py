@@ -18,12 +18,12 @@ BG_Bristleback_Brute=(Config.BG_VERSION<2620)## Brute	3 ## banned 26.2
 BG_Gemsplitter=(Config.BG_VERSION<2460)##	3 ### banned 24.6
 BG_Bristlemane_Scrapsmith=(Config.BG_VERSION>=2460) ## 3 ## new 24.6 ### OK ###
 BG26__Moon_Bacon_Jazzer=(Config.BG_VERSION>=2620) # (3)
+BG25__Pufferquil=(Config.BG_VERSION>=2522)# 4/2/6, quilbour/naga, new 25.2.2 ## (4)->(3) new 2622
 
 BG_Bonker=True##	4
 BG_Dynamic_Duo=True##	4
 BG_Groundshaker=(Config.BG_VERSION<2620)##	4 ## banned 26.2
 BG_Necrolyte=True##	4
-BG25__Pufferquil=(Config.BG_VERSION>=2522)# 4/2/6, quilbour/naga, new 25.2.2
 BG_Gem_Smuggler=(Config.BG_VERSION>=2560)
 BG26__Prickly_Piper=(Config.BG_VERSION>=2620)#(4)
 
@@ -330,6 +330,52 @@ class BG26_159_G:# (minion)
 	play = BG26_159_action(2)#
 	pass
 
+if BG25__Pufferquil:# 4/2/6, quilbour/naga (4)->(3) new 2622
+	BG_Minion_Quilboar+=['BG25_039','BG25_039_G','BG25_039_Ge','BG25_039e']
+	BG_PoolSet_Quilboar.append('BG25_039')
+	BG_Quilboar_Gold['BG25_039']='BG25_039_G'
+class BG25_039_Action(TargetedAction):
+	TARGET=ActionArg()
+	def do(self, source, target):
+		if target==source:
+			Buff(target, 'BG25_039e').trigger(source)
+class BG25_039:# (minion)
+	""" Pufferquil
+	After a spell is played on this, gain Venomous until end of turn.""" ## new 26.2
+	##After a spell is played on this, gain <b>Poisonous</b> until next turn. """
+	if Config.BG_VERSION>=2622:
+		option_tags={GameTag.TECH_LEVEL:3}
+	else:
+		option_tags={GameTag.TECH_LEVEL:4}
+	events = BG_Play(CONTROLLER).after(BG25_039_Action(Play.TARGET))
+	pass
+class BG25_039e:# (enchantment)
+	""" Puffed Up
+	<b>Poisonous</b> until next turn. """
+	if Config.BG_VERSION>=2620:
+		tags = {GameTag.TAG_ONE_TURN_EFFECT:1, GameTag.VENOMOUS:1 }
+	else:
+		tags = {GameTag.TAG_ONE_TURN_EFFECT:1, GameTag.POISONOUS:1 }
+	pass
+class BG25_039_G_Action(TargetedAction):
+	TARGET=ActionArg()
+	def do(self, source, target):
+		if target==source:
+			Buff(target, 'BG25_039_Ge').trigger(source)
+class BG25_039_G:# (minion)
+	""" Pufferquil
+	After a spell is played on this, gain <b>Poisonous</b>. """
+	if Config.BG_VERSION>=2622:
+		option_tags={GameTag.TECH_LEVEL:3}
+	else:
+		option_tags={GameTag.TECH_LEVEL:4}
+	events = BG_Play(CONTROLLER).after(BG25_039_G_Action(Play.TARGET))
+	pass
+if Config.BG_VERSION>=2620:
+	BG25_039_Ge=buff(venomous=True)# (enchantment)
+else:
+	BG25_039_Ge=buff(poisonous=True)# (enchantment)
+""" Puffed Full	<b>Poisonous</b>. """
 
 
 
@@ -425,45 +471,6 @@ class BG20_202_G:# <12>[1453]
 	pass
 
 
-if BG25__Pufferquil:# 4/2/6, quilbour/naga
-	BG_Minion_Quilboar+=['BG25_039','BG25_039_G','BG25_039_Ge','BG25_039e']
-	BG_PoolSet_Quilboar.append('BG25_039')
-	BG_Quilboar_Gold['BG25_039']='BG25_039_G'
-class BG25_039_Action(TargetedAction):
-	TARGET=ActionArg()
-	def do(self, source, target):
-		if target==source:
-			Buff(target, 'BG25_039e').trigger(source)
-class BG25_039:# (minion)
-	""" Pufferquil
-	After a spell is played on this, gain Venomous until end of turn.""" ## new 26.2
-	##After a spell is played on this, gain <b>Poisonous</b> until next turn. """
-	
-	events = BG_Play(CONTROLLER).after(BG25_039_Action(Play.TARGET))
-	pass
-class BG25_039e:# (enchantment)
-	""" Puffed Up
-	<b>Poisonous</b> until next turn. """
-	if Config.BG_VERSION>=2620:
-		tags = {GameTag.TAG_ONE_TURN_EFFECT:1, GameTag.VENOMOUS:1 }
-	else:
-		tags = {GameTag.TAG_ONE_TURN_EFFECT:1, GameTag.POISONOUS:1 }
-	pass
-class BG25_039_G_Action(TargetedAction):
-	TARGET=ActionArg()
-	def do(self, source, target):
-		if target==source:
-			Buff(target, 'BG25_039_Ge').trigger(source)
-class BG25_039_G:# (minion)
-	""" Pufferquil
-	After a spell is played on this, gain <b>Poisonous</b>. """
-	events = BG_Play(CONTROLLER).after(BG25_039_G_Action(Play.TARGET))
-	pass
-if Config.BG_VERSION>=2620:
-	BG25_039_Ge=buff(venomous=True)# (enchantment)
-else:
-	BG25_039_Ge=buff(poisonous=True)# (enchantment)
-""" Puffed Full	<b>Poisonous</b>. """
 
 
 #Gem Smuggler

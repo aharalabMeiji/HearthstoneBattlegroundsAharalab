@@ -245,6 +245,10 @@ class BG26_501_Action(GameAction):#
 class BG26_501:# (minion)
 	""" Reef Riffer
 	<b>Spellcraft:</b> Give a minion stats equal to your Tavern Tier until next turn. """
+	if Config.BG_VERSION>=2622:
+		option_tags={GameTag.ATK:1, GameTag.HEALTH:2}
+	else:
+		option_tags={GameTag.ATK:1, GameTag.HEALTH:3}
 	play=Spellcraft(CONTROLLER,'BG26_501t')
 	events = BeginBar(CONTROLLER).on(Spellcraft(CONTROLLER,'BG26_501t'))
 	tags={2359:'BG26_501t'}
@@ -263,6 +267,10 @@ class BG26_501t:
 class BG26_501_G:# (minion)
 	""" Reef Riffer
 	<b>Spellcraft:</b> Give a minion stats equal to twice your Tavern Tier until next turn. """
+	if Config.BG_VERSION>=2622:
+		option_tags={GameTag.ATK:2, GameTag.HEALTH:4}
+	else:
+		option_tags={GameTag.ATK:2, GameTag.HEALTH:6}
 	play=Spellcraft(CONTROLLER,'BG26_501_Gt')
 	events = BeginBar(CONTROLLER).on(Spellcraft(CONTROLLER,'BG26_501_Gt'))
 	tags={2359:'BG26_501_Gt'}

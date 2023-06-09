@@ -411,14 +411,24 @@ class BG25_399_Action(GameAction):
 			if amount==2:
 				Give(source.controller, target.id).trigger(source)	
 		pass
+#New: 2 Attack, 1 Health
+#Old: 3 Attack, 1 Health
 class BG25_399:
 	""" Radio Star
 	&lt;b&gt;Deathrattle:&lt;/b&gt; Add a plain copy of the minion that __killed this to your hand."""
+	if Config.BG_VERSION>=2622:
+		option_tags={GameTag.ATK:2, GameTag.HEALTH:1}
+	else:
+		option_tags={GameTag.ATK:3, GameTag.HEALTH:1}
 	deathrattle = BG25_399_Action(1)
 	pass
 class BG25_399_G:
 	""" Radio Star
 	&lt;b&gt;Deathrattle:&lt;/b&gt; Add 2 plain copies of the minion that killed this to your hand."""
+	if Config.BG_VERSION>=2622:
+		option_tags={GameTag.ATK:4, GameTag.HEALTH:2}
+	else:
+		option_tags={GameTag.ATK:6, GameTag.HEALTH:2}
 	deathrattle = BG25_399_Action(2)
 	pass
 

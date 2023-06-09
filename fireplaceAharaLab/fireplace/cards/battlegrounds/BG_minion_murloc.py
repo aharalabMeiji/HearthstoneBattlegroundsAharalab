@@ -276,12 +276,23 @@ class BG26_360_Action(GameAction):#
 class BG26_360:# (minion)(murloc)
 	""" Scourfin
 	<b>Deathrattle:</b> Give a random minion in your hand +5/+5. """
+	#New: 3 Attack, 3 Health
+	#Old: 6 Attack, 3 Health
+	if Config.BG_VERSION>=2622:
+		option_tags={GameTag.ATK:3, GameTag.HEALTH:3}
+	else:
+		option_tags={GameTag.ATK:6, GameTag.HEALTH:3}
+
 	deathrattle = BG26_360_Action('BG26_360e')
 	pass
 BG26_360e=buff(5,5)
 class BG26_360_G:# (minion)(murloc)
 	""" Scourfin
 	<b>Deathrattle:</b> Give a random minion in your hand +10/+10. """
+	if Config.BG_VERSION>=2622:
+		option_tags={GameTag.ATK:6, GameTag.HEALTH:6}
+	else:
+		option_tags={GameTag.ATK:12, GameTag.HEALTH:6}
 	deathrattle = BG26_360_Action('BG26_360_Ge')
 	pass
 BG26_360_Ge=buff(10,10)

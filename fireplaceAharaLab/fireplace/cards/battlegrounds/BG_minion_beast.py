@@ -353,7 +353,9 @@ class BG26_802_Action(TargetedAction):#
 class BG26_802:# (minion)
 	""" Banana Slamma
 	After you summon a Beast in combat, double its stats. """
-	if Config.BG_VERSION>=2620:
+	if Config.BG_VERSION>=2622:
+		option_tags={GameTag.TECH_LEVEL:4}
+	elif Config.BG_VERSION>=2620:
 		option_tags={GameTag.TECH_LEVEL:3}
 	events = Summon(CONTROLLER).after(BG26_802_Action(Summon.CARD))
 	pass
@@ -370,6 +372,10 @@ class BG26_802_G_Action(TargetedAction):#
 class BG26_802_G:# (minion)
 	""" Banana Slamma
 	After you summon a Beast in combat, triple its stats. """
+	if Config.BG_VERSION>=2622:
+		option_tags={GameTag.TECH_LEVEL:4}
+	elif Config.BG_VERSION>=2620:
+		option_tags={GameTag.TECH_LEVEL:3}
 	events = Summon(CONTROLLER).after(BG26_802_G_Action(Summon.CARD))
 	pass
 class BG26_802_Ge:

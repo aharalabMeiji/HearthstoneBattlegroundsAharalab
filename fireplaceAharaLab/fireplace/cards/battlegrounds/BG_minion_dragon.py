@@ -148,6 +148,10 @@ class BG26_529_Action(GameAction):#
 class BG26_529:# (minion)
 	""" Upbeat Frontdrake
 	At the end of every 3 turns, get another random Dragon. <i>({0} |4(turn, turns) left!)</i>@At the end of every 3 turns, get another random Dragon. <i>(End of this turn!)</i> """
+	if Config.BG_VERSION>=2620:
+		option_tags={GameTag.ATK:1, GameTag.HEALTH:1}
+	else:
+		option_tags={GameTag.ATK:2, GameTag.HEALTH:1}
 	events = OWN_TURN_END.on(SidequestCounter(SELF, 3, [Give(CONTROLLER, RandomBGDragon(tech_level_less=TIER(CONTROLLER)))]))
 	pass
 class BG26_529_G:# (minion)
@@ -233,15 +237,22 @@ class BG26_969_Action(GameAction):#
 class BG26_969:# (minion)
 	""" Low-Flier
 	At the end of your turn, give +1 Attack to your minions ___with less Attack than this. """
+	## At the end of your turn, give +2 Attack to your minions with less Attack than this. ## old <2622 
 	events = OWN_TURN_END.on(BG26_969_Action('BG26_969e'))
 	pass
-BG26_969e=buff(1,0)
+if Config.BG_VERSION>=2620:
+	BG26_969e=buff(1,0)
+else:
+	BG26_969e=buff(2,0)
 class BG26_969_G:# (minion)
 	""" Low-Flier
 	At the end of your turn, give +2 Attack to your minions ___with less Attack than this. """
 	events = OWN_TURN_END.on(BG26_969_Action('BG26_969_Ge'))
 	pass
-BG26_969_Ge=buff(2,0)
+if Config.BG_VERSION>=2620:
+	BG26_969_Ge=buff(2,0)
+else:
+	BG26_969_Ge=buff(4,0)
 
 
 

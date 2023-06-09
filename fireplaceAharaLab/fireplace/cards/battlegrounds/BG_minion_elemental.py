@@ -96,12 +96,20 @@ if BG_Molten_Rock: #
 class BGS_127:# <12>[1453] ようがん
 	""" Molten Rock
 	[Taunt]. After you play an Elemental, gain +1 Health. """
+	if Config.BG_VERSION>=2622:
+		option_tags={GameTag.ATK:3, GameTag.HEALTH:4}
+	else:
+		option_tags={GameTag.ATK:2, GameTag.HEALTH:4}
 	events = BG_Play(CONTROLLER, FRIENDLY + ELEMENTAL).on(Buff(SELF, 'BGS_127e'))
 	pass
 BGS_127e=buff(0,1)
 class TB_Baconups_202:# <12>[1453]
 	""" Molten Rock
 	[Taunt]. After you play an Elemental, gain +2 Health. """
+	if Config.BG_VERSION>=2622:
+		option_tags={GameTag.ATK:6, GameTag.HEALTH:8}
+	else:
+		option_tags={GameTag.ATK:4, GameTag.HEALTH:8}
 	events = BG_Play(CONTROLLER, FRIENDLY + ELEMENTAL).on(Buff(SELF, 'TB_Baconups_202e'))
 	pass
 TB_Baconups_202e=buff(0,2)
@@ -144,6 +152,10 @@ class BG26_537_Action(GameAction):#
 class BG26_537:# (minion)
 	""" Flourishing Frostling
 	Has +1 Attack for each Elemental you played this ___game <i>(wherever this is)</i>. """
+	if Config.BG_VERSION>=2622:
+		option_tags={GameTag.ATK:0, GameTag.HEALTH:5}
+	else:
+		option_tags={GameTag.ATK:0, GameTag.HEALTH:4}
 	play = BG26_537_Action(1)
 	pass
 class BG26_537e:
@@ -152,6 +164,10 @@ class BG26_537_G:# (minion)
 	""" Flourishing Frostling
 	Has +2 Attack for each Elemental you played this ___game <i>(wherever this is)</i>. """
 	play = BG26_537_Action(2)
+	if Config.BG_VERSION>=2622:
+		option_tags={GameTag.ATK:0, GameTag.HEALTH:10}
+	else:
+		option_tags={GameTag.ATK:0, GameTag.HEALTH:8}
 	pass
 
 
