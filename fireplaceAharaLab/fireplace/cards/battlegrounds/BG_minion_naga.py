@@ -203,11 +203,12 @@ class BG23_009_Action(TargetedAction):
 	CARD=ActionArg()
 	AMOUNT=IntArg()
 	def do(self, source, target, card, amount):
-		buff=source.buffs[-1]
-		if hasattr(buff.source,'spellcraft_spellcard') or  buff.data.tags.get(2594)==1:
-			if source.script_data_num_1<amount:
-				buff.permanent_buff = True
-				source.script_data_num_1+=1
+		if len(target.buffs)>0:
+			buff=target.buffs[-1]
+			if hasattr(buff.source,'spellcraft_spellcard') or  buff.data.tags.get(2594)==1:
+				if source.script_data_num_1<amount:
+					buff.permanent_buff = True
+					source.script_data_num_1+=1
 class BG23_009_Action2(GameAction):
 	def do(self, source):
 		source.script_data_num_1=0
@@ -224,7 +225,7 @@ class BG23_009_G:# <12>[1453]
 	""" Lava Lurker
 	The first 2 [Spellcraft] spellscast on this each turnare permanent. """
 	events = [
-		SpellcraftSpell(SELF).after(BG23_009_Action(SpellcraftSpell.SPELLCARD, 2)),
+		SpellcraftSpell(SELF).after(BG23_009_Action(SpellcraftSpell.TARGET, SpellcraftSpell.SPELLCARD, 2)),
 		BeginBar(CONTROLLER).on(BG23_009_Action2())
 	]
 	pass
