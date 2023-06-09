@@ -471,18 +471,29 @@ if BG_Gem_Smuggler:
 	BG_Minion_Quilboar += [ 'BG25_155','BG25_155_G']#	
 	BG_PoolSet_Quilboar.append('BG25_155')
 	BG_Quilboar_Gold['BG25_155']='BG25_155_G'
+class BG25_155_Action(GameAction):
+	def do(self, source):
+		cards=[card for card in source.controller.field if isRaceCard(card, Race.QUILBOAR)==True and card!=source]
+		for card in cards:
+			ApplyGem(card, 'BG20_GEM').trigger(source)
 class BG25_155:
 	""" Gem Smuggler
 	Battlecry: Play a Blood Gem on all your other Quilboar."""
 	#[Tavern Tier 4, Quilboar] 3 Attack, 4 Health. Battlecry: Play a Blood Gem on all your other Quilboar.
 	option_tags={GameTag.TECH_LEVEL:4}
-	play = BG_Play(CONTROLLER, 'GAME_005', FRIENDLY_MINIONS - SELF)
+	play = BG25_155_Action()
 	pass
+class BG25_155_G_Action(GameAction):
+	def do(self, source):
+		cards=[card for card in source.controller.field if isRaceCard(card, Race.QUILBOAR)==True and card!=source]
+		for card in cards:
+			ApplyGem(card, 'BG20_GEM').trigger(source)
+			ApplyGem(card, 'BG20_GEM').trigger(source)
 class BG25_155_G:
 	""" Gem Smuggler
 	Battlecry: Play 2 Blood Gems on all your other Quilboar."""
 	option_tags={GameTag.TECH_LEVEL:4}
-	play = BG_Play(CONTROLLER, 'GAME_005', FRIENDLY_MINIONS - SELF), BG_Play(CONTROLLER, 'GAME_005', FRIENDLY_MINIONS - SELF)
+	play = BG25_155_G_Action()
 	pass
 
 
