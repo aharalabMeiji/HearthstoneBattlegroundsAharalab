@@ -815,7 +815,7 @@ TB_BaconShop_HERO_29_Buddy_Ge=buff(2,2)# <12>[1453]
 
 
 ##Cap'n Hoggarr BG26_HERO_101 (new 26.4)
-if Config.BG_VVERSION>=2640:
+if Config.BG_VERSION>=2640:
 	BG_Hero1+=['BG26_HERO_101','BG26_HERO_101p']
 	BG_PoolSet_Hero1+=['BG26_HERO_101']
 #
@@ -1467,7 +1467,7 @@ class BG20_HERO_666p_t4d:
 class BG20_HERO_666p_t4a_e:
 	tags={GameTag.REBORN:1, GameTag.TAG_ONE_TURN_EFFECT:1}
 class BG20_HERO_666p_t4a_e2:
-	tags={GameTag.DEVINE_SHIELD:1, GameTag.TAG_ONE_TURN_EFFECT:1}
+	tags={GameTag.DIVINE_SHIELD:1, GameTag.TAG_ONE_TURN_EFFECT:1}
 class BG20_HERO_666p_t4a_e3:
 	tags={GameTag.WINDFURY:1, GameTag.TAG_ONE_TURN_EFFECT:1}
 class BG20_HERO_666p_t5_e:

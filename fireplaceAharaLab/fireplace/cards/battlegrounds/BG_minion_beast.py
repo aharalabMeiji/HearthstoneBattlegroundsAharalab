@@ -409,7 +409,7 @@ if BG_Reanimating_Rattler:
 	BG_Beast_Gold['BG21_003']='BG21_003_G'
 class BG21_003_Action2622(GameAction):
 	def do(self, source):
-		cards = [card for card in source.controller.field if isRaceCard(card, Race.BEAST)==True and card.reborn=False]
+		cards = [card for card in source.controller.field if isRaceCard(card, Race.BEAST)==True and card.reborn==False]
 		if len(cards)>0:
 			card = random.choice(cards)
 			Buff(card, 'BG21_003e').trigger(source)
@@ -429,7 +429,7 @@ class BG21_003:# <12>[1453]
 BG21_003e=buff(reborn=True)
 class BG21_003_G_Action2622(GameAction):
 	def do(self, source):
-		cards = [card for card in source.controller.field if isRaceCard(card, Race.BEAST)==True and card.reborn=False]
+		cards = [card for card in source.controller.field if isRaceCard(card, Race.BEAST)==True and card.reborn==False]
 		if len(cards)>2:
 			cards = random.sample(cards,2)
 		for card in cards:
