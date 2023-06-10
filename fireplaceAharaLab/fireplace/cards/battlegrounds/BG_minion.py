@@ -1206,10 +1206,13 @@ class BG21_038_G:# <12>[1453]
 ### Upbeat Duo (4)
 #BG26__Upbeat_Duo=(Config.BG_VERSION>=2620)### new 26.2
 if BG26__Upbeat_Duo:
-	BG_Minion += ['BG_NX2_050', 'BG_NX2_050_G']
-	BG_PoolSet_Minion.append('BG_NX2_050')
-	BG_Minion_Gold['BG_NX2_050']='BG_NX2_050_G'
-class BG_NX2_050_Action(TargetedAction): ##
+	BG_Minion += ['BG26_199', 'BG_NX2_050_G']
+	BG_PoolSet_Minion.append('BG26_199')
+	BG_Minion_Gold['BG26_199']='BG_NX2_050_G'
+#New: 4 Attack, 4 Health. At the end of every 2 turns, get a plain copy of the minion to the left of this.
+#Old: 4 Attack, 2 Health. Battlecry: Choose a minion. At the end of every 2 turns, this gives you a plain copy.
+
+class BG26_199_Action(TargetedAction): ##
 	TARGET=ActionArg()
 	AMOUNT=IntArg()
 	def do(self, source, target, amount):
@@ -1218,17 +1221,50 @@ class BG_NX2_050_Action(TargetedAction): ##
 			if amount==2:
 				Give(source.controller, target.id).trigger(source)
 		pass
-class BG_NX2_050: ##
+class BG26_199_Action2622(GameAction):
+	def do(self, source):
+		if source in source.controller.field:
+			index=source.controller.field.index(source)
+			if index>0:
+				card=source.controller.field[index-1]
+				Give(source.controller, card.id).trigger(source)
+		pass
+class BG26_199: ##
 	""" Upbeat Duo
-	4 Attack, 2 Health. Battlecry: Choose a minion. At the end of every 2 turns, this gives you a plain copy.""" 
-	requirements = {PlayReq.REQ_TARGET_IF_AVAILABLE:0, PlayReq.REQ_FRIENDLY_TARGET:0, PlayReq.REQ_MINION_TARGET:0}
-	events = OWN_TURN_END.on(SidequestCounter(SELF, 2, [BG_NX2_050_Action(TARGET, 1)]))
+	At the end of every 2 turns, get a plain copy of the minion to the left of this.""" ## new 2622
+	#4 Attack, 2 Health. Battlecry: Choose a minion. At the end of every 2 turns, this gives you a plain copy."""  
+	if Config.BG_VERSION>=2622:
+		option_tags={GameTag.ATK:4, GameTag.HEALTH:4}
+		events = OWN_TURN_END.on(SidequestCounter(SELF, 2, [BG26_199_Action2622()]))
+		pass
+	else:
+		option_tags={GameTag.ATK:4, GameTag.HEALTH:2}
+		requirements = {PlayReq.REQ_TARGET_IF_AVAILABLE:0, PlayReq.REQ_FRIENDLY_TARGET:0, PlayReq.REQ_MINION_TARGET:0}
+		events = OWN_TURN_END.on(SidequestCounter(SELF, 2, [BG26_199_Action(TARGET, 1)]))
 	pass
-class BG_NX2_050_G: ##
+class BG26_199_G_Action2622(GameAction):
+	def do(self, source):
+		if source in source.controller.field:
+			index=source.controller.field.index(source)
+			if index>0:
+				card=source.controller.field[index-1]
+				Give(source.controller, card.id).trigger(source)
+			if index<len(source.controller.field)-1:
+				card=source.controller.field[index+1]
+				Give(source.controller, card.id).trigger(source)
+		pass
+class BG26_199_G: ##
 	""" Upbeat Duo
-	4 Attack, 2 Health. Battlecry: Choose a minion. At the end of every 2 turns, this gives you 2 plain copy.""" 
-	requirements = {PlayReq.REQ_TARGET_IF_AVAILABLE:0, PlayReq.REQ_FRIENDLY_TARGET:0, PlayReq.REQ_MINION_TARGET:0}
-	events = OWN_TURN_END.on(SidequestCounter(SELF, 2, [BG_NX2_050_Action(TARGET, 2)]))
+	At the end of every 2 turns, get a plain copy of adjacent minions. &lt;i&gt;({0} |4(turn, turns) left!)&lt;/i&gt; """
+	#4 Attack, 2 Health. Battlecry: Choose a minion. At the end of every 2 turns, this gives you 2 plain copy.""" 
+	if Config.BG_VERSION>=2622:	
+		option_tags={GameTag.ATK:8, GameTag.HEALTH:8}
+		events = OWN_TURN_END.on(SidequestCounter(SELF, 2, [BG26_199_G_Action2622()]))
+		pass
+	else:
+		option_tags={GameTag.ATK:8, GameTag.HEALTH:4}
+		requirements = {PlayReq.REQ_TARGET_IF_AVAILABLE:0, PlayReq.REQ_FRIENDLY_TARGET:0, PlayReq.REQ_MINION_TARGET:0}
+		events = OWN_TURN_END.on(SidequestCounter(SELF, 2, [BG26_199_Action(TARGET, 2)]))
 	#
 	pass
 
@@ -1789,14 +1825,34 @@ if BG_Nadina_the_Red:#Nadina the Red	6	7	4		 ### maybe OK ###
 	BG_PoolSet_Minion.append('BGS_040')
 	BG_Minion_Gold['BGS_040']='TB_BaconUps_154'
 	pass
+class BGS_040_Action2622(GameAction):
+	def do(self, source):
+		cards = [card for card in source.controller.field if isRaceCard(card, Race.DRAGON)==True]
+		if len(cards)>3:
+			cards=random.sample(cards, 3)
+		for card in cards:
+			GiveDivineShield(card).trigger(source)
+	pass
 class BGS_040:# <12>[1453]  ナディナ
 	""" Nadina the Red
-	[Deathrattle:] Give your Dragons [Divine Shield]. """
-	deathrattle = GiveDivineShield(FRIENDLY_MINIONS + DRAGON)
+	Deathrattle: Give 3 friendly Dragons Divine Shield.""" ## new 2622
+	##	[Deathrattle:] Give your Dragons [Divine Shield]. 
+	if Config.BG_VERSION>=2622:
+		option_tags={GameTag.ATK:8, GameTag.HEALTH:4}
+		deathrattle = BGS_040_Action2622()
+	else:
+		option_tags={GameTag.ATK:7, GameTag.HEALTH:4}
+		deathrattle = GiveDivineShield(FRIENDLY_MINIONS + DRAGON)
 	pass
 class TB_BaconUps_154:# <12>[1453]
 	""" Nadina the Red
-	[Deathrattle:] Give your Dragons [Divine Shield]. """
+	&lt;b&gt;Deathrattle:&lt;/b&gt; Give 6 friendly Dragons &lt;b&gt;Divine Shield&lt;/b&gt;."""
+	## [Deathrattle:] Give your Dragons [Divine Shield]. """
+	## lol in any case, at most 6 dragons.
+	if Config.BG_VERSION>=2622:
+		option_tags={GameTag.ATK:16, GameTag.HEALTH:8}
+	else:
+		option_tags={GameTag.ATK:14, GameTag.HEALTH:8}
 	deathrattle = GiveDivineShield(FRIENDLY_MINIONS + DRAGON)
 	pass
 
@@ -1970,6 +2026,10 @@ class BGS_022:# <12>[1453] ざっぷ
 	""" Zapp Slywick
 	[Windfury]This minion always attacks the enemy minion with the lowest Attack. """
 	#<ReferencedTag enumID="189" name="WINDFURY" type="Int" value="1"/> ### REF-TAGだ！
+	if Config.BG_VERSION>=2622:
+		option_tags={GameTag.ATK:8, GameTag.HEALTH:16}
+	else:
+		option_tags={GameTag.ATK:7, GameTag.HEALTH:10}
 	tags = {GameTag.WINDFURY:1}
 	#本体実装はBG_Battle.pyの80行あたり
 	pass
@@ -1977,6 +2037,10 @@ class TB_BaconUps_091:# <12>[1453]
 	""" Zapp Slywick
 	[Mega-Windfury]This minion always attacksthe enemy minion withthe lowest Attack. """
 	#<Tag enumID="189" name="WINDFURY" type="Int" value="3"/> ###これはオケ
+	if Config.BG_VERSION>=2622:
+		option_tags={GameTag.ATK:16, GameTag.HEALTH:32}
+	else:
+		option_tags={GameTag.ATK:14, GameTag.HEALTH:20}
 	pass
 
 

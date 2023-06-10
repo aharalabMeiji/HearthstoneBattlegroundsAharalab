@@ -10,7 +10,7 @@ BG_Rabid_Saurolisk=(Config.BG_VERSION<2620) #2/3/2 ## banned 26.2
 BG_Sewer_Rat=True#2/3/2
 BG26__Humming_Bird=(Config.BG_VERSION>=2620)#(2)
 
-BG_Monstrous_Macaw=True#3/5/3
+BG_Monstrous_Macaw=(Config.BG_VERSION>=2622)#3/5/3
 BG_Rat_Pack=True#3/2/2
 BG26__Rylak_Metalhead=(Config.BG_VERSION>=2620)#(3)
 BG26__Banana_Slamma=(Config.BG_VERSION>=2620)#(3)
@@ -407,17 +407,45 @@ if BG_Reanimating_Rattler:
 	BG_Minion_Beast += ['BG21_003','BG21_003e','BG21_003_G',]#Reanimating Rattler(4)
 	BG_PoolSet_Beast.append('BG21_003')
 	BG_Beast_Gold['BG21_003']='BG21_003_G'
+class BG21_003_Action2622(GameAction):
+	def do(self, source):
+		cards = [card for card in source.controller.field if isRaceCard(card, Race.BEAST)==True and card.reborn=False]
+		if len(cards)>0:
+			card = random.choice(cards)
+			Buff(card, 'BG21_003e').trigger(source)
 class BG21_003:# <12>[1453]
 	""" Reanimating Rattler (4/5/3)
-	[Battlecry:] Give a friendly Beast [Reborn]. """
-	requirements = {PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_MINION_TARGET:0, PlayReq.REQ_FRIENDLY_TARGET:0, PlayReq.REQ_TARGET_WITH_RACE: Race.BEAST }
-	play = Buff(TARGET,'BG21_003e')
+	At the end of your turn, give another friendly Beast Reborn.""" ## new 26.2.2	
+	##[Battlecry:] Give a friendly Beast [Reborn]. 
+	if Config.BG_VERSION>=2622:
+		option_tags={GameTag.ATK:4, GameTag.HEALTH:3}
+		events = OWN_TURN_END.on(BG21_003_Action2622())
+		pass
+	else:
+		option_tags={GameTag.ATK:5, GameTag.HEALTH:3}
+		requirements = {PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_MINION_TARGET:0, PlayReq.REQ_FRIENDLY_TARGET:0, PlayReq.REQ_TARGET_WITH_RACE: Race.BEAST }
+		play = Buff(TARGET,'BG21_003e')
 	pass
 BG21_003e=buff(reborn=True)
+class BG21_003_G_Action2622(GameAction):
+	def do(self, source):
+		cards = [card for card in source.controller.field if isRaceCard(card, Race.BEAST)==True and card.reborn=False]
+		if len(cards)>2:
+			cards = random.sample(cards,2)
+		for card in cards:
+			Buff(card, 'BG21_003e').trigger(source)
 class BG21_003_G:# <12>[1453]
-	""" Reanimating Rattler (4/10/6)
-	[Battlecry:] Give a friendly Beast [Reborn]. """
-	play = Buff(TARGET,'BG21_003e')
+	""" Reanimating Rattler (4/10/6)-> (4/8/6)
+	At the end of your turn, give 2 other friendly Beasts &lt;b&gt;Reborn&lt;/b&gt;.""" ## new 26.2.2
+	##[Battlecry:] Give a friendly Beast [Reborn]. 
+	if Config.BG_VERSION>=2622:
+		option_tags={GameTag.ATK:8, GameTag.HEALTH:6}
+		events = OWN_TURN_END.on(BG21_003_G_Action2622())
+		pass
+	else:
+		option_tags={GameTag.ATK:10, GameTag.HEALTH:6}
+		requirements = {PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_MINION_TARGET:0, PlayReq.REQ_FRIENDLY_TARGET:0, PlayReq.REQ_TARGET_WITH_RACE: Race.BEAST }
+		play = Buff(TARGET,'BG21_003e')
 	pass
 
 
@@ -559,16 +587,31 @@ if BG_Mama_Bear:
 	BG_Beast_Gold['BGS_021']='TB_BaconUps_090'
 class BGS_021:# <12>[1453]
 	""" Mama Bear (5/5/5)
-	Whenever you summon a Beast, give it +5/+5. """
+	Whenever you summon a Beast, give it +4/+4.""" ##new 26.2.2
+	##Whenever you summon a Beast, give it +5/+5. 
+	if Config.BG_VERSION>=2622:
+		option_tags={GameTag.ATK:4, GameTag.HEALTH:4}
+	else:
+		option_tags={GameTag.ATK:5, GameTag.HEALTH:5}
 	events = Summon(CONTROLLER, BEAST).on(Buff(Summon.CARD, 'BGS_021e'))
 	pass
-BGS_021e=buff(5,5)
+if Config.BG_VERSION>=2622:
+	BGS_021e=buff(4,4)
+else:
+	BGS_021e=buff(5,5)
 class TB_BaconUps_090:# <12>[1453]
 	""" Mama Bear (5/10/10)
 	Whenever you summon a Beast, give it +10/+10. """
-	#
+	if Config.BG_VERSION>=2622:
+		option_tags={GameTag.ATK:8, GameTag.HEALTH:8}
+	else:
+		option_tags={GameTag.ATK:10, GameTag.HEALTH:10}
+	events = Summon(CONTROLLER, BEAST).on(Buff(Summon.CARD, 'TB_BaconUps_090e'))
 	pass
-TB_BaconUps_090e=buff(10,10)
+if Config.BG_VERSION>=2622:
+	TB_BaconUps_090e=buff(8,8)
+else:
+	TB_BaconUps_090e=buff(10,10)
 
 
 

@@ -563,9 +563,15 @@ class BG_main:
 				atk=bartender.opponent.drekthar_buddy_powered_up
 				).trigger(bartender)
 		if bartender.opponent.dancing_barnstormer_powered_up>0:## >2620
-			Buff(card, 'BG26_162e',
-				atk=bartender.opponent.dancing_barnstormer_powered_up*3,
-				max_health=bartender.opponent.dancing_barnstormer_powered_up*2
+			if Config.BG_VERSION>=2622:	
+				Buff(card, 'BG26_162e',
+					atk=bartender.opponent.dancing_barnstormer_powered_up*3,
+					max_health=bartender.opponent.dancing_barnstormer_powered_up*2
+				).trigger(bartender)
+			else:	
+				Buff(card, 'BG26_162e',
+					atk=bartender.opponent.dancing_barnstormer_powered_up*2,
+					max_health=bartender.opponent.dancing_barnstormer_powered_up*2
 				).trigger(bartender)
 		if bartender.opponent.flourishing_frostling_powered_up>0: ## > 2620
 			Buff(card, 'BG26_162e',

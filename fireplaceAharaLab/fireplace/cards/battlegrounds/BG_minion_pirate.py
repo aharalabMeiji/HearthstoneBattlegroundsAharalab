@@ -449,13 +449,20 @@ class BG21_016_G:# <12>[1453]
 	pass
 BG21_016_Ge=buff(2,2)
 
+
+
 if BG25__Peggy_Sturdybone:# 
 	BG_Minion_Pirate+=['BG25_032','BG25_032_G','BG25_032_Ge','BG25_032e']
 	BG_PoolSet_Pirate.append('BG25_032')
 	BG_Pirate_Gold['BG25_032']='BG25_032_G'
-class BG25_032:# (minion) 4/6/5
+class BG25_032:# (minion) 4/6/5 -> 4/4/2
 	""" Peggy Sturdybone
 	After a card is added to your hand, give another friendly Pirate +1/+1. """
+	if Config.BG_VERSION>=2622:
+		option_tags={GameTag.ATK:4, GameTag.HEALTH:2}
+	else:
+		option_tags={GameTag.ATK:6, GameTag.HEALTH:5}
+
 	events = [
 		Buy(CONTROLLER,MINION).on(Buff(RANDOM(FRIENDLY_MINIONS + PIRATE - SELF), 'BG25_032e')),
 		Give(CONTROLLER,MINION).on(Buff(RANDOM(FRIENDLY_MINIONS + PIRATE - SELF), 'BG25_032e')),
@@ -466,6 +473,10 @@ BG25_032e=buff(1,1)# (enchantment)
 class BG25_032_G:# (minion)
 	""" Peggy Sturdybone
 	After a card is added to your hand, give another friendly Pirate +2/+2. """
+	if Config.BG_VERSION>=2622:
+		option_tags={GameTag.ATK:8, GameTag.HEALTH:4}
+	else:
+		option_tags={GameTag.ATK:12, GameTag.HEALTH:10}
 	events = [
 		Buy(CONTROLLER,MINION).on(Buff(RANDOM(FRIENDLY_MINIONS + PIRATE - SELF), 'BG25_032_Ge')),
 		Give(CONTROLLER,MINION).on(Buff(RANDOM(FRIENDLY_MINIONS + PIRATE - SELF), 'BG25_032_Ge')),
@@ -725,11 +736,20 @@ class BG26_812_Action(GameAction):#
 class BG26_812:# (minion)
 	""" Record Smuggler
 	At the start of your turn, gain 1 Gold. Repeat for each other friendly Pirate. """
+	if Config.BG_VERSION>=2622:	
+		option_tags={GameTag.ATK:5, GameTag.HEALTH:4}
+	else:
+		option_tags={GameTag.ATK:7, GameTag.HEALTH:6}
+
 	events = BeginBar(CONTROLLER).on(BG26_812_Action(1))
 	pass
 class BG26_812_G:# (minion)
 	""" Record Smuggler
 	At the start of your turn, gain 2 Gold. Repeat for each other friendly Pirate. """
+	if Config.BG_VERSION>=2622:	
+		option_tags={GameTag.ATK:10, GameTag.HEALTH:8}
+	else:
+		option_tags={GameTag.ATK:14, GameTag.HEALTH:12}
 	events = BeginBar(CONTROLLER).on(BG26_812_Action(2))
 	pass
 
@@ -744,14 +764,20 @@ if BG26__Underhanded_Dealer:#
 class BG26_815:# (minion)
 	""" Underhanded Dealer
 	After you gain Gold, gain +1/+1. """
-	if Config.BG_VERSION>=2620:
-		option_tags={GameTag.TECH_LEVEL:4}
+	if Config.BG_VERSION>=2622:
+		option_tags={GameTag.TECH_LEVEL:5, GameTag.ATK:4, GameTag.HEALTH:4}
+	elif Config.BG_VERSION>=2620:
+		option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:2, GameTag.HEALTH:2}
 	events = Give(CONTROLLER, ID('GAME_005')).on(Buff(SELF, 'BG26_815e'))
 	pass
 BG26_815e=buff(1,1)
 class BG26_815_G:# (minion)
 	""" Underhanded Dealer
 	After you gain Gold, gain +2/+2. """
+	if Config.BG_VERSION>=2622:
+		option_tags={GameTag.TECH_LEVEL:5, GameTag.ATK:8, GameTag.HEALTH:8}
+	elif Config.BG_VERSION>=2620:
+		option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:4, GameTag.HEALTH:4}
 	events = Give(CONTROLLER, ID('GAME_005')).on(Buff(SELF, 'BG26_815_Ge'))
 	pass
 BG26_815_Ge=buff(2,2)

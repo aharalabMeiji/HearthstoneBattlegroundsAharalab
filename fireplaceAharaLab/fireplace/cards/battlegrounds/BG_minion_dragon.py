@@ -499,7 +499,7 @@ class BG25_104e:# (enchantment)
 	pass
 
 
-if BG25__General_Drakkisath:# 4/2/8 DRAGON ## new 25.2.2
+if BG25__General_Drakkisath:# 4/2/8 DRAGON ## new 25.2.2 (4)->(5) 26.2.2
 	BG_Minion_Dragon+=['BG25_309','BG25_309e','BG25_309_G','BG25_309_Ge','BG25_309_Gt','BG25_309t']
 	BG_PoolSet_Dragon.append('BG25_309')
 	BG_Dragon_Gold['BG25_309']='BG25_309_G' 
@@ -507,6 +507,10 @@ if BG25__General_Drakkisath:# 4/2/8 DRAGON ## new 25.2.2
 class BG25_309:# (minion)
 	""" General Drakkisath
 	<b>Battlecry:</b> Add a 2/1 Smolderwing to your hand that gives another Dragon +5_Attack. """
+	if Config.BG_VERSION>=2622:
+		option_tags={GameTag.TECH_LEVEL:5}
+	else:
+		option_tags={GameTag.TECH_LEVEL:4}
 	play = Give(CONTROLLER, 'BG25_309t')
 	pass
 class BG25_309t:# (minion)
@@ -519,6 +523,10 @@ BG25_309e=buff(5,0)
 class BG25_309_G:# (minion)
 	""" General Drakkisath
 	<b>Battlecry:</b> Add two 2/1 Smolderwings to your hand that each give another Dragon +5_Attack. """
+	if Config.BG_VERSION>=2622:
+		option_tags={GameTag.TECH_LEVEL:5}
+	else:
+		option_tags={GameTag.TECH_LEVEL:4}
 	play = Give(CONTROLLER, 'BG25_309t'), Give(CONTROLLER, 'BG25_309t')
 	pass
 class BG25_309_Gt:# (minion)
@@ -605,23 +613,31 @@ if BG26__Electric_Synthesizer:#
 	BG_Dragon_Gold['BG26_963']='BG26_963_G'
 class BG26_963:# (minion)
 	""" Electric Synthesizer
-	<b>Battlecry:</b> Give your other Dragons +3 Attack. """
+	<b>Battlecry:</b> Give your other Dragons +3 Attack. """ ## new 26.2.2
 	#(5/3/7)<b>Battlecry:</b> Give your other Dragons +4 Attack. """
-	if Config.BG_VERSION>=2620:
+	if Config.BG_VERSION>=2622:
+		option_tags={GameTag.TECH_LEVEL:4}
+	elif Config.BG_VERSION>=2620:
 		option_tags={GameTag.TECH_LEVEL:5}
 	play = Buff(FRIENDLY_MINIONS + DRAGON - SELF, 'BG26_963e')
 	pass
-if Config.BG_VERSION>=2620:
+if Config.BG_VERSION>=2622:
 	BG26_963e=buff(3,0)
+elif Config.BG_VERSION>=2620:
+	BG26_963e=buff(4,0)
 class BG26_963_G:# (minion)
 	""" Electric Synthesizer
 	<b>Battlecry:</b> Give your other Dragons +6 Attack. """
-	if Config.BG_VERSION>=2620:
+	if Config.BG_VERSION>=2622:
+		option_tags={GameTag.TECH_LEVEL:4}
+	elif Config.BG_VERSION>=2620:
 		option_tags={GameTag.TECH_LEVEL:5}
 	play = Buff(FRIENDLY_MINIONS + DRAGON - SELF, 'BG26_963_Ge')
 	pass
-if Config.BG_VERSION>=2620:
+if Config.BG_VERSION>=2622:
 	BG26_963_Ge=buff(6,0)
+elif Config.BG_VERSION>=2620:
+	BG26_963_Ge=buff(8,0)
 
 
 
@@ -815,6 +831,11 @@ class BGS_041:# <12>[1453]
 	""" Kalecgos, Arcane Aspect
 	After you trigger a Battlecry, give your Dragons +1/+1.""" ## new 26.2
 	##	After you play a minion with [Battlecry], give your Dragons +1/+1. ## old
+	if Config.BG_VERSION>=2622:
+		option_tags={GameTag.ATK:2, GameTag.HEALTH:10}
+	else:
+		option_tags={GameTag.ATK:4, GameTag.HEALTH:12}
+
 	if Config.BG_VERSION>=2620:
 		events = Battlecry(FRIENDLY + BATTLECRY).on(Buff(FRIENDLY_MINIONS + DRAGON, 'BGS_041e'))
 	else:
@@ -824,6 +845,10 @@ BGS_041e=buff(1,1)
 class TB_BaconUps_109:# <12>[1453]
 	""" Kalecgos, Arcane Aspect
 	After you play a minion with [Battlecry], give your Dragons +2/+2. """
+	if Config.BG_VERSION>=2622:
+		option_tags={GameTag.ATK:4, GameTag.HEALTH:20}
+	else:
+		option_tags={GameTag.ATK:8, GameTag.HEALTH:24}
 	if Config.BG_VERSION>=2620:
 		events = Battlecry(FRIENDLY + BATTLECRY).on(Buff(FRIENDLY_MINIONS + DRAGON, 'TB_BaconUps_109e'))
 	else:

@@ -470,16 +470,26 @@ class BG26_162_Action(GameAction):#
 		if source.controller.deepcopy_original!=None:
 			source.controller.deepcopy_original.dancing_barnstormer_powered_up += amount
 		pass# 
-class BG26_162:# (minion)
+class BG26_162:# (minion) (4/3/2)->(4/4/2)
 	""" Dancing Barnstormer
-	<b>Deathrattle:</b> Elementals in Bob's Tavern have +3/+2 __for the rest of the game. """
+	<b>Deathrattle:</b> Elementals in Bob's Tavern have +3/+2 __for the rest of the game. """ ## new 26.2.2
+	##<b>Deathrattle:</b> Elementals in Bob's Tavern have +3/+2 __for the rest of the game. 
+	if Config.BG_VERSION>=2622:	
+		option_tags={GameTag.ATK:4, GameTag.HEALTH:2}
+	else:
+		option_tags={GameTag.ATK:3, GameTag.HEALTH:2}
 	deathrattle = BG26_162_Action(1)
 	pass
 class BG26_162e:
 	pass
-class BG26_162_G:# (minion)
+class BG26_162_G:# (minion) (4/6/4)->(4/8/4)
 	""" Dancing Barnstormer
 	<b>Deathrattle:</b> Elementals in Bob's Tavern have +6/+4 __for the rest of the game. """
+	## <b>Deathrattle:</b> Elementals in Bob's Tavern have +6/+4 __for the rest of the game.  ## new 26.2.2
+	if Config.BG_VERSION>=2622:	
+		option_tags={GameTag.ATK:8, GameTag.HEALTH:4}
+	else:
+		option_tags={GameTag.ATK:6, GameTag.HEALTH:4}
 	deathrattle = BG26_162_Action(2)
 	pass
 
@@ -613,6 +623,7 @@ class BG25_046_Ge:# (enchantment)
 #BG26__Gusty_Trumpeter=(Config.BG_VERSION>=2620)#(5)
 if BG26__Gusty_Trumpeter:# 
 	BG_Minion_Elemental+=['BG26_534']
+	BG_Minion_Elemental+=['BG26_534_G']
 	BG_PoolSet_Elemental.append('BG26_534')
 	BG_Elemental_Gold['BG26_534']='BG26_537_G'
 class BG26_534_Action(TargetedAction):# 
@@ -628,19 +639,30 @@ class BG26_534_Action(TargetedAction):#
 					newcard.zone=Zone.SETASIDE
 					newcard.controller=source.controller
 					newcard.zone=Zone.HAND
-				source.script_data_num_1=5
+				if Config.BG_VERSION>=2622:
+					source.script_data_num_1=5
+				else:
+					source.script_data_num_1=6
 		pass# 
 class BG26_534:# (minion)
 	""" Gusty Trumpeter
-	After you sell 5 Elementals, get another random Elemental. <i>(@ left!)</i> """
+	After you sell 5 Elementals, get another random Elemental. <i>(@ left!)</i> """ ##new 2622
+	##After you sell 6 Elementals, get another random Elemental. <i>(@ left!)</i> """
 	#<Tag enumID="2" name="TAG_SCRIPT_DATA_NUM_1" type="Int" value="5"/>
+	if Config.BG_VERSION>=2622:
+		option_tags={GameTag.TAG_SCRIPT_DATA_NUM_1:5}
+	else:
+		option_tags={GameTag.TAG_SCRIPT_DATA_NUM_1:6}
 	events = Sell(CONTROLLER).after(BG26_534_Action(Sell.CARD, 1))
 	pass
 
-	BG_Minion_Elemental+=['BG26_534_G']
 class BG26_534_G:# (minion)
 	""" Gusty Trumpeter
 	After you sell 5 Elementals, get two other random Elementals. <i>(@ left!)</i> """
+	if Config.BG_VERSION>=2622:
+		option_tags={GameTag.TAG_SCRIPT_DATA_NUM_1:5}
+	else:
+		option_tags={GameTag.TAG_SCRIPT_DATA_NUM_1:6}
 	events = Sell(CONTROLLER).after(BG26_534_Action(Sell.CARD, 2))
 	pass
 
@@ -760,10 +782,15 @@ class BG26_535_Action(GameAction):#
 class BG26_535:# (minion)
 	""" Rock Rock
 	After you play an Elemental, give your other minions +2 Attack. <i>(Swaps to Health next turn!)</i> """
+	##After you play an Elemental, give your minions +1 Attack. (Swaps to Health next turn.)
 	events = BG_Play(CONTROLLER, FRIENDLY+MINION+ELEMENTAL).after(BG26_535_Action())
 	pass
-BG26_535e=buff(2,0)
-BG26_535e2=buff(0,2)
+if Config.BG_VERSION>=2622:
+	BG26_535e=buff(2,0)
+	BG26_535e2=buff(0,2)
+else:
+	BG26_535e=buff(1,0)
+	BG26_535e2=buff(0,1)
 class BG26_535_G_Action(GameAction):# 
 	def do(self, source):# 
 		if source.script_data_num_1!=0:
@@ -782,6 +809,10 @@ class BG26_535_G:# (minion)
 	After you play an Elemental, give your other minions +4 Attack. <i>(Swaps to Health next turn!)</i> """
 	events = BG_Play(CONTROLLER, FRIENDLY+MINION+ELEMENTAL).after(BG26_535_Action())
 	pass
-BG26_535_Ge=buff(4,0)
-BG26_535_Ge2=buff(0,4)
+if Config.BG_VERSION>=2622:
+	BG26_535_Ge=buff(4,0)
+	BG26_535_Ge2=buff(0,4)
+else:
+	BG26_535_Ge=buff(2,0)
+	BG26_535_Ge2=buff(0,2)
 
