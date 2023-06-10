@@ -1017,6 +1017,51 @@ class TB_BaconShop_HERO_28_Buddy_G:# <12>[1453]
 	pass
 
 
+####Inge, the Iron Hymn  ***** (new 26.4)
+if Config.BG_VERSION>=2640:
+	BG_Hero2+=["BG26_HERO_102","BG26_HERO_102p","BG26_HERO_102pe","BG26_HERO_102p2","BG26_HERO_102p2e",]
+	BG_PoolSet_Hero2+=['BG26_HERO_102']
+#BG_Hero2_Buddy['BG26_HERO_102']='BG26_HERO_102_Buddy'
+#BG_Hero2_Buddy_Gold['BG26_HERO_102_Buddy']='BG26_HERO_102_Buddy_G'
+class BG26_HERO_102:
+	""" Inge, the Iron Hymn """
+	option_tags={GameTag.ARMOR:15, GameTag.HEALTH:30}
+	pass
+class BG26_HERO_102p_Action(TargetedAction):
+	TARGET=ActionArg()
+	def do(self, source, target):
+		amount = source.controller.tavern_tier
+		Buff(target, 'BG26_HERO_102pe', atk=amount).trigger(source)
+class BG26_HERO_102p:
+	"""Major Hymn
+	Give a minion Attack equal to your Tavern Tier. &lt;i&gt;(Swaps to Health next turn!)&lt;/i&gt; """
+	## cost 0
+	requirements = {PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_FRIENDLY_TARGET:0, PlayReq.REQ_MINION_TARGET:0}
+	play = BG26_HERO_102p_Action(TARGET)
+	pass
+class BG26_HERO_102pe:
+	pass
+class BG26_HERO_102p2_Action(TargetedAction):
+	TARGET=ActionArg()
+	def do(self, source, target):
+		amount = source.controller.tavern_tier
+		Buff(target, 'BG26_HERO_102p2e', max_health=amount).trigger(source)
+class BG26_HERO_102p2:
+	"""Minor Hymn
+	[x]Give a minion Health equal to your Tavern Tier. &lt;i&gt;(Swaps to Attack next turn!)&lt;/i&gt;"""
+	requirements = {PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_FRIENDLY_TARGET:0, PlayReq.REQ_MINION_TARGET:0}
+	play = BG26_HERO_102p2_Action(TARGET)
+	pass
+class BG26_HERO_102p2e:
+	pass
+###### BUDDY ######
+#
+#
+#
+#
+
+
+
 ##Ini Stormcoil BG22_HERO_200 ## once banned, renew 25.6
 BG_Hero2+=["BG22_HERO_200","BG22_HERO_200p","BG22_HERO_200_Buddy","BG22_HERO_200_Buddy_e","BG22_HERO_200_Buddy_G","BG22_HERO_200_Buddy_Ge"]
 BG_PoolSet_Hero2+=['BG22_HERO_200']

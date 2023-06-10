@@ -48,6 +48,7 @@ BG_Hero1_Buddy_Gold={}
 ##Arch-Villain Rafaam TB_BaconShop_HERO_45
 ##Bru'kan BG22_HERO_001
 ##C'Thun TB_BaconShop_HERO_29
+##Cap'n Hoggarr BG26_HERO_101 (new 26.4)
 ##Captain Eudora TB_BaconShop_HERO_64
 ##Captain Hooktusk TB_BaconShop_HERO_67
 ##Cariel Roame BG21_HERO_000
@@ -56,6 +57,7 @@ BG_Hero1_Buddy_Gold={}
 ##Dancin' Deryl TB_BaconShop_HERO_36
 ##Death Speaker Blackthorn BG20_HERO_103
 ##Deathwing TB_BaconShop_HERO_52
+##Diablo BG20_HERO_666 (new 26.4)
 ##Dinotamer Brann TB_BaconShop_HERO_43
 ##Drek'Thar BG22_HERO_002
 
@@ -76,6 +78,7 @@ BG_Hero1_Buddy_Gold={}
 ##Heistbaron Togwaggle BG23_HERO_305
 ##Illidan Stormrage  TB_BaconShop_HERO_08
 ##Infinite Toki  TB_BaconShop_HERO_28
+##Inge, the Iron Hymn  BG26_HERO_102 (new 26.4)
 ##Ini Stormcoil BG22_HERO_200
 ##Jandice Barov TB_BaconShop_HERO_71
 ##Kael'thas Sunstrider  TB_BaconShop_HERO_60
@@ -811,6 +814,27 @@ class TB_BaconShop_HERO_29_Buddy_G:# <12>[1453]
 TB_BaconShop_HERO_29_Buddy_Ge=buff(2,2)# <12>[1453]
 
 
+##Cap'n Hoggarr BG26_HERO_101 (new 26.4)
+if Config.BG_VVERSION>=2640:
+	BG_Hero1+=['BG26_HERO_101','BG26_HERO_101p']
+	BG_PoolSet_Hero1+=['BG26_HERO_101']
+#
+#
+class BG26_HERO_101:
+	""" Cap'n Hoggarr
+	"""
+	option_tags={GameTag.ARMOR:10, GameTag.HEALTH:30}
+	pass
+class BG26_HERO_101p:
+	""" I'm the Cap'n Now
+	&lt;b&gt;Passive&lt;/b&gt; After you buy a Pirate, gain 1 Gold."""
+	events = Buy(CONTROLLER, MINION + PIRATE).after(Give(CONTROLLER, 'GAME_005'))
+###### BUDDY ######
+#
+#
+#
+#
+#
 
 ##Captain Eudora   #### OK #### BUDDY MAYBE ###
 BG_Hero1 += ['TB_BaconShop_HERO_64','TB_BaconShop_HP_074','TB_BaconShop_HERO_64_Buddy','TB_BaconShop_HERO_64_Buddy_e','TB_BaconShop_HERO_64_Buddy_G','TB_BaconShop_HERO_64_Buddy_G_e',]#08#Captain Eudora
@@ -1301,6 +1325,152 @@ class TB_BaconShop_HERO_52_Buddy_G:
 	option_tags={GameTag.TECH_LEVEL:3}
 	update = Refresh(FRIENDLY_MINIONS, buff='TB_BaconShop_HERO_52_Buddy_G_e')
 TB_BaconShop_HERO_52_Buddy_G_e=buff(6,0)
+
+
+##Diablo BG20_HERO_666 (new 26.4)
+if Config.BG_VERSION>=2640:
+	BG_Hero1+=['BG20_HERO_666','BG20_HERO_666p']
+	BG_PoolSet_Hero1+=['BG20_HERO_666']
+	##
+	##
+class BG20_HERO_666:
+	""" Diablo
+	"""
+	option_tags={GameTag.ARMOR:10, GameTag.HEALTH:30}
+class BG20_HERO_666p_Action(GameAction):
+	def do(self, source):
+		if source.controller.game.turn%4==0:
+			if len(source.controller.field)<7:
+				Summon(source.controller, 'BG20_HERO_666p_t0').trigger(source)
+class BG20_HERO_666p:
+	""" Realm of Terror
+	&lt;b&gt;Passive.&lt;/b&gt; Every 4 turns, ALL enemies fight the Lord of Terror and your warband _for loot. &lt;i&gt;({0} |4(turn, turns) left!)&lt;/i&gt;"""
+	events = BeginBattle(CONTROLLER).on(BG20_HERO_666p_Action)
+class BG20_HERO_666p_t0_Action1(GameAction):
+	def do(self, source):
+		amount = source.controller.deepcopy_original.game.turn
+		if amount<=4:
+			cards=['BG20_HERO_666p_t1a','BG20_HERO_666p_t3a','BG20_HERO_666p_t4a','BG20_HERO_666p_t5a','BG20_HERO_666p_t6a']
+		elif amount<=8:
+			cards=['BG20_HERO_666p_t1b','BG20_HERO_666p_t3b','BG20_HERO_666p_t4b','BG20_HERO_666p_t5b','BG20_HERO_666p_t6b']
+		elif amount<=12:
+			cards=['BG20_HERO_666p_t1c','BG20_HERO_666p_t3c','BG20_HERO_666p_t4c','BG20_HERO_666p_t5c','BG20_HERO_666p_t6c']
+		else:
+			cards=['BG20_HERO_666p_t1d','BG20_HERO_666p_t3d','BG20_HERO_666p_t4d','BG20_HERO_666p_t5d','BG20_HERO_666p_t6d']
+		cards=random.sample(cards, 2)
+		for card in cards:
+			Give(source.controller.opponent.deepcopy_original, card).trigger(source)
+		pass
+	
+class BG20_HERO_666p_t0_Action2(GameAction):
+	def do(self, source):
+		amount = source.controller.deepcopy_original.game.turn
+		if amount<=4:
+			cards=['BG20_HERO_666p_t1a','BG20_HERO_666p_t3a','BG20_HERO_666p_t4a','BG20_HERO_666p_t5a','BG20_HERO_666p_t6a']
+		elif amount<=8:
+			cards=['BG20_HERO_666p_t1b','BG20_HERO_666p_t3b','BG20_HERO_666p_t4b','BG20_HERO_666p_t5b','BG20_HERO_666p_t6b']
+		elif amount<=12:
+			cards=['BG20_HERO_666p_t1c','BG20_HERO_666p_t3c','BG20_HERO_666p_t4c','BG20_HERO_666p_t5c','BG20_HERO_666p_t6c']
+		else:
+			cards=['BG20_HERO_666p_t1d','BG20_HERO_666p_t3d','BG20_HERO_666p_t4d','BG20_HERO_666p_t5d','BG20_HERO_666p_t6d']
+		cards=random.sample(cards, 2)
+		for card in cards:
+			Give(source.controller.deepcopy_original, card).trigger(source)
+		pass
+
+class BG20_HERO_666p_t0:
+	""" Diablo, Lord of Terror
+	&lt;b&gt;Deathrattle:&lt;/b&gt; Give your opponent 2 loot! &lt;i&gt;(If this survives, Diablo gets 2 loot instead.)&lt;/i&gt;"""
+	deathrattle = BG20_HERO_666p_t0_Action1()
+	events = EndBattle(CONTROLLER).on(BG20_HERO_666p_t0_Action2())
+class BG20_HERO_666p_t1_Action(GameAction):
+	AMOUNT=IntArg()
+	def do(self, source, amount):
+		for i in range(3):
+			field = source.controller.opponent,field
+			if len(field)>0:
+				card = random.choice(field)
+				Hit(card, amount).trigger(source)
+				source.controller.opponent.game.process_deaths()
+		pass
+class BG20_HERO_666p_t1a:
+	""" Sigil of Hell
+	&lt;b&gt;Start of Combat:&lt;/b&gt; Deal 1 damage to 3 random enemy minions."""
+	events = BeginBattle(CONTROLLER).on(BG20_HERO_666p_t1_Action(1))
+class BG20_HERO_666p_t1b:
+	""" Magic Sigil of Hell
+	&lt;b&gt;Start of Combat:&lt;/b&gt; Deal 3 damage to 3 random enemy minions."""
+	events = BeginBattle(CONTROLLER).on(BG20_HERO_666p_t1_Action(3))
+class BG20_HERO_666p_t1c:
+	""" Rare Sigil of Hell
+	&lt;b&gt;Start of Combat:&lt;/b&gt; Deal 9 damage to 3 random enemy minions."""
+	events = BeginBattle(CONTROLLER).on(BG20_HERO_666p_t1_Action(9))
+class BG20_HERO_666p_t1d:
+	""" Unique Sigil of Hell
+	&lt;b&gt;Start of Combat:&lt;/b&gt; Deal 27 damage to 3 random enemy minions."""
+	events = BeginBattle(CONTROLLER).on(BG20_HERO_666p_t1_Action(27))
+class BG20_HERO_666p_t3_e:
+	pass
+class BG20_HERO_666p_t3a:
+	""" Claws of Terror
+	Give a friendly minion +2/+2 until next turn."""
+class BG20_HERO_666p_t3b:
+	""" Magic Claws of Terror
+	Give a friendly minion +6/+6 until next turn."""
+class BG20_HERO_666p_t3c:
+	""" Rare Claws of Terror
+	Give a friendly minion +12/+12 until next turn."""
+class BG20_HERO_666p_t3d:
+	""" Unique Claws of Terror
+	Double a friendly minion's Attack and Health until next turn."""
+class BG20_HERO_666p_t4a:
+	""" Magma Horns
+	Give a friendly minion &lt;b&gt;Windfury&lt;/b&gt; until next turn."""
+class BG20_HERO_666p_t4a_e:
+	pass
+class BG20_HERO_666p_t4a_e2:
+	"""
+	"""
+class BG20_HERO_666p_t4a_e3:
+	"""
+	"""
+class BG20_HERO_666p_t4b:
+	""" Magic Magma Horns
+	Give a friendly minion &lt;b&gt;Reborn&lt;/b&gt; until next turn."""
+class BG20_HERO_666p_t4c:
+	""" Rare Magma Horns
+	Give a friendly minion &lt;b&gt;Divine Shield&lt;/b&gt; until next turn."""
+class BG20_HERO_666p_t4d:
+	""" Unique Magma Horns
+	Give a friendly minion &lt;b&gt;Windfury&lt;/b&gt;, &lt;b&gt;Reborn&lt;/b&gt;, and &lt;b&gt;Divine Shield&lt;/b&gt; until next turn."""
+class BG20_HERO_666p_t5_e:
+	pass
+class BG20_HERO_666p_t5a:
+	""" Hellfire Hooves
+	Give your minions +1_Attack until next turn."""
+class BG20_HERO_666p_t5b:
+	""" Magic Hellfire Hooves
+	Give your minions +3_Attack until next turn."""
+class BG20_HERO_666p_t5c:
+	""" Rare Hellfire Hooves
+	Give your minions +9_Attack until next turn."""
+class BG20_HERO_666p_t5d:
+	""" Unique Hellfire Hooves
+	Give your minions +27_Attack until next turn."""
+class BG20_HERO_666p_t6a:
+	""" Black Soulstone
+	&lt;b&gt;Secret:&lt;/b&gt; After your last minion dies, summon a random Demon."""
+class BG20_HERO_666p_t6b:
+	""" Magic Black Soulstone
+	&lt;b&gt;Secret:&lt;/b&gt; After your last minion dies, summon 2 random Demons."""
+class BG20_HERO_666p_t6c:
+	""" Rare Black Soulstone
+	&lt;b&gt;Secret:&lt;/b&gt; After your last minion dies, summon 3 random Demons."""
+class BG20_HERO_666p_t6d:
+	""" Unique Black Soulstone
+	&lt;b&gt;Secret:&lt;/b&gt; After your last minion dies, summon 4 random Demons."""
+
+
 
 
 
