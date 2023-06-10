@@ -368,7 +368,6 @@ class Death(GameAction):
 					entity.deepcopy_original.killed_in_former_battle=True
 		if entity.type == CardType.MINION:
 			self.broadcast(source, EventListener.ON, entity)
-			self.broadcast(source, EventListener.AFTER, entity)
 		if entity.id == 'SW_323'and entity._Asphyxia_=='alive': #The king rat
 			source.game.queue_actions(source, [Asphyxia(entity)])
 		if hasattr(entity, "deathrattles") and hasattr(entity, "deathrattle_valid") and entity.deathrattles and entity.deathrattle_valid:
@@ -383,6 +382,8 @@ class Death(GameAction):
 			if len(entity.controller.field)<entity.controller.game.MAX_MINIONS_ON_FIELD:### 7
 				newcard = entity.controller.card(entity.controller.gorefiend_cardID)
 				newcard.zone=Zone.PLAY
+		if entity.type == CardType.MINION:
+			self.broadcast(source, EventListener.AFTER, entity)
 
 
 class EndTurn(GameAction):

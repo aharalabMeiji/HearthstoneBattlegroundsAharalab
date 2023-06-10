@@ -1396,79 +1396,127 @@ class BG20_HERO_666p_t1_Action(GameAction):
 class BG20_HERO_666p_t1a:
 	""" Sigil of Hell
 	&lt;b&gt;Start of Combat:&lt;/b&gt; Deal 1 damage to 3 random enemy minions."""
-	events = BeginBattle(CONTROLLER).on(BG20_HERO_666p_t1_Action(1))
+	tags = {GameTag.SECRET:1}
+	secret = BeginBattle(CONTROLLER).on(BG20_HERO_666p_t1_Action(1), DestroyOriginal(SELF))
 class BG20_HERO_666p_t1b:
 	""" Magic Sigil of Hell
 	&lt;b&gt;Start of Combat:&lt;/b&gt; Deal 3 damage to 3 random enemy minions."""
-	events = BeginBattle(CONTROLLER).on(BG20_HERO_666p_t1_Action(3))
+	tags = {GameTag.SECRET:1}
+	secret = BeginBattle(CONTROLLER).on(BG20_HERO_666p_t1_Action(3), DestroyOriginal(SELF))
 class BG20_HERO_666p_t1c:
 	""" Rare Sigil of Hell
 	&lt;b&gt;Start of Combat:&lt;/b&gt; Deal 9 damage to 3 random enemy minions."""
-	events = BeginBattle(CONTROLLER).on(BG20_HERO_666p_t1_Action(9))
+	tags = {GameTag.SECRET:1}
+	secret = BeginBattle(CONTROLLER).on(BG20_HERO_666p_t1_Action(9), DestroyOriginal(SELF))
 class BG20_HERO_666p_t1d:
 	""" Unique Sigil of Hell
 	&lt;b&gt;Start of Combat:&lt;/b&gt; Deal 27 damage to 3 random enemy minions."""
-	events = BeginBattle(CONTROLLER).on(BG20_HERO_666p_t1_Action(27))
-class BG20_HERO_666p_t3_e:
-	pass
+	tags = {GameTag.SECRET:1}
+	secret = BeginBattle(CONTROLLER).on(BG20_HERO_666p_t1_Action(27), DestroyOriginal(SELF))
+class BG20_HERO_666p_t3_Action(TargetedAction):
+	TARGET=ActionArg()
+	AMOUNT=IntArg()
+	def do(self, source, target, amount):
+		if amount==99:
+			Buff(target, 'BG20_HERO_666p_t3_e', atk=target.atk, max_health=target.max_health).trigger(source)
+		else:
+			Buff(target, 'BG20_HERO_666p_t3_e', atk=amount, max_health=amount).trigger(source)
 class BG20_HERO_666p_t3a:
 	""" Claws of Terror
 	Give a friendly minion +2/+2 until next turn."""
+	requirements={PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_MINION_TARGET:0, PlayReq.REQ_FRIENDLY_TARGET:0}
+	play = BG20_HERO_666p_t3_Action(TARGET, 2)
 class BG20_HERO_666p_t3b:
 	""" Magic Claws of Terror
 	Give a friendly minion +6/+6 until next turn."""
+	requirements={PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_MINION_TARGET:0, PlayReq.REQ_FRIENDLY_TARGET:0}
+	play = BG20_HERO_666p_t3_Action(TARGET, 6)
 class BG20_HERO_666p_t3c:
 	""" Rare Claws of Terror
 	Give a friendly minion +12/+12 until next turn."""
+	requirements={PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_MINION_TARGET:0, PlayReq.REQ_FRIENDLY_TARGET:0}
+	play = BG20_HERO_666p_t3_Action(TARGET, 12)
 class BG20_HERO_666p_t3d:
 	""" Unique Claws of Terror
 	Double a friendly minion's Attack and Health until next turn."""
+	requirements={PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_MINION_TARGET:0, PlayReq.REQ_FRIENDLY_TARGET:0}
+	play = BG20_HERO_666p_t3_Action(TARGET, 99)
+class BG20_HERO_666p_t3_e:
+	tags={ GameTag.TAG_ONE_TURN_EFFECT:1}
+	pass
 class BG20_HERO_666p_t4a:
 	""" Magma Horns
 	Give a friendly minion &lt;b&gt;Windfury&lt;/b&gt; until next turn."""
-class BG20_HERO_666p_t4a_e:
-	pass
-class BG20_HERO_666p_t4a_e2:
-	"""
-	"""
-class BG20_HERO_666p_t4a_e3:
-	"""
-	"""
+	requirements={PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_MINION_TARGET:0, PlayReq.REQ_FRIENDLY_TARGET:0}
+	play = Buff(TARGET, 'BG20_HERO_666p_t4a_e')
 class BG20_HERO_666p_t4b:
 	""" Magic Magma Horns
 	Give a friendly minion &lt;b&gt;Reborn&lt;/b&gt; until next turn."""
+	requirements={PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_MINION_TARGET:0, PlayReq.REQ_FRIENDLY_TARGET:0}
+	play = Buff(TARGET, 'BG20_HERO_666p_t4a_e')
 class BG20_HERO_666p_t4c:
 	""" Rare Magma Horns
 	Give a friendly minion &lt;b&gt;Divine Shield&lt;/b&gt; until next turn."""
+	requirements={PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_MINION_TARGET:0, PlayReq.REQ_FRIENDLY_TARGET:0}
+	play = Buff(TARGET, 'BG20_HERO_666p_t4a_e')
 class BG20_HERO_666p_t4d:
 	""" Unique Magma Horns
 	Give a friendly minion &lt;b&gt;Windfury&lt;/b&gt;, &lt;b&gt;Reborn&lt;/b&gt;, and &lt;b&gt;Divine Shield&lt;/b&gt; until next turn."""
+	requirements={PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_MINION_TARGET:0, PlayReq.REQ_FRIENDLY_TARGET:0}
+	play = Buff(TARGET, 'BG20_HERO_666p_t4a_e'), Buff(TARGET, 'BG20_HERO_666p_t4a_e2'), Buff(TARGET, 'BG20_HERO_666p_t4a_e3')
+class BG20_HERO_666p_t4a_e:
+	tags={GameTag.REBORN:1, GameTag.TAG_ONE_TURN_EFFECT:1}
+class BG20_HERO_666p_t4a_e2:
+	tags={GameTag.DEVINE_SHIELD:1, GameTag.TAG_ONE_TURN_EFFECT:1}
+class BG20_HERO_666p_t4a_e3:
+	tags={GameTag.WINDFURY:1, GameTag.TAG_ONE_TURN_EFFECT:1}
 class BG20_HERO_666p_t5_e:
+	events = BeginBar(CONTROLLER).on(Destroy(SELF))
 	pass
+class BG20_HERO_666p_t5_Action(GameAction):
+	AMOUNT=IntArg()
+	def do(self, source, amount):
+		for card in source.controller.field:
+			Buff(card, 'BG20_HERO_666p_t5_e', atk=amount).trigger(source)
 class BG20_HERO_666p_t5a:
 	""" Hellfire Hooves
 	Give your minions +1_Attack until next turn."""
+	play = BG20_HERO_666p_t5_Action(1)
 class BG20_HERO_666p_t5b:
 	""" Magic Hellfire Hooves
 	Give your minions +3_Attack until next turn."""
+	play = BG20_HERO_666p_t5_Action(3)
 class BG20_HERO_666p_t5c:
 	""" Rare Hellfire Hooves
 	Give your minions +9_Attack until next turn."""
+	play = BG20_HERO_666p_t5_Action(9)
 class BG20_HERO_666p_t5d:
 	""" Unique Hellfire Hooves
 	Give your minions +27_Attack until next turn."""
+	play = BG20_HERO_666p_t5_Action(27)
+class BG20_HERO_666p_t6_Action(GameAction):
+	AMOUNT=IntArg()
+	def do(self, source, amount):
+		if len(source.controller.field)<=1:
+			for i in range(amount):
+				Summon(source.controller, RandomBGDemon())
+				DestroyOriginal(source)
 class BG20_HERO_666p_t6a:
 	""" Black Soulstone
 	&lt;b&gt;Secret:&lt;/b&gt; After your last minion dies, summon a random Demon."""
+	secret = Death(FRIENDLY + MINION).after(BG20_HERO_666p_t6_Action(1))
 class BG20_HERO_666p_t6b:
 	""" Magic Black Soulstone
 	&lt;b&gt;Secret:&lt;/b&gt; After your last minion dies, summon 2 random Demons."""
+	secret = Death(FRIENDLY + MINION).after(BG20_HERO_666p_t6_Action(2))
 class BG20_HERO_666p_t6c:
 	""" Rare Black Soulstone
 	&lt;b&gt;Secret:&lt;/b&gt; After your last minion dies, summon 3 random Demons."""
+	secret = Death(FRIENDLY + MINION).after(BG20_HERO_666p_t6_Action(3))
 class BG20_HERO_666p_t6d:
 	""" Unique Black Soulstone
 	&lt;b&gt;Secret:&lt;/b&gt; After your last minion dies, summon 4 random Demons."""
+	secret = Death(FRIENDLY + MINION).after(BG20_HERO_666p_t6_Action(4))
 
 
 
