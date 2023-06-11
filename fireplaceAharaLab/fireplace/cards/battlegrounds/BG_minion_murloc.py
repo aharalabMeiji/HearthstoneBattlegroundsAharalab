@@ -539,7 +539,21 @@ class BG26_888_G:# (minion)(murloc)
 	deathrattle = BG26_888_G_Action()
 	pass
 
-
+##Magmaloc
+##  2543
+#Old: 3 Attack, 3 Health.
+#New: 1 Attack, 1 Health.
+## 2522
+#Old: [Tavern Tier 4] 1 Attack, 1 Health
+#New: [Tavern Tier 5] 3 Attack, 3 Health
+## 2520
+# [Tavern Tier 4, Elemental/Murloc]
+# 1 Attack, 1 Health. At the end of your turn, gain +1/+1. Repeat for each minion you played this turn.
+from BG_minion_elemental import BG25__Magmaloc
+if BG25__Magmaloc:# 5/1/1 murloc ## new 25.2
+	##BG_Minion_Murloc+=['BG25_046','BG25_046e','BG25_046_G','BG25_046_Ge']
+	BG_PoolSet_Murloc.append('BG25_046')
+	BG_Murloc_Gold['BG25_046']='BG25_046_G'
 
 
 #### TIER 6 ####

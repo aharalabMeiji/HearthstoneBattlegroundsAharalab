@@ -21,7 +21,7 @@ BG26__Dancing_Barnstormer=(Config.BG_VERSION>=2620)#(4/4/2)
 
 BG_Tavern_Tempest=True # (5)
 BG_Lil_Rag=(Config.BG_VERSION<2620) # (5) ## banned 26.2
-BG25__Magmaloc=(Config.BG_VERSION>=2522)# (5/1/1) murloc ## new 25.2.2
+BG25__Magmaloc=(Config.BG_VERSION>=2520)# (5/1/1) elemental/murloc ## new 25.2
 BG26__Gusty_Trumpeter=(Config.BG_VERSION>=2620)#(5/4/5)
 
 BG_Gentle_Djinni=(Config.BG_VERSION<2620) # (6) banned 26.2
@@ -583,8 +583,17 @@ class TB_BaconUps_200:# <12>[1453]
 	pass
 
 
-
-if BG25__Magmaloc:# 5/1/1 murloc ## new 25.2.2
+##Magmaloc
+##  2543
+#Old: 3 Attack, 3 Health.
+#New: 1 Attack, 1 Health.
+## 2522
+#Old: [Tavern Tier 4] 1 Attack, 1 Health
+#New: [Tavern Tier 5] 3 Attack, 3 Health
+## 2520
+# [Tavern Tier 4, Elemental/Murloc]
+# 1 Attack, 1 Health. At the end of your turn, gain +1/+1. Repeat for each minion you played this turn.
+if BG25__Magmaloc:# 5/1/1 murloc ## new 25.2
 	BG_Minion_Elemental+=['BG25_046','BG25_046e','BG25_046_G','BG25_046_Ge']
 	BG_PoolSet_Elemental.append('BG25_046')
 	BG_Elemental_Gold['BG25_046']='BG25_046_G'
@@ -595,6 +604,12 @@ class BG25_046_Action(GameAction):
 class BG25_046:# (minion)(murloc)
 	""" Magmaloc
 	At the end of your turn, gain +1/+1. Repeat for each minion you played this turn. """
+	if Config.BG_VERSION>=2543:
+		option_tags={GameTag.TECH_LEVEL:5, GameTag.ATK:1, GameTag.HEALTH:1}
+	if Config.BG_VERSION>=2522:
+		option_tags={GameTag.TECH_LEVEL:5, GameTag.ATK:3, GameTag.HEALTH:3}
+	else:
+		option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:1, GameTag.HEALTH:1}
 	events = OWN_TURN_END.on(BG25_046_Action())
 	pass
 class BG25_046e:# (enchantment)
@@ -609,6 +624,12 @@ class BG25_046_G_Action(GameAction):
 class BG25_046_G:# (minion)(murloc)
 	""" Magmaloc
 	At the end of your turn, gain +2/+2. Repeat for each minion you played this turn. """
+	if Config.BG_VERSION>=2543:
+		option_tags={GameTag.TECH_LEVEL:5, GameTag.ATK:2, GameTag.HEALTH:2}
+	if Config.BG_VERSION>=2522:
+		option_tags={GameTag.TECH_LEVEL:5, GameTag.ATK:6, GameTag.HEALTH:6}
+	else:
+		option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:2, GameTag.HEALTH:2}
 	events = OWN_TURN_END.on(BG25_046_G_Action())
 	pass
 class BG25_046_Ge:# (enchantment)
