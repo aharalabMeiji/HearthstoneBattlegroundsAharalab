@@ -1104,7 +1104,7 @@ class TB_BaconShop_HERO_78:# <12>[1453]
 class TB_BaconShop_HP_088:
 	""" Avalanche
 	[Passive] After you play 3 Elementals, reduce the cost of upgrading Bob's Tavern by (3)."""
-	events = BG_Play(CONTROLLER, FRIENDLY + ELEMENTAL).on(SidequestCounter(SELF, 3, [ReduceTierUpCost(CONTROLLER, 3)]))
+	events = BG_Play(CONTROLLER, FRIENDLY + MINION + ELEMENTAL).on(SidequestCounter(SELF, 3, [ReduceTierUpCost(CONTROLLER, 3)]))
 #### BUDDY ####
 class TB_BaconShop_HERO_78_Buddy_Action(GameAction):
 	def do(self, source):

@@ -432,18 +432,17 @@ CardType.test = lambda self, entity, *args: (
 	entity is not None and self == entity.type
 )
 
-from hearthstone.utils import CARDRACE_TAG_MAP
+from fireplace.utils import isRaceCard
 def race_identity(target, param):
 	""" def race_identity(target, param): """
 	if target.type==CardType.MINION:
-		if target.race==param:
-			return True
-		if target.data.tags.get(CARDRACE_TAG_MAP[param]):
+		if isRaceCard(target,param):
 			return True
 	return False
 
 Race.test = lambda self, entity, *args: (
-	entity is not None and race_identity(entity,self)==False
+	#entity is not None and race_identity(entity,self)==True
+	entity is not None and race_identity(entity,self)==True
 )
 Rarity.test = lambda self, entity, *args: (
 	entity is not None and self == getattr(entity, "rarity", Rarity.INVALID)
@@ -534,17 +533,17 @@ HERO_POWER = EnumSelector(CardType.HERO_POWER)
 
 ALL = EnumSelector(Race.ALL)
 
-BEAST = EnumSelector(Race.BEAST) | ALL
-DEMON = EnumSelector(Race.DEMON) | ALL
-DRAGON = EnumSelector(Race.DRAGON) | ALL
-MECH = EnumSelector(Race.MECHANICAL) | ALL
-MURLOC = EnumSelector(Race.MURLOC) | ALL
-NAGA = EnumSelector(Race.NAGA) | ALL
-PIRATE = EnumSelector(Race.PIRATE) | ALL
-TOTEM = EnumSelector(Race.TOTEM) | ALL
-ELEMENTAL = EnumSelector(Race.ELEMENTAL) | ALL
-QUILBOAR = EnumSelector(Race.QUILBOAR) | ALL
-UNDEAD =  EnumSelector(Race.UNDEAD) | ALL
+BEAST = EnumSelector(Race.BEAST) 
+DEMON = EnumSelector(Race.DEMON) 
+DRAGON = EnumSelector(Race.DRAGON) 
+MECH = EnumSelector(Race.MECHANICAL) 
+MURLOC = EnumSelector(Race.MURLOC) 
+NAGA = EnumSelector(Race.NAGA) 
+PIRATE = EnumSelector(Race.PIRATE) 
+TOTEM = EnumSelector(Race.TOTEM) 
+ELEMENTAL = EnumSelector(Race.ELEMENTAL) 
+QUILBOAR = EnumSelector(Race.QUILBOAR) 
+UNDEAD =  EnumSelector(Race.UNDEAD) 
 
 NATURE = EnumSelector(SpellSchool.NATURE)
 HOLY = EnumSelector(SpellSchool.HOLY)

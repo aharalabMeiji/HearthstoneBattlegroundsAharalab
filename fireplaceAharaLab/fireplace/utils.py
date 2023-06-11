@@ -349,6 +349,8 @@ from fireplace import cards
 
 def isRaceCard(card, race):
 	if getattr(card, 'this_is_minion', False):
+		if card.race==Race.ALL:
+			return True
 		if race==Race.BEAST and card.id in cards.battlegrounds.BG_minion_beast.BG_PoolSet_Beast:
 			return True
 		if race==Race.DEMON and card.id in cards.battlegrounds.BG_minion_demon.BG_PoolSet_Demon:
