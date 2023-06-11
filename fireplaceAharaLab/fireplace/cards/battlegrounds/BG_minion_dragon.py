@@ -17,7 +17,7 @@ BG_Drakonid_Enforcer=False ##(3) ## banned when?
 BG24__Nether_Drake=(Config.BG_VERSION>=2420 and Config.BG_VERSION<2620)# (3) new 24.2 (2)->(3) ## banned 26.2
 
 BG_Atramedes=(Config.BG_VERSION>=2360 and Config.BG_VERSION<2620) ## (4)  23.6 ##OK## banned 26.2
-BG25__Chronormu=(Config.BG_VERSION<2562)# 4/4/4 dragon ## 25.2.2
+BG25__Chronormu=(Config.BG_VERSION>=2520 and Config.BG_VERSION<2562)# 4/4/4 dragon ## new 25.2
 BG_Cobalt_Scalebane=(Config.BG_VERSION<2420) ##(4) banned 24.2
 BG25__General_Drakkisath=(Config.BG_VERSION>=2522)# 4/2/8 DRAGON ## new 25.2.2
 BG_Prestor_s_Pyrospawn=False ## (4) banned
@@ -467,7 +467,13 @@ class BG23_362_G:
 	pass
 
 
-
+## Chronormu (4/4/4)
+# 2543
+#Old: [Tavern Tier 4] 4 Attack, 4 Health.
+#New: [Tavern Tier 5] 6 Attack, 6 Health.
+#2520
+#[Tavern Tier 4, Dragon]
+#4 Attack, 4 Health. While this is in the Tavern, gain the stats of any minions sold.
 if BG25__Chronormu:# 4/4/4 dragon ## 25.2.2
 	BG_Minion_Dragon+=['BG25_104','BG25_104_G','BG25_104e']
 	BG_PoolSet_Dragon.append('BG25_104')
@@ -480,6 +486,10 @@ class BG25_104_Action(TargetedAction):
 class BG25_104:# (minion)
 	""" Chronormu
 	While this is in Bob's Tavern, gain the stats of any minions sold. """
+	if Config.BG_VERSION>=2543:
+		option_tags={GameTag.TECH_LEVEL:5, GameTag.ATK:6, GameTag.HEALTH:6}
+	else:
+		option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:4, GameTag.HEALTH:4}
 	events = Sell(CONTROLLER).on(BG25_104_Action(Sell.CARD))
 	pass
 class BG25_104_G_Action(TargetedAction):
@@ -490,6 +500,10 @@ class BG25_104_G_Action(TargetedAction):
 class BG25_104_G:# (minion)
 	""" Chronormu
 	While this is in Bob's Tavern, gain twice the stats of any minions sold. """
+	if Config.BG_VERSION>=2543:
+		option_tags={GameTag.TECH_LEVEL:5, GameTag.ATK:12, GameTag.HEALTH:12}
+	else:
+		option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:8, GameTag.HEALTH:8}
 	events = Sell(CONTROLLER).on(BG25_104_G_Action(Sell.CARD))
 	pass
 class BG25_104e:# (enchantment)

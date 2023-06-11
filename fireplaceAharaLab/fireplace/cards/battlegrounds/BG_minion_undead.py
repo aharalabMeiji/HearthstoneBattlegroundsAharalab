@@ -354,7 +354,7 @@ class BG25_002_G:# (minion)
 		option_tags={GameTag.ATK:4, GameTag.HEALTH:10}
 		events = Death(FRIENDLY + MINION - SELF).on(Avenge(SELF, 2, [BG25_002_G_Action()]))
 	else:
-		option_tags={GameTag.ATK:4, GameTag.HEALTH:10}
+		option_tags={GameTag.ATK:4, GameTag.HEALTH:8}
 		events = Death(FRIENDLY + MINION - SELF).on(Avenge(SELF, 1, [BG25_002_G_Action()]))
 	pass
 if Config.BG_VERSION>=2543:
