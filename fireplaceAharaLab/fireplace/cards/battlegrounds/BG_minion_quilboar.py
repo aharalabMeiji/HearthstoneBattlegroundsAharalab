@@ -88,7 +88,7 @@ class BG25_045:# (minion)
 	""" Thorncaptain
 	After a card is added to your hand, gain +1 Health until next turn. """
 	events = [Give(CONTROLLER).after(Buff(SELF, 'BG25_045e')),
-		   Draw(CONTROLLER).after(Buff(SELF, 'BG25_045e'))]
+		   Buy(CONTROLLER).after(Buff(SELF, 'BG25_045e'))]
 	pass
 class BG25_045e:# (enchantment)
 	""" Tis' the Captain

@@ -244,10 +244,11 @@ class BG22_HERO_000_Buddy_G:# <12>[1453]
 
 
 ##Teron Gorefiend BG25_HERO_103 #### HP OK #### BUDDY OK ####
-BG_Hero5+=['BG25_HERO_103','BG25_HERO_103p','BG25_HERO_103_Buddy','BG25_HERO_103_Buddye','BG25_HERO_103_Buddy_G','BG25_HERO_103_Buddy_Ge',]
-BG_PoolSet_Hero5.append('BG25_HERO_103')
-BG_Hero5_Buddy['BG25_HERO_103']='BG25_HERO_103_Buddy'
-BG_Hero5_Buddy_Gold['BG25_HERO_103_Buddy']='BG25_HERO_103_Buddy_Buddy_G'
+if Config.BG_VERSION>=2540:
+	BG_Hero5+=['BG25_HERO_103','BG25_HERO_103p','BG25_HERO_103_Buddy','BG25_HERO_103_Buddye','BG25_HERO_103_Buddy_G','BG25_HERO_103_Buddy_Ge',]
+	BG_PoolSet_Hero5.append('BG25_HERO_103')
+	BG_Hero5_Buddy['BG25_HERO_103']='BG25_HERO_103_Buddy'
+	BG_Hero5_Buddy_Gold['BG25_HERO_103_Buddy']='BG25_HERO_103_Buddy_Buddy_G'
 class BG25_HERO_103:
 	""" Teron Gorefiend
 	"""

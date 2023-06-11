@@ -884,8 +884,9 @@ def GetMoveCandidates(bar, controller, bartender):
 		for card in bartender.field:
 			ret.append(Move(bar, card, MovePlay.BUY))
 	#BUY_BUDDY=11
-	if controller.mana>=controller.buddy_gauge and controller.got_buddy<2:
-		ret.append(Move(bar, controller.buddy_id, MovePlay.BUY_BUDDY))
+	if Config.NEW_BUDDY_SYSTEM==1:
+		if controller.mana>=controller.buddy_gauge and controller.got_buddy<2:
+			ret.append(Move(bar, controller.buddy_id, MovePlay.BUY_BUDDY))
 	#PLAY=1
 	for card in controller.hand:
 		if card.type==CardType.MINION:

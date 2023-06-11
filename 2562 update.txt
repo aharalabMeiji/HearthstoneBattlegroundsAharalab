@@ -1,0 +1,175 @@
+Battlegrounds Updates
+Armor Updates
+The following heroes will now have less Armor:
+
+Trade Prince Gallywix now has 7 Armor
+Patches the Pirate now has 8 Armor, or 10 Armor in high MMR lobbies
+Death Speaker Blackthorn, Deathwing, and Elise Starseeker now have 10 Armor
+Jandice Barov and Sindragosa now have 12 Armor
+The following heroes will now have more Armor:
+
+George the Fallen now has 13 Armor
+Forest Warden Omu and Millificent Manastorm now have 14 Armor
+Ambassador Faelin, Lord Barov, Master Nguyen, Silas Darkmoon, and Tess Greymane now have 15 Armor
+N’Zoth and Ragnaros the Firelord now have 16 Armor
+Chenvaala now has 17 Armor
+Nozdormu now has 18 Armor
+Buddy Updates
+Living Nightmare (Kurtrus Ashfallen's Buddy)
+
+Old: After you buy a minion, minions in Bob’s Tavern have +1/+1 this turn.
+New: After you buy a minion, minions in Bob’s Tavern have +2/+1 this turn.
+
+
+Enhance-o Medico (Enhance-o Mechano’s Buddy)
+
+Old: [Tavern Tier 2] 2 Attack, 3 Health. Minions in Bob’s Tavern with Taunt, Reborn, Divine Shield, or Windfury have +1/+1 for each.
+New: [Tavern Tier 1] 2 Attack, 2 Health. Minions in Bob’s Tavern with Taunt, Reborn, Divine Shield, or Windfury have +2/+2 for each.
+
+
+Sr. Tomb Diver (Reno Jackson’s Buddy)
+
+Old: [Tavern Tier 2] Deathrattle: Make your right-most minion Golden.
+New: [Tavern Tier 1] Taunt. Deathrattle: Make your right-most minion Golden.
+
+
+Raging Contender (Captain Hooktusk’s Buddy)
+
+Old: [Tavern Tier 1] 4 Attack, 2 Health. ‘Trash for Treasure’ offers 3 options instead of 2.
+New: [Tavern Tier 4] 5 Attack, 4 Health. After you use ‘Trash for Treasure,’ gain Gold equal to the removed minion’s Tavern Tier.
+
+
+Frostwolf Lieutenant (Drek’Thar’s Buddy)
+
+Old: Avenge (3): Minions in Bob’s Tavern have +1 Attack for the rest of the game.
+New: Avenge (2): Minions in Bob’s Tavern have +1 Attack for the rest of the game.
+
+
+Unearthed Underling (Lich Baz’hial’s Buddy)
+
+Old: 3 Attack, 3 Health. Whenever your hero takes damage, this minion gains +3/+3 instead. (2 left this turn.)
+New: 2 Attack, 2 Health. Whenever your hero takes damage, this minion gains +2/+2 instead. (2 left this turn.)
+
+
+Jr. Navigator (Elise Starseeker’s Buddy)
+
+Old: Reduce the Cost of your Hero Power by (2).
+New: Reduce the Cost of ‘Lead Explorer’ by (2).
+Dev Comment: Junior Navigator has been removed from E.T.C.’s hero power pool.
+
+
+Arfus (The Lich King’s Buddy)
+
+Old: 4 Attack, 3 Health.
+New: 6 Attack, 3 Health.
+
+
+Festergut (Professor Putricide’s Buddy)
+
+Old: [Tavern Tier 4] 5 Attack, 2 Health.
+New: [Tavern Tier 3] 4 Attack, 2 Health.
+
+
+Apostle of Galakrond (Galakrond’s Buddy)
+
+Old: [Tavern Tier 3] 3 Attack, 5 Health.
+New: [Tavern Tier 2] 2 Attack, 4 Health.
+
+
+Elder Taggawag (Queen Wagtoggle’s Buddy)
+
+Old: [Tavern Tier 4] 5 Attack, 3 Health
+New: [Tavern Tier 2] 3 Attack, 2 Health.
+
+
+Flight Trainer (Galewing’s Buddy)
+
+Old: [Tavern Tier 3] 3 Attack, 4 Health
+New: [Tavern Tier 2] 2 Attack, 3 Health.
+
+
+Piloted Whirl-O-Tron (Sneed’s Buddy)
+
+Old: [Tavern Tier 4] 5 Attack, 4 Health.
+New: [Tavern Tier 3] 4 Attack, 3 Health.
+
+
+Mawsworn Soulkeeper (The Jailer’s Buddy)
+
+Old: [Tavern Tier 3] 3 Attack, 3 Health.
+New: [Tavern Tier 2] 2 Attack, 2 Health.
+
+
+Lucifron (Ragnaros the Firelord’s Buddy)
+
+Old: 5 Attack, 3 Health.
+New: 6 Attack, 5 Health.
+
+
+Burth (Silas Darkmoon’s Buddy)
+
+Old: 3 Attack, 6 Health.
+New: 5 Attack, 6 Health.
+
+
+Wandering Treant (Greybough’s Buddy)
+
+Old: [Tavern Tier 3] 4 Attack, 7 Health.
+New: [Tavern Tier 2] 3 Attack, 5 Health.
+
+
+Nathanos Blightcaller (Sylvanas’s Buddy)
+
+Old: [Tavern Tier 5] 3 Attack, 6 Health.
+New: [Tavern Tier 6] 6 Attack, 6 Health.
+
+
+Warden Thelwater
+
+Old: [Tavern Tier 3] 4 Attack, 6 Health.
+New: [Tavern Tier 4] 2 Attack, 6 Health.
+
+
+Muckslinger
+
+Old: [Tavern Tier 2] 5 Attack, 3 Health.
+New: [Tavern Tier 3] 5 Attack, 5 Health.
+
+
+Titanic Guardian (Pyramad’s Buddy)
+
+Old: 6 Attack, 2 Health
+New: 5 Attack, 2 Health.
+
+
+Tentacle of C’Thun (C’Thun’s Buddy)
+
+Old: [Tavern Tier 2] 1 Attack, 1 Health.
+New: [Tavern Tier 3] 3 Attack, 3 Health.
+
+
+Loyal Henchman (Arch-Villain Rafaam’s Buddy)
+
+Old: 6 Attack, 6 Health.
+New: 4 Attack, 6 Health.
+
+
+Buddy Tavern Tier Updates
+The following Buddies are now a lower Tavern Tier:
+
+Enhance-o Medico, Sklibb, Demon Hunter, and Sr. Tomb Diver are now Tavern Tier 1.
+Apostle of Galakrond, Crazy Monkey, Eclipsion Illidari, Elder Taggawag, Flight Trainer, Many Whelps, Mawsworn Soulkeeper, SI:7 Scout, Tamuzo, and Wandering Treant are now Tavern Tier 2.
+Baby Elekk, Dagwik Stickytoe, Festergut, Piloted Whirl-O-Tron, Spirit Raptor, and Street Magician are now Tavern Tier 3.
+Baby N’Zoth is now Tavern Tier 4.
+The following Buddies are now a higher Tavern Tier:
+
+Brann’s Epic Egg, Lil’ K.T, Muckslinger, and Tentacle of C’Thun are now Tavern Tier 3.
+Acolyte of Yogg-Saron, Imperial Defender, Kil’rek, Maxwell Mighty Steed, Nexus Lord, Raging Contender, Varden’s Aquarrior, and Warden Thelwater are now Tavern Tier 4.
+Baby Kodo, Captain Fairmount, Clockwork Assistant, Crimson Hand Centurion, and Ticket Collector are now Tavern Tier 5.
+Nathanos Blightcaller is now Tavern Tier 6.
+Minion Pool Updates
+Chronormu has been removed from the minion pool.
+Razorgore has been returned to the minion pool.
+Bug Fixes
+[Battlegrounds] Fixed a bug where some Buddy visuals were missing from the “Last 5 Warbands” under certain circumstances.
+[Collection] Fixed an issue where Diamond Zephrys appeared in-client before he was ready. He will return, and be earnable, when the time is right.

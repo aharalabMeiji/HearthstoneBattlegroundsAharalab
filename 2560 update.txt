@@ -1,0 +1,334 @@
+Battlegrounds Updates
+General Updates
+
+Battlegrounds Buddies are back for the mid-season update!
+Heroes now have 30 starting Health (except for Patchwerk) and Armor Tiers are being removed. Instead of a range of Armor, each hero will have a set amount of Armor, from 5-20.
+The starting Cost to upgrade from Tavern Tier 4 to Tavern Tier 5 has increased from 9 Gold to 11 Gold.
+Some Buddies had their minion types adjusted to match the minion type updates since Buddies were last in the Tavern.
+Buddies are Back and Better than Before!
+Buddies are returning for every hero that had a Buddy last time they were around. Heroes that didn’t already have their Buddy are making a new friend!
+
+Buddies work a little bit differently this time around. Instead of a complicated Buddy Meter, there’s now a Buddy Button that you can press at any time to get your Buddy. The Buddy Button’s initial cost is based on your Buddy’s Tavern Tier, and is reduced by 3 Gold each time you win or tie a combat, or reduced by 2 Gold each time you lose a combat.
+
+upgrading an Ability beyond the prior Max
+
+Like with the previous Buddy Meter, the Buddy Button can be activated up to twice per game. The first time you press the Button, you’ll get one copy of your Buddy; the second time you press the Button, you’ll get two copies. The cost to press the Button resets and is slightly increased after you press it the first time.
+
+Tavern Tier	Initial Cost	Reset Cost
+1	11	13
+2	13	15
+3	15	17
+4	17	19
+5	19	21
+6	21	23
+New Hero
+E.T.C., Band Manager
+
+Hero Power - Sign a New Artist (4 Gold): Discover a Buddy. (Unlocks at Tier 2.)
+Dev Comment: To avoid unwanted and ineffective interactions, the “Sign a New Artist” Buddy pool has the same limitations as Friend of a Friend.
+
+
+Buddy – Talent Scout (Tavern Tier 5)
+4 Attack, 4 Health. Battlecry: Make a Buddy Golden.
+
+
+E.T.C., Band Manager will be guaranteed in every game for the first 2 weeks after the launch of Patch 25.6.
+
+Hero Power Updates
+Shudderwock – Snicker-snack
+
+Old: [1 Gold] Add a 1/1 Shudderling to your hand that repeats all Battlecries you’ve played. (Twice per game).
+New: [0 Gold] Trigger a friendly minion’s Battlecry.
+Dev Comment: Shudderwock is still banned in Beast lobbies.
+
+
+Queen Wagtoggle – Wax Warband
+
+Old: [1 Gold] Give a friendly minion of each minion type +1/+1.
+New: Passive. Start of Combat: Give 3 friendly minions of different types stats equal to their Tavern Tiers.
+
+
+New Buddies
+Queen Azshara – Imperial Defender
+
+[Tavern Tier 3, Naga] 2 Attack, 4 Health. Whenever you cast a Spellcraft spell on a different minion, you also cast it on this.
+
+
+Ozumat – Tamuzo
+
+[Tavern Tier 3, Beast] 4 Attack, 4 Health. Avenge (2): Upgrade ‘Tentacular’ by +1/+1.
+
+
+Lady Vashj - Coilfang Elite
+
+[Tavern Tier 2, Naga] 3 Attack, 4 Health. After a Spellcraft minion appears in Bob’s Tavern, get a copy of its spell.
+
+
+Heistbaron Togwaggle – Waxadred, the Drippy
+
+[Tavern Tier 4, Dragon-Elemental] 7 Attack, 5 Health. Battlecry: Refresh Bob’s Tavern with the highest Tier minion from each opponent’s last Warband.
+
+
+Murloc Holmes – Watfin
+
+[Tavern Tier 3, Beast] 2 Attack, 6 Health. After you guess correctly with ‘Detective for Hire,’ get a plain copy of the minion.
+
+
+Sire Denathrius – Shady Aristocrat
+
+[Tavern Tier 2] 2 Attack, 2 Health. Battlecry: Discover a Quest. Complete it to get a 8-Gold Coin Pouch.
+Note: Due to a bug found late in patch development, Sire Denathrius (and Shady Aristocrat) will be temporarily banned at launch.
+
+
+Sylvanas Windrunner – Nathanos Blightcaller
+
+[Tavern Tier 5, Undead] 3 Attack, 6 Health. Battlecry: Remove a friendly minion. Give its stats to its neighbors.
+
+
+The Jailer – Mawsorn Soulkeeper
+
+[Tavern Tier 3, Undead] 3 Attack, 3 Health. Deathrattle: Summon 3 random Tier 1 minions.
+
+
+Enhance-o Mechano – Enhance-o Medico
+
+[Tavern Tier 2, Mech] 2 Attack, 3 Health. Minions in Bob’s Tavern with Taunt, Reborn, Divine Shield, or Windfury have +1/+1 for each.
+
+
+Professor Putricide – Festergut
+
+[Tavern Tier 4, Undead] 5 Attack, 2 Health. Deathrattle: Summon a random Undead Creation.
+
+
+Teron Gorefiend – Shadowy Construct
+
+[Tavern Tier 3, Undead] 3 Attack, 4 Health. After a friendly minion dies, give its neighbors +1/+1.
+
+
+Buddy Effect Updates
+Drek’Thar - Frostwolf Lieutenant
+
+[Tavern Tier 3] 7 Attack, 4 Health. Avenge (3): Minions in Bob’s Tavern have +1 Attack for the rest of the game.
+
+
+Vanndar Stormpike – Stormpike Lieutenant
+
+[Tavern Tier 3] 4 Attack, 7 Health. Avenge (2): Minions in Bob’s Tavern have +1 Health for the rest of the game.
+
+
+Elise Starseeker – Jr. Navigator
+
+[Tavern Tier 2] 3 Attack, 3 Health. Battlecry: Reduce the Cost of your Hero Power by (2).
+
+
+Galewing – Flight Trainer
+
+[Tavern Tier 3] 3 Attack, 4 Health. Your flightpaths trigger twice.
+
+
+Queen Wagtoggle – Elder Taggawag
+
+[Tavern Tier 4] 5 Attack, 3 Health. Battlecry: Gain 1 Gold for each minion type you control.
+
+
+Silas Darkmoon – Burth
+
+[Tavern Tier 4] 3 Attack, 6 Health. Whenever you Discover a minion, give it +4/+4 and upgrade this by +1/+1.
+
+
+Aranna Starseeker – Sklibb, Demon Hunter
+
+[Tavern Tier 2] 4 Attack, 4 Health. After you buy a minion, your next Refresh costs (0).
+
+
+The Lich King – Arfus
+
+[Tavern Tier 3, Beast-Undead] 4 Attack, 3 Health. After a friendly minion is Reborn, give it this minion’s Attack.
+
+
+Trade Prince Gallywix – Bilgewater Mogul
+
+[Tavern Tier 3] 6 Attack, 3 Health. Choose One – Give a minion +1 Attack for each Gold you’ve spent this turn; or +1 Health.
+Dev Comment: A few Buddies had their effects changed from Battlecry effects to functionally similar effects so that their gameplay would generally stay the same, but they wouldn’t be too powerful with Brann.
+
+
+Tickatus – Ticket Collector
+
+[Tavern Tier 4] 6 Attack, 6 Health. When you sell this, Discover a Darkmoon Prize from the next prize turn.
+
+
+Yogg-Saron – Acolyte of Yogg-Saron
+
+[Tavern Tier 3, Murloc] 5 Attack, 4 Health. When you sell this, spin the Wheel of Yogg Saron.
+
+
+Cariel Roame – Captain Fairmount
+
+[Tavern Tier 4] 7 Attack, 5 Health. Choose One - ‘Conviction] gives an additional +2 Attack for the rest of the game; or +2 Health.
+
+
+Millificent Manastorm – Elementium Squirrel Bomb
+
+[Tavern Tier 4, Mech] Deathrattle: Deal 2 damage to a random enemy minion for each of your Mechs that died this combat.
+
+
+Master Nguyen – Lei Flamepaw
+
+[Tavern Tier 1] 2 Attack, 5 Health. ‘Power of the Storm’ offers 3 options instead of 2.
+
+
+Captain Hooktusk – Raging Contender
+
+[Tavern Tier 1] 4 Attack, 2 Health. ‘Trash for Treasure’ offers 3 options instead of 2.
+
+
+New Minions
+Poetic Pen Pal
+
+[Tavern Tier 2] 2 Attack, 4 Health. Battlecry: Reduce the Cost of your next Buddy by (2).
+
+
+Leeching Felhound
+
+[Tavern Tier 3, Demon] 3 Attack, 3 Health. This costs Health to buy instead of Gold.
+
+
+Fireworks Fanatic
+
+[Tavern Tier 4] 4 Attack, 3 Health. Whenever you get a minion you already have, give your minions +1/+1.
+Dev Comment: This effect triggers whenever a minion is added to your hand, through any means, when you already have a minion of the same name either in play or in your hand.
+
+
+Dr. Boombox
+
+[Tavern Tier 4, Mech] 7 Attack, 1 Health. Deathrattle: Deal 7 damage to the 2 nearest enemy minions.
+
+
+Sly Raptor
+
+[Tavern Tier 4, Beast] 1 Attack, 3 Health. Deathrattle: Summon another random Beast. Set its stats to 7/7.
+
+
+Gem Smuggler
+
+[Tavern Tier 4, Quilboar] 3 Attack, 4 Health. Battlecry: Play a Blood Gem on all your other Quilboar.
+
+
+Bonemare
+
+[Tavern Tier 5, Undead-Beast] 5 Attack, 5 Health. Battlecry: Give a friendly minion +4/+4 and Taunt.
+
+
+Minion Updates
+Shell Collector
+
+Old: 3 Attack, 1 Health
+New: 2 Attack, 1 Health
+
+
+Annihilan Battlemaster
+
+Old: Battlecry: Gain +1 Health for each Health your hero is missing.
+New: Battlecry: Gain +2 Health for each Health your hero is missing.
+Dev Comment: This change is to compensate for the decrease in Heroes’ maximum base Health.
+
+
+Minion Pool Updates
+Tarecgosa has been moved from Tavern Tier 3 to Tavern Tier 4.
+Rendle the Mistermind, Kaboom Bot, Savannah Highmane, and Houndmaster have been removed from the minion pool.
+Archdruid Hamuul was also removed from the minion pool.
+Armor and Buddy Tier Updates
+With the updated Buddy System, most Buddies have adjusted Buddy Tavern Tiers. Additionally, Armor Tiers are now gone. Instead of a range of Armor, Heroes have a set amount of Armor every game, between 5 and 20. Every Hero’s new Armor amount and Buddy Tier are as follows:
+
+A.F. Kay	15	Snack Vendor	Tavern Tier 4
+Al’Akir	13	Spirit of Air	Tavern Tier 3
+Alexstrasza	15	Vaelstrasz	Tavern Tier 4
+Ambassador Faelin	13	Submersible Chef	Tavern Tier 5
+Aranna Starseeker	17	Sklibb, Demon Hunter	Tavern Tier 2
+Arch-Villain Rafaam	10	Loyal Henchman	Tavern Tier 3
+Bru’kan	16	Spirit Raptor	Tavern Tier 4
+C’Thun	10	Tentacle of C’Thun	Tavern Tier 2
+Captain Eudora	15	Dagwik Stickytoe	Tavern Tier 4
+Captain Hooktusk	10	Raging Contender	Tavern Tier 1
+Cariel Roame	13	Captain Fairmount	Tavern Tier 4
+Chenvaala	15	Snow Elemental	Tavern Tier 4
+Cookie the Cook	8	Sous Chef	Tavern Tier 2
+Dancin’ Deryl	18*	Asher the Haberdasher	Tavern Tier 3
+Death Speaker Blackthorn	15	Death’s Head Sage	Tavern Tier 4
+Deathwing	13	Lady Sinesta	Tavern Tier 3
+Dinotamer Brann	15	Brann’s Epic Egg	Tavern Tier 2
+Drek’Thar	13	Frostwolf Lieutenant	Tavern Tier 3
+Edwin VanCleef	17	SI:7 Scout	Tavern Tier 3
+Elise Starseeker	12	Jr. Navigator	Tavern Tier 2
+Enhance-o Mechano	15	Enhance-o Medico	Tavern Tier 2
+E.T.C., Band Manager	10	Talent Scout	Tavern Tier 5
+Forest Warden Omu	12	Evergreen Botani	Tavern Tier 5
+Fungalmancer Flurgl	12	Evergreen Botani	Tavern Tier 5
+Galakrond	13	Apostle of Galakrond	Tavern Tier 3
+Galewing	8	Flight Trainer	Tavern Tier 3
+George the Fallen	10	Karl the Lost	Tavern Tier 4
+Greybough	16	Wandering Treant	Tavern Tier 3
+Guff Runetotem	13	Baby Kodo	Tavern Tier 4
+Heistbaron Togwaggle	15	Waxadred, the Drippy	Tavern Tier 4
+Illidan Stormrage	13	Eclipsion Illidari	Tavern Tier 4
+Infinite Toki	14	Clockwork Assistant	Tavern Tier 4
+Ini Stormcoil	10*	Sub Scrubber	Tavern Tier 5
+Jandice Barov	15	Jandice’s Apprentice	Tavern Tier 3
+Kael’thas Sunstrider	14	Crimson Hand Centurion	Tavern Tier 4
+King Mukla	14	Crimson Hand Centurion	Tavern Tier 4
+Kurtrus Ashfallen	15	Living Nightmare	Tavern Tier 2
+Lady Vashj	10	Coilfang Elite	Tavern Tier 2
+Lich Baz’hial	13	Unearthed Underling	Tavern Tier 4
+Lord Barov	12	Barov’s Apprentice	Tavern Tier 4
+Lord Jaraxxus	13	Kil’rek	Tavern Tier 3
+Maiev Shadowsong	15*	Shadow Warden	Tavern Tier 2
+Malygos	10	Nexus Lord	Tavern Tier 3
+Master Nguyen	10	Lei Flamepaw	Tavern Tier 1
+Millhouse Manastorm	8	Magnus Manastorm	Tavern Tier 4
+Millificent Manastorm	10	Elementium Squirrel Bomb	Tavern Tier 4
+Mr. Bigglesworth	18	Lil’ K.T.	Tavern Tier 2
+Murloc Holmes	10	Watfin	Tavern Tier 3
+Mutanus the Devourer	10	Nightmare Ectoplasm	Tavern Tier 3
+N’Zoth	13	Baby N’Zoth	Tavern Tier 5
+Nozdormu	15	Chromie	Tavern Tier 4
+Onyxia	14	Many Whelps	Tavern Tier 3
+Overlord Saurfang	14	Dranosh Saurfang	Tavern Tier 4
+Ozumat	16	Tamuzo	Tavern Tier 3
+Patches the Pirate	10*	Tuskarr Raider	Tavern Tier 5
+Patchwerk	0	Weebomination	Tavern Tier 4
+Professor Putricide	13	Festergut	Tavern Tier 4
+Pyramad	14	Titanic Guardian	Tavern Tier 4
+Queen Azshara	16	Imperial Defender	Tavern Tier 3
+Queen Wagtoggle	10	Elder Taggawag	Tavern Tier 4
+Ragnaros the Firelord	13	Lucifron	Tavern Tier 5
+Rakanishu	16	Lantern Tender	Tavern Tier 4
+Reno Jackson	15	Sr. Tomb Diver	Tavern Tier 2
+Rokara	15	Icesnarl the Mighty	Tavern Tier 4
+Scabbs Cutterbutter	9	Warden Thelwater	Tavern Tier 3
+Shudderwock	16	Muckslinger	Tavern Tier 2
+Silas Darkmoon	10	Burth	Tavern Tier 4
+Sindragosa	15	Thawed Champion	Tavern Tier 3
+Sir Finley Mrrgglton	13	Maxwell, Mighty Steed	Tavern Tier 3
+Sire Denathrius	10	Shady Aristocrat	Tavern Tier 2
+Skycap’n Kragg	15	Sharkbait	Tavern Tier 5
+Sneed	15	Piloted Whirl-O-Tron	Tavern Tier 4
+Sylvanas Windrunner	13	Nathanos Blightcaller	Tavern Tier 5
+Tamsin Roame	13	Monstrosity	Tavern Tier 4
+Tavish Stormpike	10	Crabby	Tavern Tier 5
+Teron Gorefiend	10	Shadowy Construct	Tavern Tier 3
+Tess Greymane	12	Hunter of Old	Tavern Tier 4
+The Curator	13	Mishmash	Tavern Tier 3
+The Great Akazamzarak	13	Street Magician	Tavern Tier 4
+The Jailer	15	Mawsworn Soulkeeper	Tavern Tier 3
+The Lich King	10	Arfus	Tavern Tier 3
+The Rat King	10	Pigeon Lord	Tavern Tier 1
+Tickatus	16	Ticket Collector	Tavern Tier 4
+Trade Prince Gallywix	10	Bilgewater Mogul	Tavern Tier 3
+Vanndar Stormpike	10	Stormpike Lieutenant	Tavern Tier 3
+Varden Dawngrasp	13	Varden’s Aquarrior	Tavern Tier 3
+Vol’jin	10	Master Gadrin	Tavern Tier 4
+Xyrella	10	Baby Elekk	Tavern Tier 4
+Y’Shaarj	13	Baby Y’Shaarj	Tavern Tier 4
+Yogg-Saron, Hope’s End	15	Acolyte of Yogg-Saron	Tavern Tier 3
+Ysera	8*	Valithria Dreamwalker	Tavern Tier 4
+Zephrys, the Great	14	Phyresz	Tavern Tier 4

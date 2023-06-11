@@ -549,7 +549,7 @@ class BG26_888_G:# (minion)(murloc)
 ## 2520
 # [Tavern Tier 4, Elemental/Murloc]
 # 1 Attack, 1 Health. At the end of your turn, gain +1/+1. Repeat for each minion you played this turn.
-from BG_minion_elemental import BG25__Magmaloc
+from .BG_minion_elemental import BG25__Magmaloc
 if BG25__Magmaloc:# 5/1/1 murloc ## new 25.2
 	##BG_Minion_Murloc+=['BG25_046','BG25_046e','BG25_046_G','BG25_046_Ge']
 	BG_PoolSet_Murloc.append('BG25_046')
