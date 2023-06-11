@@ -7,16 +7,6 @@ Archdruid Hamuul has been temporarily returned to the minion pool (just until Pa
 
 Minion Changes
 
-Ghoul of the Feast
-
-Old: 2 Attack, 4 Health. Avenge (1): Give a friendly minion of each minion type +2 Attack.
-New: 2 Attack, 5 Health. Avenge (2): Give a friendly minion of each minion type +3 Attack.
-
-
-Legion Overseer
-
-Old: 4 Attack, 4 Health.
-New: 4 Attack, 2 Health.
 
 
 Chronormu

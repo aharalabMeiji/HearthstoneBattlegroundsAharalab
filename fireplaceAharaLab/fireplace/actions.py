@@ -3886,10 +3886,14 @@ class Rerole(TargetedAction): ## battlegrounds
 			if controller.hero.power.id=='TB_BaconShop_HP_065t2':### アランナフラグ
 				bartender.len_bobs_field=7
 			for repeat in range(bartender.len_bobs_field):
-				card = game.parent.DealCard(bartender, controller.tavern_tier)
+				if controller.archidruid_hamuul_rerole_race!=None: ## new 25.4.3
+					card = game.parent.DealCard(bartender, controller.tavern_tier,only_race=controller.archidruid_hamuul_rerole_race)
+				else:
+					card = game.parent.DealCard(bartender, controller.tavern_tier)
 				if controller.hero.power.id=='TB_BaconShop_HP_101':### サイラスフラグ
 					if random.choice([0,1]):
 						card.darkmoon_ticket = True
+			controller.archidruid_hamuul_rerole_race=None
 			if game.free_rerole>1:
 				game.free_rerole -= 1
 				game.reroleCost=0

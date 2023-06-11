@@ -72,7 +72,7 @@ BG24__Tea_Master_Theotar=(Config.BG_VERSION>=2420 and Config.BG_VERSION<2620)# (
 BG24_The_Walking_Fort=(Config.BG_VERSION>=2460 and Config.BG_VERSION<2522) ##(6) new 24.6 ### banned until 25.2.2 ###
 BG_Uther_the_Lightbringer=(Config.BG_VERSION>=2360) ##(6/5/6) new 23.6
 BG_Zapp_Slywick=True##(6/7/10)
-BG_Archdruid_Hamuul=(Config.BG_VERSION<2560) ## (6/8/8)
+BG_Archdruid_Hamuul=(Config.BG_VERSION>=2543 and Config.BG_VERSION<2560) ## (6/8/8)
 BG_The_Boogie_Monster=(Config.BG_VERSION>=2620) ## (6/3/8) new 26.2
 
 
@@ -2043,14 +2043,29 @@ class TB_BaconUps_091:# <12>[1453]
 		option_tags={GameTag.ATK:14, GameTag.HEALTH:20}
 	pass
 
-
+## Archdruid Hamuul (6/8/8)
 if BG_Archdruid_Hamuul:
 	BG_Minion += ['BG20_304','BG20_304_G',]#	
 	BG_PoolSet_Minion.append('BG20_304')
 	BG_Minion_Gold['BG20_304']='BG20_304_G'
+class BG20_304_Action(GameAction):
+	def do(self, source):
+		maxcount=0
+		maxrace=None
+		for race in [Race.BEAST, Race.DEMON, Race.DRAGON, Race,ELEMENTAL, Race.MECHANICAL, Race.MURLOC, Race.NAGA, Race.PIRATE, Race.UNDEAD]:
+			count=0
+			for card in source.controller.field:
+				if isRaceCard(card, race)==True:
+					count+=1
+			if count>maxcount:
+				maxcount=count
+				maxrace=race
+		if maxrace!=None:
+			source.controller.archidruid_hamuul_rerole_race=maxrace
 class BG20_304:#(6/8/8) # 大ドルイド・ハムウル
 	""" Archdruid Hamuul
 	&lt;b&gt;Battlecry:&lt;/b&gt; &lt;b&gt;Refresh&lt;/b&gt; Bob's Tavern with minions of your most common type."""
+	play = BG20_304_Action()
 	pass
 class BG20_304_G:#(6/16/16)
 	""" Archdruid Hamuul

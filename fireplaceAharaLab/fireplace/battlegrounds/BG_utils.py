@@ -514,15 +514,20 @@ class BG_main:
 		# end of main
 		pass
 
-	def DealCard(self, bartender, tier, only_tier=False):
+	def DealCard(self, bartender, tier, only_tier=False, only_race=None):
 		dk=[]
-		if only_tier:
-			dk += self.BG_decks[tier]
+		if only_race==None:
+			if only_tier:
+				dk += self.BG_decks[tier]
+			else:
+				for i in range(1,tier+1):
+					dk += self.BG_decks[i]
+			cardID = random.choice(dk)
+			card = bartender.card(cardID)
 		else:
-			for i in range(1,tier+1):
-				dk += self.BG_decks[i]
-		cardID = random.choice(dk)
-		card = bartender.card(cardID)
+			card=get00(random_picker.RandomBGMinion(tech_level_less=tier, race=only_race).evaluate(bartender))
+			if card==None:
+				card=get00(random_picker.RandomBGMinion(tech_level_less=tier).evaluate(bartender))
 		if card.race==Race.ELEMENTAL:## 
 			if bartender.opponent.nomi_powered_up>0: ### Nomi, Kitchen Nightmare
 				Buff(card, 'BGS_104pe',

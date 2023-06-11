@@ -12,7 +12,7 @@ BG25__Nerubian_Deathswarmer=(Config.BG_VERSION>=2522)#2 undead ## new 25.2.2
 BG25__Scarlet_Skull=(Config.BG_VERSION>=2522)#2 undead ## new 25.2.2
 BG25__Corpse_Refiner=(Config.BG_VERSION>=2522)# 2/2/3 undead/pirate ## new 25.2.2 
 
-BG25__Ghoul_of_the_Feast=(Config.BG_VERSION>=2522) # 3 undead ## new 25.2.2
+BG25__Ghoul_of_the_Feast=(Config.BG_VERSION>=2520) # 3 undead ## new 25.2
 BG25__Jelly_Belly=(Config.BG_VERSION>=2522 and Config.BG_VERSION<2620)#3 undead ## new 25.2.2 ## banned 26.2
 BG25__Lich_Doctor=(Config.BG_VERSION>=2522 and Config.BG_VERSION<2620)#3 undead ## new 25.2.2 ## banned 26.2
 BG25__Radio_Star=(Config.BG_VERSION>=2620) ## (3)
@@ -286,7 +286,16 @@ class BG25_033_G:# (minion)
 
 
 
-#Ghoul of the Feast 3/2/4/Undead	Avenge (X) ## new 25.2.2
+#Ghoul of the Feast /Undead	Avenge (X) ## new 25.2 ## (3/2/4)->(3/2/5)(25.4.3)
+## 2543
+##Old: 2 Attack, 4 Health. Avenge (1): Give a friendly minion of each minion type +2 Attack.
+##New: 2 Attack, 5 Health. Avenge (2): Give a friendly minion of each minion type +3 Attack.
+## 2522
+#Old: Avenge (1): Give a friendly minion of each minion type +3 Attack.
+#New: Avenge (1): Give a friendly minion of each minion type +2 Attack.
+## 2520
+#Tavern Tier 3, Undead
+#2 Attack, 4 Health. Avenge (1): Give a friendly minion of each type +3 Attack.
 if BG25__Ghoul_of_the_Feast:# 
 	BG_Minion_Undead+=['BG25_002']
 	BG_Minion_Undead+=['BG25_002e']
@@ -311,9 +320,19 @@ class BG25_002_Action(GameAction):
 class BG25_002:# (minion)
 	""" Ghoul of the Feast
 	<b>Avenge (1):</b> Give a friendly minion of each minion type +3 Attack. """
-	events = Death(FRIENDLY + MINION - SELF).on(Avenge(SELF, 1, [BG25_002_Action()]))
+	if Config.BG_VERSION>=2543:
+		option_tags={GameTag.ATK:2, GameTag.HEALTH:5}
+		events = Death(FRIENDLY + MINION - SELF).on(Avenge(SELF, 2, [BG25_002_Action()]))
+	else:
+		option_tags={GameTag.ATK:2, GameTag.HEALTH:4}
+		events = Death(FRIENDLY + MINION - SELF).on(Avenge(SELF, 1, [BG25_002_Action()]))
 	pass
-BG25_002e=buff(3,0)
+if Config.BG_VERSION>=2543:
+	BG25_002e=buff(3,0)
+elif Config.BG_VERSION>=2522:
+	BG25_002e=buff(2,0)
+else:
+	BG25_002e=buff(3,0)
 class BG25_002_G_Action(GameAction):
 	def do(self, source):
 		if source.controller.game.this_is_battle:
@@ -331,9 +350,19 @@ class BG25_002_G_Action(GameAction):
 class BG25_002_G:# (minion)
 	""" Ghoul of the Feast
 	<b>Avenge (1):</b> Give a friendly minion of each minion type +6 Attack. """
-	events = Death(FRIENDLY + MINION - SELF).on(Avenge(SELF, 1, [BG25_002_G_Action()]))
+	if Config.BG_VERSION>=2543:
+		option_tags={GameTag.ATK:4, GameTag.HEALTH:10}
+		events = Death(FRIENDLY + MINION - SELF).on(Avenge(SELF, 2, [BG25_002_G_Action()]))
+	else:
+		option_tags={GameTag.ATK:4, GameTag.HEALTH:10}
+		events = Death(FRIENDLY + MINION - SELF).on(Avenge(SELF, 1, [BG25_002_G_Action()]))
 	pass
-BG25_002_Ge=buff(6,0)
+if Config.BG_VERSION>=2543:
+	BG25_002_Ge=buff(6,0)
+elif Config.BG_VERSION>=2522:
+	BG25_002_Ge=buff(4,0)
+else:
+	BG25_002_Ge=buff(6,0)
 
 
 

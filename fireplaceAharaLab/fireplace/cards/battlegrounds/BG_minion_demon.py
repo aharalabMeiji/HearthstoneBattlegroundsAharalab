@@ -308,7 +308,10 @@ class BG25_520_G:
 
 
 
-
+#Legion Overseer (3)
+# 2543
+#Old: 4 Attack, 4 Health.
+#New: 4 Attack, 2 Health.
 #### BG23_361 #####
 if BG_Legion_Overseer:## (3) new 24.2 
 	BG_Minion_Demon +=['BG23_361','BG23_361e','BG23_361_G']
@@ -317,25 +320,42 @@ if BG_Legion_Overseer:## (3) new 24.2
 class BG23_361:
 	""" Legion Overseer (3)
 	Minions in Bob's_Tavern have +2/+2."""
+	if Config.BG_VERSION>=2422:
+		option_tags={GameTag.ATK:4, GameTag.HEALTH:2}
+	else:
+		option_tags={GameTag.ATK:4, GameTag.HEALTH:4}
 	update = Refresh(ENEMY_MINIONS, buff='BG23_361e')
 	pass
-#BG23_361e=buff(2,2)
-BG23_361e=buff(2,1) #24.2.2
+if Config.BG_VERSION>=2422:
+	BG23_361e=buff(2,1) #24.2.2
+else:
+	BG23_361e=buff(2,2)
 class BG23_361_G:
 	""" Legion Overseer (3)
 	Minions in Bob's_Tavern have +4/+4."""
+	if Config.BG_VERSION>=2422:
+		option_tags={GameTag.ATK:8, GameTag.HEALTH:4}
+	else:
+		option_tags={GameTag.ATK:8, GameTag.HEALTH:8}
 	update = Refresh(ENEMY_MINIONS, buff='BG23_361_Ge')
 	pass
 @custom_card
 class BG23_361_Ge:
-	tags = {
-		GameTag.CARDNAME: "Legion Overseer",
-		GameTag.CARDTYPE: CardType.ENCHANTMENT,
-		#GameTag.ATK:4,
-		#GameTag.HEALTH:4
-		GameTag.ATK:4,
-		GameTag.HEALTH:2
-	}
+	if Config.BG_VERSION>=2422:
+		tags = {
+			GameTag.CARDNAME: "Legion Overseer enchantment",
+			GameTag.CARDTYPE: CardType.ENCHANTMENT,
+			GameTag.ATK:4,
+			GameTag.HEALTH:2
+		}
+	else:
+		tags = {
+			GameTag.CARDNAME: "Legion Overseer enchantment",
+			GameTag.CARDTYPE: CardType.ENCHANTMENT,
+			GameTag.ATK:4,
+			GameTag.HEALTH:4
+		}
+
 
 ####################   魂喰らい魔 (3)### maybe OK ### banned 24.2
 if BG_Soul_Devourer:
