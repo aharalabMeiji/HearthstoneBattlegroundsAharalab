@@ -647,6 +647,12 @@ class BG21_031_G:# <12>[1453]
 
 
 #Vanessa VanCleef( parate 5, BG24_708)### OK ###
+# 2543
+#Old: 3 Attack, 7 Health.
+#New: 3 Attack, 4 Health.
+# 2522
+#Old: Whenever this attacks, give your Pirates +2/+1 permanently.
+#New: Whenever this attacks, give your Pirates +2/+2 permanently.
 if BG_Vanessa_VanCleef:
 	BG_Minion_Pirate +=['BG24_708','BG24_708e','BG24_708_G','BG24_708e_G']
 	BG_PoolSet_Pirate.append('BG24_708')
@@ -654,18 +660,27 @@ if BG_Vanessa_VanCleef:
 class BG24_708:
 	""" Vanessa VanCleef (3/7)
 	Whenever this attacks, give your Pirates +2/+1 permanently.""" ##new 26.2
-	#Whenever this attacks, give your Pirates +2/+2 permanently.
+	#Whenever this attacks, give your Pirates +2/+2 permanently. ## new 25.2.2
+	#Whenever this attacks, give your Pirates +2/+1 permanently. 
+	if Config.BG_VERSION>=2543:
+		option_tags={GameTag.ATK:3, GameTag.HEALTH:4}
+	else:
+		option_tags={GameTag.ATK:3, GameTag.HEALTH:7}
 	events = Attack(SELF, ENEMY).on(BuffPermanently(FRIENDLY_MINIONS + PIRATE, 'BG24_708e'))
 	pass
-if Config.BG_VERSION>=2620:
+if Config.BG_VERSION>=2620 or Config.BG_VERSION<2522:
 	BG24_708e=buff(2,1)
 else:
 	BG24_708e=buff(2,2)
 class BG24_708_G:
 	""" Vanessa VanCleef
 	Whenever this attacks, give your Pirates +4/+2 permanently."""
+	if Config.BG_VERSION>=2543:
+		option_tags={GameTag.ATK:6, GameTag.HEALTH:8}
+	else:
+		option_tags={GameTag.ATK:6, GameTag.HEALTH:14}
 	events = Attack(SELF, ENEMY).on(BuffPermanently(FRIENDLY_MINIONS + PIRATE, 'BG24_708e_G'))
-if Config.BG_VERSION>=2620:
+if Config.BG_VERSION>=2620 or Config.BG_VERSION<2522:
 	BG24_708e_G=buff(4,2)
 else:
 	BG24_708e_G=buff(2,2)

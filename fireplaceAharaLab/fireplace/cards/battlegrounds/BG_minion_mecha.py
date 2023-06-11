@@ -640,6 +640,13 @@ class TB_BaconUps_032t:
 	pass
 
 #Grease Bot(4->6) 23.6
+## 2543
+#Old: [Tavern Tier 6] 4 Attack, 7 Health. After a friendly minion loses Divine Shield, give it +3/+2 permanently.
+#New: [Tavern Tier 4] 3 Attack, 6 Health. After a friendly minion loses Divine Shield, give it +2/+1 permanently.
+## 2522
+#Old: After a friendly minion loses Divine Shield, give it +2/+2 permanently.
+#New: After a friendly minion loses Divine Shield, give it +3/+2 permanently.
+## 2360
 if BG_Grease_Bot:
 	BG_Minion_Mecha+=['BG21_024', 'BG21_024e','BG21_024_G','BG21_024_Ge',]
 	BG_PoolSet_Mecha.append('BG21_024')
@@ -647,25 +654,43 @@ if BG_Grease_Bot:
 class BG21_024:# <12>[1453]
 	""" Grease Bot
 	After a friendly minion loses [Divine Shield], give it +2/+2_permanently. """
-	if Config.BG_VERSION>=2360:
-		option_tags={GameTag.TECH_LEVEL:6}
+	if Config.BG_VERSION>=2543:
+		option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:3, GameTag.HEALTH:6}
+	elif Config.BG_VERSION>=2360:
+		option_tags={GameTag.TECH_LEVEL:6, GameTag.ATK:4, GameTag.HEALTH:7}
 	else:
-		option_tags={GameTag.TECH_LEVEL:4}
+		option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:4, GameTag.HEALTH:7}
 	events = LoseDivineShield(FRIENDLY_MINIONS).on(BuffPermanently(LoseDivineShield.TARGET, 'BG21_024e'))
 	pass
-BG21_024e=buff(2,2)#24.0.3
-#BG21_024e=buff(3,2)# until 23.6
+if Config.BG_VERSION>=2543:
+	BG21_024e=buff(2,1)#25.4.3
+elif Config.BG_VERSION>=2522:
+	BG21_024e=buff(3,2)#25.2.2
+elif Config.BG_VERSION>=2403:
+	BG21_024e=buff(2,2)#24.0.3
+else:
+	BG21_024e=buff(3,2)# 
 class BG21_024_G:# <12>[1453]
 	""" Grease Bot
 	After a friendly minion loses [Divine Shield], give it +4/+4_permanently. """
+	if Config.BG_VERSION>=2543:
+		option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:6, GameTag.HEALTH:12}
 	if Config.BG_VERSION>=2360:
-		option_tags={GameTag.TECH_LEVEL:6}
+		option_tags={GameTag.TECH_LEVEL:6, GameTag.ATK:8, GameTag.HEALTH:14}
 	else:
-		option_tags={GameTag.TECH_LEVEL:4}
+		option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:8, GameTag.HEALTH:14}
 	events = LoseDivineShield(FRIENDLY_MINIONS).on(BuffPermanently(LoseDivineShield.TARGET, 'BG21_024_Ge'))
 	pass
-BG21_024_Ge=buff(4,4)# 24.0.3
-#BG21_024_Ge=buff(6,4)# until 23.6
+if Config.BG_VERSION>=2543:
+	BG21_024_Ge=buff(4,2)#25.4.3
+elif Config.BG_VERSION>=2522:
+	BG21_024_Ge=buff(6,4)#25.2.2
+elif Config.BG_VERSION>=2403:
+	BG21_024_Ge=buff(4,4)#24.0.3
+else:
+	BG21_024_Ge=buff(6,4)# 
+
+
 
 from .BG_minion_demon import BG25__Mecha_Jaraxxus
 if BG25__Mecha_Jaraxxus:# 6/3/15 MECH/DEMON ## new 25.2.2 ##

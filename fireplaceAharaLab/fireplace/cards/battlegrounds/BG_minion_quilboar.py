@@ -423,6 +423,9 @@ BG20_207_Ge=buff(2,2)# <12>[1453]
 
 
 #Groundshaker	4  ## OK ### banned 26.2
+## 2543
+#Old: 2 Attack, 6 Health.
+#New: 3 Attack, 8 Health.
 if BG_Groundshaker:
 	BG_Minion_Quilboar += [ 'BG20_106','BG20_106e','BG20_106_G',]#	
 	BG_PoolSet_Quilboar.append('BG20_106')
@@ -430,6 +433,10 @@ if BG_Groundshaker:
 class BG20_106:# <12>[1453]
 	""" Groundshaker
 	After a [Blood Gem] is played on this, give your other minions +2 Attack for next combat only. """
+	if Config.BG_VERSION>=2543:
+		option_tags={GameTag.ATK:3, GameTag.HEALTH:8}
+	else:
+		option_tags={GameTag.ATK:2, GameTag.HEALTH:6}
 	events = ApplyGem(SELF).on(Buff(FRIENDLY_MINIONS - SELF, 'BG20_106e'))
 	pass
 class BG20_106e:# <12>[1453]
@@ -439,6 +446,10 @@ class BG20_106e:# <12>[1453]
 class BG20_106_G:# <12>[1453]
 	""" Groundshaker
 	After a [Blood Gem] is played on this, give your other minions +4 Attack for next combat only. """
+	if Config.BG_VERSION>=2543:
+		option_tags={GameTag.ATK:6, GameTag.HEALTH:16}
+	else:
+		option_tags={GameTag.ATK:4, GameTag.HEALTH:12}
 	events = ApplyGem(SELF).on(
 		Buff(FRIENDLY_MINIONS - SELF, 'BG20_106e'), 
 		Buff(FRIENDLY_MINIONS - SELF, 'BG20_106e'))

@@ -13,7 +13,7 @@ BG25__Scarlet_Skull=(Config.BG_VERSION>=2522)#2 undead ## new 25.2.2
 BG25__Corpse_Refiner=(Config.BG_VERSION>=2522)# 2/2/3 undead/pirate ## new 25.2.2 
 
 BG25__Ghoul_of_the_Feast=(Config.BG_VERSION>=2520) # 3 undead ## new 25.2
-BG25__Jelly_Belly=(Config.BG_VERSION>=2522 and Config.BG_VERSION<2620)#3 undead ## new 25.2.2 ## banned 26.2
+BG25__Jelly_Belly=(Config.BG_VERSION>=2520 and Config.BG_VERSION<2620)#3 undead ## new 25.2 ## banned 26.2
 BG25__Lich_Doctor=(Config.BG_VERSION>=2522 and Config.BG_VERSION<2620)#3 undead ## new 25.2.2 ## banned 26.2
 BG25__Radio_Star=(Config.BG_VERSION>=2620) ## (3)
 
@@ -366,7 +366,14 @@ else:
 
 
 
-#Jelly Belly 3/3/5/Undead	Reborn ## new 25.2.2 ## banned 26,2
+#Jelly Belly 3/3/5/Undead	Reborn ## new 25.2 ## banned 26.2
+# 2543
+#Old: 3 Attack, 5 Health.
+#New: 3 Attack, 6 Health.
+## 2520
+#Tavern Tier 3, Undead]
+#3 Attack, 5 Health. After a minion is Reborn, gain +3/+3.
+
 if BG25__Jelly_Belly:# 
 	BG_Minion_Undead+=['BG25_005']
 	BG_Minion_Undead+=['BG25_005_G']
@@ -377,12 +384,20 @@ if BG25__Jelly_Belly:#
 class BG25_005:# (minion)
 	""" Jelly Belly
 	After a friendly minion is <b>Reborn</b>, gain +3/+3. """
+	if Config.BG_VERSION>=2543:
+		option_tags={GameTag.ATK:3, GameTag.HEALTH:6}
+	else:
+		option_tags={GameTag.ATK:3, GameTag.HEALTH:5}
 	events = Reborn(FRIENDLY + MINION - SELF).after(Buff(Reborn.TARGET, 'BG25_005e'))
 	pass
 BG25_005e=buff(3,3)
 class BG25_005_G:# (minion)
 	""" Jelly Belly
 	After a friendly minion is <b>Reborn</b>, gain +6/+6. """
+	if Config.BG_VERSION>=2543:
+		option_tags={GameTag.ATK:6, GameTag.HEALTH:12}
+	else:
+		option_tags={GameTag.ATK:6, GameTag.HEALTH:10}
 	events = Reborn(FRIENDLY + MINION - SELF).after(Buff(Reborn.TARGET, 'BG25_005_Ge'))
 	pass
 BG25_005_Ge=buff(6,6)

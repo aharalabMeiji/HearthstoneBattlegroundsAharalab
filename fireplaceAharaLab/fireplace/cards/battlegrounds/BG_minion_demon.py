@@ -30,7 +30,7 @@ BG26__Imposing_Percussionist=(Config.BG_VERSION>=2620)#(5/6/6)
 
 BG_Famished_Felbat=True ##(6)
 BG_Imp_Mama=(Config.BG_VERSION<2522) ##(6) ## banned? 25.2.2
-BG25__Felstomper=(Config.BG_VERSION>=2522)# 6/3/7 demon/beast ## new 25.2.2
+BG25__Felstomper=(Config.BG_VERSION>=2520)# 6/3/7 demon/beast ## new 25.2.0
 BG25__Mecha_Jaraxxus=(Config.BG_VERSION>=2522)# 6/3/15 MECH/DEMON ## new 25.2.2
 
 
@@ -838,7 +838,16 @@ class BG25_807t3_G:# (minion)
 	pass
 
 
-
+##Felstomper (6/3/7)
+## 2543
+# Old: 3 Attack, 8 Health. After you summon a minion in combat, give your minions +2 Attack.
+# New: 3 Attack, 7 Health. After you summon a minion in combat, give your minions +3 Attack.
+## 2522
+#Old: 3 Attack, 7 Health. After you summon a minion in combat, give your minions +3 Attack.
+#New: 3 Attack, 8 Health. After you summon a minion in combat, give your minions +2 Attack.
+## 2520
+#[Tavern Tier 6, Demon/Beast]
+#3 Attack, 7 Health. After you summon a minion in combat, give your minions +3 Attack.
 if BG25__Felstomper:# 6/3/7 demon/beast ## new 25.2.2 ### need check##############
 	BG_Minion_Demon+=['BG25_042','BG25_042_G','BG25_042_Ge','BG25_042e']
 	BG_PoolSet_Demon.append('BG25_042')
@@ -851,9 +860,20 @@ class BG25_042_Action(GameAction):
 class BG25_042:# (minion)(demon)
 	""" Felstomper
 	After you summon a _minion in combat, give ___your minions +3 Attack. """
+	if Config.BG_VERSION>=2543:
+		option_tags={GameTag.ATK:3, GameTag.HEALTH:7}	
+	elif Config.BG_VERSION>=2522:
+		option_tags={GameTag.ATK:3, GameTag.HEALTH:8}	
+	else:
+		option_tags={GameTag.ATK:3, GameTag.HEALTH:7}	
 	events = Summon(CONTROLLER, FRIENDLY + MINION).on(BG25_042_Action())
 	pass
-BG25_042e=buff(3,0)# (enchantment)
+if Config.BG_VERSION>=2543:
+	BG25_042e=buff(3,0)# (enchantment)
+elif Config.BG_VERSION>=2522:
+	BG25_042e=buff(2,0)#
+else:
+	BG25_042e=buff(3,0)# 
 """ Felgorged	+3 Attack. """
 class BG25_042_G_Action(GameAction):
 	def do(self,source):
@@ -863,9 +883,20 @@ class BG25_042_G_Action(GameAction):
 class BG25_042_G:# (minion)(demon)
 	""" Felstomper
 	After you summon a _minion in combat, give ___your minions +6 Attack. """
+	if Config.BG_VERSION>=2543:
+		option_tags={GameTag.ATK:6, GameTag.HEALTH:14}	
+	elif Config.BG_VERSION>=2522:
+		option_tags={GameTag.ATK:6, GameTag.HEALTH:16}	
+	else:
+		option_tags={GameTag.ATK:6, GameTag.HEALTH:14}	
 	events = Summon(CONTROLLER, FRIENDLY+MINION).on(BG25_042_G_Action())
 	pass
-BG25_042_Ge=buff(6,0)
+if Config.BG_VERSION>=2543:
+	BG25_042_Ge=buff(6,0)# (enchantment)
+elif Config.BG_VERSION>=2522:
+	BG25_042_Ge=buff(4,0)#
+else:
+	BG25_042_Ge=buff(6,0)# 
 """ Felgorged	+6 Attack. """
 
 
