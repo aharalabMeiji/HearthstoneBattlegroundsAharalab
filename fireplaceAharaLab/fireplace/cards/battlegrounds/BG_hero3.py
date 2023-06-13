@@ -290,11 +290,18 @@ class TB_BaconShop_HP_036_Action(TargetedAction):
 			Buff(target, 'TB_BaconShop_HP_036e2', atk=atk, max_health=hlt).trigger(source)
 class TB_BaconShop_HP_036:
 	""" Bloodfury
-	Choose a friendly Demon. It consumes a minion in Bob's Tavern to gain its stats."""
-	###Give your Demons +1/+1."""
-	requirements = { PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_MINION_TARGET:0, PlayReq.REQ_FRIENDLY_TARGET:0, PlayReq.REQ_TARGET_WITH_RACE:Race.DEMON}
-	activate = TB_BaconShop_HP_036_Action(TARGET)
+	Choose a friendly Demon. It consumes a minion in Bob's Tavern to gain its stats.""" ### new 2520
+	if Config.BG_VERSION>=2520:
+		requirements = { PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_MINION_TARGET:0, PlayReq.REQ_FRIENDLY_TARGET:0, PlayReq.REQ_TARGET_WITH_RACE:Race.DEMON}
+		activate = TB_BaconShop_HP_036_Action(TARGET)
+	else:
+		##Give your Demons +1/+1."""
+		play = Buff(FRIENDLY_MINIONS + DEMON, 'TB_BaconShop_HP_036e2')
 class TB_BaconShop_HP_036e2:
+	if Config.BG_VERSION>=2520:
+		pass
+	else:
+		option_tags={GameTag.ATK:1, GameTag.HEALTH:1}
 	pass
 ######## BUDDY
 class TB_BaconShop_HERO_37_Buddy_Action(GameAction):
@@ -654,15 +661,19 @@ class TB_BaconShop_HP_015_Action(GameAction):### old
 		pass
 class TB_BaconShop_HP_015:
 	""" Tinker
-	[Passive] Whenever you summon a Mech, give it +2 Attack."""
+	[Passive] Whenever you summon a Mech, give it +2 Attack.""" ## new 2520
 	### [Passive]Mechs in Bob's Tavern have +1/+1.
-	events = Summon(CONTROLLER, FRIENDLY + MINION + MECH).on(Buff(Summon.CARD, 'TB_BaconShop_HP_015e'))
-	#events = [
-	#	BeginBar(CONTROLLER).on(TB_BaconShop_HP_015_Action()),
-	#	Rerole(CONTROLLER).on(TB_BaconShop_HP_015_Action()),
-	#]
-TB_BaconShop_HP_015e=buff(2,0)
-#TB_BaconShop_HP_015e=buff(1,1)
+	if Config.BG_VERSION>=2520:
+		events = Summon(CONTROLLER, FRIENDLY + MINION + MECH).on(Buff(Summon.CARD, 'TB_BaconShop_HP_015e'))
+	else:
+		events = [
+			BeginBar(CONTROLLER).on(TB_BaconShop_HP_015_Action()),
+			Rerole(CONTROLLER).on(TB_BaconShop_HP_015_Action()),
+		]	
+if Config.BG_VERSION>=2520:
+	TB_BaconShop_HP_015e=buff(2,0)
+else:
+	TB_BaconShop_HP_015e=buff(1,1)
 ######## BUDDY
 class TB_BaconShop_HERO_17_Buddy_Deathrattle(GameAction):
 	def do(self, source):
@@ -677,8 +688,8 @@ class TB_BaconShop_HERO_17_Buddy_Deathrattle(GameAction):
 				Hit(card,2).trigger(source)
 class TB_BaconShop_HERO_17_Buddy:# <12>[1453] 
 	""" Elementium Squirrel Bomb
-	[Deathrattle:] Deal 2 damage to a random enemy minion for each of your Mechs that died this combat."""
-	###[Deathrattle:] Deal 3 damage to a random enemy minion for each of your Mechs that died this combat. """
+	[Deathrattle:] Deal 2 damage to a random enemy minion for each of your Mechs that died this combat.""" ### new buddy >=2560
+	###[Deathrattle:] Deal 3 damage to a random enemy minion for each of your Mechs that died this combat. """ ### maybe old one <????
 	option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:4, GameTag.HEALTH:4}
 	deathrattle = TB_BaconShop_HERO_17_Buddy_Deathrattle()
 	pass
@@ -1430,10 +1441,11 @@ class TB_BaconShop_HERO_34_Buddy_G:# <12>[1453]
 
 
 ##Professor Putricide BG25_HERO_100
-BG_Hero3 += ['BG25_HERO_100','BG25_HERO_100p','BG25_HERO_100_Buddy','BG25_HERO_100_Buddy_G','BG25_HERO_100pt',]# 
-BG_PoolSet_Hero3 +=['BG25_HERO_100',]#
-#BG_Hero3_Buddy['BG25_HERO_100']='BG25_HERO_100_Buddy'#
-#BG_Hero3_Buddy_Gold['BG25_HERO_100_Buddy']='BG25_HERO_100_Buddy_G'#
+if Config.BG_VERSION>=2520:
+	BG_Hero3 += ['BG25_HERO_100','BG25_HERO_100p','BG25_HERO_100_Buddy','BG25_HERO_100_Buddy_G','BG25_HERO_100pt',]# 
+	BG_PoolSet_Hero3 +=['BG25_HERO_100',]#
+	BG_Hero3_Buddy['BG25_HERO_100']='BG25_HERO_100_Buddy'#
+	BG_Hero3_Buddy_Gold['BG25_HERO_100_Buddy']='BG25_HERO_100_Buddy_G'#
 class BG25_HERO_100:
 	""" Professor Putricide
 	"""
@@ -1446,7 +1458,7 @@ class BG25_HERO_100:
 	else:
 		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
 	pass
-class BG25_HERO_100p_Action(GameAction):####################################
+class BG25_HERO_100p_Action(GameAction):####################################VACNAT
 	def do(self, source):
 
 		pass
@@ -1457,7 +1469,7 @@ class BG25_HERO_100p:
 	## <Tag enumID="48" name="COST" type="Int" value="4"/>
 	activate = BG25_HERO_100p_Action()
 #### BUDDY ####
-class BG25_HERO_100_Buddy:######################
+class BG25_HERO_100_Buddy:########################################VACNAT
 	""" Festergut
 	[Deathrattle:] Summon a random Undead Creation."""
 	if Config.BG_VERSION>=2562:
@@ -1465,7 +1477,7 @@ class BG25_HERO_100_Buddy:######################
 	else:
 		option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:5, GameTag.HEALTH:2}
 	### after 2602, "Ticking Abomination has been removed from the Festergut minion pool. "
-class BG25_HERO_100_Buddy_G:#
+class BG25_HERO_100_Buddy_G:#########################################VACNAT
 	""" Festergut
 	[x][Deathrattle:] Summon 2 random Undead Creations."""
 	### after 2602, "Ticking Abomination has been removed from the Festergut minion pool. "
@@ -1505,17 +1517,22 @@ class TB_BaconShop_HP_040_Action2(TargetedAction):
 			source.script_data_num_1 += 1
 class TB_BaconShop_HP_040:
 	""" Brick by Brick
-	Give a minion +@ Health. <i>(Gains +1 Health each turn you don't use this!)</i> """ #23.6
+	Give a minion +@ Health. <i>(Gains +1 Health each turn you don't use this!)</i> """ ## new 2520, starting 1 health 
+	## <Tag enumID="2" name="TAG_SCRIPT_DATA_NUM_1" type="Int" value="1"/>
+	## [0 Gold] Give a minion +2 Health. (Gains +1 Health each turn you don't use this!) #23.6 starting 2 health
+	if Config.BG_VERSION>=2520:
+		option_tags={GameTag.TAG_SCRIPT_DATA_NUM_1:1}
+	else:
+		option_tags={GameTag.TAG_SCRIPT_DATA_NUM_1:2}
 	requirements = {PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_MINION_TARGET:0, 
 				 PlayReq.REQ_FRIENDLY_TARGET:0,}	
 	activate = TB_BaconShop_HP_040_Action1(TARGET, 'TB_BaconShop_HP_040e')
 	events = EndTurn(CONTROLLER).on(TB_BaconShop_HP_040_Action2(SELF))
-	## Give a random friendly minion +4_Health. (old version , -2022.6)
-	## <Tag enumID="2" name="TAG_SCRIPT_DATA_NUM_1" type="Int" value="2"/>
+	## Give a random friendly minion +4_Health. (older version , -2022.6)
 class TB_BaconShop_HP_040e:
 	pass
 ######## BUDDY
-class TB_BaconShop_HERO_39_Buddy:# <12>[1453]#############
+class TB_BaconShop_HERO_39_Buddy:# <12>[1453]############## VACANT
 	""" Titanic Guardian
 	Whenever a different friendly minion gains Health, this gains it too. """
 	if Config.BG_VERSION>=2562:

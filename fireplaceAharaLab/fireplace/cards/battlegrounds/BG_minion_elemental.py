@@ -144,9 +144,14 @@ if BG26__Flourishing_Frostling:#
 class BG26_537_Action(GameAction):#
 	AMOUNT=IntArg()
 	def do(self, source,amount):# 
-		source.controller.flourishing_frostling_powered_up += amount
-		cards = [card for card in source.controller.field + source.controller.hand if isRaceCard(card, Race.ELEMENTAL)]
+		cards = [card for card in source.controller.play_log if isRaceCard(card, Race.ELEMENTAL)==True]
+		source.controller.flourishing_frostling_powered_up  = len(cards) * amount
+		cards = [card for card in source.controller.field + source.controller.hand if card.id=='BG26_537']
 		for card in cards:
+			for bf in card.buffs:
+				if bf.id=='BG26_537e':
+					card.buffs.remove(bf)
+					break
 			Buff(card, 'BG26_537e', atk=source.controller.flourishing_frostling_powered_up).trigger(source)
 		pass# 
 class BG26_537:# (minion)

@@ -647,6 +647,12 @@ class TB_BaconShop_HERO_15:# <12>[1453]
 		option_tags={GameTag.ARMOR:10, GameTag.HEALTH:30}
 	else:
 		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
+class TB_BaconShop_HP_010_Action(TargetedAction):
+	TARGET=ActionArg()
+	def do(self, source, target):
+		target.tags[GameTag.DIVINE_SHIELD]=1
+		#target.divine_shield=True
+		pass
 class TB_BaconShop_HP_010:
 	""" Boon of Light
 	Give a minion [Divine Shield]."""
@@ -656,7 +662,7 @@ class TB_BaconShop_HP_010:
 		PlayReq.REQ_FRIENDLY_TARGET:0,
 		PlayReq.REQ_MINION_TARGET:0,
 		}
-	activate = GiveDivineShield(TARGET)
+	activate = TB_BaconShop_HP_010_Action(TARGET)
 ######## BUDDY
 class TB_BaconShop_HERO_15_Buddy:# <12>[1453]
 	""" Karl the Lost

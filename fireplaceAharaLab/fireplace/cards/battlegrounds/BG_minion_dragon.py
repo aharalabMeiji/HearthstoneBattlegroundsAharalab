@@ -355,10 +355,11 @@ class BG24_500e:
 		#GameTag.ATK:3,
 		#GameTag.HEALTH:3
 		GameTag.ATK:2,#24.2.2
-		GameTag.HEALTH:2#24.2.2
+		GameTag.HEALTH:2#24.2.2 
 		}
 	def apply(self, target):
-		SetDivineShield(target, True).trigger(self)
+		target.tags[GameTag.DIVINE_SHIELD]=1
+		#SetDivineShield(target, True).trigger(self)
 class BG24_500_G:# (minion)
 	""" Amber Guardian
 	[Start of Combat:] Give another friendly Dragon +6/+6 and [Divine Shield]. """
@@ -372,7 +373,8 @@ class BG24_500_Ge:
 		GameTag.HEALTH:4#24.2.2
 		}
 	def apply(self, target):
-		SetDivineShield(target, True).trigger(self)
+		target.tags[GameTag.DIVINE_SHIELD]=1
+		#SetDivineShield(target, True).trigger(self)
 
 
 
