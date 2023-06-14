@@ -20,7 +20,7 @@ class BG20_HERO_282:# <9>[1453]
 	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:13, GameTag.HEALTH:30}
 	else:
-		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:0, GameTag.HEALTH:40}
 	pass
 class BG20_HERO_282p_Action(GameAction):
 	def do(self, source):
@@ -608,7 +608,7 @@ class TB_BaconShop_HERO_22:# <12>[1453]
 	if Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:10, GameTag.HEALTH:30}
 	else:
-		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:0, GameTag.HEALTH:40}
 	pass
 class TB_BaconShop_HP_024:
 	"""  
@@ -667,7 +667,7 @@ class TB_BaconShop_HERO_12:# <12>[1453]
 	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:10, GameTag.HEALTH:30}
 	else:
-		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:0, GameTag.HEALTH:40}
 	pass
 class TB_BaconShop_HP_041_Action(GameAction):
 	def do(self, source):
@@ -925,7 +925,7 @@ class TB_BaconShop_HERO_10:# <12>[1453]
 	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:10, GameTag.HEALTH:30}
 	else:
-		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:0, GameTag.HEALTH:40}
 class TB_BaconShop_HP_008:
 	""" 
 	[Passive] After you sell a minion, get 1 extra Gold next turn. <i>(Can exceed 10.)</i>"""
@@ -982,7 +982,7 @@ class BG22_HERO_003:# <12>[1453]
 	if Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:10, GameTag.HEALTH:30}
 	else:
-		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:0, GameTag.HEALTH:40}
 class BG22_HERO_003p:# <12>[1453]
 	""" Lead the Stormpikes
 	[Passive] [Avenge (2):] Give your minions +1 Health permanently.""" ## new 24.2
@@ -1144,7 +1144,7 @@ class BG20_HERO_201:# <12>[1453]
 	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:10, GameTag.HEALTH:30}
 	else:
-		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:0, GameTag.HEALTH:40}
 class ChooseTwice(Choice):
 	card1=None
 	card2=None
@@ -1251,7 +1251,7 @@ class BG20_HERO_101:# <12>[1453]
 	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:10, GameTag.HEALTH:30}
 	else:
-		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:0, GameTag.HEALTH:40}
 class BG20_HERO_101p_Action(TargetedAction):
 	TARGET=ActionArg()
 	def do(self, source, target):
@@ -1588,7 +1588,7 @@ class TB_BaconShop_HERO_53:# <12>[1453]  ## if dragon is not banned
 	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:8, GameTag.HEALTH:30}
 	else:
-		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:0, GameTag.HEALTH:40}
 class TB_BaconShop_HP_062_Action(GameAction):
 	def do(self, source):
 		from fireplace import cards

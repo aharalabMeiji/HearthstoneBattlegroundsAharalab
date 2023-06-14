@@ -64,22 +64,24 @@ Pyramad (Brick by Brick)
 Old: [0 Gold] Give a minion +2 Health. (Gains +1 Health each turn you don't use this!)
 New: [0 Gold] Give a minion +1 Health. (Gains +1 Health each turn you don't use this!)
 
-
+## done
 Galewing (Dungar's Gryphon)
 
 You can no longer choose the same Flight Path twice in a row.
 
-
+## done
 Westfall
 Old: Passive. In 1 turn, give your left-most minion +2/+1.
 New: Passive. In 1 turn, give your left-most minion +2/+2.
 
 
+## done
 Ironforge
 Old: Passive. In 3 turns, Discover a minion of your Tavern Tier.
 New: Passive. In 2 turns, gain 2 Gold.
 
 
+## done
 Eastern Plaguelands:
 Old: Passive. In 5 turns, your next Tavern Tier upgrade costs (6) less.
 New: Passive. In 3 turns, Discover a minion of your Tavern Tier.
@@ -90,32 +92,32 @@ Updated Hero Armor Tiers
 Many heroes have had their Armor Tiers adjusted for the new season. All armor tiers are as follows:
 
 Tier 1 (0 Armor)
-Arch-Villain Rafaam
-Captain Hooktusk
-Cookie the Cook
-C'Thun
-Elise Starseeker
-Forest Warden Omu
-Galewing
-George the Fallen
-Lady Vashj
-Maiev Shadowsong
-Master Nguyen
-Millhouse Manastorm
-Murloc Holmes
-Mutanus the Devourer
-Pyramad
-Scabbs Cutterbutter
-Silas Darkmoon
-Sire Denathrius
-Tamsin Roame
-The Lich King
-The Rat King
-Trade Prince Gallywix
-Xyrella
-Vanndar Stormpike
-Vol'jin
-Ysera
+Arch-Villain Rafaam*
+Captain Hooktusk*
+Cookie the Cook*
+C'Thun*
+Elise Starseeker*
+Forest Warden Omu*
+Galewing*
+George the Fallen*
+Lady Vashj*
+Maiev Shadowsong*
+Master Nguyen*
+Millhouse Manastorm*
+Murloc Holmes*
+Mutanus the Devourer*
+Pyramad*
+Scabbs Cutterbutter*
+Silas Darkmoon*
+Sire Denathrius*
+Tamsin Roame*
+The Lich King*
+The Rat King*
+Trade Prince Gallywix*
+Xyrella*
+Vanndar Stormpike*
+Vol'jin*
+Ysera*
 
 Tier 2 (2-5 Armor)
 Al'Akir

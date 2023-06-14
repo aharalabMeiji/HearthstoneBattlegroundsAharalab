@@ -138,7 +138,7 @@ class TB_BaconShop_HERO_42:# <12>[1453]
 	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:12, GameTag.HEALTH:30}
 	else:
-		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:0, GameTag.HEALTH:40}
 class TB_BaconShop_HP_047_Choice(Choice):
 	def do(self, source, player, cards, option=None):
 		if len(cards)==1 and cards[0]==[]:
@@ -332,7 +332,7 @@ class TB_BaconShop_HERO_74:# <12>[1453]
 	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:12, GameTag.HEALTH:30}
 	else:
-		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:0, GameTag.HEALTH:40}
 class TB_BaconShop_HP_082:
 	""" Everbloom
 	[Passive] After you upgrade Bob's Tavern, gain 2 Gold this turn only."""
@@ -493,7 +493,7 @@ class BG20_HERO_283:# <12>[1453]
 	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:8, GameTag.HEALTH:30}
 	else:
-		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:0, GameTag.HEALTH:40}
 class BG20_HERO_283p_Choice(Choice):
 	def choose(self, card):
 		self.next_choice=None
@@ -507,8 +507,9 @@ class BG20_HERO_283p_Choice(Choice):
 class BG20_HERO_283p:# <12>[1453]#
 	""" Dungar's Gryphon
 	Choose a flightpath. Complete it to get a bonus! """
+	#You can no longer choose the same Flight Path twice in a row. ## new rule 2520 ## but we need?
 	entourage=['BG20_HERO_283p_t1','BG20_HERO_283p_t2','BG20_HERO_283p_t3']
-	activate = BG20_HERO_283p_Choice(CONTROLLER, RandomEntourage()*3)
+	activate = BG20_HERO_283p_Choice(CONTROLLER, RandomID(*entourage)*3)
 	pass
 class BG20_HERO_283p_t1_Action(GameAction):
 	def do(self, source):
@@ -524,28 +525,31 @@ class BG20_HERO_283p_t1_Action(GameAction):
 		pass
 class BG20_HERO_283p_t1:# <12>[1453]
 	""" Westfall
-	[Passive.] In 1 turn, give your left-most minion +2/+2. &lt;i&gt;(@ left!)&lt;/i&gt;"""
+	[Passive.] In 1 turn, give your left-most minion +2/+2. &lt;i&gt;(@ left!)&lt;/i&gt;""" ## new 2520
 	### [Passive.] In 1 turn, give your left-most minion +2/+1. <i>(@ left!)</i> """
 	events = BeginBar(CONTROLLER).on(SidequestCounter(SELF, 1, [BG20_HERO_283p_t1_Action()]))
 	#
 	pass
-BG20_HERO_283p_t1e=buff(2,2)# new 25.6
-#BG20_HERO_283p_t1e=buff(2,1)# new 24.2
-#BG20_HERO_283p_t1e=buff(2,0)# 
+if Config.BG_VERSION>=2520:
+	BG20_HERO_283p_t1e=buff(2,2)# new 25.2
+elif Config.BG_VERSION>=2420:
+	BG20_HERO_283p_t1e=buff(2,1)# new 24.2
+else:
+	BG20_HERO_283p_t1e=buff(2,0)# 
 """ Westfall,	+2 Attack. """
-#class BG20_HERO_283p_t2_Choice(Choice):
-#	def do(self, source, player, cards, option=None):
-#		controller = player
-#		super().do(source,player,cards)
-#		choiceAction(controller)
-#		ChangeHeroPower(controller, 'BG20_HERO_283p').trigger(source)
-#		pass
-#	def choose(self, card):
-#		self.next_choice=None
-#		super().choose
-#		card.zone=Zone.HAND
-#		self.player.choice=None
-#		pass
+class BG20_HERO_283p_t2_Choice(Choice):
+	def do(self, source, player, cards, option=None):
+		controller = player
+		super().do(source,player,cards)
+		choiceAction(controller)
+		ChangeHeroPower(controller, 'BG20_HERO_283p').trigger(source)
+		pass
+	def choose(self, card):
+		self.next_choice=None
+		super().choose
+		card.zone=Zone.HAND
+		self.player.choice=None
+		pass
 class BG20_HERO_283p_t2_Action(GameAction):
 	def do(self, source):
 		controller = source.controller
@@ -559,12 +563,12 @@ class BG20_HERO_283p_t2_Action(GameAction):
 		pass
 class BG20_HERO_283p_t2:# <12>[1453]
 	""" Ironforge
-	[Passive] In 2 turns, gain 2 Gold. &lt;i&gt;(@ left!)&lt;/i&gt;"""
+	[Passive] In 2 turns, gain 2 Gold. &lt;i&gt;(@ left!)&lt;/i&gt;""" ## new 25.2
 	## [Passive.] In 3 turns,[Discover] a minion of your Tavern Tier. <i>(@ left!)</i> """
-	events = BeginBar(CONTROLLER).on(SidequestCounter(SELF, 2, [\
-		BG20_HERO_283p_t2_Action()
-		##BG20_HERO_283p_t2_Choice(CONTROLLER, RandomBGAdmissible(tech_level=TIER(CONTROLLER))*3)
-	]))
+	if Config.BG_VERSION>=2520:
+		events = BeginBar(CONTROLLER).on(SidequestCounter(SELF, 2, [BG20_HERO_283p_t2_Action()]))
+	else:
+		events = BeginBar(CONTROLLER).on(SidequestCounter(SELF, 3, [BG20_HERO_283p_t2_Choice(CONTROLLER, RandomBGAdmissible(tech_level=TIER(CONTROLLER))*3)]))
 	#
 	pass
 class BG20_HERO_283p_t3_Choice(Choice):
@@ -591,20 +595,24 @@ class BG20_HERO_283p_t3_Choice(Choice):
 		card.zone=Zone.HAND
 		self.player.choice=None
 		pass
-
-#class BG20_HERO_283p_t3_Action(GameAction):
-#	def do(self, source):
-#		controller=source.controller
-#		ReduceTierUpCost(controller, 6).trigger(source)
-#		ChangeHeroPower(controller, 'BG20_HERO_283p').trigger(source)
-#		pass
+class BG20_HERO_283p_t3_Action(GameAction):
+	def do(self, source):
+		controller=source.controller
+		ReduceTierUpCost(controller, 6).trigger(source)
+		ChangeHeroPower(controller, 'BG20_HERO_283p').trigger(source)
+		pass
 class BG20_HERO_283p_t3:# <12>[1453]
 	""" Eastern Plaguelands
-	[Passive.] In 3 turns, [Discover] a minion of your Tavern Tier. &lt;i&gt;(@ left!)&lt;/i&gt;"""
+	[Passive.] In 3 turns, [Discover] a minion of your Tavern Tier. &lt;i&gt;(@ left!)&lt;/i&gt;""" ## new 25.2
 	##[Passive.] In 5 turns, your next Tavern Tier upgrade costs (6) less. <i>(@ left!)</i> """
-	events = BeginBar(CONTROLLER).on(SidequestCounter(SELF, 3, [
-		BG20_HERO_283p_t3_Choice(CONTROLLER, RandomBGAdmissible(tech_level=TIER(CONTROLLER))*3)
-		]))
+	if Config.BG_VERSION>=2520:
+		events = BeginBar(CONTROLLER).on(SidequestCounter(SELF, 3, [
+			BG20_HERO_283p_t3_Choice(CONTROLLER, RandomBGAdmissible(tech_level=TIER(CONTROLLER))*3)
+			]))
+	else:
+		events = BeginBar(CONTROLLER).on(SidequestCounter(SELF, 5, [
+			BG20_HERO_283p_t3_Action()
+			]))
 	pass
 ######## BUDDY
 class BG20_HERO_283_Buddy:# <12>[1453]
@@ -646,7 +654,7 @@ class TB_BaconShop_HERO_15:# <12>[1453]
 	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:10, GameTag.HEALTH:30}
 	else:
-		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:0, GameTag.HEALTH:40}
 class TB_BaconShop_HP_010_Action(TargetedAction):
 	TARGET=ActionArg()
 	def do(self, source, target):
