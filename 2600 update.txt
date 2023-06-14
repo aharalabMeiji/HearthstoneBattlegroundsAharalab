@@ -1,0 +1,19 @@
+Battlegrounds Updates 
+Minion Updates 
+
+Replicating Menace 
+Old: 3 Attack, 1 Health 
+New: 3 Attack, 2 Health
+NEUTRAL_BG_BOT_312_enUS_ReplicatingMenace-89724_NORMAL.png​​NEUTRAL_TB_BaconUps_032_enUS_ReplicatingMenace-58376_GOLDEN.png
+
+Wargear
+Old: 5 Attack, 5 Health
+New: 6 Attack, 5 Health
+​​NEUTRAL_BG_BOT_563_enUS_Wargear-92969_NORMAL.pngNEUTRAL_BG_BOT_563_G_enUS_Wargear-92970_GOLDEN.png
+
+​​
+
+Minion Pool Updates  
+
+Sire Denathrius has been returned to the hero pool.
+Friend of a Friend has been returned to the minion pool.

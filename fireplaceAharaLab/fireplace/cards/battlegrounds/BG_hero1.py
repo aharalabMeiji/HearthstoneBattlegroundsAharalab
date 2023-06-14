@@ -124,8 +124,8 @@ BG_Hero1_Buddy_Gold={}
 ##Shudderwock TB_BaconShop_HERO_23
 ##Silas Darkmoon TB_BaconShop_HERO_90
 ##Sindragosa TB_BaconShop_HERO_27
-##Sir Finley Mrrgglton TB_BaconShop_HERO_40 ## revive 26.0
-##Sire Denathrius  BG24_HERO_100 #####difficult####
+##Sir Finley Mrrgglton TB_BaconShop_HERO_40 ## 
+##Sire Denathrius  BG24_HERO_100 #####difficult#### revive 2600
 ##Skycap'n Kragg TB_BaconShop_HERO_68
 ##Sneed BG21_HERO_030
 ##Sylvanas Windrunner BG23_HERO_306

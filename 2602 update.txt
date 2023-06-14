@@ -1,0 +1,117 @@
+BATTLEGROUNDS UPDATES
+Armor Changes
+Heroes getting more Armor
+A.F. Kay: 18
+Galewing: 14
+George the Fallen: 13
+Illidan Stormrage: 14
+Ini Stormcoil: 15 at higher ranks (no change at lower ranks)
+Lord Jaraxxus: 18 at higher ranks, 7 at lower ranks
+Millificent Manastorm: 14 at higher ranks (no change at lower ranks)
+Onyxia: 14
+Patches the Pirate: 14 at higher ranks (no change at lower ranks)
+Professor Putricide: 14
+Rakanishu: 18
+Sir Finley Mrrgglton: 10
+Tavish Stormpike: 15 at higher ranks, 10 at lower ranks
+The Jailer: 15
+Millhouse Manastorm: 10
+
+Heroes getting less Armor
+Bru’kan: 12
+Enhance-o Mechano: 8
+E.T.C., Band Manager: 10
+Kurtrus Ashfallen: 12
+Maiev Shadowsong: 9 at higher ranks (no change at lower ranks)
+Master Nguyen: 12
+Queen Wagtoggle: 10
+Scabbs Cutterbutter: 10
+Silas Darkmoon: 10
+Skycap’n Kragg: 11
+Sneed: 12
+The Rat King: 9
+Zephrys, the Great: 10
+Millhouse Manastorm: 6
+
+Note: Millhouse Manastorm now has less Armor at higher ranks, but more Armor at lower ranks.
+
+Buddy Updates
+The following Buddies have been adjusted to be more powerful:
+
+Snow Elemental (Chenvaala)
+
+Old: Tavern Tier 4
+New: Tavern Tier 3
+
+
+Vaelastrasz (Alexstrasza)
+
+Old: Tavern Tier 4
+New: Tavern Tier 3
+
+
+Talent Scout (E.T.C., Band Manager)
+
+Old: Tavern Tier 5
+New: Tavern Tier 3
+
+
+Coilfang Elite (Lady Vashj)
+
+Old: [Tavern Tier 2] 4 Attack, 3 Health
+New: [Tavern Tier 1] 3 Attack, 2 Health
+
+
+Sub Scrubber (Ini Stormcoil)
+
+Old: Tavern Tier 5
+New: Tavern Tier 4
+
+
+Piloted Whirl-O-Tron (Sneed)
+
+Old: Tavern Tier 3
+New: Tavern Tier 2
+
+
+Festergut (Professor Putricide)
+
+Ticking Abomination has been removed from the Festergut minion pool. (It is still in the minion pool for Professor Putricide’s hero power, Build-An-Undead).
+
+
+The following Buddies have been adjusted to be less powerful:
+
+Nightmare Ectoplasm (Mutanus the Devourer)
+
+Old: [Tavern Tier3] 5 Attack, 4 Health
+New: [Tavern Tier 4] 4 Attack, 3 Health
+
+
+Raging Contender (Captain Hooktusk)
+
+Old: Tavern Tier 4
+New: Tavern Tier 5
+
+
+Living Nightmare (Kurtrus Ashfallen)
+
+Old: [Tavern Tier 2] 5 Attack, 3 Health
+New: [Tavern Tier 3] 6 Attack, 4 Health
+
+
+Waxadred, the Drippy (Heistbaron Togwaggle)
+
+Old: Tavern Tier 4
+New: Tavern Tier 5
+
+
+Shady Aristocrat (Sire Denathrius)
+
+The Quest Discovered will now be more difficult to complete.
+
+
+Minion Updates
+Dr. Boombox
+
+Old: Tavern Tier 4
+New: Tavern Tier 5

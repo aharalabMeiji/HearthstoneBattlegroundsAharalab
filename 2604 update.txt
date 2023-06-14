@@ -1,0 +1,51 @@
+Battlegrounds Updates
+Armor Adjustments
+Heroes getting less Armor
+Chenvaala, C’Thun, Ini Stormcoil, Lady Vashj, Lord Jaraxxus, Millificent Manastorm, and Patches the Pirate all now have 5 Armor at lower ranks, but their Armor did not change at higher ranks.
+Silas Darkmoon now has 7 Armor at higher ranks, but his Armor has been increased to 12 Armor at lower ranks.
+Hesitbaron Togwaggle now has 10 Armor.
+Aranna Starseeker now has 10 Armor at higher ranks, but her Armor has been increased to 14 at lower ranks.
+Tess Greymane now has 12 Armor at higher ranks, but her Armor has been increased to 18 at lower ranks.
+
+Heroes getting more Armor
+Teron Gorefiend now has 10 Armor at lower ranks and 15 Armor at higher ranks.
+Silas Darkmoon now has 12 Armor at lower ranks, but his Armor has been decreased to 7 at higher ranks.
+Infinite Toki now has 13 Armor.
+Aranna Starseeker now has 14 Armor at lower ranks, but her Armor has been reduced to 10 at higher ranks.
+Captain Hooktusk, Vol’jin, and Xyrella now have 15 Armor at lower ranks, but their Armor did not change at higher ranks.
+Tavish Stormpike now has 15 Armor at higher ranks, but his Armor did not change at lower ranks.
+Tamsin Roame now has 16 Armor.
+Queen Wagtoggle now has 16 Armor at lower ranks, but her Armor did not change at higher ranks.
+Illidan Stormrage now has 17 Armor.
+Zephrys, the Great now has 18 Armor at lower ranks and 13 Armor at higher ranks.
+Tess Greymane now has 18 Armor at lower ranks, but had her Armor reduced to 12 at higher ranks.
+Deathwing now has 18 Armor at lower ranks and 14 Armor at higher ranks.
+Ozumat now has 19 Armor.
+Lord Barov now has 19 Armor at lower ranks, but his Armor did not change at higher ranks.
+Kurtrus Ashfallen now has 20 Armor at lower ranks and 15 Armor at higher ranks.
+
+Note: Aranna Starseeker, Silas Darkmoon, and Tess Greymane now has less Armor at higher ranks, but more Armor at lower ranks.
+
+Buddy Updates
+Dev Comment: This is our last expected patch of this Buddies meta. Battlegrounds Season 4 is coming soon with Patch 26.2. When it does, Buddies will be removed again to make room for a massive minion shakeup. But don’t worry, we’ll see our Buddies again one day. For now, hang tight. Season 4 details are right around the corner!
+
+Bilgewater Mogul (Trade Prince Gallywix’s Buddy)
+
+Old: [Tavern Tier 3]
+New: [Tavern Tier 4]
+
+
+Magnus Manastorm (Millhouse Manastorm’s Buddy)
+
+Old: [Tavern Tier 4]
+New: [Tavern Tier 5]
+
+
+Nightmare Ectoplasm (Mutanus the Devourer’s Buddy)
+
+Old: [Tavern Tier 4] 4 Attack, 3 Health. When you ‘Devour’ this, spit its stats onto 2 extra minions.
+New: [Tavern Tier 3] 5 Attack, 4 Health. When you ‘Devour’ this, spit its state onto 1 extra minion.
+
+
+And the quest gained from Shady Aristocrat (Sire Denathrius’s Buddy) has again been made harder to complete.
+
