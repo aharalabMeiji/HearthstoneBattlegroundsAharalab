@@ -365,8 +365,10 @@ class TB_BaconShop_HERO_55:# <12>[1453]
 		option_tags={GameTag.ARMOR:8, GameTag.HEALTH:30}
 	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:12, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2520:
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:2, GameTag.HEALTH:40}
 	else:
-		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:2, GameTag.HEALTH:40}
 	pass
 class TB_BaconShop_HP_056:
 	""" Gone Fishing
@@ -416,8 +418,10 @@ class TB_BaconShop_HERO_02:# <12>[1453]
 		option_tags={GameTag.ARMOR:18, GameTag.HEALTH:30}
 	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:13, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2520:
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:2, GameTag.HEALTH:40}
 	else:
-		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:2, GameTag.HEALTH:40}
 class TB_BaconShop_HP_011_Choice(Choice):
 	def choose(self, card):
 		self.next_choice=None
@@ -749,8 +753,10 @@ class BG20_HERO_242:# <2>[1453]
 		option_tags={GameTag.ARMOR:10, GameTag.HEALTH:30}
 	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:13, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2520:
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:2, GameTag.HEALTH:40}
 	else:
-		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:2, GameTag.HEALTH:40}
 class BG20_HERO_242p:# <2>[1453]
 	""" Natural Balance
 	Give a friendly minion of each Tavern Tier +2/+2. """
@@ -1090,8 +1096,10 @@ class BG22_HERO_200:
 		option_tags={GameTag.ARMOR: 5, GameTag.HEALTH:30}
 	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:10, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2520:
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:2, GameTag.HEALTH:40}
 	else:
-		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:2, GameTag.HEALTH:40}
 class BG22_HERO_200p:
 	""" MechGyver
 	[x][Passive] After 12 friendly minions die, get a random Mech.@[x][Passive] After 12 friendly minions die, get a random Mech. &lt;i&gt;({0} left.)&lt;/i&gt;"""
@@ -1125,8 +1133,10 @@ class TB_BaconShop_HERO_71:# <12>[1453]
 		option_tags={GameTag.ARMOR:12, GameTag.HEALTH:30}
 	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:15, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2520:
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:2, GameTag.HEALTH:40}
 	else:
-		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:2, GameTag.HEALTH:40}
 class TB_BaconShop_HP_084:
 	""" Swap, Lock, &amp; Shop It
 	Swap a friendly non-golden minion with a random one in Bob's Tavern."""

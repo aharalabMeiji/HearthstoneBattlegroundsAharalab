@@ -158,10 +158,11 @@ class TB_BaconShop_HERO_41:# <12>[1453]
 	""" Reno Jackson """
 	if Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:15, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2520:
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:2, GameTag.HEALTH:40}
 	else:
-		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:2, GameTag.HEALTH:40}
 	pass
-
 class TB_BaconShop_HP_046:
 	"""  Gonna Be Rich!
 	Make a friendly minion Golden. <i>(Once per game.)</i>"""
@@ -225,8 +226,10 @@ class BG20_HERO_100:# <10>[1453] #### HP OK ####
 	"""
 	if Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:15, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2520:
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:2, GameTag.HEALTH:40}
 	else:
-		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:2, GameTag.HEALTH:40}
 	pass
 class BG20_HERO_100_Action(TargetedAction):
 	ATTACKER=ActionArg()
@@ -512,7 +515,7 @@ class TB_BaconShop_HERO_27_Buddy_G:# <12>[1453]
 
 
 
-##Sir Finley Mrrgglton     ### OK ### revive 26.0
+##Sir Finley Mrrgglton     ### OK ### banned when? revive 26.0
 if Config.BG_VERSION>=2600:
 	BG_Hero4+=['TB_BaconShop_HERO_40','TB_BaconShop_HERO_40_Buddy','TB_BaconShop_HERO_40_Buddy_G','TB_BaconShop_HP_057',]
 	BG_PoolSet_Hero4.append('TB_BaconShop_HERO_40')
@@ -526,8 +529,10 @@ class TB_BaconShop_HERO_40:# <12>[1453]
 		option_tags={GameTag.ARMOR:10, GameTag.HEALTH:30}
 	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:13, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2520:
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:2, GameTag.HEALTH:40}
 	else:
-		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:2, GameTag.HEALTH:40}
 	pass
 class TB_BaconShop_HP_057:
 	"""  

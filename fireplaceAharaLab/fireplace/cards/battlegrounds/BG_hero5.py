@@ -257,7 +257,7 @@ class BG25_HERO_103:
 	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:10, GameTag.HEALTH:30}
 	else:
-		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:1, GameTag.HEALTH:40}
 	pass
 class BG25_HERO_103p_Activate(TargetedAction):
 	TARGET=ActionArg()
@@ -330,8 +330,10 @@ class TB_BaconShop_HERO_50:# <12>[1453]
 		option_tags={GameTag.ARMOR:15, GameTag.HEALTH:30}
 	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:12, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2520:
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:2, GameTag.HEALTH:40}
 	else:
-		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:2, GameTag.HEALTH:40}
 	pass
 class TB_BaconShop_HP_077_Action(GameAction):
 	def do(self, source):
@@ -477,8 +479,10 @@ class TB_BaconShop_HERO_21:# <12>[1453]
 	""" The Great Akazamzarak """
 	if Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:13, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2520:
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:2, GameTag.HEALTH:40}
 	else:
-		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:2, GameTag.HEALTH:40}
 	pass
 class TB_BaconShop_HP_020:
 	"""  [Discover] a [Secret]. Put it into the battlefield."""
@@ -831,8 +835,10 @@ class TB_BaconShop_HERO_94:# <12>[1453]
 		option_tags={GameTag.ARMOR:14, GameTag.HEALTH:30}
 	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:16, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2520:
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:2, GameTag.HEALTH:40}
 	else:
-		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:2, GameTag.HEALTH:40}
 class TB_BaconShop_HP_106_Action(GameAction):
 	def do(self, source):
 		controller=source.controller
@@ -1066,8 +1072,10 @@ class BG22_HERO_004:# <4>[1453]
 		option_tags={GameTag.ARMOR:9, GameTag.HEALTH:30}
 	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:13, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2520:
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:2, GameTag.HEALTH:40}
 	else:
-		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:2, GameTag.HEALTH:40}
 class BG22_HERO_004p_Action(TargetedAction):
 	TARGET = ActionArg()
 	def do(self, source, target):

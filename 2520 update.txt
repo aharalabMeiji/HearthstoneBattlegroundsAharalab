@@ -120,29 +120,29 @@ Vol'jin*
 Ysera*
 
 Tier 2 (2-5 Armor)
-Al'Akir
-Cariel Roame
-Dancin' Deryl
-Death Speaker Blackthorn
-Deathwing
-Fungalmancer Flurgl
-Ini Stormcoil
-Galakrond
-Guff Runetotem
-Jandice Barov
-Lich Baz'hial
-Lord Barov
-Millificent Manastorm
-N'Zoth
-Patchwerk
-Professor Putricide
-Reno Jackson
-Rokara
-Sir Finley Mrrgglton
-Tess Greymane
-The Great Akazamzarak
-Tickatus
-Varden Dawngrasp
+Al'Akir*
+Cariel Roame*
+Dancin' Deryl*
+Death Speaker Blackthorn*
+Deathwing*
+Fungalmancer Flurgl*
+Ini Stormcoil*
+Galakrond*
+Guff Runetotem*
+Jandice Barov*
+Lich Baz'hial*
+Lord Barov*
+Millificent Manastorm*
+N'Zoth*
+Patchwerk*
+Professor Putricide*
+Reno Jackson*
+Rokara*
+Sir Finley Mrrgglton*
+Tess Greymane*
+The Great Akazamzarak*
+Tickatus*
+Varden Dawngrasp*
 
 Tier 3 (3-6 Armor)
 Dinotamer Brann

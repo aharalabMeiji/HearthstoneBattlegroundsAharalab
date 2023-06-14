@@ -229,8 +229,10 @@ class TB_BaconShop_HERO_76:# <12>[1453]
 	""" Al'Akir	 """
 	if Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:13, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2520:
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:2, GameTag.HEALTH:40}
 	else:
-		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:2, GameTag.HEALTH:40}
 class TB_BaconShop_HP_086_Action(GameAction):
 	def do(self, source):
 		controller=source.controller
@@ -988,9 +990,10 @@ class BG21_HERO_000:# <5>[1453]
 		option_tags={GameTag.ARMOR:10, GameTag.HEALTH:30}
 	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:13, GameTag.HEALTH:30 }
+	elif Config.BG_VERSION>=2520:
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:2, GameTag.HEALTH:40}
 	else:
-		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
-
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:2, GameTag.HEALTH:40}
 	pass
 class BG21_HERO_000e:
 	"""Cariel Watcher	"""
@@ -1227,8 +1230,10 @@ class TB_BaconShop_HERO_36:# <12>[1453]
 	"""
 	if Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:18, GameTag.HEALTH:30 }
+	elif Config.BG_VERSION>=2520:
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:2, GameTag.HEALTH:40}
 	else:
-		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:2, GameTag.HEALTH:40}
 	pass
 class TB_BaconShop_HP_042:
 	""" Hat Trick
@@ -1267,8 +1272,10 @@ class BG20_HERO_103:# <12>[1453]
 		option_tags={GameTag.ARMOR:10, GameTag.HEALTH:30}
 	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:15, GameTag.HEALTH:30 }
+	elif Config.BG_VERSION>=2520:
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:2, GameTag.HEALTH:40}
 	else:
-		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:2, GameTag.HEALTH:40}
 class BG20_HERO_103p:# <12>[1453]
 	""" Bloodbound
 	[Passive]After you upgrade Bob's Tavern, gain 2 [Blood Gems]. """
@@ -1303,8 +1310,10 @@ class TB_BaconShop_HERO_52:
 		option_tags={GameTag.ARMOR: 10, GameTag.HEALTH:30 }
 	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:13, GameTag.HEALTH:30 }
+	elif Config.BG_VERSION>=2520:
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:2, GameTag.HEALTH:40}
 	else:
-		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:2, GameTag.HEALTH:40}
 	pass
 class TB_BaconShop_HP_061:
 	""" ALL Will Burn!
