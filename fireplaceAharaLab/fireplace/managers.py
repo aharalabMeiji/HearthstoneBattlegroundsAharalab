@@ -155,6 +155,7 @@ CARD_ATTRIBUTE_MAP = {
 	GameTag.BACON_COMPANION_ID: "buddy_id",
 	GameTag.BACON_BUDDY: "buddy",
 	GameTag.BATTLECRY: "has_battlecry",
+	GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER: "hero_armor_tier",## missed at 25.6
 	GameTag.CANNOT_ATTACK_HEROES: "cannot_attack_heroes",
 	GameTag.CANT_ATTACK: "cant_attack",
 	GameTag.CANT_BE_ATTACKED: "cant_be_attacked",

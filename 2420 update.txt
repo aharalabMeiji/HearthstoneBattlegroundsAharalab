@@ -1,0 +1,208 @@
+Battlegrounds Season 2 is Here!
+New Battlegrounds Track, Season Pass, and Battlegrounds Missions
+On August 30, Battlegrounds Ratings will reset, and the new season of Battlegrounds will begin. With the new season, Battlegrounds will now have its own Battlegrounds Track, featuring Battlegrounds-specific Rewards you can earn as you play! This Season, the Rewards feature the anime-inspired ÅgMagic of AzerothÅh theme.
+
+Battlegrounds Season Pass image with the first four levels
+
+The Battlegrounds Track features tons of free Battlegrounds rewards, but you can purchase the Season Pass to immediately unlock +2 Hero Choices and the ability to earn even more rewards throughout the season. The Season Pass can be purchased in-game with Runestones, HearthstoneÅfs new virtual currency. Runestones can be purchased through both the in-game shop and the Battlenet web shop, once Patch 24.2 goes live. During the transition period for this first season, the Season Pass can also be purchased with money directly, either in-game or through the Battlenet web shop.
+
+
+
+Earn your Rewards even faster by completing new Battlegrounds Missions. Battlegrounds Missions are like Battlegrounds-specific Weekly Quests that grant a lot more Battlegrounds XP. These will be offered in addition to the normal Hearthstone Daily and Weekly Quests that all players will continue to get. You get three Battlegrounds Missions per week. They can be re-rolled and they are automatically banked until the end of the Season if you donÅft complete them right away.
+
+You can learn more about the Battlegrounds Track, the Season Pass, Runestones, and Battlegrounds Missions, including everything thatÅfs including in the Battlegrounds Track and Season Pass, in the Season 2 Announcement Blog.
+
+New Gameplay Mechanic: Quests
+Season 2 will also introduce a new game mechanic to Battlegrounds: Quests! Like the traditional Hearthstone Quests and Questlines, Battlegrounds Quests require you to meet a particular condition in order to earn a reward that will empower you for the rest of the game.
+
+In Battlegrounds, Quests have their own unique twist. Instead of starting the game with your Quest, your Quest options will appear on turn 4 (the 6 Gold turn). And instead of getting the same Quest and Quest Reward every game, you pick them from three options at that time. You are choosing both your Quest and the Reward for completing it as a pair, so choose carefully! Once you complete your quest, you automatically receive your Reward.
+
+
+
+There are about 13 different Quest options and 24 different Reward options that are available in any given game (certain Quests and Rewards are blocked from particular lobbies or Heroes to prevent unwanted synergies).
+
+The Quest options represent the baseline requirements you will need to complete in order to receive your Reward (subject to some adjustments, discussed below):
+
+Invite the Guests: Buy 7 minions.
+Dust for Prints: Add 15 cards to your hand.
+Cry for Help: Play 6 Battlecry minions.
+Witness Protection: Have a friendly Taunt minion be attacked 8 times.
+Exhume the Bones: Trigger 6 friendly Deathrattles.
+Track the Footprints: Have BobÅfs Tavern Refresh 10 times.
+Assemble a Lineup: Summon 14 minions.
+Unmask the Culprit: Lose or tie 3 combats.
+Find the Murder Weapon: Increase a minionÅfs stats 15 times.
+Reenact the Murder: Have 18 friendly minions die.
+Sort It All Out: Order your minions from lowest to highest Attack for 4 combats.
+Follow the Money: Spend 25 Gold.
+Unlikely Duo: Play 5 minions from a minion type or another minion type.*
+* In-game, this will choose two minion types that are legal for that game and list them. For example, ÅgPlay 5 Beasts or Demons.Åh
+These are the types of Rewards you can earn for completing your Quests:
+
+Snicker Snacks: At the end of your turn, 2 friendly minions trigger their Battlecries.
+Stolen Gold: Start of Combat: Make your left and right-most minions Golden.
+Evil Twin: Start of Combat: Summon a copy of your highest-Health minion.
+Ritual Dagger: After a friendly Deathrattle minion dies, give it +4/+4 permanently.
+Anima Bribe: After you sell a minion, give its stats to a minion in BobÅfs Tavern.
+Devils in the Details: End of Turn: Your left and right-most minions consume a minion in BobÅfs Tavern.
+The Smoking Gun: Your minions have +5 Attack.
+Cooked Book: After you buy a minion, give it +1/+1 and upgrade this.
+Mirror Shield: After each Refresh, give a minion in BobÅfs Tavern +4/+4 and Divine Shield.
+Secret Sinstone: After you Discover a card, get an extra copy of it.
+Ghastly Mask: Add Åe[a random Ågend of turn minionÅh]Åf to your hand. Your end of turn effects trigger twice.
+TheotarÅfs Parasol: At the end of your turn, give your right-most minion Stealth until next turn and +8 Health.
+Teal Tiger Sapphire: Minions in BobÅfs Tavern have +1/+1 for each time it was Refreshed this turn.
+Red Hand: At the start of your turn, give a minion in your hand +12/+12.
+VictimÅfs Specter: After each combat, get a plain copy of the last friendly minion that died.
+Hidden Body: Discover a minion of your Tavern Tier. (Can be earned endlessly!)
+Tiny Henchman: At the end of your turn, give +2/+2 to 3 friendly minions of Tier 3 or below.
+Yogg-tastic Tasties: At the start of your turn, spin the Wheel of Yogg-Saron.
+Wondrous Wisdomball: Occasionally gives helpful Refreshes.
+Staff of Origination: Start of Combat: Give your minions +15/+15.
+Alter Ego: Even Tier minions in BobÅfs Tavern have +6/+6 (Swaps to Odd next turn!)
+The Friends Along the Way: At the start of your turn, get 2 random [random minion type].
+Pilfered Lamps: You only need 2 copies of a minion to make it Golden.
+Menagerie Mayham: At the end of your turn, give your minions +1 Attack for each friendly minion type.
+
+The Quests and Rewards are randomly paired together. The numbers in these Quests vary based on which Reward they are paired with, based on how juicy the Reward is. The less powerful Rewards will make your Quest easier to complete and the more powerful Rewards will make the Quest harder to complete. There are also small adjustments based on your heroÅfs Armor Tier (slightly harder for heroes with less Armor, slightly easier for heroes with more Armor).
+
+Battlegrounds Quests will last until the end of Season 2. You can learn more about Battlegrounds Quests and Quest Rewards in the Battlegrounds Quests Mechanic blog.
+
+
+
+General Updates
+Turn 4 (the 6 Gold turn) will have its turn time slightly extended to account for the new Quest mechanic.
+Players can now exceed 10 Gold when selling minions or otherwise gaining Gold during the shop phase. The start-of-turn maximum is still 10 Gold.
+Battlegrounds-exclusive Weekly Quests (like ÅgFinish Top 4 in BattlegroundsÅh) have been removed from the general Weekly Quests rotation and converted into Battlegrounds Missions. Other Daily and Weekly Quests that can be completed across Modes can still be completed in Battlegrounds or other Modes.
+Celebrate Season 2 with a chain of three Legendary Quests that award new Battlegrounds cosmetics. 
+New Heroes
+Murloc Holmes (Armor Tier 2)
+
+Detective For Hire
+[0 Gold] Look at 2 minions. Guess which one your next opponent had last combat for a Coin.
+
+
+Sire Denathrius (Armor Tier 1)
+
+Whodunnit
+Passive. At the start of the game, choose one of two Quests.
+Dev Comment: This is in addition to the Quest that all players automatically get. Sire Denathrius can have two Quests at once.
+
+
+These two new heroes will be offered in every lobby for the first two weeks following the patch.
+
+Hero Updates
+Rakinishu (Tavern Lightning)
+
+Old: [2 Gold] Give a friendly minion stats equal to your Tavern Tier. Å® New: [1 Gold] Give a minion stats equal to its Tavern Tier.
+Moved to Armor Tier 3.
+
+
+Patchwerk (All Patched Up)
+
+Old: Passive. Start with 55 Health instead of 40. Å® New: Passive. Start with 60 Health instead of 40.
+Moved to Armor Tier 2.
+
+
+Vanndarr Stormpike (Lead the Stormpikes)
+
+Redesigned: Passive. Avenge (2): Give your minions +1 Health permanently.
+Moved to Armor Tier 1.
+
+
+DrekÅfThar (Lead the Frostwolves)
+
+Redesigned: Passive. Avenge (3): Give your minions +1 Attack permanently.
+Moved to Armor Tier 2.
+
+
+Aranna Starseeker (Spectral Sight)
+
+BobÅfs Tavern will now always replenish to 7 minions, such as after buying a minion.
+
+
+Fungalmancer Flurgl (Gone Fishing)
+
+Redesigned: Passive. After you sell 4 minions, get a random Murloc.
+Moved to Armor Tier 2.
+
+
+SkycapÅfn Kragg (Piggy Bank)
+
+No text change, but the piggy bank can now store over 10 Gold.
+
+
+Galewing
+
+(Westfall) Old: Passive. In 1 turn, give your left-most minion +2 Attack. Å® New: Passive. In 1 turn, give your left-most minion +2/+1.
+(Eastern Plaguelands) Old: Passive. In 5 turns, your next Tavern Tier upgrade costs (5) less. Å® New: Passive. In 5 turns, your next Tavern Tier upgrade costs (6) less.
+
+
+New Minions
+Picky Eater [Tavern Tier 1, Demon]
+
+1 Attack, 1 Health. Battlecry: Consume a random minion in BobÅfs Tavern to gain its stats.
+
+
+Mind Muck [Tavern Tier 2, Demon]
+
+3 Attack, 2 Health. Battlecry: Choose a friendly Demon. It consumes a minion in BobÅfs Tavern to gain its stats.
+Dev Comment: The consumed minion is randomly chosen.
+
+
+Piggyback Imp [Tavern Tier 2, Demon]
+
+4 Attack, 1 Health. Deathrattle: Summon a 4/1 Imp.
+
+
+Nether Drake [Tavern Tier 2, Dragon]
+
+0 Attack, 5 Health. At the end of your turn, give your Dragons +1 Attack.
+
+
+Amber Guardian [Tavern Tier 3, Dragon]
+
+3 Attack, 2 Health. Start of Combat: Give another friendly Dragon +3/+3 and Divine Shield.
+
+
+Legion Overseer [Tavern Tier 3, Demon]
+
+4 Attack, 4 Health. Minions in BobÅfs Tavern have +2/+2.
+
+
+First Mate Pip [Tavern Tier 3, Pirate]
+
+5 Attack, 4 Health. You only need 2 of these to make a Golden copy.
+
+
+Treasure-Seeker Elise [Tier 4]
+
+5 Attack, 5 Health. After you Refresh 5 times, find the Golden Monkey.
+Golden Monkey [Tavern Tier 1] 6 Attack, 6 Health. Taunt.
+Dev Comment: When the Golden Monkey is Ågfound,Åh it appears in BobÅfs Tavern. The Golden Monkey is always Golden and gives you a Triple reward when played.
+
+
+Rendle the Mistermind [Tavern Tier 4]
+
+4 Attack, 5 Health. At the end of your turn, steal the highest Tier minion from BobÅfs Tavern.
+
+
+Tortollan Blue Shell [Tavern Tier 5]
+
+4 Attack, 7 Health. If you lost your last combat, this minion sells for 5 Gold.
+
+
+Tea Master Theotar [Tavern Tier 6]
+
+6 Attack, 6 Health. After you play a minion with no minion type, give 3 friendly minions of different types +2/+2.
+
+
+Minion Updates
+Toxfin is returned to the minion pool.
+Kooky Chemist, Steward of Time, Bublette, Silverback Patriarch, Icky Imp, Nathrezim Overseer, Soul Devourer, Briny Bootlegger, Shifter Zerus, Cobalt Scalebane, Witchwing Nestmatron, Mythrax the Unraveler, and SI:Sefin have all been removed from the minion pool.
+Impulsive Trickster
+Old: [Tavern Tier 1] 2 Attack, 2 Health Å® New: [Tavern Tier 2] 2 Attack, 3 Health
+Imprisoner
+Old: [Tavern Tier 2] 3 Attack, 3 Health Å® New: [Tavern Tier 1] 2 Attack, 2 Health
+Drakonid Enforcer
+Old: [Tavern Tier 3] 2 Attack, 4 Health Å® New: [Tavern Tier 4] 3 Attack, 7 Health

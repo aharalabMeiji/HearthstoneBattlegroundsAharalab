@@ -1,0 +1,37 @@
+Battlegrounds Updates
+Dev Comment: This is a smaller update, as weÅfve spread our recent changes across the last few hotfix patches. Battlegrounds players should expect a bigger Battlegrounds update with the next major patch, Patch 24.6.
+
+Hero Update
+
+Fungalmancer Flurgl ? Gone Fishing
+
+Old: Passive: After you sell 4 minions, get a random Murloc.
+New: Passive: After you sell 5 minions, get a random Murloc.
+Fungalmancer Flurgl has been moved from Armor Tier 1 (0 Armor) to Armor Tier 4 (4-7 Armor)
+
+
+Quest Reward Update
+
+The Smoking Gun
+
+Old: Your minions have +5 Attack.
+New: Your minions have +4 Attack.
+The Smoking Gun is now easier to earn.
+
+
+Minion Updates
+
+Nether Drake
+
+Old: [Tavern Tier 2] 0 Attack, 4 Health
+New: [Tavern Tier 3] 1 Attack, 5 Health
+
+
+Twilight Emissary
+
+Old: [Tavern Tier 3] 4 Attack, 4 Health
+New: [Tavern Tier 2] 3 Attack, 3 Health
+
+
+Bug Fixes and Game Improvements
+[Battlegrounds] Fixed a bug where Dark Force Malygos was not able to be claimed or equipped.

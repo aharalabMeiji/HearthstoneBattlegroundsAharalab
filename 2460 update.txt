@@ -1,0 +1,180 @@
+Battlegrounds Updates
+General Text Updates
+
+Changed all instances of Åggain 1 Gold this turn onlyÅh to Åggain 1 Gold.Åh This is not a functional change.
+Changed all instances of Åggain a Blood GemÅh to Ågget a Blood Gem.Åh This is not a functional change.
+New Hero
+
+The Jailer (Armor Tier 3)
+
+Runic Empowerment
+[1 Gold] Give a minion +1/+1. Upgrades after 9 friendly minions die.
+
+
+This new hero will be available in all lobbies for two weeks after patch launch.
+
+Hero Updates
+
+The following Heroes have hero power updates:
+
+CÅfThun (Saturday CÅfThuns)
+
+Old: [2 Gold] At the end of turn, give a friendly minion +1/+1. Repeat 0 times. (Upgrades after each use!)
+New: [2 Gold] At the end of turn, give a friendly minion +1/+1. Repeat 0 times. (Upgrades each turn!)
+
+
+Infinite Toki (Temporal Tavern)
+
+Old: [1 Gold] Refresh BobÅfs Tavern. Include a minion from a higher Tavern Tier.
+New: [1 Gold] Refresh BobÅfs Tavern. Include two minions from a higher Tavern Tier.
+
+
+The Rat King (A Tale of Kings)
+
+Old: Passive. Whenever you buy a minion of a specific type, give it +2/+2. Swaps type each turn.
+New: [2 Gold] Discover a minion of a specific type. Swaps type each turn.
+
+
+The following Heroes have less Armor:
+
+BruÅfkan, Pyramad, and The Rat King are now Armor Tier 1 (0 Armor).
+Lich BazÅfhial is now Armor Tier 2 (2-5 Armor).
+Deathwing, Infinite Toki, Kurtrus Ashfallen, and Tavish Stormpike are now Armor Tier 3 (3-6 Armor).
+Onyxia is now Armor Tier 4 (4-7 Armor).
+The following Heroes have more Armor:
+
+Patchwerk is now Armor Tier 2 (2-5 Armor).
+Alexstrasza and Ambassador Faelin are now Armor Tier 4 (4-7 Armor)
+Chenvaala, Mr. Bigglesworth, and Zephrys the Great are now Armor Tier 5 (5-8 Armor)
+New Battlegrounds Quests
+
+Hire an Investigator: End your turn with unspent Gold 3 times.
+
+
+
+Crack the Case: Have friendly minions attack 11 times.
+
+
+
+Remember, these are just the baseline Quest completion requirements. Actual requirements in-game vary based on the Reward these Quests are paired with and several other factors.
+
+New Battlegrounds Quest Rewards
+
+Blood Goblet: At the end of your turn, give your right-most minion Attack equal to your missing Health.
+
+
+
+Essence of Zerus:  At the end of your turn, add a ÅgShifter ZerusÅh to your hand which transforms into random minions.
+
+
+
+Hidden Treasure Vault: At the start of your turn, gain 1 Gold. (Upgrades each turn!)
+
+
+
+Ethereal Evidence: At the start of every turn, choose from 2 new Rewards.
+
+
+
+Volatile Venom: Your minions have +8/+8. After they attack, they die. Horribly.
+
+
+
+The Golden Hammer: Spellcraft: Make a friendly minion Golden until next turn.
+
+
+
+Sinfall Medallion: After you play a minion, give 2 other friendly minions of its Tavern Tier +2/+2.
+
+
+
+Kidnap Sack: Spellcraft: Choose a non-Golden minion. Add it to your hand.
+
+
+
+Battlegrounds Quest and Quest Reward Updates
+
+Quest: Find the Murder Weapon has had its baseline completion requirement reduced from 17 to 14.
+Reward: Anima Bribe has been removed from the Reward pool.
+Reward: TheotarÅfs Parasol has been returned to the Reward pool.
+Reward: Stolen Gold has had its appearance rate reduced by 50%.
+New Minions
+
+Dozy Whelp (Tavern Tier 1, Dragon)
+
+0 Attack, 3 Health. Taunt. Whenever this minion is attacked, gain +1 Attack permanently.
+
+
+Patient Scout (Tavern Tier 2)
+
+1 Attack, 1 Health. When you sell this, Discover a Tavern Tier 1 minion. (Upgrades each turn!)
+
+
+Bristlemane Scrapsmith (Tavern Tier 3, Quilboar)
+
+4 Attack, 4 Health. After a friendly Taunt minion dies, get a Blood Gem.
+
+
+Faceless Disciple (Tavern Tier 3)
+
+6 Attack, 4 Health. Battlecry: Transform a minion into one of a Tier higher.
+
+
+Vigilant Stoneborn (Tavern Tier 4)
+
+2 Attack, 6 Health. Battlecry: Give a minion +6 Health and Taunt.
+
+
+Ball of Minions (Tavern Tier 4, All)
+
+5 Attack, 5 Health. When you sell this, give its stats to a random friendly minion.
+
+
+Interrogator Whitemane (Tavern Tier 5)
+
+8 Attack, 5 Health. Start of Combat: Give the enemies opposite this Taunt. They take double damage.
+
+
+Vanessa VanCleef (Tavern Tier 5, Pirate)
+
+3 Attack, 7 Health. Whenever this attacks, give your Pirates +2/+1 permanently.
+
+
+The Walking Fort (Tavern Tier 6)
+
+4 Attack, 6 Health. At the end of your turn, give 4 friendly Taunt minions +4/+4.
+
+
+Minion Updates
+
+Prophet of the Boar
+
+Old: 3 Attack, 3 Health. Once per Turn: After you play a Quilboar, gain a Blood Gem.
+New: 2 Attack, 3 Health. Taunt. After you play a Quilboar, get a Blood Gem.
+
+
+Tarecgosa
+
+Old: This permanently keeps enchantments from combat.
+New: This permanently keeps your enchantments from combat.
+
+
+Dev comment: Tarecgosa will function the same way as it does now. This change is to prevent Tarecgosa from keeping negative enchantments, like Interrogator WhitemaneÅfs added this patch.
+
+Minion Pool Changes
+
+Spawn of NÅfZoth, Gemsplitter, Reef Explorer, Nightmare Amalgam, Nosy Looter, and Yrel have been removed from the minion pool.
+Menagerie Mug has been returned to the minion pool.
+New Battle Bash: HallowÅfs End Collection
+Battle Bash is a new way for you to earn a limited-time* curated collection of Battlegrounds cosmetics, including  at least one Legendary item! Purchasing access to the Battle Bash means you earn one ÅgHammerÅh with each Top 4 finish during the Battle Bash period. Each Hammer can then be used to Bash for a random prize from that Battle Bash collection. 
+
+The first Battle Bash will be the HallowÅfs End collection of ten items (purchasable for money or 1000 Runestones), including two Legendary items: a Legendary Board, a Legendary Strike, a Rare Bartender, 5 Epic Skins, and 2 sets of three Rare Emotes! 
+
+
+
+Purchasing this first Battle Bash will immediately unlock 2 Hammers. On top of that, Bob will give all players one free Bash to try it out. That means you have a random chance to get your favorite prize for free! It also means that if you purchase this Battle Bash, you only need seven Top 4 finishes during the Battle Bash period to unlock all the prizes. This first Battle Bash period will last for three weeks from the initial Battle Bash offering.
+
+* Each Battle Bash collection will only be available as a whole collection for a limited time. However, individual items within a Battle Bash may become available at a later time. Items within each Battle Bash have different pull weightings. For more details, see the full disclosures site.
+
+Battlegrounds Lobby Legends Returns
+You can watch the best of the best battle it out in the fresh Battlegrounds meta when Lobby Legends returns on November 12! Keep an eye out for more event details closer to the eventÅfs start.

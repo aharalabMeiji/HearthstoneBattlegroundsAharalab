@@ -1,0 +1,92 @@
+Battlegrounds Updates
+Armor Tier Changes
+
+AlÅfAkir, Alexstrasza, Murloc Holmes, and Patchwerk are now Armor Tier 1.
+Death Speaker Blackthorn, George the Fallen, Ini Stormcoil, Silas Darkmoon, Tamsin Roame, VolÅfjin, and Xyrella are now Armor Tier 2.
+Ambassador Faelin, Cariel Roame, Deathwing, Elise Starseeker, Heistbaron Togwaggle, Lord Barov, Jandice Barov, Maiev Shadowsong, Malygos, Nozdormu, Patches the Pirate, Reno Jackson, Shudderwock, Sir Finley Mrrgglton, Sneed, and Zephrys the Great are now Armor Tier 3.
+DancinÅf Deryl, Dinotamer Brann, Queen Azshara, Ragnaros the Firelord, and YÅfShaarj are now Armor Tier 4.
+A.F. Kay, Chenvaala, Galakrond, Greybough, Illidan Stormraige, Infinite Toki, Mr. Bigglesworth, Rakanishu, SkycapÅfn Kragg, Tess Greymane, and The Curator are now Armor Tier 5.
+Captain Eudora is now Armor Tier 6.
+CÅfThun and Tavish Stormpike are now Armor Tier 7.
+Hero Changes
+
+Toggwaggle ? Perfect Crime
+
+Old: 9 Gold
+New: 10 Gold
+
+
+Minion Changes
+
+Nether Drake
+
+Old: 5 Health
+New: 4 Health
+
+
+Legion Overseer
+
+Old: Minions in BobÅfs Tavern have +2/+2.
+New: Minions in BobÅfs Tavern have +2/+1.
+
+
+Amber Guardian
+
+Old: Start of Combat: Give another friendly Dragon +3/+3 and Divine Shield.
+New: Start of Combat: Give another friendly Dragon +2/+2 and Divine Shield.
+
+
+Lava Lurker
+
+Old: 2 Attack, 4 Health
+New: 2 Attack, 5 Health
+
+
+Party Elemental
+
+Old: 3 Attack, 2 Health
+New: 4 Attack, 2 Health
+
+
+Yo-Ho-Ogre
+
+Old: 3 Attack, 5 Health
+New: 3 Attack, 6 Health
+
+
+Quest and Quest Reward Changes
+
+As a reminder, Quests and Quest Rewards in Battlegrounds are not static. Quests have baseline values that are adjusted game-by-game, based on several factors, including the value of the Reward they are paired with.
+
+Quest baseline adjustments:
+
+Track the Footprints
+
+Old: Have BobÅfs Tavern Refreshed 10 times.
+New: Have BobÅfs Tavern Refreshed 9 times.
+Follow the Money
+
+Old: Spend 30 Gold.
+New: Spend 33 Gold.
+Reenact the Murder
+
+Old: Have 18 friendly minions die.
+New: Have 19 friendly minions die.
+Reward text adjustments:
+
+Tiny Henchman
+
+Old: At the end of your turn, give +2/+2 to 3 friendly minions of Tier 3 or lower.
+New: At the end of your turn, give +3/+3 to 3 friendly minions of Tier 3 or lower.
+Alter Ego
+
+Old: Even Tier minions in BobÅfs Tavern have +6/+6. (Swaps to Odd next turn!)
+New: Even Tier minions in BobÅfs Tavern have +7/+7. (Swaps to Odd next turn!)
+Staff of Origination
+
+Old: Start of Combat: Give your minions +15/+15.
+New: Start of Combat: Give your minions +12/+12.
+Reward difficulty adjustments:
+
+Teal Tiger Sapphire, Snicker Snacks, and Red Hand were made generally easier to earn.
+The Smoking Gun, Mirror Shield, and Stolen Gold were made generally harder to earn.
