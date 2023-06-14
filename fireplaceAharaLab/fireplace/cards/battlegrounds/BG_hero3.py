@@ -28,7 +28,7 @@ class BG23_HERO_304:
 	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:10, GameTag.HEALTH:30}
 	else:
-		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:0, GameTag.HEALTH:40}
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:1, GameTag.HEALTH:40}
 class BG23_HERO_304p_Action(TargetedAction):
 	BUFF=ActionArg()
 	def do(self, source, buff):
@@ -357,7 +357,7 @@ class TB_BaconShop_HERO_62:# <12>[1453]
 	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:15, GameTag.HEALTH:30}
 	else:
-		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:0, GameTag.HEALTH:40}
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:1, GameTag.HEALTH:40}
 class TB_BaconShop_HP_068:
 	""" Imprison
 	Make a minion in Bob's Tavern [Dormant]. After 3 __turns, get it with +2/+2 """
@@ -499,7 +499,7 @@ class BG20_HERO_202:# <12>[1453]
 	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:10, GameTag.HEALTH:30}
 	else:
-		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:0, GameTag.HEALTH:40}
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:1, GameTag.HEALTH:40}
 class BG20_HERO_202p_Choice(Choice):
 	def choose(self, card):
 		self.next_choice=None
@@ -579,7 +579,7 @@ class TB_BaconShop_HERO_49:# <12>[1453]
 	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:8, GameTag.HEALTH:30}
 	else:
-		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:0, GameTag.HEALTH:40}
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:1, GameTag.HEALTH:40}
 	pass
 class TB_BaconShop_HP_054:
 	""" Manastorm
@@ -839,7 +839,7 @@ class BG23_HERO_303:
 	if Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:10, GameTag.HEALTH:30}
 	else:
-		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:0, GameTag.HEALTH:40}
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:1, GameTag.HEALTH:40}
 class BG23_HERO_303p2_Choice(Choice):
 	def choose(self, card):
 		self.next_choice=None
@@ -905,7 +905,7 @@ class BG20_HERO_301: ##
 	if Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:10, GameTag.HEALTH:30}
 	else:
-		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:0, GameTag.HEALTH:40}
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:1, GameTag.HEALTH:40}
 class BG20_HERO_301p_Action(TargetedAction):
 	TARGET=ActionArg()
 	CARD=ActionArg()
@@ -1502,7 +1502,7 @@ class TB_BaconShop_HERO_39:# <12>[1453]
 	if Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:14, GameTag.HEALTH:30}
 	else:
-		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:0, GameTag.HEALTH:40}
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:1, GameTag.HEALTH:40}
 class TB_BaconShop_HP_040_Action1(TargetedAction):
 	TARGET = ActionArg()
 	BUFF = ActionArg()

@@ -138,7 +138,7 @@ class TB_BaconShop_HERO_42:# <12>[1453]
 	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:12, GameTag.HEALTH:30}
 	else:
-		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:0, GameTag.HEALTH:40}
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:1, GameTag.HEALTH:40}
 class TB_BaconShop_HP_047_Choice(Choice):
 	def do(self, source, player, cards, option=None):
 		if len(cards)==1 and cards[0]==[]:
@@ -332,7 +332,7 @@ class TB_BaconShop_HERO_74:# <12>[1453]
 	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:12, GameTag.HEALTH:30}
 	else:
-		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:0, GameTag.HEALTH:40}
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:1, GameTag.HEALTH:40}
 class TB_BaconShop_HP_082:
 	""" Everbloom
 	[Passive] After you upgrade Bob's Tavern, gain 2 Gold this turn only."""
@@ -493,7 +493,7 @@ class BG20_HERO_283:# <12>[1453]
 	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:8, GameTag.HEALTH:30}
 	else:
-		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:0, GameTag.HEALTH:40}
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:1, GameTag.HEALTH:40}
 class BG20_HERO_283p_Choice(Choice):
 	def choose(self, card):
 		self.next_choice=None
@@ -654,7 +654,7 @@ class TB_BaconShop_HERO_15:# <12>[1453]
 	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:10, GameTag.HEALTH:30}
 	else:
-		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:0, GameTag.HEALTH:40}
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:1, GameTag.HEALTH:40}
 class TB_BaconShop_HP_010_Action(TargetedAction):
 	TARGET=ActionArg()
 	def do(self, source, target):
