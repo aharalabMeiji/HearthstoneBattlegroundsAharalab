@@ -87,6 +87,10 @@ if BG25__Thorncaptain:# 1/4/2 quilboar/pirate ## new 25.2.2
 class BG25_045:# (minion)
 	""" Thorncaptain
 	After a card is added to your hand, gain +1 Health until next turn. """
+	if Config.BG_VERSION>= 2522:
+		option_tags={GameTag.ATK:4, GameTag.HEALTH:2}
+	else:
+		option_tags={GameTag.ATK:4, GameTag.HEALTH:1}
 	events = [Give(CONTROLLER).after(Buff(SELF, 'BG25_045e')),
 		   Buy(CONTROLLER).after(Buff(SELF, 'BG25_045e'))]
 	pass
@@ -98,6 +102,10 @@ class BG25_045e:# (enchantment)
 class BG25_045_G:# (minion)
 	""" Thorncaptain
 	After a card is added to your hand, gain +2 Health until next turn. """
+	if Config.BG_VERSION>= 2522:
+		option_tags={GameTag.ATK:8, GameTag.HEALTH:4}
+	else:
+		option_tags={GameTag.ATK:8, GameTag.HEALTH:2}
 	events = [Give(CONTROLLER).after(Buff(SELF, 'BG25_045e2')),
 		   Buy(CONTROLLER).after(Buff(SELF, 'BG25_045e2'))]
 	pass
