@@ -279,8 +279,10 @@ class TB_BaconShop_HERO_37:# <12>[1453]
 		option_tags={GameTag.ARMOR:7 , GameTag.HEALTH:30}
 	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:13, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2520:
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:3, GameTag.HEALTH:40}
 	else:
-		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:3, GameTag.HEALTH:40}
 class TB_BaconShop_HP_036_Action(TargetedAction):
 	TARGET=ActionArg()
 	def do(self, source, target):
@@ -430,8 +432,10 @@ class TB_BaconShop_HERO_58:# <12>[1453]
 	""" Malygos """
 	if Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:10, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2520:
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:3, GameTag.HEALTH:40}
 	else:
-		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:3, GameTag.HEALTH:40}
 class TB_BaconShop_HP_052_Action(TargetedAction):
 	CONTROLLER=ActionArg()
 	TARGET=ActionArg()
@@ -1098,8 +1102,10 @@ class TB_BaconShop_HERO_57:# <12>[1453]
 		option_tags={GameTag.ARMOR:18, GameTag.HEALTH:30}
 	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:15, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2520:
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:3, GameTag.HEALTH:40}
 	else:
-		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:3, GameTag.HEALTH:40}
 class TB_BaconShop_HP_063:
 	""" Clairvoyance
 	[Passive] Your first [Refresh] each turn costs (0)"""
@@ -1376,8 +1382,10 @@ class TB_BaconShop_HERO_18:# <12>[1453]
 		option_tags={GameTag.ARMOR: 8, GameTag.HEALTH:30 }
 	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:10, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2520:
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:3, GameTag.HEALTH:40}
 	else:
-		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:3, GameTag.HEALTH:40}
 class TB_BaconShop_HP_072_Action(GameAction):
 	def do(self, source):
 		controller=source.controller

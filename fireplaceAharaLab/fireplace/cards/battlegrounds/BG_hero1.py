@@ -1546,8 +1546,10 @@ class TB_BaconShop_HERO_43:# <12>[1453]
 		option_tags={GameTag.ARMOR:13, GameTag.HEALTH:30}
 	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:15, GameTag.HEALTH:30 }
+	elif Config.BG_VERSION>=2520:
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:3, GameTag.HEALTH:40}
 	else:
-		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:2, GameTag.HEALTH:40}
 class TB_BaconShop_HP_048:
 	""" Battle Brand
 	[Passive.] After you buy 5 [Battlecry] minions, add Brann Bronzebeard to your _hand. <i>(Once per game.)</i>@[x][Passive.] After you buy 5 [Battlecry] minions, add Brann Bronzebeard to your hand. <i>({0} left!)</i>"""
@@ -1603,8 +1605,10 @@ class BG22_HERO_002:# <12>[1453]
 		option_tags={GameTag.ARMOR:16, GameTag.HEALTH:30}
 	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:13, GameTag.HEALTH:30 }
+	elif Config.BG_VERSION>=2520:
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:3, GameTag.HEALTH:40}
 	else:
-		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:3, GameTag.HEALTH:40}
 class BG22_HERO_002p_Action(TargetedAction):
 	TARGET=ActionArg()
 	BUFF=ActionArg()
