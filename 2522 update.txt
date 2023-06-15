@@ -87,14 +87,12 @@ Old: 3 Attack, 7 Health. After you summon a minion in combat, give your minions 
 New: 3 Attack, 8 Health. After you summon a minion in combat, give your minions +2 Attack.
 
 
-Sister Deathwhisper
-
+Sister Deathwhisper*
 Old: 4 Attack, 11 Health. Whenever a friendly minion is Reborn, give your Undead +1/+3 permanently.
 New: 4 Attack, 9 Health. Whenever a friendly minion is Reborn, give your Undead +1/+2 permanently.
 
 
-Eternal Summoner
-
+Eternal Summoner*
 Old: 8 Attack, 1 Health. Deathrattle: Summon 2 Eternal Knights.
 New: 6 Attack, 1 Health. Reborn. Deathrattle: Summon 1 Eternal Knight.
 

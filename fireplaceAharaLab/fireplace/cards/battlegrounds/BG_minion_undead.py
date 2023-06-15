@@ -28,7 +28,7 @@ BG24__Sinrunner_Blanchy=(Config.BG_VERSION>=2520)#5 undead/beast ## new 25.2
 BG25__Soulsplitter=(Config.BG_VERSION>=2522)#5 undead ## new 25.2.2
 
 BG25__Colossus_of_the_Sun=(Config.BG_VERSION>=2522) #6 undead ## new 25.2.2
-BG25__Eternal_Summoner=(Config.BG_VERSION>=2522)#6 undead ## new 25.2.2
+BG25__Eternal_Summoner=(Config.BG_VERSION>=2520)#6 undead ## new 25.2
 BG25__Sister_Deathwhisper=(Config.BG_VERSION>=2520)#6 undead ## new 25.2
 
 BG_Minion_Undead = []
@@ -762,12 +762,24 @@ if BG25__Eternal_Summoner:#
 class BG25_009:# (minion)
 	""" Eternal Summoner
 	<b>Deathrattle:</b> Summon 2 Eternal Knights(BG25_008). """
-	deathrattle = Summon(CONTROLLER, 'BG25_008')*2
+	#<2522: 8 Attack, 1 Health. Deathrattle: Summon 2 Eternal Knights.
+	#>=2522: 6 Attack, 1 Health. Reborn. Deathrattle: Summon 1 Eternal Knight.
+	if Config.BG_VERSION>=2522:
+		option_tags={GameTag.ATK:6, GameTag.HEALTH:1}
+		deathrattle = Summon(CONTROLLER, 'BG25_008')
+	else:
+		option_tags={GameTag.ATK:8, GameTag.HEALTH:1}
+		deathrattle = Summon(CONTROLLER, 'BG25_008')*2
 	pass
 class BG25_009_G:# (minion)
 	""" Eternal Summoner
 	<b>Deathrattle:</b> Summon 4 Eternal Knights. """
-	deathrattle = Summon(CONTROLLER, 'BG25_008')*4
+	if Config.BG_VERSION>=2522:
+		option_tags={GameTag.ATK:12, GameTag.HEALTH:2}
+		deathrattle = Summon(CONTROLLER, 'BG25_008')*2
+	else:
+		option_tags={GameTag.ATK:16, GameTag.HEALTH:2}
+		deathrattle = Summon(CONTROLLER, 'BG25_008')*4
 	pass
 
 
