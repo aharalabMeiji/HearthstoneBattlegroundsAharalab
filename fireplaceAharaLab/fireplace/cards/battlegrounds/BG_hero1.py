@@ -349,8 +349,10 @@ class BG22_HERO_201:# <12>[1453]
 		option_tags={GameTag.ARMOR:15, GameTag.HEALTH:30}
 	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:15, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2520:
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:4, GameTag.HEALTH:40}
 	else:
-		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:4, GameTag.HEALTH:40}
 	pass
 class BG22_HERO_201p_Choice(Choice):
 	def choose(self, card):
@@ -571,8 +573,10 @@ class BG22_HERO_001:# <12>[1453]
 		option_tags={GameTag.ARMOR:12, GameTag.HEALTH:30}
 	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:16, GameTag.HEALTH:30 }
+	elif Config.BG_VERSION>=2520:
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:4, GameTag.HEALTH:40}
 	else:
-		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:4, GameTag.HEALTH:40}
 class BG22_HERO_001p_Choice(Choice):
 	def do(self, source, target, cards, option=None):
 		super().do(source, target, cards, option)
@@ -850,9 +854,10 @@ class TB_BaconShop_HERO_64:# <12>[1453]
 	"""
 	if Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:15, GameTag.HEALTH:30 }
+	elif Config.BG_VERSION>=2520:
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:5, GameTag.HEALTH:40}
 	else:
-		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
-
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:5, GameTag.HEALTH:40}
 class TB_BaconShop_HP_074_Action(GameAction):
 	def do(self, source):
 		controller = source.controller

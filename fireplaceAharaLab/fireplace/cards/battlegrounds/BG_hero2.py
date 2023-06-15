@@ -77,8 +77,10 @@ class TB_BaconShop_HERO_01:# <12>[1453]
 		option_tags={GameTag.ARMOR:19, GameTag.HEALTH:30}
 	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:17, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2520:
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:5, GameTag.HEALTH:40}
 	else:
-		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:5, GameTag.HEALTH:40}
 class TB_BaconShop_HP_001_Action(TargetedAction):
 	TARGET=ActionArg()
 	def do(self, source, target):
@@ -705,8 +707,10 @@ class TB_BaconShop_HERO_95:# <12>[1453]
 	""" Greybough  """
 	if Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:16, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2520:
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:5, GameTag.HEALTH:40}
 	else:
-		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:5, GameTag.HEALTH:40}
 class TB_BaconShop_HP_107_Action(TargetedAction):
 	TARGET=ActionArg()
 	def do(delf, source, target):
@@ -929,8 +933,10 @@ class TB_BaconShop_HERO_08:# <12>[1453]
 		option_tags={GameTag.ARMOR:14, GameTag.HEALTH:30}
 	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:13, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2520:
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:6, GameTag.HEALTH:40}
 	else:
-		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:6, GameTag.HEALTH:40}
 	pass
 class TB_BaconShop_HP_069_Action(GameAction):
 	def do(self, source):
@@ -1253,8 +1259,10 @@ class TB_BaconShop_HERO_38:# <12>[1453]
 	""" King Mukla  """
 	if Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:14, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2520:
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:7, GameTag.HEALTH:40}
 	else:
-		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:7, GameTag.HEALTH:40}
 class TB_BaconShop_HP_038_Action(TargetedAction):
 	TARGET=ActionArg()
 	COIN=ActionArg()
@@ -1315,8 +1323,10 @@ class BG20_HERO_280:# <14>[1453]
 		option_tags={GameTag.ARMOR: 20, GameTag.HEALTH:30}
 	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:15, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2520:
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:6, GameTag.HEALTH:40}
 	else:
-		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:6, GameTag.HEALTH:40}
 	pass
 class BG20_HERO_280e:# <12>[1453]
 	""" Kurtrus Watcher """

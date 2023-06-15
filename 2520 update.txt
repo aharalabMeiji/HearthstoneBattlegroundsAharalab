@@ -173,27 +173,27 @@ Y'Shaarj*
 Zephrys, the Great*
 
 Tier 5 (5-8 Armor)
-Captain Eudora
-Chenvaala
-Edwin VanCleef
-Greybough
-Queen Azshara
-Rakanishu
-Tavish Stormpike
+Captain Eudora*
+Chenvaala*
+Edwin VanCleef*
+Greybough*
+Queen Azshara*
+Rakanishu*
+Tavish Stormpike*
 
 Tier 6 (6-9 Armor)
-Illidan Stormrage
-Kurtrus Ashfallen
-Mr. Bigglesworth
-Sindragosa
+Illidan Stormrage*
+Kurtrus Ashfallen*
+Mr. Bigglesworth*
+Sindragosa*
 
 Tier 7 (7-10 Armor)
-A.F. Kay
-Aranna Starseeker
-King Mukla
-Overlord Saurfang
-Queen Wagtoggle
-The Curator
+A.F. Kay*
+Aranna Starseeker*
+King Mukla*
+Overlord Saurfang*
+Queen Wagtoggle*
+The Curator*
 
 
 New Minions

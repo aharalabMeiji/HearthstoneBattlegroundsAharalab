@@ -106,8 +106,10 @@ class BG22_HERO_000:# <12>[1453]
 		option_tags={GameTag.ARMOR:10, GameTag.HEALTH:30}
 	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:10, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2520:
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:5, GameTag.HEALTH:40}
 	else:
-		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:5, GameTag.HEALTH:40}
 	pass
 class BG22_HERO_000p:# <12>[1453]
 	""" Deadeye
@@ -425,8 +427,10 @@ class TB_BaconShop_HERO_33:# <12>[1453]
 		option_tags={GameTag.ARMOR:18, GameTag.HEALTH:30}
 	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:13, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2520:
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:7, GameTag.HEALTH:40}
 	else:
-		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:7, GameTag.HEALTH:40}
 	pass
 class TB_BaconShop_HP_033:
 	"""  

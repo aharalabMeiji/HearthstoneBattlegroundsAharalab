@@ -731,8 +731,10 @@ class TB_BaconShop_HERO_70:# <12>[1453]
 	""" Mr. Bigglesworth """
 	if Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:18, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2520:
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:6, GameTag.HEALTH:40}
 	else:
-		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:6, GameTag.HEALTH:40}
 class TB_BaconShop_HP_080_Choice(Choice):
 	def choose(self, card):
 		self.next_choice=None
@@ -1599,8 +1601,10 @@ class BG22_HERO_007:
 		option_tags={GameTag.ARMOR:13, GameTag.HEALTH:30}
 	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:16, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2520:
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:5, GameTag.HEALTH:40}
 	else:
-		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:5, GameTag.HEALTH:40}
 class BG22_HERO_007p_Action(GameAction):
 	def do(self, source):
 		controller=source.controller
