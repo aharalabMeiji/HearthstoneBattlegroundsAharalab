@@ -126,6 +126,10 @@ class BG25_008_Action(GameAction):
 class BG25_008:# (minion)
 	""" Eternal Knight
 	Has +1/+1 for each friendly Eternal Knight that died this __game <i>(wherever this is)</i>. """
+	if Config.BG_VERSION>= 2522:
+		option_tags={GameTag.ATK:4, GameTag.HEALTH:1}
+	else:
+		option_tags={GameTag.ATK:3, GameTag.HEALTH:1}
 	events = [ Death(SELF).after(BG25_008_Action()),## while battle
 		Rerole(CONTROLLER).after(BG25_008_Action()),
 		Buy(CONTROLLER, SELF).after(BG25_008_Action()),
@@ -155,6 +159,10 @@ class BG25_008_G_Action(GameAction):
 class BG25_008_G:# (minion)
 	""" Eternal Knight
 	Has +2/+2 for each friendly Eternal Knight that died this __game <i>(wherever this is)</i>. """
+	if Config.BG_VERSION>= 2522:
+		option_tags={GameTag.ATK:8, GameTag.HEALTH:2}
+	else:
+		option_tags={GameTag.ATK:6, GameTag.HEALTH:2}
 	events = [ Death(SELF).after(BG25_008_G_Action()),## while battle
 		Rerole(CONTROLLER).after(BG25_008_G_Action()),
 		Buy(CONTROLLER, SELF).after(BG25_008_G_Action()),

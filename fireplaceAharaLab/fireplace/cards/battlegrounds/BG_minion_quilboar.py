@@ -338,6 +338,7 @@ class BG26_159_G:# (minion)
 	play = BG26_159_action(2)#
 	pass
 
+
 if BG25__Pufferquil:# 4/2/6, quilbour/naga (4)->(3) new 2622
 	BG_Minion_Quilboar+=['BG25_039','BG25_039_G','BG25_039_Ge','BG25_039e']
 	BG_PoolSet_Quilboar.append('BG25_039')
@@ -355,6 +356,10 @@ class BG25_039:# (minion)
 		option_tags={GameTag.TECH_LEVEL:3}
 	else:
 		option_tags={GameTag.TECH_LEVEL:4}
+	if Config.BG_VERSION>= 2522:
+		option_tags={GameTag.ATK:2, GameTag.HEALTH:4}
+	else:
+		option_tags={GameTag.ATK:2, GameTag.HEALTH:6}	
 	events = BG_Play(CONTROLLER).after(BG25_039_Action(Play.TARGET))
 	pass
 class BG25_039e:# (enchantment)
@@ -377,6 +382,10 @@ class BG25_039_G:# (minion)
 		option_tags={GameTag.TECH_LEVEL:3}
 	else:
 		option_tags={GameTag.TECH_LEVEL:4}
+	if Config.BG_VERSION>= 2522:
+		option_tags={GameTag.ATK:4, GameTag.HEALTH:8}
+	else:
+		option_tags={GameTag.ATK:4, GameTag.HEALTH:12}	
 	events = BG_Play(CONTROLLER).after(BG25_039_G_Action(Play.TARGET))
 	pass
 if Config.BG_VERSION>=2620:

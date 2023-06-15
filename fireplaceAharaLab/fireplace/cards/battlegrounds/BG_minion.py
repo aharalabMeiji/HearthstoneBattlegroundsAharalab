@@ -922,7 +922,7 @@ if BG_Master_of_Realities:
 	BG_PoolSet_Minion.append('BG21_036')
 	BG_Minion_Gold['BG21_036']='BG21_036_G'
 	pass
-# (5/6/6) -> (4/4/4) when?
+# (5/6/6) -> (4/4/4)  2522
 class BG21_036_Action(TargetedAction):
 	TARGET = ActionArg()
 	BUFF = ActionArg()
@@ -933,6 +933,10 @@ class BG21_036_Action(TargetedAction):
 class BG21_036:# <12>[1453] 多重現実の支配者
 	""" Master of Realities
 	[[Taunt].] After a friendly Elemental gains stats, gain +1/+1. """
+	if Config.BG_VERSION>= 2522:
+		option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:4, GameTag.HEALTH:4}
+	else:
+		option_tags={GameTag.TECH_LEVEL:5, GameTag.ATK:6, GameTag.HEALTH:6}
 	events = Buff(FRIENDLY + ELEMENTAL).on(BG21_036_Action(SELF, Buff.BUFF))
 	pass
 BG21_036e=buff(1,1)
@@ -946,6 +950,10 @@ class BG21_036_G_Action(TargetedAction):
 class BG21_036_G:# <12>[1453]
 	""" Master of Realities
 	[[Taunt].] After a friendly Elemental gains stats, gain +2/+2. """
+	if Config.BG_VERSION>= 2522:
+		option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:8, GameTag.HEALTH:8}
+	else:
+		option_tags={GameTag.TECH_LEVEL:5, GameTag.ATK:12, GameTag.HEALTH:12}
 	events = Buff(FRIENDLY + ELEMENTAL).on(BG21_036_G_Action(SELF, Buff.BUFF))
 	pass
 BG21_036_Ge=buff(2,2)# <12>[1453]
