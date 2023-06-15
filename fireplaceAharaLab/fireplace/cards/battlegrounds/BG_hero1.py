@@ -166,8 +166,10 @@ class TB_BaconShop_HERO_16:# <12>[1453]
 		option_tags={GameTag.ARMOR:18, GameTag.HEALTH:30}
 	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:15, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2520:
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:7, GameTag.HEALTH:40}
 	else:
-		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:7, GameTag.HEALTH:40}
 	pass
 class TB_BaconShop_HP_044_Action(GameAction):
 	def do(self, source):
@@ -453,8 +455,10 @@ class TB_BaconShop_HERO_59:# <12>[1453]
 		option_tags={GameTag.ARMOR: 14, GameTag.HEALTH:30 }
 	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR: 17, GameTag.HEALTH:30 }
+	elif Config.BG_VERSION>=2520:
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:7, GameTag.HEALTH:40}
 	else:
-		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:7, GameTag.HEALTH:40}
 class TB_BaconShop_HP_065:
 	""" Demon Hunter Training
 	[Passive] After you [Refresh] 5 times, Bob always has 7 minions.<i>(@ left!)</i>"""
@@ -1109,8 +1113,10 @@ class TB_BaconShop_HERO_78:# <12>[1453]
 		option_tags={GameTag.ARMOR:17, GameTag.HEALTH:30}
 	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:15, GameTag.HEALTH:30 }
+	elif Config.BG_VERSION>=2520:
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:5, GameTag.HEALTH:40}
 	else:
-		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:5, GameTag.HEALTH:40}
 class TB_BaconShop_HP_088:
 	""" Avalanche
 	[Passive] After you play 3 Elementals, reduce the cost of upgrading Bob's Tavern by (3)."""

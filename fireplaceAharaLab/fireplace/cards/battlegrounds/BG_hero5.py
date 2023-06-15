@@ -417,7 +417,7 @@ class TB_BaconShop_HERO_50_Buddy_G:# <12>[1453]
 
 
 ##The Curator   ### HP OK ###
-BG_Hero5+=['TB_BaconShop_HERO_33','TB_BaconShop_HERO_33_Buddy','TB_BaconShop_HERO_33_Buddy_e','TB_BaconShop_HERO_33_Buddy_G','TB_BaconShop_HP_033','TB_BaconShop_HP_033t',]
+BG_Hero5+=['TB_BaconShop_HERO_33','TB_BaconShop_HERO_33_Buddy','TB_BaconShop_HERO_33_Buddy_e','TB_BaconShop_HERO_33_Buddy_G','T B_BaconShop_HP_033','TB_BaconShop_HP_033t',]
 BG_PoolSet_Hero5.append('TB_BaconShop_HERO_33')
 BG_Hero5_Buddy['TB_BaconShop_HERO_33']='TB_BaconShop_HERO_33_Buddy'
 BG_Hero5_Buddy_Gold['TB_BaconShop_HERO_33_Buddy']='TB_BaconShop_HERO_33_Buddy_G'

@@ -1234,8 +1234,10 @@ class BG20_HERO_102:# <12>[1453]
 		option_tags={GameTag.ARMOR:19, GameTag.HEALTH:30}
 	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:14, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2520:
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:7, GameTag.HEALTH:40}
 	else:
-		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:7, GameTag.HEALTH:40}
 class BG20_HERO_102pe_Action(TargetedAction):
 	TARGET=ActionArg()
 	CARD=ActionArg()
@@ -1675,8 +1677,10 @@ class TB_BaconShop_HERO_14:# <12>[1453]
 		option_tags={GameTag.ARMOR:10, GameTag.HEALTH:30}
 	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:10, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2520:
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:7, GameTag.HEALTH:40}
 	else:
-		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:7, GameTag.HEALTH:40}
 	pass
 class TB_BaconShop_HP_037a_Action(GameAction):
 	def do(self, source):
