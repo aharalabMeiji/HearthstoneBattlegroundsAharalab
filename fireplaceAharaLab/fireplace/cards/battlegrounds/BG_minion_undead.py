@@ -494,46 +494,62 @@ if BG25__Anubarak_Nerubian_King:#
 	BG_Undead_Gold['BG25_007']='BG25_007_G'
 class BG25_007_Action(GameAction):
 	def do(self, source):
+		if Config.BG_VERSION>=2522:
+			amount=1
+		else:
+			amount=2
 		## cards in battle
 		controller=source.controller
 		for card in controller.field:
 			if race_identity(card,Race.UNDEAD):
-				card.atk+=2
+				card.atk+=amount
 		## cards in bar
 		controller=getattr(controller, 'deepcopy_original',None)
 		if controller:
 			for card in controller.field+controller.hand:
 				if race_identity(card,Race.UNDEAD):
-					card.atk+=2
+					card.atk+=amount
 			for card in controller.opponent.field: ## bartender's cards
 				if race_identity(card,Race.UNDEAD):
-					card.atk+=2
+					card.atk+=amount
 		pass
 class BG25_007:# (minion)
 	""" Anub'arak, Nerubian King
 	<b>Deathrattle:</b> Your Undead have +2 Attack for the rest of the game <i>(wherever they are)</i>. """
+	if Config.BG_VERSION>=2522:
+		option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:4, GameTag.HEALTH:3}
+	else:
+		option_tags={GameTag.TECH_LEVEL:5, GameTag.ATK:5, GameTag.HEALTH:3}
 	deathrattle = BG25_007_Action()
 	pass
 class BG25_007_G_Action(GameAction):
 	def do(self, source):
+		if Config.BG_VERSION>=2522:
+			amount=2
+		else:
+			amount=4
 		## cards in battle
 		controller=source.controller
 		for card in controller.field:
 			if race_identity(card,Race.UNDEAD):
-				card.atk+=4
+				card.atk+=amount
 		## cards in bar
 		controller=getattr(controller, 'deepcopy_original',None)
 		if controller:
 			for card in controller.field+controller.hand:
 				if race_identity(card,Race.UNDEAD):
-					card.atk+=4
+					card.atk+=amount
 			for card in controller.opponent.field: ## bartender's cards
 				if race_identity(card,Race.UNDEAD):
-					card.atk+=4
+					card.atk+=amount
 		pass
 class BG25_007_G:# (minion)
 	""" Anub'arak, Nerubian King
 	<b>Deathrattle:</b> Your Undead have +4 Attack for the rest of the game <i>(wherever they are)</i>. """
+	if Config.BG_VERSION>=2522:
+		option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:8, GameTag.HEALTH:6}
+	else:
+		option_tags={GameTag.TECH_LEVEL:5, GameTag.ATK:10, GameTag.HEALTH:6}
 	deathrattle = BG25_007_G_Action()
 	pass
 
@@ -684,6 +700,10 @@ class BG25_023_Action(GameAction):
 class BG25_023:# (minion)
 	""" Soulsplitter
 	<b>Reborn</b> <b>Start of Combat:</b> Give a ___friendly Undead <b>Reborn</b>. """
+	if Config.BG_VERSION>=2522:
+		option_tags={GameTag.TECH_LEVEL:5, GameTag.ATK:5, GameTag.HEALTH:2}
+	else:
+		option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:4, GameTag.HEALTH:2}
 	events = BeginBattle(CONTROLLER).on(BG25_023_Action())
 	pass
 BG25_023e=buff(reborn=True)
@@ -699,6 +719,10 @@ class BG25_023_G_Action(GameAction):
 class BG25_023_G:# (minion)
 	""" Soulsplitter
 	<b>Reborn</b> <b>Start of Combat:</b> Give 2 ___friendly Undead <b>Reborn</b>. """
+	if Config.BG_VERSION>=2522:
+		option_tags={GameTag.TECH_LEVEL:5, GameTag.ATK:10, GameTag.HEALTH:4}
+	else:
+		option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:8, GameTag.HEALTH:4}
 	events = BeginBattle(CONTROLLER).on(BG25_023_G_Action())
 	pass
 

@@ -29,7 +29,7 @@ BG26__Stormbringer=(Config.BG_VERSION>=2620) #(4/1/7)
 
 BG_Murozond=True ##(5)
 BG_Razorgore_the_Untamed=(Config.BG_VERSION>=2562 and Config.BG_VERSION<2620) ## (5) ## banned when? ## revive 25.6.2 ## banned 26.2
-BG25__Cyborg_Drake=(Config.BG_VERSION>=2522 and Config.BG_VERSION<2620)# 5/2/8 dragon ## new 25.2.2 ## banned 26.2
+BG25__Cyborg_Drake=(Config.BG_VERSION>=2520 and Config.BG_VERSION<2620)# 5/2/8 dragon ## new 25.2.0 ## banned 26.2
 BG26__Disco_Shuffler=(Config.BG_VERSION>=2620)# (5/4/3)
 BG26__Sanctum_Rester=(Config.BG_VERSION>=2620)# (5/5/5)
 
@@ -757,20 +757,36 @@ TB_BaconUps_106e=buff(2,2)
 
 
 
-if BG25__Cyborg_Drake:# 5/2/8 dragon ## new 25.2.2 banned 26.2
+if BG25__Cyborg_Drake:# 5/2/8 dragon ## new 25.2 banned 26.2
 	BG_Minion_Dragon+=['BG25_043','BG25_043e','BG25_043_G','BG25_043_Ge']
 class BG25_043:# (minion)
 	""" Cyborg Drake
 	<b>Divine Shield</b> Your <b>Divine Shield</b> minions have +10 Attack. """
+	#Old: 2 Attack, 8 Health. Divine Shield. Your Divine Shield minions have +10 Attack.
+	#New: 2 Attack, 10 Health. Divine Shield. Your Divine Shield minions have +8 Attack. # 25.2.2
+	if Config.BG_VERSION>=2522:
+		option_tags={GameTag.ATK:2, GameTag.HEALTH:10}
+	else:
+		option_tags={GameTag.ATK:2, GameTag.HEALTH:8}
 	update=Refresh(FRIENDLY + MINION + DIVINE_SHIELD, buff='BG25_043e')
 	pass
-BG25_043e=buff(10,0)
+if Config.BG_VERSION>=2522:
+	BG25_043e=buff(8,0)
+else:
+	BG25_043e=buff(10,0)
 class BG25_043_G:# (minion)
 	""" Cyborg Drake
 	<b>Divine Shield</b> Your <b>Divine Shield</b> minions have +20 Attack. """
+	if Config.BG_VERSION>=2522:
+		option_tags={GameTag.ATK:4, GameTag.HEALTH:20}
+	else:
+		option_tags={GameTag.ATK:4, GameTag.HEALTH:16}
 	update=Refresh(FRIENDLY + MINION + DIVINE_SHIELD, buff='BG25_043_Ge')
 	pass
-BG25_043_Ge=buff(20,0)
+if Config.BG_VERSION>=2522:
+	BG25_043_Ge=buff(16,0)
+else:
+	BG25_043_Ge=buff(20,0)
 
 
 ## Disco Shuffler (Dragon) (5)

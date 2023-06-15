@@ -42,37 +42,32 @@ Old: [Tavern Tier 5] 6 Attack, 6 Health
 New: [Tavern Tier 4] 4 Attack, 4 Health
 
 
-Anub'arak, Nerubian King
+Anub'arak, Nerubian King*
 Old: [Tavern Tier 5] 5 Attack, 3 Health. Deathrattle: Your Undead have +2 Attack for the rest of the game (wherever they are).
 New: [Tavern Tier 4] 4 Attack, 3 Health. Deathrattle: Your Undead have +1 Attack for the rest of the game (wherever they are).
 
 
-Magmaloc
-
+Magmaloc*
 Old: [Tavern Tier 4] 1 Attack, 1 Health
 New: [Tavern Tier 5] 3 Attack, 3 Health
 
 
-Soulsplitter
-
+Soulsplitter*
 Old: [Tavern Tier 4] 4 Attack, 2 Health
 New: [Tavern Tier 5] 5 Attack, 2 Health
 
 
-Vanessa VanCleef
-
+Vanessa VanCleef*
 Old: Whenever this attacks, give your Pirates +2/+1 permanently.
 New: Whenever this attacks, give your Pirates +2/+2 permanently.
 
 
-Cyborg Drake
-
+Cyborg Drake*
 Old: 2 Attack, 8 Health. Divine Shield. Your Divine Shield minions have +10 Attack.
 New: 2 Attack, 10 Health. Divine Shield. Your Divine Shield minions have +8 Attack.
 
 
 Sinrunner Blanchy
-
 Old: 4 Attack, 4 Health
 New: 3 Attack, 3 Health
 
