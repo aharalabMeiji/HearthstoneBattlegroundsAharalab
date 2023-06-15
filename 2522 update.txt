@@ -4,12 +4,12 @@ Battlegrounds Updates
 Hero Armor Changes
 
 The following heroes have less armor:
+Onyxia and Sneed are now Armor Tier 2 (2-5 Armor).*
 
-Onyxia and Sneed are now Armor Tier 2 (2-5 Armor).
 The following heroes have more armor:
+Pyramad was moved to Armor Tier 3 (3-6 Armor).*
+Sylvanas Windrunner was moved to Armor Tier 4 (4-7 Armor).*
 
-Pyramad was moved to Armor Tier 3 (3-6 Armor).
-Sylvanas Windrunner was moved to Armor Tier 4 (4-7 Armor).
 Card Changes
 
 Thorncaptain

@@ -1160,6 +1160,9 @@ class BG22_HERO_305:# <12>[1453]
 		option_tags={GameTag.ARMOR:14, GameTag.HEALTH:30}
 	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:14, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2540:
+		# at least on of Beasts, Demons, Mechs, or Undead
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:2, GameTag.HEALTH:40}
 	elif Config.BG_VERSION>=2522:
 		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:2, GameTag.HEALTH:40}
 	else:
@@ -1512,6 +1515,8 @@ class TB_BaconShop_HERO_39:# <12>[1453]
 	""" Pyramad	 """
 	if Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:14, GameTag.HEALTH:30}
+	if Config.BG_VERSION>=2522:
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:3, GameTag.HEALTH:40}
 	else:
 		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:1, GameTag.HEALTH:40}
 class TB_BaconShop_HP_040_Action1(TargetedAction):
