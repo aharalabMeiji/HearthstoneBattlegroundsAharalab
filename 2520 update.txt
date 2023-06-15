@@ -145,32 +145,32 @@ Tickatus*
 Varden Dawngrasp*
 
 Tier 3 (3-6 Armor)
-Dinotamer Brann
-Enhance-o Mechano
-Heistbaron Togwaggle
-Infinite Toki
-Malygos
-Nozdormu
-Patches the Pirate
-Shudderwock
-Skycap'n Kragg
-Sylvanas Windrunner
-The Jailer
-Yogg-Saron, Hope's End
-Jaraxxus
-Drek'Thar
+Dinotamer Brann*
+Enhance-o Mechano*
+Heistbaron Togwaggle*
+Infinite Toki*
+Malygos*
+Nozdormu*
+Patches the Pirate*
+Shudderwock*
+Skycap'n Kragg*
+Sylvanas Windrunner*
+The Jailer*
+Yogg-Saron, Hope's End*
+Jaraxxus*
+Drek'Thar*
 
 Tier 4 (4-7 Armor)
-Alexstrasza
-Ambassador Faelin
-Bru'kan
-Kael'thas Sunstrider
-Onyxia
-Ozumat
-Ragnaros the Firelord
-Sneed
-Y'Shaarj
-Zephrys, the Great
+Alexstrasza*
+Ambassador Faelin*
+Bru'kan*
+Kael'thas Sunstrider*
+Onyxia*
+Ozumat*
+Ragnaros the Firelord*
+Sneed*
+Y'Shaarj*
+Zephrys, the Great*
 
 Tier 5 (5-8 Armor)
 Captain Eudora

@@ -1320,8 +1320,10 @@ class TB_BaconShop_HERO_92:# <12>[1453]
 	""" Y'Shaarj """
 	if Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:13, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2520:
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:4, GameTag.HEALTH:40}
 	else:
-		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:4, GameTag.HEALTH:40}
 class TB_BaconShop_HP_103_Action(GameAction):
 	def do(self, source):
 		controller = source.controller# in the battle
@@ -1674,8 +1676,10 @@ class TB_BaconShop_HERO_91:# <12>[1453]
 		option_tags={GameTag.ARMOR:10, GameTag.HEALTH:30}
 	elif Config.BG_VERSION>=2560:
 		option_tags={GameTag.ARMOR:14, GameTag.HEALTH:30}
+	elif Config.BG_VERSION>=2520:
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:4, GameTag.HEALTH:40}
 	else:
-		option_tags={GameTag.ARMOR:0, GameTag.HEALTH:40}
+		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:4, GameTag.HEALTH:40}
 	pass
 class TB_BaconShop_HP_102_Action(GameAction):
 	def do(self, source):
