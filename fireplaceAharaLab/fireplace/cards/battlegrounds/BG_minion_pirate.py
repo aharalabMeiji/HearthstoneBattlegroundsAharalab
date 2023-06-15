@@ -462,7 +462,6 @@ class BG25_032:# (minion) 4/6/5 -> 4/4/2
 		option_tags={GameTag.ATK:4, GameTag.HEALTH:2}
 	else:
 		option_tags={GameTag.ATK:6, GameTag.HEALTH:5}
-
 	events = [
 		Buy(CONTROLLER,MINION).on(Buff(RANDOM(FRIENDLY_MINIONS + PIRATE - SELF), 'BG25_032e')),
 		Give(CONTROLLER,MINION).on(Buff(RANDOM(FRIENDLY_MINIONS + PIRATE - SELF), 'BG25_032e')),

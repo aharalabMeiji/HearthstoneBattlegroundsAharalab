@@ -67,25 +67,22 @@ Old: 2 Attack, 8 Health. Divine Shield. Your Divine Shield minions have +10 Atta
 New: 2 Attack, 10 Health. Divine Shield. Your Divine Shield minions have +8 Attack.
 
 
-Sinrunner Blanchy
+Sinrunner Blanchy*
 Old: 4 Attack, 4 Health
 New: 3 Attack, 3 Health
 
 
-Toxfin
-
+Toxfin*
 Old: Tavern Tier 6
 New: Tavern Tier 5
 
 
-Grease Bot
-
+Grease Bot*
 Old: After a friendly minion loses Divine Shield, give it +2/+2 permanently.
 New: After a friendly minion loses Divine Shield, give it +3/+2 permanently.
 
 
-Felstomper
-
+Felstomper*
 Old: 3 Attack, 7 Health. After you summon a minion in combat, give your minions +3 Attack.
 New: 3 Attack, 8 Health. After you summon a minion in combat, give your minions +2 Attack.
 

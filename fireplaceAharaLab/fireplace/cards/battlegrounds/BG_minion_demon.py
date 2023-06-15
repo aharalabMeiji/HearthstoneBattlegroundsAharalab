@@ -30,7 +30,7 @@ BG26__Imposing_Percussionist=(Config.BG_VERSION>=2620)#(5/6/6)
 
 BG_Famished_Felbat=True ##(6)
 BG_Imp_Mama=(Config.BG_VERSION<2522) ##(6) ## banned? 25.2.2
-BG25__Felstomper=(Config.BG_VERSION>=2520)# 6/3/7 demon/beast ## new 25.2.0
+BG25__Felstomper=(Config.BG_VERSION>=2520)# 6/3/7 demon/beast ## new 25.2
 BG25__Mecha_Jaraxxus=(Config.BG_VERSION>=2522)# 6/3/15 MECH/DEMON ## new 25.2.2
 
 

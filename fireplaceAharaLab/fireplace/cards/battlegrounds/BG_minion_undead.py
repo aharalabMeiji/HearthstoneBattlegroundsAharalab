@@ -24,12 +24,12 @@ BG26__Xylo_bones=(Config.BG_VERSION>=2620) # (4) new 26.2
 #BG26__Plagued_Tidewalker undead/murloc
 
 BG25__Hungering_Abomination=(Config.BG_VERSION>=2522)#5 undead ## new 25.2.2
-BG24__Sinrunner_Blanchy=(Config.BG_VERSION>=2522)#5 undead/beast ## new 25.2.2
+BG24__Sinrunner_Blanchy=(Config.BG_VERSION>=2520)#5 undead/beast ## new 25.2
 BG25__Soulsplitter=(Config.BG_VERSION>=2522)#5 undead ## new 25.2.2
 
 BG25__Colossus_of_the_Sun=(Config.BG_VERSION>=2522) #6 undead ## new 25.2.2
 BG25__Eternal_Summoner=(Config.BG_VERSION>=2522)#6 undead ## new 25.2.2
-BG25__Sister_Deathwhisper=(Config.BG_VERSION>=2522)#6 undead ## new 25.2.2
+BG25__Sister_Deathwhisper=(Config.BG_VERSION>=2520)#6 undead ## new 25.2
 
 BG_Minion_Undead = []
 BG_PoolSet_Undead=[ ]
@@ -666,7 +666,7 @@ class BG25_014_G:# (minion)
 BG25_014_Ge=buff(2,2)
 
 
-#Sinrunner Blanchy 5/3/3/Beast, Undead	Reborn ## new 25.2.2
+#Sinrunner Blanchy 5/3/3/Beast, Undead	Reborn ## new 25.2
 #BG24_005
 if BG24__Sinrunner_Blanchy:
 	BG_Minion_Undead += ['BG24_005','BG24_005_G']
@@ -675,11 +675,19 @@ if BG24__Sinrunner_Blanchy:
 class BG24_005:
 	""" Sinrunner Branky (5/4/4)
 	[Reborn]. This is [Reborn] with full Health and enchantments. """
+	if Config.BG_VERSION>=2522:
+		option_tags={GameTag.ATK:3, GameTag.HEALTH:3}
+	else:
+		option_tags={GameTag.ATK:4, GameTag.HEALTH:4}
 	##< when reborn, effects and max_health will be preserved.>
 	pass
 class BG24_005_G:
 	""" KIGA-reshimono
 	[Reborn]. This is [Reborn] with full Health and enchantments."""
+	if Config.BG_VERSION>=2522:
+		option_tags={GameTag.ATK:6, GameTag.HEALTH:6}
+	else:
+		option_tags={GameTag.ATK:8, GameTag.HEALTH:8}
 	pass
 
 
@@ -763,7 +771,7 @@ class BG25_009_G:# (minion)
 	pass
 
 
-#Sister Deathwhisper 6/4/9/Undead	Reborn ## new 25.2.2
+#Sister Deathwhisper 6/4/9/Undead	Reborn ## new 25.2
 if BG25__Sister_Deathwhisper:# 
 	BG_Minion_Undead+=['BG25_020','BG25_020e','BG25_020_G','BG25_020_Ge']
 	BG_PoolSet_Undead+=['BG25_020']
@@ -771,15 +779,31 @@ if BG25__Sister_Deathwhisper:#
 class BG25_020:# (minion)
 	""" Sister Deathwhisper
 	After a friendly minion is <b>Reborn</b>, give your Undead +1/+3 permanently. """
+	##<2522: 4 Attack, 11 Health. Whenever a friendly minion is Reborn, give your Undead +1/+3 permanently.
+	##>=2522: 4 Attack, 9 Health. Whenever a friendly minion is Reborn, give your Undead +1/+2 permanently.
+	if Config.BG_VERSION>=2522:
+		option_tags={GameTag.ATK:4, GameTag.HEALTH:9}
+	else:
+		option_tags={GameTag.ATK:4, GameTag.HEALTH:11}
 	events = Reborn(FRIENDLY + MINION).after(BuffPermanently(FRIENDLY + MINION + UNDEAD, 'BG25_020e'))
 	pass
-BG25_020e=buff(1,3)
+if Config.BG_VERSION>=2522:
+	BG25_020e=buff(1,2)
+else:
+	BG25_020e=buff(1,3)
 class BG25_020_G:# (minion)
 	""" Sister Deathwhisper
 	After a friendly minion is <b>Reborn</b>, give your Undead +2/+6  permanently. """
+	if Config.BG_VERSION>=2522:
+		option_tags={GameTag.ATK:8, GameTag.HEALTH:18}
+	else:
+		option_tags={GameTag.ATK:8, GameTag.HEALTH:22}
 	events = Reborn(FRIENDLY + MINION).after(BuffPermanently(FRIENDLY + MINION + UNDEAD, 'BG25_020_Ge'))
 	pass
-BG25_020_Ge=buff(2,6)
+if Config.BG_VERSION>=2522:
+	BG25_020_Ge=buff(2,4)
+else:
+	BG25_020_Ge=buff(2,6)
 
 
 
