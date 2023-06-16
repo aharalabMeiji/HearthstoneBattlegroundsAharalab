@@ -29,7 +29,7 @@ BG_Glowscale=True## (5)
 BG_Corrupted_Myrmidon=True## (5)
 
 BG_Tidemistress_Athissa=True## (6)
-BG25__Greta_Gold_Gun=(Config.BG_VERSION>=2522)# 6/2/9 naga/pirate ## new 25.2.2 ## banned 26.2
+BG25__Greta_Gold_Gun=(Config.BG_VERSION>=2520)# 6/2/9 naga/pirate ## new 25.2 ## banned 26.2
 
 BG_Minion_Naga=[]
 
@@ -872,6 +872,7 @@ if BG25__Greta_Gold_Gun:# 6/2/9 naga/pirate ## new 25.2.2##### banned 26.2 #####
 class BG25_044:# (minion)
 	""" Greta Gold-Gun
 	<b>Spellcraft:</b> Make a different friendly Pirate or Naga Golden until next turn. """
+	option_tags={GameTag.ATK:2, GameTag.HEALTH:9}
 	play = Spellcraft(CONTROLLER,'BG25_044t')
 	events = BeginBar(CONTROLLER).on(Spellcraft(CONTROLLER,'BG25_044t'))
 	tags={2359:'BG25_044t'}	
@@ -879,6 +880,7 @@ class BG25_044:# (minion)
 class BG25_044_G:# (minion)
 	""" Greta Gold-Gun
 	<b>Spellcraft:</b> Make a different friendly Pirate or Naga Golden until next turn. """
+	option_tags={GameTag.ATK:4, GameTag.HEALTH:18}
 	play = Spellcraft(CONTROLLER,'BG25_044t')
 	events = BeginBar(CONTROLLER).on(Spellcraft(CONTROLLER,'BG25_044t'))
 	tags={2359:'BG25_044t'}	

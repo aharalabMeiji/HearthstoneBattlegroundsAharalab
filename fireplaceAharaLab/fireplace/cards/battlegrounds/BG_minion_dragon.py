@@ -6,20 +6,20 @@ BG_Red_Whelp=(Config.BG_VERSION<2620) ## ##(1) ## banned 26.2
 BG26__Upbeat_Frontdrake=(Config.BG_VERSION>=2620) # (1)
 
 #BG_Blazing_Sklyfin=True ## (2/1/3) -> dragon/murloc
-BG_Glyph_Guardian=(Config.BG_VERSION<2560) ## ##(2) ###banned 25.?
+BG_Glyph_Guardian=(Config.BG_VERSION<2520) ## ##(2) ###banned 25.2
 BG_Steward_of_Time=(Config.BG_VERSION<2420) ####(2) ##banned 24.2
 BG_Twilight_Emissary=True ##(2/3/3)
 BG26__Low_Flier=(Config.BG_VERSION>=2620) # (2)
 
 BG24__Amber_Guardian=(Config.BG_VERSION>=2420)# (3) new 24.2
 BG_Bronze_Warden=True ##(3)
-BG_Drakonid_Enforcer=False ##(3) ## banned when?
+BG_Drakonid_Enforcer=(Config.BG_VERSION<2520) ##(3) ## banned 25.2
 BG24__Nether_Drake=(Config.BG_VERSION>=2420 and Config.BG_VERSION<2620)# (3) new 24.2 (2)->(3) ## banned 26.2
 
 BG_Atramedes=(Config.BG_VERSION>=2360 and Config.BG_VERSION<2620) ## (4)  23.6 ##OK## banned 26.2
 BG25__Chronormu=(Config.BG_VERSION>=2520 and Config.BG_VERSION<2562)# 4/4/4 dragon ## new 25.2
 BG_Cobalt_Scalebane=(Config.BG_VERSION<2420) ##(4) banned 24.2
-BG25__General_Drakkisath=(Config.BG_VERSION>=2522)# 4/2/8 DRAGON ## new 25.2.2
+BG25__General_Drakkisath=(Config.BG_VERSION>=2520)# 4/2/8 DRAGON ## new 25.2
 BG_Prestor_s_Pyrospawn=False ## (4) banned
 BG_Prized_Promo_Drake=True ##(4)
 BG_Tarecgosa=True ##(3)->(4)
@@ -28,7 +28,7 @@ BG26__Stormbringer=(Config.BG_VERSION>=2620) #(4/1/7)
 
 
 BG_Murozond=True ##(5)
-BG_Razorgore_the_Untamed=(Config.BG_VERSION>=2562 and Config.BG_VERSION<2620) ## (5) ## banned when? ## revive 25.6.2 ## banned 26.2
+BG_Razorgore_the_Untamed=(Config.BG_VERSION<2520 or (Config.BG_VERSION>=2562 and Config.BG_VERSION<2620)) ## (5) ## banned 25.2 ## revive 25.6.2 ## banned 26.2
 BG25__Cyborg_Drake=(Config.BG_VERSION>=2520 and Config.BG_VERSION<2620)# 5/2/8 dragon ## new 25.2.0 ## banned 26.2
 BG26__Disco_Shuffler=(Config.BG_VERSION>=2620)# (5/4/3)
 BG26__Sanctum_Rester=(Config.BG_VERSION>=2620)# (5/5/5)
@@ -527,6 +527,7 @@ class BG25_309:# (minion)
 		option_tags={GameTag.TECH_LEVEL:5}
 	else:
 		option_tags={GameTag.TECH_LEVEL:4}
+	option_tags={GameTag.ATK:2, GameTag.HEALTH:8}
 	play = Give(CONTROLLER, 'BG25_309t')
 	pass
 class BG25_309t:# (minion)
@@ -543,6 +544,7 @@ class BG25_309_G:# (minion)
 		option_tags={GameTag.TECH_LEVEL:5}
 	else:
 		option_tags={GameTag.TECH_LEVEL:4}
+	option_tags={GameTag.ATK:4, GameTag.HEALTH:16}
 	play = Give(CONTROLLER, 'BG25_309t'), Give(CONTROLLER, 'BG25_309t')
 	pass
 class BG25_309_Gt:# (minion)

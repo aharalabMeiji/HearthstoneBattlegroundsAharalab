@@ -10,8 +10,8 @@ BG26__Flourishing_Frostling=(Config.BG_VERSION>=2620)#(2)
 
 BG_Crackling_Cyclone=True ## (3)
 BG_Smogger=True ## (3)
-BG_Stasis_Elemental=False ## (3) ## banned when?
-BG25__Felemental=(Config.BG_VERSION>=2522)# 3/3/1 elemental/demon ## new 25.2.2
+BG_Stasis_Elemental=(Config.BG_VERSION<2520) ## (3) ## banned 25.2
+BG25__Felemental=(Config.BG_VERSION>=2520)# 3/3/1 elemental/demon ## new 25.2
 
 BG_Dazzling_Lightspawn=(Config.BG_VERSION<2620) ## (4) ## banned 26.2
 BG_Recycling_Wraith=True # (4)
@@ -300,7 +300,7 @@ class TB_BaconUps_161:# <12>[1453]
 	pass
 
 
-if BG25__Felemental:# 3/3/1 elemental/demon ## new 25.2.2 ##
+if BG25__Felemental:# 3/3/1 elemental/demon ## new 25.2 ##
 	BG_Minion_Elemental+=['BG25_041','BG25_041_G','BG25_041e','BG25_041e2']
 	BG_PoolSet_Elemental.append('BG25_041')
 	BG_Elemental_Gold['BG25_041']='BG25_041_G'
@@ -310,6 +310,7 @@ class BG25_041_Action(GameAction):
 class BG25_041:# (minion)
 	""" Felemental
 	<b>Battlecry:</b> Minions in Bob's Tavern have +1/+1 __for the rest of the game. """
+	option_tags={GameTag.ATK:3, GameTag.HEALTH:1}
 	play = BG25_041_Action()
 	pass
 class BG25_041_G_Action(GameAction):
@@ -318,6 +319,7 @@ class BG25_041_G_Action(GameAction):
 class BG25_041_G:# (minion)
 	""" Felemental
 	<b>Battlecry:</b> Minions in Bob's Tavern have +2/+2 __for the rest of the game. """
+	option_tags={GameTag.ATK:6, GameTag.HEALTH:2}
 	play = BG25_041_G_Action()
 	pass
 class BG25_041e:# (enchantment)

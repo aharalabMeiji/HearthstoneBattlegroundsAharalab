@@ -4,9 +4,9 @@ BG_Rockpool_Hunter=True ##(1)
 BG_Swampstriker=True ## (1)
 
 BG_Murloc_Warleader=(Config.BG_VERSION<2620) ## (2) ## banned 26.2 
-BG_Saltscale_Honcho=(Config.BG_VERSION>=2620) ## (2) banned when? revive 26.2
+BG_Saltscale_Honcho=(Config.BG_VERSION<2520 or Config.BG_VERSION>=2620) ## (2) banned 25.2 revive 26.2
 BG_Tad=True ## (2)
-BG_Blazing_Skyfin=True ## (2/1/3)
+BG_Blazing_Skyfin=(Config.BG_VERSION>=2520) ## (2/1/3)
 BG26__Upbeat_Flutist=(Config.BG_VERSION>=2620)#(2)
 
 BG_Coldlight_Seer=True ## (3)
@@ -145,7 +145,7 @@ class BG22_202_G:# <12>[1453]
 	pass
 
 
-### Blazing Skyfin (2/1/3) ## new 25.2.2
+### Blazing Skyfin (2/1/3) ## new 25.2
 if BG_Blazing_Skyfin:
 	BG_Minion_Murloc+=['BG25_040','BG25_040_G','BG25_040e','BG25_040_Ge']
 	BG_PoolSet_Murloc.append('BG25_040')
@@ -153,12 +153,14 @@ if BG_Blazing_Skyfin:
 class BG25_040:
 	""" Blazing Skyfin (2/1/3)
 	After you play a [Battlecry] minion, gain +1/+1."""
+	option_tags={GameTag.TECH_LEVEL:2, GameTag.ATK:1, GameTag.HEALTH:3}	
 	events = Play(CONTROLLER, FRIENDLY + BATTLECRY).after(Buff(SELF, 'BG25_040e'))
 	pass
 BG25_040e=buff(1,1)
 class BG25_040_G:
 	""" Blazing Skyfin (2/2/6)
 	After you play a [Battlecry] minion, gain +2/+2."""
+	option_tags={GameTag.TECH_LEVEL:2, GameTag.ATK:2, GameTag.HEALTH:6}	
 	events = Play(CONTROLLER, FRIENDLY + BATTLECRY).after(Buff(SELF, 'BG25_040_Ge'))
 	pass
 BG25_040_Ge=buff(2,2)

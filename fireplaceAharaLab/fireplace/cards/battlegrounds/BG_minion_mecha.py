@@ -22,7 +22,7 @@ BG_Iron_Sensei=(Config.BG_VERSION<2620)#(3) banned 26.2
 BG26__Accord_o_Tron=(Config.BG_VERSION>=2620)#(3)
 
 BG_Annoy_o_Module=True#(4)
-BG_Mechano_Eg_g=(Config.BG_VERSION>=2504)#(4) banned  -> renew 25.0.4
+BG_Mechano_Egg=(Config.BG_VERSION<2520 and Config.BG_VERSION>=2504)#(4) banned  -> renew 25.0.4 -> banned 25.2
 BG_Mechano_Tank=(Config.BG_VERSION<2504)#(4) -> banned 25.0.4
 BG_Wargear=(Config.BG_VERSION>=2360)#(4) # after 23.6
 BG26__Scrap_Scraper=(Config.BG_VERSION>=2620)# (4)
@@ -367,20 +367,20 @@ class TB_BaconUps_099e:
 
 
 
-#Mechano-Egg(4) ### OK ### -> renew 25.0.4
-if BG_Mechano_Eg_g:
+# Mechano-Egg (4) ### OK ### -> renew 25.0.4
+if BG_Mechano_Egg:
 	BG_Minion_Mecha+=['BOT_537', 'BOT_537t','TB_BaconUps_039', 'TB_BaconUps_039t',]
 	BG_PoolSet_Mecha.append('BOT_537')
 	BG_Mecha_Gold['BOT_537']='TB_BaconUps_039'
 class BOT_537:
-	"""
+	""" Mechano-Egg
 	[Deathrattle:] Summon an 8/8 Robosaur."""
 	deathrattle = Summon(CONTROLLER, 'BOT_537t')
 class BOT_537t:
 	""" Robosaur """
 	pass
 class TB_BaconUps_039:# <5>[1453]
-	""" Mechano-Egg
+	""" Mechano-Egg 
 	[Deathrattle:] Summon a 16/16 Robosaur. """
 	deathrattle = Summon(CONTROLLER, 'TB_BaconUps_039t')
 	pass

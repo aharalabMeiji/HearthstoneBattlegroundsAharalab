@@ -7,7 +7,7 @@ from ..utils import *
 
 BG_Razorfen_Geomancer=True##	1
 BG_Sun_Bacon_Relaxer=True##	1
-BG25__Thorncaptain=(Config.BG_VERSION>=2522)# 1/4/2 quilboar ## new 25.2.2
+BG25__Thorncaptain=(Config.BG_VERSION>=2520)# 1/4/2 quilboar ## new 25.2
 
 BG_Roadboar=(Config.BG_VERSION<2620)##	2 ## banned 26.2
 BG_Tough_Tusk=True##	2
@@ -18,9 +18,9 @@ BG_Bristleback_Brute=(Config.BG_VERSION<2620)## Brute	3 ## banned 26.2
 BG_Gemsplitter=(Config.BG_VERSION<2460)##	3 ### banned 24.6
 BG_Bristlemane_Scrapsmith=(Config.BG_VERSION>=2460) ## 3 ## new 24.6 ### OK ###
 BG26__Moon_Bacon_Jazzer=(Config.BG_VERSION>=2620) # (3)
-BG25__Pufferquil=(Config.BG_VERSION>=2522)# 4/2/6, quilbour/naga, new 25.2.2 ## (4)->(3) new 2622
+BG25__Pufferquil=(Config.BG_VERSION>=2520)# 4/2/6, quilbour/naga, new 25.2 ## (4)->(3) new 2622
 
-BG_Bonker=True##	4
+BG_Bonker=(Config.BG_VERSION<2520)##	4  ## banned 25.2
 BG_Dynamic_Duo=True##	4
 BG_Groundshaker=(Config.BG_VERSION<2620)##	4 ## banned 26.2
 BG_Necrolyte=True##	4
@@ -80,7 +80,7 @@ class BG20_301_G:# <12>[1453]
 	pass
 
 
-if BG25__Thorncaptain:# 1/4/2 quilboar/pirate ## new 25.2.2
+if BG25__Thorncaptain:# 1/4/2 quilboar/pirate ## new 25.2
 	BG_Minion_Quilboar+=['BG25_045','BG25_045_G','BG25_045e','BG25_045e2']
 	BG_PoolSet_Quilboar.append('BG25_045')
 	BG_Quilboar_Gold['BG25_045']='BG25_045_G'
@@ -357,9 +357,9 @@ class BG25_039:# (minion)
 	else:
 		option_tags={GameTag.TECH_LEVEL:4}
 	if Config.BG_VERSION>= 2522:
-		option_tags={GameTag.ATK:2, GameTag.HEALTH:4}
+		option_tags={GameTag.ATK:2, GameTag.HEALTH:6}
 	else:
-		option_tags={GameTag.ATK:2, GameTag.HEALTH:6}	
+		option_tags={GameTag.ATK:2, GameTag.HEALTH:4}	
 	events = BG_Play(CONTROLLER).after(BG25_039_Action(Play.TARGET))
 	pass
 class BG25_039e:# (enchantment)
@@ -383,9 +383,9 @@ class BG25_039_G:# (minion)
 	else:
 		option_tags={GameTag.TECH_LEVEL:4}
 	if Config.BG_VERSION>= 2522:
-		option_tags={GameTag.ATK:4, GameTag.HEALTH:8}
+		option_tags={GameTag.ATK:4, GameTag.HEALTH:12}
 	else:
-		option_tags={GameTag.ATK:4, GameTag.HEALTH:12}	
+		option_tags={GameTag.ATK:4, GameTag.HEALTH:8}	
 	events = BG_Play(CONTROLLER).after(BG25_039_G_Action(Play.TARGET))
 	pass
 if Config.BG_VERSION>=2620:

@@ -1,9 +1,9 @@
 from ..utils import *
 
-BG_Icky_Imp=(Config.BG_VERSION<2420 or Config.BG_VERSION>=2522) ##(1) banned 24.2 ## renew 25.2.2
+BG_Icky_Imp=(Config.BG_VERSION<2420 or Config.BG_VERSION>=2520) ##(1) banned 24.2 ## renew 25.2
 BG24__Picky_Eater=(Config.BG_VERSION>=2420) ## (1) new 24.2
 
-BG_Imprisoner=False ##(2)->(1)-> banned when? 
+BG_Imprisoner=(Config.BG_VERSION<2520) ##(2)->(1)-> banned when? 
 BG_Impulsive_Trickster=True ##(1)->(2)
 BG_Mind_Muck=(Config.BG_VERSION>=2420) #(2) new 24.2
 BG_Nathrezim_Overseer=(Config.BG_VERSION<2420) ##(2) banned 24.2
@@ -29,7 +29,7 @@ BG26__Tichondrius=(Config.BG_VERSION>=2620)#(5/4/4)
 BG26__Imposing_Percussionist=(Config.BG_VERSION>=2620)#(5/6/6)
 
 BG_Famished_Felbat=True ##(6)
-BG_Imp_Mama=(Config.BG_VERSION<2522) ##(6) ## banned? 25.2.2
+BG_Imp_Mama=(Config.BG_VERSION<2520) ##(6) ## banned? 25.2
 BG25__Felstomper=(Config.BG_VERSION>=2520)# 6/3/7 demon/beast ## new 25.2
 BG25__Mecha_Jaraxxus=(Config.BG_VERSION>=2522)# 6/3/15 MECH/DEMON ## new 25.2.2
 
@@ -199,7 +199,7 @@ TB_BaconUps_062e=buff(4,4)
 
 
 
-####################  禁固番  (1) ### OK ### banned when?
+####################  禁固番  (1) ### OK ### banned 25.2
 if BG_Imprisoner:
 	BG_Minion_Demon +=['BGS_014','BRM_006t','TB_BaconUps_113','TB_BaconUps_030t']
 	BG_PoolSet_Demon.append('BGS_014')
@@ -752,6 +752,7 @@ class BG25_807_Action(GameAction):
 class BG25_807:# (minion)(demon)
 	""" Mecha-Jaraxxus
 	<b>Battlecry:</b> Add a random Mecha-Demon to your hand. """
+	option_tags={GameTag.ATK:3, GameTag.HEALTH:15}
 	play = BG25_807_Action()
 	pass
 class BG25_807_G_Action(GameAction):
@@ -762,6 +763,7 @@ class BG25_807_G_Action(GameAction):
 class BG25_807_G:# (minion)(demon)
 	""" Mecha-Jaraxxus
 	<b>Battlecry:</b> Add 2 random Mecha-Demons to your hand. """
+	option_tags={GameTag.ATK:6, GameTag.HEALTH:30}
 	play = BG25_807_G_Action()
 	pass
 class BG25_807e:# (enchantment)

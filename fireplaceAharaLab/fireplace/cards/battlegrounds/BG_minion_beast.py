@@ -21,7 +21,7 @@ BG_Savannah_Highmane=(Config.BG_VERSION<2560) #4/6/5 banned 25.6
 BG_Sly_Raptor=True#4/1/3
 
 BG_Agamaggan_the_Great_Boar=(Config.BG_VERSION<2620)#5/6/6 ## banned 26.2
-BG_Baby_Krush=(Config.BG_VERSION>=2320 and Config.BG_VERSION<2560)# 5  #new 23.2 banned 25.6
+BG_Baby_Krush=(Config.BG_VERSION>=2320 and Config.BG_VERSION<2520)# 5  #new 23.2 banned 25.2
 BG_Bonemare=(Config.BG_VERSION>=2560)#5/5/5 #new 25.6
 BG_Mama_Bear=True#5/5/5
 BG_Palescale_Crocolisk=(Config.BG_VERSION<2560 or Config.BG_VERSION>=2620)#5 banned 25.6 revive 26.2
@@ -525,7 +525,7 @@ class BG20_205_G:# <12>[1453] #
 
 
 
-# Baby Krush (5/7/7)->(5/6/6) ### OK ###
+# Baby Krush (5/7/7)->(5/6/6) ### OK ### banned 25.2
 if BG_Baby_Krush:
 	BG_Minion_Beast += ['BG22_001','BG22_001t2','BG22_001_G','BG22_001t2_G',]#Baby Krush(5)
 	BG_PoolSet_Beast.append('BG22_001')

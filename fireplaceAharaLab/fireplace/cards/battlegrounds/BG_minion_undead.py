@@ -2,32 +2,32 @@ from ..utils import *
 
 
 
-BG25__Risen_Rider=(Config.BG_VERSION>=2522)#1 undead ## new 25.2.2
-BG25__Rot_Hide_Gnoll=(Config.BG_VERSION>=2522 and Config.BG_VERSION<2620)#1 undead ## new 25.2.2 ## banned 26.2
+BG25__Risen_Rider=(Config.BG_VERSION>=2520)#1 undead ## new 25.2
+BG25__Rot_Hide_Gnoll=(Config.BG_VERSION>=2520 and Config.BG_VERSION<2620)#1 undead ## new 25.2 ## banned 26.2
 BG26__Incorporeal_Corporal=(Config.BG_VERSION>=2620) #(1)
 # BG_Micro_Mummy undead/mecha
 
-BG25__Eternal_Knight=(Config.BG_VERSION>=2522)#2 undead ## new 25.2.2
-BG25__Nerubian_Deathswarmer=(Config.BG_VERSION>=2522)#2 undead ## new 25.2.2
-BG25__Scarlet_Skull=(Config.BG_VERSION>=2522)#2 undead ## new 25.2.2
-BG25__Corpse_Refiner=(Config.BG_VERSION>=2522)# 2/2/3 undead/pirate ## new 25.2.2 
+BG25__Eternal_Knight=(Config.BG_VERSION>=2520)#2 undead ## new 25.2
+BG25__Nerubian_Deathswarmer=(Config.BG_VERSION>=2520)#2 undead ## new 25.2
+BG25__Scarlet_Skull=(Config.BG_VERSION>=2520)#2 undead ## new 25.2
+BG25__Corpse_Refiner=(Config.BG_VERSION>=2520)# 2/2/3 undead/pirate ## new 25.2 
 
 BG25__Ghoul_of_the_Feast=(Config.BG_VERSION>=2520) # 3 undead ## new 25.2
 BG25__Jelly_Belly=(Config.BG_VERSION>=2520 and Config.BG_VERSION<2620)#3 undead ## new 25.2 ## banned 26.2
-BG25__Lich_Doctor=(Config.BG_VERSION>=2522 and Config.BG_VERSION<2620)#3 undead ## new 25.2.2 ## banned 26.2
+BG25__Lich_Doctor=(Config.BG_VERSION>=2520 and Config.BG_VERSION<2620)#3 undead ## new 25.2 ## banned 26.2
 BG25__Radio_Star=(Config.BG_VERSION>=2620) ## (3)
 
-BG25__Anubarak_Nerubian_King=(Config.BG_VERSION>=2522)#4 undead ## new 25.2.2
-BG25__Handless_Forsaken=(Config.BG_VERSION>=2522)#4 undead ## new 25.2.2
-BG25__Possessive_Banshee=(Config.BG_VERSION>=2522 and Config.BG_VERSION<2620)#4 undead ## new 25.2.2 ## banned 26.2
+BG25__Anubarak_Nerubian_King=(Config.BG_VERSION>=2520)#4 undead ## new 25.2
+BG25__Handless_Forsaken=(Config.BG_VERSION>=2520)#4 undead ## new 25.2
+BG25__Possessive_Banshee=(Config.BG_VERSION>=2520 and Config.BG_VERSION<2620)#4 undead ## new 25.2 ## banned 26.2
 BG26__Xylo_bones=(Config.BG_VERSION>=2620) # (4) new 26.2
 #BG26__Plagued_Tidewalker undead/murloc
 
-BG25__Hungering_Abomination=(Config.BG_VERSION>=2522)#5 undead ## new 25.2.2
+BG25__Hungering_Abomination=(Config.BG_VERSION>=2520)#5 undead ## new 25.2
 BG24__Sinrunner_Blanchy=(Config.BG_VERSION>=2520)#5 undead/beast ## new 25.2
-BG25__Soulsplitter=(Config.BG_VERSION>=2522)#5 undead ## new 25.2.2
+BG25__Soulsplitter=(Config.BG_VERSION>=2520)#5 undead ## new 25.2
 
-BG25__Colossus_of_the_Sun=(Config.BG_VERSION>=2522) #6 undead ## new 25.2.2
+BG25__Colossus_of_the_Sun=(Config.BG_VERSION>=2520) #6 undead ## new 25.2
 BG25__Eternal_Summoner=(Config.BG_VERSION>=2520)#6 undead ## new 25.2
 BG25__Sister_Deathwhisper=(Config.BG_VERSION>=2520)#6 undead ## new 25.2
 
@@ -36,7 +36,7 @@ BG_PoolSet_Undead=[ ]
 BG_Undead_Gold={}
 
 
-#Risen Rider 1/2/1/Undead	Reborn, Taunt ## OK ## new 25.2.2 
+#Risen Rider 1/2/1/Undead	Reborn, Taunt ## OK ## new 25.2 
 if BG25__Risen_Rider:# 
 	BG_Minion_Undead+=['BG25_001']
 	BG_Minion_Undead+=['BG25_001_G']
@@ -45,15 +45,17 @@ if BG25__Risen_Rider:#
 class BG25_001:# (minion)
 	""" Risen Rider
 	<b>Taunt</b> <b>Reborn</b> """
+	option_tags={GameTag.TECH_LEVEL:1, GameTag.ATK:2, GameTag.HEALTH:1}
 	pass
 class BG25_001_G:# (minion)
 	""" Risen Rider
 	<b>Taunt</b> <b>Reborn</b> """
+	option_tags={GameTag.TECH_LEVEL:1, GameTag.ATK:4, GameTag.HEALTH:2}
 	pass
 
 
 
-#Rot Hide Gnoll 1/1/4/Undead	- ## new 25.2.2 ## banned 26.2
+#Rot Hide Gnoll 1/1/4/Undead	- ## new 25.2 ## banned 26.2
 if BG25__Rot_Hide_Gnoll:# 
 	BG_Minion_Undead+=['BG25_013','BG25_013_G']
 	BG_PoolSet_Undead+=['BG25_013']
@@ -65,6 +67,7 @@ class BG25_013_Action(GameAction):
 class BG25_013:# (minion)
 	""" Rot Hide Gnoll
 	Has +1 Attack for each friendly minion that died this combat. """
+	option_tags={GameTag.TECH_LEVEL:1, GameTag.ATK:1, GameTag.HEALTH:4}
 	events = Death(FRIENDLY+MINION).on(BG25_013_Action())
 	pass
 class BG25_013_G_Action(GameAction):
@@ -74,6 +77,7 @@ class BG25_013_G_Action(GameAction):
 class BG25_013_G:# (minion)
 	""" Rot Hide Gnoll
 	Has +2 Attack for each friendly minion that died this combat. """
+	option_tags={GameTag.TECH_LEVEL:1, GameTag.ATK:2, GameTag.HEALTH:8}
 	events = Death(FRIENDLY+MINION).on(BG25_013_G_Action())
 	pass
 
@@ -83,6 +87,7 @@ if BG_Micro_Mummy:
 	##BG_Minion_Undead+=['BG_ULD_217', 'ULD_217e','TB_BaconUps_250','TB_BaconUps_250e',]## no need
 	BG_PoolSet_Undead.append('BG_ULD_217')
 	BG_Undead_Gold['BG_ULD_217']='TB_BaconUps_250'
+
 
 #BG26__Incorporeal_Corporal=(Config.BG_VERSION>=2620) #(1)
 if BG26__Incorporeal_Corporal:# 
@@ -102,7 +107,7 @@ class BG26_RLK_117_G:
 
 ######## tavern tier 2
 
-#Eternal Knight 2/3/1/Undead	- ## 60% OK  ##new 25.2.2
+#Eternal Knight 2/3/1/Undead	- ## 60% OK  ##new 25.2
 if BG25__Eternal_Knight:# 
 	BG_Minion_Undead+=['BG25_008','BG25_008_e','BG25_008_G','BG25_008pe']
 	BG_PoolSet_Undead+=['BG25_008']
@@ -177,7 +182,7 @@ class BG25_008pe:# (enchantment)
 
 
 
-#Nerubian Deathswarmer 2/1/3/Undead	Battlecry  ## new 25.2.2
+#Nerubian Deathswarmer 2/1/3/Undead	Battlecry  ## new 25.2
 if BG25__Nerubian_Deathswarmer:# 
 	BG_Minion_Undead+=['BG25_011','BG25_011_G','BG25_011e2','BG25_011pe']
 	BG_PoolSet_Undead+=['BG25_011']
@@ -195,6 +200,7 @@ class BG25_011_Action(GameAction):
 class BG25_011:# (minion)
 	""" Nerubian Deathswarmer
 	<b>Battlecry:</b> Give your Undead +1 Attack for the rest of the game <i>(wherever they are)</i>. """
+	option_tags={GameTag.TECH_LEVEL:2, GameTag.ATK:1, GameTag.HEALTH:3}	
 	play = BG25_011_Action()
 	pass
 class BG25_011_G_Action(GameAction):
@@ -210,6 +216,7 @@ class BG25_011_G_Action(GameAction):
 class BG25_011_G:# (minion)
 	""" Nerubian Deathswarmer
 	<b>Battlecry:</b> Give your Undead +2 Attack for the rest of the game <i>(wherever they are)</i>. """
+	option_tags={GameTag.TECH_LEVEL:2, GameTag.ATK:2, GameTag.HEALTH:6}	
 	play = BG25_011_G_Action()
 	pass
 class BG25_011e2:# (enchantment)
@@ -225,7 +232,7 @@ class BG25_011pe:# (enchantment)
 
 
 
-#Scarlet Skull 2/1/2/Undead	Deathrattle, Reborn ## new 25.2.2 ## OK ##
+#Scarlet Skull 2/1/2/Undead	Deathrattle, Reborn ## new 25.2 ## OK ##
 if BG25__Scarlet_Skull:# 
 	BG_Minion_Undead+=['BG25_022','BG25_022_G','BG25_022_Ge','BG25_022e']
 	BG_PoolSet_Undead+=['BG25_022']
@@ -240,6 +247,7 @@ class BG25_022_Action(GameAction):
 class BG25_022:# (minion)############
 	""" Scarlet Skull
 	<b>Reborn</b> <b>Deathrattle:</b> Give a friendly Undead +1/+2. """
+	option_tags={GameTag.TECH_LEVEL:2, GameTag.ATK:1, GameTag.HEALTH:2}	
 	deathrattle = BG25_022_Action()
 	pass
 BG25_022e=buff(1,2)
@@ -253,13 +261,14 @@ class BG25_022_G_Action(GameAction):
 class BG25_022_G:# (minion)
 	""" Scarlet Skull
 	<b>Reborn</b> <b>Deathrattle:</b> Give a friendly Undead +2/+4. """
+	option_tags={GameTag.TECH_LEVEL:2, GameTag.ATK:2, GameTag.HEALTH:4}	
 	deathrattle = BG25_022_G_Action()
 	pass
 BG25_022_Ge=buff(2,4)
 
 
 
-if BG25__Corpse_Refiner:# 2/2/3 undead/pirate ## new 25.2.2
+if BG25__Corpse_Refiner:# 2/2/3 undead/pirate ## new 25.2
 	BG_Minion_Undead+=['BG25_033','BG25_033_G']
 	BG_PoolSet_Undead+=['BG25_033']
 	BG_Undead_Gold['BG25_033']='BG25_033_G'
@@ -274,6 +283,7 @@ class BG25_033:# (minion)
 	<b>Avenge (4):</b> This minion sells for 1 more Gold.@<b>Avenge (4):</b> This minion sells for 1 more Gold. __<i>(Sells for {0} extra Gold!)</i> """
 	## tag 1587 gambler_sell_price
 	tags={1587:1}
+	option_tags={GameTag.TECH_LEVEL:2, GameTag.ATK:2, GameTag.HEALTH:3}
 	Death(FRIENDLY + MINION).on(Avenge(SELF, 4, [BG25_033_Action()]))
 	pass
 class BG25_033_G_Action(GameAction):
@@ -286,6 +296,7 @@ class BG25_033_G:# (minion)
 	""" Corpse Refiner
 	<b>Avenge (4):</b> This minion sells for 2 more Gold.@<b>Avenge (4):</b> This minion sells for 2 more Gold. __<i>(Sells for {0} extra Gold!)</i> """
 	tags={1587:1}
+	option_tags={GameTag.TECH_LEVEL:2, GameTag.ATK:4, GameTag.HEALTH:6}	
 	Death(FRIENDLY + MINION).on(Avenge(SELF, 4, [BG25_033_G_Action()]))
 	pass
 
@@ -412,7 +423,7 @@ BG25_005_Ge=buff(6,6)
 
 
 
-#Lich Doctor 3/3/2/Undead	Taunt ## new 25.2.2 ## banned 26.2
+#Lich Doctor 3/3/2/Undead	Taunt ## new 25.2 ## banned 26.2
 if BG25__Lich_Doctor:# 
 	BG_Minion_Undead+=['BG25_006']
 	BG_Minion_Undead+=['BG25_006_G']
@@ -429,6 +440,7 @@ class BG25_006_Action(GameAction):
 class BG25_006:# (minion)
 	""" Lich Doctor
 	<b>Taunt</b>. At the start of your turn, give your minions that _died last combat +1/+1. """
+	option_tags={GameTag.ATK:3, GameTag.HEALTH:2}
 	events = BeginBar(CONTROLLER).on(BG25_006_Action())
 	pass
 BG25_006e=buff(1,1)
@@ -441,6 +453,7 @@ class BG25_006_G_Action(GameAction):
 class BG25_006_G:# (minion)
 	""" Lich Doctor
 	<b>Taunt</b>. At the start of your turn, give your minions that _died last combat +2/+2. """
+	option_tags={GameTag.ATK:6, GameTag.HEALTH:4}
 	events = BeginBar(CONTROLLER).on(BG25_006_G_Action())
 	pass
 BG25_006_Ge=buff(2,2)
@@ -487,7 +500,7 @@ class BG25_399_G:
 
 ##### tavern tier 4
 
-#Anub'arak, Nerubian King 4/4/3/Undead	Deathrattle ## new 25.2.2#############################
+#Anub'arak, Nerubian King 4/4/3/Undead	Deathrattle ## new 25.2#############################
 if BG25__Anubarak_Nerubian_King:# 
 	BG_Minion_Undead+=['BG25_007','BG25_007_G']
 	BG_PoolSet_Undead+=['BG25_007']
@@ -554,7 +567,7 @@ class BG25_007_G:# (minion)
 	pass
 
 
-#Handless Forsaken 4/2/3/Undead	Deathrattle, Reborn ## new 25.2.2
+#Handless Forsaken 4/2/3/Undead	Deathrattle, Reborn ## new 25.2
 if BG25__Handless_Forsaken:# 
 	BG_Minion_Undead+=['BG25_010','BG25_010t','BG25_010_G','BG25_010_Gt']
 	BG_PoolSet_Undead+=['BG25_010']
@@ -563,6 +576,7 @@ if BG25__Handless_Forsaken:#
 class BG25_010:# (minion)
 	""" Handless Forsaken
 	<b>Deathrattle:</b> Summon a 2/2 Hand with <b>Reborn</b>. """
+	option_tags={GameTag.ATK:2, GameTag.HEALTH:3}
 	deathrattle = Summon(CONTROLLER, 'BG25_010t')
 	pass
 class BG25_010t:# (minion)
@@ -572,6 +586,7 @@ class BG25_010t:# (minion)
 class BG25_010_G:# (minion)
 	""" Handless Forsaken
 	<b>Deathrattle:</b> Summon a 4/4 Hand with <b>Reborn</b>. """
+	option_tags={GameTag.ATK:4, GameTag.HEALTH:6}
 	deathrattle = Summon(CONTROLLER, 'BG25_010_Gt')
 	pass
 class BG25_010_Gt:# (minion)
@@ -581,7 +596,7 @@ class BG25_010_Gt:# (minion)
 
 
 
-#Possessive Banshee 4/2/7/Undead	Battlecry ## new 25.2.2 banned 26.2
+#Possessive Banshee 4/2/7/Undead	Battlecry ## new 25.2 banned 26.2
 if BG25__Possessive_Banshee:# 
 	BG_Minion_Undead+=['BG25_004']
 	BG_Minion_Undead+=['BG25_004e']
@@ -593,6 +608,7 @@ class BG25_004:# (minion)###### TARGET_IF_AVAILABLE??
 	""" Possessive Banshee
 	<b>Battlecry:</b> Give an Undead +2/+7. """
 	requirements = {PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_MINION_TARGET:0, PlayReq.REQ_TARGET_WITH_RACE:Race.UNDEAD}
+	option_tags={GameTag.ATK:2, GameTag.HEALTH:7}
 	play = Buff(TARGET, 'BG25_004e')
 	pass
 BG25_004e=buff(2,7)
@@ -600,6 +616,7 @@ class BG25_004_G:# (minion)
 	""" Possessive Banshee
 	<b>Battlecry:</b> Give an Undead +4/+14. """
 	requirements = {PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_MINION_TARGET:0, PlayReq.REQ_TARGET_WITH_RACE:Race.UNDEAD}
+	option_tags={GameTag.ATK:4, GameTag.HEALTH:14}
 	play = Buff(TARGET, 'BG25_004_Ge')
 	pass
 BG25_004_Ge=buff(4,14)
@@ -644,7 +661,7 @@ if BG26__Plagued_Tidewalker:#
 
 ###### tavern tier 5
 
-#Hungering Abomination 5/3/4/Undead	Avenge (X) ## new 25.2.2
+#Hungering Abomination 5/3/4/Undead	Avenge (X) ## new 25.2
 if BG25__Hungering_Abomination:# 
 	BG_Minion_Undead+=['BG25_014']
 	BG_Minion_Undead+=['BG25_014e']
@@ -655,12 +672,14 @@ if BG25__Hungering_Abomination:#
 class BG25_014:# (minion)
 	""" Hungering Abomination
 	<b>Avenge (1):</b> Gain +1/+1 permanently. """
+	option_tags={GameTag.ATK:3, GameTag.HEALTH:4}
 	events = Death(FRIENDLY + MINION).on(Avenge(SELF, 1, [BuffPermanently(SELF, 'BG25_014e')]))
 	pass
 BG25_014e=buff(1,1)
 class BG25_014_G:# (minion)
 	""" Hungering Abomination
 	<b>Avenge (1):</b> Gain +2/+2 permanently. """
+	option_tags={GameTag.ATK:6, GameTag.HEALTH:8}
 	events = Death(FRIENDLY + MINION).on(Avenge(SELF, 1, [BuffPermanently(SELF, 'BG25_014_Ge')]))
 	pass
 BG25_014_Ge=buff(2,2)
@@ -692,7 +711,7 @@ class BG24_005_G:
 
 
 
-#Soulsplitter 5/5/2/Undead	Reborn, Start of Combat ## new 25.2.2
+#Soulsplitter 5/5/2/Undead	Reborn, Start of Combat ## new 25.2
 if BG25__Soulsplitter:# 
 	BG_Minion_Undead+=['BG25_023']
 	BG_Minion_Undead+=['BG25_023e']
@@ -738,7 +757,7 @@ class BG25_023_G:# (minion)
 
 ###### tavern tier 6
 
-#Colossus of the Sun 6/6/6/Undead	Divine Shield, Reborn ## new 25.2.2
+#Colossus of the Sun 6/6/6/Undead	Divine Shield, Reborn ## new 25.2
 if BG25__Colossus_of_the_Sun:# 
 	BG_Minion_Undead+=['BG25_050','BG25_050_G']
 	BG_PoolSet_Undead+=['BG25_050']
@@ -746,14 +765,16 @@ if BG25__Colossus_of_the_Sun:#
 class BG25_050:# (minion)
 	""" Colossus of the Sun
 	<b>Divine Shield</b> <b>Reborn</b> """
+	option_tags={GameTag.ATK:6, GameTag.HEALTH:6}
 	pass
 class BG25_050_G:# (minion)
 	""" Colossus of the Sun
 	<b>Divine Shield</b> <b>Reborn</b> """
+	option_tags={GameTag.ATK:12, GameTag.HEALTH:12}
 	pass
 
 
-#Eternal Summoner 6/6/1/Undead	Deathrattle, Reborn ## new 25.2.2
+#Eternal Summoner 6/6/1/Undead	Deathrattle, Reborn ## new 25.2
 if BG25__Eternal_Summoner:# 
 	BG_Minion_Undead+=['BG25_009']
 	BG_Minion_Undead+=['BG25_009_G']

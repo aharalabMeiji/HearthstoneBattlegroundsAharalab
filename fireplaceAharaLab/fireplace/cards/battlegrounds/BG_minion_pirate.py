@@ -6,7 +6,8 @@ BG26__Southsea_Busker=(Config.BG_VERSION>=2620)#(1)
 
 BG_Freedealing_Gambler=True ##,2
 BG_Southsea_Captain=(Config.BG_VERSION<2620) ##,2 ## banned 26.2
-BG_Yo_Ho_Ogre=(Config.BG_VERSION<2522) ##,2 ## banned 25.2.2
+BG_Yo_Ho_Ogre=(Config.BG_VERSION<2520) ##,2 ## banned 25.2
+#BG25__Corpse_Refiner=(Config.BG_VERSION>=2520) ## 2/2/3 ## new 25.2 
 
 BG_Briny_Bootlegger=(Config.BG_VERSION<2420) ##,3 banned 24.2
 BG_Salty_Looter=(Config.BG_VERSION<2620) ##,3 ## banned 26.2
@@ -16,14 +17,14 @@ BG26__Gunpowder_Courier=(Config.BG_VERSION>=2620) # (3)
 BGS_Bloodsail_Cannoneer=(Config.BG_VERSION>=2620) ## banned when? revive 26.2
 
 BG_Goldgrubber=(Config.BG_VERSION<2620) ##,4 ## 26.2
-BG_Peggy_Brittlebone=(Config.BG_VERSION<2522) ##,4  banned 25.2.2
-BG25__Peggy_Sturdybone=(Config.BG_VERSION>=2522) ## ,4 new 25.2.2
+BG_Peggy_Brittlebone=(Config.BG_VERSION<2520) ##,4  banned 25.2
+BG25__Peggy_Sturdybone=(Config.BG_VERSION>=2520) ## ,4 new 25.2
 BG_Ripsnarl_Captain=True ##,4
 BG26__Lovesick_Balladist=(Config.BG_VERSION>=2620) # (4)
 BG26__Blade_Collector=(Config.BG_VERSION>=2620) #(4)
 
 BG_Cap_n_Hoggarr=(Config.BG_VERSION<2620) ##,5 ## banned 26.2
-BG_Tony_Two_Tusk=(Config.BG_VERSION<2522) ##,5 ## banned 25.2.2
+BG_Tony_Two_Tusk=(Config.BG_VERSION<2520) ##,5 ## banned 25.2
 BG_Vanessa_VanCleef=(Config.BG_VERSION>=2460) ##, 5 ## new 24.6
 BG26__Upbeat_Impressionist=(Config.BG_VERSION>=2620)#(5/8/4)
 BG26__Record_Smuggler=(Config.BG_VERSION>=2620)#(5/7/6)
@@ -199,7 +200,7 @@ class TB_BaconUps_150:# <12>[1453]
 
 
 from .BG_minion_undead import BG25__Corpse_Refiner
-if BG25__Corpse_Refiner:# 2/2/3 undead/pirate ## new 25.2.2
+if BG25__Corpse_Refiner:# 2/2/3 undead/pirate ## new 25.2
 	##BG_Minion_Pirate+=['BG25_033','BG25_033_G']  ## no need
 	BG_PoolSet_Pirate+=['BG25_033']
 	BG_Pirate_Gold['BG25_033']='BG25_033_G'

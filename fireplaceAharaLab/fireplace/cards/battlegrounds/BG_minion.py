@@ -20,10 +20,10 @@ BG_Yrel=(Config.BG_VERSION>=2360 and Config.BG_VERSION<2460)##(2) new 23.6 ### b
 BG_Arm_of_the_Empire=(Config.BG_VERSION<2620)##(3/4/4) banned 26.2
 BG_Bird_Buddy=(Config.BG_VERSION<2620)##(3/2/4) banned 26.2
 BG_Boulderfist_Ogre=True##(3/6/7)
-BG_Budding_Greenthumb=(Config.BG_VERSION<2360 or Config.BG_VERSION>=2522)##(3/1/4) banned 23.6 ## renew 25.2.2
+BG_Budding_Greenthumb=(Config.BG_VERSION<2360 or Config.BG_VERSION>=2520)##(3/1/4) banned 23.6 ## renew 25.2
 BG_Faceless_Disciple=(Config.BG_VERSION>=2460) ## (3/6/4) new 24.6 ### OK ###
 BG_Houndmaster=(Config.BG_VERSION<2560)##(3/4/3) ### banned 25.6
-BG_Khadgar=False##(3) ## banned when? ###############################
+BG_Khadgar=(Config.BG_VERSION<2520)##(3) ## banned 25.2
 BG_Nightmare_Amalgam=(Config.BG_VERSION>=2320 and Config.BG_VERSION<2460)##(3) RENEW  23.2 ## banned 24.6
 BG_Shifter_Zerus=((Config.BG_VERSION>=2360 and Config.BG_VERSION<2420))##(3) new 23.6 banned 24.2 ## revive 24.6 as a reward option## 
 BG_Soul_Juggler=(Config.BG_VERSION<2620)##(3/3/5) banned 26.2
@@ -33,7 +33,7 @@ BG_Champion_of_Y_Shaarj=(Config.BG_VERSION<2360)##(4)banned 23.6
 BG_Defender_of_Argus=(Config.BG_VERSION<2360)##(4)banned 23.6
 BG_Fireworks_Fanatic=(Config.BG_VERSION>=2560) ##(4/4/3) new 25.6
 BG_Impatient_Doomsayer=(Config.BG_VERSION<2620)##(4/2/6) banned 26.2
-BG_Majordomo_Executus=False##(4) banned when?
+BG_Majordomo_Executus=(Config.BG_VERSION<2520)##(4) banned 25.2
 BG_Master_of_Realities=(Config.BG_VERSION<2620) ##(5/6/6)->(4/4/4) when? ### banned 26.2
 BG_Menagerie_Jug=True##(4/3/3)
 BG_Reef_Explorer=(Config.BG_VERSION>=2320 and Config.BG_VERSION<2460)##(4)# NEW 23.2 ### banned 24.6
@@ -43,20 +43,20 @@ BG_Strongshell_Scavenger=True##(4/2/3)
 BG_Treasure_Seeker_Elise=(Config.BG_VERSION>=2420) ##(4/5/5) new 24.2
 BG_Tunnel_Blaster=(Config.BG_VERSION>=2360)##(4/3/7) new 23.6
 BG_Vigilant_Stoneborn=(Config.BG_VERSION>=2460) ## (4/2/6) new 24.6 ### OK ###
-BG_Witchwing_Nestmatron=(Config.BG_VERSION<2420 or (Config.BG_VERSION>=2504 and Config.BG_VERSION<2560)) ##(4) banned 24.2 renew 25.0.4 banned when?
+BG_Witchwing_Nestmatron=(Config.BG_VERSION<2420 or (Config.BG_VERSION>=2504 and Config.BG_VERSION<2520)) ##(4) banned 24.2 renew 25.0.4 banned 25.2
 BG26__Upbeat_Duo=(Config.BG_VERSION>=2620)### new 26.2
 
 
-BG_Baron_Rivendare=(Config.BG_VERSION<2522)##(5) ## banned 25.2.2
+BG_Baron_Rivendare=(Config.BG_VERSION<2520)##(5) ## banned 25.2
 BG_Brann_Bronzebeard=True##(5/2/4)
 BG_Deadly_Spore=(Config.BG_VERSION<2360)##(5)banned 23.6
 BG_Interrogator_Whitemane=(Config.BG_VERSION>=2460 and Config.BG_VERSION<2504) ## (5) new 24.6  ## banned 25.0.4
 BG_Kangor_s_Apprentice=True##(5/3/6)
 BG_Leeroy_the_Reckless=(Config.BG_VERSION>=2320)##(5/6/2) NEW 23.2
 BG_Lightfang_Enforcer=True##(5/2/2)
-BG_Mythrax_the_Unraveler=(Config.BG_VERSION<2420 or (Config.BG_VERSION>=2504 and Config.BG_VERSION<2522)) ##(5) banned 24.2  ## revive 25.0.4 banned 25.2.2
+BG_Mythrax_the_Unraveler=(Config.BG_VERSION<2420 or (Config.BG_VERSION>=2504 and Config.BG_VERSION<2520)) ##(5) banned 24.2  ## revive 25.0.4 banned 25.2
 BG_Nomi_Kitchen_Nightmare=True##(5/4/4)
-BG25__Titus_Rivendare=(Config.BG_VERSION>=2522)# 5/1/7 neutral ## new 25.2.2
+BG25__Titus_Rivendare=(Config.BG_VERSION>=2520)# 5/1/7 neutral ## new 25.2
 BG24__Tortollan_Blue_Shell=(Config.BG_VERSION>=2420) ## (5/4/7) new 24.2 ### OK ###
 ##(6)->(5)  banned 22.3 ## new 26.0 
 BG_Friend_of_a_Friend=((Config.BG_VERSION>=2600 and Config.BG_VERSION<2620) or Config.BG_VERSION<2230)  ## banned 2620
@@ -661,7 +661,7 @@ TB_BaconUps_068e=buff(4,4,taunt=True)# <3>[1453]
 """ Master's Presence, +4/+4 and [Taunt]. """
 
 
-if BG_Khadgar:#Khadgar	3	2	2	-	  	 ### maybe ###
+if BG_Khadgar:#Khadgar	3	2	2	-	  	 ### maybe ### banned 25.2
 	BG_Minion += ['BG_DAL_575','TB_BaconUps_034',]#	
 	BG_PoolSet_Minion.append('BG_DAL_575')
 	BG_Minion_Gold['BG_DAL_575']='TB_BaconUps_034'
@@ -1099,11 +1099,13 @@ if BG25__Sindorei_Straight_Shot:# ## (4) new 25.2.2
 class BG25_016:# (minion)
 	""" Sin'dorei Straight Shot
 	<b>Windfury</b>. <b>Divine Shield</b>. Whenever this attacks, remove <b>Reborn</b> and <b>Taunt</b> from the target. """
+	option_tags={GameTag.ATK:3, GameTag.HEALTH:4}
 	events = BG_Attack(SELF, ENEMY+MINION).on(Buff(BG_Attack.OTHER, 'BG25_016e'))
 	pass
 class BG25_016_G:# (minion)
 	""" Sin'dorei Straight Shot
 	<b>Mega-Windfury</b>. <b>Divine Shield</b>. Whenever this attacks, remove <b>Reborn</b> and <b>Taunt</b> from the target. """
+	option_tags={GameTag.ATK:6, GameTag.HEALTH:8}
 	events = BG_Attack(SELF, ENEMY+MINION).on(Buff(BG_Attack.OTHER, 'BG25_016e'))
 	pass
 BG25_016e=buff(reborn=False,taunt=False)
@@ -1555,19 +1557,21 @@ class TB_BaconUps_201:# <12>[1453]
 
 
 
-if BG25__Titus_Rivendare:# 5/1/7 neutral ## new 25.2.2
+if BG25__Titus_Rivendare:# 5/1/7 neutral ## new 25.2
 	BG_Minion+=['BG25_354','BG25_354_G']
 	BG_PoolSet_Minion.append('BG25_354')
 	BG_Minion_Gold['BG25_354']='BG25_354_G'
 class BG25_354:# (minion)
 	""" Titus Rivendare
 	Your <b>Deathrattles</b> trigger an extra time. """
+	option_tags={GameTag.ATK:1, GameTag.HEALTH:7}
 	update = Refresh(CONTROLLER, {GameTag.EXTRA_DEATHRATTLES: True})
 	pass
 
 class BG25_354_G:# (minion)
 	""" Titus Rivendare
 	Your <b>Deathrattles</b> trigger 2 extra times. """
+	option_tags={GameTag.ATK:2, GameTag.HEALTH:14}
 	update = Refresh(CONTROLLER, {GameTag.EXTRA_DEATHRATTLES_ADDITIONAL: True})
 	pass
 
