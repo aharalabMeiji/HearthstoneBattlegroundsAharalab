@@ -1341,7 +1341,7 @@ class TB_BaconUps_251:# <12>[1453]
 	pass
 
 
-#Interrogator Whitemane 5  5  8 (BG24_704) ## new 24.6 ### OK ###
+#Interrogator Whitemane 5  5  8 (BG24_704) ## new 24.6 ### OK ### banned 25.0.4
 if BG_Interrogator_Whitemane:#Interrogator Whitemane 5  5  8 (BG24_704) 
 	BG_Minion += ['BG24_704','BG24_704_e','BG24_704_e_G','BG24_704_G']#	
 	BG_PoolSet_Minion.append('BG24_704')

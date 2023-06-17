@@ -8,8 +8,7 @@ Dev Comment: As we approach the end of the season, we want all players to have a
 
 Minion Updates
 
-Toxfin
-
+Toxfin*
 Old: Tavern Tier 4
 New: Tavern Tier 6
 
@@ -17,7 +16,10 @@ New: Tavern Tier 6
 Dev Comment: Though not a power outlier at most levels, Toxfin has a limiting effect on what playstyles feel viable in Murloc lobbies. We are pushing Toxfin up to Tier 6 as a way to open up some space for more diverse strategies.
 
 Minion Pool Updates
-
-Mechano-Tank and Interrogator Whitemane have been removed from the minion pool.
-Witchwing Nestmatron, Mechano-Egg, Mythrax the Unraveler, and Seafood Slinger have been returned to the minion pool.
+Mechano-Tank *and 
+Interrogator Whitemane *have been removed from the minion pool.
+Witchwing Nestmatron, *
+Mechano-Egg, *
+Mythrax the Unraveler, and *
+Seafood Slinger *have been returned to the minion pool.
 
