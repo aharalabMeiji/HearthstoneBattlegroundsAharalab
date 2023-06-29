@@ -157,6 +157,8 @@ class Player(Entity, TargetableByAuras):
 		self.hit_hero_by_lose=False
 		self.hit_hero_by_minion_this_turn=False
 		self.pay_rerole_cost_by_health=False
+		self.aranna_buff=0 ## battlegrounds TB_BaconShop_HP_065pe
+
 		self.im_a_player=True # battlegrounds
 
 	def __str__(self):

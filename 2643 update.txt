@@ -1,7 +1,8 @@
 Battlegrounds Updates
-Hero Updates
-Aranna Starseeker (Hero Power ? Demon Hunter Training) TB_BaconShop_HERO_59
 
+Hero Updates
+
+Aranna Starseeker (Hero Power ? Demon Hunter Training) TB_BaconShop_HERO_59 *
 Old: [Passive] After you Refresh 5 times, Bob always has 7 minions.
 New: [Passive] After 16 friendly minions attack, the first minion you buy every turn is free.
 

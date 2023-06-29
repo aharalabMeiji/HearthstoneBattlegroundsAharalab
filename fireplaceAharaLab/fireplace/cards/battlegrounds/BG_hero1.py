@@ -461,15 +461,34 @@ class TB_BaconShop_HERO_59:# <12>[1453]
 		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:7, GameTag.HEALTH:40}
 class TB_BaconShop_HP_065:
 	""" Demon Hunter Training
-	[Passive] After you [Refresh] 5 times, Bob always has 7 minions.<i>(@ left!)</i>"""
-	events = Rerole(CONTROLLER).on(SidequestCounter(SELF, 5, \
-		[ ChangeHeroPower(CONTROLLER, 'TB_BaconShop_HP_065t2'),\
-		SetAttr(CONTROLLER, 'len_bobs_field', 7)]\
-		))
+	[Passive] After 16 friendly minions attack, the first minion you buy every turn is free. """ ## 26.4.3
+	##[Passive] After you [Refresh] 5 times, Bob always has 7 minions.<i>(@ left!)</i>"""
+	if Config.BG_VERSION>=2643:
+		events = Attack(FRIENDLY+MINION).on(SidequestCounter(SELF, 16, 
+			[Buff(CONTROLLER, 'TB_BaconShop_HP_065pe')]
+			))
+		pass
+	else:
+		events = Rerole(CONTROLLER).on(SidequestCounter(SELF, 5, \
+			[ ChangeHeroPower(CONTROLLER, 'TB_BaconShop_HP_065t2'),\
+			SetAttr(CONTROLLER, 'len_bobs_field', 7)]\
+			))
 	pass
+class TB_BaconShop_HP_065pe_Action1(GameAction):
+	def do(self, source):
+		source.controller.aranna_buff=source.controller.game.minionCost
+		source.controller.game.minionCost=0
+class TB_BaconShop_HP_065pe_Action2(GameAction):
+	def do(self, source):
+		source.controller.game.minionCost=source.controller.aranna_buff
 class TB_BaconShop_HP_065pe:
 	"""  Aranna Watcher
 	"""
+	if Config.BG_VERSION>=2643:
+		events = [
+			BeginBar(CONTROLLER).on(TB_BaconShop_HP_065pe_Action1()),
+			Buy(CONTROLLER).on(TB_BaconShop_HP_065pe_Action2())
+			]
 class TB_BaconShop_HERO_59t:# <12>[1453]
 	""" Aranna, Unleashed ヒロパ交代後のヒーロー
 	"""
