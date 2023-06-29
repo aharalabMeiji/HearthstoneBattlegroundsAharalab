@@ -20,6 +20,7 @@ class Config:# ()is the default value
 	GAMELOG=1 # as debugLog option
 
 	#battlegrounds version management
+	#BG_VERSION=2660## 2023/06/28 
 	#BG_VERSION=2643## 2023/06/16 
 	BG_VERSION=2640## 2023/05/31 
 	#BG_VERSION=2622## 
