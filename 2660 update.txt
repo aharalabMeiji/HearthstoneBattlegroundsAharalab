@@ -1,0 +1,192 @@
+Battlegrounds Updates
+With Patch 26.6, Battlegrounds is getting the following updates to heroes and minions.
+
+Hero Power Updates
+Cariel (Conviction)
+
+[1 Gold] Give 2 friendly minions +1/+1. (After you upgrade the Tavern, choose an improvement!)
+United Stance: For the rest of the game, ÅeConvictionÅf gives stats to an additional friendly minion.
+Offensive Stance: For the rest of the game, ÅeConvictionÅf gives an additional +2 Attack.
+Defensive Stance: For the rest of the game, ÅeConvictionÅf gives an additional +2 Health.
+Captain Fairmount
+Choose One - For the rest of the game, ÅeConvictionÅf gives an additional +2 Attack; or +2 Health.
+Dev Comment: This is a text-only change with no functionality update.
+
+
+DancinÅf Deryl (Hat Trick)
+
+Passive. When you buy a minion, give it a +1/+1 Hat that passes to a friendly minion when sold.
+
+
+Deathwing (ALL Will Burn!)
+
+Passive. Start of Combat: Give ALL minions +2 Attack permanently.
+
+
+Death Speaker Blackthorn (Bloodbound)
+
+[1 Gold] Get 2 Blood Gems. (Twice per turn.)
+
+
+DrekÅfThar (Lead the Frostwolves)
+
+Passive. Avenge (2): Give your minions +1 Attack permanently.
+
+
+Edwin VanCleef (Sharpen Blades)
+
+[1 Gold] Give a minion +1/+1. Upgrades after you buy 4 minions.
+
+
+Illidan Stormrage (Wingmen)
+
+Passive. Start of Combat: Your left and right-most minions gain +2/+1 and attack immediately.
+
+
+Ini Stormcoil (MechGyver)
+
+Passive. After 10 friendly minions die, get a random Mech.
+
+
+King Mukla (Bananarama)
+
+Passive. At the start of your turn, get 2 Bananas and give everyone else one.
+
+
+Kurtrus Ashfallen (Glaive Ricochet)
+
+Passive. Once per turn, after you buy 4 minions, Discover a plain copy of one of them.
+
+
+Onyxia (Broodmother)
+
+Passive: Avenge (3): Summon a 3/1 Whelp. It attacks immediately.
+
+
+Overlord Saurfang (For the Horde!)
+
+[1 Gold] Give a minion in the Tavern +2/+1. (Doubles every 3 turns!)
+
+
+Queen Azshara (AzsharaÅfs Ambition)
+
+Passive. When your warband reaches 25 total Attack, begin your Naga Conquest.
+
+
+Queen Wagtoggle (Wax Warband)
+
+Passive. Start of Combat: Give a friendly minion of each type stats equal to their Tavern Tiers.
+
+
+Rakanishu (Tavern Lighting)
+
+[1 Gold] Give a minion stats equal to your Tavern Tier.
+
+
+Tamsin Roame (Fragrant Phylactery)
+
+[0 Gold] Start of Combat: Destroy your lowest Health minion. Give its stats to your other minions.
+
+
+Tavish Stormpike (Deadeye)
+
+[0 Gold] Take aim! Start of Combat: Deal 2 damage to your target (Doubles every 3 turns!)
+
+
+The Great Akazamzarak (Prestidigitation and Street Magician)
+
+Snake Trap and Avenge have been removed from the Secret Pool.
+Reckoning and Magic Black Soulstone have been added to the Secret Pool.
+Reckoning: After an enemy minion deals 3 or more damage, destroy it.
+Magic Black Soulstone: After your last minion dies, summon 2 random Demons.
+
+
+Armor Updates
+The following heroes have been adjusted to have less Armor*:
+
+Ini Stormcoil now has 5 Armor at lower levels of play, but still has 10 Armor at higher levels of play.
+Deathwing now has 8 Armor.
+Onyxia and Queen Wagtoggle now have 10 Armor at higher levels of play and 7 Armor at lower levels of play.
+Cariel Roame now has 10 Armor at higher levels of play and 8 Armor at lower levels of play.
+Death Speaker Blackthorn, DrekÅfThar, Kurtrus Ashfallen, and Tamsin Roame now have 10 Armor.
+Edwin VanCleef and The Great Akazamzarak now have 11 Armor.
+DancinÅf Deryl, Queen Azshara, and Tavish Stormpike now have 12 Armor.
+Overlord Saurfang now has 13 Armor.
+King Mukla now has 14 Armor.
+Rakanishu now has 15 Armor.
+*DancinÅf Deryl and King MuklaÅfs new Armor totals are less Armor than they previously had at higher levels of play, but more Armor than they previously had at lower levels of play.
+
+New Minions
+Hungry Snapjaw [Tier 2, Beast]
+
+4 Attack, 2 Health. After you summon a Beast, gain +1 Health permanently.
+
+
+Cogwork Copter [Tier 2, Mech]
+
+2 Attack, 1 Health. Divine Shield. After a friendly minion loses Divine Shield, give a minion in your hand +1/+1.
+
+
+Annoy-o-Troupe [Tier 5, Mech]
+
+3 Attack, 6 Health. Taunt. Divine Shield. Deathrattle: Summon three 1/2 Mechs with Taunt and Divine Shield.
+
+
+Minion Pool Updates
+The following minions have been removed from the minion pool:
+
+Icky Imp
+Pupbot
+Metaltooth Leaper
+Budding Greenthumb
+Patient Scout
+Leapfrogger
+Gem Smuggler
+Faceless Disciple
+Treasure-Seeker Elise
+Dr. Boombox
+Sinrunner Blanchy
+Omega Buster
+KangorÅfs Apprentice
+The following minions have been returned to the minion pool:
+
+Imprisoner
+Annoy-o-Tron
+Yrel
+Spawn of NÅfZoth
+Gemsplitter
+Briny Bootlegger
+Qiraji Harbinger
+Witchwing Nestmatron
+Champion of YÅfShaarj
+Baby Krush
+Cyborg Drake
+Grease Bot
+Minion Updates
+Annoy-o-Tron [Tier 1, Mech]
+
+1 Attack, 2 Health. Taunt, Divine Shield.
+
+
+Champion of YÅfShaarj [Tier 4]
+
+3 Attack, 3 Health. Whenever a friendly Taunt minion is attacked, gain +1/+2 permanently.
+
+
+Murozond [Tier 5, Dragon]
+
+[Regular version] 5 Attack, 5 Health. Battlecry: Get a plain copy of a minion from your last opponentÅfs warband.
+[Golden version] 10 Attack, 10 Health. Battlecry: Get a plain copy of a minion from your last opponentÅfs warband twice.
+Dev Comment: The regular version is a text-only update with no functional change, but the Golden version is both a text change and a functional change (it now gives two minions instead of one Golden minion).
+
+
+Grease Bot [Tier 6, Mech]
+
+Divine Shield. After a friendly minion loses Divine Shield, give it +2/+2 permanently.
+
+
+Quests are Returning to Battlegrounds!
+ThatÅfs not all the updates for Battlegrounds. On July 11, Battlegrounds Quests are returning to Battlegrounds! Just as before, Quest-Reward options will appear on turn 4 (the 6 Gold turn) for you to choose how you want to play out the rest of your match! We have a few updates to Quests and Rewards this time around, so watch for more details coming soon.
+
+New Product: Epic Bartenders
+WeÅfre continuing to expand our Battlegrounds offerings this patch with new Epic Bartenders. Epic Bartenders include alternate portraits and new voice lines, like Rare Bartenders, but also have a Golden frame and Golden-style animation on their portraits! Get the first ever Epic Bartender, Lillian Singh, available in the shop now.
