@@ -103,12 +103,14 @@ class BG23_352_Action(TargetedAction):
 class BG23_352:
 	"""Tavern Tipper (1) >= 23.6
 	If you have any unspent Gold at the end of your turn, gain +1/+2."""
+	option_tags={GameTag.CARDTEXT:"If you have any unspent Gold at the end of your turn, gain +1/+2."}
 	events = OWN_TURN_END.on(BG23_352_Action(SELF,'BG23_352e'))
 	pass
 BG23_352e=buff(1,2)
 class BG23_352_G:
 	"""
 	If you have any unspent Gold at the end of __your turn, gain +2/+4."""
+	option_tags={GameTag.CARDTEXT:"If you have any unspent Gold at the end of __your turn, gain +2/+4."}
 	events = OWN_TURN_END.on(BG23_352_Action(SELF,'BG23_352_Ge'))
 	pass
 BG23_352_Ge=buff(2,4)
@@ -125,9 +127,9 @@ class BGS_004:# <12>[1453] おりや
 	After you play a Demon, deal 1 damage to your hero and gain +2/+1. """
 	##After you play a Demon, deal 1 damage to your hero and gain +2/+2. """
 	if Config.BG_VERSION>=2620:
-		option_tags={GameTag.ATK:1, GameTag.HEALTH:4}
+		option_tags={GameTag.ATK:1, GameTag.HEALTH:4, GameTag.CARDTEXT:"After you play a Demon, deal 1 damage to your hero and gain +2/+1."}
 	else:
-		option_tags={GameTag.ATK:1, GameTag.HEALTH:3}
+		option_tags={GameTag.ATK:1, GameTag.HEALTH:3, GameTag.CARDTEXT:"After you play a Demon, deal 1 damage to your hero and gain +2/+2."}
 	events = BG_Play(CONTROLLER, FRIENDLY + DEMON).after(Hit(FRIENDLY_HERO,1),Buff(SELF,'BGS_004e'))
 	pass
 if Config.BG_VERSION>=2620:
@@ -139,9 +141,9 @@ class TB_BaconUps_079:# <12>[1453]
 	""" Wrath Weaver
 	After you play a Demon, deal 1 damage to your hero and gain +4/+4. """
 	if Config.BG_VERSION>=2620:
-		option_tags={GameTag.ATK:2, GameTag.HEALTH:8}
+		option_tags={GameTag.ATK:2, GameTag.HEALTH:8, GameTag.CARDTEXT:"After you play a Demon, deal 1 damage to your hero and gain +4/+2."}
 	else:
-		option_tags={GameTag.ATK:2, GameTag.HEALTH:6}
+		option_tags={GameTag.ATK:2, GameTag.HEALTH:6, GameTag.CARDTEXT:"After you play a Demon, deal 1 damage to your hero and gain +4/+4."}
 	events = BG_Play(CONTROLLER, FRIENDLY + DEMON).after(Hit(FRIENDLY_HERO,1),Buff(SELF,'TB_BaconUps_079e'))
 	pass
 if Config.BG_VERSION>=2620:
@@ -160,11 +162,13 @@ if BG_Mistake:
 class BG_NX2_050: ##
 	""" Mistake
 	&lt;i&gt;This has all minion types&lt;/i&gt;. """ 
+	option_tags={GameTag.CARDTEXT:"This has all minion types"}
 	#
 	pass
 class BG_NX2_050_G: ##
 	""" Mistake
 	&lt;i&gt;This has all minion types&lt;/i&gt;. """ 
+	option_tags={GameTag.CARDTEXT:"This has all minion types"}
 	#
 	pass
 
@@ -179,10 +183,12 @@ if BG_Acolyte_of_C_Thun:#Acolyte of C'Thun	2	2	3
 class BGS_106:# <12>[1453] クトゥーンのじさい
 	""" Acolyte of C'Thun
 	[Taunt][Reborn] """
+	option_tags={GameTag.CARDTEXT:"[Taunt][Reborn]"}
 	pass
 class TB_BaconUps_255:# <12>[1453]
 	""" Acolyte of C'Thun
 	[Taunt][Reborn] """
+	option_tags={GameTag.CARDTEXT:"[Taunt][Reborn]"}
 	pass
 
 
@@ -198,6 +204,7 @@ class BG_CFM_063:
 	requirements = {PlayReq.REQ_MINION_TARGET: 0,
 				 PlayReq.REQ_FRIENDLY_TARGET: 0,
 				 PlayReq.REQ_TARGET_IF_AVAILABLE: 0}
+	option_tags={GameTag.CARDTEXT:"Battlecry: Swap the Attack and Health of a minion."}
 	play = Buff(TARGET, "BG_CFM_063e")
 	pass
 BG_CFM_063e = AttackHealthSwapBuff()
@@ -207,6 +214,7 @@ class BG_CFM_063_G:
 	requirements = {PlayReq.REQ_MINION_TARGET: 0,
 				 PlayReq.REQ_FRIENDLY_TARGET: 0,
 				 PlayReq.REQ_TARGET_IF_AVAILABLE: 0}
+	option_tags={GameTag.CARDTEXT:"Battlecry: Swap the Attack and Health of a minion."}
 	play = Buff(TARGET, "BG_CFM_063e")
 	pass
 
@@ -250,6 +258,7 @@ class BGS_082_Action(TargetedAction):
 class BGS_082:# <12>[1453]
 	""" Menagerie Mug マナジェリ
 	[Battlecry:] Give 3 random friendly minions of different minion types +1/+1. """
+	option_tags={GameTag.CARDTEXT:"[Battlecry:] Give 3 random friendly minions of different minion types +1/+1."}
 	play = BGS_082_Action(CONTROLLER,'BGS_082e')
 	pass
 BGS_082e=buff(1,1)# <12>[1453]
@@ -257,6 +266,7 @@ BGS_082e=buff(1,1)# <12>[1453]
 class TB_BaconUps_144:# <12>[1453]
 	""" Menagerie Mug
 	[Battlecry:] Give 3 randomfriendly minions of differentminion types +2/+2. """
+	option_tags={GameTag.CARDTEXT:"[Battlecry:] Give 3 randomfriendly minions of differentminion types +2/+2."}
 	play = BGS_082_Action(CONTROLLER,'TB_BaconUps_144e')
 	pass
 TB_BaconUps_144e=buff(2,2)# <12>[1453]
@@ -287,6 +297,7 @@ class BG24_715:##
 	""" Patient Scout
 	When you sell this, [Discover] a Tier @ minion. &lt;i&gt;(Upgrades each turn!)&lt;/i&gt;"""
 	# @ = self.script_data_num_1
+	option_tags={GameTag.CARDTEXT:"When you sell this, [Discover] a Tier @ minion. (Upgrades each turn!)"}
 	events = [
 		Sell(CONTROLLER, SELF).on(BG24_715_Action(SELF)),
 		BeginBar(CONTROLLER).on(BG24_715_Action2(SELF))
@@ -309,6 +320,7 @@ class BG24_715_G_Action(TargetedAction):
 class BG24_715_G:
 	""" Patient Scout
 	When you sell this, [Discover] two Tier @ minions. &lt;i&gt;(Upgrades each turn!)&lt;/i&gt;"""
+	option_tags={GameTag.CARDTEXT:"When you sell this, [Discover] two Tier @ minions. (Upgrades each turn!)"}
 	events = [
 		Sell(CONTROLLER, SELF).on(BG24_715_G_Action(SELF)),
 		BeginTurn(CONTROLLER).on(BG24_715_Action2(SELF))
@@ -322,9 +334,11 @@ if BG_PoeticPenPal:## Poetic Pen Pal (BG25_105)(2/2/4) new 25.6
 class BG25_105:##########################################
 	""" Poetic Pen Pal (2/2/4)
 	[Battlecry:] Reduce the Cost of your next Buddy by (2)."""
+	option_tags={GameTag.CARDTEXT:"[Battlecry:] Reduce the Cost of your next Buddy by (2)."}
 class BG25_105_G:
 	""" Poetic Pen Pal (2/4/8)
 	[Battlecry:] Reduce the Cost of your next Buddy by (4)."""
+	option_tags={GameTag.CARDTEXT:"[Battlecry:] Reduce the Cost of your next Buddy by (4)."}
 
 
 if BG_Prophet_of_the_Boar:#(BG20_203)Prophet of the Boar	2	3	3
@@ -346,6 +360,10 @@ class BG20_203:# <12>[1453]
 	""" Prophet of the Boar # renew 24.6
 	[Taunt] After you play a Quilboar, get a [Blood Gem]. """
 	##[Once per Turn:] After you play a Quilboar, gain a [Blood Gem]. """ # 
+	if Config.BG_VERSION>=2460:
+		option_tags={GameTag.CARDTEXT:"[Taunt] After you play a Quilboar, get a [Blood Gem]."}
+	else:
+		option_tags={GameTag.CARDTEXT:"[Once per Turn:] After you play a Quilboar, gain a [Blood Gem].."}
 	events = [
 		BG_Play(CONTROLLER, MINION + QUILBOAR).after(BG20_203_Action(CONTROLLER, 1)),
 		#BeginBar(CONTROLLER).on(SetAttr(CONTROLLER, 'once_per_turn', 0))
@@ -355,6 +373,10 @@ class BG20_203_G:# <12>[1453]
 	""" Prophet of the Boar # renew 24.6
 	[Taunt] After you play a Quilboar, get 2 [Blood Gems]."""
 	#[Once per Turn:] After you play a Quilboar, gain 2 [Blood Gems]. """
+	if Config.BG_VERSION>=2460:
+		option_tags={GameTag.CARDTEXT:"[Taunt] After you play a Quilboar, get 2 [Blood Gems]."}
+	else:
+		option_tags={GameTag.CARDTEXT:"[Once per Turn:] After you play a Quilboar, gain 2 [Blood Gems].."}
 	events = [
 		BG_Play(CONTROLLER, MINION + QUILBOAR).after(BG20_203_Action(CONTROLLER, 2)),
 		#BeginBar.on(SetAttr(CONTROLLER, 'once_per_turn', 0))
@@ -383,10 +405,12 @@ class BG_OG_221_Action(TargetedAction):
 class BG_OG_221:
 	"""Selfless Hero:  けんしん
 	[Deathrattle:] Give a random friendly minion [Divine Shield]."""
+	option_tags={GameTag.CARDTEXT:"[Deathrattle:] Give a random friendly minion [Divine Shield]."}
 	deathrattle = BG_OG_221_Action(CONTROLLER, 1)
 class TB_BaconUps_014:# <5>[1453]
 	""" Selfless Hero
 	[Deathrattle:] Give 2_random friendly minions [Divine Shield]. """
+	option_tags={GameTag.CARDTEXT:"[Deathrattle:] Give 2_random friendly minions [Divine Shield]."}
 	deathrattle = BG_OG_221_Action(CONTROLLER, 2)
 	pass
 
@@ -401,11 +425,13 @@ if BG_Sparring_Partner:#### Sparring Partner (2/3/2) ### OK ####
 class BG_AT_069:
 	"""Sparring Partner (2/3/2) >= 23.6
 	Taunt Battlecry: Give a minion Taunt."""
+	option_tags={GameTag.CARDTEXT:"Taunt Battlecry: Give a minion Taunt."}
 	requirements = {PlayReq.REQ_MINION_TARGET: 0, PlayReq.REQ_FRIENDLY_TARGET: 0, PlayReq.REQ_TARGET_IF_AVAILABLE: 0}
 	play = Taunt(TARGET)
 class BG_AT_069_G:
 	"""
 	[Taunt] [Battlecry:] Give a minion [Taunt]."""
+	option_tags={GameTag.CARDTEXT:"[Taunt] [Battlecry:] Give a minion [Taunt]."}
 	requirements = {PlayReq.REQ_MINION_TARGET: 0, PlayReq.REQ_FRIENDLY_TARGET: 0, PlayReq.REQ_TARGET_IF_AVAILABLE: 0}
 	play = Taunt(TARGET)
 
@@ -419,12 +445,14 @@ if BG_Spawn_of_N_Zoth:#Spawn of N'Zoth	2	2	2	- ### OK ### banned 24.6
 class BG_OG_256:# んぞす
 	""" Spawn of N'Zoth
 	[Deathrattle:] Give your minions +1/+1. """
+	option_tags={GameTag.CARDTEXT:"[Deathrattle:] Give your minions +1/+1."}
 	deathrattle = Buff(FRIENDLY_MINIONS, 'OG_256e')#
 	pass
 OG_256e=buff(1,1)
 class TB_BaconUps_025:# <12>[1453]
 	""" Spawn of N'Zoth
 	[Deathrattle:] Give your minions +2/+2. """
+	option_tags={GameTag.CARDTEXT:"[Deathrattle:] Give your minions +2/+2."}
 	deathrattle = Buff(FRIENDLY_MINIONS, 'TB_BaconUps_025e')#
 	pass
 TB_BaconUps_025e = buff(2,2)
@@ -439,11 +467,13 @@ if BG_Unstable_Ghoul:#Unstable Ghoul	2	1	3	-### OK ### ##banned 23.6
 class FP1_024:# <12>[1453] ぐうる
 	""" Unstable Ghoul
 	[Taunt]. [Deathrattle:] Deal 1 damage to all minions. """
+	option_tags={GameTag.CARDTEXT:"[Taunt]. [Deathrattle:] Deal 1 damage to all minions."}
 	deathrattle = Hit(ALL_MINIONS, 1),Deaths()
 	pass
 class TB_BaconUps_118:# <12>[1453]
 	""" Unstable Ghoul
 	[Taunt][Deathrattle:] Deal 1 damage to all minions twice. """
+	option_tags={GameTag.CARDTEXT:"[Taunt][Deathrattle:] Deal 1 damage to all minions twice."}
 	deathrattle = Hit(ALL_MINIONS, 1), Hit(ALL_MINIONS, 1), Deaths()
 	pass
 
@@ -465,12 +495,14 @@ class BG21_013_Action(TargetedAction):## 密輸人
 class BG21_013:# <12>[1453]
 	""" Whelp Smuggler
 	After a friendly Dragon gains Attack, give it +1_Health. """
+	option_tags={GameTag.CARDTEXT:"After a friendly Dragon gains Attack, give it +1_Health."}
 	events = Buff(FRIENDLY + DRAGON).on(BG21_013_Action(Buff.TARGET, Buff.BUFF, 'BG21_013e'))
 	pass
 BG21_013e=buff(0,1)
 class BG21_013_G:# <12>[1453]
 	""" Whelp Smuggler
 	After a friendly Dragon gains Attack, give it +2_Health. """
+	option_tags={GameTag.CARDTEXT:"After a friendly Dragon gains Attack, give it +2_Health."}
 	events = Buff(FRIENDLY + DRAGON).on(BG21_013_Action(Buff.TARGET, Buff.BUFF,'BG21_013e') * 2)
 	pass
 
@@ -509,11 +541,13 @@ class BG23_350_Action(TargetedAction):
 class BG23_350:
 	"""Yrel (2) >=23.6
 	After this attacks, give a friendly minion of each minion type +1/+2."""
+	option_tags={GameTag.CARDTEXT:"After this attacks, give a friendly minion of each minion type +1/+2."}
 	events = BG_Attack(SELF).on(BG23_350_Action(CONTROLLER, 'BG23_350e'))
 BG23_350e=buff(1,2)
 class BG23_350_G:
 	"""Yrel (2) >=23.6
 	After this attacks, give a friendly minion of each minion type +2/+4."""
+	option_tags={GameTag.CARDTEXT:"After this attacks, give a friendly minion of each minion type +2/+4."}
 	events = BG_Attack(SELF).on(BG23_350_Action(CONTROLLER, 'BG23_350_Ge'))
 BG23_350_Ge=buff(2,4)
 
@@ -529,6 +563,7 @@ if BG_Arm_of_the_Empire:#Arm of the Empire	3	4	4	-		 ### maybe ###
 class BGS_110:# <12>[1453] 帝国の腕
 	""" Arm of the Empire
 	Whenever a friendly [Taunt]minion is attacked,give it +2 Attack permanently. """
+	option_tags={GameTag.CARDTEXT:"Whenever a friendly [Taunt]minion is attacked,give it +2 Attack permanently."}
 	events = BG_Attack(ENEMY, FRIENDLY + TAUNT).on(BuffPermanently(BG_Attack.OTHER,'BGS_110e'))
 	pass
 BGS_110e=buff(2,0)# <12>[1453]
@@ -536,6 +571,7 @@ BGS_110e=buff(2,0)# <12>[1453]
 class TB_BaconUps_302:# <12>[1453]
 	""" Arm of the Empire
 	Whenever a friendly [Taunt]minion is attacked,give it +4 Attackpermanently. """
+	option_tags={GameTag.CARDTEXT:"Whenever a friendly [Taunt]minion is attacked,give it +4 Attackpermanently."}
 	events = BG_Attack(ENEMY, FRIENDLY + TAUNT).on(BuffPermanently(BG_Attack.OTHER,'TB_BaconUps_302e'))
 	pass
 TB_BaconUps_302e=buff(4,0)# <12>[1453]
@@ -551,6 +587,7 @@ if BG_Bird_Buddy:#Bird Buddy	3	2	4	-		 ### maybe ### banned 26.2
 class BG21_002:# <12>[1453]  愛鳥家
 	""" Bird Buddy
 	[Avenge (1):] Give your Beasts +1/+1. """
+	option_tags={GameTag.CARDTEXT:"[Avenge (1):] Give your Beasts +1/+1."}
 	events = Death(FRIENDLY + MINION).on(Avenge(SELF, 1, [Buff(FRIENDLY_MINIONS + BEAST, 'BG21_002e')]))
 	pass
 BG21_002e=buff(1,1)
@@ -558,6 +595,7 @@ BG21_002e=buff(1,1)
 class BG21_002_G:# <12>[1453]
 	""" Bird Buddy
 	[Avenge (1):] Give your Beasts +2/+2. """
+	option_tags={GameTag.CARDTEXT:"[Avenge (1):] Give your Beasts +2/+2."}
 	events = Death(FRIENDLY).on(Avenge(SELF, 1, \
 		[Buff(FRIENDLY_MINIONS + BEAST, 'BG21_002_Ge')]\
 		))

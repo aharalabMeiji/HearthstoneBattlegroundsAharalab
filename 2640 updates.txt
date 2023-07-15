@@ -27,3 +27,30 @@ Realm of Terror
 
 New Epic Emotes!
 Battlegrounds Emotes are getting even more emotive. Introducing new Battlegrounds Epic Emotes! Epic Emotes are animated emotes that can be equipped in place of your base Battlegrounds emotes.
+
+
+「バトルグラウンド」アップデート
+新ヒーロー
+鉄賛歌インゲ（装甲15）
+
+メジャー賛歌
+[0ゴールド] ミニオン1体に自分の酒場グレードに等しい攻撃力を付与する。（次のターンは体力を付与！）
+マイナー賛歌
+[0ゴールド] ミニオン1体に自分の酒場グレードに等しい体力を付与する。（次のターンは攻撃力を付与！）
+
+
+ホガァァァ船長（装甲10）
+
+今じゃ船長サマよぉ
+[常時発動] 海賊を買う度、1ゴールドを獲得する。
+
+
+配信から最初の2週間は、どの対戦でも新ヒーローが保証されるぞ。
+
+ディアブロ復活！
+恐怖の帝王が期間限定で帰ってくるぞ！6月6日～6月7日まで、ヒーロープールからディアブロが退場するまで、どの対戦でも利用可能になるんだ。
+
+ディアブロ（装甲10）
+
+恐怖の領域
+[常時発動] 4ターンごとに全ての敵は戦利品をかけて恐怖の帝王と君の戦団と戦う。

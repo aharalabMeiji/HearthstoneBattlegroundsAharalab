@@ -1,0 +1,280 @@
+「バトルグラウンド」アップデート
+ヒーローパワーのアップデート
+キャリエル・ローム
+
+旧：味方のミニオン2体に+1/+1を付与する。（酒場のアップグレード後、改善策を選択できる！）
+攻撃的姿勢：この対戦中、「信念」が追加で攻撃力+2を付与する。
+防御的姿勢：この対戦中、「信念」が追加で体力+2を付与する。
+新：味方のミニオン3体に+1/+1を付与する。（酒場のアップグレード後、改善策を選択できる！）
+攻撃的姿勢：この対戦中、「信念」が追加で攻撃力+1を付与する。
+防御的姿勢：この対戦中、「信念」が追加で体力+1を付与する。
+
+
+
+キング・ムクラ
+
+テキストのアップデートはありません。
+旧：キング・ムクラは50%の確率で「ビッグ・バナナ」を獲得する。他の全てのプレイヤーは0%。
+新：受け取るプレイヤーに関係なく、全てのバナナが33%の確率で「ビッグ・バナナ」になる。
+
+
+アランナ・スターシーカー
+
+旧：味方のミニオンが16体攻撃した後、毎ターン最初に買うミニオンが無料になる。
+新：味方のミニオンが14体攻撃した後、毎ターン最初に買うミニオンが無料になる。
+
+
+キュレーター
+
+旧：[常時発動] 種族が「全て」で毒袋を持つ1/1の「融合体」を1体得た状態で対戦を開始する。
+新：[常時発動] 種族が「全て」で毒袋を持つ2/2の「融合体」を1体得た状態で対戦を開始する。
+
+
+装甲の調整
+以下のヒーローは装甲が増えたぞ。
+
+「キング・ムクラ」は装甲が10になったぞ。
+「キャリエル・ローム」は高ランク帯では装甲が12、低ランク帯では装甲が10になったぞ。
+「アランナ・スターシーカー」と「キュレーター」は装甲が15になったぞ。
+ミニオンの調整
+歯車仕掛けのヘリ
+
+旧：攻撃力2、体力1
+新：攻撃力1、体力1
+
+
+スクラップ・スクレーパー
+
+旧：攻撃力3、体力7。自分のターンの終了時、ランダムな超電磁メカを1体得る。
+新：攻撃力4、体力7。2ターンごとの終了時、ランダムな超電磁メカを1体得る。
+
+
+サイボーグ・ドレイク
+
+旧：攻撃力2、体力10。聖なる盾。聖なる盾を持つ味方のミニオン全ては攻撃力+8を得る。
+新：攻撃力3、体力10。聖なる盾。聖なる盾を持つ味方のミニオン全ては攻撃力+6を得る。
+
+
+針だらけな笛吹き
+
+旧：攻撃力5、体力2
+新：攻撃力3、体力1
+
+
+ボンゴ奏でるボア
+
+旧：攻撃力6、体力5
+新：攻撃力4、体力3
+
+
+空腹のオオアゴガメ
+
+旧：攻撃力4、体力2
+新：攻撃力5、体力2
+
+
+リサイクル・レイス
+
+旧：[グレード4] 攻撃力5、体力4
+新：[グレード3] 攻撃力4、体力2
+
+
+鮰計士
+
+旧：攻撃力4、体力4。これは自分の手札にある間、自分がマーロックを手札から使用する度に+3/+2を獲得する。
+新：攻撃力5、体力5。このカードが自分の手札にある場合、自分がマーロックを手札から使用した後+3/+3を獲得する。
+
+
+晩暮の暴れん坊
+
+旧：攻撃力3、体力2
+新：攻撃力4、体力3
+
+
+潮の貴婦人アジッサ
+
+旧：攻撃力7、体力8。自分が呪文を使った後、味方のナーガ3体に+1/+1を付与する。
+新：攻撃力6、体力8。自分が呪文を使った後、味方のナーガ4体に+1/+1を付与する。
+
+
+ソウルスプリッター
+
+旧：[グレード5] 攻撃力5、体力2
+新：[グレード4] 攻撃力4、体力2
+
+
+ミニオンプールの調整
+「バナーボア」がミニオンプールから退場したぞ。
+「辛抱強い斥候」がミニオンプールに復帰したぞ。
+
+「デュエル」アップデート
+愛用の宝物の調整
+ぶら下げニンジン
+
+旧：[2マナ]
+新：[3マナ]
+
+
+重武装戦士
+
+旧：[4マナ]
+新：[5マナ]
+
+
+常時発動の宝物の調整
+飢え
+
+旧：毎ターン最初に味方の獣が死んだ後、自分のデッキからミニオン1体を引き攻撃力+1を付与する。
+新：自分のターン中、最初に味方の獣が死んだ後、自分のデッキからミニオン1体を引き攻撃力+1を付与する。
+
+
+穢れたフェル石
+
+旧：毎ターン、自分がフェル呪文を最初に使用した後、自分の手札の一番左と一番右のミニオンに攻撃力+1を付与する。
+新：自分がフェル呪文を使った後、自分の手札の一番左と一番右のミニオンに攻撃力+1を付与する。
+
+
+カードプールの調整
+「電光刹花」と「ケイン・サンフューリー」がデッキ構築と全てのカードプールから除外された。
+「ラトルゴア」が一時的にデッキ構築と全てのカードプールから除外された。これは「ディアブロ」がヒーロープールから去るまで適用されるぞ。
+
+
+Battlegrounds Updates
+Hero Power Updates
+Cariel Roame
+
+Old: Give 2 friendly minions +1/+1. (After you upgrade the Tavern, choose an improvement!)
+Offensive Stance: For the rest of the game, ‘Conviction’ gives an additional +2 Attack.
+Defensive Stance: For the rest of the game, ‘Conviction’ gives an additional +2 Health.
+New: Give 3 friendly minions +1/+1. (After you upgrade the Tavern, choose an improvement!)
+Offensive Stance: For the rest of the game, ‘Conviction’ gives an additional +1 Attack.
+Defensive Stance: For the rest of the game, ‘Conviction’ gives an additional +1 Health.
+
+
+
+King Mukla
+
+No text update.
+Old: King Mukla has 50% chance to get a Big Banana, all other players have 0% chance.
+New: All bananas have a 33% chance of being a Big Banana, regardless of who receives them.
+
+
+Aranna Starseeker
+
+Old: After 16 friendly minions attack, the first minion you buy each turn is free.
+New: After 14 friendly minions attack, the first minion you buy each turn is free.
+
+
+The Curator
+
+Old: [Passive] Start the game with a 1/1 Amalgam with Venomous and all minion types.
+New: [Passive] Start the game with a 2/2 Amalgam with Venomous and all minion types.
+
+
+Armor Updates
+The following heroes now have more armor:
+
+King Mukla now has 10 Armor.
+Cariel Roame now has 12 Armor at higher ranked lobbies and 10 Armor at lower ranked lobbies.
+Aranna Starseeker and The Curator now have 15 Armor.
+Minion Updates
+Cogwork Copter
+
+Old: 2 Attack, 1 Health
+New: 1 Attack, 1 Health
+
+
+Scrap Scraper
+
+Old: 3 Attack, 7 Health. At the end of your turn, get a random Magnetic Mech.
+New: 4 Attack, 7 Health. At the end of every 2 turns, get a random Magnetic Mech.
+
+
+Cyborg Drake
+
+Old: 2 Attack, 10 Health. Divine Shield. Your minions with Divine Shield have +8 Attack.
+New: 3 Attack, 10 Health. Divine Shield. Your minions with Divine Shield have +6 Attack.
+
+
+Prickly Piper
+
+Old: 5 Attack, 2 Health
+New: 3 Attack, 1 Health
+
+
+Bongo Bopper
+
+Old: 6 Attack, 5 Health.
+New: 4 Attack, 3 Health.
+
+
+Hungry Snapjaw
+
+Old: 4 Attack, 2 Health.
+New: 5 Attack, 2 Health.
+
+
+Recycling Wraith
+
+Old: [Tier 4] 5 Attack, 4 Health
+New: [Tier 3] 4 Attack, 2 Health
+
+
+Bream Counter
+
+Old: 4 Attack, 4 Health. While this is in your hand, after you play a Murloc, gain +3/+2.
+New: 5 Attack, 5 Health. While this is in your hand, after you play a Murloc, gain +3/+3.
+
+
+Eventide Brute
+
+Old: 3 Attack, 2 Health
+New: 4 Attack, 3 Health
+
+
+Tidemistress Athissa
+
+Old: 7 Attack, 8 Health. After you cast a spell, give three friendly Naga +1/+1.
+New: 6 Attack, 8 Health. After you cast a spell, give four friendly Naga +1/+1.
+
+
+Soulsplitter
+
+Old: [Tier 5] 5 Attack, 2 Health.
+New: [Tier 4] 4 Attack, 2 Health.
+
+
+Minion Pool Changes
+Bannerboar has been removed from the minion pool.
+Patient Scout has been returned to the minion pool.
+
+Duels Updates
+Signature Treasure Updates
+Carrot on a Stick
+
+Old: [2 Mana]
+New: [3 Mana]
+
+
+Men-at-Arms
+
+Old: [4 Mana]
+New: [5 Mana]
+
+
+Passive Treasure Updates
+Starving
+
+Old: After the first time a friendly Beast dies in a turn, draw a minion from your deck and give it +1 Attack.
+New: After the first time a friendly Beast dies in your turn, draw a minion from your deck and give it +1 Attack.
+
+
+Corrupted Felstone
+
+Old: After you cast your first Fel spell in a turn, give the left- and right-most minions in your hand +1 Attack.
+New: After you cast a Fel spell, give the left- and right-most minions in your hand +1 Attack.
+
+
+Card Pool Updates
+Lightning Bloom and Kayne Sunfury have been banned from deckbuilding and all card pools.
+Rattlegore has been temporarily banned from deckbuilding and all card pools until Diablo leaves the hero pool.
