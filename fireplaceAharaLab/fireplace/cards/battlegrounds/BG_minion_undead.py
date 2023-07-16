@@ -44,12 +44,12 @@ if BG25__Risen_Rider:#
 	BG_Undead_Gold['BG25_001']='BG25_001_G'
 class BG25_001:# (minion)
 	""" Risen Rider
-	<b>Taunt</b> <b>Reborn</b> """
+	[Taunt] [Reborn] """
 	option_tags={GameTag.TECH_LEVEL:1, GameTag.ATK:2, GameTag.HEALTH:1}
 	pass
 class BG25_001_G:# (minion)
 	""" Risen Rider
-	<b>Taunt</b> <b>Reborn</b> """
+	[Taunt] [Reborn] """
 	option_tags={GameTag.TECH_LEVEL:1, GameTag.ATK:4, GameTag.HEALTH:2}
 	pass
 
@@ -199,7 +199,7 @@ class BG25_011_Action(GameAction):
 				Buff(card, 'BG25_011e2', atk=1).trigger(source)
 class BG25_011:# (minion)
 	""" Nerubian Deathswarmer
-	<b>Battlecry:</b> Give your Undead +1 Attack for the rest of the game <i>(wherever they are)</i>. """
+	[Battlecry:] Give your Undead +1 Attack for the rest of the game <i>(wherever they are)</i>. """
 	option_tags={GameTag.TECH_LEVEL:2, GameTag.ATK:1, GameTag.HEALTH:3}	
 	play = BG25_011_Action()
 	pass
@@ -215,7 +215,7 @@ class BG25_011_G_Action(GameAction):
 				Buff(card, 'BG25_011e2', atk=2).trigger(source)
 class BG25_011_G:# (minion)
 	""" Nerubian Deathswarmer
-	<b>Battlecry:</b> Give your Undead +2 Attack for the rest of the game <i>(wherever they are)</i>. """
+	[Battlecry:] Give your Undead +2 Attack for the rest of the game <i>(wherever they are)</i>. """
 	option_tags={GameTag.TECH_LEVEL:2, GameTag.ATK:2, GameTag.HEALTH:6}	
 	play = BG25_011_G_Action()
 	pass
@@ -246,7 +246,7 @@ class BG25_022_Action(GameAction):
 				Buff(random.choice(cards), 'BG25_022e').trigger(source)
 class BG25_022:# (minion)############
 	""" Scarlet Skull
-	<b>Reborn</b> <b>Deathrattle:</b> Give a friendly Undead +1/+2. """
+	[Reborn] [Deathrattle:] Give a friendly Undead +1/+2. """
 	option_tags={GameTag.TECH_LEVEL:2, GameTag.ATK:1, GameTag.HEALTH:2}	
 	deathrattle = BG25_022_Action()
 	pass
@@ -260,7 +260,7 @@ class BG25_022_G_Action(GameAction):
 				Buff(random.choice(cards), 'BG25_022_Ge').trigger(source)
 class BG25_022_G:# (minion)
 	""" Scarlet Skull
-	<b>Reborn</b> <b>Deathrattle:</b> Give a friendly Undead +2/+4. """
+	[Reborn] [Deathrattle:] Give a friendly Undead +2/+4. """
 	option_tags={GameTag.TECH_LEVEL:2, GameTag.ATK:2, GameTag.HEALTH:4}	
 	deathrattle = BG25_022_G_Action()
 	pass
@@ -280,7 +280,7 @@ class BG25_033_Action(GameAction):
 		source.script_data_text_0=str(amount)
 class BG25_033:# (minion)
 	""" Corpse Refiner
-	<b>Avenge (4):</b> This minion sells for 1 more Gold.@<b>Avenge (4):</b> This minion sells for 1 more Gold. __<i>(Sells for {0} extra Gold!)</i> """
+	[Avenge (4):] This minion sells for 1 more Gold.@[Avenge (4):] This minion sells for 1 more Gold. __<i>(Sells for {0} extra Gold!)</i> """
 	## tag 1587 gambler_sell_price
 	tags={1587:1}
 	option_tags={GameTag.TECH_LEVEL:2, GameTag.ATK:2, GameTag.HEALTH:3}
@@ -294,7 +294,7 @@ class BG25_033_G_Action(GameAction):
 		source.script_data_text_0=str(amount)
 class BG25_033_G:# (minion)
 	""" Corpse Refiner
-	<b>Avenge (4):</b> This minion sells for 2 more Gold.@<b>Avenge (4):</b> This minion sells for 2 more Gold. __<i>(Sells for {0} extra Gold!)</i> """
+	[Avenge (4):] This minion sells for 2 more Gold.@[Avenge (4):] This minion sells for 2 more Gold. __<i>(Sells for {0} extra Gold!)</i> """
 	tags={1587:1}
 	option_tags={GameTag.TECH_LEVEL:2, GameTag.ATK:4, GameTag.HEALTH:6}	
 	Death(FRIENDLY + MINION).on(Avenge(SELF, 4, [BG25_033_G_Action()]))
@@ -338,7 +338,7 @@ class BG25_002_Action(GameAction):
 				Buff(random.choice(cds), 'BG25_002e').trigger(source)
 class BG25_002:# (minion)
 	""" Ghoul of the Feast
-	<b>Avenge (1):</b> Give a friendly minion of each minion type +3 Attack. """
+	[Avenge (1):] Give a friendly minion of each minion type +3 Attack. """
 	if Config.BG_VERSION>=2543:
 		option_tags={GameTag.ATK:2, GameTag.HEALTH:5}
 		events = Death(FRIENDLY + MINION - SELF).on(Avenge(SELF, 2, [BG25_002_Action()]))
@@ -368,7 +368,7 @@ class BG25_002_G_Action(GameAction):
 				Buff(random.choice(cds), 'BG25_002_Ge').trigger(source)
 class BG25_002_G:# (minion)
 	""" Ghoul of the Feast
-	<b>Avenge (1):</b> Give a friendly minion of each minion type +6 Attack. """
+	[Avenge (1):] Give a friendly minion of each minion type +6 Attack. """
 	if Config.BG_VERSION>=2543:
 		option_tags={GameTag.ATK:4, GameTag.HEALTH:10}
 		events = Death(FRIENDLY + MINION - SELF).on(Avenge(SELF, 2, [BG25_002_G_Action()]))
@@ -402,7 +402,7 @@ if BG25__Jelly_Belly:#
 	BG_Undead_Gold['BG25_005']='BG25_005_G'
 class BG25_005:# (minion)
 	""" Jelly Belly
-	After a friendly minion is <b>Reborn</b>, gain +3/+3. """
+	After a friendly minion is [Reborn], gain +3/+3. """
 	if Config.BG_VERSION>=2543:
 		option_tags={GameTag.ATK:3, GameTag.HEALTH:6}
 	else:
@@ -412,7 +412,7 @@ class BG25_005:# (minion)
 BG25_005e=buff(3,3)
 class BG25_005_G:# (minion)
 	""" Jelly Belly
-	After a friendly minion is <b>Reborn</b>, gain +6/+6. """
+	After a friendly minion is [Reborn], gain +6/+6. """
 	if Config.BG_VERSION>=2543:
 		option_tags={GameTag.ATK:6, GameTag.HEALTH:12}
 	else:
@@ -439,7 +439,7 @@ class BG25_006_Action(GameAction):
 		pass
 class BG25_006:# (minion)
 	""" Lich Doctor
-	<b>Taunt</b>. At the start of your turn, give your minions that _died last combat +1/+1. """
+	[Taunt]. At the start of your turn, give your minions that _died last combat +1/+1. """
 	option_tags={GameTag.ATK:3, GameTag.HEALTH:2}
 	events = BeginBar(CONTROLLER).on(BG25_006_Action())
 	pass
@@ -452,7 +452,7 @@ class BG25_006_G_Action(GameAction):
 		pass
 class BG25_006_G:# (minion)
 	""" Lich Doctor
-	<b>Taunt</b>. At the start of your turn, give your minions that _died last combat +2/+2. """
+	[Taunt]. At the start of your turn, give your minions that _died last combat +2/+2. """
 	option_tags={GameTag.ATK:6, GameTag.HEALTH:4}
 	events = BeginBar(CONTROLLER).on(BG25_006_G_Action())
 	pass
@@ -480,7 +480,7 @@ class BG25_399_Action(GameAction):
 #Old: 3 Attack, 1 Health
 class BG25_399:
 	""" Radio Star
-	&lt;b&gt;Deathrattle:&lt;/b&gt; Add a plain copy of the minion that __killed this to your hand."""
+	[Deathrattle:] Add a plain copy of the minion that __killed this to your hand."""
 	if Config.BG_VERSION>=2622:
 		option_tags={GameTag.ATK:2, GameTag.HEALTH:1}
 	else:
@@ -489,7 +489,7 @@ class BG25_399:
 	pass
 class BG25_399_G:
 	""" Radio Star
-	&lt;b&gt;Deathrattle:&lt;/b&gt; Add 2 plain copies of the minion that killed this to your hand."""
+	[Deathrattle:] Add 2 plain copies of the minion that killed this to your hand."""
 	if Config.BG_VERSION>=2622:
 		option_tags={GameTag.ATK:4, GameTag.HEALTH:2}
 	else:
@@ -528,7 +528,7 @@ class BG25_007_Action(GameAction):
 		pass
 class BG25_007:# (minion)
 	""" Anub'arak, Nerubian King
-	<b>Deathrattle:</b> Your Undead have +2 Attack for the rest of the game <i>(wherever they are)</i>. """
+	[Deathrattle:] Your Undead have +2 Attack for the rest of the game <i>(wherever they are)</i>. """
 	if Config.BG_VERSION>=2522:
 		option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:4, GameTag.HEALTH:3}
 	else:
@@ -558,7 +558,7 @@ class BG25_007_G_Action(GameAction):
 		pass
 class BG25_007_G:# (minion)
 	""" Anub'arak, Nerubian King
-	<b>Deathrattle:</b> Your Undead have +4 Attack for the rest of the game <i>(wherever they are)</i>. """
+	[Deathrattle:] Your Undead have +4 Attack for the rest of the game <i>(wherever they are)</i>. """
 	if Config.BG_VERSION>=2522:
 		option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:8, GameTag.HEALTH:6}
 	else:
@@ -575,23 +575,23 @@ if BG25__Handless_Forsaken:#
 	BG_Undead_Gold['BG25_010t']='BG25_010_Gt'
 class BG25_010:# (minion)
 	""" Handless Forsaken
-	<b>Deathrattle:</b> Summon a 2/2 Hand with <b>Reborn</b>. """
+	[Deathrattle:] Summon a 2/2 Hand with [Reborn]. """
 	option_tags={GameTag.ATK:2, GameTag.HEALTH:3}
 	deathrattle = Summon(CONTROLLER, 'BG25_010t')
 	pass
 class BG25_010t:# (minion)
 	""" Helping Hand
-	<b>Reborn</b> """
+	[Reborn] """
 	pass
 class BG25_010_G:# (minion)
 	""" Handless Forsaken
-	<b>Deathrattle:</b> Summon a 4/4 Hand with <b>Reborn</b>. """
+	[Deathrattle:] Summon a 4/4 Hand with [Reborn]. """
 	option_tags={GameTag.ATK:4, GameTag.HEALTH:6}
 	deathrattle = Summon(CONTROLLER, 'BG25_010_Gt')
 	pass
 class BG25_010_Gt:# (minion)
 	""" Helping Hand
-	<b>Reborn</b> """
+	[Reborn] """
 	pass
 
 
@@ -606,7 +606,7 @@ if BG25__Possessive_Banshee:#
 	BG_Undead_Gold['BG25_004']='BG25_004_G'
 class BG25_004:# (minion)###### TARGET_IF_AVAILABLE??
 	""" Possessive Banshee
-	<b>Battlecry:</b> Give an Undead +2/+7. """
+	[Battlecry:] Give an Undead +2/+7. """
 	requirements = {PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_MINION_TARGET:0, PlayReq.REQ_TARGET_WITH_RACE:Race.UNDEAD}
 	option_tags={GameTag.ATK:2, GameTag.HEALTH:7}
 	play = Buff(TARGET, 'BG25_004e')
@@ -614,7 +614,7 @@ class BG25_004:# (minion)###### TARGET_IF_AVAILABLE??
 BG25_004e=buff(2,7)
 class BG25_004_G:# (minion)
 	""" Possessive Banshee
-	<b>Battlecry:</b> Give an Undead +4/+14. """
+	[Battlecry:] Give an Undead +4/+14. """
 	requirements = {PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_MINION_TARGET:0, PlayReq.REQ_TARGET_WITH_RACE:Race.UNDEAD}
 	option_tags={GameTag.ATK:4, GameTag.HEALTH:14}
 	play = Buff(TARGET, 'BG25_004_Ge')
@@ -671,14 +671,14 @@ if BG25__Hungering_Abomination:#
 	BG_Undead_Gold['BG25_014']='BG25_014_G'
 class BG25_014:# (minion)
 	""" Hungering Abomination
-	<b>Avenge (1):</b> Gain +1/+1 permanently. """
+	[Avenge (1):] Gain +1/+1 permanently. """
 	option_tags={GameTag.ATK:3, GameTag.HEALTH:4}
 	events = Death(FRIENDLY + MINION).on(Avenge(SELF, 1, [BuffPermanently(SELF, 'BG25_014e')]))
 	pass
 BG25_014e=buff(1,1)
 class BG25_014_G:# (minion)
 	""" Hungering Abomination
-	<b>Avenge (1):</b> Gain +2/+2 permanently. """
+	[Avenge (1):] Gain +2/+2 permanently. """
 	option_tags={GameTag.ATK:6, GameTag.HEALTH:8}
 	events = Death(FRIENDLY + MINION).on(Avenge(SELF, 1, [BuffPermanently(SELF, 'BG25_014_Ge')]))
 	pass
@@ -726,7 +726,7 @@ class BG25_023_Action(GameAction):
 		pass
 class BG25_023:# (minion)
 	""" Soulsplitter
-	<b>Reborn</b> <b>Start of Combat:</b> Give a ___friendly Undead <b>Reborn</b>. """
+	[Reborn] [Start of Combat:] Give a ___friendly Undead [Reborn]. """
 	if Config.BG_VERSION>=2522:
 		option_tags={GameTag.TECH_LEVEL:5, GameTag.ATK:5, GameTag.HEALTH:2}
 	else:
@@ -745,7 +745,7 @@ class BG25_023_G_Action(GameAction):
 		pass
 class BG25_023_G:# (minion)
 	""" Soulsplitter
-	<b>Reborn</b> <b>Start of Combat:</b> Give 2 ___friendly Undead <b>Reborn</b>. """
+	[Reborn] [Start of Combat:] Give 2 ___friendly Undead [Reborn]. """
 	if Config.BG_VERSION>=2522:
 		option_tags={GameTag.TECH_LEVEL:5, GameTag.ATK:10, GameTag.HEALTH:4}
 	else:
@@ -764,12 +764,12 @@ if BG25__Colossus_of_the_Sun:#
 	BG_Undead_Gold['BG25_050']='BG25_050_G'
 class BG25_050:# (minion)
 	""" Colossus of the Sun
-	<b>Divine Shield</b> <b>Reborn</b> """
+	[Divine Shield] [Reborn] """
 	option_tags={GameTag.ATK:6, GameTag.HEALTH:6}
 	pass
 class BG25_050_G:# (minion)
 	""" Colossus of the Sun
-	<b>Divine Shield</b> <b>Reborn</b> """
+	[Divine Shield] [Reborn] """
 	option_tags={GameTag.ATK:12, GameTag.HEALTH:12}
 	pass
 
@@ -782,7 +782,7 @@ if BG25__Eternal_Summoner:#
 	BG_Undead_Gold['BG25_009']='BG25_009_G'
 class BG25_009:# (minion)
 	""" Eternal Summoner
-	<b>Deathrattle:</b> Summon 2 Eternal Knights(BG25_008). """
+	[Deathrattle:] Summon 2 Eternal Knights(BG25_008). """
 	#<2522: 8 Attack, 1 Health. Deathrattle: Summon 2 Eternal Knights.
 	#>=2522: 6 Attack, 1 Health. Reborn. Deathrattle: Summon 1 Eternal Knight.
 	if Config.BG_VERSION>=2522:
@@ -794,7 +794,7 @@ class BG25_009:# (minion)
 	pass
 class BG25_009_G:# (minion)
 	""" Eternal Summoner
-	<b>Deathrattle:</b> Summon 4 Eternal Knights. """
+	[Deathrattle:] Summon 4 Eternal Knights. """
 	if Config.BG_VERSION>=2522:
 		option_tags={GameTag.ATK:12, GameTag.HEALTH:2}
 		deathrattle = Summon(CONTROLLER, 'BG25_008')*2
@@ -811,7 +811,7 @@ if BG25__Sister_Deathwhisper:#
 	BG_Undead_Gold['BG25_020']='BG25_020_G'
 class BG25_020:# (minion)
 	""" Sister Deathwhisper
-	After a friendly minion is <b>Reborn</b>, give your Undead +1/+3 permanently. """
+	After a friendly minion is [Reborn], give your Undead +1/+3 permanently. """
 	##<2522: 4 Attack, 11 Health. Whenever a friendly minion is Reborn, give your Undead +1/+3 permanently.
 	##>=2522: 4 Attack, 9 Health. Whenever a friendly minion is Reborn, give your Undead +1/+2 permanently.
 	if Config.BG_VERSION>=2522:
@@ -826,7 +826,7 @@ else:
 	BG25_020e=buff(1,3)
 class BG25_020_G:# (minion)
 	""" Sister Deathwhisper
-	After a friendly minion is <b>Reborn</b>, give your Undead +2/+6  permanently. """
+	After a friendly minion is [Reborn], give your Undead +2/+6  permanently. """
 	if Config.BG_VERSION>=2522:
 		option_tags={GameTag.ATK:8, GameTag.HEALTH:18}
 	else:

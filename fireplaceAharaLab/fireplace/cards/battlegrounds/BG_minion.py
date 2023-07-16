@@ -161,13 +161,13 @@ if BG_Mistake:
 	BG_Minion_Gold['BG_NX2_050']='BG_NX2_050_G'
 class BG_NX2_050: ##
 	""" Mistake
-	&lt;i&gt;This has all minion types&lt;/i&gt;. """ 
+	<i>This has all minion types</i>. """ 
 	option_tags={GameTag.CARDTEXT:"This has all minion types"}
 	#
 	pass
 class BG_NX2_050_G: ##
 	""" Mistake
-	&lt;i&gt;This has all minion types&lt;/i&gt;. """ 
+	<i>This has all minion types</i>. """ 
 	option_tags={GameTag.CARDTEXT:"This has all minion types"}
 	#
 	pass
@@ -295,7 +295,7 @@ class BG24_715_Action2(TargetedAction):
 		pass
 class BG24_715:##
 	""" Patient Scout
-	When you sell this, [Discover] a Tier @ minion. &lt;i&gt;(Upgrades each turn!)&lt;/i&gt;"""
+	When you sell this, [Discover] a Tier @ minion. <i>(Upgrades each turn!)</i>"""
 	# @ = self.script_data_num_1
 	option_tags={GameTag.CARDTEXT:"When you sell this, [Discover] a Tier @ minion. (Upgrades each turn!)"}
 	events = [
@@ -319,7 +319,7 @@ class BG24_715_G_Action(TargetedAction):
 		pass
 class BG24_715_G:
 	""" Patient Scout
-	When you sell this, [Discover] two Tier @ minions. &lt;i&gt;(Upgrades each turn!)&lt;/i&gt;"""
+	When you sell this, [Discover] two Tier @ minions. <i>(Upgrades each turn!)</i>"""
 	option_tags={GameTag.CARDTEXT:"When you sell this, [Discover] two Tier @ minions. (Upgrades each turn!)"}
 	events = [
 		Sell(CONTROLLER, SELF).on(BG24_715_G_Action(SELF)),
@@ -615,7 +615,8 @@ class BG_CS2_200:
 	pass
 class BG_CS2_200_G:
 	""" Boulderfist Ogre
-	"""
+	<i>Six Attack and seven Health are [already] perfect stats for the Tavern Tier!</i>"""
+	option_tags={GameTag.CARDTEXT:"<i>Six Attack and seven Health are [already] perfect stats for the Tavern Tier!</i>"}	
 	pass
 
 
@@ -628,12 +629,14 @@ if BG_Budding_Greenthumb:#Budding Greenthumb	3	1	4	-### maybe ### ##banned 23.6
 class BG21_030:# <12>[1453]  栽培家
 	""" Budding Greenthumb
 	[Avenge (3):] Give adjacent minions +2/+1 permanently. """
+	option_tags={GameTag.CARDTEXT:"[Avenge (3):] Give adjacent minions +2/+1 permanently."}	
 	events = Death(FRIENDLY).on(Avenge(SELF, 3, [BuffPermanently(SELF_ADJACENT, 'BG21_030e')]))
 	pass
 BG21_030e=buff(2,1)
 class BG21_030_G:# <12>[1453]
 	""" Budding Greenthumb
 	[Avenge (3):] Giveadjacent minions+4/+2 permanently. """
+	option_tags={GameTag.CARDTEXT:"[Avenge (3):] Giveadjacent minions+4/+2 permanently."}	
 	events = Death(FRIENDLY).on(Avenge(SELF, 3, [BuffPermanently(SELF_ADJACENT, 'BG21_030_Ge')]))
 	pass
 BG21_030_Ge=buff(4,2)
@@ -655,6 +658,7 @@ class BG24_719_Target(TargetedAction):
 class BG24_719:
 	""" Faceless Disciple
 	#[Battlecry:] Transform a minion into one from a Tavern Tier higher."""
+	option_tags={GameTag.CARDTEXT:"[Battlecry:] Transform a minion into one from a Tavern Tier higher."}	
 	requirements = {PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_MINION_TARGET:0, PlayReq.REQ_FRIENDLY_TARGET:0  }
 	play = BG24_719_Target(TARGET)
 class BG24_719_G_Target(TargetedAction):
@@ -668,6 +672,7 @@ class BG24_719_G_Target(TargetedAction):
 class BG24_719_G:
 	""" Faceless Disciple
 	#[Battlecry:] Transform a minion into one from 2 Tavern Tiers higher."""
+	option_tags={GameTag.CARDTEXT:"[Battlecry:] Transform a minion into one from 2 Tavern Tiers higher."}	
 	requirements = {PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_MINION_TARGET:0, PlayReq.REQ_FRIENDLY_TARGET:0  }
 	play = BG24_719_G_Target(TARGET)
 
@@ -681,6 +686,7 @@ if BG_Houndmaster:#Houndmaster	3	4	3	-		 ### maybe ###
 class BG_DS1_070:# <3>[1453] 猟犬使い
 	""" Houndmaster
 	[Battlecry:] Give a friendly Beast +2/+2 and [Taunt]."""
+	option_tags={GameTag.CARDTEXT:"[Battlecry:] Give a friendly Beast +2/+2 and [Taunt]."}	
 	requirements = {
 		PlayReq.REQ_TARGET_IF_AVAILABLE:0, PlayReq.REQ_FRIENDLY_TARGET:0,PlayReq.REQ_MINION_TARGET:0, 
 		PlayReq.REQ_TARGET_WITH_RACE:Race.BEAST }
@@ -690,6 +696,7 @@ DS1_070o=buff(2,2,taunt=True)
 class TB_BaconUps_068:# <3>[1453]
 	""" Houndmaster
 	[Battlecry:] Give a friendly Beast +4/+4 and [Taunt]. """
+	option_tags={GameTag.CARDTEXT:"[Battlecry:] Give a friendly Beast +4/+4 and [Taunt]."}	
 	requirements = {
 		PlayReq.REQ_TARGET_IF_AVAILABLE:0, PlayReq.REQ_FRIENDLY_TARGET:0,PlayReq.REQ_MINION_TARGET:0, 
 		PlayReq.REQ_TARGET_WITH_RACE:Race.BEAST }
@@ -708,11 +715,13 @@ class BG_DAL_575:#カドガー
 	""" Khadgar
 	Your cards that summon minions summon twice_as_many. """
 	##############  infinite loop?
+	option_tags={GameTag.CARDTEXT:"Your cards that summon minions summon twice_as_many."}	
 	events = Summon(CONTROLLER, FRIENDLY_MINIONS).after(SummonOnce(CONTROLLER, ExactCopy(Summon.CARD)))
 	pass
 class TB_BaconUps_034:# <4>[1453]
 	""" Khadgar
 	Your cards that summon minions summon three times as many. """
+	option_tags={GameTag.CARDTEXT:"Your cards that summon minions summon three times as many."}	
 	events = Summon(CONTROLLER, FRIENDLY_MINIONS).after(SummonOnce(CONTROLLER, ExactCopy(Summon.CARD))*2)
 	pass
 
@@ -726,10 +735,12 @@ if BG_Nightmare_Amalgam:##Nightmare Amalgam (3) RENEW  23.2 ## banned 24.6
 class BG_GIL_681:
 	""" Nightmare Amalgam (3)
 	<i>This has all minion types.</i>"""
+	option_tags={GameTag.CARDTEXT:"<i>This has all minion types.</i>"}	
 	pass
 class BG_GIL_681_G:
 	""" Nightmare Amalgam (3)
 	<i>This has all minion types.</i>"""
+	option_tags={GameTag.CARDTEXT:"<i>This has all minion types.</i>"}	
 	pass
 
 
@@ -752,6 +763,7 @@ class BGS_029_Action(TargetedAction):
 class BGS_029:## OK
 	"""Shifter Zerus (3) >=23.6
 	Each turn this is in your hand, transform it into a random minion."""
+	option_tags={GameTag.CARDTEXT:"Each turn this is in your hand, transform it into a random minion."}	
 	class Hand:
 		events = WhenDrawn(CONTROLLER, SELF).after(BGS_029_Action(SELF))
 class BGS_029_Action2(TargetedAction):
@@ -771,6 +783,7 @@ class BGS_029e:
 class TB_BaconUps_095:
 	"""
 	Each turn this is in your hand, transform it into a random Golden minion."""
+	option_tags={GameTag.CARDTEXT:"Each turn this is in your hand, transform it into a random Golden minion."}	
 
 
 
@@ -782,11 +795,13 @@ if BG_Soul_Juggler:#Soul Juggler	3	3	5	-	 	 ### maybe ### banned 26.2
 class BGS_002:# <9>[1453] ソールジャグラー
 	""" Soul Juggler
 	After a friendly Demon dies, deal 3 damage to a random enemy minion. """
+	option_tags={GameTag.CARDTEXT:"After a friendly Demon dies, deal 3 damage to a random enemy minion."}	
 	events = Death(FRIENDLY + DEMON).on(Hit(RANDOM(ENEMY_MINIONS), 3))
 	pass
 class TB_BaconUps_075:# <9>[1453]
 	""" Soul Juggler
 	After a friendly Demon dies, deal 3 damage to a random enemy minion twice. """
+	option_tags={GameTag.CARDTEXT:"After a friendly Demon dies, deal 3 damage to a random enemy minion twice."}	
 	events = Death(FRIENDLY + DEMON).on(Hit(RANDOM(ENEMY_MINIONS), 3) * 2)
 	pass
 
@@ -817,12 +832,14 @@ class BG24_017_Action(TargetedAction):
 class BG24_017:
 	""" Ball of Minions (4  5  5)
 	When you sell this, give its stats to a random friendly minion."""
+	option_tags={GameTag.CARDTEXT:"When you sell this, give its stats to a random friendly minion."}	
 	events = Sell(CONTROLLER).on(BG24_017_Action(CONTROLLER, Sell.CARD, 1))
 class BG24_017e:
 	pass
 class BG24_017_G:
 	""" Ball of Minions
 	When you sell this, give its stats to two random friendly minions.""" 
+	option_tags={GameTag.CARDTEXT:"When you sell this, give its stats to two random friendly minions."}	
 	events = Sell(CONTROLLER).on(BG24_017_Action(CONTROLLER, Sell.CARD, 2))
 	pass
 
@@ -836,6 +853,7 @@ if BG_Champion_of_Y_Shaarj:#Champion of Y'Shaarj	4	4	4		 ### maybe #####banned 2
 class BGS_111:# <12>[1453]  ヤシャラージュ
 	""" Champion of Y'Shaarj
 	Whenever a friendly [Taunt] minion is attacked, gain +1/+1 permanently. """
+	option_tags={GameTag.CARDTEXT:"Whenever a friendly [Taunt] minion is attacked, gain +1/+1 permanently."}	
 	events = BG_Attack(ENEMY, FRIENDLY + TAUNT).on(BuffPermanently(SELF, 'BGS_111e'))
 	pass
 BGS_111e=buff(1,1)# <12>[1453]
@@ -843,6 +861,7 @@ BGS_111e=buff(1,1)# <12>[1453]
 class TB_BaconUps_301:# <12>[1453]
 	""" Champion of Y'Shaarj
 	Whenever a friendly [Taunt] minion is attacked, gain +2/+2 permanently. """
+	option_tags={GameTag.CARDTEXT:"Whenever a friendly [Taunt] minion is attacked, gain +2/+2 permanently."}	
 	events = BG_Attack(ENEMY, FRIENDLY + TAUNT).on(BuffPermanently(SELF, 'TB_BaconUps_301e'))
 	pass
 TB_BaconUps_301e=buff(2,2)# <12>[1453]
@@ -858,6 +877,7 @@ if BG_Defender_of_Argus:#Defender of Argus	4	3	3	 	 ### OK ###
 class EX1_093:# <12>[1453]   アルガス
 	""" Defender of Argus
 	[Battlecry:] Give adjacent minions +1/+1 and [Taunt]. """
+	option_tags={GameTag.CARDTEXT:"[Battlecry:] Give adjacent minions +1/+1 and [Taunt]."}	
 	play = Buff(SELF_ADJACENT, 'EX1_093e')
 	pass
 EX1_093e=buff(1,1,taunt=True)
@@ -865,6 +885,7 @@ EX1_093e=buff(1,1,taunt=True)
 class TB_BaconUps_009:# <12>[1453]
 	""" Defender of Argus
 	[Battlecry:] Give adjacent minions +2/+2 and [Taunt]. """
+	option_tags={GameTag.CARDTEXT:"[Battlecry:] Give adjacent minions +2/+2 and [Taunt]."}	
 	play = Buff(SELF_ADJACENT, 'TB_BaconUps_009e')
 	pass
 TB_BaconUps_009e=buff(2,2,taunt=True)# <12>[1453]
@@ -879,10 +900,12 @@ if BG_Fireworks_Fanatic: ##(4/4/3) new 25.6
 class BG25_922: ######################################################
 	""" Fireworks Fanatic
 	Whenever you get a minion you already have, give your minions +1/+1."""
+	option_tags={GameTag.CARDTEXT:"Whenever you get a minion you already have, give your minions +1/+1."}	
 BG25_922e=buff(1,1)
 class BG25_922_G:
 	""" Fireworks Fanatic
 	Whenever you get a minion you already have, give your minions +2/+2."""
+	option_tags={GameTag.CARDTEXT:"Whenever you get a minion you already have, give your minions +2/+2."}	
 BG25_922_Ge=buff(2,2)
 
 
@@ -895,11 +918,13 @@ if BG_Impatient_Doomsayer:#Impatient Doomsayer	4	2	6	### maybe ### banned 26.2
 class BG21_007:# <12>[1453]  終魔通予言者
 	""" Impatient Doomsayer
 	[Avenge (4):] Add a random Demon to your hand. """
+	option_tags={GameTag.CARDTEXT:"[Avenge (4):] Add a random Demon to your hand."}	
 	events = Death(FRIENDLY).on(Avenge(SELF, 4, [GiveInBattle(CONTROLLER, RandomBGDemon())]))
 	pass
 class BG21_007_G:# <12>[1453]
 	""" Impatient Doomsayer
 	[Avenge (4):] Add 2 random Demons to your hand. """
+	option_tags={GameTag.CARDTEXT:"[Avenge (4):] Add 2 random Demons to your hand."}	
 	events = Death(FRIENDLY).on(Avenge(SELF, 4, [GiveInBattle(CONTROLLER, RandomBGDemon()), GiveInBattle(CONTROLLER, RandomBGDemon())]))
 	pass
 
@@ -928,6 +953,7 @@ class BGS_105_Action(TargetedAction):
 class BGS_105:# <12>[1453]
 	""" Majordomo Executus エグゼクタス
 	At the end of your turn, give your left-most minion +1/+1. Repeat for each Elementalyou played this turn. """
+	option_tags={GameTag.CARDTEXT:"At the end of your turn, give your left-most minion +1/+1. Repeat for each Elementalyou played this turn."}	
 	events = OWN_TURN_END.on(BGS_105_Action(CONTROLLER))
 	pass
 class BGS_105e:# <12>[1453]
@@ -951,6 +977,7 @@ class TB_BaconUps_207_Action(TargetedAction):
 class TB_BaconUps_207:# <12>[1453]
 	""" Majordomo Executus
 	At the end of your turn, giveyour left-most minion +2/+2.Repeat for each Elementalyou played this turn. """
+	option_tags={GameTag.CARDTEXT:"At the end of your turn, giveyour left-most minion +2/+2.Repeat for each Elementalyou played this turn."}	
 	events = OWN_TURN_END.on(TB_BaconUps_207_Action(CONTROLLER))
 
 
@@ -972,9 +999,9 @@ class BG21_036:# <12>[1453] 多重現実の支配者
 	""" Master of Realities
 	[[Taunt].] After a friendly Elemental gains stats, gain +1/+1. """
 	if Config.BG_VERSION>= 2522:
-		option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:4, GameTag.HEALTH:4}
+		option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:4, GameTag.HEALTH:4, GameTag.CARDTEXT:"[[Taunt].] After a friendly Elemental gains stats, gain +1/+1."}
 	else:
-		option_tags={GameTag.TECH_LEVEL:5, GameTag.ATK:6, GameTag.HEALTH:6}
+		option_tags={GameTag.TECH_LEVEL:5, GameTag.ATK:6, GameTag.HEALTH:6, GameTag.CARDTEXT:"[[Taunt].] After a friendly Elemental gains stats, gain +1/+1."}
 	events = Buff(FRIENDLY + ELEMENTAL).on(BG21_036_Action(SELF, Buff.BUFF))
 	pass
 BG21_036e=buff(1,1)
@@ -989,9 +1016,9 @@ class BG21_036_G:# <12>[1453]
 	""" Master of Realities
 	[[Taunt].] After a friendly Elemental gains stats, gain +2/+2. """
 	if Config.BG_VERSION>= 2522:
-		option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:8, GameTag.HEALTH:8}
+		option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:8, GameTag.HEALTH:8, GameTag.CARDTEXT:"[[Taunt].] After a friendly Elemental gains stats, gain +2/+2."}
 	else:
-		option_tags={GameTag.TECH_LEVEL:5, GameTag.ATK:12, GameTag.HEALTH:12}
+		option_tags={GameTag.TECH_LEVEL:5, GameTag.ATK:12, GameTag.HEALTH:12, GameTag.CARDTEXT:"[[Taunt].] After a friendly Elemental gains stats, gain +2/+2."}
 	events = Buff(FRIENDLY + ELEMENTAL).on(BG21_036_G_Action(SELF, Buff.BUFF))
 	pass
 BG21_036_Ge=buff(2,2)# <12>[1453]
@@ -1007,6 +1034,7 @@ if BG_Menagerie_Jug:#Menagerie Jug	4	3	3	-		 ### maybe ###
 class BGS_083:# <12>[1453] ミナジェリ
 	""" Menagerie Jug
 	[Battlecry:] Give 3 random friendly minions of different minion types +2/+2. """
+	option_tags={GameTag.CARDTEXT:"[Battlecry:] Give 3 random friendly minions of different minion types +2/+2."}	
 	play = BGS_082_Action(CONTROLLER,'BGS_083e')
 	pass
 BGS_083e=buff(2,2)# <12>[1453]
@@ -1014,6 +1042,7 @@ BGS_083e=buff(2,2)# <12>[1453]
 class TB_BaconUps_145:# <12>[1453]
 	""" Menagerie Jug
 	[Battlecry:] Give 3 randomfriendly minions of differentminion types +4/+4. """
+	option_tags={GameTag.CARDTEXT:"[Battlecry:] Give 3 randomfriendly minions of differentminion types +4/+4."}	
 	play = BGS_082_Action(CONTROLLER,'TB_BaconUps_145e')
 	pass
 TB_BaconUps_145e=buff(4,4)# <12>[1453]
@@ -1050,6 +1079,7 @@ class BG23_016_Action(TargetedAction):
 class BG23_016:# <12>[1453]
 	""" Reef Explorer(4)
 	[Battlecry: Discover] a minion from a minion type you don't control."""
+	option_tags={GameTag.CARDTEXT:"[Battlecry: Discover] a minion from a minion type you don't control."}	
 	play = BG23_016_Action(CONTROLLER)
 	pass
 class BG23_016_G_Choice(Choice):
@@ -1078,6 +1108,7 @@ class BG23_016_G_Action(TargetedAction):
 class BG23_016_G:# <12>[1453]
 	"""
 	[Battlecry: Discover] 2 minions from minion types you don't control."""
+	option_tags={GameTag.CARDTEXT:"[Battlecry: Discover] 2 minions from minion types you don't control."}	
 	play = BG23_016_G_Action(CONTROLLER)
 	pass
 
@@ -1104,6 +1135,7 @@ class BG24_022_Action(TargetedAction):
 class BG24_022:# (minion)
 	""" Rendle the Mistermind
 	At the end of your turn, steal the highest Tier minion from Bob's_Tavern. """
+	option_tags={GameTag.CARDTEXT:"At the end of your turn, steal the highest Tier minion from Bob's_Tavern. "}
 	events = OWN_TURN_END.on(BG24_022_Action(CONTROLLER))
 	pass
 class BG24_022_G_Action(TargetedAction):
@@ -1125,6 +1157,7 @@ class BG24_022_G_Action(TargetedAction):
 class BG24_022_G:# (minion)
 	""" Rendle the Mistermind
 	At the end of your turn, steal the 2 highest Tier minions from Bob's_Tavern. """
+	option_tags={GameTag.CARDTEXT:"At the end of your turn, steal the 2 highest Tier minions from Bob's_Tavern."}
 	events = OWN_TURN_END.on(BG24_022_G_Action(CONTROLLER))
 	#
 	pass
@@ -1136,14 +1169,14 @@ if BG25__Sindorei_Straight_Shot:# ## (4) new 25.2.2
 	BG_Minion_Gold['BG25_016']='BG25_016_G'
 class BG25_016:# (minion)
 	""" Sin'dorei Straight Shot
-	<b>Windfury</b>. <b>Divine Shield</b>. Whenever this attacks, remove <b>Reborn</b> and <b>Taunt</b> from the target. """
-	option_tags={GameTag.ATK:3, GameTag.HEALTH:4}
+	[Windfury]. [Divine Shield]. Whenever this attacks, remove [Reborn] and [Taunt] from the target. """
+	option_tags={GameTag.ATK:3, GameTag.HEALTH:4,GameTag.CARDTEXT:"[Windfury]. [Divine Shield]. Whenever this attacks, remove [Reborn] and [Taunt] from the target."}
 	events = BG_Attack(SELF, ENEMY+MINION).on(Buff(BG_Attack.OTHER, 'BG25_016e'))
 	pass
 class BG25_016_G:# (minion)
 	""" Sin'dorei Straight Shot
-	<b>Mega-Windfury</b>. <b>Divine Shield</b>. Whenever this attacks, remove <b>Reborn</b> and <b>Taunt</b> from the target. """
-	option_tags={GameTag.ATK:6, GameTag.HEALTH:8}
+	[Mega-Windfury]. [Divine Shield]. Whenever this attacks, remove [Reborn] and [Taunt] from the target. """
+	option_tags={GameTag.ATK:6, GameTag.HEALTH:8, GameTag.CARDTEXT:"[Mega-Windfury]. [Divine Shield]. Whenever this attacks, remove [Reborn] and [Taunt] from the target. "}
 	events = BG_Attack(SELF, ENEMY+MINION).on(Buff(BG_Attack.OTHER, 'BG25_016e'))
 	pass
 BG25_016e=buff(reborn=False,taunt=False)
@@ -1159,6 +1192,7 @@ if BG_Strongshell_Scavenger:#Strongshell Scavenger	4	2	3		 ### OK ###
 class BG_ICC_807:# <2>[1453]  クズ拾い
 	""" Strongshell Scavenger
 	[Battlecry:] Give your [Taunt] minions +2/+2. """
+	option_tags={GameTag.CARDTEXT:"[Battlecry:] Give your [Taunt] minions +2/+2."}
 	play = Buff(FRIENDLY + TAUNT, 'ICC_807e')
 	pass
 ICC_807e=buff(2,2)# <12>[1453]
@@ -1166,6 +1200,7 @@ ICC_807e=buff(2,2)# <12>[1453]
 class TB_BaconUps_072:# <2>[1453]
 	""" Strongshell Scavenger
 	[Battlecry:] Give your [Taunt] minions +4/+4. """
+	option_tags={GameTag.CARDTEXT:"[Battlecry:] Give your [Taunt] minions +4/+4."}
 	play = Buff(FRIENDLY + TAUNT, 'TB_BaconUps_072e')
 	pass
 TB_BaconUps_072e=buff(4,4)# <12>[1453]
@@ -1179,11 +1214,13 @@ if BG_Treasure_Seeker_Elise: ##(4) new 24.2
 class BG23_353:
 	""" Treasure-Seeker Elise
 	After you [Refresh] 5 times, find the [Golden] Monkey(BG23_353_Gt)! [(@ left!)]"""
+	option_tags={GameTag.CARDTEXT:"After you [Refresh] 5 times, find the [Golden] Monkey(BG23_353_Gt)! [(@ left!)]"}
 	events = Rerole(CONTROLLER).on(SidequestCounter(SELF, 5, [Give(CONTROLLER, 'BG23_353_Gt')]))
 	pass
 class BG23_353_G:
 	""" Treasure-Seeker Elise
 	After you [Refresh] 5 times, find two [Golden] Monkeys!(BG23_353_Gt) [(@ left!)]"""
+	option_tags={GameTag.CARDTEXT:"After you [Refresh] 5 times, find two [Golden] Monkeys!(BG23_353_Gt) [(@ left!)]"}
 	events = Rerole(CONTROLLER).on(SidequestCounter(SELF, 5, [Give(CONTROLLER, 'BG23_353_Gt'), Give(CONTROLLER, 'BG23_353_Gt')]))
 	pass
 class BG23_353_Gt:
@@ -1200,10 +1237,12 @@ if BG_Tunnel_Blaster:## Tunnel Blaster (4) ### OK ###
 class BG_DAL_775: 
 	"""Tunnel Blaster (4) >= 23.6
 	Taunt Deathrattle: Deal 3 damage to all minions."""
+	option_tags={GameTag.CARDTEXT:"Taunt Deathrattle: Deal 3 damage to all minions."}
 	deathrattle = Hit(ALL_MINIONS, 3)
 class BG_DAL_775_G:
 	"""
 	[Taunt] [Deathrattle:] Deal 3 damage to all minions twice."""
+	option_tags={GameTag.CARDTEXT:"[Taunt] [Deathrattle:] Deal 3 damage to all minions twice."}
 	deathrattle = Hit(ALL_MINIONS, 3) * 2
 
 
@@ -1217,12 +1256,14 @@ if BG_Vigilant_Stoneborn:#Vigilant Stoneborn	4	2	6
 class BG24_023:
 	""" Vigilant Stoneborn
 	#[Battlecry:] Give a minion +6 Health and [Taunt]."""
+	option_tags={GameTag.CARDTEXT:"[Battlecry:] Give a minion +6 Health and [Taunt]."}
 	requirements = {PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_MINION_TARGET:0, PlayReq.REQ_FRIENDLY_TARGET:0 }
 	play = Buff(TARGET, 'BG24_023e')
 BG24_023e=buff(0,6, taunt=True)
 class BG24_023_G:
 	""" Vigilant Stoneborn
 	#[Battlecry:] Give a minion +12 Health and [Taunt]."""
+	option_tags={GameTag.CARDTEXT:"[Battlecry:] Give a minion +12 Health and [Taunt]."}
 	requirements = {PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_MINION_TARGET:0, PlayReq.REQ_FRIENDLY_TARGET:0 }	# 
 	play = Buff(TARGET, 'BG24_023_Ge')
 BG24_023_Ge=buff(0,12, taunt=True)
@@ -1239,11 +1280,13 @@ if BG_Witchwing_Nestmatron:#
 class BG21_038:# <12>[1453] 巣母
 	""" Witchwing Nestmatron
 	[Avenge (3):] Add a random [Battlecry] minion to your_hand. """
+	option_tags={GameTag.CARDTEXT:"[Avenge (3):] Add a random [Battlecry] minion to your_hand."}
 	events = Death(FRIENDLY).on(Avenge(SELF, 3, [GiveInBattle(CONTROLLER, RandomBGAdmissible(has_battlecry=True))]))
 	pass
 class BG21_038_G:# <12>[1453]
 	""" Witchwing Nestmatron
 	[Avenge (3):] Add 2 random [Battlecry] minions to your_hand. """
+	option_tags={GameTag.CARDTEXT:"[Avenge (3):] Add 2 random [Battlecry] minions to your_hand."}
 	events = Death(FRIENDLY).on(Avenge(SELF, 3, [GiveInBattle(CONTROLLER, RandomBGAdmissible(has_battlecry=True)), Give(CONTROLLER, RandomMinion(has_battlecry=True))]))
 	pass
 
@@ -1282,11 +1325,11 @@ class BG26_199: ##
 	At the end of every 2 turns, get a plain copy of the minion to the left of this.""" ## new 2622
 	#4 Attack, 2 Health. Battlecry: Choose a minion. At the end of every 2 turns, this gives you a plain copy."""  
 	if Config.BG_VERSION>=2622:
-		option_tags={GameTag.ATK:4, GameTag.HEALTH:4}
+		option_tags={GameTag.ATK:4, GameTag.HEALTH:4, GameTag.CARDTEXT:"At the end of every 2 turns, get a plain copy of the minion to the left of this."}
 		events = OWN_TURN_END.on(SidequestCounter(SELF, 2, [BG26_199_Action2622()]))
 		pass
 	else:
-		option_tags={GameTag.ATK:4, GameTag.HEALTH:2}
+		option_tags={GameTag.ATK:4, GameTag.HEALTH:2, GameTag.CARDTEXT:"Battlecry: Choose a minion. At the end of every 2 turns, this gives you a plain copy."}
 		requirements = {PlayReq.REQ_TARGET_IF_AVAILABLE:0, PlayReq.REQ_FRIENDLY_TARGET:0, PlayReq.REQ_MINION_TARGET:0}
 		events = OWN_TURN_END.on(SidequestCounter(SELF, 2, [BG26_199_Action(TARGET, 1)]))
 	pass
@@ -1303,14 +1346,14 @@ class BG26_199_G_Action2622(GameAction):
 		pass
 class BG26_199_G: ##
 	""" Upbeat Duo
-	At the end of every 2 turns, get a plain copy of adjacent minions. &lt;i&gt;({0} |4(turn, turns) left!)&lt;/i&gt; """
+	At the end of every 2 turns, get a plain copy of adjacent minions. <i>({0} |4(turn, turns) left!)</i> """
 	#4 Attack, 2 Health. Battlecry: Choose a minion. At the end of every 2 turns, this gives you 2 plain copy.""" 
 	if Config.BG_VERSION>=2622:	
-		option_tags={GameTag.ATK:8, GameTag.HEALTH:8}
+		option_tags={GameTag.ATK:8, GameTag.HEALTH:8, GameTag.CARDTEXT:"At the end of every 2 turns, get a plain copy of adjacent minions. <i>({0} |4(turn, turns) left!)"}
 		events = OWN_TURN_END.on(SidequestCounter(SELF, 2, [BG26_199_G_Action2622()]))
 		pass
 	else:
-		option_tags={GameTag.ATK:8, GameTag.HEALTH:4}
+		option_tags={GameTag.ATK:8, GameTag.HEALTH:4, GameTag.CARDTEXT:"Battlecry: Choose a minion. At the end of every 2 turns, this gives you 2 plain copy."}
 		requirements = {PlayReq.REQ_TARGET_IF_AVAILABLE:0, PlayReq.REQ_FRIENDLY_TARGET:0, PlayReq.REQ_MINION_TARGET:0}
 		events = OWN_TURN_END.on(SidequestCounter(SELF, 2, [BG26_199_Action(TARGET, 2)]))
 	#
@@ -1328,11 +1371,13 @@ if BG_Baron_Rivendare:#Baron Rivendare	5	1	7		 ### maybe ###
 class BG_FP1_031:# ばろん
 	"""Baron Rivendare
 	Your minions trigger their [Deathrattles] twice."""
+	option_tags={GameTag.CARDTEXT:"Your minions trigger their [Deathrattles] twice."}
 	update = Refresh(CONTROLLER, {GameTag.EXTRA_DEATHRATTLES: True})
 	pass
 class TB_BaconUps_055:# <12>[1453]
 	""" Baron Rivendare
 	Your minions trigger their [Deathrattles] three times. """
+	option_tags={GameTag.CARDTEXT:"Your minions trigger their [Deathrattles] three times."}
 	update = Refresh(CONTROLLER, {GameTag.EXTRA_DEATHRATTLES_ADDITIONAL: True})
 	pass
 
@@ -1345,6 +1390,7 @@ if BG_Brann_Bronzebeard:#Brann Bronzebeard	5	2	4		 ### maybe ###
 class BG_LOE_077:#    ぶらん
 	""" Brann Bronzebeard
 	Your [Battlecries] trigger twice. """
+	option_tags={GameTag.CARDTEXT:"Your [Battlecries] trigger twice."}
 	update = Refresh(CONTROLLER, {GameTag.EXTRA_BATTLECRIES_BASE: True})
 	pass
 class LOE_077e:# 
@@ -1354,6 +1400,7 @@ class LOE_077e:#
 class TB_BaconUps_045:# <12>[1453]
 	""" Brann Bronzebeard
 	Your [Battlecries] trigger three times. """
+	option_tags={GameTag.CARDTEXT:"Your [Battlecries] trigger three times."}
 	update = Refresh(CONTROLLER, {GameTag.EXTRA_BATTLECRIES_ADDITIONAL: True})
 	pass
 class TB_BaconUps_045e:# <12>[1453]
@@ -1372,10 +1419,12 @@ if BG_Deadly_Spore:##Deadly Spore	5	1	1	### OK #####banned 23.6
 class BGS_131:# <12>[1453]  横死の胞子
 	""" Deadly Spore
 	[Poisonous] """
+	option_tags={GameTag.CARDTEXT:"[Poisonous]"}
 	pass
 class TB_BaconUps_251:# <12>[1453]
 	""" Deadly Spore
 	[Poisonous] """
+	option_tags={GameTag.CARDTEXT:"[Poisonous]"}
 	pass
 
 
@@ -1402,6 +1451,7 @@ class BG24_704_Action1(TargetedAction):
 class BG24_704:
 	""" Interrogator Whitemane -> banned 25.0.4
 	#[x][Start of Combat:] Give the enemies opposite this [Taunt]. They take double damage."""
+	option_tags={GameTag.CARDTEXT:"[Start of Combat:] Give the enemies opposite this [Taunt]. They take double damage."}
 	events = BeginBattle(CONTROLLER).on(BG24_704_Action1(SELF, 'BG24_704_e'))
 class BG24_704_e:
 	def apply(self, target):
@@ -1415,6 +1465,7 @@ class BG24_704_e:
 class BG24_704_G:
 	""" Interrogator Whitemane
 	#[Start of Combat:] Give the enemies opposite this [Taunt]. They take triple damage."""
+	option_tags={GameTag.CARDTEXT:"[Start of Combat:] Give the enemies opposite this [Taunt]. They take triple damage."}
 	events = BeginBattle(CONTROLLER).on(BG24_704_Action1(SELF, 'BG24_704_e_G'))
 class BG24_704_e_G:
 	def apply(self, target):
@@ -1447,11 +1498,13 @@ class BGS_012_Action(TargetedAction):
 class BGS_012:# <12>[1453]   ケンゴー
 	""" Kangor's Apprentice
 	[Deathrattle]: Summon the first 2 friendly Mechs that died this combat. """
+	option_tags={GameTag.CARDTEXT:"[Deathrattle]: Summon the first 2 friendly Mechs that died this combat."}
 	deathrattle = BGS_012_Action(CONTROLLER, 2)
 	pass
 class TB_BaconUps_087:# <12>[1453]
 	""" Kangor's Apprentice
 	[Deathrattle]: Summon the first 4 friendly Mechs that died this combat. """
+	option_tags={GameTag.CARDTEXT:"[Deathrattle]: Summon the first 4 friendly Mechs that died this combat. "}
 	deathrattle = BGS_012_Action(CONTROLLER, 4)
 	#
 	pass
@@ -1474,11 +1527,13 @@ class BG23_318_Action(TargetedAction):
 class BG23_318:# <12>[1453]
 	""" Leeroy the Reckless (5)
 	[Deathrattle:] Destroy the minion that killed this."""
+	option_tags={GameTag.CARDTEXT:"[Deathrattle:] Destroy the minion that killed this."}
 	deathrattle = BG23_318_Action(SELF)
 	pass
 class BG23_318_G:# <12>[1453]
 	"""
 	[Deathrattle:] Destroy the minion that killed this."""
+	option_tags={GameTag.CARDTEXT:"[Deathrattle:] Destroy the minion that killed this."}
 	deathrattle = BG23_318_Action(SELF)
 	pass
 
@@ -1509,6 +1564,7 @@ class BGS_009_Action(TargetedAction):
 class BGS_009:# <12>[1453]  光牙
 	""" Lightfang Enforcer
 	At the end of your turn, give a friendly minion of each minion type +2/+2. """
+	option_tags={GameTag.CARDTEXT:"At the end of your turn, give a friendly minion of each minion type +2/+2."}
 	events = OWN_TURN_END.on(BGS_009_Action(CONTROLLER))
 	pass
 BGS_009e=buff(2,2)# <7>[1453]
@@ -1516,6 +1572,7 @@ BGS_009e=buff(2,2)# <7>[1453]
 class TB_BaconUps_082:# <12>[1453]
 	""" Lightfang Enforcer
 	At the end of your turn,give a friendly minionof each minion type+4/+4. """
+	option_tags={GameTag.CARDTEXT:"At the end of your turn,give a friendly minionof each minion type+4/+4."}
 	events = OWN_TURN_END.on(BGS_009_Action(CONTROLLER, 4))
 	pass
 class TB_BaconUps_082e:# <7>[1453]
@@ -1550,6 +1607,7 @@ class BGS_202_Action(TargetedAction):
 class BGS_202:# <12>[1453] ミスラクス
 	""" Mythrax the Unraveler
 	At the end of your turn,gain +2/+2 for each__minion type you control. """
+	option_tags={GameTag.CARDTEXT:"At the end of your turn,gain +2/+2 for each__minion type you control."}
 	events = OWN_TURN_END.on(BGS_202_Action(CONTROLLER, 'BGS_202e'))
 	pass
 BGS_202e=buff(2,2)# <12>[1453]
@@ -1557,6 +1615,7 @@ BGS_202e=buff(2,2)# <12>[1453]
 class TB_BaconUps_258:# <12>[1453]
 	""" Mythrax the Unraveler
 	At the end of your turn,gain +4/+4 for each__minion type you control. """
+	option_tags={GameTag.CARDTEXT:"At the end of your turn,gain +4/+4 for each__minion type you control."}
 	events = OWN_TURN_END.on(BGS_202_Action(CONTROLLER, 'TB_BaconUps_258e'))
 	pass
 TB_BaconUps_258e=buff(4,4)# <12>[1453]
@@ -1579,6 +1638,7 @@ class BGS_104_Action(TargetedAction):
 class BGS_104:# <12>[1453]  ノミ（🐼）
 	""" Nomi, Kitchen Nightmare
 	After you play an Elemental,Elementals in Bob's Tavern have +1/+1 for the restof the game. """
+	option_tags={GameTag.CARDTEXT:"After you play an Elemental,Elementals in Bob's Tavern have +1/+1 for the restof the game."}
 	events = BG_Play(CONTROLLER, FRIENDLY + ELEMENTAL).on(BGS_104_Action(CONTROLLER, 1))
 	pass
 class BGS_104e1:# <12>[1453]
@@ -1590,6 +1650,7 @@ Increased stats. """
 class TB_BaconUps_201:# <12>[1453]
 	""" Nomi, Kitchen Nightmare
 	After you play an Elemental,Elementals in Bob's Tavernhave +2/+2 for the restof the game. """
+	option_tags={GameTag.CARDTEXT:"After you play an Elemental,Elementals in Bob's Tavernhave +2/+2 for the restof the game."}
 	events = BG_Play(CONTROLLER, FRIENDLY + ELEMENTAL).on(BGS_104_Action(CONTROLLER, 2))
 	pass
 
@@ -1601,15 +1662,15 @@ if BG25__Titus_Rivendare:# 5/1/7 neutral ## new 25.2
 	BG_Minion_Gold['BG25_354']='BG25_354_G'
 class BG25_354:# (minion)
 	""" Titus Rivendare
-	Your <b>Deathrattles</b> trigger an extra time. """
-	option_tags={GameTag.ATK:1, GameTag.HEALTH:7}
+	Your [Deathrattles] trigger an extra time. """
+	option_tags={GameTag.ATK:1, GameTag.HEALTH:7, GameTag.CARDTEXT:"Your [Deathrattles] trigger an extra time. "}
 	update = Refresh(CONTROLLER, {GameTag.EXTRA_DEATHRATTLES: True})
 	pass
 
 class BG25_354_G:# (minion)
 	""" Titus Rivendare
-	Your <b>Deathrattles</b> trigger 2 extra times. """
-	option_tags={GameTag.ATK:2, GameTag.HEALTH:14}
+	Your [Deathrattles] trigger 2 extra times. """
+	option_tags={GameTag.ATK:2, GameTag.HEALTH:14, GameTag.CARDTEXT:"Your [Deathrattles] trigger 2 extra times. "}
 	update = Refresh(CONTROLLER, {GameTag.EXTRA_DEATHRATTLES_ADDITIONAL: True})
 	pass
 
@@ -1630,6 +1691,7 @@ class BG24_018:# (minion, 5)
 	""" Tortollan Blue Shell
 	If you lost your last combat, this minion sells for 5 Gold. """
 	tags={1587:1}
+	option_tags={GameTag.CARDTEXT:"If you lost your last combat, this minion sells for 5 Gold."}
 	events = [
 		LoseGame(CONTROLLER).on(BG24_018_Action(CONTROLLER,5)),
 		TieGame(CONTROLLER).on(BG24_018_Action(CONTROLLER,1)),
@@ -1639,6 +1701,7 @@ class BG24_018:# (minion, 5)
 class BG24_018_G:# (minion)
 	""" Tortollan Blue Shell
 	If you lost your last combat, this minion sells for 10 Gold. """
+	option_tags={GameTag.CARDTEXT:"If you lost your last combat, this minion sells for 10 Gold."}
 	events = [
 		LoseGame(CONTROLLER).on(BG24_018_Action(CONTROLLER,10)),
 		TieGame(CONTROLLER).on(BG24_018_Action(CONTROLLER,1)),
@@ -1663,8 +1726,10 @@ class BG22_404:# <12>[1453]  ##########################
 	When you sell this [Discover] a Buddy """
 	## 2230- [Battlecry: Discover] a Buddy. """
 	if Config.BG_VERSION>=2600:
+		option_tags={GameTag.CARDTEXT:"When you sell this [Discover] a Buddy"}
 		events = Sell(CONTROLLER, SELF).on(BG22_404_Action())
 	elif Config.BG_VERSION<2230:
+		option_tags={GameTag.CARDTEXT:"[Battlecry: Discover] a Buddy."}
 		play = BG22_404_Action()
 	pass
 class BG22_404_G_Choice(Choice):
@@ -1687,8 +1752,10 @@ class BG22_404_G:# <12>[1453] #############################
 	""" Friend of a Friend
 	[Battlecry: Discover]two Buddies. """
 	if Config.BG_VERSION>=2600:
+		option_tags={GameTag.CARDTEXT:"When you sell this [Discover] two Buddies"}
 		events = Sell(CONTROLLER, SELF).on(BG22_404_G_Action())
 	else:
+		option_tags={GameTag.CARDTEXT:"[Battlecry: Discover]two Buddies."}
 		play = BG22_404_G_Action()
 	pass
 
@@ -1703,6 +1770,7 @@ if BG26__Drakkari_Enchanter:
 class BG_NX2_050: ##
 	""" Drakkari Enchanter
 	1 Attack, 5 Health. Your end of turn effects trigger twice.""" 
+	option_tags={GameTag.CARDTEXT:"Your end of turn effects trigger twice."}
 	events = [
 		BG_Play(SELF).on(SetAttr(CONTROLLER, 'turn_end_effects_twice',1)),
 		Summon(CONTROLLER, SELF).on(SetAttr(CONTROLLER, 'turn_end_effects_twice',1)),
@@ -1713,6 +1781,7 @@ class BG_NX2_050: ##
 class BG_NX2_050_G: ##
 	""" Drakkari Enchanter
 	2 Attack, 10 Health. Your end of turn effects trigger three times.""" 
+	option_tags={GameTag.CARDTEXT:" Your end of turn effects trigger three times."}
 	events = [
 		BG_Play(SELF).on(SetAttr(CONTROLLER, 'turn_end_effects_twice',2)),
 		Summon(CONTROLLER, SELF).on(SetAttr(CONTROLLER, 'turn_end_effects_twice',2)),
@@ -1754,11 +1823,13 @@ class BGS_069_Action(TargetedAction):
 class BGS_069:##  アマルガドン (アルマゲドンではない）
 	""" Amalgadon
 	[Battlecry:] For each different minion type you have among other minions, [Adapt] randomly."""
+	option_tags={GameTag.CARDTEXT:"[Battlecry:] For each different minion type you have among other minions, [Adapt] randomly."}
 	play = BGS_069_Action(CONTROLLER, 1)	
 	pass
 class TB_BaconUps_121:
 	""" Amalgadon
 	[Battlecry:] For each different minion type you have among other minions, [Adapt] randomly twice."""
+	option_tags={GameTag.CARDTEXT:"[Battlecry:] For each different minion type you have among other minions, [Adapt] randomly twice."}
 	play = BGS_069_Action(CONTROLLER, 2)
 	pass
 
@@ -1821,11 +1892,11 @@ class BG22_402: ###########################################
 	###[Poisonous]. [Start of Combat:] For each of your minion types gain +5/+5, [Windfury], ___[Divine Shield], or [Taunt]."""
 	if Config.BG_VERSION>=2620:
 		##<Tag enumID="2853" name="VENOMOUS" type="Int" value="1"/>
-		option_tags={GameTag.VENOMOUS:1,GameTag.POISONOUS:0}
+		option_tags={GameTag.VENOMOUS:1,GameTag.POISONOUS:0,GameTag.CARDTEXT:"Venomous. Start of Combat: For each of your minion types gain +5/+5, Windfury, Reborn, or Taunt."}
 		pass
 	else:
 		##<Tag enumID="363" name="POISONOUS" type="Int" value="1"/>
-		option_tags={GameTag.POISONOUS:1,GameTag.VENOMOUS:0}
+		option_tags={GameTag.POISONOUS:1,GameTag.VENOMOUS:0, GameTag.CARDTEXT:"Start of Combat: For each of your minion types gain +5/+5, Windfury, Divine Shield, or Taunt."}
 		pass
 	events = BeginBattle(CONTROLLER).on(BG22_402_Action())
 	pass
@@ -1858,6 +1929,7 @@ class BG22_402_G_Action(GameAction):
 class BG22_402_G: 
 	""" Mantid Queen
 	[Poisonous]. [Start of Combat:] For each of your minion types gain [Windfury], [Divine Shield], _[Taunt], or +5/+5, twice."""
+	option_tags={GameTag.CARDTEXT:"[Poisonous]. [Start of Combat:] For each of your minion types gain [Windfury], [Divine Shield], _[Taunt], or +5/+5, twice."}
 	events = BeginBattle(CONTROLLER).on(BG22_402_G_Action())	
 	pass
 BG22_402e=buff(5,5)
@@ -1888,21 +1960,21 @@ class BGS_040:# <12>[1453]  ナディナ
 	Deathrattle: Give 3 friendly Dragons Divine Shield.""" ## new 2622
 	##	[Deathrattle:] Give your Dragons [Divine Shield]. 
 	if Config.BG_VERSION>=2622:
-		option_tags={GameTag.ATK:8, GameTag.HEALTH:4}
+		option_tags={GameTag.ATK:8, GameTag.HEALTH:4, GameTag.CARDTEXT:"Deathrattle: Give 3 friendly Dragons Divine Shield."}
 		deathrattle = BGS_040_Action2622()
 	else:
-		option_tags={GameTag.ATK:7, GameTag.HEALTH:4}
+		option_tags={GameTag.ATK:7, GameTag.HEALTH:4, GameTag.CARDTEXT:"[Deathrattle:] Give your Dragons [Divine Shield]"}
 		deathrattle = GiveDivineShield(FRIENDLY_MINIONS + DRAGON)
 	pass
 class TB_BaconUps_154:# <12>[1453]
 	""" Nadina the Red
-	&lt;b&gt;Deathrattle:&lt;/b&gt; Give 6 friendly Dragons &lt;b&gt;Divine Shield&lt;/b&gt;."""
+	[Deathrattle:] Give 6 friendly Dragons [Divine Shield]."""
 	## [Deathrattle:] Give your Dragons [Divine Shield]. """
 	## lol in any case, at most 6 dragons.
 	if Config.BG_VERSION>=2622:
-		option_tags={GameTag.ATK:16, GameTag.HEALTH:8}
+		option_tags={GameTag.ATK:16, GameTag.HEALTH:8, GameTag.CARDTEXT:"[Deathrattle:] Give 6 friendly Dragons [Divine Shield]."}
 	else:
-		option_tags={GameTag.ATK:14, GameTag.HEALTH:8}
+		option_tags={GameTag.ATK:14, GameTag.HEALTH:8, GameTag.CARDTEXT:"[Deathrattle:] Give your Dragons [Divine Shield]"}
 	deathrattle = GiveDivineShield(FRIENDLY_MINIONS + DRAGON)
 	pass
 
@@ -1916,6 +1988,7 @@ if BG_Orgozoa_the_Tender:### Orgozoa, the Tender(6) ### OK ### NEW 23.2
 class BG23_015:# <12>[1453]
 	""" Orgozoa, the Tender(6)
 	[Spellcraft: Discover] a Naga."""
+	option_tags={GameTag.CARDTEXT:"[Spellcraft: Discover] a Naga."}
 	play = Spellcraft(CONTROLLER,'BG23_015t')
 	events = BeginBar(CONTROLLER).on(Spellcraft(CONTROLLER,'BG23_015t'))
 	tags={2359:'BG23_015t'}
@@ -1928,6 +2001,7 @@ pass
 class BG23_015_G:# <12>[1453]
 	"""
 	[Spellcraft: Discover] 2 Naga.</enUS>"""
+	option_tags={GameTag.CARDTEXT:"[Spellcraft: Discover] 2 Naga."}
 	play = Spellcraft(CONTROLLER,'BG23_015_Gt')
 	events = BeginBar(CONTROLLER).on(Spellcraft(CONTROLLER,'BG23_015_Gt'))
 	tags={2359:'BG23_015_Gt'}
@@ -1950,6 +2024,7 @@ if BG_Seafood_Slinger:#Seafood Slinger	6	5	5		 ### maybe ### ##banned -> resurre
 class BG21_011:# <12>[1453] 板前
 	""" Seafood Slinger
 	[Battlecry:] Make a Murloc Golden. """
+	option_tags={GameTag.CARDTEXT:"[Battlecry:] Make a Murloc Golden."}
 	requirements={
 		PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_MINION_TARGET:0, PlayReq.REQ_FRIENDLY_TARGET:0, PlayReq.REQ_TARGET_WITH_RACE: Race.MURLOC }
 	play = MorphGold(TARGET)
@@ -1960,6 +2035,7 @@ class BG21_011e2:# <12>[1453]  ??????????????
 class BG21_011_G:# <12>[1453]
 	""" Seafood Slinger
 	[Battlecry:] Make a Murloc Golden. """
+	option_tags={GameTag.CARDTEXT:"[Battlecry:] Make a Murloc Golden."}
 	requirements={
 		PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_MINION_TARGET:0, PlayReq.REQ_TARGET_WITH_RACE: Race.MURLOC }
 	play = MorphGold(TARGET)
@@ -1991,12 +2067,14 @@ class BG24_020_Action(TargetedAction):
 class BG24_020:	
 	""" Tea Master Theotar
 	After you play a minion with no_minion_type, give 3_friendly minions of different types +2/+2. """
+	option_tags={GameTag.CARDTEXT:"After you play a minion with no_minion_type, give 3_friendly minions of different types +2/+2."}
 	events = Play(CONTROLLER, MINION).on(BG24_020_Action(Play.CARD,'BG24_020e'))
 	pass
 BG24_020e=buff(2,2)
 class BG24_020_G:# (minion)
 	""" Tea Master Theotar
 	After you play a minion with no_minion_type, give 3_friendly minions of different types +4/+4. """
+	option_tags={GameTag.CARDTEXT:"After you play a minion with no_minion_type, give 3_friendly minions of different types +4/+4."}
 	events = Play(CONTROLLER, MINION).on(BG24_020_Action(Play.CARD,'BG24_020_Ge'))
 	#
 	pass
@@ -2021,12 +2099,14 @@ class BG24_712_Action(TargetedAction):
 class BG24_712:
 	""" The Walking Fort(BG24_712) 4/6
 	At the end of your turn, give 4 friendly [Taunt] minions +4/+4. """
+	option_tags={GameTag.CARDTEXT:"At the end of your turn, give 4 friendly [Taunt] minions +4/+4."}
 	events = OWN_TURN_END.on(BG24_712_Action(CONTROLLER, 'BG24_712e'))
 	pass
 BG24_712e=buff(4,4)
 class BG24_712_G:
 	"""
 	At the end of your turn, give 4 friendly [Taunt] minions +8/+8."""
+	option_tags={GameTag.CARDTEXT:"At the end of your turn, give 4 friendly [Taunt] minions +8/+8."}
 	events = OWN_TURN_END.on(BG24_712_Action(CONTROLLER, 'BG24_712e_G'))
 	pass
 BG24_712e_G=buff(8,8)
@@ -2052,6 +2132,7 @@ class BG23_190_Action(TargetedAction):
 class BG23_190:
 	"""Uther the Lightbringer (6) >= 23.6
 	Battlecry: Set a minion's Attack and Health to 15."""
+	option_tags={GameTag.CARDTEXT:"Battlecry: Set a minion's Attack and Health to 15."}
 	requirements = {PlayReq.REQ_MINION_TARGET: 0, PlayReq.REQ_FRIENDLY_TARGET: 0, PlayReq.REQ_TARGET_IF_AVAILABLE: 0}	
 	play = BG23_190_Action(TARGET, 'BG23_190e', 15)
 class BG23_190e:
@@ -2059,6 +2140,7 @@ class BG23_190e:
 class BG23_190_G:
 	"""
 	[Battlecry:] Set a minion's Attack and Health to 30."""
+	option_tags={GameTag.CARDTEXT:"[Battlecry:] Set a minion's Attack and Health to 30."}
 	requirements = {PlayReq.REQ_MINION_TARGET: 0, PlayReq.REQ_FRIENDLY_TARGET: 0, PlayReq.REQ_TARGET_IF_AVAILABLE: 0}	
 	play = BG23_190_Action(TARGET, 'BG23_190_Ge', 30)
 class BG23_190_Ge:
@@ -2077,9 +2159,9 @@ class BGS_022:# <12>[1453] ざっぷ
 	[Windfury]This minion always attacks the enemy minion with the lowest Attack. """
 	#<ReferencedTag enumID="189" name="WINDFURY" type="Int" value="1"/> ### REF-TAGだ！
 	if Config.BG_VERSION>=2622:
-		option_tags={GameTag.ATK:8, GameTag.HEALTH:16}
+		option_tags={GameTag.ATK:8, GameTag.HEALTH:16, GameTag.CARDTEXT:"[Windfury]This minion always attacks the enemy minion with the lowest Attack."}
 	else:
-		option_tags={GameTag.ATK:7, GameTag.HEALTH:10}
+		option_tags={GameTag.ATK:7, GameTag.HEALTH:10, GameTag.CARDTEXT:"[Windfury]This minion always attacks the enemy minion with the lowest Attack."}
 	tags = {GameTag.WINDFURY:1}
 	#本体実装はBG_Battle.pyの80行あたり
 	pass
@@ -2088,9 +2170,9 @@ class TB_BaconUps_091:# <12>[1453]
 	[Mega-Windfury]This minion always attacksthe enemy minion withthe lowest Attack. """
 	#<Tag enumID="189" name="WINDFURY" type="Int" value="3"/> ###これはオケ
 	if Config.BG_VERSION>=2622:
-		option_tags={GameTag.ATK:16, GameTag.HEALTH:32}
+		option_tags={GameTag.ATK:16, GameTag.HEALTH:32, GameTag.CARDTEXT:"[Mega-Windfury]This minion always attacksthe enemy minion withthe lowest Attack."}
 	else:
-		option_tags={GameTag.ATK:14, GameTag.HEALTH:20}
+		option_tags={GameTag.ATK:14, GameTag.HEALTH:20, GameTag.CARDTEXT:"[Mega-Windfury]This minion always attacksthe enemy minion withthe lowest Attack."}
 	pass
 
 ## Archdruid Hamuul (6/8/8)
@@ -2114,12 +2196,14 @@ class BG20_304_Action(GameAction):
 			source.controller.archidruid_hamuul_rerole_race=maxrace
 class BG20_304:#(6/8/8) # 大ドルイド・ハムウル
 	""" Archdruid Hamuul
-	&lt;b&gt;Battlecry:&lt;/b&gt; &lt;b&gt;Refresh&lt;/b&gt; Bob's Tavern with minions of your most common type."""
+	[Battlecry:] [Refresh] Bob's Tavern with minions of your most common type."""
+	option_tags={GameTag.CARDTEXT:"[Battlecry:] [Refresh] Bob's Tavern with minions of your most common type."}
 	play = BG20_304_Action()
 	pass
 class BG20_304_G:#(6/16/16)
 	""" Archdruid Hamuul
-	&lt;b&gt;Battlecry:&lt;/b&gt; &lt;b&gt;Refresh&lt;/b&gt; Bob's Tavern with minions of your most common type."""
+	[Battlecry:] [Refresh] Bob's Tavern with minions of your most common type."""
+	option_tags={GameTag.CARDTEXT:"[Battlecry:] [Refresh] Bob's Tavern with minions of your most common type."}
 	pass
 
 
@@ -2142,6 +2226,7 @@ class BG26_176:
 	""" The Boogie Monster
 	3 Attack, 8 Health. After you play a Tier 1 minion, progress to the next Tier and give your minions +1/+2."""
 	### <Tag enumID="2" name="TAG_SCRIPT_DATA_NUM_1" type="Int" value="1"/>
+	option_tags={GameTag.CARDTEXT:"After you play a Tier 1 minion, progress to the next Tier and give your minions +1/+2."}
 	events = BG_Play(CONTROLLER).after(BG26_176_Action(BG_Play.CARD, 'BG26_176e'))
 	pass
 BG26_176e=buff(1,2)
@@ -2149,6 +2234,7 @@ class BG26_176_G:
 	""" The Boogie Monster
 	3 Attack, 8 Health. After you play a Tier 1 minion, progress to the next Tier and give your minions +2/+4."""
 	events = BG_Play(CONTROLLER).after(BG26_176_Action(BG_Play.CARD, 'BG26_176_Ge'))
+	option_tags={GameTag.CARDTEXT:"After you play a Tier 1 minion, progress to the next Tier and give your minions +2/+4."}
 
 	pass
 BG26_176_Ge=buff(2,4)

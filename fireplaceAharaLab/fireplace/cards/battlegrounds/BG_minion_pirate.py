@@ -120,13 +120,13 @@ class BG26_135_Action(GameAction):#
 		pass# 
 class BG26_135:# (minion)
 	""" Southsea Busker
-	<b>Battlecry:</b> Gain 1 Gold next turn. """
+	[Battlecry:] Gain 1 Gold next turn. """
 	play = BG26_135_Action(1)
 	pass
 
 class BG26_135_G:# (minion)
 	""" Southsea Busker
-	<b>Battlecry:</b> Gain 2 Gold next turn. """
+	[Battlecry:] Gain 2 Gold next turn. """
 	play = BG26_135_Action(2)
 	pass
 
@@ -379,13 +379,13 @@ if BGS_Bloodsail_Cannoneer: ## banned when? revive 26.2
 	BG_Pirate_Gold['BGS_053']='TB_BaconUps_138'
 class BGS_053:
 	""" Bloodsail Cannoneer
-	&lt;b&gt;Battlecry&lt;/b&gt;: Give your other Pirates +3 Attack."""
+	[Battlecry]: Give your other Pirates +3 Attack."""
 	play = Buff(FRIENDLY_MINIONS + PIRATE, 'BGS_053e')
 	pass
 BGS_053e=buff(3,0)
 class TB_BaconUps_138:
 	""" Bloodsail Cannoneer
-	&lt;b&gt;Battlecry&lt;/b&gt;: Give your other Pirates +6 Attack. """
+	[Battlecry]: Give your other Pirates +6 Attack. """
 	play = Buff(FRIENDLY_MINIONS + PIRATE, 'TB_BaconUps_138e')
 	pass
 TB_BaconUps_138e=buff(6,0)
@@ -542,7 +542,7 @@ class BG26_814_Action(TargetedAction):#
 		pass# 
 class BG26_814:# (minion)
 	""" Lovesick Balladist
-	<b>Battlecry:</b> Give a Pirate +1 Health for each Gold spent this turn. """
+	[Battlecry:] Give a Pirate +1 Health for each Gold spent this turn. """
 	requirements = {PlayReq.REQ_TARGET_IF_AVAILABLE:0, PlayReq.REQ_MINION_TARGET:0, PlayReq.REQ_FRIENDLY_TARGET:0}
 	play = BG26_814_Action(TARGET, 1)
 	pass
@@ -551,7 +551,7 @@ class BG26_814e:
 	pass
 class BG26_814_G:# (minion)
 	""" Lovesick Balladist
-	<b>Battlecry:</b> Give a Pirate +2 Health for each Gold spent this turn. """
+	[Battlecry:] Give a Pirate +2 Health for each Gold spent this turn. """
 	requirements = {PlayReq.REQ_TARGET_IF_AVAILABLE:0, PlayReq.REQ_MINION_TARGET:0, PlayReq.REQ_FRIENDLY_TARGET:0}
 	play = BG26_814_Action(TARGET, 2)
 	pass

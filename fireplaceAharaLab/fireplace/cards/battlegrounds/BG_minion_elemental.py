@@ -309,7 +309,7 @@ class BG25_041_Action(GameAction):
 		source.controller.felemental_powered_up+=1
 class BG25_041:# (minion)
 	""" Felemental
-	<b>Battlecry:</b> Minions in Bob's Tavern have +1/+1 __for the rest of the game. """
+	[Battlecry:] Minions in Bob's Tavern have +1/+1 __for the rest of the game. """
 	option_tags={GameTag.ATK:3, GameTag.HEALTH:1}
 	play = BG25_041_Action()
 	pass
@@ -318,7 +318,7 @@ class BG25_041_G_Action(GameAction):
 		source.controller.felemental_powered_up+=2
 class BG25_041_G:# (minion)
 	""" Felemental
-	<b>Battlecry:</b> Minions in Bob's Tavern have +2/+2 __for the rest of the game. """
+	[Battlecry:] Minions in Bob's Tavern have +2/+2 __for the rest of the game. """
 	option_tags={GameTag.ATK:6, GameTag.HEALTH:2}
 	play = BG25_041_G_Action()
 	pass
@@ -437,7 +437,7 @@ class BG26_120_Action(GameAction):#
 		pass# 
 class BG26_120:# (minion)
 	""" Upbeat Upstart
-	<b><b>Taunt</b>.</b> At the end of every 2 turns, set this minion's Health to the highest in your warband. <i>({0} |4(turn, turns) left!)</i>@"""
+	[[Taunt].] At the end of every 2 turns, set this minion's Health to the highest in your warband. <i>({0} |4(turn, turns) left!)</i>@"""
 	#<Tag enumID="2" name="TAG_SCRIPT_DATA_NUM_1" type="Int" value="2"/>
 	events = OWN_TURN_END.on(SidequestCounter(SELF, 2, [BG26_120_Action()]))
 	pass
@@ -454,7 +454,7 @@ class BG26_120_G_Action(GameAction):#
 		pass# 
 class BG26_120_G:# (minion)
 	""" Upbeat Upstart
-	<b><b>Taunt</b>.</b> At the end of every 2 turns, set this minion's Health to double the highest in your warband. <i>({0} |4(turn, turns) left!)</i></i> """
+	[[Taunt].] At the end of every 2 turns, set this minion's Health to double the highest in your warband. <i>({0} |4(turn, turns) left!)</i></i> """
 	events = OWN_TURN_END.on(SidequestCounter(SELF, 2, [BG26_120_G_Action()]))
 	#
 	pass
@@ -479,8 +479,8 @@ class BG26_162_Action(GameAction):#
 		pass# 
 class BG26_162:# (minion) (4/3/2)->(4/4/2)
 	""" Dancing Barnstormer
-	<b>Deathrattle:</b> Elementals in Bob's Tavern have +3/+2 __for the rest of the game. """ ## new 26.2.2
-	##<b>Deathrattle:</b> Elementals in Bob's Tavern have +3/+2 __for the rest of the game. 
+	[Deathrattle:] Elementals in Bob's Tavern have +3/+2 __for the rest of the game. """ ## new 26.2.2
+	##[Deathrattle:] Elementals in Bob's Tavern have +3/+2 __for the rest of the game. 
 	if Config.BG_VERSION>=2622:	
 		option_tags={GameTag.ATK:4, GameTag.HEALTH:2}
 	else:
@@ -491,8 +491,8 @@ class BG26_162e:
 	pass
 class BG26_162_G:# (minion) (4/6/4)->(4/8/4)
 	""" Dancing Barnstormer
-	<b>Deathrattle:</b> Elementals in Bob's Tavern have +6/+4 __for the rest of the game. """
-	## <b>Deathrattle:</b> Elementals in Bob's Tavern have +6/+4 __for the rest of the game.  ## new 26.2.2
+	[Deathrattle:] Elementals in Bob's Tavern have +6/+4 __for the rest of the game. """
+	## [Deathrattle:] Elementals in Bob's Tavern have +6/+4 __for the rest of the game.  ## new 26.2.2
 	if Config.BG_VERSION>=2622:	
 		option_tags={GameTag.ATK:8, GameTag.HEALTH:4}
 	else:
@@ -776,12 +776,12 @@ if BG26__Elemental_of_Surprise:#
 	BG_Elemental_Gold['BG26_175']='BG26_175_G'
 class BG26_175:# (minion)
 	""" Elemental of Surprise
-	<b>Divine Shield</b> This minion can triple with any Elemental. """
+	[Divine Shield] This minion can triple with any Elemental. """
 	#
 	pass
 class BG26_175_G:# (minion)
 	""" Elemental of Surprise
-	<b>Divine Shield</b> This minion can triple with any Elemental. """
+	[Divine Shield] This minion can triple with any Elemental. """
 	#
 	pass
 

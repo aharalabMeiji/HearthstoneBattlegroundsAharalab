@@ -327,14 +327,14 @@ class BG26_159_action(GameAction):
 		source.controller.moon_bacon_jazzer_powered_up+=amount
 class BG26_159:# (minion)
 	""" Moon-Bacon Jazzer
-	<b>Battlecry:</b> For the rest of the game, your <b>Blood Gems</b> __give an extra +1 Health. """
+	[Battlecry:] For the rest of the game, your [Blood Gems] __give an extra +1 Health. """
 	play = BG26_159_action(1)
 	pass
 class BG26_159pe:
 	pass
 class BG26_159_G:# (minion)
 	""" Moon-Bacon Jazzer
-	<b>Battlecry:</b> For the rest of the game, your <b>Blood Gems</b> __give an extra +2 Health. """
+	[Battlecry:] For the rest of the game, your [Blood Gems] __give an extra +2 Health. """
 	play = BG26_159_action(2)#
 	pass
 
@@ -351,7 +351,7 @@ class BG25_039_Action(TargetedAction):
 class BG25_039:# (minion)
 	""" Pufferquil
 	After a spell is played on this, gain Venomous until end of turn.""" ## new 26.2
-	##After a spell is played on this, gain <b>Poisonous</b> until next turn. """
+	##After a spell is played on this, gain [Poisonous] until next turn. """
 	if Config.BG_VERSION>=2622:
 		option_tags={GameTag.TECH_LEVEL:3}
 	else:
@@ -364,7 +364,7 @@ class BG25_039:# (minion)
 	pass
 class BG25_039e:# (enchantment)
 	""" Puffed Up
-	<b>Poisonous</b> until next turn. """
+	[Poisonous] until next turn. """
 	if Config.BG_VERSION>=2620:
 		tags = {GameTag.TAG_ONE_TURN_EFFECT:1, GameTag.VENOMOUS:1 }
 	else:
@@ -377,7 +377,7 @@ class BG25_039_G_Action(TargetedAction):
 			Buff(target, 'BG25_039_Ge').trigger(source)
 class BG25_039_G:# (minion)
 	""" Pufferquil
-	After a spell is played on this, gain <b>Poisonous</b>. """
+	After a spell is played on this, gain [Poisonous]. """
 	if Config.BG_VERSION>=2622:
 		option_tags={GameTag.TECH_LEVEL:3}
 	else:
@@ -392,7 +392,7 @@ if Config.BG_VERSION>=2620:
 	BG25_039_Ge=buff(venomous=True)# (enchantment)
 else:
 	BG25_039_Ge=buff(poisonous=True)# (enchantment)
-""" Puffed Full	<b>Poisonous</b>. """
+""" Puffed Full	[Poisonous]. """
 
 
 
@@ -548,12 +548,12 @@ class BG26_160_Action(GameAction):#
 		pass# 
 class BG26_160:# (minion)
 	""" Prickly Piper
-	<b>Deathrattle:</b> For the rest of the game, your <b>Blood Gems</b> __give an extra +1 Attack. """
+	[Deathrattle:] For the rest of the game, your [Blood Gems] __give an extra +1 Attack. """
 	deathrattle = BG26_160_Action(1)
 	pass
 class BG26_160_G:# (minion)
 	""" Prickly Piper
-	<b>Deathrattle:</b> For the rest of the game, your <b>Blood Gems</b> __give an extra +2 Attack. """
+	[Deathrattle:] For the rest of the game, your [Blood Gems] __give an extra +2 Attack. """
 	deathrattle = BG26_160_Action(2)#
 	pass
 @custom_card
@@ -644,7 +644,7 @@ if BG26__Bongo_Bopper:#
 	BG_Quilboar_Gold['BG26_531']='BG26_531_G'
 class BG26_531:# (minion)
 	""" Bongo Bopper
-	At the end of your turn, get a <b>Blood Gem</b> and play 2 more on this. """
+	At the end of your turn, get a [Blood Gem] and play 2 more on this. """
 	events = OWN_TURN_END.on((
 		Give(CONTROLLER, 'BG20_GEM'),
 		ApplyGem(SELF, 'BG20_GEM'), ApplyGem(SELF, 'BG20_GEM')))
@@ -653,7 +653,7 @@ class BG26_531:# (minion)
 	BG_Minion_Quilboar+=['BG26_531_G']
 class BG26_531_G:# (minion)
 	""" Bongo Bopper
-	At the end of your turn, get 2 <b>Blood Gems</b> and play 4 more on this. """
+	At the end of your turn, get 2 [Blood Gems] and play 4 more on this. """
 	events = OWN_TURN_END.on((
 		Give(CONTROLLER, 'BG20_GEM'),Give(CONTROLLER, 'BG20_GEM'),
 		ApplyGem(SELF, 'BG20_GEM'),ApplyGem(SELF, 'BG20_GEM'),ApplyGem(SELF, 'BG20_GEM'),ApplyGem(SELF, 'BG20_GEM')))
@@ -783,12 +783,12 @@ class BG26_157_Action(GameAction):#
 		pass# 
 class BG26_157:# (minion)
 	""" Bristlebach
-	<b>Avenge (1):</b> Play a <b>Blood Gem</b> on all your Quilboar. """
+	[Avenge (1):] Play a [Blood Gem] on all your Quilboar. """
 	events = Death(FRIENDLY + MINION).on(Avenge(SELF, 1, [ApplyGem( FRIENDLY_MINIONS + QUILBOAR, 'BG20_GEM')]))#
 	pass
 class BG26_157_G:# (minion)
 	""" Bristlebach
-	<b>Avenge (1):</b> Play 2 <b>Blood Gems</b> on all your Quilboar. """
+	[Avenge (1):] Play 2 [Blood Gems] on all your Quilboar. """
 	events = Death(FRIENDLY + MINION).on(Avenge(SELF, 1, [
 		ApplyGem( FRIENDLY_MINIONS + QUILBOAR, 'BG20_GEM'),
 		ApplyGem( FRIENDLY_MINIONS + QUILBOAR, 'BG20_GEM')]

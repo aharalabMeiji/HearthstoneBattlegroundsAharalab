@@ -244,7 +244,7 @@ class BG26_501_Action(GameAction):#
 		pass# 
 class BG26_501:# (minion)
 	""" Reef Riffer
-	<b>Spellcraft:</b> Give a minion stats equal to your Tavern Tier until next turn. """
+	[Spellcraft:] Give a minion stats equal to your Tavern Tier until next turn. """
 	if Config.BG_VERSION>=2622:
 		option_tags={GameTag.ATK:1, GameTag.HEALTH:2}
 	else:
@@ -266,7 +266,7 @@ class BG26_501t:
 		events = EndTurn(CONTROLLER).on(Destroy(SELF))
 class BG26_501_G:# (minion)
 	""" Reef Riffer
-	<b>Spellcraft:</b> Give a minion stats equal to twice your Tavern Tier until next turn. """
+	[Spellcraft:] Give a minion stats equal to twice your Tavern Tier until next turn. """
 	if Config.BG_VERSION>=2622:
 		option_tags={GameTag.ATK:2, GameTag.HEALTH:4}
 	else:
@@ -471,7 +471,7 @@ class BG26_505_Action(TargetedAction):#
 		pass# 
 class BG26_505:# (minion)
 	""" Zesty Shaker
-	<b>Once per Turn:</b> After you cast a <b>Spellcraft</b> spell on this, add a new copy of it to your hand. """
+	[Once per Turn:] After you cast a [Spellcraft] spell on this, add a new copy of it to your hand. """
 	events = BG_Play(CONTROLLER).after(BG26_505_Action(BG_Play.CARD, BG_Play.TARGET))
 	pass
 
@@ -487,7 +487,7 @@ class BG26_505_G_Action(TargetedAction):#
 		pass# 
 class BG26_505_G:# (minion)
 	""" Zesty Shaker
-	<b>Once per Turn:</b> After you cast a <b>Spellcraft</b> spell on this, add 2 new copies of it to your hand. """
+	[Once per Turn:] After you cast a [Spellcraft] spell on this, add 2 new copies of it to your hand. """
 	events = BG_Play(CONTROLLER).after(BG26_505_G_Action(BG_Play.CARD, BG_Play.TARGET))
 	pass
 
@@ -630,7 +630,7 @@ if BG26__Silent_Swimmer:#
 	BG_Naga_Gold['BG26_171']='BG26_171_G'
 class BG26_171:# (minion)
 	""" Silent Swimmer
-	<b>Spellcraft:</b> Give a minion +3/+5 and <b>Stealth</b> until next turn. """
+	[Spellcraft:] Give a minion +3/+5 and [Stealth] until next turn. """
 	play=Spellcraft(CONTROLLER,'BG26_171t')
 	events = BeginBar(CONTROLLER).on(Spellcraft(CONTROLLER,'BG26_171t'))
 	tags={2359:'BG26_171t'}
@@ -646,7 +646,7 @@ class BG26_171t:# (minion)
 BG26_1761e=buff(3,5, stealth=True)
 class BG26_171_G:# (minion)
 	""" Silent Swimmer
-	<b>Spellcraft:</b> Give a minion +6/+10 and <b>Stealth</b> until next turn. """
+	[Spellcraft:] Give a minion +6/+10 and [Stealth] until next turn. """
 	play=Spellcraft(CONTROLLER,'BG26_171t')
 	events = BeginBar(CONTROLLER).on(Spellcraft(CONTROLLER,'BG26_171t'))
 	tags={2359:'BG26_171t'}
@@ -671,7 +671,7 @@ if BG26__Deep_Blue_Crooner:#
 	BG_Naga_Gold['BG26_502']='BG26_502_G'
 class BG26_502:# (minion)
 	""" Deep Blue Crooner
-	<b>Spellcraft:</b> Give a minion +@/+@ until next turn. Improve your future Deep Blues. """
+	[Spellcraft:] Give a minion +@/+@ until next turn. Improve your future Deep Blues. """
 	#<Tag enumID="2" name="TAG_SCRIPT_DATA_NUM_1" type="Int" value="1"/>
 	play=Spellcraft(CONTROLLER,'BG26_502t')
 	events = BeginBar(CONTROLLER).on(Spellcraft(CONTROLLER,'BG26_502t'))
@@ -694,7 +694,7 @@ class BG26_502e:#
 	pass
 class BG26_502_G:# (minion)
 	""" Deep Blue Crooner
-	<b>Spellcraft:</b> Give a minion +@/+@ until next turn. Improve your future Deep Blues. """
+	[Spellcraft:] Give a minion +@/+@ until next turn. Improve your future Deep Blues. """
 	#<Tag enumID="2" name="TAG_SCRIPT_DATA_NUM_1" type="Int" value="2"/>
 	play=Spellcraft(CONTROLLER,'BG26_502_Gt')
 	events = BeginBar(CONTROLLER).on(Spellcraft(CONTROLLER,'BG26_502_Gt'))
@@ -871,7 +871,7 @@ if BG25__Greta_Gold_Gun:# 6/2/9 naga/pirate ## new 25.2.2##### banned 26.2 #####
 	BG_Naga_Gold['BG25_044']='BG25_044_G'
 class BG25_044:# (minion)
 	""" Greta Gold-Gun
-	<b>Spellcraft:</b> Make a different friendly Pirate or Naga Golden until next turn. """
+	[Spellcraft:] Make a different friendly Pirate or Naga Golden until next turn. """
 	option_tags={GameTag.ATK:2, GameTag.HEALTH:9}
 	play = Spellcraft(CONTROLLER,'BG25_044t')
 	events = BeginBar(CONTROLLER).on(Spellcraft(CONTROLLER,'BG25_044t'))
@@ -879,7 +879,7 @@ class BG25_044:# (minion)
 	pass
 class BG25_044_G:# (minion)
 	""" Greta Gold-Gun
-	<b>Spellcraft:</b> Make a different friendly Pirate or Naga Golden until next turn. """
+	[Spellcraft:] Make a different friendly Pirate or Naga Golden until next turn. """
 	option_tags={GameTag.ATK:4, GameTag.HEALTH:18}
 	play = Spellcraft(CONTROLLER,'BG25_044t')
 	events = BeginBar(CONTROLLER).on(Spellcraft(CONTROLLER,'BG25_044t'))

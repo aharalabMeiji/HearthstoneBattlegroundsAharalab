@@ -148,7 +148,7 @@ class BG26_146_Action(GameAction):#
 		pass# 
 class BG26_146:# (minion)
 	""" Lullabot
-	<b>Magnetic</b> At the end of your turn, gain +1/+1. """
+	[Magnetic] At the end of your turn, gain +1/+1. """
 	play = Magnetic(SELF, ['BG26_146e2'])
 	events = OWN_TURN_END.on(Buff(SELF, 'BG26_146e'))
 	pass
@@ -158,7 +158,7 @@ class BG26_146e2:
 	pass
 class BG26_146_G:# (minion)
 	""" Lullabot
-	<b>Magnetic</b> At the end of your turn, gain +2/+2. """
+	[Magnetic] At the end of your turn, gain +2/+2. """
 	play = Magnetic(SELF, ['BG26_146_Ge2'])
 	events = OWN_TURN_END.on(Buff(SELF, 'BG26_146_Ge'))
 	pass
@@ -310,7 +310,7 @@ class BG26_147_Action(GameAction):#
 		pass# 
 class BG26_147:# (minion)
 	""" Accord-o-Tron
-	<b>Magnetic</b> At the start of your turn, gain 1 extra Gold. """
+	[Magnetic] At the start of your turn, gain 1 extra Gold. """
 	play = Magnetic(SELF, ['BG26_147e'])
 	events = OWN_TURN_BEGIN.on(Give(CONTROLLER, 'GAME_005'))
 	pass
@@ -320,7 +320,7 @@ class BG26_147e:
 	pass
 class BG26_147_G:# (minion)
 	""" Accord-o-Tron
-	<b>Magnetic</b> At the start of your turn, gain 2 extra Gold. """
+	[Magnetic] At the start of your turn, gain 2 extra Gold. """
 	play = Magnetic(SELF, ['BG26_147_Ge'])
 	events = OWN_TURN_BEGIN.on((Give(CONTROLLER, 'GAME_005'), Give(CONTROLLER, 'GAME_005')))
 	pass
@@ -455,13 +455,13 @@ class BG26_148_Action(GameAction):#
 		pass# 
 class BG26_148:# (minion)
 	""" Scrap Scraper
-	<b>Avenge (4):</b> Get a random <b>Magnetic</b> Mech. """
+	[Avenge (4):] Get a random [Magnetic] Mech. """
 	#magnetic = <Tag enumID="849" name="MAGNETIC" type="Int" value="1"/>
 	events = Death(FRIENDLY).on(Avenge(SELF, 4, [BG26_148_Action()]))
 	pass
 class BG26_148_G:# (minion)
 	""" Scrap Scraper
-	<b>Avenge (4):</b> Get 2 random <b>Magnetic</b> Mechs. """
+	[Avenge (4):] Get 2 random [Magnetic] Mechs. """
 	events = Death(FRIENDLY).on(Avenge(SELF, 4, [BG26_148_Action(), BG26_148_Action()]))
 	pass
 
@@ -509,7 +509,7 @@ class BG25_165_Action(GameAction):
 	pass
 class BG25_165:
 	""" Dr. Boombox
-	&lt;b&gt;Deathrattle:&lt;/b&gt; Deal 7 damage to the 2 nearest enemy minions."""
+	[Deathrattle:] Deal 7 damage to the 2 nearest enemy minions."""
 	if Config.BG_VERSION>=2602:
 		option_tags = {GameTag.TECH_LEVEL:5}
 	else:
@@ -532,7 +532,7 @@ class BG25_165_G_Action(GameAction):
 	pass
 class BG25_165_G:
 	""" Dr. Boombox
-	&lt;b&gt;Deathrattle:&lt;/b&gt; Deal 14 damage to the 2 nearest enemy minions."""
+	[Deathrattle:] Deal 14 damage to the 2 nearest enemy minions."""
 	if Config.BG_VERSION>=2602:
 		option_tags = {GameTag.TECH_LEVEL:5}
 	else:
@@ -558,7 +558,7 @@ class BG26_152_Action(GameAction):#
 		pass# 
 class BG26_152:# (minion)
 	""" Utility Drone
-	At the end of your turn, give your minions +1/+1 for each <b>Magnetization</b> they have. """
+	At the end of your turn, give your minions +1/+1 for each [Magnetization] they have. """
 	events = OWN_TURN_END.on(BG26_152_Action())
 	pass
 BG26_152e=buff(1,1)
@@ -571,7 +571,7 @@ class BG26_152_G_Action(GameAction):#
 		pass# 
 class BG26_152_G:# (minion)
 	""" Utility Drone
-	At the end of your turn, give your minions +2/+2 for each <b>Magnetization</b> they have. """
+	At the end of your turn, give your minions +2/+2 for each [Magnetization] they have. """
 	events = OWN_TURN_END.on(BG26_152_G_Action())
 	pass
 BG26_152_Ge=buff(1,1)
@@ -722,7 +722,7 @@ class BG26_149_Action(TargetedAction):#
 		pass# 
 class BG26_149:# (minion)
 	""" Polarizing Beatboxer
-	Whenever you <b>Magnetize</b> another minion, it also <b>Magnetizes</b> to this. """
+	Whenever you [Magnetize] another minion, it also [Magnetizes] to this. """
 	events = Magnetic(FRIENDLY + MINION - SELF).after(BG26_149_Action(Magnetic.BUFFS))
 	pass
 class BG26_149_G_Action(TargetedAction):#
@@ -738,7 +738,7 @@ class BG26_149_G_Action(TargetedAction):#
 		pass# 
 class BG26_149_G:# (minion)
 	""" Polarizing Beatboxer
-	Whenever you <b>Magnetize</b> another minion, it also _<b>Magnetizes</b> to this twice. """
+	Whenever you [Magnetize] another minion, it also _[Magnetizes] to this twice. """
 	events = Magnetic(FRIENDLY + MINION - SELF).after(BG26_149_G_Action(Magnetic.BUFFS))
 	pass
 

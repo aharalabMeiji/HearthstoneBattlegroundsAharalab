@@ -1496,7 +1496,7 @@ class BG25_HERO_100p_Action(GameAction):####################################VACN
 		pass
 class BG25_HERO_100p:
 	""" Build-An-Undead
-	[x]Craft a custom Undead. &lt;i&gt;(@ Creations left!)&lt;/i&gt;"""
+	[x]Craft a custom Undead. <i>(@ Creations left!)</i>"""
 	## <Tag enumID="2" name="TAG_SCRIPT_DATA_NUM_1" type="Int" value="3"/>
 	## <Tag enumID="48" name="COST" type="Int" value="4"/>
 	activate = BG25_HERO_100p_Action()

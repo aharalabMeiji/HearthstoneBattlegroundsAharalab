@@ -522,7 +522,7 @@ if BG25__General_Drakkisath:# 4/2/8 DRAGON ## new 25.2.2 (4)->(5) 26.2.2
 	BG_Dragon_Gold['BG25_309t']='BG25_309_Gt' 
 class BG25_309:# (minion)
 	""" General Drakkisath
-	<b>Battlecry:</b> Add a 2/1 Smolderwing to your hand that gives another Dragon +5_Attack. """
+	[Battlecry:] Add a 2/1 Smolderwing to your hand that gives another Dragon +5_Attack. """
 	if Config.BG_VERSION>=2622:
 		option_tags={GameTag.TECH_LEVEL:5}
 	else:
@@ -532,14 +532,14 @@ class BG25_309:# (minion)
 	pass
 class BG25_309t:# (minion)
 	""" Smolderwing
-	<b>Battlecry:</b> Give a Dragon +5 Attack. """
+	[Battlecry:] Give a Dragon +5 Attack. """
 	requirements = {PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_MINION_TARGET:0, PlayReq.REQ_FRIENDLY_TARGET:0, PlayReq.REQ_TARGET_WITH_RACE:Race.DRAGON }
 	play = Buff(TARGET, 'BG25_309e')
 	pass
 BG25_309e=buff(5,0)
 class BG25_309_G:# (minion)
 	""" General Drakkisath
-	<b>Battlecry:</b> Add two 2/1 Smolderwings to your hand that each give another Dragon +5_Attack. """
+	[Battlecry:] Add two 2/1 Smolderwings to your hand that each give another Dragon +5_Attack. """
 	if Config.BG_VERSION>=2622:
 		option_tags={GameTag.TECH_LEVEL:5}
 	else:
@@ -549,7 +549,7 @@ class BG25_309_G:# (minion)
 	pass
 class BG25_309_Gt:# (minion)
 	""" Smolderwing
-	<b>Battlecry:</b> Give a Dragon +10 Attack. """
+	[Battlecry:] Give a Dragon +10 Attack. """
 	requirements = {PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_MINION_TARGET:0, PlayReq.REQ_FRIENDLY_TARGET:0, PlayReq.REQ_TARGET_WITH_RACE:Race.DRAGON }
 	play = Buff(TARGET, 'BG25_309_Ge')
 	pass
@@ -631,8 +631,8 @@ if BG26__Electric_Synthesizer:#
 	BG_Dragon_Gold['BG26_963']='BG26_963_G'
 class BG26_963:# (minion)
 	""" Electric Synthesizer
-	<b>Battlecry:</b> Give your other Dragons +3 Attack. """ ## new 26.2.2
-	#(5/3/7)<b>Battlecry:</b> Give your other Dragons +4 Attack. """
+	[Battlecry:] Give your other Dragons +3 Attack. """ ## new 26.2.2
+	#(5/3/7)[Battlecry:] Give your other Dragons +4 Attack. """
 	if Config.BG_VERSION>=2622:
 		option_tags={GameTag.TECH_LEVEL:4}
 	elif Config.BG_VERSION>=2620:
@@ -645,7 +645,7 @@ elif Config.BG_VERSION>=2620:
 	BG26_963e=buff(4,0)
 class BG26_963_G:# (minion)
 	""" Electric Synthesizer
-	<b>Battlecry:</b> Give your other Dragons +6 Attack. """
+	[Battlecry:] Give your other Dragons +6 Attack. """
 	if Config.BG_VERSION>=2622:
 		option_tags={GameTag.TECH_LEVEL:4}
 	elif Config.BG_VERSION>=2620:
@@ -763,7 +763,7 @@ if BG25__Cyborg_Drake:# 5/2/8 dragon ## new 25.2 banned 26.2
 	BG_Minion_Dragon+=['BG25_043','BG25_043e','BG25_043_G','BG25_043_Ge']
 class BG25_043:# (minion)
 	""" Cyborg Drake
-	<b>Divine Shield</b> Your <b>Divine Shield</b> minions have +10 Attack. """
+	[Divine Shield] Your [Divine Shield] minions have +10 Attack. """
 	#Old: 2 Attack, 8 Health. Divine Shield. Your Divine Shield minions have +10 Attack.
 	#New: 2 Attack, 10 Health. Divine Shield. Your Divine Shield minions have +8 Attack. # 25.2.2
 	if Config.BG_VERSION>=2522:
@@ -778,7 +778,7 @@ else:
 	BG25_043e=buff(10,0)
 class BG25_043_G:# (minion)
 	""" Cyborg Drake
-	<b>Divine Shield</b> Your <b>Divine Shield</b> minions have +20 Attack. """
+	[Divine Shield] Your [Divine Shield] minions have +20 Attack. """
 	if Config.BG_VERSION>=2522:
 		option_tags={GameTag.ATK:4, GameTag.HEALTH:20}
 	else:
@@ -805,7 +805,7 @@ class BG26_355_Action(GameAction):#
 		pass# 
 class BG26_355:# (minion)
 	""" Disco Shuffler
-	<b>Choose One - </b>Trigger a friendly minion's <b>Battlecry</b>; or <b>Discover</b> a <b>Battlecry</b> minion. """
+	[Choose One - ]Trigger a friendly minion's [Battlecry]; or [Discover] a [Battlecry] minion. """
 	choose = ('BG26_355t','BG26_355t2')
 	pass
 class BG26_355t:
@@ -817,7 +817,7 @@ class BG26_355t2:
 	pass
 class BG26_355_G:# (minion)
 	""" Disco Shuffler
-	<b>Choose One - </b>Trigger a friendly minion's <b>Battlecry</b> twice; or <b>Discover</b> 2 <b>Battlecry</b> minions. """
+	[Choose One - ]Trigger a friendly minion's [Battlecry] twice; or [Discover] 2 [Battlecry] minions. """
 	choose = ('BG26_355_Gt','BG26_355_Gt2')
 	pass
 class BG26_355_Gt:
@@ -842,13 +842,13 @@ class BG26_356_Action(GameAction):#
 		pass# 
 class BG26_356:# (minion)
 	""" Sanctum Rester
-	<b>Start of Combat:</b> Give your other Dragons +8 Health. """
+	[Start of Combat:] Give your other Dragons +8 Health. """
 	events = BeginBattle(CONTROLLER).on(Buff(FRIENDLY_MINIONS + DRAGON - SELF, 'BG26_356e'))
 	pass
 BG26_356e=buff(0,8)
 class BG26_356_G:# (minion)
 	""" Sanctum Rester
-	<b>Start of Combat:</b> Give your other Dragons +16 Health. """
+	[Start of Combat:] Give your other Dragons +16 Health. """
 	events = BeginBattle(CONTROLLER).on(Buff(FRIENDLY_MINIONS + DRAGON - SELF, 'BG26_356_Ge'))
 	pass
 BG26_356_Ge=buff(0,8)

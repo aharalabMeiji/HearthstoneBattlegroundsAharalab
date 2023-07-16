@@ -34,7 +34,7 @@ class BG25_HERO_105p_Action(GameAction):##
 		Discover(source.controller, RandomID(*buddies)*3).trigger(source)
 class BG25_HERO_105p:##
 	""" Sign a New Artist
-	[Discover] a Buddy. &lt;i&gt;(Unlocks at Tier 2.)&lt;/i&gt;"""
+	[Discover] a Buddy. <i>(Unlocks at Tier 2.)</i>"""
 	if Config.BG_VERSION>=2622:
 		option_tags={GameTag.COST:3}
 	else:
@@ -533,7 +533,7 @@ class BG20_HERO_283p_t1_Action(GameAction):
 		pass
 class BG20_HERO_283p_t1:# <12>[1453]
 	""" Westfall
-	[Passive.] In 1 turn, give your left-most minion +2/+2. &lt;i&gt;(@ left!)&lt;/i&gt;""" ## new 2520
+	[Passive.] In 1 turn, give your left-most minion +2/+2. <i>(@ left!)</i>""" ## new 2520
 	### [Passive.] In 1 turn, give your left-most minion +2/+1. <i>(@ left!)</i> """
 	events = BeginBar(CONTROLLER).on(SidequestCounter(SELF, 1, [BG20_HERO_283p_t1_Action()]))
 	#
@@ -571,7 +571,7 @@ class BG20_HERO_283p_t2_Action(GameAction):
 		pass
 class BG20_HERO_283p_t2:# <12>[1453]
 	""" Ironforge
-	[Passive] In 2 turns, gain 2 Gold. &lt;i&gt;(@ left!)&lt;/i&gt;""" ## new 25.2
+	[Passive] In 2 turns, gain 2 Gold. <i>(@ left!)</i>""" ## new 25.2
 	## [Passive.] In 3 turns,[Discover] a minion of your Tavern Tier. <i>(@ left!)</i> """
 	if Config.BG_VERSION>=2520:
 		events = BeginBar(CONTROLLER).on(SidequestCounter(SELF, 2, [BG20_HERO_283p_t2_Action()]))
@@ -611,7 +611,7 @@ class BG20_HERO_283p_t3_Action(GameAction):
 		pass
 class BG20_HERO_283p_t3:# <12>[1453]
 	""" Eastern Plaguelands
-	[Passive.] In 3 turns, [Discover] a minion of your Tavern Tier. &lt;i&gt;(@ left!)&lt;/i&gt;""" ## new 25.2
+	[Passive.] In 3 turns, [Discover] a minion of your Tavern Tier. <i>(@ left!)</i>""" ## new 25.2
 	##[Passive.] In 5 turns, your next Tavern Tier upgrade costs (6) less. <i>(@ left!)</i> """
 	if Config.BG_VERSION>=2520:
 		events = BeginBar(CONTROLLER).on(SidequestCounter(SELF, 3, [
@@ -1066,7 +1066,7 @@ class BG26_HERO_102p_Action(TargetedAction):
 		Buff(target, 'BG26_HERO_102pe', atk=amount).trigger(source)
 class BG26_HERO_102p:
 	"""Major Hymn
-	Give a minion Attack equal to your Tavern Tier. &lt;i&gt;(Swaps to Health next turn!)&lt;/i&gt; """
+	Give a minion Attack equal to your Tavern Tier. <i>(Swaps to Health next turn!)</i> """
 	## cost 0
 	requirements = {PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_FRIENDLY_TARGET:0, PlayReq.REQ_MINION_TARGET:0}
 	play = BG26_HERO_102p_Action(TARGET)
@@ -1080,7 +1080,7 @@ class BG26_HERO_102p2_Action(TargetedAction):
 		Buff(target, 'BG26_HERO_102p2e', max_health=amount).trigger(source)
 class BG26_HERO_102p2:
 	"""Minor Hymn
-	[x]Give a minion Health equal to your Tavern Tier. &lt;i&gt;(Swaps to Attack next turn!)&lt;/i&gt;"""
+	[x]Give a minion Health equal to your Tavern Tier. <i>(Swaps to Attack next turn!)</i>"""
 	requirements = {PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_FRIENDLY_TARGET:0, PlayReq.REQ_MINION_TARGET:0}
 	play = BG26_HERO_102p2_Action(TARGET)
 	pass
@@ -1114,7 +1114,7 @@ class BG22_HERO_200:
 		option_tags={GameTag.BATTLEGROUNDS_HERO_ARMOR_TIER:2, GameTag.HEALTH:40}
 class BG22_HERO_200p:
 	""" MechGyver
-	[x][Passive] After 12 friendly minions die, get a random Mech.@[x][Passive] After 12 friendly minions die, get a random Mech. &lt;i&gt;({0} left.)&lt;/i&gt;"""
+	[x][Passive] After 12 friendly minions die, get a random Mech.@[x][Passive] After 12 friendly minions die, get a random Mech. <i>({0} left.)</i>"""
 	events = Death(FRIENDLY + MINION).after(SidequestCounter(SELF, 12, [Give(CONTROLLER, RandomBGMecha())]))
 ###### BUDDY ######
 class BG22_HERO_200_Buddy:

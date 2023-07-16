@@ -572,7 +572,7 @@ class TB_BaconShop_HP_702_Action2(TargetedAction):
 		pass
 class TB_BaconShop_HP_702:
 	""" Runic Empowerment
-	Give a minion +{0}/+{0}. Upgrades after nine  friendly minions die.  &lt;i&gt;({1} left!)&lt;/i&gt;"""
+	Give a minion +{0}/+{0}. Upgrades after nine  friendly minions die.  <i>({1} left!)</i>"""
 	#<Tag enumID="2" name="TAG_SCRIPT_DATA_NUM_1" type="Int" value="1"/>
 	#<Tag enumID="3" name="TAG_SCRIPT_DATA_NUM_2" type="Int" value="9"/>
 	#<Tag enumID="48" name="COST" type="Int" value="1"/>

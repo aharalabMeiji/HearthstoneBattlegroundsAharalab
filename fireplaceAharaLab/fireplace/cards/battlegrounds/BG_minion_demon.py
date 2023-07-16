@@ -423,7 +423,7 @@ class BG26_522_Action(GameAction):#
 		pass# 
 class BG26_522:# (minion)(demon)
 	""" Keyboard Igniter
-	<b>Battlecry:</b> If you've taken damage since last turn, give your other Demons +1/+2. """
+	[Battlecry:] If you've taken damage since last turn, give your other Demons +1/+2. """
 	play = BG26_522_Action()
 	pass
 BG26_522e=buff(1,2)
@@ -441,7 +441,7 @@ class BG26_522_G_Action(GameAction):#
 		pass# 
 class BG26_522_G:# (minion)(demon)
 	""" Keyboard Igniter
-	<b>Battlecry:</b> If you've taken damage since last turn, give your other Demons +2/+4. """
+	[Battlecry:] If you've taken damage since last turn, give your other Demons +2/+4. """
 	play = BG26_522_G_Action()
 	pass
 BG26_522_Ge=buff(2,4)
@@ -665,7 +665,7 @@ class BG26_525_Choice(Choice):#
 		pass# 
 class BG26_525:# (minion)(demon)
 	""" Imposing Percussionist
-	<b>Battlecry: Discover</b> a Demon. Deal damage to your hero equal to its Tier._ """
+	[Battlecry: Discover] a Demon. Deal damage to your hero equal to its Tier._ """
 	play = BG26_525_Choice(CONTROLLER, RandomBGDemon(tech_level_less=TIER(CONTROLLER)))
 	pass
 class BG26_525_G_Choice(Choice):# 
@@ -681,7 +681,7 @@ class BG26_525_G_Choice(Choice):#
 		pass# 
 class BG26_525_G:# (minion)(demon)
 	""" Imposing Percussionist
-	<b>Battlecry: Discover</b> 2 Demons. Deal damage to your hero equal to their Tiers._ """
+	[Battlecry: Discover] 2 Demons. Deal damage to your hero equal to their Tiers._ """
 	play = BG26_525_G_Choice(CONTROLLER, RandomBGDemon(tech_level_less=TIER(CONTROLLER)))
 	pass
 
@@ -751,7 +751,7 @@ class BG25_807_Action(GameAction):
 		Give(source.controller, card).trigger(source)
 class BG25_807:# (minion)(demon)
 	""" Mecha-Jaraxxus
-	<b>Battlecry:</b> Add a random Mecha-Demon to your hand. """
+	[Battlecry:] Add a random Mecha-Demon to your hand. """
 	option_tags={GameTag.ATK:3, GameTag.HEALTH:15}
 	play = BG25_807_Action()
 	pass
@@ -762,13 +762,13 @@ class BG25_807_G_Action(GameAction):
 		Give(source.controller, cards[1]).trigger(source)
 class BG25_807_G:# (minion)(demon)
 	""" Mecha-Jaraxxus
-	<b>Battlecry:</b> Add 2 random Mecha-Demons to your hand. """
+	[Battlecry:] Add 2 random Mecha-Demons to your hand. """
 	option_tags={GameTag.ATK:6, GameTag.HEALTH:30}
 	play = BG25_807_G_Action()
 	pass
 class BG25_807e:# (enchantment)
 	""" Rusted Reggie
-	<b>Windfury</b> """
+	[Windfury] """
 	tags = {GameTag.WINDFURY:1, 
 		GameTag.ATK:5,
 		GameTag.HEALTH:5}
@@ -782,7 +782,7 @@ class BG25_807t_Ge:
 		GameTag.HEALTH:10	}
 class BG25_807e2:# (enchantment)
 	""" Magtheridon Prime
-	<b>Taunt</b> """
+	[Taunt] """
 	tags = {GameTag.TAUNT:True, 
 		GameTag.ATK:1,
 		GameTag.HEALTH:10}
@@ -796,7 +796,7 @@ class BG25_807t2_Ge:
 		GameTag.HEALTH:20	}
 class BG25_807e3:# (enchantment)
 	""" Baltharak
-	<b>Reborn</b> """
+	[Reborn] """
 	tags = {GameTag.REBORN:True, 
 		GameTag.ATK:10,
 		GameTag.HEALTH:1}
@@ -810,32 +810,32 @@ class BG25_807t3_Ge:
 		GameTag.HEALTH:2	}
 class BG25_807t:# (minion)
 	""" Rusted Reggie */5/5
-	<b>Windfury</b> Can <b>Magnetize</b> to Mechs <i>and</i>__Demons. """
+	[Windfury] Can [Magnetize] to Mechs <i>and</i>__Demons. """
 	play = Magnetic(SELF, ['BG25_807e'])
 	pass
 class BG25_807t_G:# (minion)
 	""" Rusted Reggie */10/10
-	<b>Mega-Windfury</b> Can <b>Magnetize</b> to Mechs <i>and</i>__Demons. """
+	[Mega-Windfury] Can [Magnetize] to Mechs <i>and</i>__Demons. """
 	play = Magnetic(SELF, ['BG25_807t_Ge'])
 	pass
 class BG25_807t2:# (minion)
 	""" Magtheridon Prime */1/10
-	<b>Taunt</b> Can <b>Magnetize</b> to Mechs <i>and</i>__Demons. """
+	[Taunt] Can [Magnetize] to Mechs <i>and</i>__Demons. """
 	play = Magnetic(SELF, ['BG25_807e2'])
 	pass
 class BG25_807t2_G:# (minion)
 	""" Magtheridon Prime */2/20
-	<b>Taunt</b> Can <b>Magnetize</b> to Mechs <i>and</i>__Demons. """
+	[Taunt] Can [Magnetize] to Mechs <i>and</i>__Demons. """
 	play = Magnetic(SELF, ['BG25_807t2_Ge'])
 	pass
 class BG25_807t3:# (minion)
 	""" Baltharak */10/1
-	<b>Reborn</b> Can <b>Magnetize</b> to Mechs <i>and</i>__Demons. """
+	[Reborn] Can [Magnetize] to Mechs <i>and</i>__Demons. """
 	play = Magnetic(SELF, ['BG25_807e3'])
 	pass
 class BG25_807t3_G:# (minion)
 	""" Baltharak */20/2
-	<b>Reborn</b> Can <b>Magnetize</b> to Mechs <i>and</i>__Demons. """
+	[Reborn] Can [Magnetize] to Mechs <i>and</i>__Demons. """
 	play = Magnetic(SELF, ['BG25_807t3_Ge'])
 	pass
 

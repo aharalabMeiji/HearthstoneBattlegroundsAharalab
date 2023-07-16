@@ -773,7 +773,7 @@ class BG24_Reward_361_Action(GameAction):
 		pass
 class BG24_Reward_361:# , 
 	"""Hidden Treasure Vault(BG24_Reward_361)
-	At the start of your turn, gain @ Gold. &lt;i&gt;(Upgrades each turn!)&lt;/i&gt;"""
+	At the start of your turn, gain @ Gold. <i>(Upgrades each turn!)</i>"""
 	#<Tag enumID="2" name="TAG_SCRIPT_DATA_NUM_1" type="Int" value="1"/>
 	events = [
 		BeginBar(CONTROLLER).on(BG24_Reward_361_Action())

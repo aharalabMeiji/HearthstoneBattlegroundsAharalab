@@ -618,7 +618,7 @@ class BG24_HERO_100p:#
 #### BUDDY ####
 class BG24_HERO_100_Buddy:
 	""" Shady Aristocrat
-	&lt;b&gt;Battlecry:&lt;/b&gt; &lt;b&gt;Discover&lt;/b&gt; a lt;b&gt;Quest&lt;/b&gt;. Complete it to get an 8-Gold Coin Pouch."""
+	[Battlecry:] [Discover] a lt;b>Quest]. Complete it to get an 8-Gold Coin Pouch."""
 	### old buddy <2604
 	### Battlecry: Discover a Quest. Complete it to get a 8-Gold Coin Pouch.
 	option_tags={GameTag.TECH_LEVEL:2,GameTag.ATK:2,GameTag.HEALTH:2}
@@ -672,12 +672,12 @@ class TB_BaconShop_HERO_68_Buddy_Action(GameAction):
 		pass
 class TB_BaconShop_HERO_68_Buddy:
 	""" Sharkbait 
-	&lt;b&gt;Battlecry:&lt;/b&gt; Refresh your Hero Power."""
+	[Battlecry:] Refresh your Hero Power."""
 	play = TB_BaconShop_HERO_68_Buddy_Action()
 	pass
 class TB_BaconShop_HERO_68_Buddy_G:
 	""" Sharkbait 
-	&lt;b&gt;Battlecry:&lt;/b&gt; Refresh your Hero Power."""
+	[Battlecry:] Refresh your Hero Power."""
 	play = TB_BaconShop_HERO_68_Buddy_Action()
 	pass
 
@@ -830,7 +830,7 @@ class BG23_HERO_306_Buddy_Action(TargetedAction):
 			Destroy(target).trigger(source)
 class BG23_HERO_306_Buddy:
 	""" Nathanos Blightcaller
-	&lt;b&gt;Battlecry:&lt;/b&gt; Remove a friendly minion. Give its stats to its neighbors."""
+	[Battlecry:] Remove a friendly minion. Give its stats to its neighbors."""
 	if Config.BG_VERSION>=2562:
 		option_tags={GameTag.TECH_LEVEL:6, GameTag.ATK:6, GameTag.HEALTH:6}
 	else:
@@ -842,7 +842,7 @@ class BG23_HERO_306_Buddy_e:
 	pass
 class BG23_HERO_306_Buddy_G:
 	""" Nathanos Blightcaller
-	&lt;b&gt;Battlecry:&lt;/b&gt; Remove a friendly minion. Give double its stats to its neighbors."""
+	[Battlecry:] Remove a friendly minion. Give double its stats to its neighbors."""
 	if Config.BG_VERSION>=2562:
 		option_tags={GameTag.TECH_LEVEL:6, GameTag.ATK:12, GameTag.HEALTH:12}
 	else:

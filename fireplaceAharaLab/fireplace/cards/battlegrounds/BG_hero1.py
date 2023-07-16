@@ -858,7 +858,7 @@ class BG26_HERO_101:
 	pass
 class BG26_HERO_101p:
 	""" I'm the Cap'n Now
-	&lt;b&gt;Passive&lt;/b&gt; After you buy a Pirate, gain 1 Gold."""
+	[Passive] After you buy a Pirate, gain 1 Gold."""
 	events = Buy(CONTROLLER, MINION + PIRATE).after(Give(CONTROLLER, 'GAME_005'))
 ###### BUDDY ######
 #
@@ -1065,7 +1065,7 @@ class BG21_HERO_000p_Action(TargetedAction):
 
 class BG21_HERO_000p:
 	""" Conviction (Rank 1)
-	Give two random friendly minions +{0}/+{1}. &lt;i&gt;(Upgrades at Tavern Tier 3.)&lt;/i&gt;"""
+	Give two random friendly minions +{0}/+{1}. <i>(Upgrades at Tavern Tier 3.)</i>"""
 	#Give a random friendly minion +1/+1. <i>(Upgrades at Tavern Tier 3.)</i>""" ### old
 	#<Tag enumID="2" name="TAG_SCRIPT_DATA_NUM_1" type="Int" value="1"/>
 	#<Tag enumID="3" name="TAG_SCRIPT_DATA_NUM_2" type="Int" value="1"/>
@@ -1385,7 +1385,7 @@ class BG20_HERO_666p_Action(GameAction):
 				Summon(source.controller, 'BG20_HERO_666p_t0').trigger(source)
 class BG20_HERO_666p:
 	""" Realm of Terror
-	&lt;b&gt;Passive.&lt;/b&gt; Every 4 turns, ALL enemies fight the Lord of Terror and your warband _for loot. &lt;i&gt;({0} |4(turn, turns) left!)&lt;/i&gt;"""
+	[Passive.] Every 4 turns, ALL enemies fight the Lord of Terror and your warband _for loot. <i>({0} |4(turn, turns) left!)</i>"""
 	events = BeginBattle(CONTROLLER).on(BG20_HERO_666p_Action)
 class BG20_HERO_666p_t0_Action1(GameAction):
 	def do(self, source):
@@ -1421,7 +1421,7 @@ class BG20_HERO_666p_t0_Action2(GameAction):
 
 class BG20_HERO_666p_t0:
 	""" Diablo, Lord of Terror
-	&lt;b&gt;Deathrattle:&lt;/b&gt; Give your opponent 2 loot! &lt;i&gt;(If this survives, Diablo gets 2 loot instead.)&lt;/i&gt;"""
+	[Deathrattle:] Give your opponent 2 loot! <i>(If this survives, Diablo gets 2 loot instead.)</i>"""
 	deathrattle = BG20_HERO_666p_t0_Action1()
 	events = EndBattle(CONTROLLER).on(BG20_HERO_666p_t0_Action2())
 class BG20_HERO_666p_t1_Action(GameAction):
@@ -1436,22 +1436,22 @@ class BG20_HERO_666p_t1_Action(GameAction):
 		pass
 class BG20_HERO_666p_t1a:
 	""" Sigil of Hell
-	&lt;b&gt;Start of Combat:&lt;/b&gt; Deal 1 damage to 3 random enemy minions."""
+	[Start of Combat:] Deal 1 damage to 3 random enemy minions."""
 	tags = {GameTag.SECRET:1}
 	secret = BeginBattle(CONTROLLER).on(BG20_HERO_666p_t1_Action(1), DestroyOriginal(SELF))
 class BG20_HERO_666p_t1b:
 	""" Magic Sigil of Hell
-	&lt;b&gt;Start of Combat:&lt;/b&gt; Deal 3 damage to 3 random enemy minions."""
+	[Start of Combat:] Deal 3 damage to 3 random enemy minions."""
 	tags = {GameTag.SECRET:1}
 	secret = BeginBattle(CONTROLLER).on(BG20_HERO_666p_t1_Action(3), DestroyOriginal(SELF))
 class BG20_HERO_666p_t1c:
 	""" Rare Sigil of Hell
-	&lt;b&gt;Start of Combat:&lt;/b&gt; Deal 9 damage to 3 random enemy minions."""
+	[Start of Combat:] Deal 9 damage to 3 random enemy minions."""
 	tags = {GameTag.SECRET:1}
 	secret = BeginBattle(CONTROLLER).on(BG20_HERO_666p_t1_Action(9), DestroyOriginal(SELF))
 class BG20_HERO_666p_t1d:
 	""" Unique Sigil of Hell
-	&lt;b&gt;Start of Combat:&lt;/b&gt; Deal 27 damage to 3 random enemy minions."""
+	[Start of Combat:] Deal 27 damage to 3 random enemy minions."""
 	tags = {GameTag.SECRET:1}
 	secret = BeginBattle(CONTROLLER).on(BG20_HERO_666p_t1_Action(27), DestroyOriginal(SELF))
 class BG20_HERO_666p_t3_Action(TargetedAction):
@@ -1487,22 +1487,22 @@ class BG20_HERO_666p_t3_e:
 	pass
 class BG20_HERO_666p_t4a:
 	""" Magma Horns
-	Give a friendly minion &lt;b&gt;Windfury&lt;/b&gt; until next turn."""
+	Give a friendly minion [Windfury] until next turn."""
 	requirements={PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_MINION_TARGET:0, PlayReq.REQ_FRIENDLY_TARGET:0}
 	play = Buff(TARGET, 'BG20_HERO_666p_t4a_e')
 class BG20_HERO_666p_t4b:
 	""" Magic Magma Horns
-	Give a friendly minion &lt;b&gt;Reborn&lt;/b&gt; until next turn."""
+	Give a friendly minion [Reborn] until next turn."""
 	requirements={PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_MINION_TARGET:0, PlayReq.REQ_FRIENDLY_TARGET:0}
 	play = Buff(TARGET, 'BG20_HERO_666p_t4a_e')
 class BG20_HERO_666p_t4c:
 	""" Rare Magma Horns
-	Give a friendly minion &lt;b&gt;Divine Shield&lt;/b&gt; until next turn."""
+	Give a friendly minion [Divine Shield] until next turn."""
 	requirements={PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_MINION_TARGET:0, PlayReq.REQ_FRIENDLY_TARGET:0}
 	play = Buff(TARGET, 'BG20_HERO_666p_t4a_e')
 class BG20_HERO_666p_t4d:
 	""" Unique Magma Horns
-	Give a friendly minion &lt;b&gt;Windfury&lt;/b&gt;, &lt;b&gt;Reborn&lt;/b&gt;, and &lt;b&gt;Divine Shield&lt;/b&gt; until next turn."""
+	Give a friendly minion [Windfury], [Reborn], and [Divine Shield] until next turn."""
 	requirements={PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_MINION_TARGET:0, PlayReq.REQ_FRIENDLY_TARGET:0}
 	play = Buff(TARGET, 'BG20_HERO_666p_t4a_e'), Buff(TARGET, 'BG20_HERO_666p_t4a_e2'), Buff(TARGET, 'BG20_HERO_666p_t4a_e3')
 class BG20_HERO_666p_t4a_e:
@@ -1544,19 +1544,19 @@ class BG20_HERO_666p_t6_Action(GameAction):
 				DestroyOriginal(source)
 class BG20_HERO_666p_t6a:
 	""" Black Soulstone
-	&lt;b&gt;Secret:&lt;/b&gt; After your last minion dies, summon a random Demon."""
+	[Secret:] After your last minion dies, summon a random Demon."""
 	secret = Death(FRIENDLY + MINION).after(BG20_HERO_666p_t6_Action(1))
 class BG20_HERO_666p_t6b:
 	""" Magic Black Soulstone
-	&lt;b&gt;Secret:&lt;/b&gt; After your last minion dies, summon 2 random Demons."""
+	[Secret:] After your last minion dies, summon 2 random Demons."""
 	secret = Death(FRIENDLY + MINION).after(BG20_HERO_666p_t6_Action(2))
 class BG20_HERO_666p_t6c:
 	""" Rare Black Soulstone
-	&lt;b&gt;Secret:&lt;/b&gt; After your last minion dies, summon 3 random Demons."""
+	[Secret:] After your last minion dies, summon 3 random Demons."""
 	secret = Death(FRIENDLY + MINION).after(BG20_HERO_666p_t6_Action(3))
 class BG20_HERO_666p_t6d:
 	""" Unique Black Soulstone
-	&lt;b&gt;Secret:&lt;/b&gt; After your last minion dies, summon 4 random Demons."""
+	[Secret:] After your last minion dies, summon 4 random Demons."""
 	secret = Death(FRIENDLY + MINION).after(BG20_HERO_666p_t6_Action(4))
 
 

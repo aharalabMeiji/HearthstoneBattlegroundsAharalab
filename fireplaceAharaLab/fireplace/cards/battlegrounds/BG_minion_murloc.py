@@ -277,7 +277,7 @@ class BG26_360_Action(GameAction):#
 		pass# 
 class BG26_360:# (minion)(murloc)
 	""" Scourfin
-	<b>Deathrattle:</b> Give a random minion in your hand +5/+5. """
+	[Deathrattle:] Give a random minion in your hand +5/+5. """
 	#New: 3 Attack, 3 Health
 	#Old: 6 Attack, 3 Health
 	if Config.BG_VERSION>=2622:
@@ -290,7 +290,7 @@ class BG26_360:# (minion)(murloc)
 BG26_360e=buff(5,5)
 class BG26_360_G:# (minion)(murloc)
 	""" Scourfin
-	<b>Deathrattle:</b> Give a random minion in your hand +10/+10. """
+	[Deathrattle:] Give a random minion in your hand +10/+10. """
 	if Config.BG_VERSION>=2622:
 		option_tags={GameTag.ATK:6, GameTag.HEALTH:6}
 	else:
@@ -405,7 +405,7 @@ class BG26_350_Action(GameAction):#
 		pass# 
 class BG26_350:# (minion)(murloc)
 	""" Bassgill
-	<b>Deathrattle:</b> Summon the highest Health minion from your hand for this combat only. """
+	[Deathrattle:] Summon the highest Health minion from your hand for this combat only. """
 	deathrattle = BG26_350_Action()
 	pass
 class BG26_350_G_Action(GameAction):# 
@@ -430,7 +430,7 @@ class BG26_350_G_Action(GameAction):#
 		pass# 
 class BG26_350_G:# (minion)(murloc)
 	""" Bassgill
-	<b>Deathrattle:</b> Summon the 2 highest Health minions from your hand for this combat only. """
+	[Deathrattle:] Summon the 2 highest Health minions from your hand for this combat only. """
 	deathrattle = BG26_350_G_Action()
 	pass
 
@@ -448,12 +448,12 @@ class BG26_361_Action(GameAction):#
 		pass# 
 class BG26_361:# (minion)(murloc)
 	""" Plagued Tidewalker
-	<b>Venomous</b> """
+	[Venomous] """
 	#<Tag enumID="2853" name="VENOMOUS" type="Int" value="1"/>
 	pass
 class BG26_361_G:# (minion)(murloc)
 	""" Plagued Tidewalker
-	<b>Venomous</b> """
+	[Venomous] """
 	#<Tag enumID="2853" name="VENOMOUS" type="Int" value="1"/>
 	pass
 
@@ -521,7 +521,7 @@ class BG26_888_Action(GameAction):#
 		pass# 
 class BG26_888:# (minion)(murloc)
 	""" Operatic Belcher
-	<b>Venomous.</b> <b>Deathrattle:</b> Give a friendly Murloc <b>Venomous</b>. """
+	[Venomous.] [Deathrattle:] Give a friendly Murloc [Venomous]. """
 	deathrattle = BG26_888_Action()
 	pass
 class BG26_888_G_Action(GameAction):# 
@@ -537,7 +537,7 @@ class BG26_888_G_Action(GameAction):#
 		pass# 
 class BG26_888_G:# (minion)(murloc)
 	""" Operatic Belcher
-	<b>Venomous.</b> <b>Deathrattle:</b> Give 2 friendly Murlocs <b>Venomous</b>. """
+	[Venomous.] [Deathrattle:] Give 2 friendly Murlocs [Venomous]. """
 	deathrattle = BG26_888_G_Action()
 	pass
 
@@ -657,12 +657,12 @@ class BG26_354_Action(GameAction):#
 		pass# 
 class BG26_354:# (minion)(murloc)
 	""" Choral Mrrrglr
-	<b>Start of Combat:</b> Gain the stats of all the minions in your hand. """
+	[Start of Combat:] Gain the stats of all the minions in your hand. """
 	events = BeginBattle(CONTROLLER).on(BG26_354_Action(1))
 	pass
 class BG26_354_G:# (minion)(murloc)
 	""" Choral Mrrrglr
-	<b>Start of Combat:</b> Gain the stats of all the minions in your hand twice. """
+	[Start of Combat:] Gain the stats of all the minions in your hand twice. """
 	events = BeginBattle(CONTROLLER).on(BG26_354_Action(2))
 	pass
 

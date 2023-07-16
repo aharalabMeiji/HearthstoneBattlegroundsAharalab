@@ -107,24 +107,24 @@ if BG26__Manasaber:#
 	BG_Beast_Gold['BG26_800']='BG26_800_G'
 class BG26_800:# (minion)
 	""" Manasaber
-	<b>Deathrattle:</b> Summon two 0/1 Cublings with <b>Taunt</b>. """
+	[Deathrattle:] Summon two 0/1 Cublings with [Taunt]. """
 	deathrattle = Summon(CONTROLLER, 'BG26_800t') * 2
 	pass
 
 class BG26_800_G:# (minion)
 	""" Manasaber
-	<b>Deathrattle:</b> Summon two 0/2 Cublings with <b>Taunt</b>. """
+	[Deathrattle:] Summon two 0/2 Cublings with [Taunt]. """
 	deathrattle = Summon(CONTROLLER, 'BG26_800_Gt') * 2
 	pass
 
 class BG26_800t:# (minion)
 	""" Cubling
-	<b>Taunt</b> """
+	[Taunt] """
 	#
 	pass
 class BG26_800_Gt:# (minion)
 	""" Cubling
-	<b>Taunt</b> """
+	[Taunt] """
 	#
 	pass
 
@@ -311,7 +311,7 @@ class BG26_801_Action(GameAction):#
 		pass# 
 class BG26_801:# (minion)
 	""" Rylak Metalhead
-	<b>Taunt</b> <b>Deathrattle:</b> Trigger the <b>Battlecries</b> of adjacent minions. """
+	[Taunt] [Deathrattle:] Trigger the [Battlecries] of adjacent minions. """
 	deathrattle = BG26_801_Action()
 	pass
 class BG26_801_G_Action(GameAction):# 
@@ -330,7 +330,7 @@ class BG26_801_G_Action(GameAction):#
 		pass# 
 class BG26_801_G:# (minion)
 	""" Rylak Metalhead
-	<b>Taunt</b> <b>Deathrattle:</b> Trigger the <b>Battlecries</b> of adjacent minions twice. """
+	[Taunt] [Deathrattle:] Trigger the [Battlecries] of adjacent minions twice. """
 	deathrattle = BG26_801_G_Action()
 	pass
 
@@ -436,7 +436,7 @@ class BG21_003_G_Action2622(GameAction):
 			Buff(card, 'BG21_003e').trigger(source)
 class BG21_003_G:# <12>[1453]
 	""" Reanimating Rattler (4/10/6)-> (4/8/6)
-	At the end of your turn, give 2 other friendly Beasts &lt;b&gt;Reborn&lt;/b&gt;.""" ## new 26.2.2
+	At the end of your turn, give 2 other friendly Beasts [Reborn].""" ## new 26.2.2
 	##[Battlecry:] Give a friendly Beast [Reborn]. 
 	if Config.BG_VERSION>=2622:
 		option_tags={GameTag.ATK:8, GameTag.HEALTH:6}
@@ -740,7 +740,7 @@ class BG26_804_Action2(TargetedAction):#
 			source.script_data_num_1 += 2
 class BG26_804:# (minion)
 	""" Octosari, Wrap God
-	<b>Deathrattle:</b> Summon a @/@ Tentacle. <i>(It gains +2/+2  permanently after you summon a minion in combat!)</i> """
+	[Deathrattle:] Summon a @/@ Tentacle. <i>(It gains +2/+2  permanently after you summon a minion in combat!)</i> """
 	##<Tag enumID="2" name="TAG_SCRIPT_DATA_NUM_1" type="Int" value="2"/>
 	deathrattle = BG26_804_Action('BG26_803t')
 	events = Summon(CONTROLLER).after(BG26_804_Action2(Summon.CARD))
@@ -756,7 +756,7 @@ class BG26_804_G_Action2(TargetedAction):#
 			source.script_data_num_1 += 4
 class BG26_804_G:# (minion)
 	""" Octosari, Wrap God
-	<b>Deathrattle:</b> Summon a @/@ Tentacle. <i>(It gains +4/+4  permanently after you summon a minion in combat!)</i> """
+	[Deathrattle:] Summon a @/@ Tentacle. <i>(It gains +4/+4  permanently after you summon a minion in combat!)</i> """
 	deathrattle = BG26_804_Action('BG26_803t')
 	##<Tag enumID="2" name="TAG_SCRIPT_DATA_NUM_1" type="Int" value="4"/>
 	events = Summon(CONTROLLER).after(BG26_804_G_Action2(Summon.CARD))
