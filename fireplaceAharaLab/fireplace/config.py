@@ -55,6 +55,7 @@ class Config:# ()is the default value
 	REWARD_PRESET_FIRST=0 ## preset a reward at the beginning (for debugging)
 	REWARD_PRESET=''
 
+
 	######## player1 is a humna or not
 	PLAYER1_HUMAN=1 ## battleground with a human player(human play:1 full autoplay:0)
 	RANDOM_RACE=1 #random sampling from races（default:1）

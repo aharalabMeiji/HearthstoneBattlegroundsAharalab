@@ -87,6 +87,9 @@ class CardDB(dict):
 		if hasattr(card.scripts, 'option_tags'):
 			for k,v in card.scripts.option_tags.items():
 				card.tags[k]=v
+		if hasattr(card.scripts, 'option_cardtext'):
+			for k,v in card.scripts.option_cardtext.items():
+				card.tags[k]=v
 
 		if hasattr(cardscript, "requirements"):
 			card.powers.append({"requirements": cardscript.requirements})
