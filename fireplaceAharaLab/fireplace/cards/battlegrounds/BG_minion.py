@@ -1,4 +1,5 @@
 from ..utils import *
+from fireplace.battlegrounds import BG_utils
 
 BG_Tavern_Tipper=(Config.BG_VERSION>=2360 and Config.BG_VERSION<2620) ##(1/2/2) new 23.6 ## banned 26.2
 BG_Wrath_Weaver=True #(1/1/3)
@@ -86,7 +87,8 @@ BG_Minion_Gold={}
 #### TIER 1 ####
 
 
-if BG_Tavern_Tipper:####Tavern Tipper (1) ### OK ### 23.6 new ## banned 26.2
+### Tavern Tipper ### OK ### 23/9/5
+if BG_Tavern_Tipper:####Tavern Tipper (1) ### 23.6 new ## banned 26.2
 	BG_Minion += ['BG23_352','BG23_352e','BG23_352_G','BG23_352_Ge',]#	
 	BG_PoolSet_Minion.append('BG23_352')
 	BG_Minion_Gold['BG23_352']='BG23_352_G'
@@ -124,8 +126,10 @@ class BG23_352_G:
 BG23_352_Ge=buff(2,4)
 
 
+
+### Wrath Weaver ### OK ### 23/9/5
 if BG_Wrath_Weaver:#Wrath Weaver	1	1	3	-	-
-	BG_Minion += ['BGS_004','BGS_004e','TB_BaconUps_079','TB_BaconUps_079e',]#Wrath Weaver	1
+	BG_Minion += ['BGS_004','BGS_004e','TB_BaconUps_079','TB_BaconUps_079e',]
 	BG_PoolSet_Minion.append('BGS_004')
 	BG_Minion_Gold['BGS_004']='TB_BaconUps_079'
 	pass
@@ -202,14 +206,16 @@ class BG_NX2_050_G: ##
 	#
 	pass
 
+
 ########### TIER 2 #################################
 
+
+##BG_Acolyte_of_C_Thun=(Config.BG_VERSION<2360)## (2) banned 23.6
 if BG_Acolyte_of_C_Thun:#Acolyte of C'Thun	2	2	3
 	BG_Minion += ['BGS_106','TB_BaconUps_255',]#	1
 	BG_PoolSet_Minion.append('BGS_106')
 	BG_Minion_Gold['BGS_106']='TB_BaconUps_255'
 	pass
-#,#Acolyte of C'Thun	2 ##banned 23.6
 class BGS_106:# <12>[1453] クトゥーンのじさい
 	""" Acolyte of C'Thun
 	[Taunt][Reborn] """
@@ -228,14 +234,22 @@ class TB_BaconUps_255:# <12>[1453]
 	pass
 
 
-if BG_Kooky_Chemist:## Kooky Chemist (2) ### OK ### ## 23.6 new
+
+### OK ### 23/9/5 ###
+#BG_Kooky_Chemist=(Config.BG_VERSION>=2360 and Config.BG_VERSION<2420)##(2) new 23.6 banned 24.2
+if BG_Kooky_Chemist:## Kooky Chemist (2) ### OK ### ## 23.6 new banned 24.2
 	BG_Minion += ['BG_CFM_063','BG_CFM_063e','BG_CFM_063_G',]#	
 	BG_PoolSet_Minion.append('BG_CFM_063')
 	BG_Minion_Gold['BG_CFM_063']='BG_CFM_063_G'
-	## Kooky Chemist (2) >= 23.6
 	pass
+class BG_CFM_063_Action(TargetedAction):
+	TARGET=ActionArg()
+	BUFF=ActionArg()
+	def do(self, source, target, buff):
+		amount=target.atk-target.max_health
+		Buff(target, "BG_CFM_063e", max_health=amount, atk=-amount).trigger(source)
 class BG_CFM_063:
-	""" Kooky Chemist (2) >= 23.6
+	""" Kooky Chemist (2) 
 	Battlecry: Swap the Attack and Health of a minion."""
 	requirements = {PlayReq.REQ_MINION_TARGET: 0,
 				 PlayReq.REQ_FRIENDLY_TARGET: 0,
@@ -244,9 +258,10 @@ class BG_CFM_063:
 		option_cardtext={GameTag.CARDTEXT:"Battlecry: Swap the Attack and Health of a minion."}
 	elif Config.LOCALE=='jaJP':
 		option_cardtext={GameTag.CARDTEXT:"[雄叫び:]ミニオン1体の攻撃力と体力を入れ替える。"}
-	play = Buff(TARGET, "BG_CFM_063e")
+	play = BG_CFM_063_Action(TARGET, "BG_CFM_063e")
 	pass
-BG_CFM_063e = AttackHealthSwapBuff()
+class BG_CFM_063e:
+	pass
 class BG_CFM_063_G:
 	"""
 	[Battlecry:] Swap the Attack and Health of a minion."""
@@ -257,44 +272,35 @@ class BG_CFM_063_G:
 		option_cardtext={GameTag.CARDTEXT:"Battlecry: Swap the Attack and Health of a minion."}
 	elif Config.LOCALE=='jaJP':
 		option_cardtext={GameTag.CARDTEXT:"[雄叫び:]ミニオン1体の攻撃力と体力を入れ替える。"}
-	play = Buff(TARGET, "BG_CFM_063e")
+	play = BG_CFM_063_Action(TARGET, "BG_CFM_063e")
 	pass
 
 
-
-if BG_Menagerie_Mug:#Menagerie Mug	2	2	2 ### renew 24.6
+### need check ### 23/9/5 ###
+#BG_Menagerie_Mug=(Config.BG_VERSION<2360 or Config.BG_VERSION>=2460)##(2/2/2) banned 23.6 ### renew 24.6
+if BG_Menagerie_Mug:#Menagerie Mug	2	2	2 ### 
 	BG_Minion += ['BGS_082','BGS_082e','TB_BaconUps_144','TB_BaconUps_144e',]#	1
 	BG_PoolSet_Minion.append('BGS_082')
 	BG_Minion_Gold['BGS_082']='TB_BaconUps_144'
 	pass
-#Menagerie Mug	2	2	2	-		 ### OK ###
 class BGS_082_Action(TargetedAction):
 	TARGET=ActionArg()
 	BUFF=ActionArg()
 	def do(self, source, target, buff):
 		controller = target
 		field = controller.field
-		flag = [0] * len(field)
-		ret = []
-		while True:
-			if sum(flag)==len(field):
-				break
-			c =random.choice(field)
-			addOK=True
-			for d in ret:
-				if c.race == d.race:
-					flag[field.index(c)]=1
-					addOK=False
-					continue
-			if addOK:
-				flag[field.index(c)]=1
-				if c.race != Race.INVALID:
-					ret.append(c)
-			pass
-		if len(ret)<=3:
-			sample = ret
-		else:
-			sample = random.sample(ret,3)
+		sample=[]
+		cds=[]
+		for rc in source.controller.game.parent.BG_races:
+			cards=[cd for cd in field if BG_utils.isRacesCards(cd, rc)==True]
+			if len(cards)>0:
+				cds.append(cards)
+		if len(cds)>3:
+			cds=random.sample(cds, 3)
+		for cards in cds:
+			rcds=[cd for cd in cards if not cd in sample]
+			if len(rcds)>0:
+				sample.append(random.choice(rcds))
 		for c in sample:
 			Buff(c,buff).trigger(source)
 class BGS_082:# <12>[1453]
@@ -321,6 +327,8 @@ TB_BaconUps_144e=buff(2,2)# <12>[1453]
 """ Sip of Tea, +2/+2. """
 
 
+##need check ### 23/9/5
+#BG_Patient_Scout=(Config.BG_VERSION>=2460) ## (2/1/1) ## new 24.6 ### OK ###
 #Patient Scout(BG24_715) ## new 24.6 ### OK ###
 if BG_Patient_Scout:#Patient Scout	2	1	1	
 	BG_Minion += ['BG24_715','BG24_715_G',]#	
@@ -331,14 +339,12 @@ class BG24_715_Choice(Choice):
 		self.next_choice=None
 		super().choose(card)
 		card.zone=Zone.HAND
-class BG24_715_Action(TargetedAction):
-	TARGET=ActionArg()
-	def do(self, source, target):
+class BG24_715_Action(GameAction):
+	def do(self, source):
 		BG24_715_Choice(source.controller, RandomBGAdmissible(tech_level=source.script_data_num_1)*3).trigger(source)
 		pass
-class BG24_715_Action2(TargetedAction):
-	TARGET=ActionArg()
-	def do(self, source, target):
+class BG24_715_Action2(GameAction):
+	def do(self, source):
 		source.script_data_num_1=min(source.script_data_num_1+1, 6)
 		pass
 class BG24_715:##
@@ -350,8 +356,8 @@ class BG24_715:##
 	elif Config.LOCALE=='jaJP':
 		option_cardtext={GameTag.CARDTEXT:"これを売る時グレード@ミニオン1体を[発見]する。<i>（毎ターンアップグレード！）</i>"}
 	events = [
-		Sell(CONTROLLER, SELF).on(BG24_715_Action(SELF)),
-		BeginBar(CONTROLLER).on(BG24_715_Action2(SELF))
+		Sell(CONTROLLER, SELF).on(BG24_715_Action()),
+		BeginBar(CONTROLLER).on(BG24_715_Action2())
 	]
 	pass
 class BG24_715_G_Choice(Choice):
@@ -361,11 +367,11 @@ class BG24_715_G_Choice(Choice):
 			self.source.sidequest_counter_1=1
 		else:
 			self.next_choice=None
-		super().chooce(card)
+		super().choose(card)
 		card.zone=Zone.HAND
 class BG24_715_G_Action(TargetedAction):
 	TARGET=ActionArg()
-	def do(self, source, target):
+	def do(self, source):
 		BG24_715_G_Choice(source.controller, RandomBGAdmissible(tech_level=source.script_data_num_1)*3).trigger(source)
 		pass
 class BG24_715_G:
@@ -376,19 +382,19 @@ class BG24_715_G:
 	elif Config.LOCALE=='jaJP':
 		option_cardtext={GameTag.CARDTEXT:"これを売る時グレード@ミニオン2体を[発見]する。<i>（毎ターンアップグレード！）</i>"}
 	events = [
-		Sell(CONTROLLER, SELF).on(BG24_715_G_Action(SELF)),
-		BeginTurn(CONTROLLER).on(BG24_715_Action2(SELF))
+		Sell(CONTROLLER, SELF).on(BG24_715_G_Action()),
+		BeginTurn(CONTROLLER).on(BG24_715_Action2())
 	]
 	pass
 
 
-
+#BG_PoeticPenPal=(Config.BG_VERSION>=2560 and Config.BG_VERSION<2620) ## (2/2/4) ## new 25.6 ## banned 26.2
 ## Poetic Pen Pal 
 if BG_PoeticPenPal:## Poetic Pen Pal (BG25_105)(2/2/4) new 25.6
 	BG_Minion += ['BG25_105','BG25_105_G',]#	1
 	BG_PoolSet_Minion.append('BG25_105')
 	BG_Minion_Gold['BG25_105']='BG25_105_G'
-class BG25_105:##########################################
+class BG25_105:##############################
 	""" Poetic Pen Pal (2/2/4)
 	[Battlecry:] Reduce the Cost of your next Buddy by (2)."""
 	if Config.LOCALE=='enUS':
@@ -396,7 +402,7 @@ class BG25_105:##########################################
 	elif Config.LOCALE=='jaJP':
 		option_cardtext={GameTag.CARDTEXT:"[雄叫び:]自分の次のバディのコストを（2）減らす。"}	
 	pass
-class BG25_105_G:
+class BG25_105_G:#############################
 	""" Poetic Pen Pal (2/4/8)
 	[Battlecry:] Reduce the Cost of your next Buddy by (4)."""
 	if Config.LOCALE=='enUS':
@@ -407,6 +413,7 @@ class BG25_105_G:
 
 
 
+#BG_Prophet_of_the_Boar=True##(2/2/3)
 #Prophet of the Boar	2	3	3	-		 ### OK ###
 if BG_Prophet_of_the_Boar:#(BG20_203)Prophet of the Boar	2	3	3
 	BG_Minion += ['BG20_203','BG20_203_G',]#	1
@@ -462,7 +469,7 @@ class BG20_203_G:# <12>[1453]
 	pass
 
 
-
+#BG_Selfless_Hero=True##(2/2/1)
 #Selfless Hero	2	2	1	-	### OK ###
 if BG_Selfless_Hero:#Selfless Hero	2	2	1
 	BG_Minion += ['BG_OG_221','TB_BaconUps_014',]#	
@@ -500,6 +507,7 @@ class TB_BaconUps_014:# <5>[1453]
 
 
 
+#BG_Sparring_Partner=(Config.BG_VERSION>=2360)##(2/3/2) new 23.6
 if BG_Sparring_Partner:#### Sparring Partner (2/3/2) ### OK ####
 	BG_Minion += ['BG_AT_069','BG_AT_069_G',]#	
 	BG_PoolSet_Minion.append('BG_AT_069')
@@ -527,6 +535,7 @@ class BG_AT_069_G:
 
 
 
+#BG_Spawn_of_N_Zoth=(Config.BG_VERSION<2460)##(2) ### banned 24.6
 if BG_Spawn_of_N_Zoth:#Spawn of N'Zoth	2	2	2	- ### OK ### banned 24.6
 	BG_Minion += ['BG_OG_256','OG_256e','TB_BaconUps_025','TB_BaconUps_025e',]#	
 	BG_PoolSet_Minion.append('BG_OG_256')
@@ -555,6 +564,7 @@ TB_BaconUps_025e = buff(2,2)
 
 
 
+#BG_Unstable_Ghoul=(Config.BG_VERSION<2360)##(2) banned 23.6
 if BG_Unstable_Ghoul:#Unstable Ghoul	2	1	3	-### OK ### ##banned 23.6
 	BG_Minion += ['FP1_024','TB_BaconUps_118',]#	
 	BG_PoolSet_Minion.append('FP1_024')
@@ -581,6 +591,7 @@ class TB_BaconUps_118:# <12>[1453]
 
 
 
+#BG_Whelp_Smuggler=False##(2/2/5) banned when? ## renew 25.? #########
 if BG_Whelp_Smuggler:#Whelp Smuggler	2	2	5	- ### OK ###
 	BG_Minion += ['BG21_013','BG21_013e','BG21_013_G',]#	
 	BG_PoolSet_Minion.append('BG21_013')
@@ -617,6 +628,7 @@ class BG21_013_G:# <12>[1453]
 
 
 
+#BG_Yrel=(Config.BG_VERSION>=2360 and Config.BG_VERSION<2460)##(2) new 23.6 ### banned 24.6
 if BG_Yrel:## Yrel (2) ### need check ### banned 24.6
 	BG_Minion += ['BG23_350','BG23_350e','BG23_350_G','BG23_350_Ge',]#	
 	BG_PoolSet_Minion.append('BG23_350')
