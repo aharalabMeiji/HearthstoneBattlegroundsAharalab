@@ -417,7 +417,7 @@ class TB_BaconShop_HERO_50_Buddy_G:# <12>[1453]
 
 
 ##The Curator   ### HP OK ###
-BG_Hero5+=['TB_BaconShop_HERO_33','TB_BaconShop_HERO_33_Buddy','TB_BaconShop_HERO_33_Buddy_e','TB_BaconShop_HERO_33_Buddy_G','T B_BaconShop_HP_033','TB_BaconShop_HP_033t',]
+BG_Hero5+=['TB_BaconShop_HERO_33','TB_BaconShop_HERO_33_Buddy','TB_BaconShop_HERO_33_Buddy_e','TB_BaconShop_HERO_33_Buddy_G','TB_BaconShop_HP_033','TB_BaconShop_HP_033t',]
 BG_PoolSet_Hero5.append('TB_BaconShop_HERO_33')
 BG_Hero5_Buddy['TB_BaconShop_HERO_33']='TB_BaconShop_HERO_33_Buddy'
 BG_Hero5_Buddy_Gold['TB_BaconShop_HERO_33_Buddy']='TB_BaconShop_HERO_33_Buddy_G'
@@ -1147,7 +1147,7 @@ class BG22_HERO_004_Buddy_G:# <12>[1453]
 BG_Hero5+=[
 	'BG20_HERO_201','BG20_HERO_201e','BG20_HERO_201e2','BG20_HERO_201e3',
 	'BG20_HERO_201p','BG20_HERO_201p2','BG20_HERO_201p2e','BG20_HERO_201p3e',
-	'BG20_HERO_201_Buddy','BG20_HERO_201_Buddy_e','BG20_HERO_201_Buddy_e2','BG20_HERO_201_Buddy_G',]#
+	'BG20_HERO_201_Buddy','BG20_HERO_201_Buddy_e','BG20_HERO_201_Buddy_G',]#'BG20_HERO_201_Buddy_e2',
 BG_PoolSet_Hero5.append('BG20_HERO_201')
 BG_Hero5_Buddy['BG20_HERO_201']='BG20_HERO_201_Buddy'
 BG_Hero5_Buddy_Gold['BG20_HERO_201_Buddy']='BG20_HERO_201_Buddy_G'
@@ -1230,7 +1230,7 @@ class BG20_HERO_201_Buddy_e:# <12>[1453]
 	Copied Gadrin's Attack. """
 	#
 	pass
-class BG20_HERO_201_Buddy_e2:# <12>[1453]
+class BG20_HERO_201_Buddy_e2:# <12>[1453]## deleted
 	""" Attack Set
 	 """
 	#
