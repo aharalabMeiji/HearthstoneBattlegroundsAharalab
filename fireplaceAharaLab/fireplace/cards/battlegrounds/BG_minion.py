@@ -412,7 +412,7 @@ class BG25_105_G:#############################
 	pass
 
 
-
+### 23/9/7 ###
 #BG_Prophet_of_the_Boar=True##(2/2/3)
 #Prophet of the Boar	2	3	3	-		 ### OK ###
 if BG_Prophet_of_the_Boar:#(BG20_203)Prophet of the Boar	2	3	3
@@ -425,50 +425,51 @@ class BG20_203_Action(TargetedAction):
 	AMOUNT = IntArg()
 	def do(self, source, target, amount):
 		controller = target
-		#if controller.once_per_turn==0:
-		for repeat in range(amount):
-			Give(controller, 'BG20_GEM').trigger(source)
-		#controller.once_per_turn=1
+		if controller.once_per_turn==0:
+			for repeat in range(amount):
+				Give(controller, 'BG20_GEM').trigger(source)
+			controller.once_per_turn=1
 class BG20_203:# <12>[1453]
 	""" Prophet of the Boar # renew 24.6
-	[Taunt] After you play a Quilboar, get a [Blood Gem]. """
-	##[Once per Turn:] After you play a Quilboar, gain a [Blood Gem]. """ # 
+	[Taunt] After you play a Quilboar, get a [Blood Gem]. """ #>=2460
+	##[Once per Turn:] After you play a Quilboar, gain a [Blood Gem]. """ # <2460
 	if Config.BG_VERSION>=2460:
+		option_tags={GameTag.TAUNT:1 }
 		if Config.LOCALE=='enUS':
 			option_cardtext={GameTag.CARDTEXT:"[Taunt] After you play a Quilboar, get a [Blood Gem]."}
 		elif Config.LOCALE=='jaJP':
 			option_cardtext={GameTag.CARDTEXT:"[挑発]キルボアを手札から使用した後、[血の宝石]1個を得る。"}
+		events = BG_Play(CONTROLLER, MINION + QUILBOAR).after(Give(CONTROLLER, 'BG20_GEM'))
 	else:
+		option_tags={GameTag.TAUNT:0 }
 		if Config.LOCALE=='enUS':
 			option_cardtext={GameTag.CARDTEXT:"[Once per Turn:] After you play a Quilboar, gain a [Blood Gem].."}
 		elif Config.LOCALE=='jaJP':
 			option_cardtext={GameTag.CARDTEXT:"1ターン1回：キルボアを手札から使用した後、血の宝石1個を獲得する。"}
-	events = [
-		BG_Play(CONTROLLER, MINION + QUILBOAR).after(BG20_203_Action(CONTROLLER, 1)),
-		#BeginBar(CONTROLLER).on(SetAttr(CONTROLLER, 'once_per_turn', 0))
-		]
+		events = BG_Play(CONTROLLER, MINION + QUILBOAR).after(BG20_203_Action(CONTROLLER, 1))	
 	pass
 class BG20_203_G:# <12>[1453]
 	""" Prophet of the Boar # renew 24.6
 	[Taunt] After you play a Quilboar, get 2 [Blood Gems]."""
 	#[Once per Turn:] After you play a Quilboar, gain 2 [Blood Gems]. """
 	if Config.BG_VERSION>=2460:
+		option_tags={GameTag.TAUNT:1 }
 		if Config.LOCALE=='enUS':
 			option_cardtext={GameTag.CARDTEXT:"[Taunt] After you play a Quilboar, get 2 [Blood Gem]."}
 		elif Config.LOCALE=='jaJP':
 			option_cardtext={GameTag.CARDTEXT:"[挑発]キルボアを手札から使用した後、[血の宝石]2個を得る。"}
+		events = BG_Play(CONTROLLER, MINION + QUILBOAR).after(Give(CONTROLLER, 'BG20_GEM'),Give(CONTROLLER, 'BG20_GEM'))
 	else:
+		option_tags={GameTag.TAUNT:0 }
 		if Config.LOCALE=='enUS':
 			option_cardtext={GameTag.CARDTEXT:"[Once per Turn:] After you play a Quilboar, gain 2 [Blood Gem].."}
 		elif Config.LOCALE=='jaJP':
 			option_cardtext={GameTag.CARDTEXT:"1ターン1回：キルボアを手札から使用した後、血の宝石2個を獲得する。"}
-	events = [
-		BG_Play(CONTROLLER, MINION + QUILBOAR).after(BG20_203_Action(CONTROLLER, 2)),
-		#BeginBar.on(SetAttr(CONTROLLER, 'once_per_turn', 0))
-		]
+		events = BG_Play(CONTROLLER, MINION + QUILBOAR).after(BG20_203_Action(CONTROLLER, 2))
 	pass
 
 
+### 23/9/7 ###
 #BG_Selfless_Hero=True##(2/2/1)
 #Selfless Hero	2	2	1	-	### OK ###
 if BG_Selfless_Hero:#Selfless Hero	2	2	1
@@ -480,8 +481,7 @@ class BG_OG_221_Action(TargetedAction):
 	TARGET = ActionArg()# controller
 	AMOUNT = IntArg()
 	def do(self, source, target, amount):
-		controller=source.controller
-		## assert controller==target
+		controller=target
 		cards = [card for card in controller.field if card.divine_shield==False]
 		if len(cards)>amount:
 			cards=random.sample(cards, amount)
@@ -506,7 +506,7 @@ class TB_BaconUps_014:# <5>[1453]
 	pass
 
 
-
+### 23/9/7 ###
 #BG_Sparring_Partner=(Config.BG_VERSION>=2360)##(2/3/2) new 23.6
 if BG_Sparring_Partner:#### Sparring Partner (2/3/2) ### OK ####
 	BG_Minion += ['BG_AT_069','BG_AT_069_G',]#	
@@ -521,7 +521,7 @@ class BG_AT_069:
 		option_cardtext={GameTag.CARDTEXT:"Taunt Battlecry: Give a minion Taunt."}
 	elif Config.LOCALE=='jaJP':
 		option_cardtext={GameTag.CARDTEXT:"[挑発]、[雄叫び:]ミニオン1体に[挑発]を付与する。"}		
-	requirements = {PlayReq.REQ_MINION_TARGET: 0, PlayReq.REQ_FRIENDLY_TARGET: 0, PlayReq.REQ_TARGET_IF_AVAILABLE: 0}
+	requirements = {PlayReq.REQ_MINION_TARGET: 0, PlayReq.REQ_TARGET_IF_AVAILABLE: 0}
 	play = Taunt(TARGET)
 class BG_AT_069_G:
 	"""
@@ -530,7 +530,7 @@ class BG_AT_069_G:
 		option_cardtext={GameTag.CARDTEXT:"[Taunt] [Battlecry:] Give a minion [Taunt]."}
 	elif Config.LOCALE=='jaJP':
 		option_cardtext={GameTag.CARDTEXT:"[挑発]、[雄叫び:]ミニオン1体に[挑発]を付与する。"}		
-	requirements = {PlayReq.REQ_MINION_TARGET: 0, PlayReq.REQ_FRIENDLY_TARGET: 0, PlayReq.REQ_TARGET_IF_AVAILABLE: 0}
+	requirements = {PlayReq.REQ_MINION_TARGET: 0, PlayReq.REQ_TARGET_IF_AVAILABLE: 0}
 	play = Taunt(TARGET)
 
 
@@ -2353,7 +2353,7 @@ else:
 BG22_402e4=buff(taunt=True)
 
 
-
+### 23/9/7 ###
 if BG_Nadina_the_Red:#Nadina the Red	6	7	4		 ### maybe OK ###
 	BG_Minion += ['BGS_040','TB_BaconUps_154',]#	
 	BG_PoolSet_Minion.append('BGS_040')
@@ -2365,7 +2365,14 @@ class BGS_040_Action2622(GameAction):
 		if len(cards)>3:
 			cards=random.sample(cards, 3)
 		for card in cards:
-			GiveDivineShield(card).trigger(source)
+			#GiveDivineShield(card).trigger(source)
+			card.divine_shield=True
+	pass
+class BGS_040_Action(GameAction):
+	def do(self, source):
+		cards = [card for card in source.controller.field if isRaceCard(card, Race.DRAGON)==True]
+		for card in cards:
+			card.divine_shield=True
 	pass
 class BGS_040:# <12>[1453]  ナディナ
 	""" Nadina the Red
@@ -2383,8 +2390,16 @@ class BGS_040:# <12>[1453]  ナディナ
 		if Config.LOCALE=='enUS':
 			option_cardtext={GameTag.CARDTEXT:"[Deathrattle:] Give your Dragons [Divine Shield]"}
 		elif Config.LOCALE=='jaJP':
-			option_cardtext={GameTag.CARDTEXT:"xxx"}
-		deathrattle = GiveDivineShield(FRIENDLY_MINIONS + DRAGON)
+			option_cardtext={GameTag.CARDTEXT:"断末魔：味方のドラゴン全てに聖なる盾を付与する。"}
+		deathrattle = BGS_040_Action()
+	pass
+class TB_BaconUps_154_Action2622(GameAction):
+	def do(self, source):
+		cards = [card for card in source.controller.field if isRaceCard(card, Race.DRAGON)==True]
+		if len(cards)>6:
+			cards=random.sample(cards, 6)
+		for card in cards:
+			card.divine_shield=True
 	pass
 class TB_BaconUps_154:# <12>[1453]
 	""" Nadina the Red
@@ -2397,13 +2412,14 @@ class TB_BaconUps_154:# <12>[1453]
 			option_cardtext={GameTag.CARDTEXT:"[Deathrattle:] Give 6 friendly Dragons [Divine Shield]."}
 		elif Config.LOCALE=='jaJP':
 			option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;断末魔:&lt;/b&gt;味方のドラゴン6体に&lt;b&gt;聖なる盾&lt;/b&gt;を付与する。"}
+		deathrattle=TB_BaconUps_154_Action2622()
 	else:
 		option_tags={GameTag.ATK:14, GameTag.HEALTH:8, }
 		if Config.LOCALE=='enUS':
 			option_cardtext={GameTag.CARDTEXT:"[Deathrattle:] Give your Dragons [Divine Shield]"}
 		elif Config.LOCALE=='jaJP':
-			option_cardtext={GameTag.CARDTEXT:"xxx"}
-	deathrattle = GiveDivineShield(FRIENDLY_MINIONS + DRAGON)
+			option_cardtext={GameTag.CARDTEXT:"断末魔：味方のドラゴン全てに聖なる盾を付与する。"}
+		deathrattle = BGS_040_Action()
 	pass
 
 
