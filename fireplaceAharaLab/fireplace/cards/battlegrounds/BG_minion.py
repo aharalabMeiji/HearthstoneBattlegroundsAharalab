@@ -629,6 +629,7 @@ class BG21_013_G:# <12>[1453]
 
 
 
+### 23/9/24 ###
 #BG_Yrel=(Config.BG_VERSION>=2360 and Config.BG_VERSION<2460)##(2) new 23.6 ### banned 24.6
 if BG_Yrel:## Yrel (2) ### need check ### banned 24.6
 	BG_Minion += ['BG23_350','BG23_350e','BG23_350_G','BG23_350_Ge',]#	
