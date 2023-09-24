@@ -534,7 +534,7 @@ class BG_AT_069_G:
 	play = Taunt(TARGET)
 
 
-
+### 23/9/24 #### 
 #BG_Spawn_of_N_Zoth=(Config.BG_VERSION<2460)##(2) ### banned 24.6
 if BG_Spawn_of_N_Zoth:#Spawn of N'Zoth	2	2	2	- ### OK ### banned 24.6
 	BG_Minion += ['BG_OG_256','OG_256e','TB_BaconUps_025','TB_BaconUps_025e',]#	
@@ -563,7 +563,7 @@ class TB_BaconUps_025:# <12>[1453]
 TB_BaconUps_025e = buff(2,2)
 
 
-
+### 23/9/24 ###
 #BG_Unstable_Ghoul=(Config.BG_VERSION<2360)##(2) banned 23.6
 if BG_Unstable_Ghoul:#Unstable Ghoul	2	1	3	-### OK ### ##banned 23.6
 	BG_Minion += ['FP1_024','TB_BaconUps_118',]#	
@@ -576,7 +576,7 @@ class FP1_024:# <12>[1453] ぐうる
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Taunt]. [Deathrattle:] Deal 1 damage to all minions."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;挑発&lt;/b&gt;、&lt;b&gt;断末魔:&lt;/b&gt;全てのミニオンに1ダメージを与える。"}		
+		option_cardtext={GameTag.CARDTEXT:"[挑発]、[断末魔:]全てのミニオンに1ダメージを与える。"}		
 	deathrattle = Hit(ALL_MINIONS, 1),Deaths()
 	pass
 class TB_BaconUps_118:# <12>[1453]
@@ -585,12 +585,12 @@ class TB_BaconUps_118:# <12>[1453]
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Taunt]. [Deathrattle:] Deal 1 damage to all minions twice."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;挑発&lt;/b&gt;、&lt;b&gt;断末魔:&lt;/b&gt;全てのミニオンに1ダメージを与える。これを2回行う。"}		
+		option_cardtext={GameTag.CARDTEXT:"[挑発]、[断末魔:]全てのミニオンに1ダメージを与える。これを2回行う。"}		
 	deathrattle = Hit(ALL_MINIONS, 1), Deaths(), Hit(ALL_MINIONS, 1), Deaths()
 	pass
 
 
-
+### 23/9/24 ###
 #BG_Whelp_Smuggler=False##(2/2/5) banned when? ## renew 25.? #########
 if BG_Whelp_Smuggler:#Whelp Smuggler	2	2	5	- ### OK ###
 	BG_Minion += ['BG21_013','BG21_013e','BG21_013_G',]#	
@@ -600,10 +600,10 @@ if BG_Whelp_Smuggler:#Whelp Smuggler	2	2	5	- ### OK ###
 class BG21_013_Action(TargetedAction):## 密輸人
 	TARGET = ActionArg()
 	BUFF = ActionArg()
-	TARGETBUFF = ActionArg()
-	def do(self, source, target, buff, targetbuff):
+	AMOUNT = IntArg()
+	def do(self, source, target, buff, amount):
 		if buff.atk>0:
-			Buff(target, targetbuff).trigger(target.controller)
+			Buff(target, 'BG21_013e', max_health=amount).trigger(source)
 			pass
 class BG21_013:# <12>[1453]
 	""" Whelp Smuggler
@@ -612,17 +612,18 @@ class BG21_013:# <12>[1453]
 		option_cardtext={GameTag.CARDTEXT:"After a friendly Dragon gains Attack, give it +1_Health."}
 	elif Config.LOCALE=='jaJP':
 		option_cardtext={GameTag.CARDTEXT:"味方のドラゴンが攻撃力を獲得した後それに体力+1を付与する。"}	
-	events = Buff(FRIENDLY + DRAGON).on(BG21_013_Action(Buff.TARGET, Buff.BUFF, 'BG21_013e'))
+	events = Buff(FRIENDLY + DRAGON).on(BG21_013_Action(Buff.TARGET, Buff.BUFF, 1))
 	pass
-BG21_013e=buff(0,1)
+class BG21_013e:
+	pass
 class BG21_013_G:# <12>[1453]
 	""" Whelp Smuggler
 	After a friendly Dragon gains Attack, give it +2_Health. """
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"After a friendly Dragon gains Attack, give it +2_Health."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"味方のドラゴンが攻撃力を獲得した後それに体力+1を付与する。"}
-	events = Buff(FRIENDLY + DRAGON).on(BG21_013_Action(Buff.TARGET, Buff.BUFF,'BG21_013e') * 2)
+		option_cardtext={GameTag.CARDTEXT:"味方のドラゴンが攻撃力を獲得した後それに体力+2を付与する。"}
+	events = Buff(FRIENDLY + DRAGON).on(BG21_013_Action(Buff.TARGET, Buff.BUFF, 2))
 	pass
 
 
@@ -2297,7 +2298,7 @@ class BG22_402: ###########################################
 		if Config.LOCALE=='enUS':
 			option_cardtext={GameTag.CARDTEXT:"Venomous. Start of Combat: For each of your minion types gain +5/+5, Windfury, Reborn, or Taunt."}
 		elif Config.LOCALE=='jaJP':
-			option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;毒袋&lt;/b&gt;、&lt;b&gt;戦闘開始時:&lt;/b&gt;自陣のミニオンの種族1種につき、+5/+5、&lt;b&gt;疾風&lt;/b&gt;、&lt;b&gt;蘇り&lt;/b&gt;、&lt;b&gt;挑発&lt;/b&gt;のどれか1つを獲得する。"}
+			option_cardtext={GameTag.CARDTEXT:"[毒袋]、[戦闘開始時:]自陣のミニオンの種族1種につき、+5/+5、[疾風]、[蘇り]、[挑発]のどれか1つを獲得する。"}
 		pass
 	else:
 		##<Tag enumID="363" name="POISONOUS" type="Int" value="1"/>
@@ -2341,7 +2342,7 @@ class BG22_402_G: ##########if Config.BG_VERSION>=2620###################
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Poisonous]. [Start of Combat:] For each of your minion types gain [Windfury], [Divine Shield], _[Taunt], or +5/+5, twice."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;毒袋&lt;/b&gt;、&lt;b&gt;戦闘開始時:&lt;/b&gt;自陣のミニオンの種族1種につき2回、+5/+5、&lt;b&gt;疾風&lt;/b&gt;、&lt;b&gt;蘇り&lt;/b&gt;、&lt;b&gt;挑発&lt;/b&gt;のどれか1つを獲得する。"}
+		option_cardtext={GameTag.CARDTEXT:"[毒袋]、[戦闘開始時:]自陣のミニオンの種族1種につき2回、+5/+5、[疾風]、[蘇り]、[挑発]のどれか1つを獲得する。"}
 	events = BeginBattle(CONTROLLER).on(BG22_402_G_Action())	
 	pass
 BG22_402e=buff(5,5)
@@ -2383,7 +2384,7 @@ class BGS_040:# <12>[1453]  ナディナ
 		if Config.LOCALE=='enUS':
 			option_cardtext={GameTag.CARDTEXT:"Deathrattle: Give 3 friendly Dragons Divine Shield."}
 		elif Config.LOCALE=='jaJP':
-			option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;断末魔:&lt;/b&gt;味方のドラゴン3体に&lt;b&gt;聖なる盾&lt;/b&gt;を付与する。"}
+			option_cardtext={GameTag.CARDTEXT:"[断末魔:]味方のドラゴン3体に[聖なる盾]を付与する。"}
 		deathrattle = BGS_040_Action2622()
 	else:
 		option_tags={GameTag.ATK:7, GameTag.HEALTH:4, }
@@ -2411,7 +2412,7 @@ class TB_BaconUps_154:# <12>[1453]
 		if Config.LOCALE=='enUS':
 			option_cardtext={GameTag.CARDTEXT:"[Deathrattle:] Give 6 friendly Dragons [Divine Shield]."}
 		elif Config.LOCALE=='jaJP':
-			option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;断末魔:&lt;/b&gt;味方のドラゴン6体に&lt;b&gt;聖なる盾&lt;/b&gt;を付与する。"}
+			option_cardtext={GameTag.CARDTEXT:"[断末魔:]味方のドラゴン6体に[聖なる盾]を付与する。"}
 		deathrattle=TB_BaconUps_154_Action2622()
 	else:
 		option_tags={GameTag.ATK:14, GameTag.HEALTH:8, }
@@ -2435,7 +2436,7 @@ class BG23_015:# <12>[1453]
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Spellcraft: Discover] a Naga."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;呪文錬成:&lt;/b&gt;ナーガを1体&lt;b&gt;発見&lt;/b&gt;する。"}
+		option_cardtext={GameTag.CARDTEXT:"[呪文錬成:]ナーガを1体[発見]する。"}
 	play = Spellcraft(CONTROLLER,'BG23_015t')
 	events = BeginBar(CONTROLLER).on(Spellcraft(CONTROLLER,'BG23_015t'))
 	tags={2359:'BG23_015t'}
@@ -2451,7 +2452,7 @@ class BG23_015_G:# <12>[1453]
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Spellcraft: Discover] 2 Naga."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;呪文錬成:&lt;/b&gt;ナーガを2体&lt;b&gt;発見&lt;/b&gt;する。"}
+		option_cardtext={GameTag.CARDTEXT:"[呪文錬成:]ナーガを2体[発見]する。"}
 	play = Spellcraft(CONTROLLER,'BG23_015_Gt')
 	events = BeginBar(CONTROLLER).on(Spellcraft(CONTROLLER,'BG23_015_Gt'))
 	tags={2359:'BG23_015_Gt'}
@@ -2477,7 +2478,7 @@ class BG21_011:# <12>[1453] 板前
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Battlecry:] Make a Murloc Golden."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;雄叫び:&lt;/b&gt;マーロック1体をゴールデンにする。"}
+		option_cardtext={GameTag.CARDTEXT:"[雄叫び:]マーロック1体をゴールデンにする。"}
 	requirements={
 		PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_MINION_TARGET:0, PlayReq.REQ_FRIENDLY_TARGET:0, PlayReq.REQ_TARGET_WITH_RACE: Race.MURLOC }
 	play = MorphGold(TARGET)
@@ -2491,7 +2492,7 @@ class BG21_011_G:# <12>[1453]
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Battlecry:] Make a Murloc Golden."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;雄叫び:&lt;/b&gt;マーロック1体をゴールデンにする。"}
+		option_cardtext={GameTag.CARDTEXT:"[雄叫び:]マーロック1体をゴールデンにする。"}
 	requirements={
 		PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_MINION_TARGET:0, PlayReq.REQ_TARGET_WITH_RACE: Race.MURLOC }
 	play = MorphGold(TARGET)
@@ -2564,7 +2565,7 @@ class BG24_712:
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"At the end of your turn, give 4 friendly [Taunt] minions +4/+4."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"自分のターンの終了時味方の&lt;b&gt;挑発&lt;/b&gt;ミニオン4体に+4/+4を付与する。"}
+		option_cardtext={GameTag.CARDTEXT:"自分のターンの終了時味方の[挑発]ミニオン4体に+4/+4を付与する。"}
 	events = OWN_TURN_END.on(BG24_712_Action(CONTROLLER, 'BG24_712e'))
 	pass
 BG24_712e=buff(4,4)
@@ -2574,7 +2575,7 @@ class BG24_712_G:
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"At the end of your turn, give 4 friendly [Taunt] minions +8/+8."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"自分のターンの終了時味方の&lt;b&gt;挑発&lt;/b&gt;ミニオン4体に+8/+8を付与する。"}
+		option_cardtext={GameTag.CARDTEXT:"自分のターンの終了時味方の[挑発]ミニオン4体に+8/+8を付与する。"}
 	events = OWN_TURN_END.on(BG24_712_Action(CONTROLLER, 'BG24_712e_G'))
 	pass
 BG24_712e_G=buff(8,8)
@@ -2603,7 +2604,7 @@ class BG23_190:
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"Battlecry: Set a minion's Attack and Health to 15."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;雄叫び:&lt;/b&gt;ミニオン1体の攻撃力と体力を15にする。"}
+		option_cardtext={GameTag.CARDTEXT:"[雄叫び:]ミニオン1体の攻撃力と体力を15にする。"}
 	requirements = {PlayReq.REQ_MINION_TARGET: 0, PlayReq.REQ_FRIENDLY_TARGET: 0, PlayReq.REQ_TARGET_IF_AVAILABLE: 0}	
 	play = BG23_190_Action(TARGET, 'BG23_190e', 15)
 class BG23_190e:
@@ -2614,7 +2615,7 @@ class BG23_190_G:
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Battlecry:] Set a minion's Attack and Health to 30."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;雄叫び:&lt;/b&gt;ミニオン1体の攻撃力と体力を30にする。"}
+		option_cardtext={GameTag.CARDTEXT:"[雄叫び:]ミニオン1体の攻撃力と体力を30にする。"}
 	requirements = {PlayReq.REQ_MINION_TARGET: 0, PlayReq.REQ_FRIENDLY_TARGET: 0, PlayReq.REQ_TARGET_IF_AVAILABLE: 0}	
 	play = BG23_190_Action(TARGET, 'BG23_190_Ge', 30)
 class BG23_190_Ge:
@@ -2637,7 +2638,7 @@ class BGS_022:# <12>[1453] ざっぷ
 		if Config.LOCALE=='enUS':
 			option_cardtext={GameTag.CARDTEXT:"[Windfury]This minion always attacks the enemy minion with the lowest Attack."}
 		elif Config.LOCALE=='jaJP':
-			option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;疾風&lt;/b&gt;このミニオンは常に最も攻撃力が低い敵のミニオンを攻撃する。_"}
+			option_cardtext={GameTag.CARDTEXT:"[疾風]このミニオンは常に最も攻撃力が低い敵のミニオンを攻撃する。_"}
 	else:
 		option_tags={GameTag.ATK:7, GameTag.HEALTH:10, }
 		if Config.LOCALE=='enUS':
@@ -2658,7 +2659,7 @@ class TB_BaconUps_091:# <12>[1453]
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Mega-Windfury]This minion always attacksthe enemy minion withthe lowest Attack."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;疾風&lt;/b&gt;このミニオンは常に最も攻撃力が低い敵のミニオンを攻撃する。"}
+		option_cardtext={GameTag.CARDTEXT:"[疾風]このミニオンは常に最も攻撃力が低い敵のミニオンを攻撃する。"}
 	pass
 
 
