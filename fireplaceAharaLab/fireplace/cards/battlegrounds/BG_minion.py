@@ -683,6 +683,7 @@ BG23_350_Ge=buff(2,4)
 ##################### TIER 3 ###################################
 
 
+### 23/9/25 ###
 if BG_Arm_of_the_Empire:#Arm of the Empire	3	4	4	-		 ### maybe ###
 	BG_Minion += ['BGS_110','BGS_110e','TB_BaconUps_302','TB_BaconUps_302e',]#	
 	BG_PoolSet_Minion.append('BGS_110')
@@ -694,25 +695,25 @@ class BGS_110:# <12>[1453] 帝国の腕
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"Whenever a friendly [Taunt]minion is attacked,give it +2 Attack permanently."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"xxx"}
+		option_cardtext={GameTag.CARDTEXT:"味方の&lt;b&gt;挑発&lt;/b&gt;ミニオンが攻撃される度それに攻撃力+2を永続的に付与する。"}
 	events = BG_Attack(ENEMY, FRIENDLY + TAUNT).on(BuffPermanently(BG_Attack.OTHER,'BGS_110e'))
 	pass
 BGS_110e=buff(2,0)# <12>[1453]
 """ Armed!, +2 Attack """
 class TB_BaconUps_302:# <12>[1453]
 	""" Arm of the Empire
-	Whenever a friendly [Taunt]minion is attacked,give it +4 Attackpermanently. """
+	Whenever a friendly [Taunt]minion is attacked,give it +4 Attack permanently. """
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"Whenever a friendly [Taunt]minion is attacked,give it +4 Attackpermanently."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"xxx"}
+		option_cardtext={GameTag.CARDTEXT:"味方の&lt;b&gt;挑発&lt;/b&gt;ミニオンが攻撃される度それに攻撃力+4を永続的に付与する。"}
 	events = BG_Attack(ENEMY, FRIENDLY + TAUNT).on(BuffPermanently(BG_Attack.OTHER,'TB_BaconUps_302e'))
 	pass
 TB_BaconUps_302e=buff(4,0)# <12>[1453]
 """ Double Armed!, +4 Attack """
 
 
-
+### deleted from CardDefs ### 23/9/25 ###
 if BG_Bird_Buddy:#Bird Buddy	3	2	4	-		 ### maybe ### banned 26.2
 	BG_Minion += ['BG21_002','BG21_002e','BG21_002_G','BG21_002_Ge',]#	
 	BG_PoolSet_Minion.append('BG21_002')
@@ -724,7 +725,7 @@ class BG21_002:# <12>[1453]  愛鳥家
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Avenge (1):] Give your Beasts +1/+1."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"xxx"}
+		option_cardtext={GameTag.CARDTEXT:"[仇討 (1):] 味方の獣すべてに+1/+1を付与する。"}
 	events = Death(FRIENDLY + MINION).on(Avenge(SELF, 1, [Buff(FRIENDLY_MINIONS + BEAST, 'BG21_002e')]))
 	pass
 BG21_002e=buff(1,1)
@@ -735,16 +736,14 @@ class BG21_002_G:# <12>[1453]
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Avenge (1):] Give your Beasts +2/+2."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"xxx"}
-	events = Death(FRIENDLY).on(Avenge(SELF, 1, \
-		[Buff(FRIENDLY_MINIONS + BEAST, 'BG21_002_Ge')]\
-		))
+		option_cardtext={GameTag.CARDTEXT:"[仇討 (1):] 味方の獣すべてに+2/+2を付与する。"}
+	events = Death(FRIENDLY + MINION).on(Avenge(SELF, 1, [Buff(FRIENDLY_MINIONS + BEAST, 'BG21_002_Ge')]))
 	pass
 BG21_002_Ge=buff(2,2)# <12>[1453]
 """ Well Fed,  +2/+2. """
 
 
-
+### deleted from CardDefs ###  ###
 if BG_Boulderfist_Ogre:## Boulderfist Ogre(3/6/7) ### new 25.6
 	BG_Minion += ['BG_CS2_200','BG_CS2_200_G',]#	
 	BG_PoolSet_Minion.append('BG_CS2_200')
