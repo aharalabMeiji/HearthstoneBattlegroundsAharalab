@@ -94,6 +94,29 @@ if BG_Tavern_Tipper:####Tavern Tipper (1) ### 23.6 new ## banned 26.2
 	BG_Minion_Gold['BG23_352']='BG23_352_G'
 	## Tavern Tipper (1) >= 23.6 #OK#
 	pass
+# 	<Entity CardID="BG23_352" ID="92871" version="2">
+# 		<Tag enumID="185" name="CARDNAME" type="LocString">
+# 			<enUS>Tavern Tipper</enUS>
+# 			<jaJP>チップ欲しガール</jaJP>
+# 		</Tag>
+# 		<Tag enumID="184" name="CARDTEXT" type="LocString">
+# 			<enUS>[x]If you have any unspent
+# Gold at the end of
+# __your turn, gain +1/+2.</enUS>
+# 			<jaJP>[x]自分のターンの終了時
+# 未使用の
+# ゴールドがある場合
+# ____+1/+2を獲得する。_</jaJP>
+# 		</Tag>
+# 		<Tag enumID="32" name="TRIGGER_VISUAL" type="Int" value="1"/>
+# 		<Tag enumID="45" name="HEALTH" type="Int" value="2"/>
+# 		<Tag enumID="47" name="ATK" type="Int" value="2"/>
+# 		<Tag enumID="183" name="CARD_SET" type="Int" value="1453"/>
+# 		<Tag enumID="199" name="CLASS" type="Int" value="12"/>
+# 		<Tag enumID="202" name="CARDTYPE" type="Int" value="4"/>
+# 		<Tag enumID="1429" name="BACON_TRIPLE_UPGRADE_MINION_ID" type="Int" value="92874"/>
+# 		<Tag enumID="1440" name="TECH_LEVEL" type="Int" value="1"/>
+# 	</Entity>
 class BG23_352_Action(TargetedAction):
 	TARGET=ActionArg()
 	BUFF=ActionArg()
@@ -107,9 +130,13 @@ class BG23_352:
 	If you have any unspent Gold at the end of your turn, gain +1/+2."""
 	if Config.BG_VERSION>=2360:
 		if Config.LOCALE=='enUS':
-			option_cardtext={GameTag.CARDTEXT:"If you have any unspent Gold at the end of your turn, gain +1/+2."}
+			option_cardtext={
+				GameTag.CARDNAME:"Tavern Tipper",
+				GameTag.CARDTEXT:"If you have any unspent Gold at the end of your turn, gain +1/+2."}
 		elif Config.LOCALE=='jaJP':
-			option_cardtext={GameTag.CARDTEXT:"自分のターンの終了時、未使用のゴールドがある場合+1/+2を獲得する。"}
+			option_cardtext={
+				GameTag.CARDNAME:"Tavern Tipper",
+				GameTag.CARDTEXT:"自分のターンの終了時、未使用のゴールドがある場合+1/+2を獲得する。"}
 	events = OWN_TURN_END.on(BG23_352_Action(SELF,'BG23_352e'))
 	pass
 BG23_352e=buff(1,2)
@@ -118,9 +145,13 @@ class BG23_352_G:
 	If you have any unspent Gold at the end of __your turn, gain +2/+4."""
 	if Config.BG_VERSION>=2360:
 		if Config.LOCALE=='enUS':
-			option_cardtext={GameTag.CARDTEXT:"If you have any unspent Gold at the end of your turn, gain +2/+4."}
+			option_cardtext={
+				GameTag.CARDNAME:"Tavern Tipper",
+				GameTag.CARDTEXT:"If you have any unspent Gold at the end of your turn, gain +2/+4."}
 		elif Config.LOCALE=='jaJP':
-			option_cardtext={GameTag.CARDTEXT:"自分のターンの終了時、未使用のゴールドがある場合+2/+4を獲得する。"}
+			option_cardtext={
+				GameTag.CARDNAME:"Tavern Tipper",
+				GameTag.CARDTEXT:"自分のターンの終了時、未使用のゴールドがある場合+2/+4を獲得する。"}
 	events = OWN_TURN_END.on(BG23_352_Action(SELF,'BG23_352_Ge'))
 	pass
 BG23_352_Ge=buff(2,4)
@@ -134,6 +165,33 @@ if BG_Wrath_Weaver:#Wrath Weaver	1	1	3	-	-
 	BG_Minion_Gold['BGS_004']='TB_BaconUps_079'
 	pass
 #Wrath Weaver	1	1	3	 ### maybe ###
+# 	<Entity CardID="BGS_004" ID="59670" version="2">
+# 		<Tag enumID="185" name="CARDNAME" type="LocString">
+# 			<enUS>Wrath Weaver</enUS>
+# 			<jaJP>憤怒の織屋</jaJP>
+# 		</Tag>
+# 		<Tag enumID="184" name="CARDTEXT" type="LocString">
+# 			<enUS>After you play a Demon, deal 1 damage to your hero and gain +2/+1.</enUS>
+# 			<jaJP>[x]自分が悪魔を
+# 手札から使用した後
+# 自分のヒーローに
+# 1ダメージを与え
+# _+2/+1を獲得する。</jaJP>
+# 		</Tag>
+# 		<Tag enumID="32" name="TRIGGER_VISUAL" type="Int" value="1"/>
+# 		<Tag enumID="45" name="HEALTH" type="Int" value="4"/>
+# 		<Tag enumID="47" name="ATK" type="Int" value="1"/>
+# 		<Tag enumID="48" name="COST" type="Int" value="1"/>
+# 		<Tag enumID="183" name="CARD_SET" type="Int" value="1453"/>
+# 		<Tag enumID="199" name="CLASS" type="Int" value="12"/>
+# 		<Tag enumID="201" name="FACTION" type="Int" value="3"/>
+# 		<Tag enumID="202" name="CARDTYPE" type="Int" value="4"/>
+# 		<Tag enumID="1429" name="BACON_TRIPLE_UPGRADE_MINION_ID" type="Int" value="59679"/>
+# 		<Tag enumID="1440" name="TECH_LEVEL" type="Int" value="1"/>
+# 		<Tag enumID="1456" name="IS_BACON_POOL_MINION" type="Int" value="1"/>
+# 		<Tag enumID="1593" name="1" type="Int" value="1"/>
+# 	</Entity>
+
 class BGS_004:# <12>[1453] おりや
 	""" Wrath Weaver
 	After you play a Demon, deal 1 damage to your hero and gain +2/+1. """
@@ -141,13 +199,16 @@ class BGS_004:# <12>[1453] おりや
 	if Config.BG_VERSION>=2620:
 		option_tags={GameTag.ATK:1, GameTag.HEALTH:4}
 		if Config.LOCALE=='enUS':
-			option_cardtext={GameTag.CARDTEXT:"After you play a Demon, deal 1 damage to your hero and gain +2/+1."}
+			option_cardtext={
+				GameTag.CARDNAME:"Wrath Weaver",
+				GameTag.CARDTEXT:"After you play a Demon, deal 1 damage to your hero and gain +2/+1."}
 		elif Config.LOCALE=='jaJP':
 			option_cardtext={GameTag.CARDTEXT:"自分が悪魔を手札から使用した後、自分のヒーローに1ダメージを与え、+2/+1を獲得する。"}
 	else:
 		option_tags={GameTag.ATK:1, GameTag.HEALTH:3 }
 		if Config.LOCALE=='enUS':
-			option_cardtext={GameTag.CARDTEXT:"After you play a Demon, deal 1 damage to your hero and gain +2/+2."}
+			option_cardtext={
+				GameTag.CARDTEXT:"After you play a Demon, deal 1 damage to your hero and gain +2/+2."}
 		elif Config.LOCALE=='jaJP':
 			option_cardtext={GameTag.CARDTEXT:"自分が悪魔を手札から使用した後、自分のヒーローに1ダメージを与え、+2/+2を獲得する。"}
 	events = BG_Play(CONTROLLER, FRIENDLY + DEMON).after(Hit(FRIENDLY_HERO,1),Buff(SELF,'BGS_004e'))
@@ -187,6 +248,29 @@ if BG_Mistake:
 	BG_Minion += ['BG_NX2_050', 'BG_NX2_050_G']
 	BG_PoolSet_Minion.append('BG_NX2_050')
 	BG_Minion_Gold['BG_NX2_050']='BG_NX2_050_G'
+# 	<Entity CardID="BG_NX2_050" ID="102255" version="2">
+# 		<Tag enumID="185" name="CARDNAME" type="LocString">
+# 			<enUS>Mistake</enUS>
+# 			<jaJP>失敗作</jaJP>
+# 		</Tag>
+# 		<Tag enumID="184" name="CARDTEXT" type="LocString">
+# 			<enUS>&lt;i&gt;This has all minion types&lt;/i&gt;.</enUS>
+# 			<jaJP>[x]&lt;i&gt;これは全ての
+# ミニオンの種族を持つ。&lt;/i&gt;</jaJP>
+# 		</Tag>
+# 		<Tag enumID="342" name="ARTISTNAME" type="String">Matt Dixon</Tag>
+# 		<Tag enumID="45" name="HEALTH" type="Int" value="3"/>
+# 		<Tag enumID="47" name="ATK" type="Int" value="1"/>
+# 		<Tag enumID="183" name="CARD_SET" type="Int" value="1776"/>
+# 		<Tag enumID="199" name="CLASS" type="Int" value="12"/>
+# 		<Tag enumID="200" name="CARDRACE" type="Int" value="26"/>
+# 		<Tag enumID="202" name="CARDTYPE" type="Int" value="4"/>
+# 		<Tag enumID="203" name="RARITY" type="Int" value="4"/>
+# 		<Tag enumID="1429" name="BACON_TRIPLE_UPGRADE_MINION_ID" type="Int" value="102256"/>
+# 		<Tag enumID="1440" name="TECH_LEVEL" type="Int" value="1"/>
+# 		<Tag enumID="1456" name="IS_BACON_POOL_MINION" type="Int" value="1"/>
+# 	</Entity>
+
 class BG_NX2_050: ##
 	""" Mistake
 	<i>This has all minion types</i>. """ 
@@ -216,6 +300,28 @@ if BG_Acolyte_of_C_Thun:#Acolyte of C'Thun	2	2	3
 	BG_PoolSet_Minion.append('BGS_106')
 	BG_Minion_Gold['BGS_106']='TB_BaconUps_255'
 	pass
+# 	<Entity CardID="BGS_106" ID="63614" version="2">
+# 		<Tag enumID="185" name="CARDNAME" type="LocString">
+# 			<enUS>Acolyte of C'Thun</enUS>
+# 			<jaJP>クトゥーンの侍祭</jaJP>
+# 		</Tag>
+# 		<Tag enumID="184" name="CARDTEXT" type="LocString">
+# 			<enUS>&lt;b&gt;Taunt&lt;/b&gt;
+# &lt;b&gt;Reborn&lt;/b&gt;</enUS>
+# 			<jaJP>&lt;b&gt;挑発&lt;/b&gt;、&lt;b&gt;蘇り&lt;/b&gt;</jaJP>
+# 		</Tag>
+# 		<Tag enumID="45" name="HEALTH" type="Int" value="3"/>
+# 		<Tag enumID="47" name="ATK" type="Int" value="2"/>
+# 		<Tag enumID="48" name="COST" type="Int" value="1"/>
+# 		<Tag enumID="183" name="CARD_SET" type="Int" value="1453"/>
+# 		<Tag enumID="190" name="TAUNT" type="Int" value="1"/>
+# 		<Tag enumID="199" name="CLASS" type="Int" value="12"/>
+# 		<Tag enumID="202" name="CARDTYPE" type="Int" value="4"/>
+# 		<Tag enumID="1085" name="REBORN" type="Int" value="1"/>
+# 		<Tag enumID="1429" name="BACON_TRIPLE_UPGRADE_MINION_ID" type="Int" value="65658"/>
+# 		<Tag enumID="1440" name="TECH_LEVEL" type="Int" value="2"/>
+# 	</Entity>
+
 class BGS_106:# <12>[1453] クトゥーンのじさい
 	""" Acolyte of C'Thun
 	[Taunt][Reborn] """
@@ -242,6 +348,32 @@ if BG_Kooky_Chemist:## Kooky Chemist (2) ### OK ### ## 23.6 new banned 24.2
 	BG_PoolSet_Minion.append('BG_CFM_063')
 	BG_Minion_Gold['BG_CFM_063']='BG_CFM_063_G'
 	pass
+# 	<Entity CardID="BG_CFM_063" ID="92883" version="2">
+# 		<Tag enumID="185" name="CARDNAME" type="LocString">
+# 			<enUS>Kooky Chemist</enUS>
+# 			<jaJP>妙ちくりんな薬剤師</jaJP>
+# 		</Tag>
+# 		<Tag enumID="184" name="CARDTEXT" type="LocString">
+# 			<enUS>&lt;b&gt;Battlecry:&lt;/b&gt; Swap the Attack and Health of a minion.</enUS>
+# 			<jaJP>[x]&lt;b&gt;雄叫び:&lt;/b&gt;
+# ミニオン1体の
+# 攻撃力と体力を
+# 入れ替える。</jaJP>
+# 		</Tag>
+# 		<Tag enumID="342" name="ARTISTNAME" type="String">Dave Allsop</Tag>
+# 		<Tag enumID="45" name="HEALTH" type="Int" value="4"/>
+# 		<Tag enumID="47" name="ATK" type="Int" value="4"/>
+# 		<Tag enumID="48" name="COST" type="Int" value="4"/>
+# 		<Tag enumID="183" name="CARD_SET" type="Int" value="25"/>
+# 		<Tag enumID="199" name="CLASS" type="Int" value="12"/>
+# 		<Tag enumID="202" name="CARDTYPE" type="Int" value="4"/>
+# 		<Tag enumID="203" name="RARITY" type="Int" value="1"/>
+# 		<Tag enumID="218" name="BATTLECRY" type="Int" value="1"/>
+# 		<Tag enumID="1429" name="BACON_TRIPLE_UPGRADE_MINION_ID" type="Int" value="92885"/>
+# 		<Tag enumID="1440" name="TECH_LEVEL" type="Int" value="2"/>
+# 		<Tag enumID="2347" name="1" type="Int" value="1"/>
+# 		<Tag enumID="2534" name="1" type="Int" value="1"/>
+# 	</Entity>
 class BG_CFM_063_Action(TargetedAction):
 	TARGET=ActionArg()
 	BUFF=ActionArg()
@@ -283,6 +415,31 @@ if BG_Menagerie_Mug:#Menagerie Mug	2	2	2 ###
 	BG_PoolSet_Minion.append('BGS_082')
 	BG_Minion_Gold['BGS_082']='TB_BaconUps_144'
 	pass
+# 	<Entity CardID="BGS_082" ID="63435" version="2">
+# 		<Tag enumID="185" name="CARDNAME" type="LocString">
+# 			<enUS>Menagerie Mug</enUS>
+# 			<jaJP>ミナジェリのマグ</jaJP>
+# 		</Tag>
+# 		<Tag enumID="184" name="CARDTEXT" type="LocString">
+# 			<enUS>[x]&lt;b&gt;Battlecry:&lt;/b&gt; Give 3 random
+# friendly minions of different
+# minion types +1/+1.</enUS>
+# 			<jaJP>[x]&lt;b&gt;雄叫び:&lt;/b&gt;
+# 異なる種族のランダムな
+# 味方のミニオン3体に
+# +1/+1を付与する。</jaJP>
+# 		</Tag>
+# 		<Tag enumID="45" name="HEALTH" type="Int" value="2"/>
+# 		<Tag enumID="47" name="ATK" type="Int" value="2"/>
+# 		<Tag enumID="48" name="COST" type="Int" value="3"/>
+# 		<Tag enumID="183" name="CARD_SET" type="Int" value="1453"/>
+# 		<Tag enumID="199" name="CLASS" type="Int" value="12"/>
+# 		<Tag enumID="202" name="CARDTYPE" type="Int" value="4"/>
+# 		<Tag enumID="218" name="BATTLECRY" type="Int" value="1"/>
+# 		<Tag enumID="1429" name="BACON_TRIPLE_UPGRADE_MINION_ID" type="Int" value="63489"/>
+# 		<Tag enumID="1440" name="TECH_LEVEL" type="Int" value="2"/>
+# 		<Tag enumID="1456" name="IS_BACON_POOL_MINION" type="Int" value="1"/>
+# 	</Entity>
 class BGS_082_Action(TargetedAction):
 	TARGET=ActionArg()
 	BUFF=ActionArg()
@@ -334,6 +491,33 @@ if BG_Patient_Scout:#Patient Scout	2	1	1
 	BG_Minion += ['BG24_715','BG24_715_G',]#	
 	BG_PoolSet_Minion.append('BG24_715')
 	BG_Minion_Gold['BG24_715']='BG24_715_G'
+	pass
+# 	<Entity CardID="BG24_715" ID="97604" version="2">
+# 		<Tag enumID="185" name="CARDNAME" type="LocString">
+# 			<enUS>Patient Scout</enUS>
+# 			<jaJP>辛抱強い斥候</jaJP>
+# 		</Tag>
+# 		<Tag enumID="184" name="CARDTEXT" type="LocString">
+# 			<enUS>[x]When you sell this,
+# &lt;b&gt;Discover&lt;/b&gt; a Tier @ minion.
+# &lt;i&gt;(Upgrades each turn!)&lt;/i&gt;</enUS>
+# 			<jaJP>[x]これを売る時
+# グレード@ミニオン1体を
+# &lt;b&gt;発見&lt;/b&gt;する。&lt;i&gt;（毎ターン
+# アップグレード！）&lt;/i&gt;</jaJP>
+# 		</Tag>
+# 		<Tag enumID="2" name="TAG_SCRIPT_DATA_NUM_1" type="Int" value="1"/>
+# 		<Tag enumID="32" name="TRIGGER_VISUAL" type="Int" value="1"/>
+# 		<Tag enumID="45" name="HEALTH" type="Int" value="1"/>
+# 		<Tag enumID="47" name="ATK" type="Int" value="1"/>
+# 		<Tag enumID="183" name="CARD_SET" type="Int" value="1453"/>
+# 		<Tag enumID="199" name="CLASS" type="Int" value="12"/>
+# 		<Tag enumID="202" name="CARDTYPE" type="Int" value="4"/>
+# 		<Tag enumID="1342" name="USE_DISCOVER_VISUALS" type="Int" value="1"/>
+# 		<Tag enumID="1429" name="BACON_TRIPLE_UPGRADE_MINION_ID" type="Int" value="97605"/>
+# 		<Tag enumID="1440" name="TECH_LEVEL" type="Int" value="2"/>
+# 		<ReferencedTag enumID="415" name="DISCOVER" type="Int" value="1"/>
+# 	</Entity>
 class BG24_715_Choice(Choice):
 	def choose(self, card):
 		self.next_choice=None
@@ -394,6 +578,29 @@ if BG_PoeticPenPal:## Poetic Pen Pal (BG25_105)(2/2/4) new 25.6
 	BG_Minion += ['BG25_105','BG25_105_G',]#	1
 	BG_PoolSet_Minion.append('BG25_105')
 	BG_Minion_Gold['BG25_105']='BG25_105_G'
+	pass
+# 	<Entity CardID="BG25_105" ID="101433" version="2">
+# 		<Tag enumID="185" name="CARDNAME" type="LocString">
+# 			<enUS>Poetic Pen Pal</enUS>
+# 			<jaJP>詩的なペンフレンド</jaJP>
+# 		</Tag>
+# 		<Tag enumID="184" name="CARDTEXT" type="LocString">
+# 			<enUS>&lt;b&gt;Battlecry:&lt;/b&gt; Reduce the Cost of your next Buddy by (2).</enUS>
+# 			<jaJP>[x]&lt;b&gt;雄叫び:&lt;/b&gt;
+# 自分の次の
+# バディのコストを
+# （2）減らす。</jaJP>
+# 		</Tag>
+# 		<Tag enumID="45" name="HEALTH" type="Int" value="4"/>
+# 		<Tag enumID="47" name="ATK" type="Int" value="2"/>
+# 		<Tag enumID="48" name="COST" type="Int" value="2"/>
+# 		<Tag enumID="183" name="CARD_SET" type="Int" value="1453"/>
+# 		<Tag enumID="199" name="CLASS" type="Int" value="12"/>
+# 		<Tag enumID="202" name="CARDTYPE" type="Int" value="4"/>
+# 		<Tag enumID="218" name="BATTLECRY" type="Int" value="1"/>
+# 		<Tag enumID="1429" name="BACON_TRIPLE_UPGRADE_MINION_ID" type="Int" value="101434"/>
+# 		<Tag enumID="1440" name="TECH_LEVEL" type="Int" value="2"/>
+# 	</Entity>
 class BG25_105:##############################
 	""" Poetic Pen Pal (2/2/4)
 	[Battlecry:] Reduce the Cost of your next Buddy by (2)."""
