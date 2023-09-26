@@ -1198,8 +1198,10 @@ class BG_GIL_681_G:
 	pass
 
 
-########################################### check again ##############
+### 23/9/26 ###
 ## Shifter Zerus (3)
+##BG_Shifter_Zerus=((Config.BG_VERSION>=2360 and Config.BG_VERSION<2420))
+##(3) new 23.6 banned 24.2 ## revive 24.6 as a reward option## 
 if BG_Shifter_Zerus:## Shifter Zerus (3) ### hard ### banned 24.2 ## come back 24.6
 	BG_Minion += ['BGS_029','BGS_029e','TB_BaconUps_095', ]#	
 	BG_PoolSet_Minion.append('BGS_029')
@@ -1211,9 +1213,10 @@ class BGS_029_Action(TargetedAction):
 	def do(self, source, target):
 		controller = source.controller
 		card = RandomBGAdmissible(tech_level_less=controller.tavern_tier).evaluate(controller)
-		if card[0]!=[]:
-			Buff(card[0], 'BGS_029e').trigger(source)
-			card[0].zone=Zone.HAND
+		card=get00(card)
+		if card!=None:
+			Buff(card, 'BGS_029e').trigger(source)
+			card.zone=Zone.HAND
 			source.discard()
 		pass
 class BGS_029:## OK
@@ -1225,20 +1228,25 @@ class BGS_029:## OK
 		option_cardtext={GameTag.CARDTEXT:"このカードが自分の手札にある場合毎ターンこれはランダムなミニオンに変身する。"}
 	class Hand:
 		events = WhenDrawn(CONTROLLER, SELF).after(BGS_029_Action(SELF))
-class BGS_029_Action2(TargetedAction):
+class BGS_029e:
+	class Hand:
+		events = BeginBar(CONTROLLER,0).on(BGS_029_Action(OWNER))
+	pass
+class BGS_029_G_Action(TargetedAction):
 	TARGET=ActionArg()## target = owner
 	def do(self, source, target):
 		controller = source.controller
 		card = RandomBGAdmissible(tech_level_less=controller.tavern_tier).evaluate(controller)
-		if card[0]!=[]:
-			Buff(card[0], 'BGS_029e').trigger(source)
-			card[0].zone=Zone.HAND
-			target.discard()
+		card=get00(card)
+		gold_id = controller.game.parent.BG_Gold.get(card.id, 0)
+		if gold_id==0:
+			return
+		card = controller.card(gold_id)
+		card = get00(card)
+		Buff(card, 'BGS_029e').trigger(source)
+		card.zone=Zone.HAND
+		target.discard()
 		pass
-class BGS_029e:
-	class Hand:
-		events = BeginBar(CONTROLLER,0).on(BGS_029_Action2(OWNER))
-	pass
 class TB_BaconUps_095:
 	"""
 	Each turn this is in your hand, transform it into a random Golden minion."""
@@ -1247,10 +1255,14 @@ class TB_BaconUps_095:
 	elif Config.LOCALE=='jaJP':
 		option_cardtext={GameTag.CARDTEXT:"このカードが自分の手札にある場合、毎ターンこれはランダムなゴールデンミニオンに変身する。"}
 	class Hand:
-		events = WhenDrawn(CONTROLLER, SELF).after(BGS_029_Action(SELF))
+		events = WhenDrawn(CONTROLLER, SELF).after(BGS_029_G_Action(SELF))
+class TB_BaconUps_095e:
+	class Hand:
+		events = BeginBar(CONTROLLER,0).on(BGS_029_G_Action(OWNER))
+	pass
+	
 
-
-
+### 23/9/26 ###
 #Soul Juggler	3	3	5	-
 if BG_Soul_Juggler:#Soul Juggler	3	3	5	-	 	 ### maybe ### banned 26.2
 	BG_Minion += ['BGS_002','TB_BaconUps_075',]#	
@@ -1263,8 +1275,8 @@ class BGS_002:# <9>[1453] ソールジャグラー
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"After a friendly Demon dies, deal 3 damage to a random enemy minion."}	
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"xxx"}
-	events = Death(FRIENDLY + DEMON).on(Hit(RANDOM(ENEMY_MINIONS), 3))
+		option_cardtext={GameTag.CARDTEXT:"味方の悪魔が死んだ後ランダムな敵のミニオン1体に3ダメージを与える。"}
+	events = Death(FRIENDLY + DEMON).after(Hit(RANDOM(ENEMY_MINIONS), 3))
 	pass
 class TB_BaconUps_075:# <9>[1453]
 	""" Soul Juggler
@@ -1272,8 +1284,8 @@ class TB_BaconUps_075:# <9>[1453]
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"After a friendly Demon dies, deal 3 damage to a random enemy minion twice."}	
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"xxx"}
-	events = Death(FRIENDLY + DEMON).on(Hit(RANDOM(ENEMY_MINIONS), 3) * 2)
+		option_cardtext={GameTag.CARDTEXT:"味方の悪魔が死んだ後に2回、ランダムな敵のミニオン1体に3ダメージを与える。"}
+	events = Death(FRIENDLY + DEMON).after(Hit(RANDOM(ENEMY_MINIONS), 3), Hit(RANDOM(ENEMY_MINIONS), 3))
 	pass
 
 
