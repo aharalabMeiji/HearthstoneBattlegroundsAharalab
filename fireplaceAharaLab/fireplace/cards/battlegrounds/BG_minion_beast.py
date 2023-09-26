@@ -108,13 +108,13 @@ if BG26__Manasaber:#
 class BG26_800:# (minion)
 	""" Manasaber
 	[Deathrattle:] Summon two 0/1 Cublings with [Taunt]. """
-	deathrattle = Summon(CONTROLLER, 'BG26_800t') * 2
+	deathrattle = DeathrattleSummon(CONTROLLER, 'BG26_800t') * 2
 	pass
 
 class BG26_800_G:# (minion)
 	""" Manasaber
 	[Deathrattle:] Summon two 0/2 Cublings with [Taunt]. """
-	deathrattle = Summon(CONTROLLER, 'BG26_800_Gt') * 2
+	deathrattle = DeathrattleSummon(CONTROLLER, 'BG26_800_Gt') * 2
 	pass
 
 class BG26_800t:# (minion)
@@ -186,7 +186,7 @@ class BG19_010:# <12>[1453]
 	[Deathrattle:] Summon a 2/3 Turtle with [Taunt]. """
 	## <ReferencedTag enumID="217" name="DEATHRATTLE" type="Int" value="1"/>
 	tags={GameTag.DEATHRATTLE:True}
-	deathrattle = Summon(CONTROLLER, 'BG19_010t')
+	deathrattle = DeathrattleSummon(CONTROLLER, 'BG19_010t')
 	pass
 class BG19_010t:# <12>[1453]
 	""" Half-Shell
@@ -197,7 +197,7 @@ class BG19_010_G:# <12>[1453]
 	[Deathrattle:] Summon a 4/6 Turtle with [Taunt]. """
 	## <ReferencedTag enumID="217" name="DEATHRATTLE" type="Int" value="1"/>
 	tags={GameTag.DEATHRATTLE:True}
-	deathrattle = Summon(CONTROLLER, 'BG19_010_Gt')
+	deathrattle = DeathrattleSummon(CONTROLLER, 'BG19_010_Gt')
 	pass
 class BG19_010_Gt:# <12>[1453]
 	""" Half-Shell
@@ -276,7 +276,7 @@ if BG_Rat_Pack:
 class CFM_316:
 	""" Rat Pack (3/2/2)
 	[Deathrattle:] Summon a number of 1/1 Rats equal _to this minion's Attack."""
-	deathrattle = Summon(CONTROLLER, 'CFM_316t') * ATK(SELF)#
+	deathrattle = DeathrattleSummon(CONTROLLER, 'CFM_316t') * ATK(SELF)#
 	pass
 class CFM_316t:
 	""" Rat """
@@ -284,7 +284,7 @@ class CFM_316t:
 class TB_BaconUps_027:
 	""" Rat Pack (3/4/4)
 	[Deathrattle:] Summon a number of 2/2 Rats equal _to this minion's Attack."""
-	deathrattle = Summon(CONTROLLER, 'TB_BaconUps_027t') * ATK(SELF)#
+	deathrattle = DeathrattleSummon(CONTROLLER, 'TB_BaconUps_027t') * ATK(SELF)#
 	pass
 class TB_BaconUps_027t:
 	""" Rat """
@@ -459,7 +459,7 @@ if BG_Savannah_Highmane:
 class BG_EX1_534: ## ハイメイン
 	""" Savannah Highmane (4/6/5)
 	[Deathrattle:] Summon two 2/2 Hyenas."""
-	deathrattle = Summon(CONTROLLER, 'EX1_534t')
+	deathrattle = DeathrattleSummon(CONTROLLER, 'EX1_534t')
 	pass
 class BG_EX1_534t:
 	""" Hyenta	"""
@@ -467,7 +467,7 @@ class BG_EX1_534t:
 class TB_BaconUps_049:
 	""" Savannah Highmane (4/12/10)
 	[Deathrattle:] Summon two 4/4 Hyenas."""
-	deathrattle = Summon(CONTROLLER, 'TB_BaconUps_049t')
+	deathrattle = DeathrattleSummon(CONTROLLER, 'TB_BaconUps_049t')
 	pass
 class TB_BaconUps_049t:
 	""" Hyenta	"""
@@ -667,12 +667,12 @@ if BG_Ghastcoiler:
 class BGS_008:# <6>[1453]
 	""" Ghastcoiler (6/7/7)
 	[Deathrattle:] Summon 2 random [Deathrattle] minions. """
-	deathrattle = Summon(CONTROLLER, RandomCollectible(deathrattle=True)) * 2
+	deathrattle = DeathrattleSummon(CONTROLLER, RandomCollectible(deathrattle=True)) * 2
 	pass
 class TB_BaconUps_057:# <6>[1453]
 	""" Ghastcoiler (6/14/14)
 	[Deathrattle:] Summon 4 random [Deathrattle] minions. """
-	deathrattle = Summon(CONTROLLER, RandomCollectible(deathrattle=True)) * 4
+	deathrattle = DeathrattleSummon(CONTROLLER, RandomCollectible(deathrattle=True)) * 4
 	pass
 
 

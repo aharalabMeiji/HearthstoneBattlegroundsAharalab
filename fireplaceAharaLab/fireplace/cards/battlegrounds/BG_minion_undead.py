@@ -577,7 +577,7 @@ class BG25_010:# (minion)
 	""" Handless Forsaken
 	[Deathrattle:] Summon a 2/2 Hand with [Reborn]. """
 	option_tags={GameTag.ATK:2, GameTag.HEALTH:3}
-	deathrattle = Summon(CONTROLLER, 'BG25_010t')
+	deathrattle = DeathrattleSummon(CONTROLLER, 'BG25_010t')
 	pass
 class BG25_010t:# (minion)
 	""" Helping Hand
@@ -587,7 +587,7 @@ class BG25_010_G:# (minion)
 	""" Handless Forsaken
 	[Deathrattle:] Summon a 4/4 Hand with [Reborn]. """
 	option_tags={GameTag.ATK:4, GameTag.HEALTH:6}
-	deathrattle = Summon(CONTROLLER, 'BG25_010_Gt')
+	deathrattle = DeathrattleSummon(CONTROLLER, 'BG25_010_Gt')
 	pass
 class BG25_010_Gt:# (minion)
 	""" Helping Hand
@@ -787,20 +787,20 @@ class BG25_009:# (minion)
 	#>=2522: 6 Attack, 1 Health. Reborn. Deathrattle: Summon 1 Eternal Knight.
 	if Config.BG_VERSION>=2522:
 		option_tags={GameTag.ATK:6, GameTag.HEALTH:1}
-		deathrattle = Summon(CONTROLLER, 'BG25_008')
+		deathrattle = DeathrattleSummon(CONTROLLER, 'BG25_008')
 	else:
 		option_tags={GameTag.ATK:8, GameTag.HEALTH:1}
-		deathrattle = Summon(CONTROLLER, 'BG25_008')*2
+		deathrattle = DeathrattleSummon(CONTROLLER, 'BG25_008')*2
 	pass
 class BG25_009_G:# (minion)
 	""" Eternal Summoner
 	[Deathrattle:] Summon 4 Eternal Knights. """
 	if Config.BG_VERSION>=2522:
 		option_tags={GameTag.ATK:12, GameTag.HEALTH:2}
-		deathrattle = Summon(CONTROLLER, 'BG25_008')*2
+		deathrattle = DeathrattleSummon(CONTROLLER, 'BG25_008')*2
 	else:
 		option_tags={GameTag.ATK:16, GameTag.HEALTH:2}
-		deathrattle = Summon(CONTROLLER, 'BG25_008')*4
+		deathrattle = DeathrattleSummon(CONTROLLER, 'BG25_008')*4
 	pass
 
 

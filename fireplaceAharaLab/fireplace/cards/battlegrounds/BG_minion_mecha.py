@@ -84,7 +84,7 @@ if BG_Harvest_Golem:
 class BG_EX1_556:
 	"""
 	[Deathrattle:] Summon a 2/1 Damaged Golem."""
-	deathrattle = Summon(CONTROLLER, "BG_EX1_556t")
+	deathrattle = DeathrattleSummon(CONTROLLER, "BG_EX1_556t")
 	pass
 class BG_EX1_556t:
 	"""
@@ -92,7 +92,7 @@ class BG_EX1_556t:
 class TB_BaconUps_006:# <12>[1453]
 	""" Harvest Golem
 	[Deathrattle:] Summon a 4/2 Damaged Golem. """
-	deathrattle = Summon(CONTROLLER, "TB_BaconUps_006t")
+	deathrattle = DeathrattleSummon(CONTROLLER, "TB_BaconUps_006t")
 	pass
 class TB_BaconUps_006t:# <12>[1453]
 	""" Damaged Golem
@@ -212,7 +212,7 @@ class BG_BOT_312:
 	else:
 		option_tags={GameTag.ATK:3, GameTag.HEALTH:1}
 	play = Magnetic(SELF, ['BG_BOT_312e'])
-	deathrattle = Summon(CONTROLLER, 'BG_BOT_312t' ) * 3
+	deathrattle = DeathrattleSummon(CONTROLLER, 'BG_BOT_312t' ) * 3
 class BG_BOT_312e:
 	"""Replicating Menace
 	"""
@@ -224,7 +224,7 @@ class BG_BOT_312e:
 		tags = {GameTag.DEATHRATTLE:True, 
 			GameTag.ATK:3,
 			GameTag.HEALTH:1}
-	deathrattle = Summon(CONTROLLER, 'BG_BOT_312t' ) * 3
+	deathrattle = DeathrattleSummon(CONTROLLER, 'BG_BOT_312t' ) * 3
 	pass
 class BG_BOT_312t:
 	""" Microbot
@@ -238,7 +238,7 @@ class TB_BaconUps_032:# <12>[1453]
 	else:
 		option_tags={GameTag.ATK:3, GameTag.HEALTH:1}
 	play = Magnetic(SELF, ['TB_BaconUps_032e'])
-	deathrattle = Summon(CONTROLLER, 'TB_BaconUps_032t' ) * 3
+	deathrattle = DeathrattleSummon(CONTROLLER, 'TB_BaconUps_032t' ) * 3
 	pass
 class TB_BaconUps_032e:
 	if Config.BG_VERSION>=2600:
@@ -249,7 +249,7 @@ class TB_BaconUps_032e:
 		tags = {GameTag.DEATHRATTLE:True, 
 			GameTag.ATK:6,
 			GameTag.HEALTH:2}
-	deathrattle = Summon(CONTROLLER, 'TB_BaconUps_032t' ) * 3
+	deathrattle = DeathrattleSummon(CONTROLLER, 'TB_BaconUps_032t' ) * 3
 	pass
 class TB_BaconUps_032t:# <12>[1453]
 	""" Microbot
@@ -375,14 +375,14 @@ if BG_Mechano_Egg:
 class BOT_537:
 	""" Mechano-Egg
 	[Deathrattle:] Summon an 8/8 Robosaur."""
-	deathrattle = Summon(CONTROLLER, 'BOT_537t')
+	deathrattle = DeathrattleSummon(CONTROLLER, 'BOT_537t')
 class BOT_537t:
 	""" Robosaur """
 	pass
 class TB_BaconUps_039:# <5>[1453]
 	""" Mechano-Egg 
 	[Deathrattle:] Summon a 16/16 Robosaur. """
-	deathrattle = Summon(CONTROLLER, 'TB_BaconUps_039t')
+	deathrattle = DeathrattleSummon(CONTROLLER, 'TB_BaconUps_039t')
 	pass
 class TB_BaconUps_039t:
 	""" Robosaur 	"""

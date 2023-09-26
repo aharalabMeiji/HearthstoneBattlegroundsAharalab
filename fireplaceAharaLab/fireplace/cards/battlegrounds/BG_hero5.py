@@ -594,7 +594,7 @@ class TB_BaconShop_HERO_702_Buddy:
 		option_tags={GameTag.TECH_LEVEL:2, GameTag.ATK:2, GameTag.HEALTH:2}
 	else:
 		option_tags={GameTag.TECH_LEVEL:3, GameTag.ATK:3, GameTag.HEALTH:3}
-	deathrattle = Summon(CONTROLLER, RandomBGMinion(tech_level=1))*3
+	deathrattle = DeathrattleSummon(CONTROLLER, RandomBGMinion(tech_level=1))*3
 class TB_BaconShop_HERO_702_Buddy_G:
 	""" Mawsworn Soulkeeper
 	[Deathrattle:] Summon 6 random Tier 1 minions."""
@@ -602,7 +602,7 @@ class TB_BaconShop_HERO_702_Buddy_G:
 		option_tags={GameTag.TECH_LEVEL:2, GameTag.ATK:4, GameTag.HEALTH:4}
 	else:
 		option_tags={GameTag.TECH_LEVEL:3, GameTag.ATK:6, GameTag.HEALTH:6}
-	deathrattle = Summon(CONTROLLER, RandomBGMinion(tech_level=1))*6
+	deathrattle = DeathrattleSummon(CONTROLLER, RandomBGMinion(tech_level=1))*6
 	pass
 
 

@@ -627,6 +627,31 @@ if BG_Prophet_of_the_Boar:#(BG20_203)Prophet of the Boar	2	3	3
 	BG_PoolSet_Minion.append('BG20_203')
 	BG_Minion_Gold['BG20_203']='BG20_203_G'
 	pass
+# 		<Tag enumID="185" name="CARDNAME" type="LocString">
+# 			<enUS>Prophet of the Boar</enUS>
+# 			<jaJP>巨猪の預言者</jaJP>
+# 		</Tag>
+# 		<Tag enumID="184" name="CARDTEXT" type="LocString">
+# 			<enUS>&lt;b&gt;Taunt&lt;/b&gt;
+# After you play a Quilboar, get a &lt;b&gt;Blood Gem&lt;/b&gt;.</enUS>
+# 			<jaJP>[x]&lt;b&gt;挑発&lt;/b&gt;
+# キルボアを手札から
+# 使用した後、&lt;b&gt;血の宝石&lt;/b&gt;
+# 1個を得る。</jaJP>
+# 		</Tag>
+# 		<Tag enumID="32" name="TRIGGER_VISUAL" type="Int" value="1"/>
+# 		<Tag enumID="45" name="HEALTH" type="Int" value="3"/>
+# 		<Tag enumID="47" name="ATK" type="Int" value="2"/>
+# 		<Tag enumID="48" name="COST" type="Int" value="3"/>
+# 		<Tag enumID="183" name="CARD_SET" type="Int" value="1453"/>
+# 		<Tag enumID="190" name="TAUNT" type="Int" value="1"/>
+# 		<Tag enumID="199" name="CLASS" type="Int" value="12"/>
+# 		<Tag enumID="202" name="CARDTYPE" type="Int" value="4"/>
+# 		<Tag enumID="1429" name="BACON_TRIPLE_UPGRADE_MINION_ID" type="Int" value="70155"/>
+# 		<Tag enumID="1440" name="TECH_LEVEL" type="Int" value="2"/>
+# 		<Tag enumID="1845" name="1" type="Int" value="1"/>
+# 		<ReferencedTag enumID="1966" name="BLOOD_GEM" type="Int" value="1"/>
+# 	</Entity>
 class BG20_203_Action(TargetedAction):
 	TARGET = ActionArg()
 	AMOUNT = IntArg()
@@ -676,7 +701,7 @@ class BG20_203_G:# <12>[1453]
 	pass
 
 
-### 23/9/7 ###
+### 23/9/7 ###xxx
 #BG_Selfless_Hero=True##(2/2/1)
 #Selfless Hero	2	2	1	-	### OK ###
 if BG_Selfless_Hero:#Selfless Hero	2	2	1
@@ -684,6 +709,30 @@ if BG_Selfless_Hero:#Selfless Hero	2	2	1
 	BG_PoolSet_Minion.append('BG_OG_221')
 	BG_Minion_Gold['BG_OG_221']='TB_BaconUps_014'
 	pass
+# 		<Tag enumID="185" name="CARDNAME" type="LocString">
+# 			<enUS>Selfless Hero</enUS>
+# 			<jaJP>献身の英雄</jaJP>
+# 		</Tag>
+# 		<Tag enumID="184" name="CARDTEXT" type="LocString">
+# 			<enUS>&lt;b&gt;Deathrattle:&lt;/b&gt; Give a random friendly minion &lt;b&gt;Divine Shield&lt;/b&gt;.</enUS>
+# 			<jaJP>[x]&lt;b&gt;断末魔:&lt;/b&gt;
+# ランダムな味方の
+# ミニオン1体に
+# _____&lt;b&gt;聖なる盾&lt;/b&gt;を付与する。</jaJP>
+# 		</Tag>
+# 		<Tag enumID="342" name="ARTISTNAME" type="String">Rafael Zanchetin</Tag>
+# 		<Tag enumID="45" name="HEALTH" type="Int" value="1"/>
+# 		<Tag enumID="47" name="ATK" type="Int" value="2"/>
+# 		<Tag enumID="48" name="COST" type="Int" value="1"/>
+# 		<Tag enumID="183" name="CARD_SET" type="Int" value="21"/>
+# 		<Tag enumID="199" name="CLASS" type="Int" value="5"/>
+# 		<Tag enumID="202" name="CARDTYPE" type="Int" value="4"/>
+# 		<Tag enumID="203" name="RARITY" type="Int" value="3"/>
+# 		<Tag enumID="217" name="DEATHRATTLE" type="Int" value="1"/>
+# 		<Tag enumID="1429" name="BACON_TRIPLE_UPGRADE_MINION_ID" type="Int" value="58143"/>
+# 		<Tag enumID="1440" name="TECH_LEVEL" type="Int" value="2"/>
+# 		<Tag enumID="1456" name="IS_BACON_POOL_MINION" type="Int" value="1"/>
+# 		<ReferencedTag enumID="194" name="DIVINE_SHIELD" type="Int" value="1"/>
 class BG_OG_221_Action(TargetedAction):
 	TARGET = ActionArg()# controller
 	AMOUNT = IntArg()
@@ -920,7 +969,7 @@ TB_BaconUps_302e=buff(4,0)# <12>[1453]
 """ Double Armed!, +4 Attack """
 
 
-### deleted from CardDefs ### 23/9/25 ###
+### 23/9/25 ###
 if BG_Bird_Buddy:#Bird Buddy	3	2	4	-		 ### maybe ### banned 26.2
 	BG_Minion += ['BG21_002','BG21_002e','BG21_002_G','BG21_002_Ge',]#	
 	BG_PoolSet_Minion.append('BG21_002')
@@ -950,7 +999,7 @@ BG21_002_Ge=buff(2,2)# <12>[1453]
 """ Well Fed,  +2/+2. """
 
 
-### deleted from CardDefs ###  ###
+### 23/9/26  ###
 if BG_Boulderfist_Ogre:## Boulderfist Ogre(3/6/7) ### new 25.6
 	BG_Minion += ['BG_CS2_200','BG_CS2_200_G',]#	
 	BG_PoolSet_Minion.append('BG_CS2_200')
@@ -959,22 +1008,23 @@ class BG_CS2_200:
 	""" Boulderfist Ogre
 	"""
 	if Config.LOCALE=='enUS':
-		option_cardtext=0	
+		option_cardtext={GameTag.CARDTEXT:""}#vannila
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"xxx"}
+		option_cardtext={GameTag.CARDTEXT:""}#vannila
 	pass
 class BG_CS2_200_G:
 	""" Boulderfist Ogre
 	<i>Six Attack and seven Health are [already] perfect stats for the Tavern Tier!</i>"""
 	if Config.LOCALE=='enUS':
-		option_cardtext={GameTag.CARDTEXT:"<i>Six Attack and seven Health are [already] perfect stats for the Tavern Tier!</i>"}	
+		option_cardtext={GameTag.CARDTEXT:""}#vannila
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"xxx"}
+		option_cardtext={GameTag.CARDTEXT:""}#vannila
 	pass
 
 
-
-if BG_Budding_Greenthumb:#Budding Greenthumb	3	1	4	-### maybe ### ##banned 23.6
+### 23/9/26 ###
+#Budding Greenthumb	3	1	4	-
+if BG_Budding_Greenthumb:### maybe ### ##banned 23.6
 	BG_Minion += ['BG21_030','BG21_030e','BG21_030_G','BG21_030_Ge',]#	
 	BG_PoolSet_Minion.append('BG21_030')
 	BG_Minion_Gold['BG21_030']='BG21_030_G'
@@ -985,7 +1035,7 @@ class BG21_030:# <12>[1453]  栽培家
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Avenge (3):] Give adjacent minions +2/+1 permanently."}	
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"xxx"}
+		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;仇討（3）:&lt;/b&gt;隣接するミニオンに+2/+1を永続的に付与する。"}
 	events = Death(FRIENDLY).on(Avenge(SELF, 3, [BuffPermanently(SELF_ADJACENT, 'BG21_030e')]))
 	pass
 BG21_030e=buff(2,1)
@@ -993,14 +1043,15 @@ class BG21_030_G:# <12>[1453]
 	""" Budding Greenthumb
 	[Avenge (3):] Giveadjacent minions+4/+2 permanently. """
 	if Config.LOCALE=='enUS':
-		option_cardtext={GameTag.CARDTEXT:"[Avenge (3):] Giveadjacent minions+4/+2 permanently."}	
+		option_cardtext={GameTag.CARDTEXT:"[Avenge (3):] Give adjacent minions +4/+2 permanently."}	
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"xxx"}
+		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;仇討（3）:&lt;/b&gt;隣接するミニオンに+4/+2を永続的に付与する。"}
 	events = Death(FRIENDLY).on(Avenge(SELF, 3, [BuffPermanently(SELF_ADJACENT, 'BG21_030_Ge')]))
 	pass
 BG21_030_Ge=buff(4,2)
 
 
+### 23/9/26 ###
 #Faceless Disciple(3) (6/4) (BG24_719) ### OK ###
 if BG_Faceless_Disciple:#Faceless Disciple(3) 
 	BG_Minion += ['BG24_719','BG24_719_G',]#	
@@ -1010,7 +1061,7 @@ class BG24_719_Target(TargetedAction):
 	TARGET=ActionArg()
 	def do(self, source, target):
 		controller=source.controller
-		tier=min(controller.tavern_tier+1,6)
+		tier=min(target.tech_level+1,6)
 		newcard=RandomBGAdmissible(tech_level=tier).evaluate(controller)
 		Morph(target, newcard[0]).trigger(source)
 		pass
@@ -1020,14 +1071,14 @@ class BG24_719:
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Battlecry:] Transform a minion into one from a Tavern Tier higher."}	
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"xxx"}
+		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;雄叫び:&lt;/b&gt;ミニオン1体をグレードが1高いミニオンに変身させる。"}
 	requirements = {PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_MINION_TARGET:0, PlayReq.REQ_FRIENDLY_TARGET:0  }
 	play = BG24_719_Target(TARGET)
 class BG24_719_G_Target(TargetedAction):
 	TARGET=ActionArg()
 	def do(self, source, target):
 		controller=source.controller
-		tier=min(controller.tavern_tier+2,6)
+		tier=min(target.tech_level+2,6)
 		newcard=RandomBGAdmissible(tech_level=tier).evaluate(controller)
 		Morph(target, newcard[0]).trigger(source)
 		pass
@@ -1037,12 +1088,13 @@ class BG24_719_G:
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Battlecry:] Transform a minion into one from 2 Tavern Tiers higher."}	
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"xxx"}
+		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;雄叫び:&lt;/b&gt;ミニオン1体をグレードが2高いミニオンに変身させる。"}
 	requirements = {PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_MINION_TARGET:0, PlayReq.REQ_FRIENDLY_TARGET:0  }
 	play = BG24_719_G_Target(TARGET)
 
 
-
+### 23/9/26 ###
+#Houndmaster	3	4	3	-		 
 if BG_Houndmaster:#Houndmaster	3	4	3	-		 ### maybe ###
 	BG_Minion += ['BG_DS1_070','DS1_070o','TB_BaconUps_068','TB_BaconUps_068e',]#	
 	BG_PoolSet_Minion.append('BG_DS1_070')
@@ -1054,7 +1106,7 @@ class BG_DS1_070:# <3>[1453] 猟犬使い
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Battlecry:] Give a friendly Beast +2/+2 and [Taunt]."}	
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"xxx"}
+		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;雄叫び:&lt;/b&gt;味方の獣1体に[b]+2/+2と&lt;b&gt;挑発&lt;/&gt;を付与する。"}
 	requirements = {
 		PlayReq.REQ_TARGET_IF_AVAILABLE:0, PlayReq.REQ_FRIENDLY_TARGET:0,PlayReq.REQ_MINION_TARGET:0, 
 		PlayReq.REQ_TARGET_WITH_RACE:Race.BEAST }
@@ -1067,7 +1119,7 @@ class TB_BaconUps_068:# <3>[1453]
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Battlecry:] Give a friendly Beast +4/+4 and [Taunt]."}	
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"xxx"}
+		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;雄叫び:&lt;/b&gt;味方の獣1体に[b]+4/+4と&lt;b&gt;挑発&lt;/&gt;を付与する。"}
 	requirements = {
 		PlayReq.REQ_TARGET_IF_AVAILABLE:0, PlayReq.REQ_FRIENDLY_TARGET:0,PlayReq.REQ_MINION_TARGET:0, 
 		PlayReq.REQ_TARGET_WITH_RACE:Race.BEAST }
@@ -1077,11 +1129,26 @@ TB_BaconUps_068e=buff(4,4,taunt=True)# <3>[1453]
 """ Master's Presence, +4/+4 and [Taunt]. """
 
 
+### 23/9/26 ###
+#Khadgar	3	2	2	-	  	 
 if BG_Khadgar:#Khadgar	3	2	2	-	  	 ### maybe ### banned 25.2
 	BG_Minion += ['BG_DAL_575','TB_BaconUps_034',]#	
 	BG_PoolSet_Minion.append('BG_DAL_575')
 	BG_Minion_Gold['BG_DAL_575']='TB_BaconUps_034'
 	pass
+class BG_DAL_575_Action(TargetedAction):
+	TARGET = ActionArg()
+	AMOUNT = IntArg()
+	def do(self, source, target, amount):
+		controller = source.controller
+		index=0
+		if target in controller.field:
+			index=controller.field.index(target)
+			pass
+		target=get00(target)
+		for repeat in range(amount):
+			Summon(controller, target.id).trigger(source)
+			pass
 class BG_DAL_575:#カドガー
 	""" Khadgar
 	Your cards that summon minions summon twice_as_many. """
@@ -1089,8 +1156,9 @@ class BG_DAL_575:#カドガー
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"Your cards that summon minions summon twice_as_many."}	
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"xxx"}
-	events = Summon(CONTROLLER, FRIENDLY_MINIONS).after(SummonOnce(CONTROLLER, ExactCopy(Summon.CARD)))
+		option_cardtext={GameTag.CARDTEXT:"ミニオンを召喚する自分のカードは通常の2倍召喚する。"}
+	events = DeathrattleSummon(CONTROLLER, FRIENDLY + MINION).after(BG_DAL_575_Action(DeathrattleSummon.CARD, 1))
+	#events = Summon(CONTROLLER, FRIENDLY_MINIONS).after(SummonOnce(CONTROLLER, ExactCopy(Summon.CARD)))
 	pass
 class TB_BaconUps_034:# <4>[1453]
 	""" Khadgar
@@ -1098,11 +1166,14 @@ class TB_BaconUps_034:# <4>[1453]
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"Your cards that summon minions summon three times as many."}	
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"xxx"}
-	events = Summon(CONTROLLER, FRIENDLY_MINIONS).after(SummonOnce(CONTROLLER, ExactCopy(Summon.CARD))*2)
+		option_cardtext={GameTag.CARDTEXT:"ミニオンを召喚する自分のカードは通常の3倍召喚する。"}
+	events = Summon(CONTROLLER, FRIENDLY_MINIONS).after(BG_DAL_575_Action(DeathrattleSummon.CARD,2))
+	#events = Summon(CONTROLLER, FRIENDLY_MINIONS).after(SummonOnce(CONTROLLER, ExactCopy(Summon.CARD))*2)
 	pass
 
 
+
+##Nightmare Amalgam (3) 
 if BG_Nightmare_Amalgam:##Nightmare Amalgam (3) RENEW  23.2 ## banned 24.6
 	BG_Minion += ['BG_GIL_681','BG_GIL_681_G', ]#	
 	BG_PoolSet_Minion.append('BG_GIL_681')
@@ -1115,7 +1186,7 @@ class BG_GIL_681:
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"<i>This has all minion types.</i>"}	
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"xxx"}
+		option_cardtext={GameTag.CARDTEXT:"&lt;i&gt;これは全てのミニオンの種族を持つ。&lt;/i&gt;"}
 	pass
 class BG_GIL_681_G:
 	""" Nightmare Amalgam (3)
@@ -1123,10 +1194,12 @@ class BG_GIL_681_G:
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"<i>This has all minion types.</i>"}	
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"xxx"}
+		option_cardtext={GameTag.CARDTEXT:"&lt;i&gt;これは全てのミニオンの種族を持つ。&lt;/i&gt;"}
 	pass
 
 
+########################################### check again ##############
+## Shifter Zerus (3)
 if BG_Shifter_Zerus:## Shifter Zerus (3) ### hard ### banned 24.2 ## come back 24.6
 	BG_Minion += ['BGS_029','BGS_029e','TB_BaconUps_095', ]#	
 	BG_PoolSet_Minion.append('BGS_029')
@@ -1149,7 +1222,7 @@ class BGS_029:## OK
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"Each turn this is in your hand, transform it into a random minion."}	
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"xxx"}
+		option_cardtext={GameTag.CARDTEXT:"このカードが自分の手札にある場合毎ターンこれはランダムなミニオンに変身する。"}
 	class Hand:
 		events = WhenDrawn(CONTROLLER, SELF).after(BGS_029_Action(SELF))
 class BGS_029_Action2(TargetedAction):
@@ -1170,12 +1243,15 @@ class TB_BaconUps_095:
 	"""
 	Each turn this is in your hand, transform it into a random Golden minion."""
 	if Config.LOCALE=='enUS':
-		option_cardtext={GameTag.CARDTEXT:"Each turn this is in your hand, transform it into a random Golden minion."}	
+		option_cardtext={GameTag.CARDTEXT:"Each turn this  is in your hand, transform it into a random Golden minion."}	
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"xxx"}
+		option_cardtext={GameTag.CARDTEXT:"このカードが自分の手札にある場合、毎ターンこれはランダムなゴールデンミニオンに変身する。"}
+	class Hand:
+		events = WhenDrawn(CONTROLLER, SELF).after(BGS_029_Action(SELF))
 
 
 
+#Soul Juggler	3	3	5	-
 if BG_Soul_Juggler:#Soul Juggler	3	3	5	-	 	 ### maybe ### banned 26.2
 	BG_Minion += ['BGS_002','TB_BaconUps_075',]#	
 	BG_PoolSet_Minion.append('BGS_002')
@@ -2456,7 +2532,7 @@ UNG_999t4e=buff(0,3)## 岩状の甲殻 ## 体力+3
 UNG_999t3e=buff(3,0)## 炎熱の爪 ##攻撃力+3
 class UNG_999t2e:## 動き回る胞子 ##;断末魔:]1/1の植物を2体召喚する。
 	tags={GameTag.DEATHRATTLE:True}
-	deathrattle = Summon(CONTROLLER, 'UNG_999t2t1')*2
+	deathrattle = DeathrattleSummon(CONTROLLER, 'UNG_999t2t1')*2
 class UNG_999t2t1:## 植物
 	""" """
 

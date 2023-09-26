@@ -86,7 +86,7 @@ class BGS_061:# <12>[1453]
 	""" Scallywag
 	[Deathrattle:] Summon a 1/1 Pirate. It attacks immediately. """
 	deathrattle = BGS_061_Action(CONTROLLER,'BGS_061t')
-	#deathrattle = Summon(CONTROLLER, 'BGS_061t').then(BG_Attack(Summon.CARD,RANDOM_ENEMY_MINION))
+	#deathrattle = DeathrattleSummon(CONTROLLER, 'BGS_061t').then(BG_Attack(Summon.CARD,RANDOM_ENEMY_MINION))
 	pass
 class BGS_061t:# <7>[1453]
 	""" Sky Pirate,	 """

@@ -2082,6 +2082,67 @@ class Summon(TargetedAction):
 		return cards
 
 
+class DeathrattleSummon(Summon):
+	"""
+	Make player targets summon a id onto their field.
+	This works for equipping weapons as well as summoning minions.
+	TARGET = ActionArg()#CONTROLLER
+	CARD = CardArg()
+	"""
+	TARGET = ActionArg()
+	CARD = CardArg()
+
+	def _broadcast(self, entity, source, at, *args):
+		# Prevent cards from triggering off their own summon
+		if entity is args[1]:
+			return
+		return super()._broadcast(entity, source, at, *args)
+
+	def do(self, source, target, cards):
+		if target.type != CardType.PLAYER:
+			if Config.LOGINFO:
+				Config.log("Summon.do","<><><><><><><><><><><><>")
+				Config.log("Summon.do","%s is not a player, he/she cannot summon anything"% target)
+				Config.log("Summon.do","<><><><><><><><><><><><>")
+			return
+		if Config.LOGINFO:
+			Config.log("Summon.do","%s summons %r"%(target, cards))
+
+		if not isinstance(cards, list):
+			cards = [cards]
+
+		for card in cards:
+			if not hasattr(card, 'is_summonable') or not card.is_summonable():
+				continue
+			target.add_summon_log(card)
+			if card.controller != target:
+				card.controller = target
+			if card.zone != Zone.PLAY:
+				if source.type == CardType.MINION and source.zone == Zone.PLAY:
+					source_index = source.controller.field.index(source)
+					card._summon_index = source_index + ((self.trigger_index + 1) % 2)
+				card.zone = Zone.PLAY
+			self.queue_broadcast(self, (source, EventListener.ON, target, card))
+			self.broadcast(source, EventListener.AFTER, target, card)
+			# if the spells are casted by the power of another spell, we may need this line.
+			#DMF_254t_Action(card).trigger(card.controller)
+			### Eternal_Knight ### new 25.2.2
+			if card.id=='BG25_008':
+				if card.controller.eternal_knight_powered_up>0: ### Eternal_Knight
+					Buff(card, 'BG25_008pe',
+						atk=card.controller.eternal_knight_powered_up,
+						max_health=card.controller.eternal_knight_powered_up
+						).trigger(card.controller)		
+			elif card.id=='BG25_008_G':
+				if card.controller.eternal_knight_powered_up>0: ### Eternal_Knight(gold)
+					Buff(card, 'BG25_008pe',
+						atk=card.controller.eternal_knight_powered_up*2,
+						max_health=card.controller.eternal_knight_powered_up*2
+						).trigger(card.controller)		
+
+		return cards
+	
+
 class Shuffle(TargetedAction):
 	"""
 	Shuffle card targets into player target's deck.

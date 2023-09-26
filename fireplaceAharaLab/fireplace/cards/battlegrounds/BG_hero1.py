@@ -650,7 +650,7 @@ class BG22_HERO_001p_t1e:# <12>[1453]
 	""" Element: Earth (enchantment)
 	[Deathrattle:] Summon a 1/1 Elemental. """
 	tags={GameTag.DEATHRATTLE:1}
-	deathrattle = Summon(CONTROLLER,'BG22_HERO_001p_t1et')
+	deathrattle = DeathrattleSummon(CONTROLLER,'BG22_HERO_001p_t1et')
 	pass
 class BG22_HERO_001p_t1et:# <12>[1453]
 	""" Stone Elemental 	 """

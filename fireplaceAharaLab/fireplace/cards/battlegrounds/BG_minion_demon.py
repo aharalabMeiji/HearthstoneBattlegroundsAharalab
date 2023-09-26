@@ -48,7 +48,7 @@ if BG_Icky_Imp:
 class BG21_029:# <12>[1453]
 	""" Icky Imp (1)
 	[Deathrattle:] Summon two 1/1 Imps. """
-	deathrattle = Summon(CONTROLLER, 'BG_BRM_006t') * 2
+	deathrattle = DeathrattleSummon(CONTROLLER, 'BG_BRM_006t') * 2
 	pass
 class BRM_006t:#
 	""" imp (1/1)"""
@@ -56,7 +56,7 @@ class BRM_006t:#
 class BG21_029_G:# <12>[1453]
 	""" Icky Imp
 	[Deathrattle:] Summon two 2/2 Imps. """
-	deathrattle = Summon(CONTROLLER, 'TB_BaconUps_030t') * 2
+	deathrattle = DeathrattleSummon(CONTROLLER, 'TB_BaconUps_030t') * 2
 	pass
 class TB_BaconUps_030t:#
 	""" Imp (2/2)
@@ -207,12 +207,12 @@ if BG_Imprisoner:
 class BGS_014:# <12>[1453]
 	""" Imprisoner (2)
 	[Taunt][Deathrattle:] Summon a 1/1 Imp. """
-	deathrattle = Summon(CONTROLLER, 'BRM_006t')
+	deathrattle = DeathrattleSummon(CONTROLLER, 'BRM_006t')
 	pass
 class TB_BaconUps_113:# <12>[1453]
 	""" Imprisoner
 	[Taunt][Deathrattle:] Summon a 2/2 Imp. """
-	deathrattle = Summon(CONTROLLER, 'TB_BaconUps_030t')
+	deathrattle = DeathrattleSummon(CONTROLLER, 'TB_BaconUps_030t')
 	pass
 
 
@@ -515,14 +515,14 @@ if BG_Ring_Matron:
 class DMF_533:# <9>[1453]
 	""" Ring Matron (4)
 	[Taunt][Deathrattle:] Summon two 3/2 Imps. """
-	deathrattle = Summon(CONTROLLER, 'DMF_533t')*2
+	deathrattle = DeathrattleSummon(CONTROLLER, 'DMF_533t')*2
 	pass
 class DMF_533t:
 	pass
 class TB_BaconUps_309:# <9>[1453]
 	""" Ring Matron
 	[Taunt][Deathrattle:] Summontwo 6/4 Imps. """
-	deathrattle = Summon(CONTROLLER, 'TB_BaconUps_309t')*2
+	deathrattle = DeathrattleSummon(CONTROLLER, 'TB_BaconUps_309t')*2
 	pass
 class TB_BaconUps_309t:# <9>[1453]
 	""" Fiery Imp
@@ -599,7 +599,7 @@ if BG_Voidlord:
 class BG_LOOT_368:# <9>[1453]
 	""" Voidlord (5)
 	[Taunt] [Deathrattle:] Summon three 1/3 Demons with [Taunt]. """
-	deathrattle = Summon(CONTROLLER, 'CS2_065')*3
+	deathrattle = DeathrattleSummon(CONTROLLER, 'CS2_065')*3
 	pass
 class CS2_065:
 	"""  """
@@ -607,7 +607,7 @@ class CS2_065:
 class TB_BaconUps_059:# <9>[1453]
 	""" Voidlord
 	[Taunt] [Deathrattle:] Summon three2/6 Demons with [Taunt]. """
-	deathrattle = Summon(CONTROLLER, 'TB_BaconUps_059t')*3
+	deathrattle = DeathrattleSummon(CONTROLLER, 'TB_BaconUps_059t')*3
 	pass
 class TB_BaconUps_059t:# <9>[1453]
 	""" Voidwalker
