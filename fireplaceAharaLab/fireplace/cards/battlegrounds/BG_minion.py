@@ -1,3 +1,4 @@
+from pickle import NONE
 from ..utils import *
 from fireplace.battlegrounds import BG_utils
 
@@ -1203,7 +1204,7 @@ class BG_GIL_681_G:
 ##BG_Shifter_Zerus=((Config.BG_VERSION>=2360 and Config.BG_VERSION<2420))
 ##(3) new 23.6 banned 24.2 ## revive 24.6 as a reward option## 
 if BG_Shifter_Zerus:## Shifter Zerus (3) ### hard ### banned 24.2 ## come back 24.6
-	BG_Minion += ['BGS_029','BGS_029e','TB_BaconUps_095', ]#	
+	BG_Minion += ['BGS_029','BGS_029e','TB_BaconUps_095', 'TB_BaconUps_095e']#	
 	BG_PoolSet_Minion.append('BGS_029')
 	BG_Minion_Gold['BGS_029']='TB_BaconUps_095'
 	## Shifter Zerus (3) >=23.6
@@ -1292,7 +1293,9 @@ class TB_BaconUps_075:# <9>[1453]
 
 #################### TIER 4 ###################################
 
-#regions
+
+
+### 23/9/27 ###
 ### Ball of Minions(BG24_017) ### OK ### banned 26.2
 if BG_Ball_of_Minions:#Ball of Minions	4	5	5		
 	BG_Minion += ['BG24_017','BG24_017e','BG24_017_G',]#	
@@ -1305,12 +1308,14 @@ class BG24_017_Action(TargetedAction):
 	AMOUNT=IntArg()
 	def do(self, source, target, card, amount):
 		controller=source.controller
-		if isinstance(card, list):
-			card=card[0]
-		if len(controller.field):
-			for repeat in range(amount):
-				minion = random.choice(controller.field)
-				Buff(minion, 'BG24_017e', atk=card.atk, max_health=card.max_health).trigger(source)
+		card=get00(card)
+		if card==None:
+			return
+		cards = [cd for cd in controller.field]
+		if len(cards)>amount:
+			cards = random.sample(controller.field, amount)
+		for minion in cards:
+			Buff(minion, 'BG24_017e', atk=card.atk, max_health=card.max_health).trigger(source)
 		pass
 class BG24_017:
 	""" Ball of Minions (4  5  5)
@@ -1318,8 +1323,8 @@ class BG24_017:
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"When you sell this, give its stats to a random friendly minion."}	
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"xxx"}
-	events = Sell(CONTROLLER).on(BG24_017_Action(CONTROLLER, Sell.CARD, 1))
+		option_cardtext={GameTag.CARDTEXT:"これを売った時その攻撃力・体力をランダムな味方のミニオン1体に付与する。"}
+	events = Sell(CONTROLLER, SELF).after(BG24_017_Action(CONTROLLER, Sell.CARD, 1))
 class BG24_017e:
 	pass
 class BG24_017_G:
@@ -1328,12 +1333,14 @@ class BG24_017_G:
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"When you sell this, give its stats to two random friendly minions."}	
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"xxx"}
-	events = Sell(CONTROLLER).on(BG24_017_Action(CONTROLLER, Sell.CARD, 2))
+		option_cardtext={GameTag.CARDTEXT:"これを売った時その攻撃力・体力をランダムな味方のミニオン2体に付与する。"}
+	events = Sell(CONTROLLER, SELF).after(BG24_017_Action(CONTROLLER, Sell.CARD, 2))
 	pass
 
 
 
+### 23/9/27 ###
+#Champion of Y'Shaarj	4	4	4		 
 if BG_Champion_of_Y_Shaarj:#Champion of Y'Shaarj	4	4	4		 ### maybe #####banned 23.6
 	BG_Minion += ['BGS_111','BGS_111e','TB_BaconUps_301','TB_BaconUps_301e',]#	
 	BG_PoolSet_Minion.append('BGS_111')
@@ -1342,28 +1349,31 @@ if BG_Champion_of_Y_Shaarj:#Champion of Y'Shaarj	4	4	4		 ### maybe #####banned 2
 class BGS_111:# <12>[1453]  ヤシャラージュ
 	""" Champion of Y'Shaarj
 	Whenever a friendly [Taunt] minion is attacked, gain +1/+1 permanently. """
+	### revised ???? 1/1 -> 1/2 once upon a time
 	if Config.LOCALE=='enUS':
-		option_cardtext={GameTag.CARDTEXT:"Whenever a friendly [Taunt] minion is attacked, gain +1/+1 permanently."}	
+		option_cardtext={GameTag.CARDTEXT:"Whenever a friendly [Taunt] minion is attacked, gain +1/+2 permanently."}	
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"xxx"}
+		option_cardtext={GameTag.CARDTEXT:"味方の&lt;b&gt;挑発&lt;/b&gt;ミニオンが攻撃される度+1/+2を永続的に獲得する。"}
 	events = BG_Attack(ENEMY, FRIENDLY + TAUNT).on(BuffPermanently(SELF, 'BGS_111e'))
 	pass
-BGS_111e=buff(1,1)# <12>[1453]
-""" Y'Shaarj!!!,  +1/+1. """
+BGS_111e=buff(1,2)# <12>[1453]
+""" Y'Shaarj!!!,  +1/+2. """
 class TB_BaconUps_301:# <12>[1453]
 	""" Champion of Y'Shaarj
 	Whenever a friendly [Taunt] minion is attacked, gain +2/+2 permanently. """
 	if Config.LOCALE=='enUS':
-		option_cardtext={GameTag.CARDTEXT:"Whenever a friendly [Taunt] minion is attacked, gain +2/+2 permanently."}	
+		option_cardtext={GameTag.CARDTEXT:"Whenever a friendly [Taunt] minion is attacked, gain +2/+4 permanently."}	
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"xxx"}
+		option_cardtext={GameTag.CARDTEXT:"味方の&lt;b&gt;挑発&lt;/b&gt;ミニオンが攻撃される度+2/+4を永続的に獲得する。"}
 	events = BG_Attack(ENEMY, FRIENDLY + TAUNT).on(BuffPermanently(SELF, 'TB_BaconUps_301e'))
 	pass
-TB_BaconUps_301e=buff(2,2)# <12>[1453]
-""" Y'Shaarj!!!!!!,  +2/+2. """
+TB_BaconUps_301e=buff(2,4)# <12>[1453]
+""" Y'Shaarj!!!!!!,  +2/+4. """
 
 
 
+### 23/9/27 ###
+#Defender of Argus	4	3	3	 	 
 if BG_Defender_of_Argus:#Defender of Argus	4	3	3	 	 ### OK ###
 	BG_Minion += ['EX1_093','EX1_093e','TB_BaconUps_009','TB_BaconUps_009e',]#	
 	BG_PoolSet_Minion.append('EX1_093')
@@ -1375,7 +1385,7 @@ class EX1_093:# <12>[1453]   アルガス
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Battlecry:] Give adjacent minions +1/+1 and [Taunt]."}	
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"xxx"}
+		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;雄叫び:&lt;/b&gt; 隣接するミニオンに+1/+1と&lt;b&gt;挑発&lt;/b&gt;を付与する。"}
 	play = Buff(SELF_ADJACENT, 'EX1_093e')
 	pass
 EX1_093e=buff(1,1,taunt=True)
@@ -1386,33 +1396,58 @@ class TB_BaconUps_009:# <12>[1453]
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Battlecry:] Give adjacent minions +2/+2 and [Taunt]."}	
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"xxx"}
+		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;雄叫び:&lt;/b&gt;隣接するミニオンに+2/+2と&lt;b&gt;挑発&lt;/b&gt;を付与する。"}
 	play = Buff(SELF_ADJACENT, 'TB_BaconUps_009e')
 	pass
 TB_BaconUps_009e=buff(2,2,taunt=True)# <12>[1453]
 """ Hand of Argus,  +2/+2 and [Taunt]. """
 
 
+
+### 23/9/27 ###
+## Fireworks Fanatic 4  4  3
 if BG_Fireworks_Fanatic: ##(4/4/3) new 25.6
 	BG_Minion += ['BG25_922','BG25_922e','BG25_922_G','BG25_922_Ge',]#	
 	BG_PoolSet_Minion.append('BG25_922')
 	BG_Minion_Gold['BG25_922']='BG25_922_G'
 	pass
-class BG25_922: ######################################################
+class BG25_922_Action(TargetedAction):
+	TARGET=ActionArg()
+	def do(self, source, target):
+		if target.id in [minion.id for minion in source.controller.hand + source.controller.field]:
+			for minion in source.controller.field:
+				Buff(minion, 'BG25_922e').trigger(source)
+			pass
+class BG25_922: ##
 	""" Fireworks Fanatic
 	Whenever you get a minion you already have, give your minions +1/+1."""
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"Whenever you get a minion you already have, give your minions +1/+1."}	
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"xxx"}
+		option_cardtext={GameTag.CARDTEXT:"自分が既に持っているミニオンを得る度味方のミニオン全てに+1/+1を付与する。"}
+	events = [
+		Give(CONTROLLER, MINION).on(BG25_922_Action(Give.CARD)),
+		Buy(CONTROLLER, MINION).on(BG25_922_Action(Buy.CARD))
+		]
 BG25_922e=buff(1,1)
+class BG25_922_G_Action(TargetedAction):
+	TARGET=ActionArg()
+	def do(self, source, target):
+		if target.id in [minion.id for minion in source.controller.hand + source.controller.field]:
+			for minion in source.controller.field:
+				Buff(minion, 'BG25_922_Ge').trigger(source)
+			pass
 class BG25_922_G:
 	""" Fireworks Fanatic
 	Whenever you get a minion you already have, give your minions +2/+2."""
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"Whenever you get a minion you already have, give your minions +2/+2."}	
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"xxx"}
+		option_cardtext={GameTag.CARDTEXT:"自分が既に持っているミニオンを得る度味方のミニオン全てに+2/+2を付与する。"}
+	events = [
+		Give(CONTROLLER, MINION).on(BG25_922_G_Action(Give.CARD)),
+		Buy(CONTROLLER, MINION).on(BG25_922_G_Action(Buy.CARD))
+		]
 BG25_922_Ge=buff(2,2)
 
 

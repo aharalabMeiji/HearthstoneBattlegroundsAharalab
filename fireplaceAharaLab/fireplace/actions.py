@@ -4003,7 +4003,6 @@ class Sell(TargetedAction):
 		for c in controller.field:
 			if c==card:
 				self.broadcast(source, EventListener.ON, target, card)
-				self.broadcast(source, EventListener.AFTER, target, card)
 				card.zone=Zone.GRAVEYARD
 				controller.game.refresh_auras()## refresh aura_buff
 				if card.data.tags.get(1587):
@@ -4011,6 +4010,7 @@ class Sell(TargetedAction):
 				else:
 					controller.used_mana -= 1
 				controller.sells_in_this_turn+=1
+				self.broadcast(source, EventListener.AFTER, target, card)
 				return
 		pass
 
