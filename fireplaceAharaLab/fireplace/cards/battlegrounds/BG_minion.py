@@ -422,13 +422,8 @@ if BG_Menagerie_Mug:#Menagerie Mug	2	2	2 ###
 # 			<jaJP>ミナジェリのマグ</jaJP>
 # 		</Tag>
 # 		<Tag enumID="184" name="CARDTEXT" type="LocString">
-# 			<enUS>[x]&lt;b&gt;Battlecry:&lt;/b&gt; Give 3 random
-# friendly minions of different
-# minion types +1/+1.</enUS>
-# 			<jaJP>[x]&lt;b&gt;雄叫び:&lt;/b&gt;
-# 異なる種族のランダムな
-# 味方のミニオン3体に
-# +1/+1を付与する。</jaJP>
+# 			<enUS>[x]&lt;b&gt;Battlecry:&lt;/b&gt; Give 3 random# friendly minions of different# minion types +1/+1.</enUS>
+# 			<jaJP>[x]&lt;b&gt;雄叫び:&lt;/b&gt;# 異なる種族のランダムな# 味方のミニオン3体に# +1/+1を付与する。</jaJP>
 # 		</Tag>
 # 		<Tag enumID="45" name="HEALTH" type="Int" value="2"/>
 # 		<Tag enumID="47" name="ATK" type="Int" value="2"/>
@@ -1451,6 +1446,8 @@ class BG25_922_G:
 BG25_922_Ge=buff(2,2)
 
 
+### 23/9/27 ###
+#Impatient Doomsayer	4	2	6	
 if BG_Impatient_Doomsayer:#Impatient Doomsayer	4	2	6	### maybe ### banned 26.2
 	BG_Minion += ['BG21_007','BG21_007_G',]#	
 	BG_PoolSet_Minion.append('BG21_007')
@@ -1463,7 +1460,7 @@ class BG21_007:# <12>[1453]  終魔通予言者
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Avenge (4):] Add a random Demon to your hand."}	
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"xxx"}
+		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;仇討（4）:&lt;/b&gt;ランダムな悪魔1体を_自分の手札に追加する。"}
 	events = Death(FRIENDLY).on(Avenge(SELF, 4, [GiveInBattle(CONTROLLER, RandomBGDemon())]))
 	pass
 class BG21_007_G:# <12>[1453]
@@ -1472,12 +1469,14 @@ class BG21_007_G:# <12>[1453]
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Avenge (4):] Add 2 random Demons to your hand."}	
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"xxx"}
+		option_cardtext={GameTag.CARDTEXT:"]&lt;b&gt;仇討（4）:&lt;/b&gt;ランダムな悪魔2体を_自分の手札に追加する。"}
 	events = Death(FRIENDLY).on(Avenge(SELF, 4, [GiveInBattle(CONTROLLER, RandomBGDemon()), GiveInBattle(CONTROLLER, RandomBGDemon())]))
 	pass
 
 
 
+### 23/9/27 ###
+#Majordomo Executus	4	6	3		 
 if BG_Majordomo_Executus:#Majordomo Executus	4	6	3		 ### OK ###
 	BG_Minion += ['BGS_105','BGS_105e','TB_BaconUps_207',]#	
 	BG_PoolSet_Minion.append('BGS_105')
@@ -1504,7 +1503,7 @@ class BGS_105:# <12>[1453]
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"At the end of your turn, give your left-most minion +1/+1. Repeat for each Elementalyou played this turn."}	
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"xxx"}
+		option_cardtext={GameTag.CARDTEXT:"自分のターンの終了時味方の一番左のミニオンに+1/+1を付与する。このターンに手札から使用したエレメンタルの数だけ繰り返す。"}
 	events = OWN_TURN_END.on(BGS_105_Action(CONTROLLER))
 	pass
 class BGS_105e:# <12>[1453]
@@ -1531,10 +1530,12 @@ class TB_BaconUps_207:# <12>[1453]
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"At the end of your turn, giveyour left-most minion +2/+2.Repeat for each Elementalyou played this turn."}	
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"xxx"}
+		option_cardtext={GameTag.CARDTEXT:"自分のターンの終了時味方の一番左のミニオンに+2/+2を付与する。このターンに手札から使用したエレメンタルの数だけ繰り返す。"}
 	events = OWN_TURN_END.on(TB_BaconUps_207_Action(CONTROLLER))
 
 
+
+### 23/9/27 ###
 #Master of Realities(4)	 ### maybe ### banned 26.2
 if BG_Master_of_Realities:
 	BG_Minion += ['BG21_036','BG21_036e','BG21_036_G','BG21_036_Ge',]#	
@@ -1546,7 +1547,7 @@ class BG21_036_Action(TargetedAction):
 	TARGET = ActionArg()
 	BUFF = ActionArg()
 	def do(self, source, target, buff):
-		if buff.id!='BG21_036e':
+		if buff.id!='BG21_036e' and buff.id!='BG21_036_Ge':
 			if buff.atk>0 or buff.max_health>0:
 				Buff(source, 'BG21_036e').trigger(source)
 class BG21_036:# <12>[1453] 多重現実の支配者
@@ -1554,16 +1555,12 @@ class BG21_036:# <12>[1453] 多重現実の支配者
 	[[Taunt].] After a friendly Elemental gains stats, gain +1/+1. """
 	if Config.BG_VERSION>= 2522:
 		option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:4, GameTag.HEALTH:4}
-		if Config.LOCALE=='enUS':
-			option_cardtext={GameTag.CARDTEXT:"[[Taunt].] After a friendly Elemental gains stats, gain +1/+1."}
-		elif Config.LOCALE=='jaJP':
-			option_cardtext={GameTag.CARDTEXT:"xxx"}
 	else:
 		option_tags={GameTag.TECH_LEVEL:5, GameTag.ATK:6, GameTag.HEALTH:6}
-		if Config.LOCALE=='enUS':
-			option_cardtext={GameTag.CARDTEXT:"[[Taunt].] After a friendly Elemental gains stats, gain +1/+1."}
-		elif Config.LOCALE=='jaJP':
-			option_cardtext={GameTag.CARDTEXT:"xxx"}
+	if Config.LOCALE=='enUS':
+		option_cardtext={GameTag.CARDTEXT:"[[Taunt].] After a friendly Elemental gains stats, gain +1/+1."}
+	elif Config.LOCALE=='jaJP':
+		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;挑発&lt;/b&gt;味方のエレメンタルが攻撃力か体力を獲得した後+1/+1を獲得する。"}
 	events = Buff(FRIENDLY + ELEMENTAL).on(BG21_036_Action(SELF, Buff.BUFF))
 	pass
 BG21_036e=buff(1,1)
@@ -1571,7 +1568,7 @@ class BG21_036_G_Action(TargetedAction):
 	TARGET = ActionArg()
 	BUFF = ActionArg()
 	def do(self, source, target, buff):
-		if buff.id!='BG21_036e':
+		if buff.id!='BG21_036e' and buff.id!='BG21_036_Ge':
 			if buff.atk>0 or buff.max_health>0:
 				Buff(source, 'BG21_036_Ge').trigger(source)
 class BG21_036_G:# <12>[1453]
@@ -1579,16 +1576,12 @@ class BG21_036_G:# <12>[1453]
 	[[Taunt].] After a friendly Elemental gains stats, gain +2/+2. """
 	if Config.BG_VERSION>= 2522:
 		option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:8, GameTag.HEALTH:8}
-		if Config.LOCALE=='enUS':
-			option_cardtext={GameTag.CARDTEXT:"[[Taunt].] After a friendly Elemental gains stats, gain +2/+2."}
-		elif Config.LOCALE=='jaJP':
-			option_cardtext={GameTag.CARDTEXT:"xxx"}
 	else:
 		option_tags={GameTag.TECH_LEVEL:5, GameTag.ATK:12, GameTag.HEALTH:12}
-		if Config.LOCALE=='enUS':
-			option_cardtext={GameTag.CARDTEXT:"[[Taunt].] After a friendly Elemental gains stats, gain +2/+2."}
-		elif Config.LOCALE=='jaJP':
-			option_cardtext={GameTag.CARDTEXT:"xxx"}
+	if Config.LOCALE=='enUS':
+		option_cardtext={GameTag.CARDTEXT:"[[Taunt].] After a friendly Elemental gains stats, gain +2/+2."}
+	elif Config.LOCALE=='jaJP':
+		option_cardtext={GameTag.CARDTEXT:"[x]&lt;b&gt;挑発&lt;/b&gt;味方のエレメンタルが攻撃力か体力を獲得した後+2/+2を獲得する。"}
 	events = Buff(FRIENDLY + ELEMENTAL).on(BG21_036_G_Action(SELF, Buff.BUFF))
 	pass
 BG21_036_Ge=buff(2,2)# <12>[1453]
@@ -1596,6 +1589,8 @@ BG21_036_Ge=buff(2,2)# <12>[1453]
 
 
 
+### 23/9/28 ###
+#Menagerie Jug	4	3	3	-		 
 if BG_Menagerie_Jug:#Menagerie Jug	4	3	3	-		 ### maybe ###
 	BG_Minion += ['BGS_083','BGS_083e','TB_BaconUps_145','TB_BaconUps_145e',]#	
 	BG_PoolSet_Minion.append('BGS_083')
@@ -1607,8 +1602,8 @@ class BGS_083:# <12>[1453] ミナジェリ
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Battlecry:] Give 3 random friendly minions of different minion types +2/+2."}	
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"xxx"}
-	play = BGS_082_Action(CONTROLLER,'BGS_083e')
+		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;雄叫び:&lt;/b&gt;異なる種族のランダムな味方のミニオン3体に+2/+2を付与する。"}
+	play = BGS_082_Action(CONTROLLER,'BGS_083e')## Method of 'Menagerie_Mug'
 	pass
 BGS_083e=buff(2,2)# <12>[1453]
 """ Gulp of Tea,  +2/+2. """
@@ -1618,7 +1613,7 @@ class TB_BaconUps_145:# <12>[1453]
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Battlecry:] Give 3 randomfriendly minions of differentminion types +4/+4."}	
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"xxx"}
+		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;雄叫び:&lt;/b&gt;異なる種族のランダムな味方のミニオン3体に+4/+4を付与する。"}
 	play = BGS_082_Action(CONTROLLER,'TB_BaconUps_145e')
 	pass
 TB_BaconUps_145e=buff(4,4)# <12>[1453]
