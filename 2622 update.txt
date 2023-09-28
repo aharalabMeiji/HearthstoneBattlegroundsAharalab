@@ -1,2 +1,158 @@
 2622 updates
 
+Battlegrounds Updates
+Armor Updates
+Master Nguyen’s Armor was reduced to 8.
+E.T.C., Band Manager’s Armor was reduced to 10.
+Patches the Pirate’s Armor was reduced to 10 in higher ranked lobbies; it is still 5 in lower ranked lobbies.
+Hero Updates
+E.T.C., Band Manager (Sign a New Artist)
+
+Old: [4 Gold]
+New: [3 Gold]
+
+
+Minion Updates
+Upbeat Frontdrake
+
+Old: 2 Attack, 1 Health
+New: 1 Attack, 1 Health
+
+
+Low-Flier
+
+Old: At the end of your turn, give +2 Attack to your minions with less Attack than this.
+New: At the end of your turn, give +1 Attack to your minions with less Attack than this.
+
+
+Reef Riffer
+
+Old: 1 Attack, 3 Health
+New: 1 Attack, 2 Health
+
+
+Molten Rock
+
+Old: 2 Attack, 4 Health
+New: 3 Attack, 4 Health
+
+
+Flourishing Frostling
+
+Old: 0 Attack, 4 Health
+New: 0 Attack, 5 Health
+
+
+Scourfin
+
+Old: 6 Attack, 3 Health
+New: 3 Attack, 3 Health
+
+
+Radio Star
+
+Old: 3 Attack, 1 Health
+New: 2 Attack, 1 Health
+
+
+Pufferquil
+
+Old: [Tavern Tier 4]
+New: [Tavern Tier 3]
+
+
+Banana Slamma
+
+Old: [Tavern Tier 3]
+New: [Tavern Tier 4]
+
+
+Upbeat Duo
+
+Old: 4 Attack, 2 Health. Battlecry: Choose a minion. At the end of every 2 turns, this gives you a plain copy.
+New: 4 Attack, 4 Health. At the end of every 2 turns, get a plain copy of the minion to the left of this.
+
+
+Reanimating Rattler
+
+Old: 5 Attack, 3 Health. Battlecry: Give a friendly Beast Reborn.
+New: 4 Attack, 3 Health. At the end of your turn, give another friendly Beast Reborn.
+
+
+Dev Comment: This change to Reanimating Rattler was not made for power level reasons, but to avoid an unintended interaction with Rylak Metalhead and Monstrous Macaw.
+
+Peggy Sturdybone
+
+Old: 6 Attack, 5 Health
+New: 4 Attack, 2 Health
+
+
+Dancing Barnstormer
+
+Old: 4 Attack, 2 Health. Deathrattle: Elementals in Bob’s Tavern have +2/+2 for the rest of the game.
+New: 3 Attack, 2 Health. Deathrattle: Elementals in Bob’s Tavern have +3/+2 for the rest of the game.
+
+
+Electric Synthesizer
+
+Old: [Tavern Tier 5] Battlecry: Give your other Dragons +4 Attack.
+New: [Tavern Tier 4] Battlecry: Give your other Dragons +3 Attack.
+
+
+General Drakkisath
+
+Old: [Tavern Tier 4]
+New: [Tavern Tier 5]
+
+
+Underhand Dealer
+
+Old: [Tavern Tier 4] 2 Attack, 2 Health
+New: [Tavern Tier 5] 4 Attack, 4 Health
+
+
+Mama Bear
+
+Old: 5 Attack, 5 Health. Whenever you summon a Beast, give it +5/+5.
+New: 4 Attack, 4 Health. Whenever you summon a Beast, give it +4/+4.
+
+
+Record Smuggler
+
+Old: 7 Attack, 6 Health
+New: 5 Attack, 4 Health
+
+
+Gusty Trumpeter
+
+Old: After you sell 6 Elementals, get another random Elemental.
+New: After you sell 5 Elementals, get another random Elemental.
+
+
+Kalecgos, Arcane Aspect
+
+Old: 4 Attack, 12 Health
+New: 2 Attack, 10 Health
+
+
+Nadina the Red
+
+Old: 7 Attack, 4 Health. Deathrattle: Give your Dragons Divine Shield.
+New: 8 Attack, 4 Health. Deathrattle: Give 3 friendly Dragons Divine Shield.
+
+
+Rock Rock
+
+Old: After you play an Elemental, give your minions +1 Attack. (Swaps to Health next turn.)
+New: After you play an Elemental, give your other minions +2 Attack. (Swaps to Health next turn.)
+
+
+Zapp Slywick
+
+Old: 7 Attack, 10 Health
+New: 8 Attack, 16 Health
+
+
+Minion Pool Changes
+Monstrous Macaw has been returned to the minion pool.
+Sin’dorei Straight Shot is now available in all lobbies (not just Undead lobbies).

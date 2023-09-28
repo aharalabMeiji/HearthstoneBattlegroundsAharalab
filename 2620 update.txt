@@ -1,6 +1,557 @@
 2620 update 
 
+Battlegrounds Season 4 is Here
+Are you ready to put the “band” in your warband?! Battlegrounds Season 4 is headlined by the new Rock Master Voone Hero, the new Venomous keyword, and a massive minion remix to Battlegrounds!
 
+
+
+General Updates
+On May 9, Battlegrounds Season 3 will end and Season 4 will begin. That means rankings will reset, Battlegrounds Buddies will be removed, minion pools will update, and the Battlegrounds Track will switch over. All rewards that were earned from the Season 3 Track, but not yet claimed, will automatically be claimed.
+Minion types will be rolled out in phases for Season 4. On May 9, only six types will be eligible in all games: Beasts, Murlocs, Dragons, Elementals, Naga, and Undead. On May 11, Pirates will be added to the pool of eligible types. On May 15, Demons will be added to the pool of eligible types. Finally, on May 22, Quilboar and Mechs will be added to the pool of eligible types.
+New Hero
+Rock Master Voone
+
+Upbeat Harmony
+Passive. At the end of every 3 turns, get a plain copy of the left-most card in your hand.
+
+
+Rock Master Voone will be available in all lobbies for two weeks after Patch 26.2.
+
+Hero Updates
+Lady Vashj (Relics of the Deep)
+
+
+
+Old: Discover a Spellcraft spell of your Tier or lower. Passive: Your first one each turn is permanent.
+New: Discover a Spellcraft spell of your Tier or lower. Its effect is permanent.
+Lich Baz’hial (Graveyard Shift)
+
+
+
+Old: [0 Gold] Take 4 damage. Gain 2 Gold.
+New: [1 Gold] Steal a minion in Bob’s Tavern. Take damage equal to its Tavern Tier.
+Shudderwock
+
+No longer banned in Beast lobbies.
+N’Zoth
+
+No longer banned in any lobbies.
+Mutanus
+
+Now banned in Naga lobbies.
+Vol’jin
+
+Now banned in Naga lobbies.
+
+
+Updated Armor Tiers
+All Armor Tiers at the launch of Patch 26.2 will be as follows:
+
+Hero Name	Armor	Armor (At Higher Levels)*
+Captain Hooktusk	15	10
+Millhouse Manastorm	10	8
+Master Nguyen	10	-
+Forest Warden Omu	10	-
+Galewing	8	-
+Mutanus the Devourer	10	13
+Ysera	5	8
+Arch-Villain Rafaam	10	-
+Cookie the Cook	8	-
+Scabbs Cutterbutter	10	-
+Trade Prince Gallywix	10	5
+The Lich King	10	-
+Sire Denathrius	10	-
+Vanndar Stormpike	10	-
+Murloc Holmes	10	-
+Silas Darkmoon	12	-
+Tamsin Roame	16	-
+Pyramad	14	-
+The Rat King	9	-
+Vol’jin	15	10
+Elise Starseeker	10	-
+George the Fallen	17	-
+Xyrella	15	10
+Lady Vashj	10	-
+Maiev Shadowsong	18	10
+C’Thun	10	17
+Rokara	15	-
+Tickatus	14	-
+Varden Dawngrasp	9	-
+N’Zoth	17	-
+Death Speaker Blackthorn	14	-
+Ini Stormcoil	8	10
+Al’Akir	13	-
+Lord Barov	19	10
+Jandice Barov	12	-
+Dancin’ Deryl	18	15
+The Great Akazamzarak	13	-
+Lich Baz’hial	10	-
+Patchwerk	0	-
+Sir Finley Mrrgglton	10	-
+Galakrond	18	-
+Guff Runetotem	10	15
+Tess Greymane	14	-
+Millificent Manastorm	10	15
+Deathwing	18	14
+Cariel Roame	10	14
+Reno Jackson	15	-
+Fungalmancer Flurgl	8	10
+Professor Putricide	10	-
+Yogg-Saron, Hope’s End	12	-
+Nozdormu	15	-
+Shudderwock	10	-
+Patches the Pirate	5	14
+Heistbaron Togwaggle	10	-
+Malygos	10	-
+Dinotamer Brann	13	-
+Skycap’n Kragg	15	-
+Sylvanas Windrunner	14	-
+Infinite Toki	10	-
+The Jailer	15	-
+Lord Jaraxxus	10	16
+Drek’Thar	16	-
+Enhance-o-Mechano	15	-
+Ozumat	15	-
+Ragnaros the Firelord	10	15
+Y’Shaarj	13	-
+Kael’thas Sunstrider	15	-
+Sneed	17	-
+Onyxia	14	-
+Alexstrasza	10	-
+Ambassador Faelin	12	-
+Bru’kan	12	-
+Zephrys, the Great	13	-
+Edwin VanCleef	19	-
+Rakanishu	14	-
+Queen Azshara	13	-
+Chenvaala	12	16
+Tavish Stormpike	15	-
+Captain Eudora	15	-
+Greybough	16	-
+Illidan Stormrage	17	-
+Sindragosa	18	-
+Mr. Bigglesworth	18	-
+Kurtrus Ashfallen	17	15
+Queen Wagtoggle	16	-
+Overlord Saurfang	19	-
+Aranna Starseeker	14	10
+A.F. Kay	18	-
+King Mukla	14	18
+The Curator	18	-
+Teron Gorefiend	10	12
+E.T.C., Band Manager	10	-
+Rock Master Voone	10	-
+* Some Heroes have high winrate disparities between lower-MMR and higher-MMR players. To account for this, some heroes are given an alternative Armor value, depending on the average play level of the lobby you’re in. Any hero that only lists one Armor amount has that same Armor at all levels of play.
+
+Keyword Updates: Poisonous, Venomous, Windfury, and Magnetic
+Poisonous has been removed from Battlegrounds. A new Battlegrounds keyword, Venomous, will take its place! Venomous is like Poisonous except that only the first minion that is damaged by a Venomous minion each combat is instantly destroyed.
+
+Mega-Windfury has also been removed from Battlegrounds. Now, when a Windfury minion is tripled, it will still have Windfury. This change is to make Windfury more in line with other keywords and to open up more design space in the future.
+
+Finally, you can now Magnetize to your Mechs even if you have a full board (this change applies to all Modes, not just Battlegrounds). This change was made to make Mech games smoother by removing negative play experiences; it also lets us focus more on Magnetic with this update.
+
+New Minions
+Mistake [Tier 1, All]
+
+1 Attack, 3 Health.
+
+
+Incorporeal Corporal [Tier 1, Undead]
+
+5 Attack, 5 Health. After this minion attacks, destroy it.
+
+
+Southsea Busker [Tier 1, Pirate]
+
+3 Attack, 1 Health. Battlecry: Gain 1 Gold next turn.
+
+
+Manasaber [Tier 1, Beast]
+
+4 Attack, 1 Health. Deathrattle: Summon two 0/1 Cublings with Taunt.
+
+
+Upbeat Frontdrake [Tier 1, Dragon]
+
+2 Attack, 1 Health. At the end of every 3 turns, get another random Dragon.
+
+
+Low-Flier [Tier 2, Dragon]
+
+3 Attack, 2 Health. At the end of your turn, give +2 Attack to all your minions with less Attack than this.
+
+
+Humming Bird [Tier 2, Beast]
+
+0 Attack, 3 Health. Your other Beasts have +2 Attack.
+
+
+Backstage Security [Tier 2, Demon]
+
+4 Attack, 6 Health. At the start of your turn, deal 1 damage to your hero.
+
+
+Soul Rewinder [Tier 2, Demon]
+
+3 Attack, 1 Health. After your hero takes damage, rewind it and give this +1 Health.
+
+
+Lullabot [Tier 2, Mech]
+
+2 Attack, 2 Health. Magnetic. At the end of your turn, gain +1/+1.
+
+
+Upbeat Flutist [Tier 2, Murloc]
+
+2 Attack, 5 Health. At the end of every 2 turns, give a random minion in your hand +9 Health.
+
+
+Flourishing Frostling [Tier 2, Elemental]
+
+0 Attack, 4 Health. Has +1 Attack for each Elemental you’ve played this game (wherever this is).
+
+
+Reef Riffer [Tier 2, Naga]
+
+1 Attack, 3 Health. Spellcraft: Give a minion stats equal to your Tavern Tier until next turn.
+
+
+Zesty Shaker [Tier 3, Naga]
+
+3 Attack, 4 Health. Once per Turn: After you cast Spellcraft spell on this, add a new copy of it to your hand.
+
+
+Scourfin [Tier 3, Murloc]
+
+6 Attack, 3 Health. Deathrattle: Give a random minion in your hand +5/+5.
+
+
+Accord-o-Tron [Tier 3, Mech]
+
+2 Attack, 3 Health. Magnetic. At the start of your turn, gain 1 extra Gold.
+
+
+Malchezaar, Prince of Dance [Tier 3, Demon]
+
+5 Attack, 2 Health. 2 Refreshes each turn cost Health instead of Gold.
+
+
+Keyboard Igniter [Tier 3, Demon]
+
+4 Attack, 2 Health. Battlecry: If you’ve taken damage since last turn, give your other Demons +1/+2.
+
+
+Rylak Metalhead [Tier 3, Beast]
+
+3 Attack, 4 Health. Taunt. Deathrattle: Trigger the Battlecries of adjacent minions.
+Dev Comment: Reminder that buffs awarded in combat are not permanent.
+
+
+Banana Slamma [Tier 3, Beast]
+
+2 Attack, 5 Health. After you summon a Beast in combat, double its stats.
+
+
+Moon-Bacon Jazzer [Tier 3, Quilboar]
+
+2 Attack, 5 Health. Battlecry: For the rest of the game, your Blood Gems give an extra +1 Health.
+
+
+Gunpowder Courier [Tier 3, Pirate]
+
+2 Attack, 4 Health. After you spend 5 Gold, give you Pirates +1 Attack.
+
+
+Radio Star [Tier 3, Undead]
+
+3 Attack, 1 Health. Deathrattle: Add a plain copy of the minion that killed this to your hand.
+
+
+Xylo Bones [Tier 4, Undead]
+
+5 Attack, 1 Health. After you summon a minion in combat, gain +3 Health permanently.
+
+
+Lovesick Balladist [Tier 4, Pirate]
+
+3 Attack, 4 Health. Battlecry: Give a Pirate +1 Health for each Gold spent this turn.
+
+
+Underhanded Dealer [Tier 4, Pirate]
+
+2 Attack, 2 Health. After you gain Gold, gain +1/+1.
+
+
+Blade Collector [Tier 4, Pirate]
+
+3 Attack, 2 Health. Also damages the minions next to whomever this attacks.
+
+
+Prickly Piper [Tier 4, Quilboar]
+
+6 Attack, 3 Health. Deathrattle: For the rest of the game, your Blood Gems give an extra +1 Attack.
+
+
+Upbeat Duo [Tier 4]
+
+4 Attack, 2 Health. Battlecry: Choose a minion. At the end of every 2 turns, this gives you a plain copy.
+
+
+Plagued Tidewalker [Tier 4, Murloc/Undead]
+
+2 Attack, 7 Health. Venomous.
+
+
+Scrap Scraper [Tier 4, Mech]
+
+3 Attack, 6 Health. Avenge (4): Get a random Magnetic Mech.
+
+
+Bassgill [Tier 4, Murloc]
+
+6 Attack, 2 Health. Deathrattle: Summon the highest Health minion from your hand for this combat only.
+
+
+Bream Counter [Tier 4, Murloc]
+
+4 Attack, 4 Health. While this is in your hand, after you play a Murloc, gain +3/+2.
+
+
+Dancing Barnstormer [Tier 4, Elemental]
+
+4 Attack, 2 Health. Deathrattle: Elementals in Bob’s Tavern have +2/+2 for the rest of the game.
+
+
+Upbeat Upstart [Tier 4, Elemental]
+
+4 Attack, 4 Health. Taunt. At the end of every 2 turns, set this minion’s Health to the highest in your warband.
+
+
+Deep Blue Crooner [Tier 4, Naga]
+
+2 Attack, 2 Health. Spellcraft: Give a minion +1/+1 until next turn. Improve your future Deep Blues.
+
+
+Silent Swimmer [Tier 4, Naga]
+
+5 Attack, 3 Health. Spellcraft: Give a minion +3/+5 and Stealth until next turn.
+
+
+Stormbringer [Tier 4, Dragon]
+
+1 Attack, 7 Health. After a different friendly Dragon gains Attack, this also gains it.
+
+
+Disco Shuffler [Tier 5, Dragon]
+
+4 Attack, 3 Health. Choose One – Trigger a friendly minion’s Battlecry; or Discover a Battlecry minion.
+
+
+Sanctum Rester [Tier 5, Dragon]
+
+5 Attack, 5 Health. Start of Combat: Give your other Dragons +8 Health.
+
+
+Electric Synthesizer [Tier 5, Dragon]
+
+3 Attack, 7 Health. Battlecry: Give your other Dragons +4 Attack.
+
+
+Gusty Trumpeter [Tier 5, Elemental]
+
+4 Attack, 5 Health. After you sell 6 Elementals, get another random Elemental.
+
+
+Operatic Belcher [Tier 5, Murloc]
+
+5 Attack, 2 Health. Venomous. Deathrattle: Give a friendly Murloc Venomous.
+
+
+Utility Drone [Tier 5, Mech]
+
+4 Attack, 5 Health. At the end of your turn, give your minions +1/+1 for each Magnetization they have.
+
+
+Drakkari Enchanter [Tier 5]
+
+1 Attack, 5 Health. Your end of turn effects trigger twice.
+
+
+Imposing Percussionist [Tier 5, Demon]
+
+6 Attack, 6 Health. Battlecry: Discover a Demon and deal damage to your hero equal to its Tavern Tier.
+
+
+Tichondrius [Tier 5, Demon]
+
+4 Attack, 4 Health. After your hero takes damage, give your other Demons +1/+1.
+
+
+Bongo Bopper [Tier 5, Quilboar]
+
+5 Attack, 5 Health. At the end of your turn, get a Blood Gem and play 2 more on this.
+
+
+Record Smuggler [Tier 5, Pirate]
+
+7 Attack, 6 Health. At the start of your turn, gain 1 Gold. Repeat for each other friendly Pirate.
+
+
+Upbeat Impressionist [Tier 5, Pirate]
+
+8 Attack, 4 Health. At the end of every 2 turns, make a Pirate in your hand Golden.
+
+
+The Boogie Monster [Tier 6]
+
+3 Attack, 8 Health. After you play a Tier 1 minion, progress to the next Tier and give your minions +1/+2.
+Dev Comment: This caps at Tier 6, at which point you need to keep playing Tier 6 minions to get the effect.
+
+
+Octosari, Wrap God [Tier 6, Beast]
+
+6 Attack, 7 Health. Deathrattle: Summon a 2/2 Tentacle. (Gains +2/+2 permanently after you summon a minion in combat!)
+
+
+Polarizing Beatboxer [Tier 6, Mech]
+
+3 Attack, 7 Health. Whenever you Magnetize another minion, it also Magnetizes to this.
+
+
+Choral Mrrrglr [Tier 6, Murloc]
+
+6 Attack, 6 Health. Start of Combat: Gain the stats of all minions in your hand.
+
+
+Rock Rock [Tier 6, Elemental]
+
+4 Attack, 4 Health. After you play an Elemental, give your minions +2 Attack. (Swaps to Health next turn.)
+
+
+Elemental of Surprise [Tier 6, Elemental]
+
+8 Attack, 8 Health. Divine Shield. This minion can triple with any Elemental.
+
+
+Bristlebach [Tier 6, Quilboar]
+
+2 Attack, 10 Health. Avenge (1): Play a Blood Gem on all your Quilboar.
+
+
+Fleet Admiral Tethys [Tier 6, Pirate]
+
+5 Attack, 6 Health. After you spend 8 Gold, get another random Pirate.
+
+
+Minion Updates
+Wrath Weaver
+
+Old: 1 Attack, 3 Health. After you play a Demon, deal 1 damage to your hero and gain +2/+2.
+New: 1 Attack, 4 Health. After you play a Demon, deal 1 damage to your hero and gain +2/+1.
+
+
+Tad
+
+Old: 2 Attack, 4 Health.
+New: 2 Attack, 2 Health.
+
+
+Snail Cavalry
+
+Old: 4 Attack, 2 Health.
+New: 5 Attack, 2 Health.
+
+
+Deep Sea Angler
+
+Old: Spellcraft: Give a minion +3 Health and Taunt until next turn.
+New: Spellcraft: Give a minion +4 Health and Taunt until next turn.
+
+
+Thorncaller
+
+Old: [Tier 3] 4 Attack, 3 Health. Battlecry and Deathrattle: Get a Blood Gem.
+New: [Tier 2] 3 Attack, 2 Health. Deathrattle: Get a Blood Gem.
+
+
+Ripsnarl Captain
+
+Old: [Tier 4] 4 Attack, 6 Health. Whenever another friendly Pirate attacks, give it +3/+3.
+New: [Tier 2] 2 Attack, 4 Health. Whenever a friendly Pirate attacks, give it +3 Attack.
+
+
+Tarecgosa
+
+Old: [Tier 4]
+New: [Tier 3]
+
+
+Eventide Brute
+
+Old: [Tier 4] 5 Attack, 4 Health.
+New: [Tier 3] 3 Attack, 2 Health.
+
+
+Pufferquil
+
+Old: After a spell is played on this, gain Poisonous until end of turn.
+New: After a spell is played on this, gain Venomous until end of turn.
+
+
+Annihilan Battlemaster
+
+Old: [Tier 5] 5 Attack, 1 Health.
+New: [Tier 4] 3 Attack, 1 Health.
+
+
+Young Murk Eye
+
+Old: 8 Attack, 5 Health. At the end of your turn, the Murloc to the left of this triggers its Battlecry.
+New: 7 Attack, 4 Health. At the end of your turn, the minion to the left of this triggers its Battlecry.
+
+
+Vanessa VanCleef
+
+Old: 3 Attack, 4 Health. Whenever this attacks, give your Pirates +2/+2 permanently.
+New: 3 Attack, 7 Health. Whenever this attacks, give your Pirates +2/+1 permanently.
+
+
+Mantid Queen
+
+Old: Poisonous. Start of Combat: For each of your minion types gain +5/+5, Windfury, Divine Shield, or Taunt.
+New: Venomous. Start of Combat: For each of your minion types gain +5/+5, Windfury, Reborn, or Taunt.
+
+
+Famished Felbat
+
+Old: At the end of your turn, each friendly Demon consumes a minion in Bob’s Tavern to gain its stats.
+New: At the end of your turn, your other Demons consume a minion in Bob’s Tavern to gain its stats.
+
+
+Charlga
+
+Old: At the end of your turn, play a Blood Gem on all friendly minions.
+New: At the end of your turn, play a Blood Gem on your other minions.
+
+
+Kalecgos, Arcane Aspect
+
+Old: After you play a minion with Battlecry, give your Dragons +1/+1.
+New: After you trigger a Battlecry, give your Dragons +1/+1.
+Dev Comment: This means you get the bonus not just when you play a Battlecry minion, but also whenever any effect triggers a Battlecry—including an additional trigger from Brann. “Trigger” doesn’t require there’s a successful target for the Battlecry; you can still just play a Battlecry minion for this effect.
+
+
+Minion Pool Updates
+Bloodsail Cannoneer, Saltscale Honcho, and Palescale Crocoscale have been returned to the minion pool.
+59 minions have been removed from the minion pool:
+Ball of Minions; Arm of the Empire; Poetic Pen Pal; Tea Master Theotar; Friend of a Friend; Alley Cat; Cave Hydra; Bird Buddy; Goldrinn, the Great Wolf; Impatient Doomsayer; Kathra’natir; Piggyback Imp; Soul Juggler; Bigfernal; Voidlord; Iron Sensei; Holy Mecherel; Cyborg Drake; Grease Bot; Felfin Navigator; Swolefin; Toxfin; Seafood Slinger; Party Elemental; Dazzling Lightspawn; Lil’ Rag; Master of REalities; Gentle Djinni; Lieutenant Garr; Shoal Commander; Warden of Old; Eelbound Archer; Waverider; Roadboar; Bristleback Brute; Groundshaker; Agamaggan, the Great Boar; Darkgaze Elder; Red Whelp; Nether Drake; Atramedes; Razorgore; Evolving Chromawing; Deck Swabbie; Salty Looter; Southsea Strongarm; Southsea Captain; Goldgrubber; Cap’n Hoggarr; Greta Gold-Gun; Dread Admiral Eliza; First Mate Pip; Rot Hide Gnoll; Lich Doctor; Jelly Belly; Possessive Banshee; Murloc Warleader; Rabid Saurolisk; and Tavern Tipper.
+You can see all new and returning minions, grouped by minion type, in our Season 4 Announcement Blog.
+Misc. Other Battlegrounds Updates
+The Brann’s Blessing Darkmoon Prize now reads, “Your Battlecries trigger an extra time this turn.”
+Y’Shaarj’s Hero Power, Embrace Your Rage, has gotten a text-only update for clarity.
+Alexstrasza's Hero Power, Queen of Dragons, has gotten a text-only update for clarity.
+The text of Brann’s Epic Egg (Dinotamer Brann’s Buddy) has gotten a text-only update for clarity.
+The Cost to upgrade from Tavern Tier 4 to Tavern Tier 5 is not reverting; it is now 11 Gold as a regular rule.
 
 
 

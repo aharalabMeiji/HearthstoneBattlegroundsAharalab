@@ -1620,7 +1620,9 @@ TB_BaconUps_145e=buff(4,4)# <12>[1453]
 """ Gulp of Tea,  +4/+4. """
 
 
-## Reef Explorer(4) ### OK,  ### NEW 23.2 ### banned 24.6
+
+### 23/9/28 ###
+## Reef Explorer(4/3/3) ### OK,  ### NEW 23.2 ### banned 24.6
 if BG_Reef_Explorer:#
 	BG_Minion += ['BG23_016','BG23_016_G', ]#	
 	BG_PoolSet_Minion.append('BG23_016')
@@ -1646,14 +1648,13 @@ class BG23_016_Action(TargetedAction):
 				races.remove(card.race)
 		BG23_016_Choice(controller, RandomBGMinion(race=races, tech_level_less=tier)*3).trigger(source)
 		pass
-
 class BG23_016:# <12>[1453]
 	""" Reef Explorer(4)
 	[Battlecry: Discover] a minion from a minion type you don't control."""
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Battlecry: Discover] a minion from a minion type you don't control."}	
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"xxx"}
+		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;雄叫び:&lt;/b&gt;自陣にいない種族のミニオンを1体&lt;b&gt;発見&lt;/b&gt;する。"}
 	play = BG23_016_Action(CONTROLLER)
 	pass
 class BG23_016_G_Choice(Choice):
@@ -1685,12 +1686,14 @@ class BG23_016_G:# <12>[1453]
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Battlecry: Discover] 2 minions from minion types you don't control."}	
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"xxx"}
+		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;雄叫び:&lt;/b&gt;自陣にいない種族のミニオンを2体&lt;b&gt;発見&lt;/b&gt;する。"}
 	play = BG23_016_G_Action(CONTROLLER)
 	pass
 
 
-if BG24__Rendle_the_Mistermind:# # (4) new 24.2
+### 23/9/28 ###
+## Rendle the Mistermind  4/4/5 
+if BG24__Rendle_the_Mistermind:# # (4) new 24.2 banned 25.6
 	BG_Minion+=['BG24_022','BG24_022_G']
 	BG_PoolSet_Minion.append('BG24_022')
 	BG_Minion_Gold['BG24_022']='BG24_022_G'
@@ -1705,6 +1708,7 @@ class BG24_022_Action(TargetedAction):
 					high=[card]
 				elif high[0].tech_level==card.tech_level:
 					high.append(card)
+			card = random.choice(high)
 			card.zone=Zone.SETASIDE
 			card.controller=controller
 			card.zone=Zone.HAND
@@ -1715,7 +1719,7 @@ class BG24_022:# (minion)
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"At the end of your turn, steal the highest Tier minion from Bob's_Tavern. "}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"xxx"}
+		option_cardtext={GameTag.CARDTEXT:"自分のターンの終了時ボブの酒場の最もグレードが高いミニオン1体を盗む。"}
 	events = OWN_TURN_END.on(BG24_022_Action(CONTROLLER))
 	pass
 class BG24_022_G_Action(TargetedAction):
@@ -1730,9 +1734,12 @@ class BG24_022_G_Action(TargetedAction):
 						high=[card]
 					elif high[0].tech_level==card.tech_level:
 						high.append(card)
-				card.zone=Zone.SETASIDE
-				card.controller=controller
-				card.zone=Zone.HAND
+				if len(high)>2:
+					high=random.sample(high, 2)
+				for card in high:
+					card.zone=Zone.SETASIDE
+					card.controller=controller
+					card.zone=Zone.HAND
 		pass
 class BG24_022_G:# (minion)
 	""" Rendle the Mistermind
@@ -1740,12 +1747,14 @@ class BG24_022_G:# (minion)
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"At the end of your turn, steal the 2 highest Tier minions from Bob's_Tavern."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"xxx"}
+		option_cardtext={GameTag.CARDTEXT:"自分のターンの終了時ボブの酒場の最もグレードが高いミニオン2体を盗む。"}
 	events = OWN_TURN_END.on(BG24_022_G_Action(CONTROLLER))
 	#
 	pass
 
 
+### 23/9/28 ###
+# Sindorei Straight Shot 4/3/4
 if BG25__Sindorei_Straight_Shot:# ## (4) new 25.2.2
 	BG_Minion+=['BG25_016','BG25_016_G','BG25_016e','BG25_016e2']
 	BG_PoolSet_Minion.append('BG25_016')
@@ -1754,27 +1763,28 @@ class BG25_016:# (minion)
 	""" Sin'dorei Straight Shot
 	[Windfury]. [Divine Shield]. Whenever this attacks, remove [Reborn] and [Taunt] from the target. """
 	if Config.LOCALE=='enUS':
-		option_cardtext={GameTag.ATK:3, GameTag.HEALTH:4,GameTag.CARDTEXT:"[Windfury]. [Divine Shield]. Whenever this attacks, remove [Reborn] and [Taunt] from the target."}
+		option_cardtext={GameTag.CARDTEXT:"[Windfury]. [Divine Shield]. Whenever this attacks, remove [Reborn] and [Taunt] from the target."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"xxx"}
+		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;疾風&lt;/b&gt;、&lt;b&gt;聖なる盾&lt;/b&gt;これが攻撃する度標的から&lt;b&gt;蘇り&lt;/b&gt;と&lt;b&gt;挑発&lt;/b&gt;を除去する。"}
 	events = BG_Attack(SELF, ENEMY+MINION).on(Buff(BG_Attack.OTHER, 'BG25_016e'))
 	pass
 class BG25_016_G:# (minion)
 	""" Sin'dorei Straight Shot
-	[Mega-Windfury]. [Divine Shield]. Whenever this attacks, remove [Reborn] and [Taunt] from the target. """
+	[Mega-Windfury]. [Divine Shield]. Whenever this attacks, remove [Reborn] and [Taunt] from the target. """ ## old description until when? 
 	if Config.LOCALE=='enUS':
-		option_cardtext={GameTag.ATK:6, GameTag.HEALTH:8, GameTag.CARDTEXT:"[Mega-Windfury]. [Divine Shield]. Whenever this attacks, remove [Reborn] and [Taunt] from the target. "}
+		option_cardtext={GameTag.CARDTEXT:"[Windfury]. [Divine Shield]. Whenever this attacks, remove [Reborn] and [Taunt] from the target. "}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"xxx"}
+		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;疾風&lt;/b&gt;、&lt;b&gt;聖なる盾&lt;/b&gt;これが攻撃する度標的から&lt;b&gt;蘇り&lt;/b&gt;と&lt;b&gt;挑発&lt;/b&gt;を除去する。"}
 	events = BG_Attack(SELF, ENEMY+MINION).on(Buff(BG_Attack.OTHER, 'BG25_016e'))
 	pass
 BG25_016e=buff(reborn=False,taunt=False)
 BG25_016e2=buff(taunt=False)
 
 
-
+### 23/9/28 ###
+#Strongshell Scavenger	4/2/3 
 if BG_Strongshell_Scavenger:#Strongshell Scavenger	4	2	3		 ### OK ###
-	BG_Minion += ['BG_ICC_807',  'ICC_807e',  'TB_BaconUps_072', 'TB_BaconUps_072e',]#	
+	BG_Minion += ['BG_ICC_807','ICC_807e','TB_BaconUps_072','TB_BaconUps_072e',]#	
 	BG_PoolSet_Minion.append('BG_ICC_807')
 	BG_Minion_Gold['BG_ICC_807']='TB_BaconUps_072'
 	pass
@@ -1784,8 +1794,8 @@ class BG_ICC_807:# <2>[1453]  クズ拾い
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Battlecry:] Give your [Taunt] minions +2/+2."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"xxx"}
-	play = Buff(FRIENDLY + TAUNT, 'ICC_807e')
+		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;雄叫び:&lt;/b&gt;&lt;b&gt;挑発&lt;/b&gt;を持つ味方のミニオン全てに+2/+2を付与する。"}
+	play = Buff(FRIENDLY + MINION + TAUNT, 'ICC_807e')
 	pass
 ICC_807e=buff(2,2)# <12>[1453]
 """ Strongshell,  +2/+2. """
@@ -1795,13 +1805,16 @@ class TB_BaconUps_072:# <2>[1453]
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Battlecry:] Give your [Taunt] minions +4/+4."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"xxx"}
-	play = Buff(FRIENDLY + TAUNT, 'TB_BaconUps_072e')
+		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;雄叫び:&lt;/b&gt;&lt;b&gt;挑発&lt;/b&gt;を持つ味方のミニオン全てに+4/+4を付与する。"}
+	play = Buff(FRIENDLY + MINION + TAUNT, 'TB_BaconUps_072e')
 	pass
 TB_BaconUps_072e=buff(4,4)# <12>[1453]
 """ Strongshell,  +4/+4. """
 
 
+
+### 23/9/28 ###
+# Treasure Seeker Elise 4/5/5
 if BG_Treasure_Seeker_Elise: ##(4) new 24.2
 	BG_Minion += ['BG23_353','BG23_353_G', 'BG23_353_Gt']#	
 	BG_PoolSet_Minion.append('BG23_353')
@@ -1812,7 +1825,7 @@ class BG23_353:
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"After you [Refresh] 5 times, find the [Golden] Monkey(BG23_353_Gt)! [(@ left!)]"}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"xxx"}
+		option_cardtext={GameTag.CARDTEXT:"5回&lt;b&gt;入替&lt;/b&gt;した後&lt;b&gt;黄金のサル&lt;/b&gt;を見つける！&lt;i&gt;（あと@回！）&lt;/i&gt;"}
 	events = Rerole(CONTROLLER).on(SidequestCounter(SELF, 5, [Give(CONTROLLER, 'BG23_353_Gt')]))
 	pass
 class BG23_353_G:
@@ -1821,14 +1834,18 @@ class BG23_353_G:
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"After you [Refresh] 5 times, find two [Golden] Monkeys!(BG23_353_Gt) [(@ left!)]"}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"xxx"}
+		option_cardtext={GameTag.CARDTEXT:"5回&lt;b&gt;入替&lt;/b&gt;した後&lt;b&gt;黄金のサル&lt;/b&gt;を2体見つける！&lt;i&gt;（あと@回！）&lt;/i&gt;"}
 	events = Rerole(CONTROLLER).on(SidequestCounter(SELF, 5, [Give(CONTROLLER, 'BG23_353_Gt'), Give(CONTROLLER, 'BG23_353_Gt')]))
 	pass
 class BG23_353_Gt:
+	""" Golden Monkey
+	&lt;b&gt;挑発&lt;/b&gt;&lt;i&gt;（見つけました！）&lt;/i&gt;""" 
 	pass
 
 
 
+### 23/9/28 ###
+# Tunnel Blaster (4/3/7) 
 if BG_Tunnel_Blaster:## Tunnel Blaster (4) ### OK ###
 	BG_Minion += ['BG_DAL_775','BG_DAL_775_G', ]#	
 	BG_PoolSet_Minion.append('BG_DAL_775')
@@ -1841,7 +1858,7 @@ class BG_DAL_775:
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"Taunt Deathrattle: Deal 3 damage to all minions."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"xxx"}
+		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;挑発&lt;/b&gt;、&lt;b&gt;断末魔:&lt;/b&gt;全てのミニオンに3ダメージを与える。"}
 	deathrattle = Hit(ALL_MINIONS, 3)
 class BG_DAL_775_G:
 	"""
@@ -1849,13 +1866,13 @@ class BG_DAL_775_G:
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Taunt] [Deathrattle:] Deal 3 damage to all minions twice."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"xxx"}
+		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;挑発&lt;/b&gt;、&lt;b&gt;断末魔:&lt;/b&gt;全てのミニオンに2回3ダメージを与える。"}
 	deathrattle = Hit(ALL_MINIONS, 3) * 2
 
 
 
-
-#Vigilant Stoneborn(4)(2/6)(BG24_023) ### OK ###
+### 23/9/28 ###
+#Vigilant Stoneborn (4/2/6)(BG24_023) ### OK ###
 if BG_Vigilant_Stoneborn:#Vigilant Stoneborn	4	2	6		
 	BG_Minion += ['BG24_023','BG24_023_G','BG24_023_Ge','BG24_023e']#	
 	BG_PoolSet_Minion.append('BG24_023')
@@ -1866,7 +1883,7 @@ class BG24_023:
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Battlecry:] Give a minion +6 Health and [Taunt]."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"xxx"}
+		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;雄叫び:&lt;/b&gt;ミニオン1体に体力+6と&lt;b&gt;挑発&lt;/b&gt;を付与する。"}
 	requirements = {PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_MINION_TARGET:0, PlayReq.REQ_FRIENDLY_TARGET:0 }
 	play = Buff(TARGET, 'BG24_023e')
 BG24_023e=buff(0,6, taunt=True)
@@ -1876,16 +1893,16 @@ class BG24_023_G:
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Battlecry:] Give a minion +12 Health and [Taunt]."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"xxx"}
+		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;雄叫び:&lt;/b&gt;ミニオン1体に体力+12と&lt;b&gt;挑発&lt;/b&gt;を付与する。"}
 	requirements = {PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_MINION_TARGET:0, PlayReq.REQ_FRIENDLY_TARGET:0 }	# 
 	play = Buff(TARGET, 'BG24_023_Ge')
 BG24_023_Ge=buff(0,12, taunt=True)
 
 
 
-
-#Witchwing Nestmatron	4	3	5### maybe ### banned 24.2 ## renew 25.0.4
-if BG_Witchwing_Nestmatron:#
+### 23/9/28 ###
+#Witchwing Nestmatron	4/3/5  
+if BG_Witchwing_Nestmatron:### maybe # ### banned 24.2 ## renew 25.0.4
 	BG_Minion += ['BG21_038','BG21_038_G',]#	
 	BG_PoolSet_Minion.append('BG21_038')
 	BG_Minion_Gold['BG21_038']='BG21_038_G'
@@ -1896,7 +1913,7 @@ class BG21_038:# <12>[1453] 巣母
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Avenge (3):] Add a random [Battlecry] minion to your_hand."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"xxx"}
+		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;仇討（3）:&lt;/b&gt;ランダムな&lt;b&gt;雄叫び&lt;/b&gt;ミニオン1体を自分の手札に追加する。"}
 	events = Death(FRIENDLY).on(Avenge(SELF, 3, [GiveInBattle(CONTROLLER, RandomBGAdmissible(has_battlecry=True))]))
 	pass
 class BG21_038_G:# <12>[1453]
@@ -1905,31 +1922,32 @@ class BG21_038_G:# <12>[1453]
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Avenge (3):] Add 2 random [Battlecry] minions to your_hand."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"xxx"}
-	events = Death(FRIENDLY).on(Avenge(SELF, 3, [GiveInBattle(CONTROLLER, RandomBGAdmissible(has_battlecry=True)), Give(CONTROLLER, RandomMinion(has_battlecry=True))]))
+		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;仇討（3）:&lt;/b&gt;ランダムな&lt;b&gt;雄叫び&lt;/b&gt;ミニオン2体を自分の手札に追加する。"}
+	events = Death(FRIENDLY).on(Avenge(SELF, 3, [GiveInBattle(CONTROLLER, RandomBGAdmissible(has_battlecry=True)), GiveInBattle(CONTROLLER, RandomMinion(has_battlecry=True))]))
 	pass
 
 
 
-##
 
-### Upbeat Duo (4)
-#BG26__Upbeat_Duo=(Config.BG_VERSION>=2620)### new 26.2
+### 23/9/28 ###
+## Upbeat Duo (4/4/2)-> (4/4/4)
+#BG26__Upbeat_Duo=(Config.BG_VERSION>=2620)### new 26.2, renew 26.2.2
 if BG26__Upbeat_Duo:
 	BG_Minion += ['BG26_199', 'BG_NX2_050_G']
 	BG_PoolSet_Minion.append('BG26_199')
 	BG_Minion_Gold['BG26_199']='BG_NX2_050_G'
 #New: 4 Attack, 4 Health. At the end of every 2 turns, get a plain copy of the minion to the left of this.
 #Old: 4 Attack, 2 Health. Battlecry: Choose a minion. At the end of every 2 turns, this gives you a plain copy.
-
 class BG26_199_Action(TargetedAction): ##
 	TARGET=ActionArg()
 	AMOUNT=IntArg()
 	def do(self, source, target, amount):
+		target = source.target
 		if target!=None and getattr(target, 'this_is_minion'):
-			Give(source.controller, target.id).trigger(source)
-			if amount==2:
+			if target in source.controller.field:
 				Give(source.controller, target.id).trigger(source)
+				if amount==2:
+					Give(source.controller, target.id).trigger(source)
 		pass
 class BG26_199_Action2622(GameAction):
 	def do(self, source):
@@ -1948,7 +1966,7 @@ class BG26_199: ##
 		if Config.LOCALE=='enUS':
 			option_cardtext={GameTag.CARDTEXT:"At the end of every 2 turns, get a plain copy of the minion to the left of this."}
 		elif Config.LOCALE=='jaJP':
-			option_cardtext={GameTag.CARDTEXT:"xxx"}
+			option_cardtext={GameTag.CARDTEXT:"2ターンごとの終了時左隣のミニオンの未強化コピーを1体得る。&lt;i&gt;（あと{0}ターン！）&lt;/i&gt;"}
 		events = OWN_TURN_END.on(SidequestCounter(SELF, 2, [BG26_199_Action2622()]))
 		pass
 	else:
@@ -1956,7 +1974,7 @@ class BG26_199: ##
 		if Config.LOCALE=='enUS':
 			option_cardtext={GameTag.CARDTEXT:"Battlecry: Choose a minion. At the end of every 2 turns, this gives you a plain copy."}
 		elif Config.LOCALE=='jaJP':
-			option_cardtext={GameTag.CARDTEXT:"xxx"}
+			option_cardtext={GameTag.CARDTEXT:"雄叫び：ミニオンを1体選択。2ターンごとの終了時、これはその未強化コピー1体を手札に追加する。"}
 		requirements = {PlayReq.REQ_TARGET_IF_AVAILABLE:0, PlayReq.REQ_FRIENDLY_TARGET:0, PlayReq.REQ_MINION_TARGET:0}
 		events = OWN_TURN_END.on(SidequestCounter(SELF, 2, [BG26_199_Action(TARGET, 1)]))
 	pass
@@ -1980,7 +1998,7 @@ class BG26_199_G: ##
 		if Config.LOCALE=='enUS':
 			option_cardtext={GameTag.CARDTEXT:"At the end of every 2 turns, get a plain copy of adjacent minions. <i>({0} |4(turn, turns) left!)"}
 		elif Config.LOCALE=='jaJP':
-			option_cardtext={GameTag.CARDTEXT:"xxx"}
+			option_cardtext={GameTag.CARDTEXT:"2ターンごとの終了時隣接するミニオンの未強化コピーを1体得る。&lt;i&gt;（あと{0}ターン！）&lt;/i&gt;"}
 		events = OWN_TURN_END.on(SidequestCounter(SELF, 2, [BG26_199_G_Action2622()]))
 		pass
 	else:
@@ -1988,7 +2006,7 @@ class BG26_199_G: ##
 		if Config.LOCALE=='enUS':
 			option_cardtext={GameTag.CARDTEXT:"Battlecry: Choose a minion. At the end of every 2 turns, this gives you 2 plain copy."}
 		elif Config.LOCALE=='jaJP':
-			option_cardtext={GameTag.CARDTEXT:"xxx"}
+			option_cardtext={GameTag.CARDTEXT:"雄叫び：ミニオンを1体選択。2ターンごとの終了時、これはその未強化コピー2体を手札に追加する。"}
 		requirements = {PlayReq.REQ_TARGET_IF_AVAILABLE:0, PlayReq.REQ_FRIENDLY_TARGET:0, PlayReq.REQ_MINION_TARGET:0}
 		events = OWN_TURN_END.on(SidequestCounter(SELF, 2, [BG26_199_Action(TARGET, 2)]))
 	#
