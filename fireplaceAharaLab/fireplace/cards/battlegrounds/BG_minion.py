@@ -2016,6 +2016,8 @@ class BG26_199_G: ##
 ######## TIER 5 ################
 
 
+### 23/9/29 ###
+#Baron Rivendare	5/1/7
 if BG_Baron_Rivendare:#Baron Rivendare	5	1	7		 ### maybe ###
 	BG_Minion += ['BG_FP1_031','TB_BaconUps_055',]#	
 	BG_PoolSet_Minion.append('BG_FP1_031')
@@ -2027,7 +2029,7 @@ class BG_FP1_031:# ばろん
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"Your minions trigger their [Deathrattles] twice."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"xxx"}
+		option_cardtext={GameTag.CARDTEXT:"味方のミニオンの&lt;b&gt;断末魔&lt;/b&gt;は2回発動する。"}
 	update = Refresh(CONTROLLER, {GameTag.EXTRA_DEATHRATTLES: True})
 	pass
 class TB_BaconUps_055:# <12>[1453]
@@ -2036,11 +2038,14 @@ class TB_BaconUps_055:# <12>[1453]
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"Your minions trigger their [Deathrattles] three times."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"xxx"}
+		option_cardtext={GameTag.CARDTEXT:"味方のミニオンの&lt;b&gt;断末魔&lt;/b&gt;は3回発動する。"}
 	update = Refresh(CONTROLLER, {GameTag.EXTRA_DEATHRATTLES_ADDITIONAL: True})
 	pass
 
 
+
+### 23/9/29 ###
+#Brann Bronzebeard	5/2/4
 if BG_Brann_Bronzebeard:#Brann Bronzebeard	5	2	4		 ### maybe ###
 	BG_Minion += ['BG_LOE_077','LOE_077e','TB_BaconUps_045','TB_BaconUps_045e',]#	
 	BG_PoolSet_Minion.append('BG_LOE_077')
@@ -2052,7 +2057,7 @@ class BG_LOE_077:#    ぶらん
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"Your [Battlecries] trigger twice."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"xxx"}
+		option_cardtext={GameTag.CARDTEXT:"味方の&lt;b&gt;雄叫び&lt;/b&gt;は2回発動する。"}
 	update = Refresh(CONTROLLER, {GameTag.EXTRA_BATTLECRIES_BASE: True})
 	pass
 class LOE_077e:# 
@@ -2065,7 +2070,7 @@ class TB_BaconUps_045:# <12>[1453]
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"Your [Battlecries] trigger three times."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"xxx"}
+		option_cardtext={GameTag.CARDTEXT:"味方の&lt;b&gt;雄叫び&lt;/b&gt;は3回発動する。"}
 	update = Refresh(CONTROLLER, {GameTag.EXTRA_BATTLECRIES_ADDITIONAL: True})
 	pass
 class TB_BaconUps_045e:# <12>[1453]
@@ -2076,6 +2081,8 @@ class TB_BaconUps_045e:# <12>[1453]
 
 
 
+### 23/9/29 ###
+##Deadly Spore	5/1/1
 if BG_Deadly_Spore:##Deadly Spore	5	1	1	### OK #####banned 23.6
 	BG_Minion += ['BGS_131','TB_BaconUps_251',]#	
 	BG_PoolSet_Minion.append('BGS_131')
@@ -2084,10 +2091,11 @@ if BG_Deadly_Spore:##Deadly Spore	5	1	1	### OK #####banned 23.6
 class BGS_131:# <12>[1453]  横死の胞子
 	""" Deadly Spore
 	[Poisonous] """
+	##<Tag enumID="363" name="POISONOUS" type="Int" value="1"/>
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Poisonous]"}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"xxx"}
+		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;猛毒&lt;/b&gt;"}
 	pass
 class TB_BaconUps_251:# <12>[1453]
 	""" Deadly Spore
@@ -2095,12 +2103,14 @@ class TB_BaconUps_251:# <12>[1453]
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Poisonous]"}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"xxx"}
+		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;猛毒&lt;/b&gt;"}
 	pass
 
 
-#Interrogator Whitemane 5  5  8 (BG24_704) ## new 24.6 ### OK ### banned 25.0.4
-if BG_Interrogator_Whitemane:#Interrogator Whitemane 5  5  8 (BG24_704) 
+
+### 23/9/29 ###
+#Interrogator Whitemane 5  5  8 (BG24_704) 
+if BG_Interrogator_Whitemane:#Interrogator Whitemane ## new 24.6 ### OK ### banned 25.0.4
 	BG_Minion += ['BG24_704','BG24_704_e','BG24_704_e_G','BG24_704_G']#	
 	BG_PoolSet_Minion.append('BG24_704')
 	BG_Minion_Gold['BG24_704']='BG24_704_G'
@@ -2125,7 +2135,7 @@ class BG24_704:
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Start of Combat:] Give the enemies opposite this [Taunt]. They take double damage."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"xxx"}
+		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;戦闘開始時:&lt;/b&gt;これに対面している敵に&lt;b&gt;挑発&lt;/b&gt;を付与する。それは2倍ダメージを受ける。"}
 	events = BeginBattle(CONTROLLER).on(BG24_704_Action1(SELF, 'BG24_704_e'))
 class BG24_704_e:
 	def apply(self, target):
@@ -2142,7 +2152,7 @@ class BG24_704_G:
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Start of Combat:] Give the enemies opposite this [Taunt]. They take triple damage."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"xxx"}
+		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;戦闘開始時:&lt;/b&gt;これに対面している敵に&lt;b&gt;挑発&lt;/b&gt;を付与する。それは3倍ダメージを受ける。"}
 	events = BeginBattle(CONTROLLER).on(BG24_704_Action1(SELF, 'BG24_704_e_G'))
 class BG24_704_e_G:
 	def apply(self, target):
