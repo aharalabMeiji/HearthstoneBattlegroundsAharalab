@@ -1943,7 +1943,7 @@ class BG26_199_Action(TargetedAction): ##
 	AMOUNT=IntArg()
 	def do(self, source, target, amount):
 		target = source.target
-		if target!=None and getattr(target, 'this_is_minion'):
+		if target!=None and getattr(target, 'this_is_minion', False):
 			if target in source.controller.field:
 				Give(source.controller, target.id).trigger(source)
 				if amount==2:
@@ -2165,6 +2165,8 @@ class BG24_704_e_G:
 
 
 
+### 23/9/30 ###
+##Kangor's Apprentice	5/3/6
 if BG_Kangor_s_Apprentice:#Kangor's Apprentice	5	3	6		 ### maybe ###
 	BG_Minion += ['BGS_012','TB_BaconUps_087',]#	
 	BG_PoolSet_Minion.append('BGS_012')
@@ -2188,7 +2190,7 @@ class BGS_012:# <12>[1453]   ケンゴー
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Deathrattle]: Summon the first 2 friendly Mechs that died this combat."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"xxx"}
+		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;断末魔:&lt;/b&gt;この戦闘で死亡した味方のメカを死亡した順に2体まで召喚する。"}
 	deathrattle = BGS_012_Action(CONTROLLER, 2)
 	pass
 class TB_BaconUps_087:# <12>[1453]
@@ -2197,13 +2199,15 @@ class TB_BaconUps_087:# <12>[1453]
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Deathrattle]: Summon the first 4 friendly Mechs that died this combat. "}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"xxx"}
+		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;断末魔:&lt;/b&gt;この戦闘で死亡した味方のメカを死亡した順に4体まで召喚する。"}
 	deathrattle = BGS_012_Action(CONTROLLER, 4)
 	#
 	pass
 
 
 
+### 23/9/30 ###
+## Leeroy the Reckless (5/6/2)
 if BG_Leeroy_the_Reckless:## Leeroy the Reckless (5)  ### maybe ###
 	BG_Minion += ['BG23_318','BG23_318_G', ]#	
 	BG_PoolSet_Minion.append('BG23_318')
@@ -2214,7 +2218,8 @@ class BG23_318_Action(TargetedAction):
 	TARGET = ActionArg()
 	def do(self, source, target):
 		killer = target.attacker
-		if hasattr(killer,'charge'):# instead of isinstance(killer, Minion)
+		##if ##hasattr(killer,'charge'):# instead of isinstance(killer, Minion)
+		if killer!=None and getattr(killer,'this_is_minion', False)==True:	
 			Destroy(killer).trigger(source.controller)
 		pass
 class BG23_318:# <12>[1453]
@@ -2223,7 +2228,7 @@ class BG23_318:# <12>[1453]
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Deathrattle:] Destroy the minion that killed this."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"xxx"}
+		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;断末魔:&lt;/b&gt;これを倒したミニオンを破壊する。"}
 	deathrattle = BG23_318_Action(SELF)
 	pass
 class BG23_318_G:# <12>[1453]
@@ -2232,12 +2237,14 @@ class BG23_318_G:# <12>[1453]
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Deathrattle:] Destroy the minion that killed this."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"xxx"}
+		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;断末魔:&lt;/b&gt;これを倒したミニオンを破壊する。"}
 	deathrattle = BG23_318_Action(SELF)
 	pass
 
 
 
+### 23/9/30 ###
+#Lightfang Enforcer	5/2/2
 if BG_Lightfang_Enforcer:#Lightfang Enforcer	5	2	2		 ### need check ###
 	BG_Minion += ['BGS_009','BGS_009e','TB_BaconUps_082','TB_BaconUps_082e',]#	
 	BG_PoolSet_Minion.append('BGS_009')
@@ -2245,7 +2252,8 @@ if BG_Lightfang_Enforcer:#Lightfang Enforcer	5	2	2		 ### need check ###
 	pass
 class BGS_009_Action(TargetedAction):
 	TARGET = ActionArg()
-	def do(self, source, target):
+	BUFF = ActionArg()
+	def do(self, source, target, buff):
 		controller = target
 		races=[]
 		cards=[]
@@ -2255,19 +2263,19 @@ class BGS_009_Action(TargetedAction):
 			elif card.race==Race.ALL:
 				races.append(card.race)
 				cards.append(card)
-			elif not card.race in races:
+			elif len([race for race in races if isRaceCard(card, race)==True])==0:
 				races.append(card.race)
 				cards.append(card)
 		for card in cards:
-			Buff(source, 'BGS_009e').trigger(source)
+			Buff(source, buff).trigger(source)
 class BGS_009:# <12>[1453]  光牙
 	""" Lightfang Enforcer
 	At the end of your turn, give a friendly minion of each minion type +2/+2. """
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"At the end of your turn, give a friendly minion of each minion type +2/+2."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"xxx"}
-	events = OWN_TURN_END.on(BGS_009_Action(CONTROLLER))
+		option_cardtext={GameTag.CARDTEXT:"自分のターンの終了時味方のミニオンの各種族1体ずつにそれぞれ+2/+2を付与する。"}
+	events = OWN_TURN_END.on(BGS_009_Action(CONTROLLER,'BGS_009e'))
 	pass
 BGS_009e=buff(2,2)# <7>[1453]
 """ Blessed,	Increased stats. """
@@ -2277,18 +2285,17 @@ class TB_BaconUps_082:# <12>[1453]
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"At the end of your turn,give a friendly minionof each minion type+4/+4."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"xxx"}
-	events = OWN_TURN_END.on(BGS_009_Action(CONTROLLER, 4))
+		option_cardtext={GameTag.CARDTEXT:"自分のターンの終了時味方のミニオンの各種族1体ずつにそれぞれ+4/+4を付与する。"}
+	events = OWN_TURN_END.on(BGS_009_Action(CONTROLLER, 'TB_BaconUps_082e'))
 	pass
-class TB_BaconUps_082e:# <7>[1453]
-	""" Blessed
-	Increased stats. """
+TB_BaconUps_082e=buff(4,4)# <7>[1453]
+""" Blessed 	Increased stats. """
 
 
 
-
-
-if BG_Mythrax_the_Unraveler:#Mythrax the Unraveler	5	4	4		 ### maybe ### banned 24.2 ## revive 25.0.4
+### 23/9/30 ###
+#Mythrax the Unraveler	5/4/4		 
+if BG_Mythrax_the_Unraveler:### maybe ### banned 24.2 ## revive 25.0.4
 	BG_Minion += ['BGS_202','BGS_202e','TB_BaconUps_258','TB_BaconUps_258e',]#	
 	BG_PoolSet_Minion.append('BGS_202')
 	BG_Minion_Gold['BG21_036']='TB_BaconUps_258'
@@ -2315,7 +2322,7 @@ class BGS_202:# <12>[1453] ミスラクス
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"At the end of your turn,gain +2/+2 for each__minion type you control."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"xxx"}
+		option_cardtext={GameTag.CARDTEXT:"自分のターンの終了時味方のミニオンの種族1種類につき+2/+2を獲得する。"}
 	events = OWN_TURN_END.on(BGS_202_Action(CONTROLLER, 'BGS_202e'))
 	pass
 BGS_202e=buff(2,2)# <12>[1453]
@@ -2334,7 +2341,8 @@ TB_BaconUps_258e=buff(4,4)# <12>[1453]
 
 
 
-
+### 23/9/30 ###
+##Nomi, Kitchen Nightmare	5/4/4
 if BG_Nomi_Kitchen_Nightmare:#Nomi, Kitchen Nightmare	5	4	4	### OK ###
 	BG_Minion += ['BGS_104','BGS_104e1','BGS_104pe','TB_BaconUps_201',]#	
 	BG_PoolSet_Minion.append('BGS_104')
@@ -2346,13 +2354,13 @@ class BGS_104_Action(TargetedAction):
 	def do(self, source, target, amount):
 		controller = target
 		controller.nomi_powered_up += amount
-class BGS_104:# <12>[1453]  ノミ（🐼）
+class BGS_104:# <12>[1453]  ノミ
 	""" Nomi, Kitchen Nightmare
 	After you play an Elemental,Elementals in Bob's Tavern have +1/+1 for the restof the game. """
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"After you play an Elemental,Elementals in Bob's Tavern have +1/+1 for the restof the game."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"xxx"}
+		option_cardtext={GameTag.CARDTEXT:"自分がエレメンタルを手札から使用した後この対戦中のボブの酒場のエレメンタルは+1/+1を得る。"}
 	events = BG_Play(CONTROLLER, FRIENDLY + ELEMENTAL).on(BGS_104_Action(CONTROLLER, 1))
 	pass
 class BGS_104e1:# <12>[1453]
@@ -2367,12 +2375,15 @@ class TB_BaconUps_201:# <12>[1453]
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"After you play an Elemental,Elementals in Bob's Tavernhave +2/+2 for the restof the game."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"xxx"}
+		option_cardtext={GameTag.CARDTEXT:"自分がエレメンタルを手札から使用した後この対戦中のボブの酒場のエレメンタルは+2/+2を得る。"}
 	events = BG_Play(CONTROLLER, FRIENDLY + ELEMENTAL).on(BGS_104_Action(CONTROLLER, 2))
 	pass
 
 
 
+
+### 23/9/30 ###
+## Titus Rivendare (5/1/7)
 if BG25__Titus_Rivendare:# 5/1/7 neutral ## new 25.2
 	BG_Minion+=['BG25_354','BG25_354_G']
 	BG_PoolSet_Minion.append('BG25_354')
@@ -2384,10 +2395,9 @@ class BG25_354:# (minion)
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"Your [Deathrattles] trigger an extra time. "}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"xxx"}
+		option_cardtext={GameTag.CARDTEXT:"味方の&lt;b&gt;断末魔&lt;/b&gt;は1回追加で発動する。"}
 	update = Refresh(CONTROLLER, {GameTag.EXTRA_DEATHRATTLES: True})
 	pass
-
 class BG25_354_G:# (minion)
 	""" Titus Rivendare
 	Your [Deathrattles] trigger 2 extra times. """
@@ -2395,12 +2405,14 @@ class BG25_354_G:# (minion)
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"Your [Deathrattles] trigger 2 extra times. "}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"xxx"}
+		option_cardtext={GameTag.CARDTEXT:"味方の&lt;b&gt;断末魔&lt;/b&gt;は2回追加で発動する。"}
 	update = Refresh(CONTROLLER, {GameTag.EXTRA_DEATHRATTLES_ADDITIONAL: True})
 	pass
 
 
 
+### 23/9/30 ###
+## Tortollan Blue Shell (5/4/7)
 if BG24__Tortollan_Blue_Shell:# new 24.2 (5) ### OK ###
 	BG_Minion+=['BG24_018','BG24_018_G']
 	BG_PoolSet_Minion.append('BG24_018')
@@ -2419,7 +2431,7 @@ class BG24_018:# (minion, 5)
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"If you lost your last combat, this minion sells for 5 Gold."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"xxx"}
+		option_cardtext={GameTag.CARDTEXT:"自分が直前の戦闘で負けた場合このミニオンは5ゴールドで売れる。"}
 	events = [
 		LoseGame(CONTROLLER).on(BG24_018_Action(CONTROLLER,5)),
 		TieGame(CONTROLLER).on(BG24_018_Action(CONTROLLER,1)),
@@ -2432,7 +2444,7 @@ class BG24_018_G:# (minion)
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"If you lost your last combat, this minion sells for 10 Gold."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"xxx"}
+		option_cardtext={GameTag.CARDTEXT:"自分が直前の戦闘で負けた場合このミニオンは10ゴールドで売れる。"}
 	events = [
 		LoseGame(CONTROLLER).on(BG24_018_Action(CONTROLLER,10)),
 		TieGame(CONTROLLER).on(BG24_018_Action(CONTROLLER,1)),
