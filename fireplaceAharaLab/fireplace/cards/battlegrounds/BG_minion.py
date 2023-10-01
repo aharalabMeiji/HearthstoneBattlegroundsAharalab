@@ -2454,7 +2454,9 @@ class BG24_018_G:# (minion)
 
 
 
-if BG_Friend_of_a_Friend:#Friend of a Friend	(BANNED 22.3)	5	5	6	-	revive 26.0 -> (5)
+### 23/10/1 ###
+#Friend of a Friend (5/5/6)
+if BG_Friend_of_a_Friend:#Friend of a Friend	(BANNED 22.3)	5	5	6	-	revive 26.0 -> (5) ## banned 2620
 	BG_Minion += ['BG22_404','BG22_404_G',]#	
 	BG_PoolSet_Minion.append('BG22_404')
 	BG_Minion_Gold['BG22_404']='BG22_404_G'
@@ -2464,7 +2466,7 @@ class BG22_404_Action(GameAction):
 		cards = source.controller.game.parent.BG_Hero_Buddy
 		Discover(source.controler, RandomID(*cards)).trigger(source)
 		pass
-class BG22_404:# <12>[1453]  ##########################
+class BG22_404:# <12>[1453]  ##
 	""" Friend of a Friend
 	When you sell this [Discover] a Buddy """
 	## 2230- [Battlecry: Discover] a Buddy. """
@@ -2472,13 +2474,13 @@ class BG22_404:# <12>[1453]  ##########################
 		if Config.LOCALE=='enUS':
 			option_cardtext={GameTag.CARDTEXT:"When you sell this [Discover] a Buddy"}
 		elif Config.LOCALE=='jaJP':
-			option_cardtext={GameTag.CARDTEXT:"xxx"}
+			option_cardtext={GameTag.CARDTEXT:"これを売った時バディを1体&lt;b&gt;発見&lt;/b&gt;する。"}
 		events = Sell(CONTROLLER, SELF).on(BG22_404_Action())
 	elif Config.BG_VERSION<2230:
 		if Config.LOCALE=='enUS':
 			option_cardtext={GameTag.CARDTEXT:"[Battlecry: Discover] a Buddy."}
 		elif Config.LOCALE=='jaJP':
-			option_cardtext={GameTag.CARDTEXT:"xxx"}
+			option_cardtext={GameTag.CARDTEXT:"雄叫び：バディを1体&lt;b&gt;発見&lt;/b&gt;する。"}
 		play = BG22_404_Action()
 	pass
 class BG22_404_G_Choice(Choice):
@@ -2497,38 +2499,40 @@ class BG22_404_G_Action(GameAction):
 		cards = source.controller.game.parent.BG_Hero_Buddy
 		BG22_404_G_Choice(source.controler, RandomID(*cards)*3).trigger(source)
 		pass
-class BG22_404_G:# <12>[1453] #############################
+class BG22_404_G:# <12>[1453] #
 	""" Friend of a Friend
 	[Battlecry: Discover]two Buddies. """
 	if Config.BG_VERSION>=2600:
 		if Config.LOCALE=='enUS':
 			option_cardtext={GameTag.CARDTEXT:"When you sell this [Discover] two Buddies"}
 		elif Config.LOCALE=='jaJP':
-			option_cardtext={GameTag.CARDTEXT:"xxx"}
+			option_cardtext={GameTag.CARDTEXT:"これを売った時バディを2体&lt;b&gt;発見&lt;/b&gt;する。"}
 		events = Sell(CONTROLLER, SELF).on(BG22_404_G_Action())
 	else:
 		if Config.LOCALE=='enUS':
 			option_cardtext={GameTag.CARDTEXT:"[Battlecry: Discover]two Buddies."}
 		elif Config.LOCALE=='jaJP':
-			option_cardtext={GameTag.CARDTEXT:"xxx"}
+			option_cardtext={GameTag.CARDTEXT:"雄叫び：バディを2体&lt;b&gt;発見&lt;/b&gt;する。"}
 		play = BG22_404_G_Action()
 	pass
+
+
 
 
 
 ### Drakkari Enchanter (5)
 #BG26__Drakkari_Enchanter =(Config.BG_VERSION>=2620)### new 26.2
 if BG26__Drakkari_Enchanter:
-	BG_Minion += ['BG_NX2_050', 'BG_NX2_050_G']
-	BG_PoolSet_Minion.append('BG_NX2_050')
-	BG_Minion_Gold['BG_NX2_050']='BG_NX2_050_G'
-class BG_NX2_050: ##
+	BG_Minion += ['BG26_ICC_901', 'BG26_ICC_901_G']
+	BG_PoolSet_Minion.append('BG26_ICC_901')
+	BG_Minion_Gold['BG26_ICC_901']='BG26_ICC_901_G'
+class BG26_ICC_901: ##
 	""" Drakkari Enchanter
 	1 Attack, 5 Health. Your end of turn effects trigger twice.""" 
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"Your end of turn effects trigger twice."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"xxx"}
+		option_cardtext={GameTag.CARDTEXT:"自分のターンの終了時に発動する効果は2回発動する。"}
 	events = [
 		BG_Play(SELF).on(SetAttr(CONTROLLER, 'turn_end_effects_twice',1)),
 		Summon(CONTROLLER, SELF).on(SetAttr(CONTROLLER, 'turn_end_effects_twice',1)),
@@ -2536,13 +2540,13 @@ class BG_NX2_050: ##
 		Sell(CONTROLLER, SELF).on(SetAttr(CONTROLLER, 'turn_end_effects_twice',0)),
 	]
 	pass
-class BG_NX2_050_G: ##
+class BG26_ICC_901_G: ##
 	""" Drakkari Enchanter
 	2 Attack, 10 Health. Your end of turn effects trigger three times.""" 
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:" Your end of turn effects trigger three times."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"xxx"}
+		option_cardtext={GameTag.CARDTEXT:"自分のターンの終了時に発動する効果は3回発動する。"}
 	events = [
 		BG_Play(SELF).on(SetAttr(CONTROLLER, 'turn_end_effects_twice',2)),
 		Summon(CONTROLLER, SELF).on(SetAttr(CONTROLLER, 'turn_end_effects_twice',2)),
