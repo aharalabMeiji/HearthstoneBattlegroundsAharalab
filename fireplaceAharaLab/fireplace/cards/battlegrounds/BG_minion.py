@@ -2561,6 +2561,9 @@ class BG26_ICC_901_G: ##
 #### TIER 6 ####
 
 
+
+### 23/10/1 ###
+#Amalgadon	6/6/6
 if BG_Amalgadon:#Amalgadon	6	6	6	*	 	 ### need check ###  banned 22.3
 	BG_Minion += ['BGS_069','TB_BaconUps_121',]#	
 	BG_PoolSet_Minion.append('BGS_069')
@@ -2580,9 +2583,11 @@ class BGS_069_Action(TargetedAction):
 			elif not card.race in races:
 				races.append(card.race)
 		buffsize = len(races)*amount
-		for repeat in range(buffsize):
+		buffs=['UNG_999t2e','UNG_999t3e','UNG_999t4e','UNG_999t6e','UNG_999t7e','UNG_999t8e','UNG_999t13e','UNG_999t14e']
+		if buffsize<8:
+			buffs = random.sample(buffs, buffsize)
+		for buff in buffs:
 			# adapting something
-			buff = random.choice(['UNG_999t2e','UNG_999t3e','UNG_999t4e','UNG_999t6e','UNG_999t7e','UNG_999t8e','UNG_999t13e','UNG_999t14e'])
 			Buff(source, buff).trigger(source)
 		pass
 class BGS_069:##  アマルガドン (アルマゲドンではない）
@@ -2591,7 +2596,7 @@ class BGS_069:##  アマルガドン (アルマゲドンではない）
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Battlecry:] For each different minion type you have among other minions, [Adapt] randomly."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"xxx"}
+		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;雄叫び:&lt;/b&gt;味方の他のミニオンの種族1種ごとに1回、ランダムに&lt;b&gt;適応&lt;/b&gt;する。"}
 	play = BGS_069_Action(CONTROLLER, 1)	
 	pass
 class TB_BaconUps_121:
@@ -2600,7 +2605,7 @@ class TB_BaconUps_121:
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Battlecry:] For each different minion type you have among other minions, [Adapt] randomly twice."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"xxx"}
+		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;雄叫び:&lt;/b&gt;味方の他のミニオンの種族1種ごとに2回、ランダムに&lt;b&gt;適応&lt;/b&gt;する。"}
 	play = BGS_069_Action(CONTROLLER, 2)
 	pass
 
@@ -2625,6 +2630,8 @@ class UNG_999t2t1:## 植物
 
 
 
+### 23/10/1 ###
+## Mantid Queen  6/5/5 
 if BG_Mantid_Queen:##########
 	BG_Minion += ['BG22_402', 'BG22_402_G', 'BG22_402e', 'BG22_402e2', 'BG22_402e3', 'BG22_402e4' ]#	
 	BG_PoolSet_Minion.append('BG22_402')
@@ -2655,7 +2662,7 @@ class BG22_402_Action(GameAction):
 					Buff(source, 'BG22_402e3').trigger(source)
 				elif buff=='taunt':
 					Buff(source, 'BG22_402e4').trigger(source)
-class BG22_402: ###########################################
+class BG22_402: 
 	""" Mantid Queen
 	Venomous. Start of Combat: For each of your minion types gain +5/+5, Windfury, Reborn, or Taunt."""
 	##Start of Combat: For each of your minion types gain +5/+5, Windfury, Divine Shield, or Taunt. ## old <2620
@@ -2673,9 +2680,9 @@ class BG22_402: ###########################################
 		##<Tag enumID="363" name="POISONOUS" type="Int" value="1"/>
 		option_tags={GameTag.POISONOUS:1,GameTag.VENOMOUS:0, }
 		if Config.LOCALE=='enUS':
-			option_cardtext={GameTag.CARDTEXT:"Start of Combat: For each of your minion types gain +5/+5, Windfury, Divine Shield, or Taunt."}
+			option_cardtext={GameTag.CARDTEXT:"Poisonous. Start of Combat: For each of your minion types gain +5/+5, Windfury, Divine Shield, or Taunt."}
 		elif Config.LOCALE=='jaJP':
-			option_cardtext={GameTag.CARDTEXT:"xxx"}
+			option_cardtext={GameTag.CARDTEXT:"猛毒、戦闘開始時：自陣のミニオンの種族1種につき、+5/+5、疾風、聖なる盾、挑発のどれか1つを獲得する。"}
 		pass
 	events = BeginBattle(CONTROLLER).on(BG22_402_Action())
 	pass
@@ -2705,13 +2712,22 @@ class BG22_402_G_Action(GameAction):
 					Buff(source, 'BG22_402e3').trigger(source)
 				elif buff=='taunt':
 					Buff(source, 'BG22_402e4').trigger(source)
-class BG22_402_G: ##########if Config.BG_VERSION>=2620###################
+class BG22_402_G: ##
 	""" Mantid Queen
 	[Poisonous]. [Start of Combat:] For each of your minion types gain [Windfury], [Divine Shield], _[Taunt], or +5/+5, twice."""
-	if Config.LOCALE=='enUS':
-		option_cardtext={GameTag.CARDTEXT:"[Poisonous]. [Start of Combat:] For each of your minion types gain [Windfury], [Divine Shield], _[Taunt], or +5/+5, twice."}
-	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"[毒袋]、[戦闘開始時:]自陣のミニオンの種族1種につき2回、+5/+5、[疾風]、[蘇り]、[挑発]のどれか1つを獲得する。"}
+	if Config.BG_VERSION>=2620:
+		##<Tag enumID="2853" name="VENOMOUS" type="Int" value="1"/>
+		option_tags={GameTag.VENOMOUS:1,GameTag.POISONOUS:0,}
+		if Config.LOCALE=='enUS':
+			option_cardtext={GameTag.CARDTEXT:"[Venomous]. [Start of Combat:] For each of your minion types gain [Windfury], [Divine Shield], _[Taunt], or +5/+5, twice."}
+		elif Config.LOCALE=='jaJP':
+			option_cardtext={GameTag.CARDTEXT:"[毒袋]、[戦闘開始時:]自陣のミニオンの種族1種につき2回、+5/+5、[疾風]、[蘇り]、[挑発]のどれか1つを獲得する。"}
+	else:
+		option_tags={GameTag.VENOMOUS:0,GameTag.POISONOUS:1,}
+		if Config.LOCALE=='enUS':
+			option_cardtext={GameTag.CARDTEXT:"[Poisonous]. [Start of Combat:] For each of your minion types gain [Windfury], [Divine Shield], _[Taunt], or +5/+5, twice."}
+		elif Config.LOCALE=='jaJP':
+			option_cardtext={GameTag.CARDTEXT:"[猛毒]、[戦闘開始時:]自陣のミニオンの種族1種につき2回、+5/+5、[疾風]、[聖なる盾]、[挑発]のどれか1つを獲得する。"}
 	events = BeginBattle(CONTROLLER).on(BG22_402_G_Action())	
 	pass
 BG22_402e=buff(5,5)
@@ -2723,7 +2739,9 @@ else:
 BG22_402e4=buff(taunt=True)
 
 
+
 ### 23/9/7 ###
+#Nadina the Red	6/7/4
 if BG_Nadina_the_Red:#Nadina the Red	6	7	4		 ### maybe OK ###
 	BG_Minion += ['BGS_040','TB_BaconUps_154',]#	
 	BG_PoolSet_Minion.append('BGS_040')
@@ -2794,6 +2812,8 @@ class TB_BaconUps_154:# <12>[1453]
 
 
 
+### 23/10/1 ###
+## Orgozoa, the Tender 6/3/7
 if BG_Orgozoa_the_Tender:### Orgozoa, the Tender(6) ### OK ### NEW 23.2
 	BG_Minion += ['BG23_015','BG23_015t','BG23_015_G','BG23_015_Gt',]#	
 	BG_PoolSet_Minion.append('BG23_015')
@@ -2810,6 +2830,8 @@ class BG23_015:# <12>[1453]
 	events = BeginBar(CONTROLLER).on(Spellcraft(CONTROLLER,'BG23_015t'))
 	tags={2359:'BG23_015t'}
 class BG23_015t:
+	""" Azshara's Hatchery
+	"""
 	play = Discover(CONTROLLER, RandomBGNaga(tech_level_less=TIER(CONTROLLER)))
 	tags = {GameTag.TECH_LEVEL:5}
 	class Hand:
@@ -2835,7 +2857,8 @@ class BG23_015_Gt:
 
 
 
-
+### 23/10/1 ###
+#Seafood Slinger	6/5/5
 if BG_Seafood_Slinger:#Seafood Slinger	6	5	5		 ### maybe ### ##banned -> resurrect 25.0.4 -> banned 26.2
 	BG_Minion += ['BG21_011','BG21_011e','BG21_011e2','BG21_011_G','BG21_011_Ge',]#	
 	BG_PoolSet_Minion.append('BG21_011')
@@ -2849,7 +2872,7 @@ class BG21_011:# <12>[1453] 板前
 	elif Config.LOCALE=='jaJP':
 		option_cardtext={GameTag.CARDTEXT:"[雄叫び:]マーロック1体をゴールデンにする。"}
 	requirements={
-		PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_MINION_TARGET:0, PlayReq.REQ_FRIENDLY_TARGET:0, PlayReq.REQ_TARGET_WITH_RACE: Race.MURLOC }
+		PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_MINION_TARGET:0, PlayReq.REQ_TARGET_WITH_RACE: Race.MURLOC }
 	play = MorphGold(TARGET)
 	pass
 BG21_011e=buff(3,3)# <12>[1453] ??????????????
@@ -2869,6 +2892,8 @@ class BG21_011_G:# <12>[1453]
 BG21_011_Ge=buff(6,6)# <12>[1453]  ????????????
 
 
+### 23/10/1 ###
+## Tea Master Theotar 6/6/6
 if BG24__Tea_Master_Theotar: # (6) new 24.2
 	BG_Minion += ['BG24_020','BG24_020e','BG24_020_G','BG24_020_Ge', ]#	
 	BG_PoolSet_Minion.append('BG24_020')
@@ -2886,7 +2911,7 @@ class BG24_020_Action(TargetedAction):
 			if len(races)>3:
 				races = random.sample(races, 3)
 			for race in races:
-				cards = [card for card in controller.field if card.race==race]
+				cards = [card for card in controller.field if isRaceCard(race, card)==True]
 				card = random.choice(cards)
 				Buff(card, buff).trigger(source)
 		pass
@@ -2897,7 +2922,7 @@ class BG24_020:
 		option_cardtext={GameTag.CARDTEXT:"After you play a minion with no_minion_type, give 3_friendly minions of different types +2/+2."}
 	elif Config.LOCALE=='jaJP':
 		option_cardtext={GameTag.CARDTEXT:"自分が種族なしのミニオンを手札から使用した後、異なる種族の味方のミニオン3体に+2/+2を付与する。"}
-	events = Play(CONTROLLER, MINION).on(BG24_020_Action(Play.CARD,'BG24_020e'))
+	events = BG_Play(CONTROLLER, MINION).on(BG24_020_Action(Play.CARD,'BG24_020e'))
 	pass
 BG24_020e=buff(2,2)
 class BG24_020_G:# (minion)
@@ -2907,12 +2932,15 @@ class BG24_020_G:# (minion)
 		option_cardtext={GameTag.CARDTEXT:"After you play a minion with no_minion_type, give 3_friendly minions of different types +4/+4."}
 	elif Config.LOCALE=='jaJP':
 		option_cardtext={GameTag.CARDTEXT:"自分が種族なしのミニオンを手札から使用した後、異なる種族の味方のミニオン3体に+4/+4を付与する。"}
-	events = Play(CONTROLLER, MINION).on(BG24_020_Action(Play.CARD,'BG24_020_Ge'))
+	events = BG_Play(CONTROLLER, MINION).on(BG24_020_Action(Play.CARD,'BG24_020_Ge'))
 	#
 	pass
 BG24_020_Ge=buff(4,4)
 
 
+
+### 23/10/1 ###
+# The Walking Fort 6/4/6
 if BG24_The_Walking_Fort: # (6) new 24.2 ### OK ###
 	BG_Minion += ['BG24_712','BG24_712e','BG24_712_G','BG24_712e_G', ]#	
 	BG_PoolSet_Minion.append('BG24_712')
@@ -2950,12 +2978,13 @@ class BG24_712_G:
 BG24_712e_G=buff(8,8)
 
 
-## Uther the Lightbringer (6) ### OK ###
-if BG_Uther_the_Lightbringer: ##(6)
+
+### 23/10/1 ###
+## Uther the Lightbringer (6/5/6) ### OK ###
+if BG_Uther_the_Lightbringer: ##(6) >= 23.6
 	BG_Minion += ['BG23_190','BG23_190e','BG23_190_G','BG23_190_Ge', ]#	
 	BG_PoolSet_Minion.append('BG23_190')
 	BG_Minion_Gold['BG23_190']='BG23_190_G'
-	## Uther the Lightbringer (6) >= 23.6
 	pass
 class BG23_190_Action(TargetedAction):
 	TARGET = ActionArg()
@@ -2992,7 +3021,8 @@ class BG23_190_Ge:
 
 
 
-
+### 23/10/1 ###
+##Zapp Slywick	6/8/16
 if BG_Zapp_Slywick:#Zapp Slywick	6	7	10	 	 ### maybe ###
 	BG_Minion += ['BGS_022','TB_BaconUps_091',]#	
 	BG_PoolSet_Minion.append('BGS_022')
@@ -3004,17 +3034,13 @@ class BGS_022:# <12>[1453] ざっぷ
 	#<ReferencedTag enumID="189" name="WINDFURY" type="Int" value="1"/> ### REF-TAGだ！
 	if Config.BG_VERSION>=2622:
 		option_tags={GameTag.ATK:8, GameTag.HEALTH:16, }
-		if Config.LOCALE=='enUS':
-			option_cardtext={GameTag.CARDTEXT:"[Windfury]This minion always attacks the enemy minion with the lowest Attack."}
-		elif Config.LOCALE=='jaJP':
-			option_cardtext={GameTag.CARDTEXT:"[疾風]このミニオンは常に最も攻撃力が低い敵のミニオンを攻撃する。_"}
 	else:
 		option_tags={GameTag.ATK:7, GameTag.HEALTH:10, }
-		if Config.LOCALE=='enUS':
-			option_cardtext={GameTag.CARDTEXT:"[Windfury]This minion always attacks the enemy minion with the lowest Attack."}
-		elif Config.LOCALE=='jaJP':
-			option_cardtext={GameTag.CARDTEXT:"xxx"}
-	tags = {GameTag.WINDFURY:1}
+	if Config.LOCALE=='enUS':
+		option_cardtext={GameTag.CARDTEXT:"[Windfury]This minion always attacks the enemy minion with the lowest Attack."}
+	elif Config.LOCALE=='jaJP':
+		option_cardtext={GameTag.CARDTEXT:"[疾風]このミニオンは常に最も攻撃力が低い敵のミニオンを攻撃する。_"}
+	option_tags = {GameTag.WINDFURY:1}
 	#本体実装はBG_Battle.pyの80行あたり
 	pass
 class TB_BaconUps_091:# <12>[1453]
@@ -3022,13 +3048,17 @@ class TB_BaconUps_091:# <12>[1453]
 	[Mega-Windfury]This minion always attacksthe enemy minion withthe lowest Attack. """
 	#<Tag enumID="189" name="WINDFURY" type="Int" value="3"/> ###これはオケ
 	if Config.BG_VERSION>=2622:
-		option_tags={GameTag.ATK:16, GameTag.HEALTH:32, }
+		option_tags={GameTag.ATK:16, GameTag.HEALTH:32, GameTag.WINDFURY:1, }
+		if Config.LOCALE=='enUS':
+			option_cardtext={GameTag.CARDTEXT:"[Windfury]This minion always attacksthe enemy minion withthe lowest Attack."}
+		elif Config.LOCALE=='jaJP':
+			option_cardtext={GameTag.CARDTEXT:"[疾風]このミニオンは常に最も攻撃力が低い敵のミニオンを攻撃する。"}
 	else:
-		option_tags={GameTag.ATK:14, GameTag.HEALTH:20, }
-	if Config.LOCALE=='enUS':
-		option_cardtext={GameTag.CARDTEXT:"[Mega-Windfury]This minion always attacksthe enemy minion withthe lowest Attack."}
-	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"[疾風]このミニオンは常に最も攻撃力が低い敵のミニオンを攻撃する。"}
+		option_tags={GameTag.ATK:14, GameTag.HEALTH:20, GameTag.WINDFURY:3 }
+		if Config.LOCALE=='enUS':
+			option_cardtext={GameTag.CARDTEXT:"[Mega-Windfury]This minion always attacksthe enemy minion withthe lowest Attack."}
+		elif Config.LOCALE=='jaJP':
+			option_cardtext={GameTag.CARDTEXT:"[メガ疾風]このミニオンは常に最も攻撃力が低い敵のミニオンを攻撃する。"}
 	pass
 
 
