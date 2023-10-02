@@ -35,8 +35,8 @@ BG_PoolSet_Murloc=[]
 BG_Murloc_Gold={}
 
 
-
-#Rockpool Hunter (1)  ## OK ##
+### 23/10/2 ###
+#Rockpool Hunter (1/2/3)  ## OK ##
 if BG_Rockpool_Hunter:
 	BG_Minion_Murloc+=['BG_UNG_073','UNG_073e','TB_BaconUps_061','TB_BaconUps_061e',]
 	BG_PoolSet_Murloc.append('BG_UNG_073')
@@ -44,11 +44,11 @@ if BG_Rockpool_Hunter:
 class BG_UNG_073:
 	""" >Rockpool Hunter
 	[Battlecry:] Give a friendly Murloc +1/+1. """
-	option_tags={GameTag.ATK:0, GameTag.HEALTH:0}
+	option_tags={GameTag.ATK:2, GameTag.HEALTH:3}
 	if Config.LOCALE=='enUS':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"[Battlecry:] Give a friendly Murloc +1/+1."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;雄叫び:&lt;/b&gt;味方のマーロック1体に+1/+1を付与する。"}
 	requirements = {PlayReq.REQ_TARGET_IF_AVAILABLE:0, PlayReq.REQ_MINION_TARGET:0, PlayReq.REQ_FRIENDLY_TARGET:0, PlayReq.REQ_TARGET_WITH_RACE: Race.MURLOC }
 	play = Buff(TARGET, 'UNG_073e')
 	pass
@@ -56,18 +56,20 @@ UNG_073e=buff(1,1)
 class TB_BaconUps_061:# <12>[1453]
 	""" Rockpool Hunter
 	[Battlecry:] Give a friendly Murloc +2/+2. """
-	option_tags={GameTag.ATK:0, GameTag.HEALTH:0}
+	option_tags={GameTag.ATK:4, GameTag.HEALTH:6}
 	if Config.LOCALE=='enUS':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"[Battlecry:] Give a friendly Murloc +2/+2."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;雄叫び:&lt;/b&gt;味方のマーロック1体に+2/+2を付与する。"}
 	requirements = {PlayReq.REQ_TARGET_IF_AVAILABLE:0, PlayReq.REQ_MINION_TARGET:0, PlayReq.REQ_FRIENDLY_TARGET:0, PlayReq.REQ_TARGET_WITH_RACE: Race.MURLOC }
 	play = Buff(TARGET, 'TB_BaconUps_061e')
 	pass
 TB_BaconUps_061e=buff(2,2)
 
 
-#Swampstriker (1)  ## OK ##
+
+### 23/10/2 ###
+#Swampstriker (1/1/4)  ## OK ##
 if BG_Swampstriker:
 	BG_Minion_Murloc+=['BG22_401','BG22_401e','BG22_401_G','BG22_401_Ge',]
 	BG_PoolSet_Murloc.append('BG22_401')
@@ -75,22 +77,22 @@ if BG_Swampstriker:
 class BG22_401:# <12>[1453]
 	""" Swampstriker
 	After you summon a Murloc, gain +1 Attack. """
-	option_tags={GameTag.ATK:0, GameTag.HEALTH:0}
+	option_tags={GameTag.ATK:1, GameTag.HEALTH:4}
 	if Config.LOCALE=='enUS':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"After you summon a Murloc, gain +1 Attack."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"自分がマーロックを召喚した後攻撃力+1を獲得する。"}
 	events = Summon(CONTROLLER, FRIENDLY + MURLOC).after(Buff(SELF, 'BG22_401e'))
 	pass
 BG22_401e=buff(1,0)
 class BG22_401_G:# <12>[1453]
 	""" Swampstriker
 	After you summon a Murloc, gain +2 Attack. """
-	option_tags={GameTag.ATK:0, GameTag.HEALTH:0}
+	option_tags={GameTag.ATK:2, GameTag.HEALTH:8}
 	if Config.LOCALE=='enUS':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"After you summon a Murloc, gain +2 Attack."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"自分がマーロックを召喚した後攻撃力+2を獲得する。"}
 	events = Summon(CONTROLLER, FRIENDLY + MURLOC).after(Buff(SELF, 'BG22_401_Ge'))
 	pass
 BG22_401_Ge=buff(2,0)
