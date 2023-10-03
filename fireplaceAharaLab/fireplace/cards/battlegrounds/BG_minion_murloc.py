@@ -100,38 +100,38 @@ BG22_401_Ge=buff(2,0)
 #### TIER 2 ####
 
 
-
-#Murloc Warleader (2)  ### maybe ### banned 26.2
+### 23/10/3 ###
+#Murloc Warleader (2/3/3)  ### maybe ### banned 26.2
 if BG_Murloc_Warleader:
 	BG_Minion_Murloc+=['BG_EX1_507','EX1_507e','TB_BaconUps_008','TB_BaconUps_008e',]
 	BG_PoolSet_Murloc.append('BG_EX1_507')
 	BG_Murloc_Gold['BG_EX1_507']='TB_BaconUps_008'
 class BG_EX1_507:
 	"""Murloc Warleader 戦隊長
-	"""
-	option_tags={GameTag.ATK:0, GameTag.HEALTH:0}
+	Your other Murlocs have +2 Attack. """
+	option_tags={GameTag.TECH_LEVEL:2, GameTag.ATK:3, GameTag.HEALTH:3}
 	if Config.LOCALE=='enUS':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"Your other Murlocs have +2 Attack."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:""}
-	update = Refresh(FRIENDLY_MINIONS + MURLOC - SELF, buff="EX1_507e")
+		option_cardtext={GameTag.CARDTEXT:"自身を除く味方のマーロックは攻撃力+2を得る。"}
+	update = Refresh(FRIENDLY + MINION + MURLOC - SELF, buff="EX1_507e")
 	pass
 EX1_507e=buff(2,0)
 class TB_BaconUps_008:# <12>[1453]
 	""" Murloc Warleader
 	Your other Murlocs have +4 Attack. """
-	option_tags={GameTag.ATK:0, GameTag.HEALTH:0}
+	option_tags={GameTag.TECH_LEVEL:2, GameTag.ATK:6, GameTag.HEALTH:6}
 	if Config.LOCALE=='enUS':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"Your other Murlocs have +4 Attack."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:""}
-	update = Refresh(FRIENDLY_MINIONS + MURLOC - SELF, buff="TB_BaconUps_008e")
+		option_cardtext={GameTag.CARDTEXT:"自身を除く味方のマーロックは攻撃力+4を得る。"}
+	update = Refresh(FRIENDLY + MINION + MURLOC - SELF, buff="TB_BaconUps_008e")
 	pass
 TB_BaconUps_008e=buff(4,0)# <12>[1453]
 """ Mrgglaargl!,  +4 Attack from Murloc Warleader. """
 
 
-
+### 23/10/3 ###
 #Saltscale Honcho (2) ### maybe ### revive 26.2
 if BG_Saltscale_Honcho:
 	BG_Minion_Murloc+=['BG21_008','BG21_008e','BG21_008_G','BG21_008_Ge',]
@@ -140,11 +140,11 @@ if BG_Saltscale_Honcho:
 class BG21_008:# <12>[1453] そるとすけいる
 	""" Saltscale Honcho
 	After you play a Murloc, give two other friendly Murlocs +1 Health. """
-	option_tags={GameTag.ATK:0, GameTag.HEALTH:0}
+	option_tags={GameTag.TECH_LEVEL:2, GameTag.ATK:3, GameTag.HEALTH:2}
 	if Config.LOCALE=='enUS':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"fter you play a Murloc, give two other friendly Murlocs +1 Health."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"自分がマーロックを手札から使用した後味方のマーロック2体に体力+1を付与する。"}
 	events = BG_Play(CONTROLLER, FRIENDLY + MURLOC).after(Buff(RANDOM(FRIENDLY_MINIONS + MURLOC - SELF),'BG21_008e') * 2)
 	pass
 BG21_008e=buff(0,1)# <12>[1453]
@@ -152,20 +152,20 @@ BG21_008e=buff(0,1)# <12>[1453]
 class BG21_008_G:# <12>[1453]
 	""" Saltscale Honcho
 	After you play a Murloc, give two other friendly Murlocs +2 Health. """
-	option_tags={GameTag.ATK:0, GameTag.HEALTH:0}
+	option_tags={GameTag.TECH_LEVEL:2, GameTag.ATK:6, GameTag.HEALTH:4}
 	if Config.LOCALE=='enUS':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"After you play a Murloc, give two other friendly Murlocs +2 Health."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:""}
-	events = BG_Play(CONTROLLER, FRIENDLY+MURLOC).after(Buff(RANDOM(FRIENDLY_MINIONS + MURLOC - SELF),'BG21_008_Ge') * 2)
+		option_cardtext={GameTag.CARDTEXT:"自分がマーロックを手札から使用した後味方のマーロック2体に体力+2を付与する。"}
+	events = BG_Play(CONTROLLER, FRIENDLY+MURLOC).after(Buff(RANDOM(FRIENDLY_MINIONS + MURLOC - SELF),'BG21_008_Ge'), Buff(RANDOM(FRIENDLY_MINIONS + MURLOC - SELF),'BG21_008_Ge'))
 	pass
 BG21_008_Ge=buff(0,2)# <12>[1453]
-""" Extra Salty
-+2 Health. """
+""" Extra Salty +2 Health. """
 
 
 
-#Tad (2) ### maybe ###
+### 23/10/3 ###
+#Tad (2/2/2) ### maybe ###
 if BG_Tad:
 	BG_Minion_Murloc+=['BG22_202','BG22_202_G',]
 	BG_PoolSet_Murloc.append('BG22_202')
@@ -174,31 +174,34 @@ class BG22_202:# <12>[1453]
 	""" Tad
 	When you sell this,add another random Murloc to your hand. """
 	if Config.BG_VERSION>=2620:
-		option_tags={GameTag.ATK:2, GameTag.HEALTH:2}
+		option_tags={GameTag.TECH_LEVEL:2, GameTag.ATK:2, GameTag.HEALTH:2}
 	else:
-		option_tags={GameTag.ATK:2, GameTag.HEALTH:4}
+		option_tags={GameTag.TECH_LEVEL:2, GameTag.ATK:2, GameTag.HEALTH:4}
 	if Config.LOCALE=='enUS':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"When you sell this,add another random Murloc to your hand."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"これを売った時ランダムなマーロック1体を得る。"}
 	events = Sell(CONTROLLER, SELF).on(Give(CONTROLLER, RandomBGMurloc(tech_level_less=TIER(CONTROLLER))))
 	pass
 class BG22_202_G:# <12>[1453]
 	""" Tad
 	When you sell this,add 2 other randomMurlocs to your hand. """
 	if Config.BG_VERSION>=2620:
-		option_tags={GameTag.ATK:4, GameTag.HEALTH:4}
+		option_tags={GameTag.TECH_LEVEL:2, GameTag.ATK:4, GameTag.HEALTH:4}
 	else:
-		option_tags={GameTag.ATK:4, GameTag.HEALTH:8}
+		option_tags={GameTag.TECH_LEVEL:2, GameTag.ATK:4, GameTag.HEALTH:8}
 	if Config.LOCALE=='enUS':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"When you sell this,add 2 other randomMurlocs to your hand."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:""}
-	events = Sell(CONTROLLER, SELF).on(Give(CONTROLLER, RandomMurloc())*2)
+		option_cardtext={GameTag.CARDTEXT:"これを売った時ランダムなマーロック2体を得る。"}
+	events = Sell(CONTROLLER, SELF).on(Give(CONTROLLER, RandomBGMurloc(tech_level_less=TIER(CONTROLLER))), Give(CONTROLLER, RandomBGMurloc(tech_level_less=TIER(CONTROLLER))))
 	pass
 
 
-### Blazing Skyfin (2/1/3) ## new 25.2
+
+
+### 23/10/3 ###
+## Blazing Skyfin (2/1/3) ## new 25.2
 if BG_Blazing_Skyfin:
 	BG_Minion_Murloc+=['BG25_040','BG25_040_G','BG25_040e','BG25_040_Ge']
 	BG_PoolSet_Murloc.append('BG25_040')
@@ -208,10 +211,10 @@ class BG25_040:
 	After you play a [Battlecry] minion, gain +1/+1."""
 	option_tags={GameTag.TECH_LEVEL:2, GameTag.ATK:1, GameTag.HEALTH:3}	
 	if Config.LOCALE=='enUS':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"After you play a [Battlecry] minion, gain +1/+1."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:""}
-	events = Play(CONTROLLER, FRIENDLY + BATTLECRY).after(Buff(SELF, 'BG25_040e'))
+		option_cardtext={GameTag.CARDTEXT:"自分が&lt;b&gt;雄叫び&lt;/b&gt;ミニオンを手札から使用した後+1/+1を獲得する。"}
+	events = BG_Play(CONTROLLER, FRIENDLY + BATTLECRY).after(Buff(SELF, 'BG25_040e'))
 	pass
 BG25_040e=buff(1,1)
 class BG25_040_G:
@@ -219,45 +222,45 @@ class BG25_040_G:
 	After you play a [Battlecry] minion, gain +2/+2."""
 	option_tags={GameTag.TECH_LEVEL:2, GameTag.ATK:2, GameTag.HEALTH:6}	
 	if Config.LOCALE=='enUS':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"After you play a [Battlecry] minion, gain +2/+2."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:""}
-	events = Play(CONTROLLER, FRIENDLY + BATTLECRY).after(Buff(SELF, 'BG25_040_Ge'))
+		option_cardtext={GameTag.CARDTEXT:"自分が&lt;b&gt;雄叫び&lt;/b&gt;ミニオンを手札から使用した後+2/+2を獲得する。"}
+	events = BG_Play(CONTROLLER, FRIENDLY + BATTLECRY).after(Buff(SELF, 'BG25_040_Ge'))
 	pass
 BG25_040_Ge=buff(2,2)
 
 
 
-## Upbeat Flutist (Murloc) (2)
+## Upbeat Flutist (Murloc) (2/2/5)
 #BG26__Upbeat_Flutist=(Config.BG_VERSION>=2620)#(2)
 if BG26__Upbeat_Flutist:# 
-	BG_Minion_Murloc+=['BG26_352','BG26_352e']
-	BG_Minion_Murloc+=['BG26_352_G','BG26_352_Ge']
+	BG_Minion_Murloc+=['BG26_352','BG26_352e','BG26_352_G','BG26_352_Ge']
 	BG_PoolSet_Murloc.append('BG26_352')
 	BG_Murloc_Gold['BG26_352']='BG26_352_G'
 class BG26_352_Action(GameAction):# 
 	BUFF=ActionArg()
 	def do(self, source, buff):# 
 		if len(source.controller.hand):
-			Buff(source.controller.hand[0], buff)
+			card = random.choice(source.controller.hand)
+			Buff(card, buff).trigger(source)
 		pass# 
 class BG26_352:# (minion)(murloc)
 	""" Upbeat Flutist
 	At the end of every 2 turns, give a random minion in your hand +9 Health. <i>({0} |4(turn, turns) left!)</i>@At the end of every 2 turns, give a random minion in your hand +9 Health. <i>(End of this turn!)</i> """
-	option_tags={GameTag.ATK:0, GameTag.HEALTH:0}
+	option_tags={GameTag.TECH_LEVEL:2, GameTag.ATK:2, GameTag.HEALTH:5}
 	if Config.LOCALE=='enUS':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"At the end of every 2 turns, give a random minion in your hand +9 Health. <i>({0} turns left!)</i>"}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"2ターンごとの終了時自分の手札のランダムなミニオン1体に体力+9を付与する。&lt;i&gt;（あと{0}ターン！）&lt;/i&gt;"}
 	events = OWN_TURN_END.on(SidequestCounter(SELF, 2,[BG26_352_Action('BG26_352e')]))
 	pass
 BG26_352e=buff(0,9)
 class BG26_352_G:# (minion)(murloc)
 	""" Upbeat Flutist
 	At the end of every 2 turns, give a random minion in your hand +18 Health. <i>({0} |4(turn, turns) left!)</i>@At the end of every 2 turns, give a random minion in your hand +18 Health. <i>(End of this turn!)</i> """
-	option_tags={GameTag.ATK:0, GameTag.HEALTH:0}
+	option_tags={GameTag.TECH_LEVEL:2, GameTag.ATK:4, GameTag.HEALTH:10}
 	if Config.LOCALE=='enUS':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"At the end of every 2 turns, give a random minion in your hand +18 Health. <i>({0} turns left!)</i>"}
 	elif Config.LOCALE=='jaJP':
 		option_cardtext={GameTag.CARDTEXT:""}
 	events = OWN_TURN_END.on(SidequestCounter(SELF, 2,[BG26_352_Action('BG26_352_Ge')]))
