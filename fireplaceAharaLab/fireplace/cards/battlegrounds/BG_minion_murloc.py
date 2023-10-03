@@ -334,7 +334,7 @@ TB_BaconUps_124e=buff(2,2)
 
 
 ### 23/10/3 ###
-#Swolefin (3) ### need check ### banned 26.2
+#Swolefin (3/4/2) ### need check ### banned 26.2
 if BG_Swolefin:
 	BG_Minion_Murloc+=['BG21_010','BG21_010e','BG21_010_G','BG21_010_Ge',]
 	BG_PoolSet_Murloc.append('BG21_010')
@@ -379,18 +379,17 @@ class BG21_010_Ge:# <12>[1453]
 
 
 
-
-## Scourfin (Murloc) (3)
+### 23/10/3 23:28###
+## Scourfin (Murloc) (3/3/3)
 #BG26__Scourfin=(Config.BG_VERSION>=2620)#(3)
 if BG26__Scourfin:# 
-	BG_Minion_Murloc+=['BG26_360','BG26_360e']
-	BG_Minion_Murloc+=['BG26_360_G','BG26_360_Ge']
+	BG_Minion_Murloc+=['BG26_360','BG26_360e','BG26_360_G','BG26_360_Ge']
 	BG_PoolSet_Murloc.append('BG26_360')
 	BG_Murloc_Gold['BG26_360']='BG26_360_G'
 class BG26_360_Action(GameAction):# 
 	BUFF=ActionArg()
 	def do(self, source, buff):# 
-		original_controller = getattr(source.controller,'deepcopy_original')
+		original_controller = getattr(source.controller,'deepcopy_original', None)
 		if original_controller != None:
 			if len(original_controller.hand):
 				card=random.choice(original_controller.hand)
@@ -406,10 +405,9 @@ class BG26_360:# (minion)(murloc)
 	else:
 		option_tags={GameTag.TECH_LEVEL:3, GameTag.ATK:6, GameTag.HEALTH:3}
 	if Config.LOCALE=='enUS':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"[Deathrattle:] Give a random minion in your hand +5/+5. "}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:""}
-
+		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;断末魔:&lt;/b&gt;自分の手札のランダムなミニオン1体に+5/+5を付与する。"}
 	deathrattle = BG26_360_Action('BG26_360e')
 	pass
 BG26_360e=buff(5,5)
@@ -421,9 +419,9 @@ class BG26_360_G:# (minion)(murloc)
 	else:
 		option_tags={GameTag.TECH_LEVEL:3, GameTag.ATK:12, GameTag.HEALTH:6}
 	if Config.LOCALE=='enUS':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"[Deathrattle:] Give a random minion in your hand +10/+10."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;断末魔:&lt;/b&gt;自分の手札のランダムなミニオン1体に+10/+10を付与する。"}
 	deathrattle = BG26_360_Action('BG26_360_Ge')
 	pass
 BG26_360_Ge=buff(10,10)
@@ -432,7 +430,10 @@ BG26_360_Ge=buff(10,10)
 
 #### TIER 4 ####
 
-#Primalfin Lookout (4) ### maybe ###
+
+
+### 23/10/3/23:33 ###
+#Primalfin Lookout (4/3/2) ### maybe ###
 if BG_Primalfin_Lookout:
 	BG_Minion_Murloc+=['BGS_020','TB_BaconUps_089',]
 	BG_PoolSet_Murloc.append('BGS_020')
@@ -453,22 +454,22 @@ class BGS_020_Action(GameAction):
 class BGS_020:# <12>[1453] 見張り番
 	""" Primalfin Lookout
 	[Battlecry:] If you control another Murloc, [Discover] a_Murloc. """
-	option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:0, GameTag.HEALTH:0}
+	option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:3, GameTag.HEALTH:2}
 	if Config.LOCALE=='enUS':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"[Battlecry:] If you control another Murloc, [Discover] a_Murloc."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;雄叫び:&lt;/b&gt;自分の陣地に他のマーロックがいる場合マーロック1体を&lt;b&gt;発見&lt;/b&gt;する。"}
 	play = BGS_020_Action()
 	pass
 class BGS_020_Choice2(Choice):
 	def choose(self, card):
-		card.zone=Zone.HAND
 		self.source.sidequest_counter+=1
 		if self.source.sidequest_counter==1:
 			self.next_choice=self
 		else:
 			self.next_choice=None
 		super().choose(card)
+		card.zone=Zone.HAND
 		pass
 class BGS_020_Action2(GameAction):
 	def do(self, source):
@@ -476,27 +477,26 @@ class BGS_020_Action2(GameAction):
 		#cards=[card for card in controller.field if card!=source and card.type==CardType.MINION and card.race==Race.MURLOC]
 		cards=[card for card in controller.field if card!=source and race_identity(card,Race.MURLOC)]
 		if len(cards):
-			BGS_020_Choice2(controller, RandomBGMurloc(tech_level_less=TIER(CONTROLLER))*3).trigger(source)
+			BGS_020_Choice2(controller, RandomBGMurloc(tech_level_less=TIER(CONTROLLER))*3).trigger(source)## DiscoverTwice
 class TB_BaconUps_089:# <12>[1453]
 	""" Primalfin Lookout
 	[Battlecry:] If you control another Murloc, [Discover] two_Murlocs. """
-	option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:0, GameTag.HEALTH:0}
+	option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:6, GameTag.HEALTH:4}
 	if Config.LOCALE=='enUS':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"[Battlecry:] If you control another Murloc, [Discover] two_Murlocs."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;雄叫び:&lt;/b&gt;自陣に他のマーロックがいる場合マーロックを2体&lt;b&gt;発見&lt;/b&gt;する。"}
 	play = BGS_020_Action2()
 	pass
 
 
 
 
-
-## Bream Counter (Murloc) (4)
+### 23/10/3, 23:36 ###
+## Bream Counter (Murloc) (4/4/4)
 #BG26__Bream_Counter=(Config.BG_VERSION>=2620)# (4)
 if BG26__Bream_Counter:# 
-	BG_Minion_Murloc+=['BG26_137','BG26_137e']
-	BG_Minion_Murloc+=['BG26_137_G','BG26_137_Ge']
+	BG_Minion_Murloc+=['BG26_137','BG26_137e','BG26_137_G','BG26_137_Ge']
 	BG_PoolSet_Murloc.append('BG26_137')
 	BG_Murloc_Gold['BG26_137']='BG26_137_G'
 class BG26_137_Action(GameAction):# 
@@ -505,11 +505,11 @@ class BG26_137_Action(GameAction):#
 class BG26_137:# (minion)(murloc)
 	""" Bream Counter
 	While this is in your hand, after you play a Murloc, gain +3/+2. """
-	option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:0, GameTag.HEALTH:0}
+	option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:4, GameTag.HEALTH:4}
 	if Config.LOCALE=='enUS':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"While this is in your hand, after you play a Murloc, gain +3/+2."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"これは自分の手札にある間自分がマーロックを手札から使用する度に+3/+2を獲得する。"}
 	class Hand:
 		events = BG_Play(CONTROLLER, FRIENDLY + MINION + MURLOC).after(Buff(SELF, 'BG26_137e'))
 	pass
@@ -517,23 +517,23 @@ BG26_137e=buff(3,2)
 class BG26_137_G:# (minion)(murloc)
 	""" Bream Counter
 	While this is in your hand, after you play a Murloc, gain +6/+4. """
-	option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:0, GameTag.HEALTH:0}
+	option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:8, GameTag.HEALTH:8}
 	if Config.LOCALE=='enUS':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"While this is in your hand, after you play a Murloc, gain +6/+4."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"これは自分の手札にある間自分がマーロックを手札から使用する度に+6/+4を獲得する。"}
 	class Hand:
-		events = BG_Play(CONTROLLER, FRIENDLY + MINION + MURLOC).after(Buff(SELF, 'BG26_137e'))
+		events = BG_Play(CONTROLLER, FRIENDLY + MINION + MURLOC).after(Buff(SELF, 'BG26_137_Ge'))
 	pass
 BG26_137_Ge=buff(6,4)
 
 
 
-## Bassgill (Murloc) (4)
+### 23/10/3. 23:51 ##
+## Bassgill (Murloc) (4/6/2)
 #BG26__Bassgill=(Config.BG_VERSION>=2620) #(4)
 if BG26__Bassgill:# 
-	BG_Minion_Murloc+=['BG26_350','BG26_350e2']
-	BG_Minion_Murloc+=['BG26_350_G']
+	BG_Minion_Murloc+=['BG26_350','BG26_350e2','BG26_350_G']
 	BG_PoolSet_Murloc.append('BG26_350')
 	BG_Murloc_Gold['BG26_350']='BG26_350_G'
 class BG26_350_Action(GameAction):# 
@@ -541,7 +541,7 @@ class BG26_350_Action(GameAction):#
 		cards=[]
 		if len(source.controller.hand):
 			for card in source.controller.hand:
-				if card.type==CardType.MINION:
+				if card.type==CardType.MINION and not 'BG26_350e2' in [bf.id for bf in card.buffs]:
 					if cards==[]:
 						cards=[card]
 					elif cards[0].max_health<card.max_health:
@@ -551,15 +551,16 @@ class BG26_350_Action(GameAction):#
 		if len(cards):
 			card = random.choice(cards)
 			Summon(source.controller, card.id).trigger(source) 
+			Buff(card, 'BG26_350e2').trigger(source)
 		pass# 
 class BG26_350:# (minion)(murloc)
 	""" Bassgill
 	[Deathrattle:] Summon the highest Health minion from your hand for this combat only. """
-	option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:0, GameTag.HEALTH:0}
+	option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:6, GameTag.HEALTH:2}
 	if Config.LOCALE=='enUS':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"[Deathrattle:] Summon the highest Health minion from your hand for this combat only."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;断末魔:&lt;/b&gt;自分の手札の最も体力が高いミニオンをこの戦闘のみ召喚する。"}
 	deathrattle = BG26_350_Action()
 	pass
 class BG26_350_G_Action(GameAction):# 
@@ -567,7 +568,7 @@ class BG26_350_G_Action(GameAction):#
 		cards=[]
 		if len(source.controller.hand):
 			for card in source.controller.hand:
-				if card.type==CardType.MINION:
+				if card.type==CardType.MINION and not 'BG26_350e2' in [bf.id for bf in card.buffs]:
 					if cards==[]:
 						cards=[card]
 					elif cards[0].max_health<card.max_health:
@@ -578,28 +579,31 @@ class BG26_350_G_Action(GameAction):#
 			cards = random.sample(cards,2)
 			Summon(source.controller, cards[0].id).trigger(source) 
 			Summon(source.controller, cards[1].id).trigger(source) 
+			Buff(cards[0], 'BG26_350e2').trigger(source)
+			Buff(cards[1], 'BG26_350e2').trigger(source)
 		elif len(cards)==1:
 			Summon(source.controller, cards[0].id).trigger(source) 
 			Summon(source.controller, cards[0].id).trigger(source) 
+			Buff(cards[0], 'BG26_350e2').trigger(source)
 		pass# 
 class BG26_350_G:# (minion)(murloc)
 	""" Bassgill
 	[Deathrattle:] Summon the 2 highest Health minions from your hand for this combat only. """
-	option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:0, GameTag.HEALTH:0}
+	option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:12, GameTag.HEALTH:4}
 	if Config.LOCALE=='enUS':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"[Deathrattle:] Summon the 2 highest Health minions from your hand for this combat only."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;断末魔:&lt;/b&gt;自分の手札の最も体力が高いミニオン2体をこの戦闘のみ召喚する。"}
 	deathrattle = BG26_350_G_Action()
 	pass
 
 
 
+### 23/10/3, 23:57 ###
 ## Plagued Tidewalker (Murloc) (4)
 #BG26__Plagued_Tidewalker=(Config.BG_VERSION>=2620)#(4)
 if BG26__Plagued_Tidewalker:# 
-	BG_Minion_Murloc+=['BG26_361']
-	BG_Minion_Murloc+=['BG26_361_G']
+	BG_Minion_Murloc+=['BG26_361','BG26_361_G']
 	BG_PoolSet_Murloc.append('BG26_361')
 	BG_Murloc_Gold['BG26_361']='BG26_361_G'
 class BG26_361_Action(GameAction):# 
@@ -609,21 +613,21 @@ class BG26_361:# (minion)(murloc)
 	""" Plagued Tidewalker
 	[Venomous] """
 	#<Tag enumID="2853" name="VENOMOUS" type="Int" value="1"/>
-	option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:0, GameTag.HEALTH:0}
+	option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:2, GameTag.HEALTH:7}
 	if Config.LOCALE=='enUS':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"[Venomous]"}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;毒袋&lt;/b&gt;"}
 	pass
 class BG26_361_G:# (minion)(murloc)
 	""" Plagued Tidewalker
 	[Venomous] """
 	#<Tag enumID="2853" name="VENOMOUS" type="Int" value="1"/>
-	option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:0, GameTag.HEALTH:0}
+	option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:4, GameTag.HEALTH:14}
 	if Config.LOCALE=='enUS':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"[Venomous]"}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;毒袋&lt;/b&gt;"}
 	pass
 
 
