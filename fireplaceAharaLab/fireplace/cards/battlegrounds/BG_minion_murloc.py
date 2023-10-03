@@ -44,7 +44,7 @@ if BG_Rockpool_Hunter:
 class BG_UNG_073:
 	""" >Rockpool Hunter
 	[Battlecry:] Give a friendly Murloc +1/+1. """
-	option_tags={GameTag.ATK:2, GameTag.HEALTH:3}
+	option_tags={GameTag.TECH_LEVEL:1, GameTag.ATK:2, GameTag.HEALTH:3}
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Battlecry:] Give a friendly Murloc +1/+1."}
 	elif Config.LOCALE=='jaJP':
@@ -56,7 +56,7 @@ UNG_073e=buff(1,1)
 class TB_BaconUps_061:# <12>[1453]
 	""" Rockpool Hunter
 	[Battlecry:] Give a friendly Murloc +2/+2. """
-	option_tags={GameTag.ATK:4, GameTag.HEALTH:6}
+	option_tags={GameTag.TECH_LEVEL:1, GameTag.ATK:4, GameTag.HEALTH:6}
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Battlecry:] Give a friendly Murloc +2/+2."}
 	elif Config.LOCALE=='jaJP':
@@ -77,7 +77,7 @@ if BG_Swampstriker:
 class BG22_401:# <12>[1453]
 	""" Swampstriker
 	After you summon a Murloc, gain +1 Attack. """
-	option_tags={GameTag.ATK:1, GameTag.HEALTH:4}
+	option_tags={GameTag.TECH_LEVEL:1, GameTag.ATK:1, GameTag.HEALTH:4}
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"After you summon a Murloc, gain +1 Attack."}
 	elif Config.LOCALE=='jaJP':
@@ -88,7 +88,7 @@ BG22_401e=buff(1,0)
 class BG22_401_G:# <12>[1453]
 	""" Swampstriker
 	After you summon a Murloc, gain +2 Attack. """
-	option_tags={GameTag.ATK:2, GameTag.HEALTH:8}
+	option_tags={GameTag.TECH_LEVEL:1, GameTag.ATK:2, GameTag.HEALTH:8}
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"After you summon a Murloc, gain +2 Attack."}
 	elif Config.LOCALE=='jaJP':
@@ -231,6 +231,7 @@ BG25_040_Ge=buff(2,2)
 
 
 
+### 23/10/3 ###
 ## Upbeat Flutist (Murloc) (2/2/5)
 #BG26__Upbeat_Flutist=(Config.BG_VERSION>=2620)#(2)
 if BG26__Upbeat_Flutist:# 
@@ -270,7 +271,9 @@ BG26_352_Ge=buff(0,18)
 
 ###### tavern tier 3
 
-#Coldlight Seer (3)
+
+### 23/10/3 ###
+#Coldlight Seer (3/2/3)
 if BG_Coldlight_Seer:
 	BG_Minion_Murloc+=['BG_EX1_103','EX1_103e','TB_BaconUps_064','TB_BaconUps_064e',]
 	BG_PoolSet_Murloc.append('BG_EX1_103')
@@ -278,28 +281,29 @@ if BG_Coldlight_Seer:
 class BG_EX1_103:
 	""" Coldlight Seer
 	[Battlecry:] Give your other Murlocs +2 Health. """
-	option_tags={GameTag.ATK:0, GameTag.HEALTH:0}
+	option_tags={GameTag.TECH_LEVEL:3, GameTag.ATK:2, GameTag.HEALTH:3}
 	if Config.LOCALE=='enUS':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"[Battlecry:] Give your other Murlocs +2 Health."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:""}
-	play = Buff(FRIENDLY_MINIONS + MURLOC - SELF, 'EX1_103e')
+		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;雄叫び:&lt;/b&gt;自身を除く味方のマーロックに体力+2を付与する。"}
+	play = Buff(FRIENDLY + MINION + MURLOC - SELF, 'EX1_103e')
 	pass
 EX1_103e=buff(0,2)
 class TB_BaconUps_064:# <12>[1453]
 	""" Coldlight Seer
 	[Battlecry:] Give your other Murlocs +4 Health. """
-	option_tags={GameTag.ATK:0, GameTag.HEALTH:0}
+	option_tags={GameTag.TECH_LEVEL:3, GameTag.ATK:4, GameTag.HEALTH:6}
 	if Config.LOCALE=='enUS':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"[Battlecry:] Give your other Murlocs +4 Health."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:""}
-	play = Buff(FRIENDLY_MINIONS + MURLOC - SELF, 'TB_BaconUps_064e')
+		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;雄叫び:&lt;/b&gt;自身を除く味方のマーロックに体力+4を付与する。"}
+	play = Buff(FRIENDLY + MINION + MURLOC - SELF, 'TB_BaconUps_064e')
 	pass
 TB_BaconUps_064e=buff(0,4)
 
 
 
+### 23/10/3 ###
 #Felfin Navigator (3) ### maybe ### banned 26.2
 if BG_Felfin_Navigator:
 	BG_Minion_Murloc+=['BG_BT_010','BT_010e','TB_BaconUps_124','TB_BaconUps_124e',]
@@ -308,58 +312,71 @@ if BG_Felfin_Navigator:
 class BG_BT_010:
 	""" Felfin Navigator
 	[Battlecry:] Give your other Murlocs +1/+1. """
-	option_tags={GameTag.ATK:0, GameTag.HEALTH:0}
+	option_tags={GameTag.TECH_LEVEL:3, GameTag.ATK:4, GameTag.HEALTH:4}
 	if Config.LOCALE=='enUS':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"[Battlecry:] Give your other Murlocs +1/+1."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:""}
-	play =  Buff(FRIENDLY_MINIONS + MURLOC - SELF, 'BT_010e')
+		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;雄叫び:&lt;/b&gt;自身を除く味方のマーロックに+1/+1を付与する。"}
+	play =  Buff(FRIENDLY + MINION + MURLOC - SELF, 'BT_010e')
 BT_010e=buff(1,1)
 class TB_BaconUps_124:# <12>[1453]
 	""" Felfin Navigator
 	[Battlecry:] Give your other Murlocs +2/+2. """
-	option_tags={GameTag.ATK:0, GameTag.HEALTH:0}
+	option_tags={GameTag.TECH_LEVEL:3, GameTag.ATK:8, GameTag.HEALTH:8}
 	if Config.LOCALE=='enUS':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"[Battlecry:] Give your other Murlocs +2/+2."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:""}
-	play =  Buff(FRIENDLY_MINIONS + MURLOC - SELF, 'TB_BaconUps_124e')
+		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;雄叫び:&lt;/b&gt;自身を除く味方のマーロックに+2/+2を付与する。"}
+	play =  Buff(FRIENDLY + MINION + MURLOC - SELF, 'TB_BaconUps_124e')
 	pass
 TB_BaconUps_124e=buff(2,2)
 
 
 
+### 23/10/3 ###
 #Swolefin (3) ### need check ### banned 26.2
 if BG_Swolefin:
 	BG_Minion_Murloc+=['BG21_010','BG21_010e','BG21_010_G','BG21_010_Ge',]
 	BG_PoolSet_Murloc.append('BG21_010')
 	BG_Murloc_Gold['BG21_010']='BG21_010_G'
+class BG21_010_Action(GameAction):
+	BUFF=ActionArg()
+	NUM=IntArg()
+	def do(self, source, buff, num):
+		cards = [card for card in source.controller.field if card!=source]
+		amount=len(cards)
+		if amount>0:
+			Buff(source, 'BG21_010e', atk=2*amount*num, max_health=amount*num).trigger(source)
+		pass
 class BG21_010:# <12>[1453] ムキムキ
 	""" Swolefin
 	[Battlecry:] Gain +2/+1 for each other friendly Murloc. """
-	option_tags={GameTag.ATK:0, GameTag.HEALTH:0}
+	option_tags={GameTag.TECH_LEVEL:3, GameTag.ATK:4, GameTag.HEALTH:2}
 	if Config.LOCALE=='enUS':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"[Battlecry:] Gain +2/+1 for each other friendly Murloc."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:""}
-	play = Buff(SELF, 'BG21_010e') * Count(FRIENDLY_MINIONS + MURLOC - SELF)
+		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;雄叫び:&lt;/b&gt;自身を除く味方のマーロック1体につき+2/+1を獲得する。"}
+	play = BG21_010_Action('BG21_010e',1)
 	pass
-BG21_010e=buff(2,1)# <12>[1453]
-""" Swole
-+2/+1. """
+class BG21_010e:# <12>[1453]
+	""" Swole
+	+2/+1. """
+	pass
 class BG21_010_G:# <12>[1453]
 	""" Swolefin
 	[Battlecry:] Gain +4/+2 foreach other friendly Murloc. """
-	option_tags={GameTag.ATK:0, GameTag.HEALTH:0}
+	option_tags={GameTag.TECH_LEVEL:3, GameTag.ATK:8, GameTag.HEALTH:4}
 	if Config.LOCALE=='enUS':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"[Battlecry:] Gain +4/+2 foreach other friendly Murloc."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:""}
-	play = Buff(SELF, 'BG21_010_Ge') * Count(FRIENDLY_MINIONS + MURLOC - SELF)
+		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;雄叫び:&lt;/b&gt;自身を除く味方のマーロック1体につき+4/+2を獲得する。"}
+	play = BG21_010_Action('BG21_010_Ge', 2)
 	pass
-BG21_010_Ge=buff(4,2)# <12>[1453]
-""" Swoler
-+4/+2. """
+class BG21_010_Ge:# <12>[1453]
+	""" Swoler
+	+4/+2. """
+	pass
+
 
 
 
@@ -385,9 +402,9 @@ class BG26_360:# (minion)(murloc)
 	#New: 3 Attack, 3 Health
 	#Old: 6 Attack, 3 Health
 	if Config.BG_VERSION>=2622:
-		option_tags={GameTag.ATK:3, GameTag.HEALTH:3}
+		option_tags={GameTag.TECH_LEVEL:3, GameTag.ATK:3, GameTag.HEALTH:3}
 	else:
-		option_tags={GameTag.ATK:6, GameTag.HEALTH:3}
+		option_tags={GameTag.TECH_LEVEL:3, GameTag.ATK:6, GameTag.HEALTH:3}
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:""}
 	elif Config.LOCALE=='jaJP':
@@ -400,9 +417,9 @@ class BG26_360_G:# (minion)(murloc)
 	""" Scourfin
 	[Deathrattle:] Give a random minion in your hand +10/+10. """
 	if Config.BG_VERSION>=2622:
-		option_tags={GameTag.ATK:6, GameTag.HEALTH:6}
+		option_tags={GameTag.TECH_LEVEL:3, GameTag.ATK:6, GameTag.HEALTH:6}
 	else:
-		option_tags={GameTag.ATK:12, GameTag.HEALTH:6}
+		option_tags={GameTag.TECH_LEVEL:3, GameTag.ATK:12, GameTag.HEALTH:6}
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:""}
 	elif Config.LOCALE=='jaJP':
@@ -436,7 +453,7 @@ class BGS_020_Action(GameAction):
 class BGS_020:# <12>[1453] 見張り番
 	""" Primalfin Lookout
 	[Battlecry:] If you control another Murloc, [Discover] a_Murloc. """
-	option_tags={GameTag.ATK:0, GameTag.HEALTH:0}
+	option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:0, GameTag.HEALTH:0}
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:""}
 	elif Config.LOCALE=='jaJP':
@@ -463,7 +480,7 @@ class BGS_020_Action2(GameAction):
 class TB_BaconUps_089:# <12>[1453]
 	""" Primalfin Lookout
 	[Battlecry:] If you control another Murloc, [Discover] two_Murlocs. """
-	option_tags={GameTag.ATK:0, GameTag.HEALTH:0}
+	option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:0, GameTag.HEALTH:0}
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:""}
 	elif Config.LOCALE=='jaJP':
@@ -488,7 +505,7 @@ class BG26_137_Action(GameAction):#
 class BG26_137:# (minion)(murloc)
 	""" Bream Counter
 	While this is in your hand, after you play a Murloc, gain +3/+2. """
-	option_tags={GameTag.ATK:0, GameTag.HEALTH:0}
+	option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:0, GameTag.HEALTH:0}
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:""}
 	elif Config.LOCALE=='jaJP':
@@ -500,7 +517,7 @@ BG26_137e=buff(3,2)
 class BG26_137_G:# (minion)(murloc)
 	""" Bream Counter
 	While this is in your hand, after you play a Murloc, gain +6/+4. """
-	option_tags={GameTag.ATK:0, GameTag.HEALTH:0}
+	option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:0, GameTag.HEALTH:0}
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:""}
 	elif Config.LOCALE=='jaJP':
@@ -538,7 +555,7 @@ class BG26_350_Action(GameAction):#
 class BG26_350:# (minion)(murloc)
 	""" Bassgill
 	[Deathrattle:] Summon the highest Health minion from your hand for this combat only. """
-	option_tags={GameTag.ATK:0, GameTag.HEALTH:0}
+	option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:0, GameTag.HEALTH:0}
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:""}
 	elif Config.LOCALE=='jaJP':
@@ -568,7 +585,7 @@ class BG26_350_G_Action(GameAction):#
 class BG26_350_G:# (minion)(murloc)
 	""" Bassgill
 	[Deathrattle:] Summon the 2 highest Health minions from your hand for this combat only. """
-	option_tags={GameTag.ATK:0, GameTag.HEALTH:0}
+	option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:0, GameTag.HEALTH:0}
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:""}
 	elif Config.LOCALE=='jaJP':
@@ -592,7 +609,7 @@ class BG26_361:# (minion)(murloc)
 	""" Plagued Tidewalker
 	[Venomous] """
 	#<Tag enumID="2853" name="VENOMOUS" type="Int" value="1"/>
-	option_tags={GameTag.ATK:0, GameTag.HEALTH:0}
+	option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:0, GameTag.HEALTH:0}
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:""}
 	elif Config.LOCALE=='jaJP':
@@ -602,7 +619,7 @@ class BG26_361_G:# (minion)(murloc)
 	""" Plagued Tidewalker
 	[Venomous] """
 	#<Tag enumID="2853" name="VENOMOUS" type="Int" value="1"/>
-	option_tags={GameTag.ATK:0, GameTag.HEALTH:0}
+	option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:0, GameTag.HEALTH:0}
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:""}
 	elif Config.LOCALE=='jaJP':
