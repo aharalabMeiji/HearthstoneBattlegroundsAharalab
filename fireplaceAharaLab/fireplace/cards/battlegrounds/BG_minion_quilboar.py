@@ -53,11 +53,21 @@ if BG_Razorfen_Geomancer:
 class BG20_100:# <12>[1453]
 	""" Razorfen Geomancer
 	[Battlecry:] Gain a[Blood Gem](BG20_GEM). """
+	option_tags={GameTag.TECH_LEVEL:0, GameTag.ATK:0, GameTag.HEALTH:0}
+	if Config.LOCALE=='enUS':
+		option_cardtext={GameTag.CARDTEXT:""}
+	elif Config.LOCALE=='jaJP':
+		option_cardtext={GameTag.CARDTEXT:""}
 	play = Give(CONTROLLER, 'BG20_GEM')
 	pass
 class BG20_100_G:# <12>[1453]
 	""" Razorfen Geomancer
 	[Battlecry:] Gain 2[Blood Gems](BG20_GEM). """
+	option_tags={GameTag.TECH_LEVEL:0, GameTag.ATK:0, GameTag.HEALTH:0}
+	if Config.LOCALE=='enUS':
+		option_cardtext={GameTag.CARDTEXT:""}
+	elif Config.LOCALE=='jaJP':
+		option_cardtext={GameTag.CARDTEXT:""}
 	play = Give(CONTROLLER, 'BG20_GEM') * 2
 	pass
 
@@ -71,11 +81,21 @@ if BG_Sun_Bacon_Relaxer:
 class BG20_301:# <12>[1453] コンガリ 
 	""" Sun-Bacon Relaxer
 	When you sell this, gain 2_[Blood Gems](BG20_GEM). """
+	option_tags={GameTag.TECH_LEVEL:0, GameTag.ATK:0, GameTag.HEALTH:0}
+	if Config.LOCALE=='enUS':
+		option_cardtext={GameTag.CARDTEXT:""}
+	elif Config.LOCALE=='jaJP':
+		option_cardtext={GameTag.CARDTEXT:""}
 	events = Sell(CONTROLLER, SELF).on(Give(CONTROLLER, 'BG20_GEM') * 2)
 	pass
 class BG20_301_G:# <12>[1453]
 	""" Sun-Bacon Relaxer
 	When you sell this, gain 4_[Blood Gems](BG20_GEM). """
+	option_tags={GameTag.TECH_LEVEL:0, GameTag.ATK:0, GameTag.HEALTH:0}
+	if Config.LOCALE=='enUS':
+		option_cardtext={GameTag.CARDTEXT:""}
+	elif Config.LOCALE=='jaJP':
+		option_cardtext={GameTag.CARDTEXT:""}
 	events = Sell(CONTROLLER, SELF).on(Give(CONTROLLER, 'BG20_GEM') * 4)
 	pass
 
@@ -91,6 +111,10 @@ class BG25_045:# (minion)
 		option_tags={GameTag.ATK:4, GameTag.HEALTH:2}
 	else:
 		option_tags={GameTag.ATK:4, GameTag.HEALTH:1}
+	if Config.LOCALE=='enUS':
+		option_cardtext={GameTag.CARDTEXT:""}
+	elif Config.LOCALE=='jaJP':
+		option_cardtext={GameTag.CARDTEXT:""}
 	events = [Give(CONTROLLER).after(Buff(SELF, 'BG25_045e')),
 		   Buy(CONTROLLER).after(Buff(SELF, 'BG25_045e'))]
 	pass
@@ -106,6 +130,10 @@ class BG25_045_G:# (minion)
 		option_tags={GameTag.ATK:8, GameTag.HEALTH:4}
 	else:
 		option_tags={GameTag.ATK:8, GameTag.HEALTH:2}
+	if Config.LOCALE=='enUS':
+		option_cardtext={GameTag.CARDTEXT:""}
+	elif Config.LOCALE=='jaJP':
+		option_cardtext={GameTag.CARDTEXT:""}
 	events = [Give(CONTROLLER).after(Buff(SELF, 'BG25_045e2')),
 		   Buy(CONTROLLER).after(Buff(SELF, 'BG25_045e2'))]
 	pass
@@ -133,12 +161,22 @@ class BG20_101:# <12>[1453]
 	[Frenzy:] Gain a [Blood Gem]. """
 	tags={GameTag.FRENZY:1, }
 	#<ReferencedTag enumID="1637" name="FRENZY" type="Int" value="1"/>
+	option_tags={GameTag.TECH_LEVEL:0, GameTag.ATK:0, GameTag.HEALTH:0}
+	if Config.LOCALE=='enUS':
+		option_cardtext={GameTag.CARDTEXT:""}
+	elif Config.LOCALE=='jaJP':
+		option_cardtext={GameTag.CARDTEXT:""}
 	events = Damage(SELF).on(Frenzy(SELF,BG20_101_Action(CONTROLLER, 'BG20_GEM')))
 	pass
 class BG20_101_G:# <12>[1453]
 	""" Roadboar
 	[Frenzy:] Gain 2 [Blood Gems]. """
 	tags={GameTag.FRENZY:1, }
+	option_tags={GameTag.TECH_LEVEL:0, GameTag.ATK:0, GameTag.HEALTH:0}
+	if Config.LOCALE=='enUS':
+		option_cardtext={GameTag.CARDTEXT:""}
+	elif Config.LOCALE=='jaJP':
+		option_cardtext={GameTag.CARDTEXT:""}
 	events = Damage(SELF).on(Frenzy(SELF,[BG20_101_Action(CONTROLLER, 'BG20_GEM'), BG20_101_Action(CONTROLLER, 'BG20_GEM')]))
 	pass
 
@@ -152,6 +190,11 @@ if BG_Tough_Tusk:
 class BG20_102:# <12>[1453]
 	""" Tough Tusk
 	After a [Blood Gem] is played on this, gain [Divine Shield] for the next combat. """
+	option_tags={GameTag.TECH_LEVEL:0, GameTag.ATK:0, GameTag.HEALTH:0}
+	if Config.LOCALE=='enUS':
+		option_cardtext={GameTag.CARDTEXT:""}
+	elif Config.LOCALE=='jaJP':
+		option_cardtext={GameTag.CARDTEXT:""}
 	events = ApplyGem(SELF).on(SetDivineShield(SELF), Buff(SELF,'BG20_102e'))
 	pass
 class BG20_102e:# <12>[1453]
@@ -161,6 +204,11 @@ class BG20_102e:# <12>[1453]
 class BG20_102_G:# <12>[1453]
 	""" Tough Tusk
 	After a [Blood Gem] is played on this, gain[Divine Shield]. """
+	option_tags={GameTag.TECH_LEVEL:0, GameTag.ATK:0, GameTag.HEALTH:0}
+	if Config.LOCALE=='enUS':
+		option_cardtext={GameTag.CARDTEXT:""}
+	elif Config.LOCALE=='jaJP':
+		option_cardtext={GameTag.CARDTEXT:""}
 	events = ApplyGem(SELF).on(SetDivineShield(SELF),Buff(SELF,'BG20_102_Ge'))
 	pass
 class BG20_102_Ge:# <12>[1453]
@@ -193,6 +241,10 @@ class BG20_105:# <12>[1453] 荊使い
 	else:
 		option_tags = {GameTag.TECH_LEVEL:3, GameTag.ATK:4, GameTag.HEALTH:3}
 		play = Give(CONTROLLER, 'BG20_GEM')
+	if Config.LOCALE=='enUS':
+		option_cardtext={GameTag.CARDTEXT:""}
+	elif Config.LOCALE=='jaJP':
+		option_cardtext={GameTag.CARDTEXT:""}
 	deathrattle = GiveGemToOriginal(CONTROLLER, 'BG20_GEM')
 	pass
 class BG20_105_G:# <12>[1453]
@@ -204,6 +256,10 @@ class BG20_105_G:# <12>[1453]
 	else:
 		option_tags = {GameTag.TECH_LEVEL:3, GameTag.ATK:8, GameTag.HEALTH:6}
 		play = Give(CONTROLLER, 'BG20_GEM')*2
+	if Config.LOCALE=='enUS':
+		option_cardtext={GameTag.CARDTEXT:""}
+	elif Config.LOCALE=='jaJP':
+		option_cardtext={GameTag.CARDTEXT:""}
 	deathrattle = GiveGemToOriginal(CONTROLLER, 'BG20_GEM')*2
 	pass
 
@@ -229,11 +285,21 @@ class BG24_707_Action(TargetedAction):
 class BG24_707:
 	""" Bristlemane Scrapsmith (quilboar 3) (4/4)
 	After a friendly [Taunt] minion dies, get a [Blood Gem]."""
+	option_tags={GameTag.TECH_LEVEL:0, GameTag.ATK:0, GameTag.HEALTH:0}
+	if Config.LOCALE=='enUS':
+		option_cardtext={GameTag.CARDTEXT:""}
+	elif Config.LOCALE=='jaJP':
+		option_cardtext={GameTag.CARDTEXT:""}
 	events = Death(FRIENDLY + TAUNT).on(BG24_707_Action(CONTROLLER, 1))
 	pass
 class BG24_707_G:
 	"""
 	After a friendly [Taunt] minion dies,get 2 [ Blood Gems]."""
+	option_tags={GameTag.TECH_LEVEL:0, GameTag.ATK:0, GameTag.HEALTH:0}
+	if Config.LOCALE=='enUS':
+		option_cardtext={GameTag.CARDTEXT:""}
+	elif Config.LOCALE=='jaJP':
+		option_cardtext={GameTag.CARDTEXT:""}
 	events = Death(FRIENDLY + TAUNT).on(BG24_707_Action(CONTROLLER, 2))
 	pass
 
@@ -245,16 +311,24 @@ if BG_Bannerboar:
 	BG_Quilboar_Gold['BG20_201']='BG20_201_G'
 class BG20_201:# <12>[1453]
 	""" Bannerboar
-	At the end of your turn, play a [Blood Gem] on adjacent minions.
-	"""
+	At the end of your turn, play a [Blood Gem] on adjacent minions.	"""
+	option_tags={GameTag.TECH_LEVEL:0, GameTag.ATK:0, GameTag.HEALTH:0}
+	if Config.LOCALE=='enUS':
+		option_cardtext={GameTag.CARDTEXT:""}
+	elif Config.LOCALE=='jaJP':
+		option_cardtext={GameTag.CARDTEXT:""}
 	events = OWN_TURN_END.on(ApplyGem(SELF_ADJACENT, 'BG20_GEM'))
 	##At the end of your turn, play a [Blood Gem] on adjacent Quilboar. 
 	##events = OWN_TURN_END.on(ApplyGem(SELF_ADJACENT + QUILBOAR, 'BG20_GEM'))
 	pass
 class BG20_201_G:# <12>[1453]
 	""" Bannerboar
-	At the end of your turn, play 2 [Blood Gems] on adjacent minions.
-	 """
+	At the end of your turn, play 2 [Blood Gems] on adjacent minions.	 """
+	option_tags={GameTag.TECH_LEVEL:0, GameTag.ATK:0, GameTag.HEALTH:0}
+	if Config.LOCALE=='enUS':
+		option_cardtext={GameTag.CARDTEXT:""}
+	elif Config.LOCALE=='jaJP':
+		option_cardtext={GameTag.CARDTEXT:""}
 	events = OWN_TURN_END.on(ApplyGem(SELF_ADJACENT, 'BG20_GEM'), ApplyGem(SELF_ADJACENT, 'BG20_GEM'))
 	## At the end of your turn, play 2 [Blood Gems] on adjacent Quilboar.
 	##events = OWN_TURN_END.on(ApplyGem(SELF_ADJACENT + QUILBOAR, 'BG20_GEM'), ApplyGem(SELF_ADJACENT + QUILBOAR, 'BG20_GEM'))
@@ -279,11 +353,21 @@ class GB20_103_Action(TargetedAction):
 class BG20_103:# <12>[1453]
 	""" Bristleback Brute
 	The first [Blood Gem] played on this each turn gives an extra +3/+3. """
+	option_tags={GameTag.TECH_LEVEL:0, GameTag.ATK:0, GameTag.HEALTH:0}
+	if Config.LOCALE=='enUS':
+		option_cardtext={GameTag.CARDTEXT:""}
+	elif Config.LOCALE=='jaJP':
+		option_cardtext={GameTag.CARDTEXT:""}
 	events = ApplyGem(SELF).on(GB20_103_Action(SELF, 3))
 	pass
 class BG20_103_G:# <12>[1453]
 	""" Bristleback Brute
 	The first [Blood Gem] played on this each turn gives an extra +6/+6. """
+	option_tags={GameTag.TECH_LEVEL:0, GameTag.ATK:0, GameTag.HEALTH:0}
+	if Config.LOCALE=='enUS':
+		option_cardtext={GameTag.CARDTEXT:""}
+	elif Config.LOCALE=='jaJP':
+		option_cardtext={GameTag.CARDTEXT:""}
 	events = ApplyGem(SELF).on(GB20_103_Action(SELF, 6))
 	pass
 
@@ -303,11 +387,21 @@ class BG21_037_Action(TargetedAction):
 class BG21_037:# <12>[1453] 宝石割
 	""" Gemsplitter
 	After a friendly minion loses [Divine Shield], gain a_[Blood Gem]. """
+	option_tags={GameTag.TECH_LEVEL:0, GameTag.ATK:0, GameTag.HEALTH:0}
+	if Config.LOCALE=='enUS':
+		option_cardtext={GameTag.CARDTEXT:""}
+	elif Config.LOCALE=='jaJP':
+		option_cardtext={GameTag.CARDTEXT:""}
 	events = LoseDivineShield(FRIENDLY).on(GiveInBattle(CONTROLLER, 'BG20_GEM'))
 	pass
 class BG21_037_G:# <12>[1453]
 	""" Gemsplitter
 	After a friendly minion loses [Divine Shield], gain 2_[Blood Gems]. """
+	option_tags={GameTag.TECH_LEVEL:0, GameTag.ATK:0, GameTag.HEALTH:0}
+	if Config.LOCALE=='enUS':
+		option_cardtext={GameTag.CARDTEXT:""}
+	elif Config.LOCALE=='jaJP':
+		option_cardtext={GameTag.CARDTEXT:""}
 	events = LoseDivineShield(FRIENDLY_MINIONS).on(GiveInBattle(CONTROLLER, 'BG20_GEM')*2)
 	pass
 
@@ -328,6 +422,11 @@ class BG26_159_action(GameAction):
 class BG26_159:# (minion)
 	""" Moon-Bacon Jazzer
 	[Battlecry:] For the rest of the game, your [Blood Gems] __give an extra +1 Health. """
+	option_tags={GameTag.TECH_LEVEL:0, GameTag.ATK:0, GameTag.HEALTH:0}
+	if Config.LOCALE=='enUS':
+		option_cardtext={GameTag.CARDTEXT:""}
+	elif Config.LOCALE=='jaJP':
+		option_cardtext={GameTag.CARDTEXT:""}
 	play = BG26_159_action(1)
 	pass
 class BG26_159pe:
@@ -335,6 +434,11 @@ class BG26_159pe:
 class BG26_159_G:# (minion)
 	""" Moon-Bacon Jazzer
 	[Battlecry:] For the rest of the game, your [Blood Gems] __give an extra +2 Health. """
+	option_tags={GameTag.TECH_LEVEL:0, GameTag.ATK:0, GameTag.HEALTH:0}
+	if Config.LOCALE=='enUS':
+		option_cardtext={GameTag.CARDTEXT:""}
+	elif Config.LOCALE=='jaJP':
+		option_cardtext={GameTag.CARDTEXT:""}
 	play = BG26_159_action(2)#
 	pass
 
@@ -360,6 +464,10 @@ class BG25_039:# (minion)
 		option_tags={GameTag.ATK:2, GameTag.HEALTH:6}
 	else:
 		option_tags={GameTag.ATK:2, GameTag.HEALTH:4}	
+	if Config.LOCALE=='enUS':
+		option_cardtext={GameTag.CARDTEXT:""}
+	elif Config.LOCALE=='jaJP':
+		option_cardtext={GameTag.CARDTEXT:""}
 	events = BG_Play(CONTROLLER).after(BG25_039_Action(Play.TARGET))
 	pass
 class BG25_039e:# (enchantment)
@@ -386,6 +494,10 @@ class BG25_039_G:# (minion)
 		option_tags={GameTag.ATK:4, GameTag.HEALTH:12}
 	else:
 		option_tags={GameTag.ATK:4, GameTag.HEALTH:8}	
+	if Config.LOCALE=='enUS':
+		option_cardtext={GameTag.CARDTEXT:""}
+	elif Config.LOCALE=='jaJP':
+		option_cardtext={GameTag.CARDTEXT:""}
 	events = BG_Play(CONTROLLER).after(BG25_039_G_Action(Play.TARGET))
 	pass
 if Config.BG_VERSION>=2620:
@@ -406,12 +518,22 @@ if BG_Bonker:
 class BG20_104:# <12>[1453]
 	""" Bonker
 	[Windfury]After this attacks, gain a [Blood Gem]. """
+	option_tags={GameTag.TECH_LEVEL:0, GameTag.ATK:0, GameTag.HEALTH:0}
+	if Config.LOCALE=='enUS':
+		option_cardtext={GameTag.CARDTEXT:""}
+	elif Config.LOCALE=='jaJP':
+		option_cardtext={GameTag.CARDTEXT:""}
 	events = Attack(SELF).after(GiveGemToOriginal(CONTROLLER, 'BG20_GEM'))
 	pass
 class BG20_104_G:# <12>[1453]
 	""" Bonker
 	[Mega-Windfury]After this attacks, gain a [Blood Gem]. """
 	#<Tag enumID="189" name="WINDFURY" type="Int" value="3"/>
+	option_tags={GameTag.TECH_LEVEL:0, GameTag.ATK:0, GameTag.HEALTH:0}
+	if Config.LOCALE=='enUS':
+		option_cardtext={GameTag.CARDTEXT:""}
+	elif Config.LOCALE=='jaJP':
+		option_cardtext={GameTag.CARDTEXT:""}
 	events = Attack(SELF).after(GiveGemToOriginal(CONTROLLER, 'BG20_GEM'))
 	pass
 
@@ -425,6 +547,11 @@ if BG_Dynamic_Duo:
 class BG20_207:# <12>[1453]
 	""" Dynamic Duo
 	[[Taunt].] After a [Blood Gem]is played on another Quilboar, gain +1/+1. """
+	option_tags={GameTag.TECH_LEVEL:0, GameTag.ATK:0, GameTag.HEALTH:0}
+	if Config.LOCALE=='enUS':
+		option_cardtext={GameTag.CARDTEXT:""}
+	elif Config.LOCALE=='jaJP':
+		option_cardtext={GameTag.CARDTEXT:""}
 	events = ApplyGem(FRIENDLY_MINIONS - SELF).on(Buff(SELF, 'BG20_207e'))
 	pass
 BG20_207e=buff(1,1)# <12>[1453]
@@ -432,6 +559,11 @@ BG20_207e=buff(1,1)# <12>[1453]
 class BG20_207_G:# <12>[1453]
 	""" Dynamic Duo
 	[[Taunt].] After a [Blood Gem]is played on anotherQuilboar, gain +2/+2. """
+	option_tags={GameTag.TECH_LEVEL:0, GameTag.ATK:0, GameTag.HEALTH:0}
+	if Config.LOCALE=='enUS':
+		option_cardtext={GameTag.CARDTEXT:""}
+	elif Config.LOCALE=='jaJP':
+		option_cardtext={GameTag.CARDTEXT:""}
 	events = ApplyGem(FRIENDLY_MINIONS - SELF).on(Buff(SELF, 'BG20_207_Ge'))
 	pass
 BG20_207_Ge=buff(2,2)# <12>[1453]
@@ -454,6 +586,10 @@ class BG20_106:# <12>[1453]
 		option_tags={GameTag.ATK:3, GameTag.HEALTH:8}
 	else:
 		option_tags={GameTag.ATK:2, GameTag.HEALTH:6}
+	if Config.LOCALE=='enUS':
+		option_cardtext={GameTag.CARDTEXT:""}
+	elif Config.LOCALE=='jaJP':
+		option_cardtext={GameTag.CARDTEXT:""}
 	events = ApplyGem(SELF).on(Buff(FRIENDLY_MINIONS - SELF, 'BG20_106e'))
 	pass
 class BG20_106e:# <12>[1453]
@@ -467,6 +603,10 @@ class BG20_106_G:# <12>[1453]
 		option_tags={GameTag.ATK:6, GameTag.HEALTH:16}
 	else:
 		option_tags={GameTag.ATK:4, GameTag.HEALTH:12}
+	if Config.LOCALE=='enUS':
+		option_cardtext={GameTag.CARDTEXT:""}
+	elif Config.LOCALE=='jaJP':
+		option_cardtext={GameTag.CARDTEXT:""}
 	events = ApplyGem(SELF).on(
 		Buff(FRIENDLY_MINIONS - SELF, 'BG20_106e'), 
 		Buff(FRIENDLY_MINIONS - SELF, 'BG20_106e'))
@@ -483,6 +623,11 @@ class BG20_202:# <12>[1453]
 	""" Necrolyte
 	[Battlecry:] Play 2 [BloodGems] on a friendly minion. It steals all [Blood Gems]from its neighbors. """
 	requirements={PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_FRIENDLY_TARGET:0, PlayReq.REQ_MINION_TARGET:0,}
+	option_tags={GameTag.TECH_LEVEL:0, GameTag.ATK:0, GameTag.HEALTH:0}
+	if Config.LOCALE=='enUS':
+		option_cardtext={GameTag.CARDTEXT:""}
+	elif Config.LOCALE=='jaJP':
+		option_cardtext={GameTag.CARDTEXT:""}
 	play = ApplyGem(TARGET, 'BG20_GEM'),\
 		ApplyGem(TARGET, 'BG20_GEM'),\
 		StealGem(TARGET, TARGET_ADJACENT)
@@ -491,6 +636,11 @@ class BG20_202_G:# <12>[1453]
 	""" Necrolyte
 	[Battlecry:] Play 4 [BloodGems] on a friendly minion.It steals all [Blood Gems]from its neighbors. """
 	requirements={PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_FRIENDLY_TARGET:0, PlayReq.REQ_MINION_TARGET:0,}
+	option_tags={GameTag.TECH_LEVEL:0, GameTag.ATK:0, GameTag.HEALTH:0}
+	if Config.LOCALE=='enUS':
+		option_cardtext={GameTag.CARDTEXT:""}
+	elif Config.LOCALE=='jaJP':
+		option_cardtext={GameTag.CARDTEXT:""}
 	play = ApplyGem(TARGET, 'BG20_GEM'),\
 		ApplyGem(TARGET, 'BG20_GEM'),\
 		ApplyGem(TARGET, 'BG20_GEM'),\
@@ -516,6 +666,11 @@ class BG25_155:
 	Battlecry: Play a Blood Gem on all your other Quilboar."""
 	#[Tavern Tier 4, Quilboar] 3 Attack, 4 Health. Battlecry: Play a Blood Gem on all your other Quilboar.
 	option_tags={GameTag.TECH_LEVEL:4}
+	option_tags={GameTag.TECH_LEVEL:0, GameTag.ATK:0, GameTag.HEALTH:0}
+	if Config.LOCALE=='enUS':
+		option_cardtext={GameTag.CARDTEXT:""}
+	elif Config.LOCALE=='jaJP':
+		option_cardtext={GameTag.CARDTEXT:""}
 	play = BG25_155_Action()
 	pass
 class BG25_155_G_Action(GameAction):
@@ -528,6 +683,11 @@ class BG25_155_G:
 	""" Gem Smuggler
 	Battlecry: Play 2 Blood Gems on all your other Quilboar."""
 	option_tags={GameTag.TECH_LEVEL:4}
+	option_tags={GameTag.TECH_LEVEL:0, GameTag.ATK:0, GameTag.HEALTH:0}
+	if Config.LOCALE=='enUS':
+		option_cardtext={GameTag.CARDTEXT:""}
+	elif Config.LOCALE=='jaJP':
+		option_cardtext={GameTag.CARDTEXT:""}
 	play = BG25_155_G_Action()
 	pass
 
@@ -549,11 +709,21 @@ class BG26_160_Action(GameAction):#
 class BG26_160:# (minion)
 	""" Prickly Piper
 	[Deathrattle:] For the rest of the game, your [Blood Gems] __give an extra +1 Attack. """
+	option_tags={GameTag.TECH_LEVEL:0, GameTag.ATK:0, GameTag.HEALTH:0}
+	if Config.LOCALE=='enUS':
+		option_cardtext={GameTag.CARDTEXT:""}
+	elif Config.LOCALE=='jaJP':
+		option_cardtext={GameTag.CARDTEXT:""}
 	deathrattle = BG26_160_Action(1)
 	pass
 class BG26_160_G:# (minion)
 	""" Prickly Piper
 	[Deathrattle:] For the rest of the game, your [Blood Gems] __give an extra +2 Attack. """
+	option_tags={GameTag.TECH_LEVEL:0, GameTag.ATK:0, GameTag.HEALTH:0}
+	if Config.LOCALE=='enUS':
+		option_cardtext={GameTag.CARDTEXT:""}
+	elif Config.LOCALE=='jaJP':
+		option_cardtext={GameTag.CARDTEXT:""}
 	deathrattle = BG26_160_Action(2)#
 	pass
 @custom_card
@@ -600,6 +770,11 @@ class BG20_302_Action(TargetedAction):
 class BG20_302:# <12>[1453] そーんかーす
 	""" Aggem Thorncurse
 	After a [Blood Gem] is played on this, give a friendly minion of each minion type +1/+1. """
+	option_tags={GameTag.TECH_LEVEL:0, GameTag.ATK:0, GameTag.HEALTH:0}
+	if Config.LOCALE=='enUS':
+		option_cardtext={GameTag.CARDTEXT:""}
+	elif Config.LOCALE=='jaJP':
+		option_cardtext={GameTag.CARDTEXT:""}
 	events = ApplyGem(SELF).on(BG20_302_Action(CONTROLLER, 'BG20_302e'))
 	pass
 BG20_302e=buff(1,1)# <12>[1453]
@@ -608,6 +783,11 @@ BG20_302e=buff(1,1)# <12>[1453]
 class BG20_302_G:# <12>[1453]
 	""" Aggem Thorncurse
 	After a [Blood Gem] is played on this, give a friendly minion of each minion type +2/+2. """
+	option_tags={GameTag.TECH_LEVEL:0, GameTag.ATK:0, GameTag.HEALTH:0}
+	if Config.LOCALE=='enUS':
+		option_cardtext={GameTag.CARDTEXT:""}
+	elif Config.LOCALE=='jaJP':
+		option_cardtext={GameTag.CARDTEXT:""}
 	events = ApplyGem(SELF).on(BG20_302_Action(CONTROLLER, 'BG20_302_Ge'))
 	pass
 BG20_302_Ge=buff(2,2)# <12>[1453]
@@ -624,12 +804,22 @@ if BG_Bristleback_Knight:
 class BG20_204:
 	"""Bristleback_Knight
 	[Windfury], [Divine Shield] [Frenzy:] Gain [Divine Shield]."""
+	option_tags={GameTag.TECH_LEVEL:0, GameTag.ATK:0, GameTag.HEALTH:0}
+	if Config.LOCALE=='enUS':
+		option_cardtext={GameTag.CARDTEXT:""}
+	elif Config.LOCALE=='jaJP':
+		option_cardtext={GameTag.CARDTEXT:""}
 	events = Damage(SELF).on(Frenzy(SELF,SetDivineShield(SELF, True)))
 	#<Tag enumID="189" name="WINDFURY" type="Int" value="1"/>
 	pass
 class BG20_204_G:
 	"""Bristleback_Knight
 	[Mega-Windfury], [[Divine Shield].] [Frenzy:] Gain [Divine Shield]."""
+	option_tags={GameTag.TECH_LEVEL:0, GameTag.ATK:0, GameTag.HEALTH:0}
+	if Config.LOCALE=='enUS':
+		option_cardtext={GameTag.CARDTEXT:""}
+	elif Config.LOCALE=='jaJP':
+		option_cardtext={GameTag.CARDTEXT:""}
 	events = Damage(SELF).on(Frenzy(SELF,SetDivineShield(SELF, True)))
 	#<Tag enumID="189" name="WINDFURY" type="Int" value="3"/>
 	pass
@@ -645,6 +835,11 @@ if BG26__Bongo_Bopper:#
 class BG26_531:# (minion)
 	""" Bongo Bopper
 	At the end of your turn, get a [Blood Gem] and play 2 more on this. """
+	option_tags={GameTag.TECH_LEVEL:0, GameTag.ATK:0, GameTag.HEALTH:0}
+	if Config.LOCALE=='enUS':
+		option_cardtext={GameTag.CARDTEXT:""}
+	elif Config.LOCALE=='jaJP':
+		option_cardtext={GameTag.CARDTEXT:""}
 	events = OWN_TURN_END.on((
 		Give(CONTROLLER, 'BG20_GEM'),
 		ApplyGem(SELF, 'BG20_GEM'), ApplyGem(SELF, 'BG20_GEM')))
@@ -654,6 +849,11 @@ class BG26_531:# (minion)
 class BG26_531_G:# (minion)
 	""" Bongo Bopper
 	At the end of your turn, get 2 [Blood Gems] and play 4 more on this. """
+	option_tags={GameTag.TECH_LEVEL:0, GameTag.ATK:0, GameTag.HEALTH:0}
+	if Config.LOCALE=='enUS':
+		option_cardtext={GameTag.CARDTEXT:""}
+	elif Config.LOCALE=='jaJP':
+		option_cardtext={GameTag.CARDTEXT:""}
 	events = OWN_TURN_END.on((
 		Give(CONTROLLER, 'BG20_GEM'),Give(CONTROLLER, 'BG20_GEM'),
 		ApplyGem(SELF, 'BG20_GEM'),ApplyGem(SELF, 'BG20_GEM'),ApplyGem(SELF, 'BG20_GEM'),ApplyGem(SELF, 'BG20_GEM')))
@@ -681,6 +881,11 @@ class BG20_206_Action(TargetedAction):
 class BG20_206:# <12>[1453]
 	""" Captain Flat Tusk
 	After you spend 4 Gold, gain a [Blood Gem].<i>(@ Gold left!)</i> """
+	option_tags={GameTag.TECH_LEVEL:0, GameTag.ATK:0, GameTag.HEALTH:0}
+	if Config.LOCALE=='enUS':
+		option_cardtext={GameTag.CARDTEXT:""}
+	elif Config.LOCALE=='jaJP':
+		option_cardtext={GameTag.CARDTEXT:""}
 	events = [
 		Buy(CONTROLLER).on(BG20_206_Action(CONTROLLER, 1)),
 		Rerole(CONTROLLER).on(BG20_206_Action(CONTROLLER, 1)),
@@ -690,6 +895,11 @@ class BG20_206:# <12>[1453]
 class BG20_206_G:# <12>[1453]
 	""" Captain Flat Tusk
 	After you spend 4 Gold,gain 2 [Blood Gems].<i>(@ Gold left!)</i> """
+	option_tags={GameTag.TECH_LEVEL:0, GameTag.ATK:0, GameTag.HEALTH:0}
+	if Config.LOCALE=='enUS':
+		option_cardtext={GameTag.CARDTEXT:""}
+	elif Config.LOCALE=='jaJP':
+		option_cardtext={GameTag.CARDTEXT:""}
 	events = [
 		Buy(CONTROLLER).on(BG20_206_Action(CONTROLLER, 2)),
 		Rerole(CONTROLLER).on(BG20_206_Action(CONTROLLER, 2)),
@@ -707,6 +917,11 @@ class BG20_303:# <12>[1453] ちゃるが
 	""" Charlga
 	At the end of your turn, play a Blood Gem on your other minions.""" ##new 26.2
 	##At the end of your turn, play a [Blood Gem] on all friendly minions. 
+	option_tags={GameTag.TECH_LEVEL:0, GameTag.ATK:0, GameTag.HEALTH:0}
+	if Config.LOCALE=='enUS':
+		option_cardtext={GameTag.CARDTEXT:""}
+	elif Config.LOCALE=='jaJP':
+		option_cardtext={GameTag.CARDTEXT:""}
 	if Config.BG_VERSION>=2620:
 		events = OWN_TURN_END.on(ApplyGem(FRIENDLY_MINIONS - SELF, 'BG20_GEM'))
 	else:
@@ -716,6 +931,11 @@ class BG20_303:# <12>[1453] ちゃるが
 class BG20_303_G:# <12>[1453]
 	""" Charlga
 	At the end of your turn, play 2 [Blood Gems] on all friendly minions. """
+	option_tags={GameTag.TECH_LEVEL:0, GameTag.ATK:0, GameTag.HEALTH:0}
+	if Config.LOCALE=='enUS':
+		option_cardtext={GameTag.CARDTEXT:""}
+	elif Config.LOCALE=='jaJP':
+		option_cardtext={GameTag.CARDTEXT:""}
 	if Config.BG_VERSION>=2620:
 		events = OWN_TURN_END.on(ApplyGem(FRIENDLY_MINIONS - SELF, 'BG20_GEM')*2)
 	else:
@@ -751,6 +971,11 @@ class BG23_018_Action(TargetedAction):
 class BG23_018:# <12>[1453]
 	""" Darkgaze Elder (6)
 	After you spend 5 Gold, play a [Blood Gem] on four friendly Quilboar. <i>(@ Gold left!)</i>"""
+	option_tags={GameTag.TECH_LEVEL:0, GameTag.ATK:0, GameTag.HEALTH:0}
+	if Config.LOCALE=='enUS':
+		option_cardtext={GameTag.CARDTEXT:""}
+	elif Config.LOCALE=='jaJP':
+		option_cardtext={GameTag.CARDTEXT:""}
 	events = [
 		Buy(CONTROLLER).on(BG23_018_Action(CONTROLLER, 1)),
 		Rerole(CONTROLLER).on(BG23_018_Action(CONTROLLER, 1)),
@@ -760,6 +985,11 @@ class BG23_018:# <12>[1453]
 class BG23_018_G:# <12>[1453]
 	"""
 	After you spend 4 Gold, play a [Blood Gem] on four friendly Quilboar twice. <i>(@ Gold left!)</i>"""
+	option_tags={GameTag.TECH_LEVEL:0, GameTag.ATK:0, GameTag.HEALTH:0}
+	if Config.LOCALE=='enUS':
+		option_cardtext={GameTag.CARDTEXT:""}
+	elif Config.LOCALE=='jaJP':
+		option_cardtext={GameTag.CARDTEXT:""}
 	events = [
 		Buy(CONTROLLER).on(BG23_018_Action(CONTROLLER, 2)),
 		Rerole(CONTROLLER).on(BG23_018_Action(CONTROLLER, 2)),
@@ -784,11 +1014,21 @@ class BG26_157_Action(GameAction):#
 class BG26_157:# (minion)
 	""" Bristlebach
 	[Avenge (1):] Play a [Blood Gem] on all your Quilboar. """
+	option_tags={GameTag.TECH_LEVEL:0, GameTag.ATK:0, GameTag.HEALTH:0}
+	if Config.LOCALE=='enUS':
+		option_cardtext={GameTag.CARDTEXT:""}
+	elif Config.LOCALE=='jaJP':
+		option_cardtext={GameTag.CARDTEXT:""}
 	events = Death(FRIENDLY + MINION).on(Avenge(SELF, 1, [ApplyGem( FRIENDLY_MINIONS + QUILBOAR, 'BG20_GEM')]))#
 	pass
 class BG26_157_G:# (minion)
 	""" Bristlebach
 	[Avenge (1):] Play 2 [Blood Gems] on all your Quilboar. """
+	option_tags={GameTag.TECH_LEVEL:0, GameTag.ATK:0, GameTag.HEALTH:0}
+	if Config.LOCALE=='enUS':
+		option_cardtext={GameTag.CARDTEXT:""}
+	elif Config.LOCALE=='jaJP':
+		option_cardtext={GameTag.CARDTEXT:""}
 	events = Death(FRIENDLY + MINION).on(Avenge(SELF, 1, [
 		ApplyGem( FRIENDLY_MINIONS + QUILBOAR, 'BG20_GEM'),
 		ApplyGem( FRIENDLY_MINIONS + QUILBOAR, 'BG20_GEM')]
