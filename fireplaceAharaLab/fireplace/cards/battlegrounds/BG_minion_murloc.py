@@ -635,52 +635,69 @@ class BG26_361_G:# (minion)(murloc)
 
 #### TIER 5 ####
 
-#King Bagurgle (5) ### OK ###
+
+
+### 23/10/4, 14:36 ###
+#King Bagurgle (5/6/3) ### OK ###
 if BG_King_Bagurgle:
 	BG_Minion_Murloc+=['BGS_030','BGS_030e','TB_BaconUps_100','TB_BaconUps_100e',]
 	BG_PoolSet_Murloc.append('BGS_030')
 	BG_Murloc_Gold['BGS_030']='TB_BaconUps_100'
+##Old: 6 Attack, 3 Health. Battlecry and Deathrattle: Give your other Murlocs +2/+2. <2720
+##New: 6 Attack, 4 Health. Battlecry: Give your other Murlocs +2/+3. >=2720
 class BGS_030:# <12>[1453] バガァグル
 	""" King Bagurgle
-	[Battlecry and Deathrattle:] Give your other Murlocs +2/+2. """
-	option_tags={GameTag.ATK:0, GameTag.HEALTH:0}
+	[Battlecry and Deathrattle:] Give your other Murlocs +2/+2. """ 
+	option_tags={GameTag.TECH_LEVEL:5, GameTag.ATK:6, GameTag.HEALTH:3}
 	if Config.LOCALE=='enUS':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"Battlecry and Deathrattle: Give your other Murlocs +2/+2."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:""}
-	play = Buff(FRIENDLY_MINIONS + MURLOC, 'BGS_030e')
-	deathrattle = Buff(FRIENDLY_MINIONS + MURLOC, 'BGS_030e')
+		option_cardtext={GameTag.CARDTEXT:"雄叫び＆断末魔：自身を除く味方のマーロック全てに+2/+2を付与する。"}
+	play = Buff(FRIENDLY + MINION + MURLOC, 'BGS_030e')
+	deathrattle = Buff(FRIENDLY + MINION + MURLOC, 'BGS_030e')
 	pass
 BGS_030e=buff(2,2)
 class TB_BaconUps_100:# <12>[1453]
 	""" King Bagurgle
 	[Battlecry and Deathrattle:] Give your other Murlocs +4/+4. """
-	option_tags={GameTag.ATK:0, GameTag.HEALTH:0}
+	option_tags={GameTag.TECH_LEVEL:5, GameTag.ATK:12, GameTag.HEALTH:6}
 	if Config.LOCALE=='enUS':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"Battlecry and Deathrattle: Give your other Murlocs +4/+4."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:""}
-	play = Buff(FRIENDLY_MINIONS + MURLOC, 'TB_BaconUps_100e')
-	deathrattle = Buff(FRIENDLY_MINIONS + MURLOC, 'TB_BaconUps_100e')
+		option_cardtext={GameTag.CARDTEXT:"雄叫び＆断末魔：自身を除く味方のマーロック全てに+4/+4を付与する。"}
+	play = Buff(FRIENDLY + MINION + MURLOC, 'TB_BaconUps_100e')
+	deathrattle = Buff(FRIENDLY + MINION + MURLOC, 'TB_BaconUps_100e')
 	pass
 TB_BaconUps_100e=buff(4,4)
 
 
 
-#SI:Sefin (5)  ### maybe ### banned 24.2
+### 23/10/4, 15:11 ###
+#SI:Sefin (5/2/6)  ### maybe ### banned 24.2
 if BG_SI_Sefin:
 	BG_Minion_Murloc+=['BG21_009','BG21_009e','BG21_009_G',]
 	BG_PoolSet_Murloc.append('BG21_009')
 	BG_Murloc_Gold['BG21_009']='BG21_009_G'
+class BG21_009_Action(GameAction):
+	AMOUNT=IntArg()
+	def do(self, source, amount):
+		cards=[card for card in source.controller.field if card.poisonous==False]
+		if len(cards)>amount:
+			cards=random.sample(cards, amount)
+		for card in cards:
+			Buff(card, 'BG21_009e').trigger(source)
+			if getattr(card, 'deepcopy_original', None) != None:
+				Buff(card.deepcopy_original, 'BG21_009e' ).trigger(source)
+		pass
 class BG21_009:# <12>[1453] セブリ
 	""" SI:Sefin
-	[Avenge (3):] Give a friendly Murloc [Poisonous] permanently. """
-	option_tags={GameTag.ATK:0, GameTag.HEALTH:0}
+	[Avenge (3):] Give a friendly Murloc [Poisonous] permanently. """ ## old one
+	option_tags={GameTag.TECH_LEVEL:5, GameTag.ATK:2, GameTag.HEALTH:6}
 	if Config.LOCALE=='enUS':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;Avenge (4):&lt;/b&gt; Give a friendly Murloc &lt;b&gt;Poisonous&lt;/b&gt; permanently."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:""}
-	events = Death(FRIENDLY).on(Avenge(SELF, 3, [BuffPermanently(RANDOM(FRIENDLY_MINIONS + MURLOC), 'BG21_009e')])) #
+		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;仇討（4）:&lt;/b&gt;味方のマーロック1体に&lt;b&gt;猛毒&lt;/b&gt;を永続的に付与する。"}
+	events = Death(FRIENDLY).on(Avenge(SELF, 4, [BG21_009_Action(1)])) #
 	pass
 BG21_009e=buff(poisonous=True)# <12>[1453]
 """ SI:7 Training
@@ -688,12 +705,12 @@ BG21_009e=buff(poisonous=True)# <12>[1453]
 class BG21_009_G:# <12>[1453]
 	""" SI:Sefin
 	[Avenge (3):] Give 2 friendly Murlocs [Poisonous] permanently. """
-	option_tags={GameTag.ATK:0, GameTag.HEALTH:0}
+	option_tags={GameTag.TECH_LEVEL:5, GameTag.ATK:4, GameTag.HEALTH:12}
 	if Config.LOCALE=='enUS':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;Avenge (4):&lt;/b&gt; Give two friendly Murlocs &lt;b&gt;Poisonous&lt;/b&gt; permanently."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:""}
-	events = Death(FRIENDLY).on(Avenge(SELF, 3, [BuffPermanently(RANDOM(FRIENDLY_MINIONS + MURLOC), 'BG21_009e'), BuffPermanently(RANDOM(FRIENDLY_MINIONS + MURLOC - SELF), 'BG21_009e')])) #
+		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;仇討（4）:&lt;/b&gt;味方のマーロック2体に&lt;b&gt;猛毒&lt;/b&gt;を永続的に付与する。"}
+	events = Death(FRIENDLY).on(Avenge(SELF, 4, [BG21_009_Action(2)])) #
 	pass
 
 
@@ -715,7 +732,7 @@ class BG26_888_Action(GameAction):#
 class BG26_888:# (minion)(murloc)
 	""" Operatic Belcher
 	[Venomous.] [Deathrattle:] Give a friendly Murloc [Venomous]. """
-	option_tags={GameTag.ATK:0, GameTag.HEALTH:0}
+	option_tags={GameTag.TECH_LEVEL:5, GameTag.ATK:0, GameTag.HEALTH:0}
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:""}
 	elif Config.LOCALE=='jaJP':
@@ -736,7 +753,7 @@ class BG26_888_G_Action(GameAction):#
 class BG26_888_G:# (minion)(murloc)
 	""" Operatic Belcher
 	[Venomous.] [Deathrattle:] Give 2 friendly Murlocs [Venomous]. """
-	option_tags={GameTag.ATK:0, GameTag.HEALTH:0}
+	option_tags={GameTag.TECH_LEVEL:5, GameTag.ATK:0, GameTag.HEALTH:0}
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:""}
 	elif Config.LOCALE=='jaJP':
@@ -780,9 +797,9 @@ class BG22_403:
 	At the end of your turn, the minion to the left of this triggers its Battlecry."""
 	##	At the end of your turn, the Murloc to the left of this triggers its [Battlecry].""" old, <2620
 	if Config.BG_VERSION>=2620:
-		option_tags={GameTag.ATK:7, GameTag.HEALTH:4}
+		option_tags={GameTag.TECH_LEVEL:6, GameTag.ATK:7, GameTag.HEALTH:4}
 	else:
-		option_tags={GameTag.ATK:8, GameTag.HEALTH:5}
+		option_tags={GameTag.TECH_LEVEL:6, GameTag.ATK:8, GameTag.HEALTH:5}
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:""}
 	elif Config.LOCALE=='jaJP':
@@ -804,9 +821,9 @@ class BG22_403_G:
 	""" (6) 
 	At the end of your turn, adjacent Murlocs trigger their [Battlecries]."""
 	if Config.BG_VERSION>=2620:
-		option_tags={GameTag.ATK:14, GameTag.HEALTH:8}
+		option_tags={GameTag.TECH_LEVEL:6, GameTag.ATK:14, GameTag.HEALTH:8}
 	else:
-		option_tags={GameTag.ATK:16, GameTag.HEALTH:10}
+		option_tags={GameTag.TECH_LEVEL:6, GameTag.ATK:16, GameTag.HEALTH:10}
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:""}
 	elif Config.LOCALE=='jaJP':
@@ -826,11 +843,11 @@ class BG_DAL_077:
 	[Battlecry:] Give a friendly Murloc [Poisonous].""" 
 	requirements = {PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_MINION_TARGET:0, PlayReq.REQ_FRIENDLY_TARGET:0, PlayReq.REQ_TARGET_WITH_RACE:Race.MURLOC }	
 	if Config.BG_VERSION>=2522:
-		option_tags={GameTag.TECH_LEVEL:5}
+		option_tags={GameTag.TECH_LEVEL:5, GameTag.ATK:0, GameTag.HEALTH:0}
 	elif Config.BG_VERSION>=2504:
-		option_tags={GameTag.TECH_LEVEL:6}
+		option_tags={GameTag.TECH_LEVEL:6, GameTag.ATK:0, GameTag.HEALTH:0}
 	else:
-		option_tags={GameTag.TECH_LEVEL:4}
+		option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:0, GameTag.HEALTH:0}
 	#option_tags={GameTag.ATK:0, GameTag.HEALTH:0}
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:""}
@@ -842,11 +859,11 @@ class TB_BaconUps_152:
 	[Battlecry:] Give a friendly Murloc [Poisonous]."""
 	requirements = {PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_MINION_TARGET:0, PlayReq.REQ_FRIENDLY_TARGET:0, PlayReq.REQ_TARGET_WITH_RACE:Race.MURLOC }
 	if Config.BG_VERSION>=2522:
-		option_tags={GameTag.TECH_LEVEL:5}
+		option_tags={GameTag.TECH_LEVEL:5, GameTag.ATK:0, GameTag.HEALTH:0}
 	elif Config.BG_VERSION>=2504:
-		option_tags={GameTag.TECH_LEVEL:6}
+		option_tags={GameTag.TECH_LEVEL:6, GameTag.ATK:0, GameTag.HEALTH:0}
 	else:
-		option_tags={GameTag.TECH_LEVEL:4}
+		option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:0, GameTag.HEALTH:0}
 	#option_tags={GameTag.ATK:0, GameTag.HEALTH:0}
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:""}
@@ -879,7 +896,7 @@ class BG26_354_Action(GameAction):#
 class BG26_354:# (minion)(murloc)
 	""" Choral Mrrrglr
 	[Start of Combat:] Gain the stats of all the minions in your hand. """
-	option_tags={GameTag.ATK:0, GameTag.HEALTH:0}
+	option_tags={GameTag.TECH_LEVEL:6, GameTag.ATK:0, GameTag.HEALTH:0}
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:""}
 	elif Config.LOCALE=='jaJP':
@@ -889,7 +906,7 @@ class BG26_354:# (minion)(murloc)
 class BG26_354_G:# (minion)(murloc)
 	""" Choral Mrrrglr
 	[Start of Combat:] Gain the stats of all the minions in your hand twice. """
-	option_tags={GameTag.ATK:0, GameTag.HEALTH:0}
+	option_tags={GameTag.TECH_LEVEL:6, GameTag.ATK:0, GameTag.HEALTH:0}
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:""}
 	elif Config.LOCALE=='jaJP':
