@@ -715,16 +715,16 @@ class BG21_009_G:# <12>[1453]
 
 
 
-## Operatic Belcher (Murloc) (5)
+### 23/10/5, 13:46 ###
+## Operatic Belcher (Murloc) (5/5/2)
 #BG26__Operatic_Belcher=(Config.BG_VERSION>=2620)#(5)
 if BG26__Operatic_Belcher:# 
-	BG_Minion_Murloc+=['BG26_888']
-	BG_Minion_Murloc+=['BG26_888_G']
+	BG_Minion_Murloc+=['BG26_888','BG26_888_G']
 	BG_PoolSet_Murloc.append('BG26_888')
 	BG_Murloc_Gold['BG26_888']='BG26_888_G'
 class BG26_888_Action(GameAction):# 
 	def do(self, source):# 
-		cards=[card for card in source.controller.field if card.race==Race.MURLOC]
+		cards=[card for card in source.controller.field if card.race==Race.MURLOC and card.venomous==False]
 		if len(cards):
 			card = random.choice(cards)
 			card.venomous=True
@@ -732,34 +732,34 @@ class BG26_888_Action(GameAction):#
 class BG26_888:# (minion)(murloc)
 	""" Operatic Belcher
 	[Venomous.] [Deathrattle:] Give a friendly Murloc [Venomous]. """
-	option_tags={GameTag.TECH_LEVEL:5, GameTag.ATK:0, GameTag.HEALTH:0}
+	##<Tag enumID="2853" name="VENOMOUS" type="Int" value="1"/>
+	option_tags={GameTag.TECH_LEVEL:5, GameTag.ATK:5, GameTag.HEALTH:2}
 	if Config.LOCALE=='enUS':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"[Venomous.] [Deathrattle:] Give a friendly Murloc [Venomous]."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;毒袋&lt;/b&gt;、&lt;b&gt;断末魔:&lt;/b&gt;味方のマーロック1体に&lt;b&gt;毒袋&lt;/b&gt;を付与する。"}
 	deathrattle = BG26_888_Action()
 	pass
 class BG26_888_G_Action(GameAction):# 
 	def do(self, source):# 
-		cards=[card for card in source.controller.field if card.Race==Race.MURLOC]
-		if len(cards)==1:
-			card = random.choice(cards)
-			card.venomous=True
-		elif len(cards)>1:
+		cards=[card for card in source.controller.field if card.Race==Race.MURLOC and card.venomous==False]
+		if len(cards)>2:
 			cards=random.sample(cards, 2)
-			for card in cards:
-				card.venomous=True
+		for card in cards:
+			card.venomous=True
 		pass# 
 class BG26_888_G:# (minion)(murloc)
 	""" Operatic Belcher
 	[Venomous.] [Deathrattle:] Give 2 friendly Murlocs [Venomous]. """
-	option_tags={GameTag.TECH_LEVEL:5, GameTag.ATK:0, GameTag.HEALTH:0}
+	option_tags={GameTag.TECH_LEVEL:5, GameTag.ATK:10, GameTag.HEALTH:4}
 	if Config.LOCALE=='enUS':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"[Venomous.] [Deathrattle:] Give 2 friendly Murlocs [Venomous]."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:">&lt;b&gt;毒袋&lt;/b&gt;、&lt;b&gt;断末魔:&lt;/b&gt;味方のマーロック2体に&lt;b&gt;毒袋&lt;/b&gt;を付与する。"}
 	deathrattle = BG26_888_G_Action()
 	pass
+
+
 
 ##Magmaloc
 ##  2543
@@ -780,12 +780,25 @@ if BG25__Magmaloc:# 5/1/1 murloc ## new 25.2
 
 #### TIER 6 ####
 
+
+### 23/10/5, 16:08 ###
 ## Young Murk-Eye (6) 
 if BG_Young_Murk_Eye:
 	BG_Minion_Murloc+=['BG22_403','BG22_403_G']
 	BG_PoolSet_Murloc.append('BG22_403')
 	BG_Murloc_Gold['BG22_403']='BG22_403_G'
-class BG22_403_Action(GameAction):
+class BG22_403_Action_2620(GameAction):### new 
+	def do(self, source):
+		index = source.controller.field.index(source)
+		if index>0 :
+			card = source.controller.field[index-1]
+			if card.has_battlecry:
+				PlayBattlecry(card).trigger(source)
+		if index<len(source.controller.field)-1 :
+			card = source.controller.field[index+1]
+			if card.has_battlecry:
+				PlayBattlecry(card).trigger(source)
+class BG22_403_Action(GameAction): ### oldest
 	def do(self, source):
 		index = source.controller.field.index(source)
 		if index>0 :
@@ -798,15 +811,33 @@ class BG22_403:
 	##	At the end of your turn, the Murloc to the left of this triggers its [Battlecry].""" old, <2620
 	if Config.BG_VERSION>=2620:
 		option_tags={GameTag.TECH_LEVEL:6, GameTag.ATK:7, GameTag.HEALTH:4}
+		if Config.LOCALE=='enUS':
+			option_cardtext={GameTag.CARDTEXT:"At the end of your turn, adjacent minions trigger their &lt;b&gt;Battlecries&lt;/b&gt;."}
+		elif Config.LOCALE=='jaJP':
+			option_cardtext={GameTag.CARDTEXT:"自分のターンの終了時隣接するミニオンは__&lt;b&gt;雄叫び&lt;/b&gt;を発動させる。"}
+		events = OWN_TURN_END.on(BG22_403_Action_2620())
 	else:
 		option_tags={GameTag.TECH_LEVEL:6, GameTag.ATK:8, GameTag.HEALTH:5}
-	if Config.LOCALE=='enUS':
-		option_cardtext={GameTag.CARDTEXT:""}
-	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:""}
-	events = OWN_TURN_END.on(BG22_403_Action())
+		if Config.LOCALE=='enUS':
+			option_cardtext={GameTag.CARDTEXT:"At the end of your turn, the Murloc to the left of this triggers its [Battlecry]."}
+		elif Config.LOCALE=='jaJP':
+			option_cardtext={GameTag.CARDTEXT:"自分のターンの終了時、これの左隣のマーロックは雄叫びを発動させる。"}
+		events = OWN_TURN_END.on(BG22_403_Action())
 	pass
-class BG22_403_G_Action(GameAction):
+class BG22_403_G_Action_2620(GameAction):### new
+	def do(self, source):
+		index = source.controller.field.index(source)
+		if index>0 :
+			card = source.controller.field[index-1]
+			if card.has_battlecry:
+				PlayBattlecry(card).trigger(source)
+				PlayBattlecry(card).trigger(source)
+		if index<len(source.controller.field)-1 :
+			card = source.controller.field[index+1]
+			if card.has_battlecry:
+				PlayBattlecry(card).trigger(source)
+				PlayBattlecry(card).trigger(source)
+class BG22_403_G_Action(GameAction):### oldest
 	def do(self, source):
 		index = source.controller.field.index(source)
 		if index>0 :
@@ -822,17 +853,23 @@ class BG22_403_G:
 	At the end of your turn, adjacent Murlocs trigger their [Battlecries]."""
 	if Config.BG_VERSION>=2620:
 		option_tags={GameTag.TECH_LEVEL:6, GameTag.ATK:14, GameTag.HEALTH:8}
+		if Config.LOCALE=='enUS':
+			option_cardtext={GameTag.CARDTEXT:"At the end of your turn, adjacent minions trigger their &lt;b&gt;Battlecries&lt;/b&gt; twice."}
+		elif Config.LOCALE=='jaJP':
+			option_cardtext={GameTag.CARDTEXT:"自分のターンの終了時隣接するミニオンは&lt;b&gt;雄叫び&lt;/b&gt;を2回発動させる。"}
+		events = OWN_TURN_END.on(BG22_403_G_Action_2620())
 	else:
 		option_tags={GameTag.TECH_LEVEL:6, GameTag.ATK:16, GameTag.HEALTH:10}
 	if Config.LOCALE=='enUS':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"At the end of your turn, adjacent Murlocs trigger their [Battlecries]."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:""}
-	events = OWN_TURN_END.on(BG22_403_G_Action())
+		option_cardtext={GameTag.CARDTEXT:"自分のターンの終了時隣接するミニオンは&lt;b&gt;雄叫び&lt;/b&gt;を発動させる。"}
+		events = OWN_TURN_END.on(BG22_403_G_Action())
 	pass
 
 
 
+### 23/10/5, 16:13 ###
 ## Toxfin (6)
 if BG_Toxfin: ##(4) new 24.2 -> (6) 25.0.4
 	BG_Minion_Murloc+=['BG_DAL_077','TB_BaconUps_152']
@@ -843,41 +880,40 @@ class BG_DAL_077:
 	[Battlecry:] Give a friendly Murloc [Poisonous].""" 
 	requirements = {PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_MINION_TARGET:0, PlayReq.REQ_FRIENDLY_TARGET:0, PlayReq.REQ_TARGET_WITH_RACE:Race.MURLOC }	
 	if Config.BG_VERSION>=2522:
-		option_tags={GameTag.TECH_LEVEL:5, GameTag.ATK:0, GameTag.HEALTH:0}
+		option_tags={GameTag.TECH_LEVEL:5, GameTag.ATK:1, GameTag.HEALTH:2}
 	elif Config.BG_VERSION>=2504:
-		option_tags={GameTag.TECH_LEVEL:6, GameTag.ATK:0, GameTag.HEALTH:0}
+		option_tags={GameTag.TECH_LEVEL:6, GameTag.ATK:1, GameTag.HEALTH:2}
 	else:
-		option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:0, GameTag.HEALTH:0}
-	#option_tags={GameTag.ATK:0, GameTag.HEALTH:0}
+		option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:1, GameTag.HEALTH:2}
 	if Config.LOCALE=='enUS':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;Battlecry:&lt;/b&gt; Give a friendly Murloc &lt;b&gt;Poisonous&lt;/b&gt;."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;雄叫び:&lt;/b&gt;味方のマーロック1体に&lt;b&gt;猛毒&lt;/b&gt;を付与する。"}
 	play = SetTag(TARGET, (GameTag.POISONOUS,))
 class TB_BaconUps_152:
 	""" Toxfin
 	[Battlecry:] Give a friendly Murloc [Poisonous]."""
 	requirements = {PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_MINION_TARGET:0, PlayReq.REQ_FRIENDLY_TARGET:0, PlayReq.REQ_TARGET_WITH_RACE:Race.MURLOC }
 	if Config.BG_VERSION>=2522:
-		option_tags={GameTag.TECH_LEVEL:5, GameTag.ATK:0, GameTag.HEALTH:0}
+		option_tags={GameTag.TECH_LEVEL:5, GameTag.ATK:2, GameTag.HEALTH:4}
 	elif Config.BG_VERSION>=2504:
-		option_tags={GameTag.TECH_LEVEL:6, GameTag.ATK:0, GameTag.HEALTH:0}
+		option_tags={GameTag.TECH_LEVEL:6, GameTag.ATK:2, GameTag.HEALTH:4}
 	else:
-		option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:0, GameTag.HEALTH:0}
-	#option_tags={GameTag.ATK:0, GameTag.HEALTH:0}
+		option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:2, GameTag.HEALTH:4}
 	if Config.LOCALE=='enUS':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;Battlecry:&lt;/b&gt; Give a friendly Murloc &lt;b&gt;Poisonous&lt;/b&gt;."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;雄叫び:&lt;/b&gt;味方のマーロック1体に&lt;b&gt;猛毒&lt;/b&gt;を付与する。"}
 	play = SetTag(TARGET, (GameTag.POISONOUS,))
 
 
 
+
+### 23/10/5, 16:17 ###
 ## Choral Mrrrglr (Murloc) (6)
 #BG26__Choral_Mrrrglr=(Config.BG_VERSION>=2620)#(6)
 if BG26__Choral_Mrrrglr:# 
-	BG_Minion_Murloc+=['BG26_354','BG26_354e']
-	BG_Minion_Murloc+=['BG26_354_G']
+	BG_Minion_Murloc+=['BG26_354','BG26_354e','BG26_354_G']
 	BG_PoolSet_Murloc.append('BG26_354')
 	BG_Murloc_Gold['BG26_354']='BG26_354_G'
 class BG26_354_Action(GameAction):#
@@ -898,9 +934,9 @@ class BG26_354:# (minion)(murloc)
 	[Start of Combat:] Gain the stats of all the minions in your hand. """
 	option_tags={GameTag.TECH_LEVEL:6, GameTag.ATK:0, GameTag.HEALTH:0}
 	if Config.LOCALE=='enUS':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"[Start of Combat:] Gain the stats of all the minions in your hand."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;戦闘開始時:&lt;/b&gt;自分の手札のミニオン全ての攻撃力と体力を獲得する。"}
 	events = BeginBattle(CONTROLLER).on(BG26_354_Action(1))
 	pass
 class BG26_354_G:# (minion)(murloc)
@@ -908,9 +944,9 @@ class BG26_354_G:# (minion)(murloc)
 	[Start of Combat:] Gain the stats of all the minions in your hand twice. """
 	option_tags={GameTag.TECH_LEVEL:6, GameTag.ATK:0, GameTag.HEALTH:0}
 	if Config.LOCALE=='enUS':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"[Start of Combat:] Gain the stats of all the minions in your hand twice."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;戦闘開始時:&lt;/b&gt;自分の手札のミニオン全ての攻撃力と体力の2倍を獲得する。"}
 	events = BeginBattle(CONTROLLER).on(BG26_354_Action(2))
 	pass
 
