@@ -45,7 +45,9 @@ BG_PoolSet_Quilboar=[]
 BG_Quilboar_Gold={}
 
 
-#Razorfen Geomancer	1 ### OK ###
+
+### 23/10/6/20:53 ###
+#Razorfen Geomancer	1/3/1 ### OK ###
 if BG_Razorfen_Geomancer:
 	BG_Minion_Quilboar += [ 'BG20_100','BG20_100_G',]#	
 	BG_PoolSet_Quilboar.append('BG20_100')
@@ -53,27 +55,29 @@ if BG_Razorfen_Geomancer:
 class BG20_100:# <12>[1453]
 	""" Razorfen Geomancer
 	[Battlecry:] Gain a[Blood Gem](BG20_GEM). """
-	option_tags={GameTag.TECH_LEVEL:0, GameTag.ATK:0, GameTag.HEALTH:0}
+	option_tags={GameTag.TECH_LEVEL:1, GameTag.ATK:3, GameTag.HEALTH:1}
 	if Config.LOCALE=='enUS':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"[Battlecry:] Gain a[Blood Gem]"}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;雄叫び:&lt;/b&gt;&lt;b&gt;血の宝石&lt;/b&gt;1個を得る。"}
 	play = Give(CONTROLLER, 'BG20_GEM')
 	pass
 class BG20_100_G:# <12>[1453]
 	""" Razorfen Geomancer
 	[Battlecry:] Gain 2[Blood Gems](BG20_GEM). """
-	option_tags={GameTag.TECH_LEVEL:0, GameTag.ATK:0, GameTag.HEALTH:0}
+	option_tags={GameTag.TECH_LEVEL:1, GameTag.ATK:6, GameTag.HEALTH:2}
 	if Config.LOCALE=='enUS':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"[Battlecry:] Gain 2[Blood Gems]"}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:""}
-	play = Give(CONTROLLER, 'BG20_GEM') * 2
+		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;雄叫び:&lt;/b&gt;&lt;b&gt;血の宝石&lt;/b&gt;2個を得る。"}
+	play = Give(CONTROLLER, 'BG20_GEM'), Give(CONTROLLER, 'BG20_GEM')
 	pass
 
 
 
-#Sun-Bacon Relaxer	1 ### OK ###
+
+### 23/10/6, 21:10 ###
+#Sun-Bacon Relaxer	1/1/2 ### OK ###
 if BG_Sun_Bacon_Relaxer:
 	BG_Minion_Quilboar += [ 'BG20_301','BG20_301_G',]#	
 	BG_PoolSet_Quilboar.append('BG20_301')
@@ -81,25 +85,28 @@ if BG_Sun_Bacon_Relaxer:
 class BG20_301:# <12>[1453] コンガリ 
 	""" Sun-Bacon Relaxer
 	When you sell this, gain 2_[Blood Gems](BG20_GEM). """
-	option_tags={GameTag.TECH_LEVEL:0, GameTag.ATK:0, GameTag.HEALTH:0}
+	option_tags={GameTag.TECH_LEVEL:1, GameTag.ATK:1, GameTag.HEALTH:2}
 	if Config.LOCALE=='enUS':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"When you sell this, gain 2_[Blood Gems]"}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"これを売った時&lt;b&gt;血の宝石&lt;/b&gt;2個を得る。"}
 	events = Sell(CONTROLLER, SELF).on(Give(CONTROLLER, 'BG20_GEM') * 2)
 	pass
 class BG20_301_G:# <12>[1453]
 	""" Sun-Bacon Relaxer
 	When you sell this, gain 4_[Blood Gems](BG20_GEM). """
-	option_tags={GameTag.TECH_LEVEL:0, GameTag.ATK:0, GameTag.HEALTH:0}
+	option_tags={GameTag.TECH_LEVEL:1, GameTag.ATK:2, GameTag.HEALTH:4}
 	if Config.LOCALE=='enUS':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"When you sell this, gain 4_[Blood Gems]"}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"これを売った時&lt;b&gt;血の宝石&lt;/b&gt;4個を得る。"}
 	events = Sell(CONTROLLER, SELF).on(Give(CONTROLLER, 'BG20_GEM') * 4)
 	pass
 
 
+
+### 23/10/6, 21:30 ###
+# Thorncaptain 1/4/2
 if BG25__Thorncaptain:# 1/4/2 quilboar/pirate ## new 25.2
 	BG_Minion_Quilboar+=['BG25_045','BG25_045_G','BG25_045e','BG25_045e2']
 	BG_PoolSet_Quilboar.append('BG25_045')
@@ -108,13 +115,13 @@ class BG25_045:# (minion)
 	""" Thorncaptain
 	After a card is added to your hand, gain +1 Health until next turn. """
 	if Config.BG_VERSION>= 2522:
-		option_tags={GameTag.ATK:4, GameTag.HEALTH:2}
+		option_tags={GameTag.TECH_LEVEL:1, GameTag.ATK:4, GameTag.HEALTH:2}
 	else:
-		option_tags={GameTag.ATK:4, GameTag.HEALTH:1}
+		option_tags={GameTag.TECH_LEVEL:1, GameTag.ATK:4, GameTag.HEALTH:1}
 	if Config.LOCALE=='enUS':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"After a card is added to your hand, gain +1 Health until next turn."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"自分の手札にカードが追加された後次のターンまで体力+1を獲得する。"}
 	events = [Give(CONTROLLER).after(Buff(SELF, 'BG25_045e')),
 		   Buy(CONTROLLER).after(Buff(SELF, 'BG25_045e'))]
 	pass
@@ -127,13 +134,13 @@ class BG25_045_G:# (minion)
 	""" Thorncaptain
 	After a card is added to your hand, gain +2 Health until next turn. """
 	if Config.BG_VERSION>= 2522:
-		option_tags={GameTag.ATK:8, GameTag.HEALTH:4}
+		option_tags={GameTag.TECH_LEVEL:1, GameTag.ATK:8, GameTag.HEALTH:4}
 	else:
-		option_tags={GameTag.ATK:8, GameTag.HEALTH:2}
+		option_tags={GameTag.TECH_LEVEL:1, GameTag.ATK:8, GameTag.HEALTH:2}
 	if Config.LOCALE=='enUS':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"After a card is added to your hand, gain +2 Health until next turn."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"自分の手札にカードが追加された後次のターンまで体力+2を獲得する。"}
 	events = [Give(CONTROLLER).after(Buff(SELF, 'BG25_045e2')),
 		   Buy(CONTROLLER).after(Buff(SELF, 'BG25_045e2'))]
 	pass
