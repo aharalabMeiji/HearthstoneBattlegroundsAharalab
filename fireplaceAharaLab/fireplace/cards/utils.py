@@ -1,6 +1,6 @@
 import random
 
-from hearthstone.enums import CardClass, CardType, GameTag, PlayReq, Race, Rarity
+from fireplace.enums import CardClass, CardType, GameTag, PlayReq, Race, Rarity
 from hearthstone.utils import CARDRACE_TAG_MAP
 
 from ..actions import Summon

@@ -1,7 +1,7 @@
 """
 Targeting logic
 """
-from hearthstone.enums import CardType, PlayReq, Rarity, Zone
+from fireplace.enums import CardType, PlayReq, Rarity, Zone
 from hearthstone.utils import CARDRACE_TAG_MAP
 from enum import IntEnum
 

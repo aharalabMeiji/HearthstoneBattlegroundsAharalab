@@ -1,6 +1,6 @@
 import copy
 
-from hearthstone.enums import CardType
+from fireplace.enums import CardType
 
 from ..logging import log
 

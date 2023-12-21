@@ -152,7 +152,8 @@ class BG25_045e2:# (enchantment)
 
 
 
-#Roadboar	2  ### OK ### banned 26.2
+### 23/10/9, 10:06 ###
+#Roadboar	2/2/4  ### OK ### banned 26.2
 if BG_Roadboar:
 	BG_Minion_Quilboar += [ 'BG20_101','BG20_101_G',]#	
 	BG_PoolSet_Quilboar.append('BG20_101')
@@ -161,19 +162,20 @@ class BG20_101_Action(TargetedAction):
 	TARGET = ActionArg()
 	CARD = ActionArg()
 	def do(self, source, target, card):
-		controller=target.deepcopy_original
-		Give(controller, card).trigger(controller)
+		if getattr(target, 'deepcopy_original', None):
+			controller=target.deepcopy_original
+			Give(controller, card).trigger(controller)
 class BG20_101:# <12>[1453] 
 	""" Roadboar
 	[Frenzy:] Gain a [Blood Gem]. """
 	tags={GameTag.FRENZY:1, }
 	#<ReferencedTag enumID="1637" name="FRENZY" type="Int" value="1"/>
-	option_tags={GameTag.TECH_LEVEL:0, GameTag.ATK:0, GameTag.HEALTH:0}
+	option_tags={GameTag.TECH_LEVEL:2, GameTag.ATK:2, GameTag.HEALTH:4}
 	if Config.LOCALE=='enUS':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"[Frenzy:] Gain a [Blood Gem]."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:""}
-	events = Damage(SELF).on(Frenzy(SELF,BG20_101_Action(CONTROLLER, 'BG20_GEM')))
+		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;逆上:&lt;/b&gt;&lt;b&gt;血の宝石&lt;/b&gt;1個を得る。"}
+	events = Damage(SELF).on(Frenzy(SELF,[BG20_101_Action(CONTROLLER, 'BG20_GEM')]))
 	pass
 class BG20_101_G:# <12>[1453]
 	""" Roadboar
@@ -181,15 +183,15 @@ class BG20_101_G:# <12>[1453]
 	tags={GameTag.FRENZY:1, }
 	option_tags={GameTag.TECH_LEVEL:0, GameTag.ATK:0, GameTag.HEALTH:0}
 	if Config.LOCALE=='enUS':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"[Frenzy:] Gain 2 [Blood Gems]."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;逆上:&lt;/b&gt;&lt;b&gt;血の宝石&lt;/b&gt;2個を得る。"}
 	events = Damage(SELF).on(Frenzy(SELF,[BG20_101_Action(CONTROLLER, 'BG20_GEM'), BG20_101_Action(CONTROLLER, 'BG20_GEM')]))
 	pass
 
 
-
-#Tough Tusk	2 ### OK ###
+## 23/10/28 ## 
+#Tough Tusk	2/5/3 ### OK ###
 if BG_Tough_Tusk:
 	BG_Minion_Quilboar += [ 'BG20_102','BG20_102e','BG20_102_G','BG20_102_Ge',]#	
 	BG_PoolSet_Quilboar.append('BG20_102')
@@ -197,11 +199,11 @@ if BG_Tough_Tusk:
 class BG20_102:# <12>[1453]
 	""" Tough Tusk
 	After a [Blood Gem] is played on this, gain [Divine Shield] for the next combat. """
-	option_tags={GameTag.TECH_LEVEL:0, GameTag.ATK:0, GameTag.HEALTH:0}
+	option_tags={GameTag.TECH_LEVEL:2, GameTag.ATK:5, GameTag.HEALTH:3}
 	if Config.LOCALE=='enUS':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"After a &lt;b&gt;Blood Gem&lt;/b&gt; is played on this, gain &lt;b&gt;Divine Shield&lt;/b&gt; until next turn."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"これに&lt;b&gt;血の宝石&lt;/b&gt;を使用した後次のターンまで&lt;b&gt;聖なる盾&lt;/b&gt;を獲得する。"}
 	events = ApplyGem(SELF).on(SetDivineShield(SELF), Buff(SELF,'BG20_102e'))
 	pass
 class BG20_102e:# <12>[1453]
@@ -211,17 +213,16 @@ class BG20_102e:# <12>[1453]
 class BG20_102_G:# <12>[1453]
 	""" Tough Tusk
 	After a [Blood Gem] is played on this, gain[Divine Shield]. """
-	option_tags={GameTag.TECH_LEVEL:0, GameTag.ATK:0, GameTag.HEALTH:0}
+	option_tags={GameTag.TECH_LEVEL:2, GameTag.ATK:10, GameTag.HEALTH:6}
 	if Config.LOCALE=='enUS':
-		option_cardtext={GameTag.CARDTEXT:""}
+		option_cardtext={GameTag.CARDTEXT:"After a &lt;b&gt;Blood Gem&lt;/b&gt; is played on this, gain &lt;b&gt;Divine Shield&lt;/b&gt;."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:""}
-	events = ApplyGem(SELF).on(SetDivineShield(SELF),Buff(SELF,'BG20_102_Ge'))
+		option_cardtext={GameTag.CARDTEXT:"これに&lt;b&gt;血の宝石&lt;/b&gt;を使用した後&lt;b&gt;聖なる盾&lt;/b&gt;を獲得する。"}
+	events = ApplyGem(SELF).on(SetDivineShield(SELF))
 	pass
 class BG20_102_Ge:# <12>[1453]
 	""" Real Tough
 	[Divine Shield]. """
-	events = BeginBar(CONTROLLER).on(SetDivineShield(OWNER, False),Destroy(SELF))
 	pass
 
 

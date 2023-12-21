@@ -257,10 +257,10 @@ class BGS_122:# <12>[1453] ###
 		tier = self.controller.tavern_tier
 		elementals = []
 		for cardID in cards.battlegrounds.BG_minion_elemental.BG_PoolSet_Elemental:
-			cardxml = cards.db.get(cardID)
-			if cardxml!=None:
-				cardtier = cardxml.tags.get(GameTag.TECH_LEVEL)
-				if 1<=cardtier and cardtier<=tier:
+			card_xml = cards.db.get(cardID)
+			if card_xml!=None:
+				card_tier = card_xml.tags.get(GameTag.TECH_LEVEL)
+				if 1<=card_tier and card_tier<=tier:
 					elementals.append(cardID) 
 		if 'BGS_122' in elementals:
 			elementals.remove('BGS_122')
@@ -279,9 +279,9 @@ class TB_BaconUps_161:# <12>[1453]
 		tier = self.controller.tavern_tier
 		elementals = []
 		for cardID in cards.battlegrounds.BG_minion_elemental.BG_PoolSet_Elemental:
-			cardxml = cards.db.get(cardID)
-			if cardxml!=None:
-				cardtier = cardxml.tags.get(GameTag.TECH_LEVEL)
+			card_xml = cards.db.get(cardID)
+			if card_xml!=None:
+				cardtier = card_xml.tags.get(GameTag.TECH_LEVEL)
 				if 1<=cardtier and cardtier<=tier:
 					elementals.append(cardID) 
 		if 'BGS_122' in elementals:
@@ -516,9 +516,9 @@ class BGS_123:# <12>[1453] 逆巻き風
 		tier = self.controller.tavern_tier
 		elementals = []
 		for cardID in cards.battlegrounds.BG_minion_elemental.BG_PoolSet_Elemental:
-			cardxml = cards.db.get(cardID)
-			if cardxml!=None:
-				cardtier = cardxml.tags.get(GameTag.TECH_LEVEL)
+			card_xml = cards.db.get(cardID)
+			if card_xml!=None:
+				cardtier = card_xml.tags.get(GameTag.TECH_LEVEL)
 				if 1<=cardtier and cardtier<=tier:
 					elementals.append(cardID) 
 		if 'BGS_123' in elementals:
@@ -535,9 +535,9 @@ class TB_BaconUps_162:# <12>[1453]
 		tier = self.controller.tavern_tier
 		elementals = []
 		for cardID in cards.battlegrounds.BG_minion_elemental.BG_PoolSet_Elemental:
-			cardxml = cards.db.get(cardID)
-			if cardxml!=None:
-				cardtier = cardxml.tags.get(GameTag.TECH_LEVEL)
+			card_xml = cards.db.get(cardID)
+			if card_xml!=None:
+				cardtier = card_xml.tags.get(GameTag.TECH_LEVEL)
 				if 1<=cardtier and cardtier<=tier:
 					elementals.append(cardID) 
 		if 'BGS_123' in elementals:
@@ -712,9 +712,9 @@ class BGS_121_Action(TargetedAction):
 		tier = controller.tavern_tier
 		elementals = []
 		for cardID in cards.battlegrounds.BG_minion_elemental.BG_PoolSet_Elemental:
-			cardxml = cards.db.get(cardID)
-			if cardxml!=None:
-				cardtier = cardxml.tags.get(GameTag.TECH_LEVEL)
+			card_xml = cards.db.get(cardID)
+			if card_xml!=None:
+				cardtier = card_xml.tags.get(GameTag.TECH_LEVEL)
 				if 1<=cardtier and cardtier<=tier:
 					elementals.append(cardID) 
 		if 'BGS_121' in elementals:

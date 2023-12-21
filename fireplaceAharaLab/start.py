@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 import sys
-from hearthstone.enums import *
+from fireplace.enums import *
 from utils import *
 from fireplace import cards
 #from fireplace.debug_utilities import printClasses, printClasses_BG24, parse, parseDeck, printPool
@@ -24,7 +24,7 @@ def battleground_main():
 
 
 def printClasses_BG26():
-	from hearthstone import cardxml
+	from fireplace import cardxml
 	mySet="BG26_"# "BG24", "BG24_Reward",BG24_Quest
 	raceName="Undead"
 	race=Race.UNDEAD

@@ -1,7 +1,7 @@
 import os
 from pkg_resources import resource_filename
-from hearthstone import cardxml
-from hearthstone.enums import CardType, CardSet, CardClass, GameTag
+from fireplace import cardxml
+from fireplace.enums import CardType, CardSet, CardClass, GameTag
 #from ..logging import log
 from ..utils import get_script_definition
 

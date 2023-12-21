@@ -1,4 +1,4 @@
-from hearthstone.enums import CardClass,BlockType, CardType ,PlayState, State
+from fireplace.enums import CardClass,BlockType, CardType ,PlayState, State
 from enum import IntEnum
 from fireplace.game import Game
 from fireplace.card import Card

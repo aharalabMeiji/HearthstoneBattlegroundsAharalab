@@ -2,7 +2,7 @@ from fireplace.game import Game
 from fireplace.deepcopy import deepcopy_game
 from fireplace.actions import BG_Attack, Deaths, BeginBattle, EndBattle, BeginBattleTurn
 import random
-from hearthstone.enums import PlayState, Zone
+from fireplace.enums import PlayState, Zone
 from fireplace.config import Config
 from fireplace.targeting import is_valid_target
 import sys

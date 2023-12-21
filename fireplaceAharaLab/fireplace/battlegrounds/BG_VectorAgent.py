@@ -5,7 +5,7 @@ from .BG_bar import BG_Bar
 from ..deepcopy import deepcopy_game
 from ..player import Player
 from ..actions import Hit
-from hearthstone.enums import Zone,State, CardClass, CardType, GameTag, Race
+from fireplace.enums import Zone,State, CardClass, CardType, GameTag, Race
 import random
 
 

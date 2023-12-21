@@ -4,7 +4,7 @@ from abc import ABCMeta, abstractmethod
 from enum import IntEnum
 from typing import Any, Callable, Iterable, List, Optional, Set, Union
 
-from hearthstone.enums import CardClass, CardType, GameTag, Race, Rarity, Zone, SpellSchool
+from fireplace.enums import CardClass, CardType, GameTag, Race, Rarity, Zone, SpellSchool
 
 from .. import enums
 from ..entity import BaseEntity

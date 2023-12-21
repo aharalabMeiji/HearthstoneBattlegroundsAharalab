@@ -1,6 +1,6 @@
 import uuid
 
-from hearthstone.enums import CardType
+from fireplace.enums import CardType
 from fireplace.config import Config
 
 from . import logging

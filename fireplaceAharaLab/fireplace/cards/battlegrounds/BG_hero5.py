@@ -1616,10 +1616,10 @@ class TB_BaconShop_HP_062_Action(GameAction):
 		tier = controller.tavern_tier
 		dk=[]
 		for cardID in cards.battlegrounds.BG_minion_dragon.BG_PoolSet_Dragon:
-			cardxml = cards.db.get(cardID)
-			if cardxml!=None:
-				cardtier = cardxml.tags.get(GameTag.TECH_LEVEL)
-				if 1<=cardtier and cardtier<=tier:
+			card_xml = cards.db.get(cardID)
+			if card_xml!=None:
+				card_tier = card_xml.tags.get(GameTag.TECH_LEVEL)
+				if 1<=card_tier and card_tier<=tier:
 					dk.append(cardID) 
 		cardID=random.choice(dk)
 		card = bartender.card(cardID)

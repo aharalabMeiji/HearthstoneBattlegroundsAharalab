@@ -86,6 +86,7 @@
     <Compile Include="fireplaceAharaLab\fireplace\cards\battlegrounds\BG_minion_undead.py" />
     <Compile Include="fireplaceAharaLab\fireplace\cards\utils.py" />
     <Compile Include="fireplaceAharaLab\fireplace\cards\__init__.py" />
+    <Compile Include="fireplaceAharaLab\fireplace\cardxml.py" />
     <Compile Include="fireplaceAharaLab\fireplace\config.py" />
     <Compile Include="fireplaceAharaLab\fireplace\deck.py" />
     <Compile Include="fireplaceAharaLab\fireplace\deepcopy.py">

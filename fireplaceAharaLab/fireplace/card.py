@@ -1,6 +1,6 @@
 import random
 
-from hearthstone.enums import CardType, MultiClassGroup, PlayReq, PlayState, \
+from fireplace.enums import CardType, MultiClassGroup, PlayReq, PlayState, \
 	Race, Rarity, Step, Zone, GameTag, SpellSchool
 
 from . import actions, cards, enums, rules

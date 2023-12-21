@@ -7,7 +7,7 @@ from fireplace.player import Player
 from fireplace.dsl import random_picker
 #from fireplace.game import Game
 import random
-from hearthstone.enums import Zone, CardType, Race, GameTag
+from fireplace.enums import Zone, CardType, Race, GameTag
 
 from .BG_agent import BG_HumanAgent,BG_NecoAgent,BG_RandomAgent
 from .BG_bar import BG_Bar

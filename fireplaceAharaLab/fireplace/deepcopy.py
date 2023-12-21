@@ -1,6 +1,6 @@
 from enum import IntEnum
 from fireplace import cards
-from hearthstone.enums import GameTag, Zone,State,CardType,Step
+from fireplace.enums import GameTag, Zone,State,CardType,Step
 from .card import Hero,HeroPower,Minion,Spell,Weapon,Enchantment,Sidequest,Secret,Location,QuestReward
 from .player import Player, PlayLog
 from .game import Game

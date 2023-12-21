@@ -1,4 +1,4 @@
-from hearthstone.enums import GameTag
+from fireplace.enums import GameTag
 
 from . import enums
 

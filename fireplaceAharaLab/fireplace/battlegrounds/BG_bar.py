@@ -1,6 +1,6 @@
 from fireplace.game import Game
 from fireplace.player import Player
-from hearthstone.enums import State, Zone, CardType
+from fireplace.enums import State, Zone, CardType
 from fireplace.config import Config
 import random
 

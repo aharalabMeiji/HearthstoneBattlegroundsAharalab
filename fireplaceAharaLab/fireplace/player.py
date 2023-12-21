@@ -1,7 +1,7 @@
 import random
 from itertools import chain
 
-from hearthstone.enums import CardType, PlayState, Race, Zone
+from fireplace.enums import CardType, PlayState, Race, Zone
 
 from .actions import Concede, Draw, Fatigue, Give, Hit, Steal, Summon
 from .aura import TargetableByAuras

@@ -3,7 +3,7 @@ import time
 from calendar import timegm
 from itertools import chain
 
-from hearthstone.enums import BlockType, CardType, GameTag, PlayState, State, Step, Zone
+from fireplace.enums import BlockType, CardType, GameTag, PlayState, State, Step, Zone
 
 from .actions import Attack, Awaken, BeginTurn, Death, EndTurn, EventListener, \
 	Play,Destroy, Give, Draw, Shuffle, PayCost, Discover, Buff, Trade, Battlecry,\

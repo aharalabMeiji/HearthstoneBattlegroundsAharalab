@@ -1,7 +1,7 @@
 import random
 from copy import copy, deepcopy
 
-from hearthstone.enums import CardType, Race, Rarity, SpellSchool
+from fireplace.enums import CardType, Race, Rarity, SpellSchool
 
 from .lazynum import LazyValue
 

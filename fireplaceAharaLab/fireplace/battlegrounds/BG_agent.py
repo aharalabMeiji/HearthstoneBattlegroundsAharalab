@@ -6,7 +6,7 @@ from fireplace.utils import modify_description
 from fireplace.dsl.selector import TARGET
 #from fireplace.cards.battlegrounds import BG_hero1
 import random
-from hearthstone.enums import Zone,State, CardClass, CardType, GameTag, Race
+from fireplace.enums import Zone,State, CardClass, CardType, GameTag, Race
 from .BG_enums import MovePlay
 
 class BG_Agent(object):

@@ -8,7 +8,7 @@ from typing import List
 from xml.etree import ElementTree
 from enum import IntEnum
 
-from hearthstone.enums import CardClass, CardType, Race
+from fireplace.enums import CardClass, CardType, Race
 
 
 # Autogenerate the list of cardset modules
