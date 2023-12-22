@@ -270,15 +270,15 @@ class TB_BaconUps_135:
 
 #Rat Pack (3/2/2)   ### maybe ###
 if BG_Rat_Pack:
-	BG_Minion_Beast += ['BG_CFM_316','CFM_316t','TB_BaconUps_027','TB_BaconUps_027t',]#Rat Pack(3)
+	BG_Minion_Beast += ['BG_CFM_316','BG_CFM_316t','TB_BaconUps_027','TB_BaconUps_027t',]#Rat Pack(3)
 	BG_PoolSet_Beast.append('BG_CFM_316')
 	BG_Beast_Gold['BG_CFM_316']='TB_BaconUps_027'
-class CFM_316:
+class BG_CFM_316:
 	""" Rat Pack (3/2/2)
 	[Deathrattle:] Summon a number of 1/1 Rats equal _to this minion's Attack."""
-	deathrattle = DeathrattleSummon(CONTROLLER, 'CFM_316t') * ATK(SELF)#
+	deathrattle = DeathrattleSummon(CONTROLLER, 'BG_CFM_316t') * ATK(SELF)#
 	pass
-class CFM_316t:
+class BG_CFM_316t:
 	""" Rat """
 	pass
 class TB_BaconUps_027:

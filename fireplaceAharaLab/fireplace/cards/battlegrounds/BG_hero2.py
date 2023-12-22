@@ -163,7 +163,7 @@ class TB_BaconShop_HP_047:
 	activate = TB_BaconShop_HP_047_Choice(CONTROLLER, RandomBGAdmissible(tech_level=TIER(CONTROLLER))*3)
 	## until 24.0
 	##[Passive] When you upgrade  Bob's Tavern get a 'Recruitment Map'."""
-	##events = UpgradeTier(CONTROLLER).after(Give(CONTROLLER, 'TB_BaconShop_HP_047t').then(SetScriptDataNum1(Give.CARD, TIER(CONTROLLER))))
+	events = UpgradeTier(CONTROLLER).after(Give(CONTROLLER, 'TB_BaconShop_HP_047t').then(SetScriptDataNum1(Give.CARD, TIER(CONTROLLER))))
 class TB_BaconShop_HP_047t_Choice(Choice):
 	def choose(self, card):
 		self.next_choice=None
@@ -1311,7 +1311,11 @@ TB_BaconShop_HERO_38_Buddy_Ge=buff(2,2)# <12>[1453]
 
 
 ##Kurtrus Ashfallen  #### HP OK #### 
-BG_Hero2+=['BG20_HERO_280','BG20_HERO_280e','BG20_HERO_280p','BG20_HERO_280pe','BG20_HERO_280p2','BG20_HERO_280p2e','BG20_HERO_280p2e2','BG20_HERO_280p3','BG20_HERO_280p3e2','BG20_HERO_280_Buddy','BG20_HERO_280_Buddye','BG20_HERO_280_Buddy_G','BG20_HERO_280_Buddye2',]
+BG_Hero2+=['BG20_HERO_280','BG20_HERO_280e',
+	'BG20_HERO_280p','BG20_HERO_280pe','BG20_HERO_280p2','BG20_HERO_280p2e','BG20_HERO_280p2e2',
+	'BG20_HERO_280p3','BG20_HERO_280p3e2',
+	'BG20_HERO_280p5',
+	'BG20_HERO_280_Buddy','BG20_HERO_280_Buddye','BG20_HERO_280_Buddy_G','BG20_HERO_280_Buddye2',]
 BG_PoolSet_Hero2+=['BG20_HERO_280']
 BG_Hero2_Buddy['BG20_HERO_280']='BG20_HERO_280_Buddy'
 BG_Hero2_Buddy_Gold['BG20_HERO_280_Buddy']='BG20_HERO_280_Buddy_G'
@@ -1418,6 +1422,28 @@ class BG20_HERO_280p3:# <14>[1453]
 	pass
 BG20_HERO_280p3e2=buff(2,2)# <12>[1453]
 """ Portal Closure,	+2/+2 """
+class BG20_HERO_280p5_Choice(Choice):
+	def choose(self, card):
+		self.next_choice=None
+		super().choose(card)
+		card.controller = self.player
+		card.zone=Zone.HAND
+	pass
+class BG20_HERO_280p5_Action(GameAction):
+	def do(self, source):
+		controller=source.controller
+		card_list=[card.id for card in controller.buy_log]
+		if len(card_list)>=4:
+			card_list=card_list[-4:]
+		BG20_HERO_280p5_Choice(CONTROLLER, RandomID(*card_list)*3).trigger(source)
+		pass			
+class BG20_HERO_280p5:# <14>[1453]
+	""" Glaive Ricochet
+	&lt;b&gt;Passive.&lt;/b&gt; Once per turn, after you buy 4 minions, &lt;b&gt;Discover&lt;/b&gt; a plain copy of one of them. &lt;i&gt;({0} left!)&lt;/i&gt;
+	&lt;b&gt;常時発動&lt;/b&gt;1ターン1回ミニオンを4体買った後それらの未強化コピーを1体&lt;b&gt;発見&lt;/b&gt;する。&lt;i&gt;（あと{0}回！）&lt;/i&gt;"""
+	events = Buy(CONTROLLER, MINION).on(SidequestCounter(SELF, 4, [BG20_HERO_280p5_Action()]))
+	pass
+	
 ######## BUDDY
 class BG20_HERO_280_Buddy:# <12>[1453]
 	""" Living Nightmare

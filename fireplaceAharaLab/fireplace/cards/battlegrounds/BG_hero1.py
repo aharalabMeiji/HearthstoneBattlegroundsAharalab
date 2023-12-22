@@ -1370,7 +1370,11 @@ TB_BaconShop_HERO_52_Buddy_G_e=buff(6,0)
 
 ##Diablo BG20_HERO_666 (new 26.4)
 if Config.BG_VERSION>=2640:
-	BG_Hero1+=['BG20_HERO_666','BG20_HERO_666p']
+	BG_Hero1+=['BG20_HERO_666','BG20_HERO_666p','BG20_HERO_666p_t0',
+		'BG20_HERO_666p_t1a','BG20_HERO_666p_t3a','BG20_HERO_666p_t4a','BG20_HERO_666p_t5a','BG20_HERO_666p_t6a',
+		'BG20_HERO_666p_t1b','BG20_HERO_666p_t3b','BG20_HERO_666p_t4b','BG20_HERO_666p_t5b','BG20_HERO_666p_t6b',
+		'BG20_HERO_666p_t1c','BG20_HERO_666p_t3c','BG20_HERO_666p_t4c','BG20_HERO_666p_t5c','BG20_HERO_666p_t6c',
+		'BG20_HERO_666p_t1d','BG20_HERO_666p_t3d','BG20_HERO_666p_t4d','BG20_HERO_666p_t5d','BG20_HERO_666p_t6d']
 	BG_PoolSet_Hero1+=['BG20_HERO_666']
 	##
 	##
@@ -1386,7 +1390,7 @@ class BG20_HERO_666p_Action(GameAction):
 class BG20_HERO_666p:
 	""" Realm of Terror
 	[Passive.] Every 4 turns, ALL enemies fight the Lord of Terror and your warband _for loot. <i>({0} |4(turn, turns) left!)</i>"""
-	events = BeginBattle(CONTROLLER).on(BG20_HERO_666p_Action)
+	events = BeginBattle(CONTROLLER).on(BG20_HERO_666p_Action())
 class BG20_HERO_666p_t0_Action1(GameAction):
 	def do(self, source):
 		amount = source.controller.deepcopy_original.game.turn

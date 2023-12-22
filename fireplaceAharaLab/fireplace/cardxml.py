@@ -9,7 +9,7 @@ from .utils import ElementTree
 #from .xmlutils import download_to_tempfile_retry
 
 import requests
-
+import os
 
 class RetryException(Exception):
 	pass
@@ -458,7 +458,9 @@ def _bootstrap_from_library(parse: Callable[[Iterator[Tuple[str, Any]]], None], 
 	from hearthstone_data import get_carddefs_path
 
 	if path is None:
-		path = get_carddefs_path()
+		#path = get_carddefs_path()
+		path1=os.getcwd()
+		path = "%s\\fireplaceAharalab\\fireplace\\CardDefsAharalab.xml"%(path1)
 
 	with open(path, "rb") as f:
 		parse(ElementTree.iterparse(f, events=("start", "end",)))

@@ -84,7 +84,7 @@ class BG25_013_G:# (minion)
 
 from .BG_minion_mecha import BG_Micro_Mummy
 if BG_Micro_Mummy:
-	##BG_Minion_Undead+=['BG_ULD_217', 'ULD_217e','TB_BaconUps_250','TB_BaconUps_250e',]## no need
+	##BG_Minion_Undead+=['BG_ULD_217', 'BG_ULD_217e','TB_BaconUps_250','TB_BaconUps_250e',]## no need
 	BG_PoolSet_Undead.append('BG_ULD_217')
 	BG_Undead_Gold['BG_ULD_217']='TB_BaconUps_250'
 

@@ -509,15 +509,15 @@ TB_BaconUps_304e=buff(2,2)
 
 ###################  火の輪くぐらせ嬢  (4)### OK ###
 if BG_Ring_Matron:
-	BG_Minion_Demon +=['BG_DMF_533','DMF_533t','TB_BaconUps_309','TB_BaconUps_309t']
+	BG_Minion_Demon +=['BG_DMF_533','BG_DMF_533t','TB_BaconUps_309','TB_BaconUps_309t']
 	BG_PoolSet_Demon.append('BG_DMF_533')
 	BG_Demon_Gold['BG_DMF_533']='TB_BaconUps_309'
-class DMF_533:# <9>[1453]
+class BG_DMF_533:# <9>[1453]
 	""" Ring Matron (4)
 	[Taunt][Deathrattle:] Summon two 3/2 Imps. """
-	deathrattle = DeathrattleSummon(CONTROLLER, 'DMF_533t')*2
+	deathrattle = DeathrattleSummon(CONTROLLER, 'BG_DMF_533t')*2
 	pass
-class DMF_533t:
+class BG_DMF_533t:
 	pass
 class TB_BaconUps_309:# <9>[1453]
 	""" Ring Matron

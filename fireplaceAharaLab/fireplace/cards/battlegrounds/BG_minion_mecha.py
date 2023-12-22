@@ -44,16 +44,16 @@ BG_Mecha_Gold={}
 #Micro Mummy 1/1/2/Mech, Undead	Reborn
 #Micro Mummy(1) ### OK ###
 if BG_Micro_Mummy:
-	BG_Minion_Mecha+=['BG_ULD_217', 'ULD_217e','TB_BaconUps_250','TB_BaconUps_250e',]
+	BG_Minion_Mecha+=['BG_ULD_217', 'BG_ULD_217e','TB_BaconUps_250','TB_BaconUps_250e',]
 	BG_PoolSet_Mecha.append('BG_ULD_217')
 	BG_Mecha_Gold['BG_ULD_217']='TB_BaconUps_250'
 class BG_ULD_217:
 	"""
 	[Reborn]At the end of your turn, giveanother random friendlyminion +1 Attack."""
 	##<Tag enumID="2534" name="1" type="Int" value="1"/>(undead)
-	events = OWN_TURN_END.on(Buff(RANDOM(FRIENDLY_MINIONS - SELF), 'ULD_217e'))
+	events = OWN_TURN_END.on(Buff(RANDOM(FRIENDLY_MINIONS - SELF), 'BG_ULD_217e'))
 	pass
-ULD_217e=buff(1,0)
+BG_ULD_217e=buff(1,0)
 class TB_BaconUps_250:# <5>[1453]
 	""" Micro Mummy
 	[Reborn]At the end of your turn, giveanother random friendly minion +2 Attack. """
