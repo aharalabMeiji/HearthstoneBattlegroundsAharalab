@@ -57,13 +57,13 @@ class Config:# ()is the default value
 
 
 	######## player1 is a humna or not
-	PLAYER1_HUMAN=0 ## battleground with a human player(human play:1 full autoplay:0)
+	PLAYER1_HUMAN=1 ## battleground with a human player(human play:1 full autoplay:0)
 	RANDOM_RACE=1 #random sampling from races（default:1）
 	#sampling from ['beast','demon','dragon','elemental','mecha','murloc','naga','pirate','quilboar','undead']
 	RACE_CHOICE=['naga','elemental']# valid when RANDOM_RACE=0
 
 	#card preset
-	HERO_1='TB_BaconShop_HERO_15' #The first player ('Human1') are allowed to get a specific hero
+	HERO_1='BG23_HERO_303' #The first player ('Human1') are allowed to get a specific hero
 	CARD_PRESET1='' #The first player ('Human1') are allowed to have a specific card in his hand.
 	CARD_PRESET2='' #The first player ('Human1') are allowed to have a specific card in his hand.
 	ALL_PLAYERS_LOGINFO = 1 ## show all logs of playings of all players at Bob's tavern.

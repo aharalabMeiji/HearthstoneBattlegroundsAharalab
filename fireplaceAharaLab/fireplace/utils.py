@@ -267,6 +267,7 @@ class ActionType(IntEnum):
 def modify_description(card, text):
 	new_text=copy.deepcopy(text)
 	new_text=new_text.replace('\n','_')
+	new_text=new_text.replace('\t','')
 	new_text=new_text.replace('[x]','')
 	new_text=new_text.replace('[b]','[')
 	new_text=new_text.replace('[/b]',']')
