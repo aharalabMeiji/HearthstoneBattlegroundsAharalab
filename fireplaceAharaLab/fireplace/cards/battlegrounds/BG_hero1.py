@@ -464,7 +464,7 @@ class TB_BaconShop_HP_065:
 	[Passive] After 16 friendly minions attack, the first minion you buy every turn is free. """ ## 26.4.3
 	##[Passive] After you [Refresh] 5 times, Bob always has 7 minions.<i>(@ left!)</i>"""
 	if Config.BG_VERSION>=2643:
-		events = Attack(FRIENDLY+MINION).on(SidequestCounter(SELF, 16, 
+		events = BG_Attack(FRIENDLY+MINION).on(SidequestCounter(SELF, 16, 
 			[Buff(CONTROLLER, 'TB_BaconShop_HP_065pe')]
 			))
 		pass

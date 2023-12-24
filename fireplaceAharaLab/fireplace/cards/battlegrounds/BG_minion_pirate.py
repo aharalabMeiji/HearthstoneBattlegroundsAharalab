@@ -666,7 +666,7 @@ class BG24_708:
 		option_tags={GameTag.ATK:3, GameTag.HEALTH:4}
 	else:
 		option_tags={GameTag.ATK:3, GameTag.HEALTH:7}
-	events = Attack(SELF, ENEMY).on(BuffPermanently(FRIENDLY_MINIONS + PIRATE, 'BG24_708e'))
+	events = BG_Attack(SELF, ENEMY).on(BuffPermanently(FRIENDLY_MINIONS + PIRATE, 'BG24_708e'))
 	pass
 if Config.BG_VERSION>=2620 or Config.BG_VERSION<2522:
 	BG24_708e=buff(2,1)
@@ -679,7 +679,7 @@ class BG24_708_G:
 		option_tags={GameTag.ATK:6, GameTag.HEALTH:8}
 	else:
 		option_tags={GameTag.ATK:6, GameTag.HEALTH:14}
-	events = Attack(SELF, ENEMY).on(BuffPermanently(FRIENDLY_MINIONS + PIRATE, 'BG24_708e_G'))
+	events = BG_Attack(SELF, ENEMY).on(BuffPermanently(FRIENDLY_MINIONS + PIRATE, 'BG24_708e_G'))
 if Config.BG_VERSION>=2620 or Config.BG_VERSION<2522:
 	BG24_708e_G=buff(4,2)
 else:
@@ -809,13 +809,13 @@ if BG_Dread_Admiral_Eliza:
 class BGS_047:# <12>[1453]  イライザ
 	""" Dread Admiral Eliza
 	Whenever a friendly Pirate attacks, give all friendly minions +2/+1. """
-	events = Attack(FRIENDLY + PIRATE).on(Buff(FRIENDLY_MINIONS,'BGS_047e'))
+	events = BG_Attack(FRIENDLY + PIRATE).on(Buff(FRIENDLY_MINIONS,'BGS_047e'))
 	pass
 BGS_047e=buff(2,1)
 class TB_BaconUps_134:# <12>[1453]
 	""" Dread Admiral Eliza
 	Whenever a friendly Pirate attacks, give all friendly minions +4/+2. """
-	events = Attack(FRIENDLY + PIRATE).on(Buff(FRIENDLY_MINIONS,'TB_BaconUps_134e'))
+	events = BG_Attack(FRIENDLY + PIRATE).on(Buff(FRIENDLY_MINIONS,'TB_BaconUps_134e'))
 	pass
 TB_BaconUps_134e=buff(4,2)
 

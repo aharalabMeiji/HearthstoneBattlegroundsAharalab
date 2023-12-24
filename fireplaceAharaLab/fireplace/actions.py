@@ -3069,6 +3069,10 @@ class RegularAttack(TargetedAction):
 				self.broadcast(source, EventListener.AFTER, attcard, defcard)
 
 class BG_Attack(TargetedAction):
+	"""
+	TARGET = ActionArg()#ATTACKER
+	OTHER = ActionArg()#DEFFENDER
+	"""
 	TARGET = ActionArg()#ATTACKER
 	OTHER = ActionArg()#DEFFENDER
 	def do(self, source, target, other):

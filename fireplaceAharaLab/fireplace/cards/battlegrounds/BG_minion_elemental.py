@@ -410,12 +410,12 @@ class BGS_126_Action(TargetedAction):
 class BGS_126:# <12>[1453]
 	""" Wildfire Elemental
 	After this attacks and kills a minion, deal excess damage to a random adjacent minion. """
-	events = Attack(SELF, ENEMY_MINIONS).on(BGS_126_Action(Attack.DEFENDER, 1))
+	events = BG_Attack(SELF, ENEMY_MINIONS).on(BGS_126_Action(Attack.DEFENDER, 1))
 	pass
 class TB_BaconUps_166:# <12>[1453]
 	""" Wildfire Elemental
 	After this attacks and killsa minion, deal excess damage to both adjacent minions. """
-	events = Attack(SELF, ENEMY_MINIONS).on(BGS_126_Action(Attack.DEFENDER, 2))
+	events = BG_Attack(SELF, ENEMY_MINIONS).on(BGS_126_Action(Attack.DEFENDER, 2))
 	pass
 
 

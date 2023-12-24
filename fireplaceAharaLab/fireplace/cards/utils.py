@@ -131,7 +131,7 @@ RandomBasicHeroPower = lambda *args: RandomID(*BASIC_HERO_POWERS)
 RandomPotion = lambda *args: RandomID(*POTIONS)
 
 # 50% chance to attack the wrong enemy.
-FORGETFUL = Attack(SELF).on(
+FORGETFUL = BG_Attack(SELF).on(
 	COINFLIP & Retarget(SELF, RANDOM(ALL_CHARACTERS - Attack.DEFENDER - CONTROLLED_BY(SELF)))
 )
 

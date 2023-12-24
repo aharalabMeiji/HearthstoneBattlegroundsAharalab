@@ -126,11 +126,11 @@ class BG24_300_Target(TargetedAction):
 class BG24_300:
 	""" Dozy Whelp (1) (0/3)
 	[[Taunt].] Whenever this is attacked, gain +1 Attack permanently."""
-	events = Attack(ENEMY, SELF).on(BG24_300_Target(SELF, 'BG24_300e'))
+	events = BG_Attack(ENEMY, SELF).on(BG24_300_Target(SELF, 'BG24_300e'))
 	pass
 BG24_300e=buff(1,0)
 class BG24_300_G:
-	events = Attack(ENEMY, SELF).on(BG24_300_Target(SELF, 'BG24_300_Ge'))
+	events = BG_Attack(ENEMY, SELF).on(BG24_300_Target(SELF, 'BG24_300_Ge'))
 	pass
 BG24_300_Ge=buff(2,0)
 

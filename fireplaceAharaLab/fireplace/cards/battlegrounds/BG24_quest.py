@@ -218,7 +218,7 @@ class BG24_Quest_318:# [2466]=1,
 	""" Witness Protection
 	[Quest:] Have a friendly [Taunt] minion attacked {0} times. """
 	#{0}=8 <Tag enumID="535" name="QUEST_PROGRESS_TOTAL" type="Int" value="8"/>
-	events = Attack(ENEMY, FRIENDLY + MINION + TAUNT).on(QuestCounter(SELF))
+	events = BG_Attack(ENEMY, FRIENDLY + MINION + TAUNT).on(QuestCounter(SELF))
 	pass
 
 

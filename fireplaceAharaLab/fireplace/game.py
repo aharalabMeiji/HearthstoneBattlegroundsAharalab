@@ -6,7 +6,7 @@ from itertools import chain
 from fireplace.enums import BlockType, CardType, GameTag, PlayState, State, Step, Zone
 
 from .actions import Attack, Awaken, BeginTurn, Death, EndTurn, EventListener, \
-	Play,Destroy, Give, Draw, Shuffle, PayCost, Discover, Buff, Trade, Battlecry,\
+	Play, Destroy, Give, Draw, Shuffle, PayCost, Discover, Buff, Trade, Battlecry,\
 	Discard, Fatigue
 from .card import THE_COIN
 from .entity import Entity

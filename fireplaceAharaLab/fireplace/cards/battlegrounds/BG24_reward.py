@@ -842,7 +842,7 @@ class BG24_Reward_364e:
 	""" Volatile """
 	#tags = {GameTag.ATK:8, GameTag.HEALTH:8, }
 	tags = {GameTag.ATK:7, GameTag.HEALTH:7, } ## 24.6.2
-	events = Attack(OWNER, ENEMY).after(Destroy(OWNER))
+	events = BG_Attack(OWNER, ENEMY).after(Destroy(OWNER))
 	pass
 
 

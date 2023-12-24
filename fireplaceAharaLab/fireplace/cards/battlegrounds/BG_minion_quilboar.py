@@ -531,7 +531,7 @@ class BG20_104:# <12>[1453]
 		option_cardtext={GameTag.CARDTEXT:""}
 	elif Config.LOCALE=='jaJP':
 		option_cardtext={GameTag.CARDTEXT:""}
-	events = Attack(SELF).after(GiveGemToOriginal(CONTROLLER, 'BG20_GEM'))
+	events = BG_Attack(SELF).after(GiveGemToOriginal(CONTROLLER, 'BG20_GEM'))
 	pass
 class BG20_104_G:# <12>[1453]
 	""" Bonker
@@ -542,7 +542,7 @@ class BG20_104_G:# <12>[1453]
 		option_cardtext={GameTag.CARDTEXT:""}
 	elif Config.LOCALE=='jaJP':
 		option_cardtext={GameTag.CARDTEXT:""}
-	events = Attack(SELF).after(GiveGemToOriginal(CONTROLLER, 'BG20_GEM'))
+	events = BG_Attack(SELF).after(GiveGemToOriginal(CONTROLLER, 'BG20_GEM'))
 	pass
 
 
