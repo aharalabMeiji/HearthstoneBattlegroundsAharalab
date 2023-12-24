@@ -354,8 +354,8 @@ class BG21_037_G:# <12>[1453]
 
 
 
-
-## Moon-Bacon Jazzer (Quilboar) (3)
+## 23/12/24 ##
+## Moon-Bacon Jazzer (Quilboar) (3/2/5)
 #BG26__Moon_Bacon_Jazzer=(Config.BG_VERSION>=2620) # (3)
 if BG26__Moon_Bacon_Jazzer:# 
 	BG_Minion_Quilboar+=['BG26_159','BG26_159pe',]
@@ -369,11 +369,7 @@ class BG26_159_action(GameAction):
 class BG26_159:# (minion)
 	""" Moon-Bacon Jazzer
 	[Battlecry:] For the rest of the game, your [Blood Gems] __give an extra +1 Health. """
-	option_tags={GameTag.TECH_LEVEL:0, GameTag.ATK:0, GameTag.HEALTH:0}
-	if Config.LOCALE=='enUS':
-		option_cardtext={GameTag.CARDTEXT:""}
-	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:""}
+	option_tags={GameTag.TECH_LEVEL:3, GameTag.ATK:2, GameTag.HEALTH:5}
 	play = BG26_159_action(1)
 	pass
 class BG26_159pe:
@@ -381,15 +377,13 @@ class BG26_159pe:
 class BG26_159_G:# (minion)
 	""" Moon-Bacon Jazzer
 	[Battlecry:] For the rest of the game, your [Blood Gems] __give an extra +2 Health. """
-	option_tags={GameTag.TECH_LEVEL:0, GameTag.ATK:0, GameTag.HEALTH:0}
-	if Config.LOCALE=='enUS':
-		option_cardtext={GameTag.CARDTEXT:""}
-	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:""}
+	option_tags={GameTag.TECH_LEVEL:3, GameTag.ATK:4, GameTag.HEALTH:10}
 	play = BG26_159_action(2)#
 	pass
 
 
+
+## 23/12/24 ##
 if BG25__Pufferquil:# 4/2/6, quilbour/naga (4)->(3) new 2622
 	BG_Minion_Quilboar+=['BG25_039','BG25_039_G','BG25_039_Ge','BG25_039e']
 	BG_PoolSet_Quilboar.append('BG25_039')
@@ -411,10 +405,6 @@ class BG25_039:# (minion)
 		option_tags={GameTag.ATK:2, GameTag.HEALTH:6}
 	else:
 		option_tags={GameTag.ATK:2, GameTag.HEALTH:4}	
-	if Config.LOCALE=='enUS':
-		option_cardtext={GameTag.CARDTEXT:""}
-	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:""}
 	events = BG_Play(CONTROLLER).after(BG25_039_Action(Play.TARGET))
 	pass
 class BG25_039e:# (enchantment)
@@ -441,10 +431,6 @@ class BG25_039_G:# (minion)
 		option_tags={GameTag.ATK:4, GameTag.HEALTH:12}
 	else:
 		option_tags={GameTag.ATK:4, GameTag.HEALTH:8}	
-	if Config.LOCALE=='enUS':
-		option_cardtext={GameTag.CARDTEXT:""}
-	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:""}
 	events = BG_Play(CONTROLLER).after(BG25_039_G_Action(Play.TARGET))
 	pass
 if Config.BG_VERSION>=2620:
