@@ -116,6 +116,7 @@
     <Compile Include="fireplaceAharaLab\utils.py" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="fireplaceAharaLab\fireplace\CardDefsAharalab.xml" />
     <Content Include="fireplaceAharaLab\obj\Any CPU\Debug\fireplaceAhara.pyproj.FileListAbsolute.txt" />
   </ItemGroup>
   <ItemGroup>
