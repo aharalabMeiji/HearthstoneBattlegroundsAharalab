@@ -3,8 +3,8 @@ from ..utils import *
 
 
 BG25__Risen_Rider=(Config.BG_VERSION>=2520)#1 undead ## new 25.2
-BG25__Rot_Hide_Gnoll=(Config.BG_VERSION>=2520 and Config.BG_VERSION<2620)#1 undead ## new 25.2 ## banned 26.2
-BG26__Incorporeal_Corporal=(Config.BG_VERSION>=2620) #(1)
+BG25__Rot_Hide_Gnoll=((Config.BG_VERSION>=2520 and Config.BG_VERSION<2620) and (Config.BG_VERSION>=2643 and Config.BG_VERSION<2820))#1 undead ## new 25.2 ## banned 26.2 ## renew 2643 ## banned 2820
+BG26__Incorporeal_Corporal=(Config.BG_VERSION>=2620 and Config.BG_VERSION<2643) #(1) ## banned 2643
 # BG_Micro_Mummy undead/mecha
 
 BG25__Eternal_Knight=(Config.BG_VERSION>=2520)#2 undead ## new 25.2
@@ -36,6 +36,7 @@ BG_PoolSet_Undead=[ ]
 BG_Undead_Gold={}
 
 
+### 24/1/1 ###
 #Risen Rider 1/2/1/Undead	Reborn, Taunt ## OK ## new 25.2 
 if BG25__Risen_Rider:# 
 	BG_Minion_Undead+=['BG25_001']
@@ -45,6 +46,8 @@ if BG25__Risen_Rider:#
 class BG25_001:# (minion)
 	""" Risen Rider
 	[Taunt] [Reborn] """
+	#<Tag enumID="190" name="TAUNT" type="Int" value="1"/>
+	#<Tag enumID="1085" name="REBORN" type="Int" value="1"/>
 	option_tags={GameTag.TECH_LEVEL:1, GameTag.ATK:2, GameTag.HEALTH:1}
 	pass
 class BG25_001_G:# (minion)
@@ -54,8 +57,8 @@ class BG25_001_G:# (minion)
 	pass
 
 
-
-#Rot Hide Gnoll 1/1/4/Undead	- ## new 25.2 ## banned 26.2
+### 24/1/1 ###
+#Rot Hide Gnoll 1/1/4/Undead	- ## new 25.2 ## banned 2620 ## renew 2643 ## banned 2820
 if BG25__Rot_Hide_Gnoll:# 
 	BG_Minion_Undead+=['BG25_013','BG25_013_G']
 	BG_PoolSet_Undead+=['BG25_013']
@@ -89,7 +92,8 @@ if BG_Micro_Mummy:
 	BG_Undead_Gold['BG_ULD_217']='TB_BaconUps_250'
 
 
-#BG26__Incorporeal_Corporal=(Config.BG_VERSION>=2620) #(1)
+### 24/1/1 ###
+#BG26__Incorporeal_Corporal=(Config.BG_VERSION>=2620) #(1/5/5) ## banned 2643
 if BG26__Incorporeal_Corporal:# 
 	BG_Minion_Undead+=['BG26_RLK_117','BG26_RLK_117_G']
 	BG_PoolSet_Undead+=['BG26_RLK_117']
@@ -105,8 +109,12 @@ class BG26_RLK_117_G:
 	events = BG_Attack(SELF).after(Destroy(SELF))
 	pass
 
+
+		
 ######## tavern tier 2
 
+
+### 24/1/1 ###
 #Eternal Knight 2/3/1/Undead	- ## 60% OK  ##new 25.2
 if BG25__Eternal_Knight:# 
 	BG_Minion_Undead+=['BG25_008','BG25_008_e','BG25_008_G','BG25_008pe']
@@ -131,7 +139,12 @@ class BG25_008_Action(GameAction):
 class BG25_008:# (minion)
 	""" Eternal Knight
 	Has +1/+1 for each friendly Eternal Knight that died this __game <i>(wherever this is)</i>. """
-	if Config.BG_VERSION>= 2522:
+	#Old: 4 Attack, 1 Health
+	#2522: 3 Attack, 1 Health
+	#2643: 4 Attack, 1 Health
+	if Config.BG_VERSION>= 2643:
+		option_tags={GameTag.ATK:3, GameTag.HEALTH:1}
+	elif Config.BG_VERSION>= 2522:
 		option_tags={GameTag.ATK:4, GameTag.HEALTH:1}
 	else:
 		option_tags={GameTag.ATK:3, GameTag.HEALTH:1}
@@ -164,7 +177,9 @@ class BG25_008_G_Action(GameAction):
 class BG25_008_G:# (minion)
 	""" Eternal Knight
 	Has +2/+2 for each friendly Eternal Knight that died this __game <i>(wherever this is)</i>. """
-	if Config.BG_VERSION>= 2522:
+	if Config.BG_VERSION>= 2643:
+		option_tags={GameTag.ATK:3, GameTag.HEALTH:1}
+	elif Config.BG_VERSION>= 2522:
 		option_tags={GameTag.ATK:8, GameTag.HEALTH:2}
 	else:
 		option_tags={GameTag.ATK:6, GameTag.HEALTH:2}
@@ -182,6 +197,7 @@ class BG25_008pe:# (enchantment)
 
 
 
+### 24/1/1 ###
 #Nerubian Deathswarmer 2/1/3/Undead	Battlecry  ## new 25.2
 if BG25__Nerubian_Deathswarmer:# 
 	BG_Minion_Undead+=['BG25_011','BG25_011_G','BG25_011e2','BG25_011pe']
@@ -200,7 +216,12 @@ class BG25_011_Action(GameAction):
 class BG25_011:# (minion)
 	""" Nerubian Deathswarmer
 	[Battlecry:] Give your Undead +1 Attack for the rest of the game <i>(wherever they are)</i>. """
-	option_tags={GameTag.TECH_LEVEL:2, GameTag.ATK:1, GameTag.HEALTH:3}	
+	#Old: 1/3
+	#2823: 1/4
+	if Config.BG_VERSION>= 2823:
+		option_tags={GameTag.TECH_LEVEL:2, GameTag.ATK:1, GameTag.HEALTH:4}	
+	else:
+		option_tags={GameTag.TECH_LEVEL:2, GameTag.ATK:1, GameTag.HEALTH:3}	
 	play = BG25_011_Action()
 	pass
 class BG25_011_G_Action(GameAction):
@@ -216,7 +237,10 @@ class BG25_011_G_Action(GameAction):
 class BG25_011_G:# (minion)
 	""" Nerubian Deathswarmer
 	[Battlecry:] Give your Undead +2 Attack for the rest of the game <i>(wherever they are)</i>. """
-	option_tags={GameTag.TECH_LEVEL:2, GameTag.ATK:2, GameTag.HEALTH:6}	
+	if Config.BG_VERSION>= 2823:
+		option_tags={GameTag.TECH_LEVEL:2, GameTag.ATK:2, GameTag.HEALTH:8}	
+	else:
+		option_tags={GameTag.TECH_LEVEL:2, GameTag.ATK:2, GameTag.HEALTH:6}	
 	play = BG25_011_G_Action()
 	pass
 class BG25_011e2:# (enchantment)
@@ -231,7 +255,7 @@ class BG25_011pe:# (enchantment)
 	pass
 
 
-
+### 24/1/1 ###
 #Scarlet Skull 2/1/2/Undead	Deathrattle, Reborn ## new 25.2 ## OK ##
 if BG25__Scarlet_Skull:# 
 	BG_Minion_Undead+=['BG25_022','BG25_022_G','BG25_022_Ge','BG25_022e']
@@ -247,7 +271,12 @@ class BG25_022_Action(GameAction):
 class BG25_022:# (minion)############
 	""" Scarlet Skull
 	[Reborn] [Deathrattle:] Give a friendly Undead +1/+2. """
-	option_tags={GameTag.TECH_LEVEL:2, GameTag.ATK:1, GameTag.HEALTH:2}	
+	#Old: 1 Attack, 2 Health
+	#2643: 2 Attack, 1 Health
+	if Config.BG_VERSION>= 2643:
+		option_tags={GameTag.TECH_LEVEL:2, GameTag.ATK:2, GameTag.HEALTH:1}	
+	else:
+		option_tags={GameTag.TECH_LEVEL:2, GameTag.ATK:1, GameTag.HEALTH:2}	
 	deathrattle = BG25_022_Action()
 	pass
 BG25_022e=buff(1,2)
@@ -261,7 +290,10 @@ class BG25_022_G_Action(GameAction):
 class BG25_022_G:# (minion)
 	""" Scarlet Skull
 	[Reborn] [Deathrattle:] Give a friendly Undead +2/+4. """
-	option_tags={GameTag.TECH_LEVEL:2, GameTag.ATK:2, GameTag.HEALTH:4}	
+	if Config.BG_VERSION>= 2643:
+		option_tags={GameTag.TECH_LEVEL:2, GameTag.ATK:4, GameTag.HEALTH:2}	
+	else:
+		option_tags={GameTag.TECH_LEVEL:2, GameTag.ATK:2, GameTag.HEALTH:4}	
 	deathrattle = BG25_022_G_Action()
 	pass
 BG25_022_Ge=buff(2,4)

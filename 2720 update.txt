@@ -320,9 +320,10 @@ Dev Comment: Note that this is a reversion to a prior version of this card, but 
 Minion Pool Updates
 The following 50 minions have been removed from the minion pool: Sparring Partner; Spawn of N’Zoth; Vigilant Stoneborn; Qiraji Harbinger; Tortollan Blue Shell; Champion of Y’Shaarj; Lightfang Enforcer; Rat Pack; Eventide Brute; Pufferquil; Prophet of the Boar; Gemsplitter; Upbeat Flutist; Plagued Tidewalker; Ring Matron; Tarecgosa; Sanctum Rester; Nadina the Red; Prized Promo-Drake; General Drakkisath; Molten Rock; Felemental; Upbeat Upstart; Magmaloc; Crackling Cyclone; Smogger; Annoy-o Troupe; Harvest Golem; Mecha Jaraxxus; Wargear; Grease Bot; Ghoul of the Feast; Xylo-bones; Radio Star; Mini-Myrmidon; Thorncaptain; Snail Cavalry; Thorncaller; Backstage Security; Briny Bootlegger; Annihilan Battlemaster; Colossus of the Sun; Scavenging Hyena; Cyborg Drake; Mantid Queen; Bonemare; Bristlemane Scrapsmith; Mistake; Tavern Tempest; Yrel.
 The following 12 minions have returned to the minion pool: Reef Explorer; Treasure-Seeker Elise; Mythrax the Unraveler; Bannerboar; Captain Flat Tusk; Floating Watcher; Razorgore, the Untamed; Party Elemental; Mechano-Tank; Omega Buster; Nightmare Amalgam; Faceless Disciple
-Minion Updates
-Eternal Summoner
 
+Minion Updates
+
+Eternal Summoner
 Old (Regular): 8 Attack, 1 Health.
 Old (Golden): 16 Attack, 2 Health. Reborn. Deathrattle: Summon 2 Eternal Knights.
 New (Regular): 8 Attack, 1 Health.
