@@ -1,0 +1,56 @@
+Battlegrounds Updates
+Anomaly System Update
+Each week’s new Anomalies will now have a slightly smaller appearance bonus in higher-rated lobbies (they will still have an appearance bonus for the first week they are added compared to all the other Anomalies, but not as large of one). Lower-rated lobbies will still have the same offering bonus as before.
+
+Anomalies Updates
+Big League
+
+Old: Only Tavern Tiers 3, 4, 5, and 6 exist.
+New: Only Tavern Tiers 3, 4, 5, and 6 exist. Start with 10 extra Armor.
+Dev Comment: Also, Demons are now banned from this Anomaly.
+Everything’s On Fire
+
+Old: At the start of the game, take 30 damage. After another hero dies, regain 5 Health.
+New: At the start of the game, take 25 damage. After another hero dies, regain 5 Health.
+A Faire Reward (the Triple Reward)
+
+Old: Discover a Darkmoon Prize.
+New: Discover a Tier __ Darkmoon Prize.
+Dev Comment: Darkmoon Prizes are now locked based on the Tier you were at when you tripled, instead of giving a Prize based on the Tier you’re at when you play them.
+Yogg-iseum
+
+Old: At the start of each turn, all heroes spin the Wheel of Yogg-Saron.
+New: At the start of each turn, all heroes spin the SAME Wheel of Yogg-Saron.
+Dev Comment: This is a text-only wording update for clarity.
+Golganneth’s Tempest
+
+The following heroes are now banned from games with this Anomaly: A.F.Kay, Captain Eudora, Dinotamer Brann, Elise Starseeker, Forest Warden Omu, Fungalmancer Flurgl, Galakrond, Kurtrus Ashfallen, Ozumat, Scabbs Cutterbutter, Silas Darkmoon, Overlord Saurfang, Professor Putricide, Xyrella, Yogg-Saron, and Y’Shaarj.
+Minion Updates
+Imposing Percussionist
+
+Old: [Tier 5] 6 Attack, 6 Health
+New: [Tier 4] 4 Attack, 4 Health
+
+
+Shady Aristocrat (Sire Denathrius's Buddy)
+
+Old: [Tier 2] 2 Attack, 2 Health
+New: [Tier 3] 3 Attack, 3 Health
+
+
+Piloted Whirl-o-Tron (Sneed’s Buddy)
+
+Old: [Tier 3] 4 Attack, 3 Health. Battlecry: Copy a different friendly minion’s Deathrattles.
+New: [Tier 5] 5 Attack, 4 Health. Start of Combat: Copy all other minions’ Deathrattles (except Piloted Whirl-o-Tron).
+Dev Comment: Yes, ALL. With this update, Piloted Whirl-o-Tron has been returned to the “Bring in the Buddies” Anomaly’s Buddy pool.
+
+
+Street Magician (The Great Akazamzarak’s Buddy)
+
+Old: 5 Attack, 3 Health. Deathrattle: Put a random Secret into the Battlefield.
+New: 3 Attack, 5 Health. At the end of your turn, cast a random Secret.
+
+
+Minion Pool Updates
+Keyboard Igniter and Spark-ling have been removed from the minion pool.
+Felemental has been returned to the minion pool.

@@ -1,0 +1,159 @@
+Battlegrounds Updates
+General Updates
+Denathrius’ Anima Reserves (Anomaly)
+
+Old: All heroes are Sire Denathrius.
+New: Quests and Rewards are in this game. All heroes are Sire Denathrius.
+Dev Comment: We heard your feedback that this Anomaly didn’t feel interesting enough, so we set out on a Quest to make this Anomaly more Rewarding—double the Quests, double the fun!
+
+
+Friends and Family Discount (Darkmoon Prize)
+
+Old: For the rest of the game, minions in the Tavern cost (1) less.
+New: For the rest of the game, minions in the Tavern cost (2).
+
+
+Anomaly Pool Updates
+The following Anomalies will now appear less frequently:
+
+Might of Khaz’goroth
+Fortitude of Khaz’goroth
+Oops, All _____ !
+Finicky Hourglass
+Dev Comment: Anti-Gravity Stadium is also still removed from the Anomaly Pool.
+
+The following Anomalies will now appear more frequently:
+
+Prudence of Amitus
+Nguyen’s Shifting Disks
+Bring in the Buddies
+A Faire Reward
+Minion Updates
+Surf and Surf
+
+Old: Spellcraft: Give a minion “Deathrattle: Summon a 2/2 Crab” until next turn.
+New: Spellcraft: Give a minion “Deathrattle: Summon a 3/2 Crab” until next turn.
+
+
+Niuzao
+
+Old: [Tier 6] 7 Attack, 6 Health
+New: [Tier 5] 6 Attack, 5 Health
+
+
+Soul Rewinder
+
+Old: 2 Attack, 1 Health
+New: 3 Attack, 1 Health
+Dev Comment: We rewinded the previous change to Soul Rewinder.
+
+
+Keyboard Igniter
+
+Old: 4 Attack, 2 Health. Battlecry: If you’ve taken damage since last turn, give your other Demons +1/+2.
+New: 4 Attack, 1 Health. Battlecry: If you’ve taken damage since last turn, give your other Demons +2/+2.
+
+
+Famished Felbat
+
+Old: 9 Attack, 5 Health. At the end of your turn, your other Demons consume a minion in Bob’s Tavern to gain its stats.
+New: 8 Attack, 5 Health. At the end of your turn, your Demons consume a minion in Bob’s Tavern to gain its stats.
+
+
+Time Saver
+
+Old: 3 Attack, 5 Health. If you have any unspent Gold at the end of your turn, this sells for 2 more Gold.
+New: 2 Attack, 3 Health. If you have any unspent Gold at the end of your turn, this sells for 3 more Gold.
+
+
+Stormbringer
+
+Old: 1 Attack, 7 Health
+New: 1 Attack, 9 Health
+
+
+Electric Synthesizer
+
+Battlecry: Give your other Dragons +3 Attack.
+Battlecry: Give your other Dragons +3/+1.
+
+
+Obsidian Ravager
+
+Old: 4 Attack, 4 Health
+New: 7 Attack, 7 Health
+
+
+Carbonic Copy
+
+Old: [Tier 5] 5 Attack, 6 Health
+New: [Tier 4] 3 Attack, 3 Health
+
+
+Granite Guardian
+
+Old: 1 Attack, 17 Health
+New: 1 Attack, 28 Health
+
+
+Adaptable Barricade
+
+Old: 12 Attack, 1 Health
+New: 18 Attack, 1 Health
+
+
+Omega Buster
+
+Old: Deathrattle: Summon five 1/1 Microbots. For each that doesn’t fit, give your Mechs +1/+1.
+New: Deathrattle: Summon six 1/1 Microbots. For each that doesn’t fit, give your Mechs +1/+1.
+
+
+Sanguine Champion
+
+Old: 9 Attack, 3 Health
+New: 18 Attack, 3 Health
+
+
+Sore Loser
+
+Old: 1 Attack, 4 Health. Your Undead have extra Attack equal to your Tier.
+New: 2 Attack, 4 Health. Your other Undead have extra Attack equal to your Tier.
+
+
+Relentless Sentry
+
+Old: 5 Attack, 1 Health
+New: 6 Attack, 1 Health
+
+
+Champion of the Primus
+
+Old: 1 Attack, 8 Health. Avenge (2): Your Undead have +1 Attack for the rest of the game (wherever they are).
+New: 2 Attack, 9 Health. Avenge (3): Your Undead have +1 Attack for the rest of the game (wherever they are).
+
+
+Recurring Nightmare
+
+Old: 5 Attack, 5 Health
+New: 8 Attack, 5 Health
+
+
+Fairy Tale Caroler
+
+Old: 2 Attack, 4 Health. Battlecry: If you lost your last combat, give your other minions +2/+1.
+New: 2 Attack, 3 Health. Battlecry: If you lost your last combat, give your other minions +2/+2.
+
+
+Minion Pool Updates
+The following minions have been removed from the minion pool:
+
+Razorgore
+Baby Krush
+Dynamic Duo
+Invent-o-matic
+The following minions have been returned to the minion pool:
+
+General Drakkisath
+Tavern Tempest
+Bonker
+Kaboom Bot

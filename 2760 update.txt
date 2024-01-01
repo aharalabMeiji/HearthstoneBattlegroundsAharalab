@@ -1,0 +1,116 @@
+Battlegrounds Updates
+ 
+General Update
+You can now favorite multiple Hero Skins per Hero to get a random one of your favorites at the start of each game. Now you can bring even more great looks to the Tavern!
+
+New Anomalies
+Additional Anomalies will be added to the Anomaly pool each week throughout Patch 27.6. When Anomalies are newly added to the Anomaly pool, they’ll have an increased appearance rate for that week. This is our last planned infusion of new Anomalies this Battlegrounds Season!
+
+The following Anomalies are being added to the Anomaly pool with Patch 27.6:
+
+Anomalous Wisdomball	Starting on Turn 6, you occasionally get helpful Refreshes!
+Anomalous Twin	Start of combat: Summon a copy of your highest-Health minion.
+Anomalous Bribe	After you sell a minion, give its stats to a minion in the Tavern.
+The Keys to Victory	After you play a minion, give your other minions +1/+1 for each Keyword they share with it.
+Bring Home the Bacon	Start with two upgrading Piggy Banks. Break them open to gain Gold!
+Piggy Bank: Gain 1 Gold. (Upgrades each turn!)
+Temperance of Aman'Thul	Start at Tavern Tier 4. Gain 10 extra Gold on your first turn only.
+Audience's Choice	At the start of each turn, one player chooses a card of ANY Tier for ALL players to get at end of turn.
+The additional Anomalies coming throughout Patch 27.6 are:
+
+What Are the Odds?	Only Tavern Tiers 1, 3, and 5 exist. Triple rewards Discover a minion of your Tier.
+How to Even??	Only Tavern Tiers 2, 4, and 6 exist. Triple rewards Discover a minion of your Tier.
+Deep Blue Sooner	At the start of your turn, get 2 temporary 'Deep Blues'. They give a minion more stats each time
+Treasure Hoard	On Turn 5, Discover a Golden Tier 3 minion.
+Dev comment: Like the “Oops All” Anomaly, there are multiple versions of this one.
+Treasure Hoard	On Turn 6, Discover a Golden Tier 4 minion.
+Treasure Hoard	On Turn 7, Discover a Golden Tier 5 minion.
+Treasure Hoard	On Turn 8, Discover a Golden Tier 6 minion.
+Valuation Inflation	Tavern Tier 1 does not exist. Minions cost gold equal to their Tavern Tier.
+No Place Like Holmes	Each turn, look at 2 minions. Guess which one your next opponent had last combat for a Coin.
+No Face, No Case	Every 4 turns, Get a 'Faceless Manipulator' that copies a minion of your choice.
+Faceless Manipulator: [Tier 1] 3/3. Battlecry: Choose a minion and become a copy of it.
+Eleventh Hour	The first time your hero takes fatal damage, prevent it and gain 11 Gold next turn instead.
+Feline Fortune	After another hero dies, Discover a minion from their warband. It keeps enchantments.
+Additionally, the “Transient Treasures” Anomaly has been renamed to “Anomalous Evidence” (no functional changes).
+
+New Minions
+ 
+Observer of Myths (Tier 3)
+
+1/4. After you summon a minion with more attack than this, give all friendly minions +1 Attack.
+
+
+Diremuck Forager (Tier 3, Murloc)
+
+4/3. Start of Combat: Give a Murloc in your hand +2/+2, then summon it for this combat only.
+
+
+Heedless Hoarder (Tier 4, Murloc)
+
+5/6. When you sell this, give a friendly Murloc this minion’s stats.
+
+
+Slitherspear, Lord of Gains (Tier 5, Naga)
+
+3/5. At the end of your turn, give your other Naga +1/+1 for each different spell you’ve cast this turn.
+
+
+Sprightly Scarab (Tier 4, Beast)
+
+5/2. Choose One – Give a Beast +1/+1 and Reborn; or +4/+4 and Taunt.
+
+
+Hawkstrider Herald (Tier 5, Beast)
+
+5/2. Start of Combat: Trigger all friendly Deathrattles.
+
+
+Audacious Anchor (Tier 4, Pirate)
+
+3/13. Start of Combat: Battle the nearest enemy minion to death!
+
+
+Rapscallion Recruiter (Tier 5, Pirate)
+
+9/3. Deathrattle: Summon 3 Scallywags.
+
+
+Admiral Eliza Goreblade (Tier 6, Pirate)
+
+6/7. Whenever a friendly Pirate attacks, give your minions +2/+1.
+Dev Comment: She’s alive!
+
+
+Motley Phalanx (Tier 6, All)
+
+7/7. Taunt. Deathrattle: Give a friendly minion of each type +7/+7.
+
+
+Cultist S’thara (Tier 6)
+
+11/3. Stealth. Deathrattle: Summon your first Demon that died this combat. It keeps enchantments.
+
+
+Minion Pool Updates
+The following minions have been removed from the minion pool: Saltscale Honcho, Witchwing Nestmatron, Vanessa VanCleef, Reanimating Rattler, Critter Wrangler, Nightmare Amalgam, Palescale Crocolisk, Coldlight Seer, Mechano-Tank, Felstomper, and The Boogie Monster.
+The following minions have been returned to the minion pool: Tavern Tipper, Felfin Navigator, Kangor’s Apprentice, Goldrinn the Great Wolf, Tea Master Theotar, and Mecha-Jaraxxus.
+Minion Updates
+ 
+Kangor’s Apprentice
+
+Old: Deathrattle: Summon the first 2 friendly Mechs that died this combat.
+New: Deathrattle: Summon your first 2 Mechs that died this combat.
+Dev Comment: This is a text-only update.
+
+
+Bassgill
+
+Old: [Tier 4] 6/2
+New: [Tier 5] 8/3
+
+
+Goldrinn, the Great Wolf
+
+Old: 4/4. Deathrattle: Give your Beasts +5/+5.
+New: 3/3. Deathrattle: For the rest of this combat, your Beasts have +3/+3.

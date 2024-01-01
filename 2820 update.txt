@@ -1,0 +1,626 @@
+Patch 28.2, launching tomorrow, brings Battlegrounds Season 6, the Spellslinger’s Saloon, updates to the shop and new player progression, and more!
+
+Saddle Up for Battlegrounds Season 6!
+Belly up to the saloon in Battlegrounds Season 6, the Spellslinger’s Saloon. This here saloon’s serving up all new spells, purchased directly from the Tavern. Sit down with over 40 new Tavern spells, over 30 new minions, an update to the Undead minion type, and more!
+
+
+
+On December 5, Battlegrounds Season 5 will end and Season 6 will begin. That means rankings will be reset, Anomalies will be removed, and the Battlegrounds Track will switch over. All rewards that were earned from the Season 5 Track, but not yet claimed, will be automatically claimed.
+
+New Mechanic—Tavern Spells
+Battlegrounds Season 6 introduces a new Battlegrounds play experience: buying spells directly from the Tavern! Tavern spells have Tavern Tiers like minions, but, unlike minions, they have variable costs—and a new frame that shows off both their Tavern Tier and their cost at the same time.
+
+There are 42 new Tavern spells in Patch 28.2, across all six Tavern Tiers.* Each time you Refresh the Tavern, you'll be offered a Tavern spell of your Tier or lower in addition to the number of minions you get offered for that Tavern Tier.** When you buy a Tavern spell, it’s added to your hand, for you to use whenever you want.
+
+* There are 5 copies of each Tier 1 Tavern spell, 7 copies of each Tier 2, 9 copies of each Tier 3, 11 copies of Tier 4, 7 copies of Tier 5, and 5 copies of Tier 6. Tavern spells are returned to the pool immediately when you get them (not when you play them). Like existing Battlegrounds spells (for example, Blood Gems or Coins), you can’t triple Tavern spells and they are spent once they are used.
+
+** If you freeze a Tavern spell, it will stay in the Tavern for the next turn and you won’t get an additional one added to the Tavern next turn. Think of it like one additional dedicated Tavern spell space being added to the board (but the max board slots is still 7—if you would have more than a full board, your Tavern spell slot will replace one of the minion slots).
+
+
+
+
+New Tavern Spells
+Tavern Coin [Tier 1, 1 Gold]
+
+Gain 1 Gold.
+
+
+Pointy Arrow [Tier 1, 1 Gold]
+
+Give a minion +4 Attack.
+
+
+Fortify [Tier 1, 1 Gold]
+
+Give a minion +3 Health and Taunt.
+
+
+Tavern Dish Banana [Tier 1, 1 Gold]
+
+Give a minion +2/+2.
+
+
+Them Apples [Tier 1, 1 Gold]
+
+Give minions in the Tavern +1/+3.
+
+
+Recruit a Trainee [Tier 1, 2 Gold]
+
+Get a random Tier 1 minion.
+
+
+Enchanted Lasso [Tier 1, 2 Gold]
+
+Steal a random minion from Bob’s Tavern.
+
+
+Careful Investment [Tier 2, 1 Gold]
+
+Gain 2 Gold next turn.
+
+
+Overconfidence [Tier 2, 1 Gold]
+
+If you win your next combat, gain 3 Gold. If you tie, gain 1.
+
+
+Lantern Light [Tier 2, 2 Gold]
+
+Give a minion stats equal to your Tier.
+
+
+Chef’s Choice [Tier 2, 2 Gold]
+
+Choose a minion. Get a different minion of the same type. 
+
+
+Leaf Through the Pages [Tier 2, 2 Gold]
+
+Your next three Refreshes cost (0).
+
+
+Strike Oil [Tier 2, 3 Gold]
+
+Increase your maximum Gold by 1.
+
+
+Hasty Excavation [Tier 2, 3 Gold]
+
+Gain 1 Gold. This costs Health to buy instead of Gold.
+
+
+Reckless Investment [Tier 3, 1 Gold]
+
+Gain 3 Gold. Next turn, lose 2 Gold.
+
+
+Tricky Trousers [Tier 3, 1 Gold]
+
+Give a minion +1/+2 and Taunt. If it already has Taunt, remove it.
+
+
+Fleeting Vigor [Tier 3, 1 Gold]
+
+Give a minion +5/+5 until next turn. 
+
+
+Shiny Ring [Tier 3, 2 Gold]
+
+Give your minions +1/+1.
+
+
+Echoing Roar [Tier 3, 2 Gold]
+
+Give a friendly minion "At the end of your turn, gain +2/+2."
+
+
+Natural Blessing [Tier 3, 3 Gold]
+
+Choose a minion. Give all minions that share a type with it +3/+2.
+
+
+Staff of Enrichment [Tier 3, 3 Gold]
+
+Minions in the Tavern have +2/+2 this game.
+
+
+Ritual of Growth [Tier 4, 2 Gold]
+
+Replace all cards in the Tavern with ones of a Tier higher.
+
+
+Brann’s Blessing [Tier 4, 3 Gold]
+
+Your Battlecries trigger twice until next turn. 
+
+
+Titus’ Tribute [Tier 4, 3 Gold]
+
+Your Deathrattles trigger twice until next turn. 
+
+
+Primal Staff [Tier 4, 3 Gold]
+
+Your end of turn effects trigger twice this turn. 
+
+
+Misplaced Tea Set [Tier 4, 3 Gold]
+
+Give a friendly minion of each type +3/+3.
+
+
+Hired Headhunter [Tier 4, 3 Gold]
+
+Discover a Battlecry minion.
+
+
+Contracted Corpse [Tier 4, 3 Gold]
+
+Discover a Deathrattle minion.
+
+
+Defender’s Rites [Tier 4, 3 Gold]
+
+Give a friendly minion +8/+8 and Taunt.
+
+
+Planar Telescope [Tier 4, 4 Gold]
+
+Discover a minion of your most common type.
+
+
+Armor Stash [Tier 5, 2 Gold]
+
+Set your Armor to 5.
+
+
+Dreamer’s Embrace [Tier 5, 3 Gold]
+
+Trigger a friendly minion's Battlecry.
+
+
+Unmasked Identity [Tier 5, 3 Gold]
+
+Discover a new Hero Power. 
+
+
+Buddy Up [Tier 5, 3 Gold]
+
+Discover a Buddy.
+
+
+Upper Hand [Tier 5, 3 Gold]
+
+Start of Combat: Set a random enemy minion's Health to 1.
+
+
+Jaws of Fate [Tier 5, 4 Gold]
+
+Spin the Wheel of Yogg-Saron.
+
+
+Golden Touch [Tier 5, 5 Gold]
+
+Make a random minion in the Tavern Golden.
+
+
+Perfect Vision [Tier 6, 2 Gold]
+
+Set a minion's stats to 20/20. 
+
+
+Saloon’s Finest [Tier 6, 2 Gold]
+
+Refresh the Tavern with Tavern spells. 
+
+
+Lost Staff of Hamuul [Tier 6, 2 Gold]
+
+Choose a minion. Refresh the Tavern with minions of that type. 
+
+
+Azerite Empowerment [Tier 6, 4 Gold]
+
+Give your minions +4/+4.
+
+
+Sacred Gift [Tier 6, 5 Gold]
+
+Give a minion Divine Shield.
+
+
+New Heroes
+Snake Eyes
+
+Lucky Roll
+[1 Gold] Roll a 6-sided die. Gain that much Gold. (Cannot be used again for that many turns!)  
+
+
+Tae’thelan Bloodwatcher
+
+Reliquary Research
+[Passive] Every third Tavern spell you buy costs (0).
+
+
+Doctor Holli’dae
+
+Blessing of the Nine Frogs
+[1 Gold] Get a random Tavern spell.
+
+
+All three of these new heroes will be offered in each lobby for two weeks following Patch 28.2.
+
+New Minions
+Beleaguered Battler [Tier 1]
+
+4/5. At the start of your turn, lose 1 Attack.
+
+
+Phaerix, Wrath of the Sun [Tier 3]
+
+3/1. Divine Shield. Avenge (4): Give a random friendly minion Divine Shield.
+
+
+Rodeo Performer [Tier 5]
+
+3/4. Battlecry: Discover a Tavern spell.
+
+
+Mad Matador [Tier 5]
+
+0/8. Taunt. When this would take damage, deal it to a random enemy minion instead. (Once per combat.)
+
+
+Ensorcelled Fungus [Tier 5]
+
+2/4. Has +1/+2 for each Tavern spell you've cast this game (wherever this is).
+
+
+Nalaa the Redeemer [Tier 6]
+
+5/7. Whenever you cast a Tavern spell, give a friendly minion of each type +2/+1.
+
+
+Worgen Vigilante [Tier 6]
+
+10/20. Windfury. This minion always attacks an enemy minion that it can kill (if possible). 
+
+
+Land Lubber [Tier 2, Elemental/Pirate]
+
+3/4. The Tavern offers an extra Tavern spell after each Refresh.
+
+
+Sandstone Drake [Tier 5, Elemental/Dragon]
+
+0/9. At the end of your turn, gain +1 Attack. Repeat for each card you played this turn.
+
+
+Living Azerite [Tier 4, Elemental]
+
+4/4. Whenever you cast a Tavern spell, Elementals in the Tavern have +1/+1 this game. 
+
+
+Bazaar Dealer [Tier 4, Demon]
+
+3/6. 1 Tavern spell each turn costs Health instead of Gold to buy.
+
+
+Silivaz the Vindictive [Tier 6, Naga]
+
+5/8. Spellcraft: Discover a Tavern spell.
+
+
+Mystic Sporebat [Tier 3, Beast]
+
+4/1. Deathrattle: Get a random Tavern spell.
+
+
+Harmless Bonehead [Tier 1, Undead]
+
+0/2. Deathrattle: Summon two 1/1 Skeletons.
+
+
+Grave Gobbler [Tier 2, Undead]
+
+3/4. At the start of your turn, destroy the Undead to the left of this to gain +4/+4.
+
+
+Mummifier [Tier 3, Undead]
+
+3/2. Deathrattle: Give a different friendly Undead Reborn.
+
+
+Steadfast Spirit [Tier 4, Undead]
+
+3/1. Reborn. Deathrattle: Give your minions +1/+1.
+
+
+Disguised Graverobber [Tier 4, Undead]
+
+4/3. Battlecry: Destroy a friendly Undead to gain 3 Gold.
+
+
+Moroes, Steward of Death [Tier 5, Undead]
+
+6/2. Reborn. Deathrattle: Give your Undead +6 Health.
+
+
+Archlich Kel’Thuzad [Tier 6, Undead]
+
+7/4. At the end of your turn, destroy the Undead to the left of this and resummon it.
+
+
+Mangled Bandit [Tier 3, Quilboar]
+
+3/3. At the start of your turn, discard a spell to get 3 Blood Gems. 
+
+
+Snarling Conductor [Tier 4, Quilboar]
+
+5/5. At the start of your turn, discard a spell to gain 3 Gold.
+
+
+Paint Smudger [Tier 4, Quilboar]
+
+5/3. Whenever you cast a Tavern spell, play a Blood Gem on another friendly Quilboar.
+
+
+Geomagus Roogug [Tier 5, Quilboar]
+
+3/6. Whenever a Blood Gem is played on this, play a Blood Gem on a different friendly minion.
+
+
+Emerald Proto-Whelp [Tier 1, Dragon]
+
+0/4. At the end of your turn, gain +1 Attack.
+
+
+Bronze Sandspewer [Tier 2, Dragon]
+
+2/2. Divine Shield. If you have 7 minions at the end of your turn, gain +2/+1.
+
+
+Outback Smolderer [Tier 4, Dragon]
+
+4/3. At the end of your turn, get a 2/1 Smolderwing with "Battlecry: Give a Dragon +5 Attack."
+
+
+Ignition Specialist [Tier 5, Dragon]
+
+2/2. At the end of your turn, get 2 random Tavern spells.
+
+
+Wayward Grimscale [Tier 4, Murloc]
+
+1/5. Whenever this is attacked, gain Venomous.
+
+
+Lighter Fighter [Tier 4, Mech]
+
+5/1. Deathrattle: Deal 5 damage to the lowest Health enemy minion twice.
+
+
+Trembling Trolley [Tier 4, Mech]
+
+0/9. Avenge (3): Get a random Tavern spell.
+
+
+Spellbound Seafarer [Tier 5, Pirate]
+
+4/5. After you buy 3 cards, get a random Tavern spell.
+
+
+
+
+Hero Updates
+Vol’jin
+
+[0 Gold] Choose 2 minions. They gain each other’s Attack until next turn.
+Dev Comment: Vol’jin has been a design space limiter for some time, especially due to its interaction with aura effects like Eternal Knight or Flourishing Frostling. This change opens up more room for us to explore future minion designs while still preserving Vol’jin’s stat-changing identity. With this change, Vol’jin is no longer banned from Naga lobbies.
+Ini Stormcoil
+
+No text change, but now counts minions destroyed in the Recruit phase.
+Maiev Shadowsong
+
+[1 Gold] Choose a card in the Tavern to lock in your hand. After 2 turns, unlock it.
+Lord Barov
+
+Has been returned to the Hero Pool.
+Dev Comment: Please don’t break again.
+Additionally, Edwin VanCleef, Heistbaron Togwaggle, Lich Baz’hial, Silas Darkmoon, and Sindragosa have had their hero powers updated to also work with Tavern spells. 
+
+Minion Pool Updates
+The following minions have been removed from the minion pool:
+
+Tavern Tipper
+Selfless Hero
+Reef Explorer
+Leeroy the Reckless
+Mythrax, the Unraveler
+Tea Master Theotar
+Zapp Slywick
+Stormbringer
+Nomi, Kitchen Nightmare
+Seaborn Summoner
+Carbonic Copy
+Orgoza, the Tender
+Tidemistress Athissa
+Rot Hide Gnoll
+Scarlet Skull
+Soulsplitter
+Relentless Sentry
+Sore Loser
+Sister Deathwhisper
+Captain Flat Tusk
+Bonker
+Aggem Thorncurse
+Dozy Whelp
+Bronze Warden
+Time Saver
+Disco Shuffler
+Low-Flier
+General Drakkisath
+Kaboom Bot
+Upbeat Impressionist
+Leeching Felhound
+Iron Groundskeeper
+Uther, the Lightbringer
+The following minions have been returned to the minion pool:
+
+Critter Wrangler
+Nether Drake
+Razorgore, the Untamed
+Master of Realities
+Snail Cavalry
+Minion Updates
+Daggerspine Thrasher [Tier 4, Naga]
+
+4/5. Whenever you cast a spell, gain Divine Shield, Windfury, or Venomous until next turn.
+
+
+Critter Wrangler [Tier 5, Naga]
+
+5/7. Whenever you cast a spell on a a minion, give it +1/+2.
+
+
+Slitherspear, Lord of Gains [Tier 6, Naga]
+
+4/6. At the end of your turn, give your other Naga +1/+1 for each different spell you’ve cast this turn.
+
+
+Electric Synthesizer [Tier 3, Dragon]
+
+3/4. Battlecry: Give your other Dragons +2/+1.
+
+
+Nether Drake [Tier 3, Dragon]
+
+1/5. At the end of your turn, give your Dragons +1 Attack.
+
+
+Razorgore, the Untamed [Tier 4, Dragon]
+
+2/4. At the end of your turn, gain +1/+1 for each other friendly Dragon.
+
+
+Additionally, several cards have had text-only updates for clarity, brevity, and/or to include Tavern spells as well as minions.
+
+Updated Armor Tiers
+All Armor Tiers at the launch of Patch 28.2 will be as follows:
+
+Hero Name	Armor	Armor (At Higher Rating)*
+A.F. Kay	18	-
+Al’Akir	13	-
+Alexstrasza	17	-
+Ambassador Faelin	15	-
+Aranna Starseeker	12	-
+Arch-Villain Rafaam	10	-
+Bru’kan	15	-
+C’Thun	10	13
+Cap’n Hoggarr	10	-
+Captain Eudora	19	-
+Captain Hooktusk	15	11
+Cariel Roame	10	-
+Chenvaala	12	15
+Cookie the Cook	7	-
+Dancin’ Deryl	7	-
+Death Speaker Blackthorn	10	-
+Deathwing	10	-
+Dinotamer Brann	12	-
+Doctor Holli’dae	8	-
+Drek’Thar	7	-
+E.T.C., Band Manager	10	5
+Edwin VanCleef	17	-
+Elise Starseeker	13	-
+Enhance-o Mechano	13	-
+Forest Warden Omu	8	-
+Fungalmancer Flurgl	8	12
+Galakrond	17	-
+Galewing	8	-
+George the Fallen	15	-
+Greybough	16	-
+Guff Runetotem	18	-
+Heistbaron Togwaggle	13	-
+Illidan Stormrage	14	-
+Infinite Toki	7	-
+Inge, the Iron Hymn	6	8
+Ini Stormcoil	6	8
+Jandice Barov	18	-
+Kael’thas Sunstrider	15	-
+King Mukla	10	-
+Kurtrus Ashfallen	8	-
+Lady Vashj	13	-
+Lich Baz’hial	7	-
+Lord Barov	19	10
+Lord Jaraxxus	10	19
+Maiev Shadowsong	18	15
+Malygos	14	-
+Master Nguyen	8	-
+Millhouse Manastorm	10	5
+Millificent Manastorm	6	10
+Mr. Bigglesworth	16	-
+Murloc Holmes	10	-
+Mutanus the Devourer	11	-
+N’Zoth	12	-
+Nozdormu	13	-
+Onyxia	7	-
+Overlord Saurfang	14	-
+Ozumat	15	-
+Patches the Pirate	5	10
+Patchwerk	0	-
+Professor Putricide	15	-
+Pyramad	14	-
+Queen Azshara	13	-
+Queen Wagtoggle	7	13
+Ragnaros the Firelord	13	16
+Rakanishu	15	-
+Reno Jackson	16	-
+Rock Master Voone	15	10
+Rokara	12	-
+Scabbs Cutterbutter	10	-
+Shudderwock	10	5
+Silas Darkmoon	10	-
+Sindragosa	18	-
+Sir Finley Mrrgglton	12	-
+Sire Denathrius	11	-
+Skycap’n Kragg	18	-
+Snake Eyes	10	-
+Sneed	17	-
+Sylvanas Windrunner	14	-
+Tae’thelan Bloodwatcher	12	-
+Tamsin Roame	10	-
+Tavish Stormpike	15	-
+Teron Gorefiend	10	12
+Tess Greymane	17	-
+The Curator	13	-
+The Great Akazamzarak	10	-
+The Jailer	17	-
+The Lich King	10	-
+The Rat King	9	-
+Tickatus	12	-
+Thorim, Stormlord	15	-
+Trade Prince Gallywix	10	6
+Vanndar Stormpike	10	-
+Varden Dawngrasp	13	-
+Vol’jin	15	11
+Xyrella	15	10
+Y’Shaarj	14	-
+Yogg-Saron, Hope’s End	14	-
+Ysera	5	12
+Zephrys, the Great	17	-
+
+
+New Battlegrounds Track
+The Season 6 Battlegrounds Track, with the Season Pass, features 40 levels of rewards, including 4 Legendary Hero Skins, 9 Epic Hero Skins, 6 Rare Hero Skins, 8 Epic Emotes, 6 Rare Emotes, an Epic Bartender, and a Legendary Strike! 
+
+
+
+For more details about the Season 6 Battlegrounds Track, and the new Battlegrounds Season Pass, see the Season 6 Announcement Blog.
+
+General Battlegrounds Updates
+Turn timers have been temporarily extended by 5 seconds each turn while players get used to this new frontier.
+Bots have been added to the Battlegrounds ladder. One or more bots will be added to certain games to provide newer and lower-MMR players with a smoother experience.
+NEW: The cost to upgrade from Tavern Tier 4 to Tavern Tier 5 has been reduced from 11 to 10 Gold.
+

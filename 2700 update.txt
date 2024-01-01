@@ -1,0 +1,33 @@
+Battlegrounds Updates
+New Quest Rewards
+Turbulent Tombs: Add [a specified “Deathrattle” minion] to your hand. Your Deathrattles trigger an extra time.
+
+
+Gilnean War Horn: Add [a specified “Battlecry” minion] to your hand. Your Battlecries trigger an extra time.
+
+
+Quest Reward Updates
+The following Quest Rewards are now more difficult to earn:
+Endless Blood Moon; Sturdy Shard; Volatile Venom; Doppelganger’s Locket; Hidden Treasure Vault
+The following Quest Rewards are now easier to earn:
+Boom Squad; Map of the Unknown; Ice Sickle; Bloodsoaked Tome; Snicker Snacks; Scepter of Guidance; Timeline Acceleration; Ritual Dagger; Anima Bribe; Mirror Shield
+Hero Armor Updates
+The following heroes now have less Armor:
+
+Cariel Roame now has 6 Armor
+Chenvaala now has 15 Armor at higher ratings, still has 12 Armor at lower ratings
+The following heroes now have more Armor:
+
+Trade Prince Gallywix now has 8 Armor at higher ratings; still has 10 Armor at lower ratings
+Queen Wagtoggle now has 13 Armor at higher ratings; still has 7 Armor at lower ratings
+Minion Update
+Bristleback Knight 
+
+Old (regular): Windfury, Divine Shield. Frenzy: Gain Divine Shield.
+New (regular): Windfury. Divine Shield. The first time this survives damage, gain Divine Shield.
+New (golden): Windfury. Divine Shield. The first two times this survives damage, gain Divine Shield.
+Dev Comment: This is a word change update for clarity, since this was the only card in Battlegrounds using the Frenzy keyword. There is no functional change to the normal version, but the Golden version is now stronger.
+
+
+Wording Updates
+Text-only updates have been made in several instances across Battlegrounds for consistency and better templating: “Tavern Tier” has been shortened to “Tier”; “Bob’s Tavern” has been changed to “the Tavern”; “add to your hand” has been shortened to “get”; and “minion type” has been shortened to “type” when “minion” has already been previously mentioned in the text. None of these changes are gameplay-impacting changes. 

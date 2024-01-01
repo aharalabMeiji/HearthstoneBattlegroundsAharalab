@@ -1,0 +1,108 @@
+Battlegrounds Updates
+Hero Power Updates
+Cariel Roame
+
+Old: Give 2 friendly minions +1/+1. (After you upgrade the Tavern, choose an improvement!)
+Offensive Stance: For the rest of the game, ‘Conviction’ gives an additional +2 Attack.
+Defensive Stance: For the rest of the game, ‘Conviction’ gives an additional +2 Health.
+New: Give 3 friendly minions +1/+1. (After you upgrade the Tavern, choose an improvement!)
+Offensive Stance: For the rest of the game, ‘Conviction’ gives an additional +1 Attack.
+Defensive Stance: For the rest of the game, ‘Conviction’ gives an additional +1 Health.
+
+
+
+King Mukla
+
+No text update.
+Old: King Mukla has 50% chance to get a Big Banana, all other players have 0% chance.
+New: All bananas have a 33% chance of being a Big Banana, regardless of who receives them.
+
+
+Aranna Starseeker
+
+Old: After 16 friendly minions attack, the first minion you buy each turn is free.
+New: After 14 friendly minions attack, the first minion you buy each turn is free.
+
+
+The Curator
+
+Old: [Passive] Start the game with a 1/1 Amalgam with Venomous and all minion types.
+New: [Passive] Start the game with a 2/2 Amalgam with Venomous and all minion types.
+
+
+Armor Updates
+The following heroes now have more armor:
+
+King Mukla now has 10 Armor.
+Cariel Roame now has 12 Armor at higher ranked lobbies and 10 Armor at lower ranked lobbies.
+Aranna Starseeker and The Curator now have 15 Armor.
+Minion Updates
+Cogwork Copter
+
+Old: 2 Attack, 1 Health
+New: 1 Attack, 1 Health
+
+
+Scrap Scraper
+
+Old: 3 Attack, 7 Health. At the end of your turn, get a random Magnetic Mech.
+New: 4 Attack, 7 Health. At the end of every 2 turns, get a random Magnetic Mech.
+
+
+Cyborg Drake
+
+Old: 2 Attack, 10 Health. Divine Shield. Your minions with Divine Shield have +8 Attack.
+New: 3 Attack, 10 Health. Divine Shield. Your minions with Divine Shield have +6 Attack.
+
+
+Prickly Piper
+
+Old: 5 Attack, 2 Health
+New: 3 Attack, 1 Health
+
+
+Bongo Bopper
+
+Old: 6 Attack, 5 Health.
+New: 4 Attack, 3 Health.
+
+
+Hungry Snapjaw
+
+Old: 4 Attack, 2 Health.
+New: 5 Attack, 2 Health.
+
+
+Recycling Wraith
+
+Old: [Tier 4] 5 Attack, 4 Health
+New: [Tier 3] 4 Attack, 2 Health
+
+
+Bream Counter
+
+Old: 4 Attack, 4 Health. While this is in your hand, after you play a Murloc, gain +3/+2.
+New: 5 Attack, 5 Health. While this is in your hand, after you play a Murloc, gain +3/+3.
+
+
+Eventide Brute
+
+Old: 3 Attack, 2 Health
+New: 4 Attack, 3 Health
+
+
+Tidemistress Athissa
+
+Old: 7 Attack, 8 Health. After you cast a spell, give three friendly Naga +1/+1.
+New: 6 Attack, 8 Health. After you cast a spell, give four friendly Naga +1/+1.
+
+
+Soulsplitter
+
+Old: [Tier 5] 5 Attack, 2 Health.
+New: [Tier 4] 4 Attack, 2 Health.
+
+
+Minion Pool Changes
+Bannerboar has been removed from the minion pool.
+Patient Scout has been returned to the minion pool.

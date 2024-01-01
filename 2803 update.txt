@@ -1,0 +1,111 @@
+Battlegrounds Updates
+Anomaly Updates
+Forest Warden Omu and Kurtrus Ashfallen are now banned from games with the Money Match Anomaly.
+Forest Warden Omu is now banned from games with the Valuation Inflation Anomaly.
+The Yogg-iseum Anomaly is now returned to the Anomaly Pool.
+Minion Updates
+Dev Comment: Most of these changes are primarily for power reasons, to curb some of the meta’s current overperforming and underperforming minions. A few of these changes are being made for more nuanced reasons, that we elaborate on below.
+
+Goldrinn, the Great Wolf
+
+Old: 3/3. Deathrattle: For the rest of this combat, your Beasts have +3/+3.
+New: 3/2. Deathrattle: For the rest of this combat, your Beasts have +3/+2.
+
+
+Banana Slamma
+
+Old: [Tier 4] 2/5.
+New: [Tier 5] 3/6.
+Dev Comment: Banana Slamma is not an overwhelming power outlier, but it does tend to be a frustrating sentiment outlier, especially where one player gets too many of them too early in the game. We’ve moving it up a tier to decrease its appearance rate and make getting multple Slammas harder. We’re moving Mama Bear down a tier so that Beasts don’t lose too much overall power with this round of changes.
+
+
+Mama Bear
+
+Old: [Tier 5] 4/4. Whenever you summon a Beast, give it +4/+4.
+New: [Tier 4] 3/3. Whenever you summon a Beast, give it +3/+3.
+
+
+Gunpowder Courier
+
+Old: 2/4.
+New: 2/6.
+
+
+Dancing Barnstormer
+
+Old: [Tier 4] 3/2. Deathrattle: Elementals in the Tavern have +3/+2 for the rest of the game.
+New: [Tier 2] 2/1. Deathrattle: Elementals in the Tavern have +1/+1 for the rest of the game.
+Dev Comment: Elementals have been struggling a bit since the removal of Gusty Trumpeter. To help them out, we’re making many small adjustments across Elementals to increase their overall power without concentrating it on a single minion.
+
+
+Flourishing Frostling
+
+Old: [Tier 2] 0/6. Has +1 Attack for each Elemental you played this game (wherever this is).
+New: [Tier 4] 1/1. Has +1/+1 for each Elemental you played this game (wherever this is).
+
+
+Tavern Tempest
+
+Old: [Tier 5] 4/4.
+New: [Tier 4] 2/2.
+
+
+Carbonic Copy
+
+Old: [Tier 4] 3/3.
+New: [Tier 5] 6/7.
+
+
+Rock Rock
+
+Old: 4/4. After you play an Elemental, give your other minions +2 Attack. (Swaps to Health next turn!)
+New: 5/5. After you play an Elemental, give your minions +2 Attack. (Swaps to Health next turn!)
+
+
+Diremuck Forager
+
+Old: 4/3. Start of Combat: Give a Murloc in your hand +2/+2, then summon it for this combat only.
+New: 3/4. Start of Combat: Give a minion in your hand +2/+2, then summon it for this combat only.
+
+
+Bassgill
+
+Old: [Tier 5] 8/3. Deathrattle: Summon the highest Health minion from your hand for this combat only.
+New: [Tier 4] 7/2. Deathrattle: Summon the highest Health Murloc from your hand for this combat only.
+Dev Comment: Both Bassgill and Diremuck Forager server an important role in Murloc comps by allowing them to summon handbuffed minions into play. However, Bassgill is often used to get other powerful minions into play, like Venomous minions or Leeroy. We’ve adjusted both cards to decrease the viability of those other comps, while keeping them viable for handbuff strategies.
+
+
+Murky
+
+Old: 6/5. Battlecry: Give a friendly Murloc +1/+1. (Improved by each Battlecry minion you played this game!)
+New: 6/4. Battlecry: Give a friendly Murloc +10/+10.
+
+
+Aggem Thorncurse
+
+Old: 3/6. After a Blood Gem is played on this, give a friendly minion of each type +1/+1.
+New: 3/5. After a Blood Gem is played on this, give a friendly minion of each type +2/+1.
+
+
+Captain Flat Tusk
+
+Old: 9/6. After you spend 4 Gold, get a Blood Gem.
+New: 9/5. After you spend 3 Gold, get a Blood Gem.
+
+
+Motley Phalanx
+
+Old: 7/7. Taunt. Deathrattle: Give a friendly minion of each type +7/+7.
+New: 5/5. Taunt. Deathrattle: Give a friendly minion of each type +5/+5.
+
+
+
+
+Bug Fixes and Game Improvements
+[Hearthstone] The Tram Cars summoned by Trolley Problem and Tram Conductor Gerry are no longer Mechs (they don’t have a CPU).
+[Hearthstone] Added the Fel Spell School to Fan the Hammer.
+[Hearthstone] Reno, Lone Ranger and Resistance Aura have had text-only updates, for clarity.
+[Hearthstone] Fixed a bug where Forging Eulogizer removed the cost reduction from Farm Hand.
+[Hearthstone] Corrected various localization issues.
+[Battlegrounds] Fixed a bug where the Wheel of Yogg-Saron could get stuck in the Yogg-iseum Anomaly.
+[Collection] Signature Slagmaw, the Slumbering can now be disenchanted.

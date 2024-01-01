@@ -568,6 +568,7 @@ class BG25_007_G:# (minion)
 
 
 #Handless Forsaken 4/2/3/Undead	Deathrattle, Reborn ## new 25.2
+##2643: [Tier 3] 2 Attack, 1 Health. Deathrattle: Summon a 2/1 Hand with Reborn.
 if BG25__Handless_Forsaken:# 
 	BG_Minion_Undead+=['BG25_010','BG25_010t','BG25_010_G','BG25_010_Gt']
 	BG_PoolSet_Undead+=['BG25_010']
@@ -576,22 +577,37 @@ if BG25__Handless_Forsaken:#
 class BG25_010:# (minion)
 	""" Handless Forsaken
 	[Deathrattle:] Summon a 2/2 Hand with [Reborn]. """
-	option_tags={GameTag.ATK:2, GameTag.HEALTH:3}
+	if Config.BG_VERSION>=2643:
+		option_tags={GameTag.TECH_LEVEL:3, GameTag.ATK:2, GameTag.HEALTH:1}
+	else:
+		option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:2, GameTag.HEALTH:3}
 	deathrattle = DeathrattleSummon(CONTROLLER, 'BG25_010t')
 	pass
 class BG25_010t:# (minion)
 	""" Helping Hand
 	[Reborn] """
+	##2643: a 2/1 Hand with Reborn.
+	if Config.BG_VERSION>=2643:
+		option_tags={GameTag.ATK:2, GameTag.HEALTH:1}
+	else:
+		option_tags={GameTag.ATK:2, GameTag.HEALTH:2}
 	pass
 class BG25_010_G:# (minion)
 	""" Handless Forsaken
 	[Deathrattle:] Summon a 4/4 Hand with [Reborn]. """
-	option_tags={GameTag.ATK:4, GameTag.HEALTH:6}
+	if Config.BG_VERSION>=2643:
+		option_tags={GameTag.TECH_LEVEL:3, GameTag.ATK:4, GameTag.HEALTH:2}
+	else:
+		option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:4, GameTag.HEALTH:6}
 	deathrattle = DeathrattleSummon(CONTROLLER, 'BG25_010_Gt')
 	pass
 class BG25_010_Gt:# (minion)
 	""" Helping Hand
 	[Reborn] """
+	if Config.BG_VERSION>=2643:
+		option_tags={GameTag.ATK:4, GameTag.HEALTH:2}
+	else:
+		option_tags={GameTag.ATK:4, GameTag.HEALTH:4}
 	pass
 
 

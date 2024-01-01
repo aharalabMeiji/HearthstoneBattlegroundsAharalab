@@ -1,0 +1,25 @@
+Battlegrounds Updates
+Damage Cap Update
+The damage cap now persists for all players until the Top 4. The primary goal of the damage cap in Battlegrounds is to protect players from taking too much damage too early. We’ve heard a lot of feedback from the community that the system was not fully achieving that goal, so now we’re expanding it even further. We’ll closely monitor this change and make additional changes to the damage system as needed.
+
+New Anomalies
+The following Anomalies will be added to Battlegrounds throughout Patch 27.4:
+
+The Yogg-iseum	At the start of each turn, spin the Wheel of Yogg-Saron.
+Dev Comment: Each turn, the Wheel is spun and one result is chosen for all players.
+Blessed or Blighted?	Start of Combat: Give your left-most minion Divine Shield and your right-most minion Reborn.
+Golganneth’s Tempest	Minions cost 2 Gold. You cannot Refresh the Tavern. It Refreshes itself after you buy a minion.
+Match Fixing	Guess which player will win your next combat. If you're correct, get 3 Gold Coins.
+Up-Prizing	After you upgrade the Tavern, Discover a Tier 1 Darkmoon Prize. (Improves in 3 turns!)
+Gladiator’s Spoils	After you win a combat, Discover a minion of your Tier. Otherwise, get a random one of a Tier lower.
+Shackles of the Primus	After each combat, remove your warband. At the start of your turn, triple your Gold.
+Summoning of Champions	At the start of the game, all players Discover a Tier 6 minion from the same choices.
+Curse of Aggramar	Start at 5 Health and 5 Gold. Your hero can only take 1 damage at a time.
+Reckless Enhancement	Minions in the Tavern each randomly gain Taunt, Windfury, Divine Shield, or Reborn.
+Tavern Special	All minion types are in the Tavern. It always has 7 minions.
+Eonar’s Overgrown Arena	At the start of your turn, give minions in the Tavern +1/+1 for the rest of the game. 
+Anomaly Updates
+The “A Faire Reward” Anomaly now upgrades every 5 turns, instead of every 4 turns, and appears less frequently.
+Piloted Whirl-o-Tron (Sneed's Buddy) has been removed from the “Bring in the Buddies” Anomaly.
+New Battlegrounds Cosmetics
+Battlegrounds is getting in the Twist spirit with new Wonders-themed cosmetic options! The Wonders Battlegrounds Mega Bundle celebrates Hearthstone’s past with 4 Epic Hero Skins, 1 Rare Hero Skin, 1 Rare Board, and 8 Epic Emotes, all inspired by Twist’s Wonders format. Or, experience an alternate timeline with the new Epic Bartender: Bartender Roberta!
