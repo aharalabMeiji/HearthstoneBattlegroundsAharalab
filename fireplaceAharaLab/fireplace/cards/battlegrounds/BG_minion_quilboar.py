@@ -714,7 +714,7 @@ BG20_302_Ge=buff(2,2)# <12>[1453]
 #Old: 5 Attack, 8 Health
 #2643: 6 Attack, 9 Health
 if BG_Bristleback_Knight:
-	BG_Minion_Quilboar += [ 'BG20_204','BG20_204e','BG20_204_G','BG20_204_Ge',]#	
+	BG_Minion_Quilboar += [ 'BG20_204','BG20_204_G',]#	
 	BG_PoolSet_Quilboar.append('BG20_204')
 	BG_Quilboar_Gold['BG20_204']='BG20_204_G'
 class BG20_204:

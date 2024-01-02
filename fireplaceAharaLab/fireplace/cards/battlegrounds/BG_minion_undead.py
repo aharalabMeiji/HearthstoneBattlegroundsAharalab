@@ -15,7 +15,7 @@ BG25__Corpse_Refiner=(Config.BG_VERSION>=2520)# 2/2/3 undead/pirate ## new 25.2
 BG25__Ghoul_of_the_Feast=(Config.BG_VERSION>=2520) # 3 undead ## new 25.2
 BG25__Jelly_Belly=(Config.BG_VERSION>=2520 and Config.BG_VERSION<2620)#3 undead ## new 25.2 ## banned 26.2
 BG25__Lich_Doctor=(Config.BG_VERSION>=2520 and Config.BG_VERSION<2620)#3 undead ## new 25.2 ## banned 26.2
-BG25__Radio_Star=(Config.BG_VERSION>=2620) ## (3)
+BG25__Radio_Star=(Config.BG_VERSION>=2620 and Config.BG_VERSION<2720) ## (3) ## banned 2720
 
 BG25__Anubarak_Nerubian_King=(Config.BG_VERSION>=2520)#4 undead ## new 25.2
 BG25__Handless_Forsaken=(Config.BG_VERSION>=2520)#4 undead ## new 25.2
@@ -299,7 +299,7 @@ class BG25_022_G:# (minion)
 BG25_022_Ge=buff(2,4)
 
 
-
+## 24/1/2 ##
 if BG25__Corpse_Refiner:# 2/2/3 undead/pirate ## new 25.2
 	BG_Minion_Undead+=['BG25_033','BG25_033_G']
 	BG_PoolSet_Undead+=['BG25_033']
@@ -336,17 +336,11 @@ class BG25_033_G:# (minion)
 ###### tavern tier 3
 
 
-
-#Ghoul of the Feast /Undead	Avenge (X) ## new 25.2 ## (3/2/4)->(3/2/5)(25.4.3)
-## 2543
-##Old: 2 Attack, 4 Health. Avenge (1): Give a friendly minion of each minion type +2 Attack.
-##New: 2 Attack, 5 Health. Avenge (2): Give a friendly minion of each minion type +3 Attack.
-## 2522
-#Old: Avenge (1): Give a friendly minion of each minion type +3 Attack.
-#New: Avenge (1): Give a friendly minion of each minion type +2 Attack.
-## 2520
-#Tavern Tier 3, Undead
-#2 Attack, 4 Health. Avenge (1): Give a friendly minion of each type +3 Attack.
+## 24/1/2 ##
+#Ghoul of the Feast /Undead	Avenge (X) ## new 25.2 ## (3/2/4)->(3/2/5)(25.4.3) banned 2720
+#2520: 3/2/4 Avenge (1): Give a friendly minion of each minion type +3 Attack.
+#2522: Avenge (1): Give a friendly minion of each minion type +2 Attack.
+#2543: 2 Attack, 5 Health. Avenge (2): Give a friendly minion of each minion type +3 Attack.
 if BG25__Ghoul_of_the_Feast:# 
 	BG_Minion_Undead+=['BG25_002']
 	BG_Minion_Undead+=['BG25_002e']
@@ -417,14 +411,10 @@ else:
 
 
 
+## 24/1/2 ##
 #Jelly Belly 3/3/5/Undead	Reborn ## new 25.2 ## banned 26.2
-# 2543
-#Old: 3 Attack, 5 Health.
-#New: 3 Attack, 6 Health.
-## 2520
-#Tavern Tier 3, Undead]
-#3 Attack, 5 Health. After a minion is Reborn, gain +3/+3.
-
+#2520: 3 Attack, 5 Health.After a minion is Reborn, gain +3/+3.
+#2543: 3 Attack, 6 Health.
 if BG25__Jelly_Belly:# 
 	BG_Minion_Undead+=['BG25_005']
 	BG_Minion_Undead+=['BG25_005_G']
@@ -455,6 +445,7 @@ BG25_005_Ge=buff(6,6)
 
 
 
+## 24/1/2 ##
 #Lich Doctor 3/3/2/Undead	Taunt ## new 25.2 ## banned 26.2
 if BG25__Lich_Doctor:# 
 	BG_Minion_Undead+=['BG25_006']
@@ -480,7 +471,7 @@ class BG25_006_G_Action(GameAction):
 	def do(self, source):
 		for card in source.controller.field:
 			if getattr(card, 'killed_in_former_battle', False):
-				Buff(card, 'BG25_006e').trigger(source)
+				Buff(card, 'BG25_006_Ge').trigger(source)
 		pass
 class BG25_006_G:# (minion)
 	""" Lich Doctor
@@ -492,8 +483,9 @@ BG25_006_Ge=buff(2,2)
 
 
 
+## 24/1/2 ##
 ## Radio Star(3/3/1)
-#BG25__Radio_Star=(Config.BG_VERSION>=2620) ## (3/3/1)
+#BG25__Radio_Star=(Config.BG_VERSION>=2620) ## (3/3/1) ## banned 2720
 if BG25__Radio_Star:##
 	BG_Minion_Undead+=['BG25_399','BG25_399_G']
 	BG_PoolSet_Undead+=['BG25_399']
@@ -508,12 +500,15 @@ class BG25_399_Action(GameAction):
 			if amount==2:
 				Give(source.controller, target.id).trigger(source)	
 		pass
-#New: 2 Attack, 1 Health
-#Old: 3 Attack, 1 Health
+#2620: 3 Attack, 1 Health
+#2622: 2 Attack, 1 Health
+#2643: 1 Attack, 1 Health
 class BG25_399:
 	""" Radio Star
 	[Deathrattle:] Add a plain copy of the minion that __killed this to your hand."""
-	if Config.BG_VERSION>=2622:
+	if Config.BG_VERSION>=2643:
+		option_tags={GameTag.ATK:1, GameTag.HEALTH:1}
+	elif Config.BG_VERSION>=2622:
 		option_tags={GameTag.ATK:2, GameTag.HEALTH:1}
 	else:
 		option_tags={GameTag.ATK:3, GameTag.HEALTH:1}
@@ -522,6 +517,8 @@ class BG25_399:
 class BG25_399_G:
 	""" Radio Star
 	[Deathrattle:] Add 2 plain copies of the minion that killed this to your hand."""
+	if Config.BG_VERSION>=2643:
+		option_tags={GameTag.ATK:2, GameTag.HEALTH:2}
 	if Config.BG_VERSION>=2622:
 		option_tags={GameTag.ATK:4, GameTag.HEALTH:2}
 	else:
@@ -532,6 +529,8 @@ class BG25_399_G:
 
 ##### tavern tier 4
 
+
+## 24/1/2 ##
 #Anub'arak, Nerubian King 4/4/3/Undead	Deathrattle ## new 25.2#############################
 if BG25__Anubarak_Nerubian_King:# 
 	BG_Minion_Undead+=['BG25_007','BG25_007_G']
@@ -561,6 +560,9 @@ class BG25_007_Action(GameAction):
 class BG25_007:# (minion)
 	""" Anub'arak, Nerubian King
 	[Deathrattle:] Your Undead have +2 Attack for the rest of the game <i>(wherever they are)</i>. """
+	#2520: [Tavern Tier 5] 5 Attack, 3 Health. Deathrattle: Your Undead have +2 Attack for the rest of the game (wherever they are).
+	#2522: [Tavern Tier 4] 4 Attack, 3 Health. Deathrattle: Your Undead have +1 Attack for the rest of the game (wherever they are).
+
 	if Config.BG_VERSION>=2522:
 		option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:4, GameTag.HEALTH:3}
 	else:
@@ -599,6 +601,7 @@ class BG25_007_G:# (minion)
 	pass
 
 
+## 24/1/2 ##
 #Handless Forsaken 4/2/3/Undead	Deathrattle, Reborn ## new 25.2
 ##2643: [Tier 3] 2 Attack, 1 Health. Deathrattle: Summon a 2/1 Hand with Reborn.
 if BG25__Handless_Forsaken:# 
@@ -641,6 +644,7 @@ class BG25_010_Gt:# (minion)
 	else:
 		option_tags={GameTag.ATK:4, GameTag.HEALTH:4}
 	pass
+
 
 
 
