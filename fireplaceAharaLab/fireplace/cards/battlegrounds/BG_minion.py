@@ -307,9 +307,9 @@ if BG_Acolyte_of_C_Thun:#Acolyte of C'Thun	2	2	3
 # 			<jaJP>クトゥーンの侍祭</jaJP>
 # 		</Tag>
 # 		<Tag enumID="184" name="CARDTEXT" type="LocString">
-# 			<enUS>&lt;b&gt;Taunt&lt;/b&gt;
-# &lt;b&gt;Reborn&lt;/b&gt;</enUS>
-# 			<jaJP>&lt;b&gt;挑発&lt;/b&gt;、&lt;b&gt;蘇り&lt;/b&gt;</jaJP>
+# 			<enUS>[Taunt]
+# [Reborn]</enUS>
+# 			<jaJP>[挑発]、[蘇り]</jaJP>
 # 		</Tag>
 # 		<Tag enumID="45" name="HEALTH" type="Int" value="3"/>
 # 		<Tag enumID="47" name="ATK" type="Int" value="2"/>
@@ -355,8 +355,8 @@ if BG_Kooky_Chemist:## Kooky Chemist (2) ### OK ### ## 23.6 new banned 24.2
 # 			<jaJP>妙ちくりんな薬剤師</jaJP>
 # 		</Tag>
 # 		<Tag enumID="184" name="CARDTEXT" type="LocString">
-# 			<enUS>&lt;b&gt;Battlecry:&lt;/b&gt; Swap the Attack and Health of a minion.</enUS>
-# 			<jaJP>[x]&lt;b&gt;雄叫び:&lt;/b&gt;
+# 			<enUS>[Battlecry:] Swap the Attack and Health of a minion.</enUS>
+# 			<jaJP>[x][雄叫び:]
 # ミニオン1体の
 # 攻撃力と体力を
 # 入れ替える。</jaJP>
@@ -422,8 +422,8 @@ if BG_Menagerie_Mug:#Menagerie Mug	2	2	2 ###
 # 			<jaJP>ミナジェリのマグ</jaJP>
 # 		</Tag>
 # 		<Tag enumID="184" name="CARDTEXT" type="LocString">
-# 			<enUS>[x]&lt;b&gt;Battlecry:&lt;/b&gt; Give 3 random# friendly minions of different# minion types +1/+1.</enUS>
-# 			<jaJP>[x]&lt;b&gt;雄叫び:&lt;/b&gt;# 異なる種族のランダムな# 味方のミニオン3体に# +1/+1を付与する。</jaJP>
+# 			<enUS>[x][Battlecry:] Give 3 random# friendly minions of different# minion types +1/+1.</enUS>
+# 			<jaJP>[x][雄叫び:]# 異なる種族のランダムな# 味方のミニオン3体に# +1/+1を付与する。</jaJP>
 # 		</Tag>
 # 		<Tag enumID="45" name="HEALTH" type="Int" value="2"/>
 # 		<Tag enumID="47" name="ATK" type="Int" value="2"/>
@@ -495,11 +495,11 @@ if BG_Patient_Scout:#Patient Scout	2	1	1
 # 		</Tag>
 # 		<Tag enumID="184" name="CARDTEXT" type="LocString">
 # 			<enUS>[x]When you sell this,
-# &lt;b&gt;Discover&lt;/b&gt; a Tier @ minion.
+# [Discover] a Tier @ minion.
 # &lt;i&gt;(Upgrades each turn!)&lt;/i&gt;</enUS>
 # 			<jaJP>[x]これを売る時
 # グレード@ミニオン1体を
-# &lt;b&gt;発見&lt;/b&gt;する。&lt;i&gt;（毎ターン
+# [発見]する。&lt;i&gt;（毎ターン
 # アップグレード！）&lt;/i&gt;</jaJP>
 # 		</Tag>
 # 		<Tag enumID="2" name="TAG_SCRIPT_DATA_NUM_1" type="Int" value="1"/>
@@ -581,8 +581,8 @@ if BG_PoeticPenPal:## Poetic Pen Pal (BG25_105)(2/2/4) new 25.6
 # 			<jaJP>詩的なペンフレンド</jaJP>
 # 		</Tag>
 # 		<Tag enumID="184" name="CARDTEXT" type="LocString">
-# 			<enUS>&lt;b&gt;Battlecry:&lt;/b&gt; Reduce the Cost of your next Buddy by (2).</enUS>
-# 			<jaJP>[x]&lt;b&gt;雄叫び:&lt;/b&gt;
+# 			<enUS>[Battlecry:] Reduce the Cost of your next Buddy by (2).</enUS>
+# 			<jaJP>[x][雄叫び:]
 # 自分の次の
 # バディのコストを
 # （2）減らす。</jaJP>
@@ -628,11 +628,11 @@ if BG_Prophet_of_the_Boar:#(BG20_203)Prophet of the Boar	2	3	3
 # 			<jaJP>巨猪の預言者</jaJP>
 # 		</Tag>
 # 		<Tag enumID="184" name="CARDTEXT" type="LocString">
-# 			<enUS>&lt;b&gt;Taunt&lt;/b&gt;
-# After you play a Quilboar, get a &lt;b&gt;Blood Gem&lt;/b&gt;.</enUS>
-# 			<jaJP>[x]&lt;b&gt;挑発&lt;/b&gt;
+# 			<enUS>[Taunt]
+# After you play a Quilboar, get a [Blood Gem].</enUS>
+# 			<jaJP>[x][挑発]
 # キルボアを手札から
-# 使用した後、&lt;b&gt;血の宝石&lt;/b&gt;
+# 使用した後、[血の宝石]
 # 1個を得る。</jaJP>
 # 		</Tag>
 # 		<Tag enumID="32" name="TRIGGER_VISUAL" type="Int" value="1"/>
@@ -710,11 +710,11 @@ if BG_Selfless_Hero:#Selfless Hero	2	2	1
 # 			<jaJP>献身の英雄</jaJP>
 # 		</Tag>
 # 		<Tag enumID="184" name="CARDTEXT" type="LocString">
-# 			<enUS>&lt;b&gt;Deathrattle:&lt;/b&gt; Give a random friendly minion &lt;b&gt;Divine Shield&lt;/b&gt;.</enUS>
-# 			<jaJP>[x]&lt;b&gt;断末魔:&lt;/b&gt;
+# 			<enUS>[Deathrattle:] Give a random friendly minion [Divine Shield].</enUS>
+# 			<jaJP>[x][断末魔:]
 # ランダムな味方の
 # ミニオン1体に
-# _____&lt;b&gt;聖なる盾&lt;/b&gt;を付与する。</jaJP>
+# _____[聖なる盾]を付与する。</jaJP>
 # 		</Tag>
 # 		<Tag enumID="342" name="ARTISTNAME" type="String">Rafael Zanchetin</Tag>
 # 		<Tag enumID="45" name="HEALTH" type="Int" value="1"/>
@@ -947,7 +947,7 @@ class BGS_110:# <12>[1453] 帝国の腕
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"Whenever a friendly [Taunt]minion is attacked,give it +2 Attack permanently."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"味方の&lt;b&gt;挑発&lt;/b&gt;ミニオンが攻撃される度それに攻撃力+2を永続的に付与する。"}
+		option_cardtext={GameTag.CARDTEXT:"味方の[挑発]ミニオンが攻撃される度それに攻撃力+2を永続的に付与する。"}
 	events = BG_Attack(ENEMY, FRIENDLY + TAUNT).on(BuffPermanently(BG_Attack.OTHER,'BGS_110e'))
 	pass
 BGS_110e=buff(2,0)# <12>[1453]
@@ -958,7 +958,7 @@ class TB_BaconUps_302:# <12>[1453]
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"Whenever a friendly [Taunt]minion is attacked,give it +4 Attackpermanently."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"味方の&lt;b&gt;挑発&lt;/b&gt;ミニオンが攻撃される度それに攻撃力+4を永続的に付与する。"}
+		option_cardtext={GameTag.CARDTEXT:"味方の[挑発]ミニオンが攻撃される度それに攻撃力+4を永続的に付与する。"}
 	events = BG_Attack(ENEMY, FRIENDLY + TAUNT).on(BuffPermanently(BG_Attack.OTHER,'TB_BaconUps_302e'))
 	pass
 TB_BaconUps_302e=buff(4,0)# <12>[1453]
@@ -1031,7 +1031,7 @@ class BG21_030:# <12>[1453]  栽培家
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Avenge (3):] Give adjacent minions +2/+1 permanently."}	
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;仇討（3）:&lt;/b&gt;隣接するミニオンに+2/+1を永続的に付与する。"}
+		option_cardtext={GameTag.CARDTEXT:"[仇討（3）:]隣接するミニオンに+2/+1を永続的に付与する。"}
 	events = Death(FRIENDLY).on(Avenge(SELF, 3, [BuffPermanently(SELF_ADJACENT, 'BG21_030e')]))
 	pass
 BG21_030e=buff(2,1)
@@ -1041,7 +1041,7 @@ class BG21_030_G:# <12>[1453]
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Avenge (3):] Give adjacent minions +4/+2 permanently."}	
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;仇討（3）:&lt;/b&gt;隣接するミニオンに+4/+2を永続的に付与する。"}
+		option_cardtext={GameTag.CARDTEXT:"[仇討（3）:]隣接するミニオンに+4/+2を永続的に付与する。"}
 	events = Death(FRIENDLY).on(Avenge(SELF, 3, [BuffPermanently(SELF_ADJACENT, 'BG21_030_Ge')]))
 	pass
 BG21_030_Ge=buff(4,2)
@@ -1067,7 +1067,7 @@ class BG24_719:
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Battlecry:] Transform a minion into one from a Tavern Tier higher."}	
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;雄叫び:&lt;/b&gt;ミニオン1体をグレードが1高いミニオンに変身させる。"}
+		option_cardtext={GameTag.CARDTEXT:"[雄叫び:]ミニオン1体をグレードが1高いミニオンに変身させる。"}
 	requirements = {PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_MINION_TARGET:0, PlayReq.REQ_FRIENDLY_TARGET:0  }
 	play = BG24_719_Target(TARGET)
 class BG24_719_G_Target(TargetedAction):
@@ -1084,7 +1084,7 @@ class BG24_719_G:
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Battlecry:] Transform a minion into one from 2 Tavern Tiers higher."}	
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;雄叫び:&lt;/b&gt;ミニオン1体をグレードが2高いミニオンに変身させる。"}
+		option_cardtext={GameTag.CARDTEXT:"[雄叫び:]ミニオン1体をグレードが2高いミニオンに変身させる。"}
 	requirements = {PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_MINION_TARGET:0, PlayReq.REQ_FRIENDLY_TARGET:0  }
 	play = BG24_719_G_Target(TARGET)
 
@@ -1102,7 +1102,7 @@ class BG_DS1_070:# <3>[1453] 猟犬使い
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Battlecry:] Give a friendly Beast +2/+2 and [Taunt]."}	
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;雄叫び:&lt;/b&gt;味方の獣1体に[b]+2/+2と&lt;b&gt;挑発&lt;/&gt;を付与する。"}
+		option_cardtext={GameTag.CARDTEXT:"[雄叫び:]味方の獣1体に[b]+2/+2と[挑発&lt;/&gt;を付与する。"}
 	requirements = {
 		PlayReq.REQ_TARGET_IF_AVAILABLE:0, PlayReq.REQ_FRIENDLY_TARGET:0,PlayReq.REQ_MINION_TARGET:0, 
 		PlayReq.REQ_TARGET_WITH_RACE:Race.BEAST }
@@ -1115,7 +1115,7 @@ class TB_BaconUps_068:# <3>[1453]
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Battlecry:] Give a friendly Beast +4/+4 and [Taunt]."}	
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;雄叫び:&lt;/b&gt;味方の獣1体に[b]+4/+4と&lt;b&gt;挑発&lt;/&gt;を付与する。"}
+		option_cardtext={GameTag.CARDTEXT:"[雄叫び:]味方の獣1体に[b]+4/+4と[挑発&lt;/&gt;を付与する。"}
 	requirements = {
 		PlayReq.REQ_TARGET_IF_AVAILABLE:0, PlayReq.REQ_FRIENDLY_TARGET:0,PlayReq.REQ_MINION_TARGET:0, 
 		PlayReq.REQ_TARGET_WITH_RACE:Race.BEAST }
@@ -1348,7 +1348,7 @@ class BGS_111:# <12>[1453]  ヤシャラージュ
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"Whenever a friendly [Taunt] minion is attacked, gain +1/+2 permanently."}	
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"味方の&lt;b&gt;挑発&lt;/b&gt;ミニオンが攻撃される度+1/+2を永続的に獲得する。"}
+		option_cardtext={GameTag.CARDTEXT:"味方の[挑発]ミニオンが攻撃される度+1/+2を永続的に獲得する。"}
 	events = BG_Attack(ENEMY, FRIENDLY + TAUNT).on(BuffPermanently(SELF, 'BGS_111e'))
 	pass
 BGS_111e=buff(1,2)# <12>[1453]
@@ -1359,7 +1359,7 @@ class TB_BaconUps_301:# <12>[1453]
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"Whenever a friendly [Taunt] minion is attacked, gain +2/+4 permanently."}	
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"味方の&lt;b&gt;挑発&lt;/b&gt;ミニオンが攻撃される度+2/+4を永続的に獲得する。"}
+		option_cardtext={GameTag.CARDTEXT:"味方の[挑発]ミニオンが攻撃される度+2/+4を永続的に獲得する。"}
 	events = BG_Attack(ENEMY, FRIENDLY + TAUNT).on(BuffPermanently(SELF, 'TB_BaconUps_301e'))
 	pass
 TB_BaconUps_301e=buff(2,4)# <12>[1453]
@@ -1380,7 +1380,7 @@ class EX1_093:# <12>[1453]   アルガス
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Battlecry:] Give adjacent minions +1/+1 and [Taunt]."}	
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;雄叫び:&lt;/b&gt; 隣接するミニオンに+1/+1と&lt;b&gt;挑発&lt;/b&gt;を付与する。"}
+		option_cardtext={GameTag.CARDTEXT:"[雄叫び:] 隣接するミニオンに+1/+1と[挑発]を付与する。"}
 	play = Buff(SELF_ADJACENT, 'EX1_093e')
 	pass
 EX1_093e=buff(1,1,taunt=True)
@@ -1391,7 +1391,7 @@ class TB_BaconUps_009:# <12>[1453]
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Battlecry:] Give adjacent minions +2/+2 and [Taunt]."}	
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;雄叫び:&lt;/b&gt;隣接するミニオンに+2/+2と&lt;b&gt;挑発&lt;/b&gt;を付与する。"}
+		option_cardtext={GameTag.CARDTEXT:"[雄叫び:]隣接するミニオンに+2/+2と[挑発]を付与する。"}
 	play = Buff(SELF_ADJACENT, 'TB_BaconUps_009e')
 	pass
 TB_BaconUps_009e=buff(2,2,taunt=True)# <12>[1453]
@@ -1460,7 +1460,7 @@ class BG21_007:# <12>[1453]  終魔通予言者
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Avenge (4):] Add a random Demon to your hand."}	
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;仇討（4）:&lt;/b&gt;ランダムな悪魔1体を_自分の手札に追加する。"}
+		option_cardtext={GameTag.CARDTEXT:"[仇討（4）:]ランダムな悪魔1体を_自分の手札に追加する。"}
 	events = Death(FRIENDLY).on(Avenge(SELF, 4, [GiveInBattle(CONTROLLER, RandomBGDemon())]))
 	pass
 class BG21_007_G:# <12>[1453]
@@ -1469,7 +1469,7 @@ class BG21_007_G:# <12>[1453]
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Avenge (4):] Add 2 random Demons to your hand."}	
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"]&lt;b&gt;仇討（4）:&lt;/b&gt;ランダムな悪魔2体を_自分の手札に追加する。"}
+		option_cardtext={GameTag.CARDTEXT:"][仇討（4）:]ランダムな悪魔2体を_自分の手札に追加する。"}
 	events = Death(FRIENDLY).on(Avenge(SELF, 4, [GiveInBattle(CONTROLLER, RandomBGDemon()), GiveInBattle(CONTROLLER, RandomBGDemon())]))
 	pass
 
@@ -1560,7 +1560,7 @@ class BG21_036:# <12>[1453] 多重現実の支配者
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[[Taunt].] After a friendly Elemental gains stats, gain +1/+1."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;挑発&lt;/b&gt;味方のエレメンタルが攻撃力か体力を獲得した後+1/+1を獲得する。"}
+		option_cardtext={GameTag.CARDTEXT:"[挑発]味方のエレメンタルが攻撃力か体力を獲得した後+1/+1を獲得する。"}
 	events = Buff(FRIENDLY + ELEMENTAL).on(BG21_036_Action(SELF, Buff.BUFF))
 	pass
 BG21_036e=buff(1,1)
@@ -1581,7 +1581,7 @@ class BG21_036_G:# <12>[1453]
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[[Taunt].] After a friendly Elemental gains stats, gain +2/+2."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"[x]&lt;b&gt;挑発&lt;/b&gt;味方のエレメンタルが攻撃力か体力を獲得した後+2/+2を獲得する。"}
+		option_cardtext={GameTag.CARDTEXT:"[x][挑発]味方のエレメンタルが攻撃力か体力を獲得した後+2/+2を獲得する。"}
 	events = Buff(FRIENDLY + ELEMENTAL).on(BG21_036_G_Action(SELF, Buff.BUFF))
 	pass
 BG21_036_Ge=buff(2,2)# <12>[1453]
@@ -1602,7 +1602,7 @@ class BGS_083:# <12>[1453] ミナジェリ
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Battlecry:] Give 3 random friendly minions of different minion types +2/+2."}	
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;雄叫び:&lt;/b&gt;異なる種族のランダムな味方のミニオン3体に+2/+2を付与する。"}
+		option_cardtext={GameTag.CARDTEXT:"[雄叫び:]異なる種族のランダムな味方のミニオン3体に+2/+2を付与する。"}
 	play = BGS_082_Action(CONTROLLER,'BGS_083e')## Method of 'Menagerie_Mug'
 	pass
 BGS_083e=buff(2,2)# <12>[1453]
@@ -1613,7 +1613,7 @@ class TB_BaconUps_145:# <12>[1453]
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Battlecry:] Give 3 randomfriendly minions of differentminion types +4/+4."}	
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;雄叫び:&lt;/b&gt;異なる種族のランダムな味方のミニオン3体に+4/+4を付与する。"}
+		option_cardtext={GameTag.CARDTEXT:"[雄叫び:]異なる種族のランダムな味方のミニオン3体に+4/+4を付与する。"}
 	play = BGS_082_Action(CONTROLLER,'TB_BaconUps_145e')
 	pass
 TB_BaconUps_145e=buff(4,4)# <12>[1453]
@@ -1654,7 +1654,7 @@ class BG23_016:# <12>[1453]
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Battlecry: Discover] a minion from a minion type you don't control."}	
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;雄叫び:&lt;/b&gt;自陣にいない種族のミニオンを1体&lt;b&gt;発見&lt;/b&gt;する。"}
+		option_cardtext={GameTag.CARDTEXT:"[雄叫び:]自陣にいない種族のミニオンを1体[発見]する。"}
 	play = BG23_016_Action(CONTROLLER)
 	pass
 class BG23_016_G_Choice(Choice):
@@ -1686,7 +1686,7 @@ class BG23_016_G:# <12>[1453]
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Battlecry: Discover] 2 minions from minion types you don't control."}	
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;雄叫び:&lt;/b&gt;自陣にいない種族のミニオンを2体&lt;b&gt;発見&lt;/b&gt;する。"}
+		option_cardtext={GameTag.CARDTEXT:"[雄叫び:]自陣にいない種族のミニオンを2体[発見]する。"}
 	play = BG23_016_G_Action(CONTROLLER)
 	pass
 
@@ -1765,7 +1765,7 @@ class BG25_016:# (minion)
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Windfury]. [Divine Shield]. Whenever this attacks, remove [Reborn] and [Taunt] from the target."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;疾風&lt;/b&gt;、&lt;b&gt;聖なる盾&lt;/b&gt;これが攻撃する度標的から&lt;b&gt;蘇り&lt;/b&gt;と&lt;b&gt;挑発&lt;/b&gt;を除去する。"}
+		option_cardtext={GameTag.CARDTEXT:"[疾風]、[聖なる盾]これが攻撃する度標的から[蘇り]と[挑発]を除去する。"}
 	events = BG_Attack(SELF, ENEMY+MINION).on(Buff(BG_Attack.OTHER, 'BG25_016e'))
 	pass
 class BG25_016_G:# (minion)
@@ -1774,7 +1774,7 @@ class BG25_016_G:# (minion)
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Windfury]. [Divine Shield]. Whenever this attacks, remove [Reborn] and [Taunt] from the target. "}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;疾風&lt;/b&gt;、&lt;b&gt;聖なる盾&lt;/b&gt;これが攻撃する度標的から&lt;b&gt;蘇り&lt;/b&gt;と&lt;b&gt;挑発&lt;/b&gt;を除去する。"}
+		option_cardtext={GameTag.CARDTEXT:"[疾風]、[聖なる盾]これが攻撃する度標的から[蘇り]と[挑発]を除去する。"}
 	events = BG_Attack(SELF, ENEMY+MINION).on(Buff(BG_Attack.OTHER, 'BG25_016e'))
 	pass
 BG25_016e=buff(reborn=False,taunt=False)
@@ -1794,7 +1794,7 @@ class BG_ICC_807:# <2>[1453]  クズ拾い
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Battlecry:] Give your [Taunt] minions +2/+2."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;雄叫び:&lt;/b&gt;&lt;b&gt;挑発&lt;/b&gt;を持つ味方のミニオン全てに+2/+2を付与する。"}
+		option_cardtext={GameTag.CARDTEXT:"[雄叫び:][挑発]を持つ味方のミニオン全てに+2/+2を付与する。"}
 	play = Buff(FRIENDLY + MINION + TAUNT, 'ICC_807e')
 	pass
 ICC_807e=buff(2,2)# <12>[1453]
@@ -1805,7 +1805,7 @@ class TB_BaconUps_072:# <2>[1453]
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Battlecry:] Give your [Taunt] minions +4/+4."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;雄叫び:&lt;/b&gt;&lt;b&gt;挑発&lt;/b&gt;を持つ味方のミニオン全てに+4/+4を付与する。"}
+		option_cardtext={GameTag.CARDTEXT:"[雄叫び:][挑発]を持つ味方のミニオン全てに+4/+4を付与する。"}
 	play = Buff(FRIENDLY + MINION + TAUNT, 'TB_BaconUps_072e')
 	pass
 TB_BaconUps_072e=buff(4,4)# <12>[1453]
@@ -1825,7 +1825,7 @@ class BG23_353:
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"After you [Refresh] 5 times, find the [Golden] Monkey(BG23_353_Gt)! [(@ left!)]"}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"5回&lt;b&gt;入替&lt;/b&gt;した後&lt;b&gt;黄金のサル&lt;/b&gt;を見つける！&lt;i&gt;（あと@回！）&lt;/i&gt;"}
+		option_cardtext={GameTag.CARDTEXT:"5回[入替]した後[黄金のサル]を見つける！&lt;i&gt;（あと@回！）&lt;/i&gt;"}
 	events = Rerole(CONTROLLER).on(SidequestCounter(SELF, 5, [Give(CONTROLLER, 'BG23_353_Gt')]))
 	pass
 class BG23_353_G:
@@ -1834,12 +1834,12 @@ class BG23_353_G:
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"After you [Refresh] 5 times, find two [Golden] Monkeys!(BG23_353_Gt) [(@ left!)]"}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"5回&lt;b&gt;入替&lt;/b&gt;した後&lt;b&gt;黄金のサル&lt;/b&gt;を2体見つける！&lt;i&gt;（あと@回！）&lt;/i&gt;"}
+		option_cardtext={GameTag.CARDTEXT:"5回[入替]した後[黄金のサル]を2体見つける！&lt;i&gt;（あと@回！）&lt;/i&gt;"}
 	events = Rerole(CONTROLLER).on(SidequestCounter(SELF, 5, [Give(CONTROLLER, 'BG23_353_Gt'), Give(CONTROLLER, 'BG23_353_Gt')]))
 	pass
 class BG23_353_Gt:
 	""" Golden Monkey
-	&lt;b&gt;挑発&lt;/b&gt;&lt;i&gt;（見つけました！）&lt;/i&gt;""" 
+	[挑発]&lt;i&gt;（見つけました！）&lt;/i&gt;""" 
 	pass
 
 
@@ -1858,7 +1858,7 @@ class BG_DAL_775:
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"Taunt Deathrattle: Deal 3 damage to all minions."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;挑発&lt;/b&gt;、&lt;b&gt;断末魔:&lt;/b&gt;全てのミニオンに3ダメージを与える。"}
+		option_cardtext={GameTag.CARDTEXT:"[挑発]、[断末魔:]全てのミニオンに3ダメージを与える。"}
 	deathrattle = Hit(ALL_MINIONS, 3)
 class BG_DAL_775_G:
 	"""
@@ -1866,7 +1866,7 @@ class BG_DAL_775_G:
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Taunt] [Deathrattle:] Deal 3 damage to all minions twice."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;挑発&lt;/b&gt;、&lt;b&gt;断末魔:&lt;/b&gt;全てのミニオンに2回3ダメージを与える。"}
+		option_cardtext={GameTag.CARDTEXT:"[挑発]、[断末魔:]全てのミニオンに2回3ダメージを与える。"}
 	deathrattle = Hit(ALL_MINIONS, 3) * 2
 
 
@@ -1883,7 +1883,7 @@ class BG24_023:
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Battlecry:] Give a minion +6 Health and [Taunt]."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;雄叫び:&lt;/b&gt;ミニオン1体に体力+6と&lt;b&gt;挑発&lt;/b&gt;を付与する。"}
+		option_cardtext={GameTag.CARDTEXT:"[雄叫び:]ミニオン1体に体力+6と[挑発]を付与する。"}
 	requirements = {PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_MINION_TARGET:0, PlayReq.REQ_FRIENDLY_TARGET:0 }
 	play = Buff(TARGET, 'BG24_023e')
 BG24_023e=buff(0,6, taunt=True)
@@ -1893,7 +1893,7 @@ class BG24_023_G:
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Battlecry:] Give a minion +12 Health and [Taunt]."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;雄叫び:&lt;/b&gt;ミニオン1体に体力+12と&lt;b&gt;挑発&lt;/b&gt;を付与する。"}
+		option_cardtext={GameTag.CARDTEXT:"[雄叫び:]ミニオン1体に体力+12と[挑発]を付与する。"}
 	requirements = {PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_MINION_TARGET:0, PlayReq.REQ_FRIENDLY_TARGET:0 }	# 
 	play = Buff(TARGET, 'BG24_023_Ge')
 BG24_023_Ge=buff(0,12, taunt=True)
@@ -1913,7 +1913,7 @@ class BG21_038:# <12>[1453] 巣母
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Avenge (3):] Add a random [Battlecry] minion to your_hand."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;仇討（3）:&lt;/b&gt;ランダムな&lt;b&gt;雄叫び&lt;/b&gt;ミニオン1体を自分の手札に追加する。"}
+		option_cardtext={GameTag.CARDTEXT:"[仇討（3）:]ランダムな[雄叫び]ミニオン1体を自分の手札に追加する。"}
 	events = Death(FRIENDLY).on(Avenge(SELF, 3, [GiveInBattle(CONTROLLER, RandomBGAdmissible(has_battlecry=True))]))
 	pass
 class BG21_038_G:# <12>[1453]
@@ -1922,7 +1922,7 @@ class BG21_038_G:# <12>[1453]
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Avenge (3):] Add 2 random [Battlecry] minions to your_hand."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;仇討（3）:&lt;/b&gt;ランダムな&lt;b&gt;雄叫び&lt;/b&gt;ミニオン2体を自分の手札に追加する。"}
+		option_cardtext={GameTag.CARDTEXT:"[仇討（3）:]ランダムな[雄叫び]ミニオン2体を自分の手札に追加する。"}
 	events = Death(FRIENDLY).on(Avenge(SELF, 3, [GiveInBattle(CONTROLLER, RandomBGAdmissible(has_battlecry=True)), GiveInBattle(CONTROLLER, RandomMinion(has_battlecry=True))]))
 	pass
 
@@ -2029,7 +2029,7 @@ class BG_FP1_031:# ばろん
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"Your minions trigger their [Deathrattles] twice."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"味方のミニオンの&lt;b&gt;断末魔&lt;/b&gt;は2回発動する。"}
+		option_cardtext={GameTag.CARDTEXT:"味方のミニオンの[断末魔]は2回発動する。"}
 	update = Refresh(CONTROLLER, {GameTag.EXTRA_DEATHRATTLES: True})
 	pass
 class TB_BaconUps_055:# <12>[1453]
@@ -2038,7 +2038,7 @@ class TB_BaconUps_055:# <12>[1453]
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"Your minions trigger their [Deathrattles] three times."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"味方のミニオンの&lt;b&gt;断末魔&lt;/b&gt;は3回発動する。"}
+		option_cardtext={GameTag.CARDTEXT:"味方のミニオンの[断末魔]は3回発動する。"}
 	update = Refresh(CONTROLLER, {GameTag.EXTRA_DEATHRATTLES_ADDITIONAL: True})
 	pass
 
@@ -2057,7 +2057,7 @@ class BG_LOE_077:#    ぶらん
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"Your [Battlecries] trigger twice."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"味方の&lt;b&gt;雄叫び&lt;/b&gt;は2回発動する。"}
+		option_cardtext={GameTag.CARDTEXT:"味方の[雄叫び]は2回発動する。"}
 	update = Refresh(CONTROLLER, {GameTag.EXTRA_BATTLECRIES_BASE: True})
 	pass
 class LOE_077e:# 
@@ -2070,7 +2070,7 @@ class TB_BaconUps_045:# <12>[1453]
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"Your [Battlecries] trigger three times."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"味方の&lt;b&gt;雄叫び&lt;/b&gt;は3回発動する。"}
+		option_cardtext={GameTag.CARDTEXT:"味方の[雄叫び]は3回発動する。"}
 	update = Refresh(CONTROLLER, {GameTag.EXTRA_BATTLECRIES_ADDITIONAL: True})
 	pass
 class TB_BaconUps_045e:# <12>[1453]
@@ -2095,7 +2095,7 @@ class BGS_131:# <12>[1453]  横死の胞子
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Poisonous]"}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;猛毒&lt;/b&gt;"}
+		option_cardtext={GameTag.CARDTEXT:"[猛毒]"}
 	pass
 class TB_BaconUps_251:# <12>[1453]
 	""" Deadly Spore
@@ -2103,7 +2103,7 @@ class TB_BaconUps_251:# <12>[1453]
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Poisonous]"}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;猛毒&lt;/b&gt;"}
+		option_cardtext={GameTag.CARDTEXT:"[猛毒]"}
 	pass
 
 
@@ -2135,7 +2135,7 @@ class BG24_704:
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Start of Combat:] Give the enemies opposite this [Taunt]. They take double damage."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;戦闘開始時:&lt;/b&gt;これに対面している敵に&lt;b&gt;挑発&lt;/b&gt;を付与する。それは2倍ダメージを受ける。"}
+		option_cardtext={GameTag.CARDTEXT:"[戦闘開始時:]これに対面している敵に[挑発]を付与する。それは2倍ダメージを受ける。"}
 	events = BeginBattle(CONTROLLER).on(BG24_704_Action1(SELF, 'BG24_704_e'))
 class BG24_704_e:
 	def apply(self, target):
@@ -2152,7 +2152,7 @@ class BG24_704_G:
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Start of Combat:] Give the enemies opposite this [Taunt]. They take triple damage."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;戦闘開始時:&lt;/b&gt;これに対面している敵に&lt;b&gt;挑発&lt;/b&gt;を付与する。それは3倍ダメージを受ける。"}
+		option_cardtext={GameTag.CARDTEXT:"[戦闘開始時:]これに対面している敵に[挑発]を付与する。それは3倍ダメージを受ける。"}
 	events = BeginBattle(CONTROLLER).on(BG24_704_Action1(SELF, 'BG24_704_e_G'))
 class BG24_704_e_G:
 	def apply(self, target):
@@ -2190,7 +2190,7 @@ class BGS_012:# <12>[1453]   ケンゴー
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Deathrattle]: Summon the first 2 friendly Mechs that died this combat."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;断末魔:&lt;/b&gt;この戦闘で死亡した味方のメカを死亡した順に2体まで召喚する。"}
+		option_cardtext={GameTag.CARDTEXT:"[断末魔:]この戦闘で死亡した味方のメカを死亡した順に2体まで召喚する。"}
 	deathrattle = BGS_012_Action(CONTROLLER, 2)
 	pass
 class TB_BaconUps_087:# <12>[1453]
@@ -2199,7 +2199,7 @@ class TB_BaconUps_087:# <12>[1453]
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Deathrattle]: Summon the first 4 friendly Mechs that died this combat. "}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;断末魔:&lt;/b&gt;この戦闘で死亡した味方のメカを死亡した順に4体まで召喚する。"}
+		option_cardtext={GameTag.CARDTEXT:"[断末魔:]この戦闘で死亡した味方のメカを死亡した順に4体まで召喚する。"}
 	deathrattle = BGS_012_Action(CONTROLLER, 4)
 	#
 	pass
@@ -2228,7 +2228,7 @@ class BG23_318:# <12>[1453]
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Deathrattle:] Destroy the minion that killed this."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;断末魔:&lt;/b&gt;これを倒したミニオンを破壊する。"}
+		option_cardtext={GameTag.CARDTEXT:"[断末魔:]これを倒したミニオンを破壊する。"}
 	deathrattle = BG23_318_Action(SELF)
 	pass
 class BG23_318_G:# <12>[1453]
@@ -2237,7 +2237,7 @@ class BG23_318_G:# <12>[1453]
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Deathrattle:] Destroy the minion that killed this."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;断末魔:&lt;/b&gt;これを倒したミニオンを破壊する。"}
+		option_cardtext={GameTag.CARDTEXT:"[断末魔:]これを倒したミニオンを破壊する。"}
 	deathrattle = BG23_318_Action(SELF)
 	pass
 
@@ -2395,7 +2395,7 @@ class BG25_354:# (minion)
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"Your [Deathrattles] trigger an extra time. "}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"味方の&lt;b&gt;断末魔&lt;/b&gt;は1回追加で発動する。"}
+		option_cardtext={GameTag.CARDTEXT:"味方の[断末魔]は1回追加で発動する。"}
 	update = Refresh(CONTROLLER, {GameTag.EXTRA_DEATHRATTLES: True})
 	pass
 class BG25_354_G:# (minion)
@@ -2405,7 +2405,7 @@ class BG25_354_G:# (minion)
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"Your [Deathrattles] trigger 2 extra times. "}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"味方の&lt;b&gt;断末魔&lt;/b&gt;は2回追加で発動する。"}
+		option_cardtext={GameTag.CARDTEXT:"味方の[断末魔]は2回追加で発動する。"}
 	update = Refresh(CONTROLLER, {GameTag.EXTRA_DEATHRATTLES_ADDITIONAL: True})
 	pass
 
@@ -2474,13 +2474,13 @@ class BG22_404:# <12>[1453]  ##
 		if Config.LOCALE=='enUS':
 			option_cardtext={GameTag.CARDTEXT:"When you sell this [Discover] a Buddy"}
 		elif Config.LOCALE=='jaJP':
-			option_cardtext={GameTag.CARDTEXT:"これを売った時バディを1体&lt;b&gt;発見&lt;/b&gt;する。"}
+			option_cardtext={GameTag.CARDTEXT:"これを売った時バディを1体[発見]する。"}
 		events = Sell(CONTROLLER, SELF).on(BG22_404_Action())
 	elif Config.BG_VERSION<2230:
 		if Config.LOCALE=='enUS':
 			option_cardtext={GameTag.CARDTEXT:"[Battlecry: Discover] a Buddy."}
 		elif Config.LOCALE=='jaJP':
-			option_cardtext={GameTag.CARDTEXT:"雄叫び：バディを1体&lt;b&gt;発見&lt;/b&gt;する。"}
+			option_cardtext={GameTag.CARDTEXT:"雄叫び：バディを1体[発見]する。"}
 		play = BG22_404_Action()
 	pass
 class BG22_404_G_Choice(Choice):
@@ -2506,13 +2506,13 @@ class BG22_404_G:# <12>[1453] #
 		if Config.LOCALE=='enUS':
 			option_cardtext={GameTag.CARDTEXT:"When you sell this [Discover] two Buddies"}
 		elif Config.LOCALE=='jaJP':
-			option_cardtext={GameTag.CARDTEXT:"これを売った時バディを2体&lt;b&gt;発見&lt;/b&gt;する。"}
+			option_cardtext={GameTag.CARDTEXT:"これを売った時バディを2体[発見]する。"}
 		events = Sell(CONTROLLER, SELF).on(BG22_404_G_Action())
 	else:
 		if Config.LOCALE=='enUS':
 			option_cardtext={GameTag.CARDTEXT:"[Battlecry: Discover]two Buddies."}
 		elif Config.LOCALE=='jaJP':
-			option_cardtext={GameTag.CARDTEXT:"雄叫び：バディを2体&lt;b&gt;発見&lt;/b&gt;する。"}
+			option_cardtext={GameTag.CARDTEXT:"雄叫び：バディを2体[発見]する。"}
 		play = BG22_404_G_Action()
 	pass
 
@@ -2596,7 +2596,7 @@ class BGS_069:##  アマルガドン (アルマゲドンではない）
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Battlecry:] For each different minion type you have among other minions, [Adapt] randomly."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;雄叫び:&lt;/b&gt;味方の他のミニオンの種族1種ごとに1回、ランダムに&lt;b&gt;適応&lt;/b&gt;する。"}
+		option_cardtext={GameTag.CARDTEXT:"[雄叫び:]味方の他のミニオンの種族1種ごとに1回、ランダムに[適応]する。"}
 	play = BGS_069_Action(CONTROLLER, 1)	
 	pass
 class TB_BaconUps_121:
@@ -2605,7 +2605,7 @@ class TB_BaconUps_121:
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Battlecry:] For each different minion type you have among other minions, [Adapt] randomly twice."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;雄叫び:&lt;/b&gt;味方の他のミニオンの種族1種ごとに2回、ランダムに&lt;b&gt;適応&lt;/b&gt;する。"}
+		option_cardtext={GameTag.CARDTEXT:"[雄叫び:]味方の他のミニオンの種族1種ごとに2回、ランダムに[適応]する。"}
 	play = BGS_069_Action(CONTROLLER, 2)
 	pass
 

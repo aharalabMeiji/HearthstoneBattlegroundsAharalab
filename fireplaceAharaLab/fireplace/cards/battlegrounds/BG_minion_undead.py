@@ -20,16 +20,16 @@ BG25__Radio_Star=(Config.BG_VERSION>=2620 and Config.BG_VERSION<2720) ## (3) ## 
 BG25__Anubarak_Nerubian_King=(Config.BG_VERSION>=2520)#4 undead ## new 25.2
 BG25__Handless_Forsaken=(Config.BG_VERSION>=2520)#4 undead ## new 25.2
 BG25__Possessive_Banshee=(Config.BG_VERSION>=2520 and Config.BG_VERSION<2620)#4 undead ## new 25.2 ## banned 26.2
-BG26__Xylo_bones=(Config.BG_VERSION>=2620) # (4) new 26.2
+BG26__Xylo_bones=(Config.BG_VERSION>=2620 and Config.BG_VERSION<2720) # (4) new 26.2
 #BG26__Plagued_Tidewalker undead/murloc
 
 BG25__Hungering_Abomination=(Config.BG_VERSION>=2520)#5 undead ## new 25.2
-BG24__Sinrunner_Blanchy=(Config.BG_VERSION>=2520)#5 undead/beast ## new 25.2
-BG25__Soulsplitter=(Config.BG_VERSION>=2520)#5 undead ## new 25.2
+BG24__Sinrunner_Blanchy=(Config.BG_VERSION>=2520 and Config.BG_VERSION<2660)#5 undead/beast ## new 25.2 # banned 2660
+BG25__Soulsplitter=(Config.BG_VERSION>=2520 and Config.BG_VERSION<2820)#5 undead ## new 25.2
 
-BG25__Colossus_of_the_Sun=(Config.BG_VERSION>=2520) #6 undead ## new 25.2
+BG25__Colossus_of_the_Sun=(Config.BG_VERSION>=2520 and Config.BG_VERSION<2720) #6 undead ## new 25.2 banned 2720
 BG25__Eternal_Summoner=(Config.BG_VERSION>=2520)#6 undead ## new 25.2
-BG25__Sister_Deathwhisper=(Config.BG_VERSION>=2520)#6 undead ## new 25.2
+BG25__Sister_Deathwhisper=(Config.BG_VERSION>=2520 and Config.BG_VERSION<2820)#6 undead ## new 25.2
 
 BG_Minion_Undead = []
 BG_PoolSet_Undead=[ ]
@@ -647,19 +647,16 @@ class BG25_010_Gt:# (minion)
 
 
 
-
+## 24/1/4 ##
 #Possessive Banshee 4/2/7/Undead	Battlecry ## new 25.2 banned 26.2
 if BG25__Possessive_Banshee:# 
-	BG_Minion_Undead+=['BG25_004']
-	BG_Minion_Undead+=['BG25_004e']
-	BG_Minion_Undead+=['BG25_004_G']
-	BG_Minion_Undead+=['BG25_004_Ge']
+	BG_Minion_Undead+=['BG25_004','BG25_004e','BG25_004_G','BG25_004_Ge']
 	BG_PoolSet_Undead+=['BG25_004']
 	BG_Undead_Gold['BG25_004']='BG25_004_G'
 class BG25_004:# (minion)###### TARGET_IF_AVAILABLE??
 	""" Possessive Banshee
 	[Battlecry:] Give an Undead +2/+7. """
-	requirements = {PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_MINION_TARGET:0, PlayReq.REQ_TARGET_WITH_RACE:Race.UNDEAD}
+	requirements = {PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_TARGET_IF_AVAILABLE:0, PlayReq.REQ_TARGET_WITH_RACE:Race.UNDEAD}
 	option_tags={GameTag.ATK:2, GameTag.HEALTH:7}
 	play = Buff(TARGET, 'BG25_004e')
 	pass
@@ -667,7 +664,7 @@ BG25_004e=buff(2,7)
 class BG25_004_G:# (minion)
 	""" Possessive Banshee
 	[Battlecry:] Give an Undead +4/+14. """
-	requirements = {PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_MINION_TARGET:0, PlayReq.REQ_TARGET_WITH_RACE:Race.UNDEAD}
+	requirements = {PlayReq.REQ_TARGET_TO_PLAY:0, PlayReq.REQ_TARGET_IF_AVAILABLE:0, PlayReq.REQ_TARGET_WITH_RACE:Race.UNDEAD}
 	option_tags={GameTag.ATK:4, GameTag.HEALTH:14}
 	play = Buff(TARGET, 'BG25_004_Ge')
 	pass
@@ -675,8 +672,11 @@ BG25_004_Ge=buff(4,14)
 
 
 
-## Xylo-bones (Undead) (4)
+## 24/1/4 ##
+## Xylo-bones (Undead) (4) ## banned 2720
 #BG26__Xylo_bones=(Config.BG_VERSION>=2620) # (4)
+#2620: 5 Attack, 1 Health
+#2643: 6 Attack, 1 Health
 if BG26__Xylo_bones:# 
 	BG_Minion_Undead+=['BG26_172','BG26_172e']
 	BG_Minion_Undead+=['BG26_172_G','BG26_172_Ge']
@@ -691,34 +691,42 @@ class BG26_172_Action(GameAction):#
 class BG26_172:# (minion)
 	""" Xylo-bones
 	After you summon a minion in combat, gain +3 Health permanently. """
+	if Config.BG_VERSION>=2643:
+		option_tags={GameTag.ATK:6, GameTag.HEALTH:1}
+	else:
+		option_tags={GameTag.ATK:5, GameTag.HEALTH:1}
 	events = Summon(CONTROLLER).after(BG26_172_Action('BG26_172e')) #
 	pass
 BG26_172e=buff(0,3)
 class BG26_172_G:# (minion)
 	""" Xylo-bones
 	After you summon a minion in combat, gain +6 Health permanently. """
+	if Config.BG_VERSION>=2643:
+		option_tags={GameTag.ATK:12, GameTag.HEALTH:2}
+	else:
+		option_tags={GameTag.ATK:10, GameTag.HEALTH:2}
 	events = Summon(CONTROLLER).after(BG26_172_Action('BG26_172_Ge')) #
 	pass
 BG26_172_Ge=buff(0,6)
 
 
+
+## 24/1/4 ##
 from .BG_minion_murloc import BG26__Plagued_Tidewalker
 #BG26__Plagued_Tidewalker=(Config.BG_VERSION>=2620)#(4)
 if BG26__Plagued_Tidewalker:# 
-	#BG_Minion_Undead+=['BG26_361']
-	#BG_Minion_Undead+=['BG26_361_G']
+	#BG_Minion_Undead+=['BG26_361','BG26_361_G']
 	BG_PoolSet_Undead.append('BG26_361')
 	BG_Undead_Gold['BG26_361']='BG26_361_G'
 
 
 ###### tavern tier 5
 
+
+## 24/1/4 ##
 #Hungering Abomination 5/3/4/Undead	Avenge (X) ## new 25.2
 if BG25__Hungering_Abomination:# 
-	BG_Minion_Undead+=['BG25_014']
-	BG_Minion_Undead+=['BG25_014e']
-	BG_Minion_Undead+=['BG25_014_G']
-	BG_Minion_Undead+=['BG25_014_Ge']
+	BG_Minion_Undead+=['BG25_014','BG25_014e','BG25_014_G','BG25_014_Ge']
 	BG_PoolSet_Undead+=['BG25_014']
 	BG_Undead_Gold['BG25_014']='BG25_014_G'
 class BG25_014:# (minion)
@@ -737,8 +745,9 @@ class BG25_014_G:# (minion)
 BG25_014_Ge=buff(2,2)
 
 
-#Sinrunner Blanchy 5/3/3/Beast, Undead	Reborn ## new 25.2
-#BG24_005
+
+## 24/1/4 ##
+#Sinrunner Blanchy 5/3/3/Beast, Undead	Reborn ## new 25.2 banned 2660
 if BG24__Sinrunner_Blanchy:
 	BG_Minion_Undead += ['BG24_005','BG24_005_G']
 	BG_PoolSet_Undead+=['BG24_005']
@@ -762,12 +771,10 @@ class BG24_005_G:
 	pass
 
 
-
-#Soulsplitter 5/5/2/Undead	Reborn, Start of Combat ## new 25.2
+## 24/1/4 ##
+#Soulsplitter 5/5/2/Undead	Reborn, Start of Combat ## new 25.2 banned 2820
 if BG25__Soulsplitter:# 
-	BG_Minion_Undead+=['BG25_023']
-	BG_Minion_Undead+=['BG25_023e']
-	BG_Minion_Undead+=['BG25_023_G']
+	BG_Minion_Undead+=['BG25_023','BG25_023e','BG25_023_G']
 	BG_PoolSet_Undead+=['BG25_023']
 	BG_Undead_Gold['BG25_023']='BG25_023_G'
 class BG25_023_Action(GameAction):
@@ -779,7 +786,12 @@ class BG25_023_Action(GameAction):
 class BG25_023:# (minion)
 	""" Soulsplitter
 	[Reborn] [Start of Combat:] Give a ___friendly Undead [Reborn]. """
-	if Config.BG_VERSION>=2522:
+	#2520: [Tavern Tier 4] 4 Attack, 2 Health
+	#2522: [Tavern Tier 5] 5 Attack, 2 Health
+	#2662: [Tier 4] 4 Attack, 2 Health.
+	if Config.BG_VERSION>=2662:
+		option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:4, GameTag.HEALTH:2}
+	elif Config.BG_VERSION>=2522:
 		option_tags={GameTag.TECH_LEVEL:5, GameTag.ATK:5, GameTag.HEALTH:2}
 	else:
 		option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:4, GameTag.HEALTH:2}
@@ -809,7 +821,9 @@ class BG25_023_G:# (minion)
 
 ###### tavern tier 6
 
-#Colossus of the Sun 6/6/6/Undead	Divine Shield, Reborn ## new 25.2
+
+## 24/1/4 ##
+#Colossus of the Sun 6/6/6/Undead	Divine Shield, Reborn ## new 25.2 banned 2720
 if BG25__Colossus_of_the_Sun:# 
 	BG_Minion_Undead+=['BG25_050','BG25_050_G']
 	BG_PoolSet_Undead+=['BG25_050']
@@ -826,10 +840,10 @@ class BG25_050_G:# (minion)
 	pass
 
 
+## 24/1/4 ##
 #Eternal Summoner 6/6/1/Undead	Deathrattle, Reborn ## new 25.2
 if BG25__Eternal_Summoner:# 
-	BG_Minion_Undead+=['BG25_009']
-	BG_Minion_Undead+=['BG25_009_G']
+	BG_Minion_Undead+=['BG25_009','BG25_009_G']
 	BG_PoolSet_Undead+=['BG25_009']
 	BG_Undead_Gold['BG25_009']='BG25_009_G'
 class BG25_009:# (minion)
@@ -837,7 +851,14 @@ class BG25_009:# (minion)
 	[Deathrattle:] Summon 2 Eternal Knights(BG25_008). """
 	#<2522: 8 Attack, 1 Health. Deathrattle: Summon 2 Eternal Knights.
 	#>=2522: 6 Attack, 1 Health. Reborn. Deathrattle: Summon 1 Eternal Knight.
-	if Config.BG_VERSION>=2522:
+	#>=2643: 8 Attack, 1 Health
+	#2720 (Regular): 8 Attack, 1 Health.
+	#2720 (Golden): 16 Attack, 2 Health. Reborn. Deathrattle: Summon a Golden Eternal Knight.
+
+	if Config.BG_VERSION>=2643:
+		option_tags={GameTag.ATK:8, GameTag.HEALTH:1}
+		deathrattle = DeathrattleSummon(CONTROLLER, 'BG25_008')
+	elif Config.BG_VERSION>=2522:
 		option_tags={GameTag.ATK:6, GameTag.HEALTH:1}
 		deathrattle = DeathrattleSummon(CONTROLLER, 'BG25_008')
 	else:
@@ -847,7 +868,13 @@ class BG25_009:# (minion)
 class BG25_009_G:# (minion)
 	""" Eternal Summoner
 	[Deathrattle:] Summon 4 Eternal Knights. """
-	if Config.BG_VERSION>=2522:
+	if Config.BG_VERSION>=2720:
+		option_tags={GameTag.ATK:16, GameTag.HEALTH:2}
+		deathrattle = DeathrattleSummon(CONTROLLER, 'BG25_008_G')
+	elif Config.BG_VERSION>=2643:
+		option_tags={GameTag.ATK:16, GameTag.HEALTH:2}
+		deathrattle = DeathrattleSummon(CONTROLLER, 'BG25_008')*2
+	elif Config.BG_VERSION>=2522:
 		option_tags={GameTag.ATK:12, GameTag.HEALTH:2}
 		deathrattle = DeathrattleSummon(CONTROLLER, 'BG25_008')*2
 	else:
@@ -856,6 +883,7 @@ class BG25_009_G:# (minion)
 	pass
 
 
+## 24/1/4 ##
 #Sister Deathwhisper 6/4/9/Undead	Reborn ## new 25.2
 if BG25__Sister_Deathwhisper:# 
 	BG_Minion_Undead+=['BG25_020','BG25_020e','BG25_020_G','BG25_020_Ge']
@@ -864,28 +892,38 @@ if BG25__Sister_Deathwhisper:#
 class BG25_020:# (minion)
 	""" Sister Deathwhisper
 	After a friendly minion is [Reborn], give your Undead +1/+3 permanently. """
-	##<2522: 4 Attack, 11 Health. Whenever a friendly minion is Reborn, give your Undead +1/+3 permanently.
-	##>=2522: 4 Attack, 9 Health. Whenever a friendly minion is Reborn, give your Undead +1/+2 permanently.
-	if Config.BG_VERSION>=2522:
+	##2520: 4 Attack, 11 Health. Whenever a friendly minion is Reborn, give your Undead +1/+3 permanently.
+	##2522: 4 Attack, 9 Health. Whenever a friendly minion is Reborn, give your Undead +1/+2 permanently.
+	##2643: 4 Attack, 10 Health. After a friendly minion is Reborn, give your Undead +1/+3 permanently.
+	##2820: banned
+	if Config.BG_VERSION>=2643:
+		option_tags={GameTag.ATK:4, GameTag.HEALTH:10}
+	elif Config.BG_VERSION>=2522:
 		option_tags={GameTag.ATK:4, GameTag.HEALTH:9}
 	else:
 		option_tags={GameTag.ATK:4, GameTag.HEALTH:11}
 	events = Reborn(FRIENDLY + MINION).after(BuffPermanently(FRIENDLY + MINION + UNDEAD, 'BG25_020e'))
 	pass
-if Config.BG_VERSION>=2522:
+if Config.BG_VERSION>=2643:
+	BG25_020e=buff(1,3)
+elif Config.BG_VERSION>=2522:
 	BG25_020e=buff(1,2)
 else:
 	BG25_020e=buff(1,3)
 class BG25_020_G:# (minion)
 	""" Sister Deathwhisper
 	After a friendly minion is [Reborn], give your Undead +2/+6  permanently. """
-	if Config.BG_VERSION>=2522:
+	if Config.BG_VERSION>=2643:
+		option_tags={GameTag.ATK:8, GameTag.HEALTH:20}
+	elif Config.BG_VERSION>=2522:
 		option_tags={GameTag.ATK:8, GameTag.HEALTH:18}
 	else:
 		option_tags={GameTag.ATK:8, GameTag.HEALTH:22}
 	events = Reborn(FRIENDLY + MINION).after(BuffPermanently(FRIENDLY + MINION + UNDEAD, 'BG25_020_Ge'))
 	pass
-if Config.BG_VERSION>=2522:
+if Config.BG_VERSION>=2643:
+	BG25_020_Ge=buff(2,6)
+elif Config.BG_VERSION>=2522:
 	BG25_020_Ge=buff(2,4)
 else:
 	BG25_020_Ge=buff(2,6)

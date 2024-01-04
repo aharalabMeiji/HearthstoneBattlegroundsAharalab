@@ -17,7 +17,7 @@ BG26__Scourfin=(Config.BG_VERSION>=2620)#(3)
 BG_Primalfin_Lookout=True ## (4)
 BG26__Bream_Counter=(Config.BG_VERSION>=2620)# (4/4/4)
 BG26__Bassgill=(Config.BG_VERSION>=2620) #(4/6/2)
-BG26__Plagued_Tidewalker=(Config.BG_VERSION>=2620)#(4) undead/murloc
+BG26__Plagued_Tidewalker=(Config.BG_VERSION>=2620 and Config.BG_VERSION<2720)#(4) undead/murloc ## banned 2720
 
 BG_King_Bagurgle=True ## (5)
 BG_SI_Sefin=False ## (5) banned 4.2
@@ -48,7 +48,7 @@ class BG_UNG_073:
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Battlecry:] Give a friendly Murloc +1/+1."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;雄叫び:&lt;/b&gt;味方のマーロック1体に+1/+1を付与する。"}
+		option_cardtext={GameTag.CARDTEXT:"[雄叫び:]味方のマーロック1体に+1/+1を付与する。"}
 	requirements = {PlayReq.REQ_TARGET_IF_AVAILABLE:0, PlayReq.REQ_MINION_TARGET:0, PlayReq.REQ_FRIENDLY_TARGET:0, PlayReq.REQ_TARGET_WITH_RACE: Race.MURLOC }
 	play = Buff(TARGET, 'UNG_073e')
 	pass
@@ -60,7 +60,7 @@ class TB_BaconUps_061:# <12>[1453]
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Battlecry:] Give a friendly Murloc +2/+2."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;雄叫び:&lt;/b&gt;味方のマーロック1体に+2/+2を付与する。"}
+		option_cardtext={GameTag.CARDTEXT:"[雄叫び:]味方のマーロック1体に+2/+2を付与する。"}
 	requirements = {PlayReq.REQ_TARGET_IF_AVAILABLE:0, PlayReq.REQ_MINION_TARGET:0, PlayReq.REQ_FRIENDLY_TARGET:0, PlayReq.REQ_TARGET_WITH_RACE: Race.MURLOC }
 	play = Buff(TARGET, 'TB_BaconUps_061e')
 	pass
@@ -213,7 +213,7 @@ class BG25_040:
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"After you play a [Battlecry] minion, gain +1/+1."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"自分が&lt;b&gt;雄叫び&lt;/b&gt;ミニオンを手札から使用した後+1/+1を獲得する。"}
+		option_cardtext={GameTag.CARDTEXT:"自分が[雄叫び]ミニオンを手札から使用した後+1/+1を獲得する。"}
 	events = BG_Play(CONTROLLER, FRIENDLY + BATTLECRY).after(Buff(SELF, 'BG25_040e'))
 	pass
 BG25_040e=buff(1,1)
@@ -224,7 +224,7 @@ class BG25_040_G:
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"After you play a [Battlecry] minion, gain +2/+2."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"自分が&lt;b&gt;雄叫び&lt;/b&gt;ミニオンを手札から使用した後+2/+2を獲得する。"}
+		option_cardtext={GameTag.CARDTEXT:"自分が[雄叫び]ミニオンを手札から使用した後+2/+2を獲得する。"}
 	events = BG_Play(CONTROLLER, FRIENDLY + BATTLECRY).after(Buff(SELF, 'BG25_040_Ge'))
 	pass
 BG25_040_Ge=buff(2,2)
@@ -285,7 +285,7 @@ class BG_EX1_103:
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Battlecry:] Give your other Murlocs +2 Health."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;雄叫び:&lt;/b&gt;自身を除く味方のマーロックに体力+2を付与する。"}
+		option_cardtext={GameTag.CARDTEXT:"[雄叫び:]自身を除く味方のマーロックに体力+2を付与する。"}
 	play = Buff(FRIENDLY + MINION + MURLOC - SELF, 'EX1_103e')
 	pass
 EX1_103e=buff(0,2)
@@ -296,7 +296,7 @@ class TB_BaconUps_064:# <12>[1453]
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Battlecry:] Give your other Murlocs +4 Health."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;雄叫び:&lt;/b&gt;自身を除く味方のマーロックに体力+4を付与する。"}
+		option_cardtext={GameTag.CARDTEXT:"[雄叫び:]自身を除く味方のマーロックに体力+4を付与する。"}
 	play = Buff(FRIENDLY + MINION + MURLOC - SELF, 'TB_BaconUps_064e')
 	pass
 TB_BaconUps_064e=buff(0,4)
@@ -316,7 +316,7 @@ class BG_BT_010:
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Battlecry:] Give your other Murlocs +1/+1."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;雄叫び:&lt;/b&gt;自身を除く味方のマーロックに+1/+1を付与する。"}
+		option_cardtext={GameTag.CARDTEXT:"[雄叫び:]自身を除く味方のマーロックに+1/+1を付与する。"}
 	play =  Buff(FRIENDLY + MINION + MURLOC - SELF, 'BT_010e')
 BT_010e=buff(1,1)
 class TB_BaconUps_124:# <12>[1453]
@@ -326,7 +326,7 @@ class TB_BaconUps_124:# <12>[1453]
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Battlecry:] Give your other Murlocs +2/+2."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;雄叫び:&lt;/b&gt;自身を除く味方のマーロックに+2/+2を付与する。"}
+		option_cardtext={GameTag.CARDTEXT:"[雄叫び:]自身を除く味方のマーロックに+2/+2を付与する。"}
 	play =  Buff(FRIENDLY + MINION + MURLOC - SELF, 'TB_BaconUps_124e')
 	pass
 TB_BaconUps_124e=buff(2,2)
@@ -355,7 +355,7 @@ class BG21_010:# <12>[1453] ムキムキ
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Battlecry:] Gain +2/+1 for each other friendly Murloc."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;雄叫び:&lt;/b&gt;自身を除く味方のマーロック1体につき+2/+1を獲得する。"}
+		option_cardtext={GameTag.CARDTEXT:"[雄叫び:]自身を除く味方のマーロック1体につき+2/+1を獲得する。"}
 	play = BG21_010_Action('BG21_010e',1)
 	pass
 class BG21_010e:# <12>[1453]
@@ -369,7 +369,7 @@ class BG21_010_G:# <12>[1453]
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Battlecry:] Gain +4/+2 foreach other friendly Murloc."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;雄叫び:&lt;/b&gt;自身を除く味方のマーロック1体につき+4/+2を獲得する。"}
+		option_cardtext={GameTag.CARDTEXT:"[雄叫び:]自身を除く味方のマーロック1体につき+4/+2を獲得する。"}
 	play = BG21_010_Action('BG21_010_Ge', 2)
 	pass
 class BG21_010_Ge:# <12>[1453]
@@ -407,7 +407,7 @@ class BG26_360:# (minion)(murloc)
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Deathrattle:] Give a random minion in your hand +5/+5. "}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;断末魔:&lt;/b&gt;自分の手札のランダムなミニオン1体に+5/+5を付与する。"}
+		option_cardtext={GameTag.CARDTEXT:"[断末魔:]自分の手札のランダムなミニオン1体に+5/+5を付与する。"}
 	deathrattle = BG26_360_Action('BG26_360e')
 	pass
 BG26_360e=buff(5,5)
@@ -421,7 +421,7 @@ class BG26_360_G:# (minion)(murloc)
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Deathrattle:] Give a random minion in your hand +10/+10."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;断末魔:&lt;/b&gt;自分の手札のランダムなミニオン1体に+10/+10を付与する。"}
+		option_cardtext={GameTag.CARDTEXT:"[断末魔:]自分の手札のランダムなミニオン1体に+10/+10を付与する。"}
 	deathrattle = BG26_360_Action('BG26_360_Ge')
 	pass
 BG26_360_Ge=buff(10,10)
@@ -458,7 +458,7 @@ class BGS_020:# <12>[1453] 見張り番
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Battlecry:] If you control another Murloc, [Discover] a_Murloc."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;雄叫び:&lt;/b&gt;自分の陣地に他のマーロックがいる場合マーロック1体を&lt;b&gt;発見&lt;/b&gt;する。"}
+		option_cardtext={GameTag.CARDTEXT:"[雄叫び:]自分の陣地に他のマーロックがいる場合マーロック1体を[発見]する。"}
 	play = BGS_020_Action()
 	pass
 class BGS_020_Choice2(Choice):
@@ -485,7 +485,7 @@ class TB_BaconUps_089:# <12>[1453]
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Battlecry:] If you control another Murloc, [Discover] two_Murlocs."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;雄叫び:&lt;/b&gt;自陣に他のマーロックがいる場合マーロックを2体&lt;b&gt;発見&lt;/b&gt;する。"}
+		option_cardtext={GameTag.CARDTEXT:"[雄叫び:]自陣に他のマーロックがいる場合マーロックを2体[発見]する。"}
 	play = BGS_020_Action2()
 	pass
 
@@ -560,7 +560,7 @@ class BG26_350:# (minion)(murloc)
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Deathrattle:] Summon the highest Health minion from your hand for this combat only."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;断末魔:&lt;/b&gt;自分の手札の最も体力が高いミニオンをこの戦闘のみ召喚する。"}
+		option_cardtext={GameTag.CARDTEXT:"[断末魔:]自分の手札の最も体力が高いミニオンをこの戦闘のみ召喚する。"}
 	deathrattle = BG26_350_Action()
 	pass
 class BG26_350_G_Action(GameAction):# 
@@ -593,15 +593,15 @@ class BG26_350_G:# (minion)(murloc)
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Deathrattle:] Summon the 2 highest Health minions from your hand for this combat only."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;断末魔:&lt;/b&gt;自分の手札の最も体力が高いミニオン2体をこの戦闘のみ召喚する。"}
+		option_cardtext={GameTag.CARDTEXT:"[断末魔:]自分の手札の最も体力が高いミニオン2体をこの戦闘のみ召喚する。"}
 	deathrattle = BG26_350_G_Action()
 	pass
 
 
 
 ### 23/10/3, 23:57 ###
-## Plagued Tidewalker (Murloc) (4)
-#BG26__Plagued_Tidewalker=(Config.BG_VERSION>=2620)#(4)
+## Plagued Tidewalker (Murloc) (4/2/7)
+#BG26__Plagued_Tidewalker=(Config.BG_VERSION>=2620)#(4) banned 2720
 if BG26__Plagued_Tidewalker:# 
 	BG_Minion_Murloc+=['BG26_361','BG26_361_G']
 	BG_PoolSet_Murloc.append('BG26_361')
@@ -617,7 +617,7 @@ class BG26_361:# (minion)(murloc)
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Venomous]"}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;毒袋&lt;/b&gt;"}
+		option_cardtext={GameTag.CARDTEXT:"[毒袋]"}
 	pass
 class BG26_361_G:# (minion)(murloc)
 	""" Plagued Tidewalker
@@ -627,7 +627,7 @@ class BG26_361_G:# (minion)(murloc)
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Venomous]"}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;毒袋&lt;/b&gt;"}
+		option_cardtext={GameTag.CARDTEXT:"[毒袋]"}
 	pass
 
 
@@ -694,9 +694,9 @@ class BG21_009:# <12>[1453] セブリ
 	[Avenge (3):] Give a friendly Murloc [Poisonous] permanently. """ ## old one
 	option_tags={GameTag.TECH_LEVEL:5, GameTag.ATK:2, GameTag.HEALTH:6}
 	if Config.LOCALE=='enUS':
-		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;Avenge (4):&lt;/b&gt; Give a friendly Murloc &lt;b&gt;Poisonous&lt;/b&gt; permanently."}
+		option_cardtext={GameTag.CARDTEXT:"[Avenge (4):] Give a friendly Murloc [Poisonous] permanently."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;仇討（4）:&lt;/b&gt;味方のマーロック1体に&lt;b&gt;猛毒&lt;/b&gt;を永続的に付与する。"}
+		option_cardtext={GameTag.CARDTEXT:"[仇討（4）:]味方のマーロック1体に[猛毒]を永続的に付与する。"}
 	events = Death(FRIENDLY).on(Avenge(SELF, 4, [BG21_009_Action(1)])) #
 	pass
 BG21_009e=buff(poisonous=True)# <12>[1453]
@@ -707,9 +707,9 @@ class BG21_009_G:# <12>[1453]
 	[Avenge (3):] Give 2 friendly Murlocs [Poisonous] permanently. """
 	option_tags={GameTag.TECH_LEVEL:5, GameTag.ATK:4, GameTag.HEALTH:12}
 	if Config.LOCALE=='enUS':
-		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;Avenge (4):&lt;/b&gt; Give two friendly Murlocs &lt;b&gt;Poisonous&lt;/b&gt; permanently."}
+		option_cardtext={GameTag.CARDTEXT:"[Avenge (4):] Give two friendly Murlocs [Poisonous] permanently."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;仇討（4）:&lt;/b&gt;味方のマーロック2体に&lt;b&gt;猛毒&lt;/b&gt;を永続的に付与する。"}
+		option_cardtext={GameTag.CARDTEXT:"[仇討（4）:]味方のマーロック2体に[猛毒]を永続的に付与する。"}
 	events = Death(FRIENDLY).on(Avenge(SELF, 4, [BG21_009_Action(2)])) #
 	pass
 
@@ -737,7 +737,7 @@ class BG26_888:# (minion)(murloc)
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Venomous.] [Deathrattle:] Give a friendly Murloc [Venomous]."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;毒袋&lt;/b&gt;、&lt;b&gt;断末魔:&lt;/b&gt;味方のマーロック1体に&lt;b&gt;毒袋&lt;/b&gt;を付与する。"}
+		option_cardtext={GameTag.CARDTEXT:"[毒袋]、[断末魔:]味方のマーロック1体に[毒袋]を付与する。"}
 	deathrattle = BG26_888_Action()
 	pass
 class BG26_888_G_Action(GameAction):# 
@@ -755,7 +755,7 @@ class BG26_888_G:# (minion)(murloc)
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Venomous.] [Deathrattle:] Give 2 friendly Murlocs [Venomous]."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:">&lt;b&gt;毒袋&lt;/b&gt;、&lt;b&gt;断末魔:&lt;/b&gt;味方のマーロック2体に&lt;b&gt;毒袋&lt;/b&gt;を付与する。"}
+		option_cardtext={GameTag.CARDTEXT:">[毒袋]、[断末魔:]味方のマーロック2体に[毒袋]を付与する。"}
 	deathrattle = BG26_888_G_Action()
 	pass
 
@@ -812,9 +812,9 @@ class BG22_403:
 	if Config.BG_VERSION>=2620:
 		option_tags={GameTag.TECH_LEVEL:6, GameTag.ATK:7, GameTag.HEALTH:4}
 		if Config.LOCALE=='enUS':
-			option_cardtext={GameTag.CARDTEXT:"At the end of your turn, adjacent minions trigger their &lt;b&gt;Battlecries&lt;/b&gt;."}
+			option_cardtext={GameTag.CARDTEXT:"At the end of your turn, adjacent minions trigger their [Battlecries]."}
 		elif Config.LOCALE=='jaJP':
-			option_cardtext={GameTag.CARDTEXT:"自分のターンの終了時隣接するミニオンは__&lt;b&gt;雄叫び&lt;/b&gt;を発動させる。"}
+			option_cardtext={GameTag.CARDTEXT:"自分のターンの終了時隣接するミニオンは__[雄叫び]を発動させる。"}
 		events = OWN_TURN_END.on(BG22_403_Action_2620())
 	else:
 		option_tags={GameTag.TECH_LEVEL:6, GameTag.ATK:8, GameTag.HEALTH:5}
@@ -854,16 +854,16 @@ class BG22_403_G:
 	if Config.BG_VERSION>=2620:
 		option_tags={GameTag.TECH_LEVEL:6, GameTag.ATK:14, GameTag.HEALTH:8}
 		if Config.LOCALE=='enUS':
-			option_cardtext={GameTag.CARDTEXT:"At the end of your turn, adjacent minions trigger their &lt;b&gt;Battlecries&lt;/b&gt; twice."}
+			option_cardtext={GameTag.CARDTEXT:"At the end of your turn, adjacent minions trigger their [Battlecries] twice."}
 		elif Config.LOCALE=='jaJP':
-			option_cardtext={GameTag.CARDTEXT:"自分のターンの終了時隣接するミニオンは&lt;b&gt;雄叫び&lt;/b&gt;を2回発動させる。"}
+			option_cardtext={GameTag.CARDTEXT:"自分のターンの終了時隣接するミニオンは[雄叫び]を2回発動させる。"}
 		events = OWN_TURN_END.on(BG22_403_G_Action_2620())
 	else:
 		option_tags={GameTag.TECH_LEVEL:6, GameTag.ATK:16, GameTag.HEALTH:10}
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"At the end of your turn, adjacent Murlocs trigger their [Battlecries]."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"自分のターンの終了時隣接するミニオンは&lt;b&gt;雄叫び&lt;/b&gt;を発動させる。"}
+		option_cardtext={GameTag.CARDTEXT:"自分のターンの終了時隣接するミニオンは[雄叫び]を発動させる。"}
 		events = OWN_TURN_END.on(BG22_403_G_Action())
 	pass
 
@@ -886,9 +886,9 @@ class BG_DAL_077:
 	else:
 		option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:1, GameTag.HEALTH:2}
 	if Config.LOCALE=='enUS':
-		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;Battlecry:&lt;/b&gt; Give a friendly Murloc &lt;b&gt;Poisonous&lt;/b&gt;."}
+		option_cardtext={GameTag.CARDTEXT:"[Battlecry:] Give a friendly Murloc [Poisonous]."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;雄叫び:&lt;/b&gt;味方のマーロック1体に&lt;b&gt;猛毒&lt;/b&gt;を付与する。"}
+		option_cardtext={GameTag.CARDTEXT:"[雄叫び:]味方のマーロック1体に[猛毒]を付与する。"}
 	play = SetTag(TARGET, (GameTag.POISONOUS,))
 class TB_BaconUps_152:
 	""" Toxfin
@@ -901,9 +901,9 @@ class TB_BaconUps_152:
 	else:
 		option_tags={GameTag.TECH_LEVEL:4, GameTag.ATK:2, GameTag.HEALTH:4}
 	if Config.LOCALE=='enUS':
-		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;Battlecry:&lt;/b&gt; Give a friendly Murloc &lt;b&gt;Poisonous&lt;/b&gt;."}
+		option_cardtext={GameTag.CARDTEXT:"[Battlecry:] Give a friendly Murloc [Poisonous]."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;雄叫び:&lt;/b&gt;味方のマーロック1体に&lt;b&gt;猛毒&lt;/b&gt;を付与する。"}
+		option_cardtext={GameTag.CARDTEXT:"[雄叫び:]味方のマーロック1体に[猛毒]を付与する。"}
 	play = SetTag(TARGET, (GameTag.POISONOUS,))
 
 
@@ -936,7 +936,7 @@ class BG26_354:# (minion)(murloc)
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Start of Combat:] Gain the stats of all the minions in your hand."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;戦闘開始時:&lt;/b&gt;自分の手札のミニオン全ての攻撃力と体力を獲得する。"}
+		option_cardtext={GameTag.CARDTEXT:"[戦闘開始時:]自分の手札のミニオン全ての攻撃力と体力を獲得する。"}
 	events = BeginBattle(CONTROLLER).on(BG26_354_Action(1))
 	pass
 class BG26_354_G:# (minion)(murloc)
@@ -946,7 +946,7 @@ class BG26_354_G:# (minion)(murloc)
 	if Config.LOCALE=='enUS':
 		option_cardtext={GameTag.CARDTEXT:"[Start of Combat:] Gain the stats of all the minions in your hand twice."}
 	elif Config.LOCALE=='jaJP':
-		option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;戦闘開始時:&lt;/b&gt;自分の手札のミニオン全ての攻撃力と体力の2倍を獲得する。"}
+		option_cardtext={GameTag.CARDTEXT:"[戦闘開始時:]自分の手札のミニオン全ての攻撃力と体力の2倍を獲得する。"}
 	events = BeginBattle(CONTROLLER).on(BG26_354_Action(2))
 	pass
 

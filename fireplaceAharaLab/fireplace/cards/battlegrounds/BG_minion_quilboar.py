@@ -209,18 +209,18 @@ class BG20_105:# <12>[1453] 荊使い
 	if Config.BG_VERSION>=2620:
 		option_tags = {GameTag.TECH_LEVEL:2, GameTag.ATK:3, GameTag.HEALTH:2}
 		if Config.LOCALE=='enUS':
-			option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;Deathrattle:&lt;/b&gt; Get a &lt;b&gt;Blood Gem&lt;/b&gt;."}
+			option_cardtext={GameTag.CARDTEXT:"[Deathrattle:] Get a [Blood Gem]."}
 		elif Config.LOCALE=='jaJP':
-			option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;断末魔:&lt;/b&gt;&lt;b&gt;血の宝石&lt;/b&gt;1個を得る。"}
+			option_cardtext={GameTag.CARDTEXT:"[断末魔:][血の宝石]1個を得る。"}
 		play = GiveGemToOriginal(CONTROLLER, 'BG20_GEM')
 		pass
 	else:
 		option_tags = {GameTag.TECH_LEVEL:3, GameTag.ATK:4, GameTag.HEALTH:3}
 		play = Give(CONTROLLER, 'BG20_GEM')
 		if Config.LOCALE=='enUS':
-			option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;Battlecry and Deathrattle:&lt;/b&gt; Get a &lt;b&gt;Blood Gem&lt;/b&gt;."}
+			option_cardtext={GameTag.CARDTEXT:"[Battlecry and Deathrattle:] Get a [Blood Gem]."}
 		elif Config.LOCALE=='jaJP':
-			option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;雄叫び　断末魔:&lt;/b&gt;&lt;b&gt;血の宝石&lt;/b&gt;1個を得る。"}
+			option_cardtext={GameTag.CARDTEXT:"[雄叫び　断末魔:][血の宝石]1個を得る。"}
 	deathrattle = GiveGemToOriginal(CONTROLLER, 'BG20_GEM')
 	pass
 class BG20_105_G:# <12>[1453]
@@ -229,16 +229,16 @@ class BG20_105_G:# <12>[1453]
 	if Config.BG_VERSION>=2620:
 		option_tags = {GameTag.TECH_LEVEL:2, GameTag.ATK:6, GameTag.HEALTH:4}
 		if Config.LOCALE=='enUS':
-			option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;Deathrattle:&lt;/b&gt; Get 2 &lt;b&gt;Blood Gems&lt;/b&gt;."}
+			option_cardtext={GameTag.CARDTEXT:"[Deathrattle:] Get 2 [Blood Gems]."}
 		elif Config.LOCALE=='jaJP':
-			option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;断末魔:&lt;/b&gt;&lt;b&gt;血の宝石&lt;/b&gt;2個を得る。"}
+			option_cardtext={GameTag.CARDTEXT:"[断末魔:][血の宝石]2個を得る。"}
 		pass
 	else:
 		option_tags = {GameTag.TECH_LEVEL:3, GameTag.ATK:8, GameTag.HEALTH:6}
 		if Config.LOCALE=='enUS':
-			option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;Battlecry and Deathrattle:&lt;/b&gt; Get 2 &lt;b&gt;Blood Gems&lt;/b&gt;."}
+			option_cardtext={GameTag.CARDTEXT:"[Battlecry and Deathrattle:] Get 2 [Blood Gems]."}
 		elif Config.LOCALE=='jaJP':
-			option_cardtext={GameTag.CARDTEXT:"&lt;b&gt;雄叫び　断末魔:&lt;/b&gt;&lt;b&gt;血の宝石&lt;/b&gt;2個を得る。"}
+			option_cardtext={GameTag.CARDTEXT:"[雄叫び　断末魔:][血の宝石]2個を得る。"}
 		play = Give(CONTROLLER, 'BG20_GEM')*2
 	deathrattle = GiveGemToOriginal(CONTROLLER, 'BG20_GEM')*2
 	pass
@@ -413,14 +413,14 @@ class BG25_039:# (minion)
 		option_tags={GameTag.ATK:2, GameTag.HEALTH:4}	
 	if Config.BG_VERSION>=2620:
 		if Config.LOCALE=='enUS':
-			option_cardtext={GameTag.CARDTEXT:"After a spell is played on this, gain &lt;b&gt;Venomous&lt;/b&gt;until next turn."}
+			option_cardtext={GameTag.CARDTEXT:"After a spell is played on this, gain [Venomous]until next turn."}
 		elif Config.LOCALE=='jaJP':
-			option_cardtext={GameTag.CARDTEXT:"これに呪文を使用した後次のターンまで&lt;b&gt;毒袋&lt;/b&gt;を獲得する。"}
+			option_cardtext={GameTag.CARDTEXT:"これに呪文を使用した後次のターンまで[毒袋]を獲得する。"}
 	else:
 		if Config.LOCALE=='enUS':
-			option_cardtext={GameTag.CARDTEXT:"After a spell is played on this, gain &lt;b&gt;Poisonous&lt;/b&gt;until next turn."}
+			option_cardtext={GameTag.CARDTEXT:"After a spell is played on this, gain [Poisonous]until next turn."}
 		elif Config.LOCALE=='jaJP':
-			option_cardtext={GameTag.CARDTEXT:"これに呪文を使用した後次のターンまで&lt;b&gt;猛毒t;/b&gt;を獲得する。"}
+			option_cardtext={GameTag.CARDTEXT:"これに呪文を使用した後次のターンまで[猛毒t;/b&gt;を獲得する。"}
 	events = BG_Play(CONTROLLER).after(BG25_039_Action(Play.TARGET))
 	pass
 class BG25_039e:# (enchantment)
@@ -449,14 +449,14 @@ class BG25_039_G:# (minion)
 		option_tags={GameTag.ATK:4, GameTag.HEALTH:8}	
 	if Config.BG_VERSION>=2620:
 		if Config.LOCALE=='enUS':
-			option_cardtext={GameTag.CARDTEXT:"After a spell is played on this, gain &lt;b&gt;Venomous&lt;/b&gt;."}
+			option_cardtext={GameTag.CARDTEXT:"After a spell is played on this, gain [Venomous]."}
 		elif Config.LOCALE=='jaJP':
-			option_cardtext={GameTag.CARDTEXT:"これに呪文を使用した後&lt;b&gt;毒袋&lt;/b&gt;を獲得する。"}
+			option_cardtext={GameTag.CARDTEXT:"これに呪文を使用した後[毒袋]を獲得する。"}
 	else:
 		if Config.LOCALE=='enUS':
-			option_cardtext={GameTag.CARDTEXT:"After a spell is played on this, gain &lt;b&gt;Poisonous&lt;/b&gt;."}
+			option_cardtext={GameTag.CARDTEXT:"After a spell is played on this, gain [Poisonous]."}
 		elif Config.LOCALE=='jaJP':
-			option_cardtext={GameTag.CARDTEXT:"これに呪文を使用した後&lt;b&gt;猛毒t;/b&gt;を獲得する。"}
+			option_cardtext={GameTag.CARDTEXT:"これに呪文を使用した後[猛毒t;/b&gt;を獲得する。"}
 	events = BG_Play(CONTROLLER).after(BG25_039_G_Action(Play.TARGET))
 	pass
 if Config.BG_VERSION>=2620:

@@ -1439,8 +1439,8 @@ class BG20_HERO_280p5_Action(GameAction):
 		pass			
 class BG20_HERO_280p5:# <14>[1453]
 	""" Glaive Ricochet
-	&lt;b&gt;Passive.&lt;/b&gt; Once per turn, after you buy 4 minions, &lt;b&gt;Discover&lt;/b&gt; a plain copy of one of them. &lt;i&gt;({0} left!)&lt;/i&gt;
-	&lt;b&gt;常時発動&lt;/b&gt;1ターン1回ミニオンを4体買った後それらの未強化コピーを1体&lt;b&gt;発見&lt;/b&gt;する。&lt;i&gt;（あと{0}回！）&lt;/i&gt;"""
+	[Passive.] Once per turn, after you buy 4 minions, [Discover] a plain copy of one of them. &lt;i&gt;({0} left!)&lt;/i&gt;
+	[常時発動]1ターン1回ミニオンを4体買った後それらの未強化コピーを1体[発見]する。&lt;i&gt;（あと{0}回！）&lt;/i&gt;"""
 	events = Buy(CONTROLLER, MINION).on(SidequestCounter(SELF, 4, [BG20_HERO_280p5_Action()]))
 	pass
 	
